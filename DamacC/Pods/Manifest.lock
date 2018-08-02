@@ -1,0 +1,122 @@
+PODS:
+  - AFNetworking (2.5.4):
+    - AFNetworking/NSURLConnection (= 2.5.4)
+    - AFNetworking/NSURLSession (= 2.5.4)
+    - AFNetworking/Reachability (= 2.5.4)
+    - AFNetworking/Security (= 2.5.4)
+    - AFNetworking/Serialization (= 2.5.4)
+    - AFNetworking/UIKit (= 2.5.4)
+  - AFNetworking/NSURLConnection (2.5.4):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.5.4):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.5.4)
+  - AFNetworking/Security (2.5.4)
+  - AFNetworking/Serialization (2.5.4)
+  - AFNetworking/UIKit (2.5.4):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
+  - CocoaLumberjack (2.4.0):
+    - CocoaLumberjack/Default (= 2.4.0)
+    - CocoaLumberjack/Extensions (= 2.4.0)
+  - CocoaLumberjack/Core (2.4.0)
+  - CocoaLumberjack/Default (2.4.0):
+    - CocoaLumberjack/Core
+  - CocoaLumberjack/Extensions (2.4.0):
+    - CocoaLumberjack/Default
+  - FMDB/SQLCipher (2.7.2):
+    - SQLCipher
+  - FTIndicator (1.2.8):
+    - FTIndicator/FTNotificationIndicator (= 1.2.8)
+    - FTIndicator/FTProgressIndicator (= 1.2.8)
+    - FTIndicator/FTToastIndicator (= 1.2.8)
+  - FTIndicator/FTNotificationIndicator (1.2.8)
+  - FTIndicator/FTProgressIndicator (1.2.8)
+  - FTIndicator/FTToastIndicator (1.2.8)
+  - JSONModel (1.7.0)
+  - SalesforceAnalytics (6.1.0):
+    - SalesforceAnalytics/SalesforceAnalytics (= 6.1.0)
+  - SalesforceAnalytics/SalesforceAnalytics (6.1.0):
+    - CocoaLumberjack (~> 2.4.0)
+  - SalesforceSDKCore (6.1.0):
+    - SalesforceSDKCore/SalesforceSDKCore (= 6.1.0)
+  - SalesforceSDKCore/SalesforceSDKCore (6.1.0):
+    - SalesforceAnalytics
+    - SalesforceSDKCore/SalesforceSDKCore/arc (= 6.1.0)
+    - SalesforceSDKCore/SalesforceSDKCore/base (= 6.1.0)
+    - SalesforceSDKCore/SalesforceSDKCore/no-arc (= 6.1.0)
+  - SalesforceSDKCore/SalesforceSDKCore/arc (6.1.0):
+    - SalesforceAnalytics
+    - SalesforceSDKCore/SalesforceSDKCore/base
+    - SalesforceSDKCore/SalesforceSDKCore/no-arc
+  - SalesforceSDKCore/SalesforceSDKCore/base (6.1.0):
+    - SalesforceAnalytics
+  - SalesforceSDKCore/SalesforceSDKCore/no-arc (6.1.0):
+    - SalesforceAnalytics
+    - SalesforceSDKCore/SalesforceSDKCore/base
+  - SmartStore (6.1.0):
+    - SmartStore/SmartStore (= 6.1.0)
+  - SmartStore/SmartStore (6.1.0):
+    - FMDB/SQLCipher (~> 2.7.2)
+    - SalesforceSDKCore
+    - SQLCipher/fts (~> 3.4.1)
+  - SmartSync (6.1.0):
+    - SmartSync/SmartSync (= 6.1.0)
+  - SmartSync/SmartSync (6.1.0):
+    - SalesforceSDKCore
+    - SmartStore
+  - SQLCipher (3.4.2):
+    - SQLCipher/standard (= 3.4.2)
+  - SQLCipher/common (3.4.2)
+  - SQLCipher/fts (3.4.2):
+    - SQLCipher/common
+  - SQLCipher/standard (3.4.2):
+    - SQLCipher/common
+
+DEPENDENCIES:
+  - AFNetworking (~> 2.5.4)
+  - FTIndicator
+  - JSONModel
+  - SalesforceAnalytics (from `mobile_sdk/SalesforceMobileSDK-iOS`)
+  - SalesforceSDKCore (from `mobile_sdk/SalesforceMobileSDK-iOS`)
+  - SmartStore (from `mobile_sdk/SalesforceMobileSDK-iOS`)
+  - SmartSync (from `mobile_sdk/SalesforceMobileSDK-iOS`)
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - AFNetworking
+    - CocoaLumberjack
+    - FMDB
+    - FTIndicator
+    - JSONModel
+    - SQLCipher
+
+EXTERNAL SOURCES:
+  SalesforceAnalytics:
+    :path: mobile_sdk/SalesforceMobileSDK-iOS
+  SalesforceSDKCore:
+    :path: mobile_sdk/SalesforceMobileSDK-iOS
+  SmartStore:
+    :path: mobile_sdk/SalesforceMobileSDK-iOS
+  SmartSync:
+    :path: mobile_sdk/SalesforceMobileSDK-iOS
+
+SPEC CHECKSUMS:
+  AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
+  CocoaLumberjack: aa9dcab71bdf9eaf2a63bbd9ddc87863efe45457
+  FMDB: 6198a90e7b6900cfc046e6bc0ef6ebb7be9236aa
+  FTIndicator: 5218a42e6a3bb6623f58e4931fc36bb09b7e1b78
+  JSONModel: 840bc0fcffb24b8454d2c026bf26fea454b8e98d
+  SalesforceAnalytics: 3ffafbb278d6a8a9fda6e04d0e6fe00ed5a9cd6b
+  SalesforceSDKCore: b2949f3f22fecd1243c44efbd22f6eeb33d1e510
+  SmartStore: c35f2506507010271a4b82415a81664e7c74de0d
+  SmartSync: e204bd5975ff18aa4a36172df04df64c0b51b3a7
+  SQLCipher: f9fcf29b2e59ced7defc2a2bdd0ebe79b40d4990
+
+PODFILE CHECKSUM: 38d2db733ca527e5935deae68f6205b736363ed6
+
+COCOAPODS: 1.5.0

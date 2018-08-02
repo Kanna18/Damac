@@ -1,0 +1,24 @@
+platform :ios, '10.0'
+
+project 'DamacC.xcodeproj'
+
+target 'DamacC' do
+
+source 'https://github.com/CocoaPods/Specs.git'
+
+
+pod 'SalesforceAnalytics', :path => 'mobile_sdk/SalesforceMobileSDK-iOS'
+pod 'SalesforceSDKCore', :path => 'mobile_sdk/SalesforceMobileSDK-iOS'
+pod 'SmartStore', :path => 'mobile_sdk/SalesforceMobileSDK-iOS'
+pod 'SmartSync', :path => 'mobile_sdk/SalesforceMobileSDK-iOS'
+pod 'FTIndicator'
+pod 'AFNetworking', '~> 2.5.4'
+pod 'JSONModel'
+
+
+end
+
+post_install do | installer |
+    print "SQLCipher: link Pods/Headers/sqlite3.h"
+    system "mkdir -p Pods/Headers/Private && ln -s ../../SQLCipher/sqlite3.h Pods/Headers/Private"
+end

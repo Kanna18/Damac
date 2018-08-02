@@ -1,0 +1,48 @@
+//
+//  PrefixHeader.pch
+//  DamacC
+//
+//  Created by Gaian on 01/05/18.
+//  Copyright © 2018 DamacCOrganizationName. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#import "PinView.h"
+#import "DamacC-Bridging-Header.h"
+#import "DamacConstants.h"
+#import <FTIndicator/FTIndicator.h>
+#import "VKSideMenu.h"
+#import "MainViewController.h"
+#import "FingerPrintViewController.h"
+#import "KeyViewController.h"
+#import "PasswordViewController.h"
+#import <LocalAuthentication/LocalAuthentication.h>
+#import <SalesforceSDKCore/SalesforceSDKCore.h>
+#import "KPDropMenu.h"
+#import "ProfileTableViewCell.h"
+#import "ServerAPIManager.h"
+#import "UnitsDataModel.h"
+#import "DetailMyUnitsViewController.h"
+#import "PaymentsDataModel.h"
+#import "EServicesViewController.h"
+#import "GridCollectionViewCell.h"
+#import "ChangeofDetailsCell.h"
+#import "ChangeofDetailsViewController.h"
+#import "RentalPoolViewCellViewController.h"
+#import "ReceiptDataModel.h"
+#import "DamacSharedClass.h"
+#import "CustomBarOptions.h"
+#import "UserDetailsModel.h"
+#import "MyServiceRequestViewController.h"
+#import "iCarousel.h"
+#import "CustomViewCarousel.h"
+#import "MyServicesDataModel.h"
+#import "AppointmentsDataModel.h"
+#import "ServicesSRDetails.h"
+
+
+#endif /* PrefixHeader_pch */

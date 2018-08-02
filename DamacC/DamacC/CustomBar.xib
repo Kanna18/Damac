@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="561" height="44"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0bb-sT-rFZ">
+                    <rect key="frame" x="0.0" y="0.0" width="561" height="44"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w2U-q8-juE">
+                    <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="44" id="bPL-Yw-GWO"/>
+                    </constraints>
+                    <state key="normal" title="Back"/>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ICON.png" translatesAutoresizingMaskIntoConstraints="NO" id="PbC-zC-5hr" customClass="lo">
+                    <rect key="frame" x="44" y="0.0" width="102" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="102" id="L6m-9D-2NU"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="PbC-zC-5hr" secondAttribute="bottom" id="0q6-8m-EC1"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="w2U-q8-juE" secondAttribute="bottom" id="AAu-5p-NNC"/>
+                <constraint firstItem="w2U-q8-juE" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="HGT-4d-fKl"/>
+                <constraint firstItem="w2U-q8-juE" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="QS0-XI-aS0"/>
+                <constraint firstItem="PbC-zC-5hr" firstAttribute="leading" secondItem="w2U-q8-juE" secondAttribute="trailing" id="Uhk-G4-YRk"/>
+                <constraint firstItem="0bb-sT-rFZ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="WZ6-NG-nb7"/>
+                <constraint firstAttribute="bottom" secondItem="0bb-sT-rFZ" secondAttribute="bottom" id="gga-Bu-BM6"/>
+                <constraint firstItem="PbC-zC-5hr" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="h4r-mr-TxP"/>
+                <constraint firstItem="0bb-sT-rFZ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="m0T-zo-zi6"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="0bb-sT-rFZ" secondAttribute="trailing" id="ndZ-es-kAq"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="112.5" y="112"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ICON.png" width="512" height="512"/>
+    </resources>
+</document>

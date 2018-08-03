@@ -16,6 +16,13 @@
 
 #define getDetailsBySR @"https://partial-servicecloudtrial-155c0807bf-1580afc5db1.cs80.force.com/MobileApp/services/apexrest/SendCaseDetailToMObileApp/"
 
+#define kPOPConstant            @"POP"
+#define kCODConstant            @"Change of Details"
+#define kJointBuyerConstant     @"Change of Joint Buyer"
+#define kPassportUpdateConstant @""
+#define kPromotionsConstant     @"Promotions"
+#define kMortgageConstant       @"Mortgage"
+#define kComplaintConstant      @"Complaint"
 
 @interface ServicesDetailController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -32,6 +39,9 @@
     _tableView.delegate =self;
     NSLog(@"%@",_servicesDataModel);
     [self webServiceCall:_srCaseId];
+    if([_servicesDataModel.Status isEqualToString:@"Draft Request"]){
+        _editButton.hidden=NO;
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -67,8 +77,7 @@
 }
 
 - (IBAction)cancelButton:(id)sender {
-    
-    
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 
@@ -78,7 +87,7 @@
     return 1;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 5  ;
+    return 4  ;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
@@ -87,10 +96,11 @@
     if(cell==nil){
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseCell];
     }
-    
+    cell.textLabel.textAlignment = NSTextAlignmentLeft;
+    [cell.textLabel setAdjustsFontSizeToFitWidth:YES];
     switch (indexPath.row) {
         case 0:{
-            NSString *txt = [NSString stringWithFormat:@"SR No:%@",_servicesDataModel.CaseNumber];
+            NSString *txt = [NSString stringWithFormat:@"SR No:%@- %@",_servicesDataModel.CaseNumber,_servicesDataModel.Status];
             cell.textLabel.text =txt;
         }
             break;
@@ -126,7 +136,15 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
+}
+
+- (IBAction)editButtonClick:(id)sender {
     
+    if([_servicesDataModel.RecordType.Name isEqualToString:kJointBuyerConstant]){
+        
+        RentalPoolViewCellViewController *rvc = [self.storyboard instantiateViewControllerWithIdentifier:@"rentalPoolViewCellVC"];
+        [self.navigationController pushViewController:rvc animated:YES];
+    }
 }
 
 @end

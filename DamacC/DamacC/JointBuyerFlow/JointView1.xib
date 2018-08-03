@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="JointView1">
+            <rect key="frame" x="0.0" y="0.0" width="561" height="150"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QVI-6Y-WBT">
+                    <rect key="frame" x="20" y="10" width="481" height="50"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JeZ-km-TRO">
+                            <rect key="frame" x="50" y="0.0" width="431" height="50"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <state key="normal" title="DOWNLOAD CHANGE OF DETAILS FORM">
+                                <color key="titleColor" red="0.98823529409999999" green="0.81568627449999997" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                        </button>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aPu-YJ-gKp">
+                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="50" id="M0k-mw-Qzn"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="JeZ-km-TRO" secondAttribute="bottom" id="535-Pp-kT5"/>
+                        <constraint firstAttribute="bottom" secondItem="aPu-YJ-gKp" secondAttribute="bottom" id="CsW-n4-34d"/>
+                        <constraint firstItem="JeZ-km-TRO" firstAttribute="leading" secondItem="aPu-YJ-gKp" secondAttribute="trailing" id="Dkg-lL-x4J"/>
+                        <constraint firstItem="JeZ-km-TRO" firstAttribute="top" secondItem="QVI-6Y-WBT" secondAttribute="top" id="UBC-ks-Vjl"/>
+                        <constraint firstAttribute="height" constant="50" id="adz-XL-ed9"/>
+                        <constraint firstAttribute="trailing" secondItem="JeZ-km-TRO" secondAttribute="trailing" id="i3f-I5-DE2"/>
+                        <constraint firstItem="aPu-YJ-gKp" firstAttribute="top" secondItem="QVI-6Y-WBT" secondAttribute="top" id="jRA-GA-PiG"/>
+                        <constraint firstItem="aPu-YJ-gKp" firstAttribute="leading" secondItem="QVI-6Y-WBT" secondAttribute="leading" id="xA5-zl-YrK"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MLx-8W-1bb">
+                    <rect key="frame" x="20" y="80" width="120" height="30"/>
+                    <color key="backgroundColor" red="0.98823529409999999" green="0.8495133144" blue="0.25948286869999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="120" id="1p0-Jb-tPz"/>
+                        <constraint firstAttribute="height" constant="30" id="gDr-CS-Mkd"/>
+                    </constraints>
+                    <state key="normal" title="Previous">
+                        <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fyn-CE-Dc5">
+                    <rect key="frame" x="431" y="80" width="120" height="30"/>
+                    <color key="backgroundColor" red="0.98823529409999999" green="0.8495133144" blue="0.25948286869999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="120" id="RCp-8q-b0q"/>
+                        <constraint firstAttribute="height" constant="30" id="x0g-Iw-QJr"/>
+                    </constraints>
+                    <state key="normal" title="Next">
+                        <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Fyn-CE-Dc5" secondAttribute="trailing" constant="10" id="7fc-e9-KEQ"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="QVI-6Y-WBT" secondAttribute="trailing" constant="60" id="BRB-kD-gHX"/>
+                <constraint firstItem="Fyn-CE-Dc5" firstAttribute="top" secondItem="QVI-6Y-WBT" secondAttribute="bottom" constant="20" id="Bwc-rZ-WSw"/>
+                <constraint firstItem="MLx-8W-1bb" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="MVd-nI-LPo"/>
+                <constraint firstItem="QVI-6Y-WBT" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="j3x-GL-AsM"/>
+                <constraint firstItem="MLx-8W-1bb" firstAttribute="top" secondItem="QVI-6Y-WBT" secondAttribute="bottom" constant="20" id="sPG-Hr-Tbf"/>
+                <constraint firstItem="QVI-6Y-WBT" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="wjR-x7-D12"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="NextButton" destination="Fyn-CE-Dc5" id="1th-DP-YA3"/>
+                <outlet property="previousBtn" destination="MLx-8W-1bb" id="WsG-Jm-YMA"/>
+            </connections>
+            <point key="canvasLocation" x="125.5" y="235"/>
+        </view>
+    </objects>
+</document>

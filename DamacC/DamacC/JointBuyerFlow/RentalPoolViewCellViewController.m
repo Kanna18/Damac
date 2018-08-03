@@ -7,6 +7,7 @@
 //
 
 #import "RentalPoolViewCellViewController.h"
+#import "JointView1.h"
 
 @interface RentalPoolViewCellViewController ()<KPDropMenuDelegate>
 
@@ -16,16 +17,49 @@
     
     NSArray *dropItems;
     KPDropMenu *dropNew;
+    StepperView *sterView;
+    JointBView2 *jbView ;
+    JointView1 *jbView1;
+    CGRect frame2 , frame3;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self initialiseSecondViewThirdView];
 }
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:YES];
      [self dropMenu];
+    sterView = [[StepperView alloc]initWithFrame:_stepperViewBase.frame];
+    [self.view addSubview:sterView];
+    _stepperViewBase.backgroundColor = [UIColor clearColor];
 }
+
+-(void)initialiseSecondViewThirdView{
+    
+    
+    frame2 = _firstView.frame;
+    frame2.size.height = 300    ;
+    frame2.origin.x = [UIScreen mainScreen].bounds.size.width+3;
+    
+    jbView1 = [[JointView1 alloc]initWithFrame:frame2];
+    [_scrollView addSubview:jbView1];
+    [jbView1.NextButton addTarget:self action:@selector(loadThirdView) forControlEvents:UIControlEventTouchUpInside];
+    [jbView1.previousBtn addTarget:self action:@selector(loadFirstView) forControlEvents:UIControlEventTouchUpInside];
+    
+    
+    frame3 = _firstView.frame;
+    frame3.size.height = 300    ;
+    frame3.origin.x = 2*[UIScreen mainScreen].bounds.size.width+3;
+
+    jbView = [[JointBView2 alloc]initWithFrame:frame3];
+    [_scrollView addSubview:jbView];
+    [jbView.previous addTarget:self action:@selector(nextClick:) forControlEvents:UIControlEventTouchUpInside];
+}
+
+
+
 
 -(void)dropMenu{
     
@@ -64,11 +98,20 @@
 */
 
 - (IBAction)nextClick:(id)sender {
+    [_scrollView setContentOffset:frame2.origin animated:YES];
+    dropNew.hidden = YES;
+    sterView.line1Animation = YES;
 }
 
-- (IBAction)saveDraftClick:(id)sender {
+-(void)loadThirdView{
+    [_scrollView setContentOffset:frame3.origin animated:YES];
+    sterView.line2Animation = YES;
 }
-
+-(void)loadFirstView{
+    [_scrollView setContentOffset:_firstView.frame.origin animated:YES];
+    dropNew.hidden = NO;
+    [sterView nolineColor];
+}
 
 #pragma mark DropMenu Delegates
 -(void)didSelectItem : (KPDropMenu *) dropMenu atIndex : (int) atIntedex

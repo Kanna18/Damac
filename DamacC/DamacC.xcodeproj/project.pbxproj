@@ -28,6 +28,15 @@
 		F62641F8210EFE580022C4DC /* CustomBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F62641F7210EFE580022C4DC /* CustomBar.m */; };
 		F62641FA210EFE640022C4DC /* CustomBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = F62641F9210EFE640022C4DC /* CustomBar.xib */; };
 		F62641FC211051C20022C4DC /* icon14.png in Resources */ = {isa = PBXBuildFile; fileRef = F62641FB211051C10022C4DC /* icon14.png */; };
+		F6264200211320360022C4DC /* StepperAnimation.xib in Resources */ = {isa = PBXBuildFile; fileRef = F62641FF211320360022C4DC /* StepperAnimation.xib */; };
+		F62642032113204B0022C4DC /* StepperAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = F62642022113204B0022C4DC /* StepperAnimation.m */; };
+		F6264209211361880022C4DC /* StepperView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6264207211361870022C4DC /* StepperView.xib */; };
+		F626420A211361880022C4DC /* StepperView.m in Sources */ = {isa = PBXBuildFile; fileRef = F6264208211361880022C4DC /* StepperView.m */; };
+		F626420D211367BC0022C4DC /* JointBView2.m in Sources */ = {isa = PBXBuildFile; fileRef = F626420C211367BC0022C4DC /* JointBView2.m */; };
+		F6264233211404B20022C4DC /* NewStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6264232211404B20022C4DC /* NewStoryboard.storyboard */; };
+		F626425C211432AA0022C4DC /* JointBView2.xib in Resources */ = {isa = PBXBuildFile; fileRef = F626425B211432AA0022C4DC /* JointBView2.xib */; };
+		F626426021143BE20022C4DC /* JointView1.m in Sources */ = {isa = PBXBuildFile; fileRef = F626425F21143BE20022C4DC /* JointView1.m */; };
+		F626426221143C050022C4DC /* JointView1.xib in Resources */ = {isa = PBXBuildFile; fileRef = F626426121143C050022C4DC /* JointView1.xib */; };
 		F62F4B0D20A942F200EB5C9A /* ServerAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F62F4B0B20A942F100EB5C9A /* ServerAPIManager.m */; };
 		F63FCEFE20F782E70027FEA8 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = F63FCEFC20F782E60027FEA8 /* iCarousel.m */; };
 		F63FCF0220F87E3A0027FEA8 /* CustomViewCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = F63FCF0120F87E3A0027FEA8 /* CustomViewCarousel.m */; };
@@ -132,6 +141,19 @@
 		F62641F7210EFE580022C4DC /* CustomBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomBar.m; sourceTree = "<group>"; };
 		F62641F9210EFE640022C4DC /* CustomBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomBar.xib; sourceTree = "<group>"; };
 		F62641FB211051C10022C4DC /* icon14.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon14.png; sourceTree = "<group>"; };
+		F62641FF211320360022C4DC /* StepperAnimation.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StepperAnimation.xib; sourceTree = "<group>"; };
+		F62642012113204B0022C4DC /* StepperAnimation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StepperAnimation.h; sourceTree = "<group>"; };
+		F62642022113204B0022C4DC /* StepperAnimation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StepperAnimation.m; sourceTree = "<group>"; };
+		F6264206211361870022C4DC /* StepperView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StepperView.h; sourceTree = "<group>"; };
+		F6264207211361870022C4DC /* StepperView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StepperView.xib; sourceTree = "<group>"; };
+		F6264208211361880022C4DC /* StepperView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StepperView.m; sourceTree = "<group>"; };
+		F626420B211367BC0022C4DC /* JointBView2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JointBView2.h; sourceTree = "<group>"; };
+		F626420C211367BC0022C4DC /* JointBView2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JointBView2.m; sourceTree = "<group>"; };
+		F6264232211404B20022C4DC /* NewStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewStoryboard.storyboard; sourceTree = "<group>"; };
+		F626425B211432AA0022C4DC /* JointBView2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JointBView2.xib; sourceTree = "<group>"; };
+		F626425E21143BE20022C4DC /* JointView1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JointView1.h; sourceTree = "<group>"; };
+		F626425F21143BE20022C4DC /* JointView1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JointView1.m; sourceTree = "<group>"; };
+		F626426121143C050022C4DC /* JointView1.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JointView1.xib; sourceTree = "<group>"; };
 		F62F4B0B20A942F100EB5C9A /* ServerAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerAPIManager.m; sourceTree = "<group>"; };
 		F62F4B0C20A942F100EB5C9A /* ServerAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerAPIManager.h; sourceTree = "<group>"; };
 		F63FCEFC20F782E60027FEA8 /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
@@ -284,6 +306,8 @@
 				F62F4B0B20A942F100EB5C9A /* ServerAPIManager.m */,
 				F6CB3FC120EB291600D290A6 /* DamacSharedClass.h */,
 				F6CB3FC220EB291600D290A6 /* DamacSharedClass.m */,
+				F6264232211404B20022C4DC /* NewStoryboard.storyboard */,
+				F6264204211320520022C4DC /* Stepper */,
 				F63FCEFF20F782F00027FEA8 /* iCarousel */,
 				F6CB3FCE20EB74EA00D290A6 /* Billing */,
 				F6A87EE1209F0B5A008D34C5 /* KPDropMenu */,
@@ -293,8 +317,6 @@
 				4F8D5EC71B6C0F94005E64D4 /* InitialViewController.m */,
 				4F8D5EA41B6C0568005E64D4 /* AppDelegate.h */,
 				4F8D5EA51B6C0568005E64D4 /* AppDelegate.m */,
-				F6A87ECA209BFB87008D34C5 /* RentalPoolViewCellViewController.h */,
-				F6A87ECB209BFB87008D34C5 /* RentalPoolViewCellViewController.m */,
 				F6A87ECD209BFC7F008D34C5 /* ServicesTableViewController.h */,
 				F6A87ECE209BFC7F008D34C5 /* ServicesTableViewController.m */,
 				F6CB3FBC20EA9A0800D290A6 /* Profile */,
@@ -352,6 +374,42 @@
 				F622C29320B3B1E3007982AE /* ChangeofDetailsCell.m */,
 			);
 			name = ChangeOfDetails;
+			sourceTree = "<group>";
+		};
+		F62641FE211315300022C4DC /* JointBuyerFlow */ = {
+			isa = PBXGroup;
+			children = (
+				F6A87ECA209BFB87008D34C5 /* RentalPoolViewCellViewController.h */,
+				F6A87ECB209BFB87008D34C5 /* RentalPoolViewCellViewController.m */,
+				F626425E21143BE20022C4DC /* JointView1.h */,
+				F626425F21143BE20022C4DC /* JointView1.m */,
+				F626426121143C050022C4DC /* JointView1.xib */,
+				F626420B211367BC0022C4DC /* JointBView2.h */,
+				F626420C211367BC0022C4DC /* JointBView2.m */,
+				F626425B211432AA0022C4DC /* JointBView2.xib */,
+			);
+			path = JointBuyerFlow;
+			sourceTree = "<group>";
+		};
+		F6264204211320520022C4DC /* Stepper */ = {
+			isa = PBXGroup;
+			children = (
+				F62642012113204B0022C4DC /* StepperAnimation.h */,
+				F62642022113204B0022C4DC /* StepperAnimation.m */,
+				F62641FF211320360022C4DC /* StepperAnimation.xib */,
+			);
+			name = Stepper;
+			sourceTree = "<group>";
+		};
+		F6264205211361770022C4DC /* StepperView */ = {
+			isa = PBXGroup;
+			children = (
+				F6264206211361870022C4DC /* StepperView.h */,
+				F6264208211361880022C4DC /* StepperView.m */,
+				F6264207211361870022C4DC /* StepperView.xib */,
+			);
+			name = StepperView;
+			path = JointBuyerFlow;
 			sourceTree = "<group>";
 		};
 		F63FCEFF20F782F00027FEA8 /* iCarousel */ = {
@@ -445,6 +503,8 @@
 				F6B31BDC20F094FB001A5144 /* MyServiceRequestViewController.m */,
 				F6170A5F20FF9DB3003443B1 /* ServicesDetailController.h */,
 				F6170A6020FF9DB3003443B1 /* ServicesDetailController.m */,
+				F6264205211361770022C4DC /* StepperView */,
+				F62641FE211315300022C4DC /* JointBuyerFlow */,
 			);
 			name = MyServices;
 			sourceTree = "<group>";
@@ -625,9 +685,14 @@
 				F6CB3FC720EB546400D290A6 /* HelveticaDin.ttf in Resources */,
 				F68616052096197D002EA241 /* Main.storyboard in Resources */,
 				CEA8CA021F071A9D00448B51 /* Images.xcassets in Resources */,
+				F6264209211361880022C4DC /* StepperView.xib in Resources */,
+				F626425C211432AA0022C4DC /* JointBView2.xib in Resources */,
 				F686160A20962229002EA241 /* PinView.xib in Resources */,
+				F6264200211320360022C4DC /* StepperAnimation.xib in Resources */,
 				F63FCF1220F88BB50027FEA8 /* service.jpg in Resources */,
 				F63FCF0420F87E520027FEA8 /* CustomViewCarousel.xib in Resources */,
+				F626426221143C050022C4DC /* JointView1.xib in Resources */,
+				F6264233211404B20022C4DC /* NewStoryboard.storyboard in Resources */,
 				F63FCF1020F88BB50027FEA8 /* Receipts.jpg in Resources */,
 				F63FCF1320F88BB50027FEA8 /* Surveys.jpg in Resources */,
 				F63FCF1120F88BB50027FEA8 /* Appointment.jpg in Resources */,
@@ -692,11 +757,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F62642032113204B0022C4DC /* StepperAnimation.m in Sources */,
 				F6CB3FC320EB291600D290A6 /* DamacSharedClass.m in Sources */,
 				F686165620985841002EA241 /* DamacC-Bridging-Header.h in Sources */,
 				F6A87EE7209F214B008D34C5 /* DetailMyUnitsViewController.m in Sources */,
 				F63FCF1720FBCC200027FEA8 /* PaymentsViewController.m in Sources */,
 				4F8D5EA61B6C0568005E64D4 /* AppDelegate.m in Sources */,
+				F626420A211361880022C4DC /* StepperView.m in Sources */,
 				F6D91E412099740400DA1428 /* VKSideMenu.m in Sources */,
 				F6B31BE120F33328001A5144 /* ScheduleAppointmentsVC.m in Sources */,
 				F6170A5D20FCC6ED003443B1 /* MyServicesDataModel.m in Sources */,
@@ -722,9 +789,11 @@
 				F6C942B820E9C6D700D1F40C /* VCFloatingActionButton.m in Sources */,
 				F622C29420B3B1E3007982AE /* ChangeofDetailsCell.m in Sources */,
 				F6170A672101DBFE003443B1 /* AppointmentsDataModel.m in Sources */,
+				F626426021143BE20022C4DC /* JointView1.m in Sources */,
 				F686160820962209002EA241 /* PinView.m in Sources */,
 				F6CB3FBB20EA9A0000D290A6 /* ProfileViewController.m in Sources */,
 				F6A87EE0209F0B53008D34C5 /* KPDropMenu.m in Sources */,
+				F626420D211367BC0022C4DC /* JointBView2.m in Sources */,
 				F698216D20EDC1CB00D023AF /* UserDetailsModel.m in Sources */,
 				F62641B92105B9670022C4DC /* ServicesSRDetails.m in Sources */,
 				F6E8321520AD07C40003DC5E /* PrintDocView.m in Sources */,

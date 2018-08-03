@@ -147,30 +147,61 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DamacC/EServicesViewController.m"
-            timestampString = "554883522.084502"
+            filePath = "DamacC/JointBuyerFlow/StepperView.m"
+            timestampString = "554976328.170735"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "23"
-            endingLineNumber = "23"
-            landmarkName = "-viewDidLoad"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "-setLine1Animation:"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "DamacC/ServicesDetailController.m"
-            timestampString = "554883522.084985"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
-            landmarkName = "-viewDidLoad"
-            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[StepperView setLine1Animation:]"
+                  moduleName = "DamacC"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gaian/Damac_Git/DamacC/DamacC/JointBuyerFlow/StepperView.m"
+                  timestampString = "554973625.81723"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "65">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__33-[StepperView setLine1Animation:]_block_invoke"
+                  moduleName = "DamacC"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gaian/Damac_Git/DamacC/DamacC/JointBuyerFlow/StepperView.m"
+                  timestampString = "554973625.819454"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__destroy_helper_block_"
+                  moduleName = "DamacC"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gaian/Damac_Git/DamacC/DamacC/JointBuyerFlow/StepperView.m"
+                  timestampString = "554973625.8217061"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

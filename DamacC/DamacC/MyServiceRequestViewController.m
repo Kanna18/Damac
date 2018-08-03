@@ -39,7 +39,7 @@
     
     if([_typeoFVC isEqualToString:kloadingFromMenu]){
         _hideView.hidden = YES;
-    }else{
+    }else if([_typeoFVC isEqualToString:kloadingFromCreateServices]){
         _heightConstraint.constant = 100;
         _buttonsView.hidden = YES;
     }
@@ -74,7 +74,11 @@
         
             if(iValue==3){
                 [FTIndicator performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
-                [self allClick:nil];
+                 if([_typeoFVC isEqualToString:kloadingFromMenu]){
+                     [self allClick:nil];
+                 }else if([_typeoFVC isEqualToString:kloadingFromCreateServices]){
+                     [self draftClick:nil];
+                 }
             }
         } errorBlock:^(NSError *error) {
             if(iValue==3){

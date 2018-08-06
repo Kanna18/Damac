@@ -145,6 +145,10 @@
         RentalPoolViewCellViewController *rvc = [self.storyboard instantiateViewControllerWithIdentifier:@"rentalPoolViewCellVC"];
         [self.navigationController pushViewController:rvc animated:YES];
     }
+    if([_servicesDataModel.RecordType.Name isEqualToString:kPOPConstant]){
+        ChangeOfContactDetails *rvc = [self.storyboard instantiateViewControllerWithIdentifier:@"changeOfContactsVC"];
+        [self.navigationController pushViewController:rvc animated:YES];
+    }
 }
 
 @end

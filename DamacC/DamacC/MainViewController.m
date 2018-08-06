@@ -58,19 +58,19 @@
     [floe setScrollDirection:UICollectionViewScrollDirectionHorizontal];
     self.navigationController.navigationBar.hidden=NO;
     
-    sideMenuDict = @{@"section2":@[@"Home",@"My Units",@"My Service Requests",@"Payments",@"Create E-Services"],
-                     @"section4":@[@"home",@"help",@"help",@"help",@"floatmenu5"],
+    sideMenuDict = @{@"section2":@[@"My Units",@"My Service Requests",@"Payment Schedules",@"Create Requests"],
+                     @"section4":@[@"1side",@"2side",@"3side",@"4side"],
                      @"section1":@[@"Profile"],
-                     @"section3":@[@"Notification",@"User Profile",kLogout],
-                     @"section5":@[@"notification",@"profile",kLogout]
+                     @"section3":@[@"Notification",@"My Profile",kLogout],
+                     @"section5":@[@"5side",@"6side",@"7side"]
                      };        
     [self serverCall];
     [FTIndicator showProgressWithMessage:@"Loading" userInteractionEnable:NO];
     NSLog(@"%@",self.navigationItem);
     
-    self.carousel.type = iCarouselTypeRotary;
-    self.carousel.delegate = self;
-    self.carousel.dataSource = self;
+//    self.carousel.type = iCarouselTypeRotary;
+//    self.carousel.delegate = self;
+//    self.carousel.dataSource = self;
     [[CustomBarOptions alloc]initWithNavItems:self.navigationItem noOfItems:4];
 }
 
@@ -96,16 +96,14 @@
         
         NSString * port = kUserProfile.overallPortfolio;//[NSString stringWithFormat:@"%@",di[@"overallPortfolio"]];
         NSString * curent = kUserProfile.currentPortfolio;//[NSString stringWithFormat:@"%@",di[@"currentPortfolio"]];
-        [topCVArray addObject:@{@"key":overallPortofolio,@"value":port,@"image":@"graph1",}];
-        [topCVArray addObject:@{@"key":currentPortofolio,@"value":curent,@"image":@"graph2",}];
-        [topCVArray addObject:@{@"key":paymentsDue,@"value":@"125.52k",@"image":@"graph3",}];
-        [topCVArray addObject:@{@"key":openServiceRequests,@"value":@"",@"image":@"graph4"}];
-//        [_topCollectionView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
-        [self.carousel performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
+        [topCVArray addObject:@{@"key":overallPortofolio,@"value":port,@"image":@"1icon",}];
+        [topCVArray addObject:@{@"key":currentPortofolio,@"value":curent,@"image":@"2icon",}];
+        [topCVArray addObject:@{@"key":paymentsDue,@"value":@"125.52k",@"image":@"3icon",}];
+        [topCVArray addObject:@{@"key":openServiceRequests,@"value":@"",@"image":@"4icon"}];
+        [_topCollectionView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
+//        [self.carousel performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
     }
 }
-
-
 -(void)dismissProgress{
     [FTIndicator dismissProgress];
 }
@@ -119,8 +117,8 @@
     scr_width = [UIScreen mainScreen].bounds.size.width;
     scr_height = [UIScreen mainScreen].bounds.size.height;
     [_gridCollectionView reloadData];
-//    [_topCollectionView reloadData];
-    [self.carousel reloadData];
+    [_topCollectionView reloadData];
+//    [self.carousel reloadData];
     self.navigationController.navigationBar.topItem.title = @"Dashboard";
     [self loadFloatMenu];
 }
@@ -296,9 +294,9 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-//    if(collectionView == _topCollectionView){
-//        return topCVArray.count;
-//    }
+    if(collectionView == _topCollectionView){
+        return topCVArray.count;
+    }
     if (collectionView == _gridCollectionView)
     {
         return gridArray.count;
@@ -308,17 +306,17 @@
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-//    if(collectionView == _topCollectionView){
-//
-//        static NSString *cellIdentifier = @"topCell";
-//        TopCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
-//        cell.thumbImageView.image = [UIImage imageNamed:[topCVArray[indexPath.row] valueForKey:@"image"]];
-//        cell.label1.text = [topCVArray[indexPath.row] valueForKey:@"value"];
-//        cell.label2.text = [topCVArray[indexPath.row] valueForKey:@"key"];
-//        [cell.label2 setAdjustsFontSizeToFitWidth:YES];
-//        [cell.label1 setAdjustsFontSizeToFitWidth:YES];
-//        return cell;
-//    }
+    if(collectionView == _topCollectionView){
+
+        static NSString *cellIdentifier = @"topCell";
+        TopCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
+        cell.thumbImageView.image = [UIImage imageNamed:[topCVArray[indexPath.row] valueForKey:@"image"]];
+        cell.label1.text = [topCVArray[indexPath.row] valueForKey:@"value"];
+        cell.label2.text = [topCVArray[indexPath.row] valueForKey:@"key"];
+        [cell.label2 setAdjustsFontSizeToFitWidth:YES];
+        [cell.label1 setAdjustsFontSizeToFitWidth:YES];
+        return cell;
+    }
     if(collectionView == _gridCollectionView){
         static NSString *cellIdentifier = @"gridCell";
         GridCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
@@ -401,9 +399,9 @@
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     
-//    if(collectionView == _topCollectionView){
-//        return  CGSizeMake(150 , 130);
-//    }
+    if(collectionView == _topCollectionView){
+        return  CGSizeMake(collectionView.frame.size.width/4-10 , 130);
+    }
     if(collectionView == _gridCollectionView){
         return  CGSizeMake(collectionView.frame.size.width/2-10, 200);
     }

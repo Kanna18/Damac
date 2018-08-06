@@ -45,7 +45,8 @@
 #import "ServicesSRDetails.h"
 #import "StepperView.h"
 #import "JointBView2.h"
-
+#import "ChangeOfContactDetails.h"
+#import "ChangeofContactCell.h"
 
 
 #endif /* PrefixHeader_pch */

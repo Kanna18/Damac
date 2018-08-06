@@ -25,7 +25,7 @@
     _label2.text = [NSString stringWithFormat:@"Main Purpose:%@",dm.Service_Type__c];
     _label3.text = [NSString stringWithFormat:@"Sub-Purpose:%@",dm.Sub_Purpose__c];
     _label4.text = [NSString stringWithFormat:@"Time Slot:%@",dm.Appointment_Slot__c];
-    _label5.text = [NSString stringWithFormat:@"Confirmed:%@",dm.Appointment_Status__c];
+    _label5.text = [NSString stringWithFormat:@"%@",dm.Appointment_Status__c];
     _label6.text = [NSString stringWithFormat:@"%@",dm.Appointment_Date__c];
     
     [_label1 setAdjustsFontSizeToFitWidth:YES];

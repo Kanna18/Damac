@@ -13,7 +13,6 @@
 		4F8D5EC81B6C0F94005E64D4 /* InitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8D5EC71B6C0F94005E64D4 /* InitialViewController.m */; };
 		4F8D5ECB1B6C0FE4005E64D4 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8D5ECA1B6C0FE4005E64D4 /* RootViewController.m */; };
 		B7168FBA1FACC5D900A48DB5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7168FB91FACC5D900A48DB5 /* LaunchScreen.storyboard */; };
-		CEA8CA021F071A9D00448B51 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEA8CA011F071A9D00448B51 /* Images.xcassets */; };
 		F60164ED20ABB9D900E07510 /* UnitsDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F60164EC20ABB9D900E07510 /* UnitsDataModel.m */; };
 		F60164F320ABF36F00E07510 /* PaymentsDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F60164F220ABF36F00E07510 /* PaymentsDataModel.m */; };
 		F6132E0D20A7E2E900FEEEBE /* ProfileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F6132E0B20A7E2E900FEEEBE /* ProfileTableViewCell.m */; };
@@ -37,17 +36,12 @@
 		F626425C211432AA0022C4DC /* JointBView2.xib in Resources */ = {isa = PBXBuildFile; fileRef = F626425B211432AA0022C4DC /* JointBView2.xib */; };
 		F626426021143BE20022C4DC /* JointView1.m in Sources */ = {isa = PBXBuildFile; fileRef = F626425F21143BE20022C4DC /* JointView1.m */; };
 		F626426221143C050022C4DC /* JointView1.xib in Resources */ = {isa = PBXBuildFile; fileRef = F626426121143C050022C4DC /* JointView1.xib */; };
+		F6264266211487AB0022C4DC /* ChangeOfContactDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = F6264265211487AB0022C4DC /* ChangeOfContactDetails.m */; };
+		F626426921148D7B0022C4DC /* ChangeofContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F626426821148D7B0022C4DC /* ChangeofContactCell.m */; };
 		F62F4B0D20A942F200EB5C9A /* ServerAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F62F4B0B20A942F100EB5C9A /* ServerAPIManager.m */; };
 		F63FCEFE20F782E70027FEA8 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = F63FCEFC20F782E60027FEA8 /* iCarousel.m */; };
 		F63FCF0220F87E3A0027FEA8 /* CustomViewCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = F63FCF0120F87E3A0027FEA8 /* CustomViewCarousel.m */; };
 		F63FCF0420F87E520027FEA8 /* CustomViewCarousel.xib in Resources */ = {isa = PBXBuildFile; fileRef = F63FCF0320F87E520027FEA8 /* CustomViewCarousel.xib */; };
-		F63FCF0D20F88BB50027FEA8 /* PayNow.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F63FCF0620F88BA60027FEA8 /* PayNow.jpg */; };
-		F63FCF0E20F88BB50027FEA8 /* PaymentSchedule.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F63FCF0720F88BA80027FEA8 /* PaymentSchedule.jpg */; };
-		F63FCF0F20F88BB50027FEA8 /* Complaints.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F63FCF0820F88BA90027FEA8 /* Complaints.jpg */; };
-		F63FCF1020F88BB50027FEA8 /* Receipts.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F63FCF0920F88BAB0027FEA8 /* Receipts.jpg */; };
-		F63FCF1120F88BB50027FEA8 /* Appointment.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F63FCF0A20F88BAC0027FEA8 /* Appointment.jpg */; };
-		F63FCF1220F88BB50027FEA8 /* service.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F63FCF0B20F88BAD0027FEA8 /* service.jpg */; };
-		F63FCF1320F88BB50027FEA8 /* Surveys.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F63FCF0C20F88BB00027FEA8 /* Surveys.jpg */; };
 		F63FCF1720FBCC200027FEA8 /* PaymentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F63FCF1620FBCC200027FEA8 /* PaymentsViewController.m */; };
 		F63FCF1B20FBCD0B0027FEA8 /* PaymentsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F63FCF1A20FBCD0B0027FEA8 /* PaymentsCell.m */; };
 		F68616052096197D002EA241 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F68616042096197D002EA241 /* Main.storyboard */; };
@@ -116,7 +110,6 @@
 		4FF12F911DCA9E6B004D9EF9 /* DamacC.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DamacC.entitlements; sourceTree = "<group>"; };
 		780B86EE1A0C088A18976D02 /* libPods-DamacC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DamacC.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7168FB91FACC5D900A48DB5 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = "../mobile_sdk/SalesforceMobileSDK-iOS/shared/resources/LaunchScreen.storyboard"; sourceTree = "<group>"; };
-		CEA8CA011F071A9D00448B51 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "mobile_sdk/SalesforceMobileSDK-iOS/shared/resources/Images.xcassets"; sourceTree = SOURCE_ROOT; };
 		F60164EB20ABB9D900E07510 /* UnitsDataModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UnitsDataModel.h; sourceTree = "<group>"; };
 		F60164EC20ABB9D900E07510 /* UnitsDataModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UnitsDataModel.m; sourceTree = "<group>"; };
 		F60164F120ABF36F00E07510 /* PaymentsDataModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PaymentsDataModel.h; sourceTree = "<group>"; };
@@ -154,6 +147,10 @@
 		F626425E21143BE20022C4DC /* JointView1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JointView1.h; sourceTree = "<group>"; };
 		F626425F21143BE20022C4DC /* JointView1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JointView1.m; sourceTree = "<group>"; };
 		F626426121143C050022C4DC /* JointView1.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JointView1.xib; sourceTree = "<group>"; };
+		F6264264211487AB0022C4DC /* ChangeOfContactDetails.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangeOfContactDetails.h; sourceTree = "<group>"; };
+		F6264265211487AB0022C4DC /* ChangeOfContactDetails.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangeOfContactDetails.m; sourceTree = "<group>"; };
+		F626426721148D7B0022C4DC /* ChangeofContactCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangeofContactCell.h; sourceTree = "<group>"; };
+		F626426821148D7B0022C4DC /* ChangeofContactCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangeofContactCell.m; sourceTree = "<group>"; };
 		F62F4B0B20A942F100EB5C9A /* ServerAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerAPIManager.m; sourceTree = "<group>"; };
 		F62F4B0C20A942F100EB5C9A /* ServerAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerAPIManager.h; sourceTree = "<group>"; };
 		F63FCEFC20F782E60027FEA8 /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
@@ -161,13 +158,6 @@
 		F63FCF0020F87E3A0027FEA8 /* CustomViewCarousel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomViewCarousel.h; sourceTree = "<group>"; };
 		F63FCF0120F87E3A0027FEA8 /* CustomViewCarousel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomViewCarousel.m; sourceTree = "<group>"; };
 		F63FCF0320F87E520027FEA8 /* CustomViewCarousel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomViewCarousel.xib; sourceTree = "<group>"; };
-		F63FCF0620F88BA60027FEA8 /* PayNow.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = PayNow.jpg; sourceTree = "<group>"; };
-		F63FCF0720F88BA80027FEA8 /* PaymentSchedule.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = PaymentSchedule.jpg; sourceTree = "<group>"; };
-		F63FCF0820F88BA90027FEA8 /* Complaints.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Complaints.jpg; sourceTree = "<group>"; };
-		F63FCF0920F88BAB0027FEA8 /* Receipts.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Receipts.jpg; sourceTree = "<group>"; };
-		F63FCF0A20F88BAC0027FEA8 /* Appointment.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Appointment.jpg; sourceTree = "<group>"; };
-		F63FCF0B20F88BAD0027FEA8 /* service.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = service.jpg; sourceTree = "<group>"; };
-		F63FCF0C20F88BB00027FEA8 /* Surveys.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Surveys.jpg; sourceTree = "<group>"; };
 		F63FCF1520FBCC200027FEA8 /* PaymentsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PaymentsViewController.h; sourceTree = "<group>"; };
 		F63FCF1620FBCC200027FEA8 /* PaymentsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PaymentsViewController.m; sourceTree = "<group>"; };
 		F63FCF1920FBCD0B0027FEA8 /* PaymentsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PaymentsCell.h; sourceTree = "<group>"; };
@@ -288,7 +278,6 @@
 			isa = PBXGroup;
 			children = (
 				B7168FB91FACC5D900A48DB5 /* LaunchScreen.storyboard */,
-				CEA8CA011F071A9D00448B51 /* Images.xcassets */,
 				4F8D5EA11B6C0568005E64D4 /* Info.plist */,
 				4F277E8C1DC7F5DF00E5A77C /* Prefix.pch */,
 				4F8D5EA21B6C0568005E64D4 /* main.m */,
@@ -412,6 +401,17 @@
 			path = JointBuyerFlow;
 			sourceTree = "<group>";
 		};
+		F6264263211485A80022C4DC /* ChangeOfCDFlow */ = {
+			isa = PBXGroup;
+			children = (
+				F6264264211487AB0022C4DC /* ChangeOfContactDetails.h */,
+				F6264265211487AB0022C4DC /* ChangeOfContactDetails.m */,
+				F626426721148D7B0022C4DC /* ChangeofContactCell.h */,
+				F626426821148D7B0022C4DC /* ChangeofContactCell.m */,
+			);
+			path = ChangeOfCDFlow;
+			sourceTree = "<group>";
+		};
 		F63FCEFF20F782F00027FEA8 /* iCarousel */ = {
 			isa = PBXGroup;
 			children = (
@@ -434,13 +434,6 @@
 		F63FCF1420F88BB90027FEA8 /* CollectionImages */ = {
 			isa = PBXGroup;
 			children = (
-				F63FCF0A20F88BAC0027FEA8 /* Appointment.jpg */,
-				F63FCF0820F88BA90027FEA8 /* Complaints.jpg */,
-				F63FCF0B20F88BAD0027FEA8 /* service.jpg */,
-				F63FCF0620F88BA60027FEA8 /* PayNow.jpg */,
-				F63FCF0720F88BA80027FEA8 /* PaymentSchedule.jpg */,
-				F63FCF0920F88BAB0027FEA8 /* Receipts.jpg */,
-				F63FCF0C20F88BB00027FEA8 /* Surveys.jpg */,
 			);
 			name = CollectionImages;
 			sourceTree = "<group>";
@@ -503,6 +496,7 @@
 				F6B31BDC20F094FB001A5144 /* MyServiceRequestViewController.m */,
 				F6170A5F20FF9DB3003443B1 /* ServicesDetailController.h */,
 				F6170A6020FF9DB3003443B1 /* ServicesDetailController.m */,
+				F6264263211485A80022C4DC /* ChangeOfCDFlow */,
 				F6264205211361770022C4DC /* StepperView */,
 				F62641FE211315300022C4DC /* JointBuyerFlow */,
 			);
@@ -684,26 +678,18 @@
 				F62641F4210EFA5B0022C4DC /* settingsicon.png in Resources */,
 				F6CB3FC720EB546400D290A6 /* HelveticaDin.ttf in Resources */,
 				F68616052096197D002EA241 /* Main.storyboard in Resources */,
-				CEA8CA021F071A9D00448B51 /* Images.xcassets in Resources */,
 				F6264209211361880022C4DC /* StepperView.xib in Resources */,
 				F626425C211432AA0022C4DC /* JointBView2.xib in Resources */,
 				F686160A20962229002EA241 /* PinView.xib in Resources */,
 				F6264200211320360022C4DC /* StepperAnimation.xib in Resources */,
-				F63FCF1220F88BB50027FEA8 /* service.jpg in Resources */,
 				F63FCF0420F87E520027FEA8 /* CustomViewCarousel.xib in Resources */,
 				F626426221143C050022C4DC /* JointView1.xib in Resources */,
 				F6264233211404B20022C4DC /* NewStoryboard.storyboard in Resources */,
-				F63FCF1020F88BB50027FEA8 /* Receipts.jpg in Resources */,
-				F63FCF1320F88BB50027FEA8 /* Surveys.jpg in Resources */,
-				F63FCF1120F88BB50027FEA8 /* Appointment.jpg in Resources */,
 				F6CB3FD220EB753500D290A6 /* expanded.png in Resources */,
-				F63FCF0E20F88BB50027FEA8 /* PaymentSchedule.jpg in Resources */,
-				F63FCF0D20F88BB50027FEA8 /* PayNow.jpg in Resources */,
 				B7168FBA1FACC5D900A48DB5 /* LaunchScreen.storyboard in Resources */,
 				F6132E0E20A7E2E900FEEEBE /* ProfileTableViewCell.xib in Resources */,
 				F6E8321720AD07D40003DC5E /* PrintDocView.xib in Resources */,
 				F6C942B920E9C6D700D1F40C /* floatTableViewCell.xib in Resources */,
-				F63FCF0F20F88BB50027FEA8 /* Complaints.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -800,7 +786,9 @@
 				F63FCF1B20FBCD0B0027FEA8 /* PaymentsCell.m in Sources */,
 				F60164F320ABF36F00E07510 /* PaymentsDataModel.m in Sources */,
 				F6170A642100692E003443B1 /* AppointmentsCell.m in Sources */,
+				F626426921148D7B0022C4DC /* ChangeofContactCell.m in Sources */,
 				F6B31BDD20F094FB001A5144 /* MyServiceRequestViewController.m in Sources */,
+				F6264266211487AB0022C4DC /* ChangeOfContactDetails.m in Sources */,
 				F6C942B720E9C6D700D1F40C /* floatTableViewCell.m in Sources */,
 				F6A87ECC209BFB87008D34C5 /* RentalPoolViewCellViewController.m in Sources */,
 				F62F4B0D20A942F200EB5C9A /* ServerAPIManager.m in Sources */,

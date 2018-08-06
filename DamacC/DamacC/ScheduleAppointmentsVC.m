@@ -70,7 +70,7 @@ static NSString *reuseCell = @"appointmentsCell";
     
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 170;
+    return 138;
 }
 -(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
     UIView *vw = [[UIView alloc]initWithFrame:tableView.tableFooterView.frame];

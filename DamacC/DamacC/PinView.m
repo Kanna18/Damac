@@ -57,6 +57,7 @@
 
         if (nextResponder)
             // Found next responder, so set it.
+            textField.layer.borderColor = rgb(254, 0, 252).CGColor;
             [nextResponder becomeFirstResponder];
         return NO;
     }
@@ -97,17 +98,20 @@
 }
 -(void)textFieldDidBeginEditing:(UITextField *)textField{
     textField.text=@"";
+    
 //    [self getTheText:textField.text ofTf:textField];
+    textField.layer.borderColor = rgb(35, 22, 35).CGColor;
 }
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
-    
     [textField resignFirstResponder];
     return YES;
 }
 
 -(void)roundRadius:(UITextField*)tf{
-    tf.layer.cornerRadius=10;
+    tf.layer.cornerRadius=20;
+    tf.layer.borderWidth = 2.0f;
+    tf.layer.borderColor = rgb(254, 0, 252).CGColor;
     tf.clipsToBounds=YES;
 }
 @end

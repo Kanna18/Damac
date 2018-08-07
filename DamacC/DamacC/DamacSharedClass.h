@@ -14,6 +14,6 @@
 + (DamacSharedClass *)sharedInstance;
 
 @property UserDetailsModel *userProileModel;
-
+@property NSDictionary *firstDataObject;
 //@property UserDetailsModel *userDetailsModel;
 @end

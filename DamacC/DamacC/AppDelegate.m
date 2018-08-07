@@ -205,12 +205,12 @@ static NSString * const OAuthRedirectURI        = @"sfdc://success";
         UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:key];
         navVC.navigationBar.hidden=YES;
         self.window.rootViewController = navVC;
-    }else if(defaultGetBool(kFingerPrintAvailabe)){
+    }/*else if(defaultGetBool(kFingerPrintAvailabe)){
         FingerPrintViewController *rootVC = [appStoryboard instantiateViewControllerWithIdentifier:@"fingerPrintVC"];
         UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:rootVC];
         navVC.navigationBar.hidden=YES;
         self.window.rootViewController = navVC;
-    }else if(!defaultGetBool(kFingerPrintAvailabe)){
+    }*/else if(!defaultGetBool(kFingerPrintAvailabe)){
         PasswordViewController *rootVC = [appStoryboard instantiateViewControllerWithIdentifier:@"passwordVC"];
         UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:rootVC];
         navVC.navigationBar.hidden=YES;

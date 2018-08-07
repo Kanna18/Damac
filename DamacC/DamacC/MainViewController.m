@@ -18,10 +18,7 @@
 
 
 
-#define overallPortofolio @"Overall Portfolio Value"
-#define currentPortofolio @"Current Portfolio Value"
-#define paymentsDue @"Payments Due"
-#define openServiceRequests @"Open Service Requests"
+
 
 @interface MainViewController ()<VKSideMenuDelegate, VKSideMenuDataSource,floatMenuDelegate>
 
@@ -36,7 +33,10 @@
     NSDictionary *sideMenuDict,*dataDictionary;
     NSMutableArray *topCVArray;
     VCFloatingActionButton *addButton;
+}
+- (IBAction)showMenuVCButton:(id)sender {
     
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)viewDidLoad {
@@ -64,8 +64,9 @@
                      @"section3":@[@"Notification",@"My Profile",kLogout],
                      @"section5":@[@"5side",@"6side",@"7side"]
                      };        
-    [self serverCall];
-    [FTIndicator showProgressWithMessage:@"Loading" userInteractionEnable:NO];
+//    [self serverCall];
+    [self setTopArrayData:[DamacSharedClass sharedInstance].firstDataObject];
+//    [FTIndicator showProgressWithMessage:@"Loading" userInteractionEnable:NO];
     NSLog(@"%@",self.navigationItem);
     
 //    self.carousel.type = iCarouselTypeRotary;
@@ -74,20 +75,20 @@
     [[CustomBarOptions alloc]initWithNavItems:self.navigationItem noOfItems:4];
 }
 
--(void)serverCall{
-    ServerAPIManager *server = [ServerAPIManager sharedinstance];
-    SFUserAccountManager *sf = [SFUserAccountManager sharedInstance];
-    NSString * url = [NSString stringWithFormat:@"%@%@",maiUrl,[sf.currentUserIdentity valueForKeyPath:@"userId"]];
-    [server getRequestwithUrl:url successBlock:^(id responseObj) {
-        dataDictionary = [NSJSONSerialization JSONObjectWithData:responseObj options:0 error:nil];        
-        [self setTopArrayData:dataDictionary];
-        NSLog(@"%@",dataDictionary);
-        [self performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
-    } errorBlock:^(NSError *error) {
-        NSLog(@"%@",error);
-        [self performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
-    }];    
-}
+//-(void)serverCall{
+//    ServerAPIManager *server = [ServerAPIManager sharedinstance];
+//    SFUserAccountManager *sf = [SFUserAccountManager sharedInstance];
+//    NSString * url = [NSString stringWithFormat:@"%@%@",maiUrl,[sf.currentUserIdentity valueForKeyPath:@"userId"]];
+//    [server getRequestwithUrl:url successBlock:^(id responseObj) {
+//        dataDictionary = [NSJSONSerialization JSONObjectWithData:responseObj options:0 error:nil];
+//        [self setTopArrayData:dataDictionary];
+//        NSLog(@"%@",dataDictionary);
+//        [self performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
+//    } errorBlock:^(NSError *error) {
+//        NSLog(@"%@",error);
+//        [self performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
+//    }];
+//}
 
 -(void)setTopArrayData:(NSDictionary*)dic{
     if(dic&&dic[@"responseLines"][0]){

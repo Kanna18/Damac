@@ -87,4 +87,11 @@
 #define kloadingFromMenu @"LoadingFromMenu"
 #define kloadingFromCreateServices @"LoadingFromCreateServices"
 
+
+#pragma mark TopGridArrayConstants
+#define overallPortofolio @"Overall Portfolio Value"
+#define currentPortofolio @"Current Portfolio Value"
+#define paymentsDue @"Payments Due"
+#define openServiceRequests @"Open Service Requests"
+
 #endif /* DamacConstants_h */

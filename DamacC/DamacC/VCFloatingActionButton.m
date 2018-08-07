@@ -44,8 +44,8 @@ CGFloat buttonToScreenHeight;
         buttonToScreenHeight = SCREEN_HEIGHT - CGRectGetMaxY(self.frame);
         
         imgV = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"hellodamacicon"]];
-        imgV.frame = CGRectMake(UIScreen.mainScreen.bounds.size.width/2-150, UIScreen.mainScreen.bounds.size.height/8, 300, 300);
-        imgV.contentMode = UIViewContentModeScaleToFill;
+        imgV.frame = CGRectMake(UIScreen.mainScreen.bounds.size.width/2-100, UIScreen.mainScreen.bounds.size.height/8, 200, 150);
+        imgV.contentMode = UIViewContentModeScaleAspectFit;
                     
         _menuTable = [[UITableView alloc]initWithFrame:CGRectMake(SCREEN_WIDTH/4, 0, 0.75*SCREEN_WIDTH,SCREEN_HEIGHT - (SCREEN_HEIGHT - CGRectGetMaxY(self.frame)) )];
         _menuTable.scrollEnabled = NO;

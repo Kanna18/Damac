@@ -76,6 +76,9 @@
 		F6E8321520AD07C40003DC5E /* PrintDocView.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E8321420AD07C40003DC5E /* PrintDocView.m */; };
 		F6E8321720AD07D40003DC5E /* PrintDocView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6E8321620AD07D40003DC5E /* PrintDocView.xib */; };
 		F6E8321A20AD11070003DC5E /* EServicesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E8321920AD11070003DC5E /* EServicesViewController.m */; };
+		F6E8D4C7211817360063CC16 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6E8D4C6211817340063CC16 /* Images.xcassets */; };
+		F6E8D4D121192B440063CC16 /* LoadingLogoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E8D4D021192B440063CC16 /* LoadingLogoVC.m */; };
+		F6E8D4D421192B570063CC16 /* ShowMenuOptiionsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E8D4D321192B570063CC16 /* ShowMenuOptiionsVC.m */; };
 		F6FA5B7020999E31009A8F15 /* FingerPrintViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6FA5B6F20999E31009A8F15 /* FingerPrintViewController.m */; };
 		F6FA5B732099A083009A8F15 /* KeyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6FA5B722099A083009A8F15 /* KeyViewController.m */; };
 		F6FA5B772099BC64009A8F15 /* TopCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F6FA5B762099BC64009A8F15 /* TopCollectionCell.m */; };
@@ -219,6 +222,11 @@
 		F6E8321620AD07D40003DC5E /* PrintDocView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PrintDocView.xib; sourceTree = "<group>"; };
 		F6E8321820AD11070003DC5E /* EServicesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EServicesViewController.h; sourceTree = "<group>"; };
 		F6E8321920AD11070003DC5E /* EServicesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EServicesViewController.m; sourceTree = "<group>"; };
+		F6E8D4C6211817340063CC16 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		F6E8D4CF21192B440063CC16 /* LoadingLogoVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoadingLogoVC.h; sourceTree = "<group>"; };
+		F6E8D4D021192B440063CC16 /* LoadingLogoVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoadingLogoVC.m; sourceTree = "<group>"; };
+		F6E8D4D221192B570063CC16 /* ShowMenuOptiionsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShowMenuOptiionsVC.h; sourceTree = "<group>"; };
+		F6E8D4D321192B570063CC16 /* ShowMenuOptiionsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShowMenuOptiionsVC.m; sourceTree = "<group>"; };
 		F6FA5B6E20999E31009A8F15 /* FingerPrintViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FingerPrintViewController.h; sourceTree = "<group>"; };
 		F6FA5B6F20999E31009A8F15 /* FingerPrintViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FingerPrintViewController.m; sourceTree = "<group>"; };
 		F6FA5B712099A083009A8F15 /* KeyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KeyViewController.h; sourceTree = "<group>"; };
@@ -270,6 +278,7 @@
 				4FF12F911DCA9E6B004D9EF9 /* DamacC.entitlements */,
 				4F8D5ECC1B6C1021005E64D4 /* Classes */,
 				4F8D5EA01B6C0568005E64D4 /* Supporting Files */,
+				F6E8D4C6211817340063CC16 /* Images.xcassets */,
 			);
 			path = DamacC;
 			sourceTree = "<group>";
@@ -452,13 +461,17 @@
 		F68616192098295D002EA241 /* Password */ = {
 			isa = PBXGroup;
 			children = (
+				F6D91E3B209959F300DA1428 /* DamacConstants.h */,
 				F6FA5B6E20999E31009A8F15 /* FingerPrintViewController.h */,
 				F6FA5B6F20999E31009A8F15 /* FingerPrintViewController.m */,
 				F686161620982837002EA241 /* PasswordViewController.h */,
 				F686161720982837002EA241 /* PasswordViewController.m */,
 				F6FA5B712099A083009A8F15 /* KeyViewController.h */,
 				F6FA5B722099A083009A8F15 /* KeyViewController.m */,
-				F6D91E3B209959F300DA1428 /* DamacConstants.h */,
+				F6E8D4CF21192B440063CC16 /* LoadingLogoVC.h */,
+				F6E8D4D021192B440063CC16 /* LoadingLogoVC.m */,
+				F6E8D4D221192B570063CC16 /* ShowMenuOptiionsVC.h */,
+				F6E8D4D321192B570063CC16 /* ShowMenuOptiionsVC.m */,
 				F686160620962209002EA241 /* PinView.h */,
 				F686160720962209002EA241 /* PinView.m */,
 				F686160920962229002EA241 /* PinView.xib */,
@@ -687,6 +700,7 @@
 				F6264233211404B20022C4DC /* NewStoryboard.storyboard in Resources */,
 				F6CB3FD220EB753500D290A6 /* expanded.png in Resources */,
 				B7168FBA1FACC5D900A48DB5 /* LaunchScreen.storyboard in Resources */,
+				F6E8D4C7211817360063CC16 /* Images.xcassets in Resources */,
 				F6132E0E20A7E2E900FEEEBE /* ProfileTableViewCell.xib in Resources */,
 				F6E8321720AD07D40003DC5E /* PrintDocView.xib in Resources */,
 				F6C942B920E9C6D700D1F40C /* floatTableViewCell.xib in Resources */,
@@ -749,6 +763,7 @@
 				F6A87EE7209F214B008D34C5 /* DetailMyUnitsViewController.m in Sources */,
 				F63FCF1720FBCC200027FEA8 /* PaymentsViewController.m in Sources */,
 				4F8D5EA61B6C0568005E64D4 /* AppDelegate.m in Sources */,
+				F6E8D4D121192B440063CC16 /* LoadingLogoVC.m in Sources */,
 				F626420A211361880022C4DC /* StepperView.m in Sources */,
 				F6D91E412099740400DA1428 /* VKSideMenu.m in Sources */,
 				F6B31BE120F33328001A5144 /* ScheduleAppointmentsVC.m in Sources */,
@@ -778,6 +793,7 @@
 				F626426021143BE20022C4DC /* JointView1.m in Sources */,
 				F686160820962209002EA241 /* PinView.m in Sources */,
 				F6CB3FBB20EA9A0000D290A6 /* ProfileViewController.m in Sources */,
+				F6E8D4D421192B570063CC16 /* ShowMenuOptiionsVC.m in Sources */,
 				F6A87EE0209F0B53008D34C5 /* KPDropMenu.m in Sources */,
 				F626420D211367BC0022C4DC /* JointBView2.m in Sources */,
 				F698216D20EDC1CB00D023AF /* UserDetailsModel.m in Sources */,

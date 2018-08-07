@@ -7,7 +7,7 @@
 //
 
 #import "KeyViewController.h"
-
+#import "LoadingLogoVC.h"
 @interface KeyViewController ()
 
 @end
@@ -48,9 +48,11 @@
     NSString *str = [defaultGet(kenterMpin) stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     NSString *s = [defaultGet(kMPin) stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     if([str isEqualToString: s]){
-        MainViewController *m =[self.storyboard instantiateViewControllerWithIdentifier:@"mainVC"];
-        [self.navigationController pushViewController:m animated:YES];
+//        MainViewController *m =[self.storyboard instantiateViewControllerWithIdentifier:@"mainVC"];
+//        [self.navigationController pushViewController:m animated:YES];
         
+        LoadingLogoVC *lc = [self.storyboard instantiateViewControllerWithIdentifier:@"loadingLogoVC"];
+        [self.navigationController pushViewController:lc animated:YES];        
     }else{
         [FTIndicator showToastMessage:@"MPIN is not correct"];
     }

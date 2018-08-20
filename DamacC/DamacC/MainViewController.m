@@ -15,6 +15,8 @@
 #import "ProfileViewController.h"
 #import "BillingViewController.h"
 #import "ScheduleAppointmentsVC.h"
+#import "UnitsTableViewController.h"
+#import "SampleTableViewController.h"
 
 
 
@@ -65,6 +67,7 @@
                      @"section5":@[@"5side",@"6side",@"7side"]
                      };        
 //    [self serverCall];
+    dataDictionary = [DamacSharedClass sharedInstance].firstDataObject;
     [self setTopArrayData:[DamacSharedClass sharedInstance].firstDataObject];
 //    [FTIndicator showProgressWithMessage:@"Loading" userInteractionEnable:NO];
     NSLog(@"%@",self.navigationItem);
@@ -72,37 +75,53 @@
 //    self.carousel.type = iCarouselTypeRotary;
 //    self.carousel.delegate = self;
 //    self.carousel.dataSource = self;
-    [[CustomBarOptions alloc]initWithNavItems:self.navigationItem noOfItems:4];
+    [[CustomBarOptions alloc]initWithNavItems:self.navigationItem noOfItems:2];
+//    [self setTopArrayData:nil];
+//    self.navigationController.navigationBar.hidden = YES;
+    
+}
+-(NSString*)setNillValue:(NSString*)str{
+    NSString *value = str ? str : @"";
+    return  value;
 }
 
-//-(void)serverCall{
-//    ServerAPIManager *server = [ServerAPIManager sharedinstance];
-//    SFUserAccountManager *sf = [SFUserAccountManager sharedInstance];
-//    NSString * url = [NSString stringWithFormat:@"%@%@",maiUrl,[sf.currentUserIdentity valueForKeyPath:@"userId"]];
-//    [server getRequestwithUrl:url successBlock:^(id responseObj) {
-//        dataDictionary = [NSJSONSerialization JSONObjectWithData:responseObj options:0 error:nil];
-//        [self setTopArrayData:dataDictionary];
-//        NSLog(@"%@",dataDictionary);
-//        [self performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
-//    } errorBlock:^(NSError *error) {
-//        NSLog(@"%@",error);
-//        [self performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
-//    }];
-//}
+-(void)serverCall{
+    ServerAPIManager *server = [ServerAPIManager sharedinstance];
+    SFUserAccountManager *sf = [SFUserAccountManager sharedInstance];
+    NSString * url = [NSString stringWithFormat:@"%@%@",maiUrl,[sf.currentUserIdentity valueForKeyPath:@"userId"]];
+    [server getRequestwithUrl:url successBlock:^(id responseObj) {
+        dataDictionary = [NSJSONSerialization JSONObjectWithData:responseObj options:0 error:nil];
+        [self setTopArrayData:dataDictionary];
+        NSLog(@"%@",dataDictionary);
+        [self performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
+    } errorBlock:^(NSError *error) {
+        NSLog(@"%@",error);
+        [self performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
+    }];
+}
 
 -(void)setTopArrayData:(NSDictionary*)dic{
     if(dic&&dic[@"responseLines"][0]){
         NSDictionary *di = dic[@"responseLines"][0];
         kUserProfile = [[UserDetailsModel alloc]initWithDictionary:dic[@"responseLines"][0] error:nil];
-        
         NSString * port = kUserProfile.overallPortfolio;//[NSString stringWithFormat:@"%@",di[@"overallPortfolio"]];
         NSString * curent = kUserProfile.currentPortfolio;//[NSString stringWithFormat:@"%@",di[@"currentPortfolio"]];
-        [topCVArray addObject:@{@"key":overallPortofolio,@"value":port,@"image":@"1icon",}];
-        [topCVArray addObject:@{@"key":currentPortofolio,@"value":curent,@"image":@"2icon",}];
-        [topCVArray addObject:@{@"key":paymentsDue,@"value":@"125.52k",@"image":@"3icon",}];
-        [topCVArray addObject:@{@"key":openServiceRequests,@"value":@"",@"image":@"4icon"}];
+        [topCVArray addObject:@{@"key":[self setNillValue:overallPortofolio],@"value":[self setNillValue:port],@"image":@"1icon",}];
+        [topCVArray addObject:@{@"key":[self setNillValue:currentPortofolio],@"value":[self setNillValue:curent],@"image":@"2icon",}];
+        [topCVArray addObject:@{@"key":[self setNillValue:paymentsDue],@"value":@"125.52k",@"image":@"3icon",}];
+        [topCVArray addObject:@{@"key":[self setNillValue:openServiceRequests],@"value":@"",@"image":@"4icon"}];
         [_topCollectionView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
 //        [self.carousel performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
+    }else{
+        NSDictionary *di = dic[@"responseLines"][0];
+        kUserProfile = [[UserDetailsModel alloc]initWithDictionary:dic[@"responseLines"][0] error:nil];
+        NSString * port = kUserProfile.overallPortfolio;//[NSString stringWithFormat:@"%@",di[@"overallPortfolio"]];
+        NSString * curent = kUserProfile.currentPortfolio;//[NSString stringWithFormat:@"%@",di[@"currentPortfolio"]];
+        [topCVArray addObject:@{@"key":[self setNillValue:overallPortofolio],@"value":[self setNillValue:port],@"image":@"1icon",}];
+        [topCVArray addObject:@{@"key":[self setNillValue:currentPortofolio],@"value":[self setNillValue:curent],@"image":@"2icon",}];
+        [topCVArray addObject:@{@"key":[self setNillValue:paymentsDue],@"value":@"",@"image":@"3icon",}];
+        [topCVArray addObject:@{@"key":[self setNillValue:openServiceRequests],@"value":@"",@"image":@"4icon"}];
+        [_topCollectionView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
     }
 }
 -(void)dismissProgress{
@@ -296,7 +315,7 @@
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     if(collectionView == _topCollectionView){
-        return topCVArray.count;
+        return 4;
     }
     if (collectionView == _gridCollectionView)
     {
@@ -349,7 +368,14 @@
         [self.navigationController pushViewController:evc animated:YES];
     }
     if([str isEqualToString:kMyUnits]){
-       [self pushToTableView:kMyUnits];
+//       [self pushToTableView:kMyUnits];
+        UnitsTableViewController *uVC = [self.storyboard instantiateViewControllerWithIdentifier:@"unitsTableVC"];
+        uVC.serverUrlString = [unitsServiceUrl stringByAppendingString:@"1036240"];//[self returnNextScreenWebUrlBasedOnGridClick:kMyUnits];
+        [self.navigationController pushViewController:uVC animated:YES];
+//
+//        SampleTableViewController *uVC = [self.storyboard instantiateViewControllerWithIdentifier:@"sampleTableVC"];
+////        uVC.serverUrlString = [self returnNextScreenWebUrlBasedOnGridClick:kMyUnits];
+//        [self.navigationController pushViewController:uVC animated:YES];
     }
     if([str isEqualToString:kMyPaymentScedules]){
         [self pushToTableView:kMyPaymentScedules];
@@ -404,7 +430,7 @@
         return  CGSizeMake(collectionView.frame.size.width/4-10 , 130);
     }
     if(collectionView == _gridCollectionView){
-        return  CGSizeMake(collectionView.frame.size.width/2-10, 200);
+        return  CGSizeMake(collectionView.frame.size.width/2-10, 150);
     }
     return  CGSizeZero;
 }

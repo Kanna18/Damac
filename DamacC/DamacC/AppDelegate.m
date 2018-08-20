@@ -119,7 +119,7 @@ static NSString * const OAuthRedirectURI        = @"sfdc://success";
     /**Commented By Me****/
     
 //    [[UILabel appearance] setFont:[UIFont fontWithName:@"Helvetica Neuel" size:16]];
-    [[UILabel appearance] setTextColor:rgb(174, 134, 73)];
+//    [[UILabel appearance] setTextColor:rgb(174, 134, 73)];
 
     
     //Uncomment the code below to see how you can customize the color, textcolor, font and   fontsize of the navigation bar
@@ -205,12 +205,12 @@ static NSString * const OAuthRedirectURI        = @"sfdc://success";
         UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:key];
         navVC.navigationBar.hidden=YES;
         self.window.rootViewController = navVC;
-    }/*else if(defaultGetBool(kFingerPrintAvailabe)){
+    }else if(defaultGetBool(kFingerPrintAvailabe)){
         FingerPrintViewController *rootVC = [appStoryboard instantiateViewControllerWithIdentifier:@"fingerPrintVC"];
         UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:rootVC];
         navVC.navigationBar.hidden=YES;
         self.window.rootViewController = navVC;
-    }*/else if(!defaultGetBool(kFingerPrintAvailabe)){
+    }else if(!defaultGetBool(kFingerPrintAvailabe)){
         PasswordViewController *rootVC = [appStoryboard instantiateViewControllerWithIdentifier:@"passwordVC"];
         UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:rootVC];
         navVC.navigationBar.hidden=YES;

@@ -66,8 +66,9 @@
 }
 
 -(void)loadPinViews{
-    
-    mpin =[[PinView alloc]initWithFrame:CGRectMake(screen_width/2-130, screen_height/2-100, 0, 0)];
+//    288
+//    120
+    mpin =[[PinView alloc]initWithFrame:CGRectMake(screen_width/2-144, screen_height/2-120, 0, 0)];
     mpin.type = kenterMpin;
     mpin.pinheadingLabel.text = @"ENTER MPIN";
     [self.view addSubview:mpin];

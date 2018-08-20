@@ -33,7 +33,7 @@
     ServerAPIManager *server = [ServerAPIManager sharedinstance];
     SFUserAccountManager *sf = [SFUserAccountManager sharedInstance];
     NSString * url = [NSString stringWithFormat:@"%@%@",maiUrl,[sf.currentUserIdentity valueForKeyPath:@"userId"]];
-    [server getRequestwithUrl:url successBlock:^(id responseObj) {
+    [server getRequestwithUrl:url successBlock:^(id responseObj) {        
         [DamacSharedClass sharedInstance].firstDataObject = [NSJSONSerialization JSONObjectWithData:responseObj options:0 error:nil];
         [self setTopArrayData:[DamacSharedClass sharedInstance].firstDataObject];
     } errorBlock:^(NSError *error) {
@@ -55,6 +55,12 @@
         [topCVArray addObject:@{@"key":paymentsDue,@"value":@"125.52k",@"image":@"3icon",}];
         [topCVArray addObject:@{@"key":openServiceRequests,@"value":@"",@"image":@"4icon"}];
         //        [self.carousel performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
+        [self performSelectorOnMainThread:@selector(pustToVC) withObject:nil waitUntilDone:YES];
+    }else{
+        [topCVArray addObject:@{@"key":overallPortofolio,@"value":@"",@"image":@"1icon",}];
+        [topCVArray addObject:@{@"key":currentPortofolio,@"value":@"",@"image":@"2icon",}];
+        [topCVArray addObject:@{@"key":paymentsDue,@"value":@"",@"image":@"3icon",}];
+        [topCVArray addObject:@{@"key":openServiceRequests,@"value":@"",@"image":@"4icon"}];
         [self performSelectorOnMainThread:@selector(pustToVC) withObject:nil waitUntilDone:YES];
     }
 }

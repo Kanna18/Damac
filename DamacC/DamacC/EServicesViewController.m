@@ -7,6 +7,7 @@
 //
 
 #import "EServicesViewController.h"
+#import "POPViewController.h"
 
 @interface EServicesViewController ()
 
@@ -52,15 +53,38 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(collectionView == _gridCollectionView){
-        GridCollectionViewCell *cell = (GridCollectionViewCell*)[collectionView cellForItemAtIndexPath:indexPath];
-        NSString *str = cell.headingLabel.text;
-        if([str isEqualToString:kCod]||[str isEqualToString:kJointBuyerInfo]||[str isEqualToString:kPassportUpdate]){
-            MyServiceRequestViewController *evc =[ self.storyboard instantiateViewControllerWithIdentifier:@"myServicesRequestVC"];
-            evc.typeoFVC = kloadingFromCreateServices;
-            [self.navigationController pushViewController:evc animated:YES];
-        }
-        [self pushToCollection:str];
+//    if(collectionView == _gridCollectionView){
+//        GridCollectionViewCell *cell = (GridCollectionViewCell*)[collectionView cellForItemAtIndexPath:indexPath];
+//        NSString *str = cell.headingLabel.text;
+//        if([str isEqualToString:kCod]||[str isEqualToString:kJointBuyerInfo]||[str isEqualToString:kPassportUpdate]){
+//            MyServiceRequestViewController *evc =[ self.storyboard instantiateViewControllerWithIdentifier:@"myServicesRequestVC"];
+//            evc.typeoFVC = kloadingFromCreateServices;
+//            [self.navigationController pushViewController:evc animated:YES];
+//        }
+//        [self pushToCollection:str];
+//    }
+    switch (indexPath.row) {
+        case 0:
+            [self loadChangeOfContactDetails];
+            break;
+        case 1:
+            [self loadPassportUpdate];
+            break;
+        case 2:
+            [self loadJointBuyerinfo];
+            break;
+        case 3:
+            [self loadPOP];
+            break;
+        case 4:
+            [self loadAppointments];
+            break;
+        case 5:
+            [self loadComplaints];
+            break;
+            
+        default:
+            break;
     }
 }
 
@@ -86,6 +110,30 @@
 //        [self.navigationController pushViewController:rental animated:YES];
 //    }
 //
+}
+-(void)loadChangeOfContactDetails{
+    ChangeOfContactDetails *chd = [self.storyboard instantiateViewControllerWithIdentifier:@"changeOfContactsVC"];
+    [self.navigationController pushViewController:chd animated:YES];
+}
+-(void)loadPassportUpdate{
+    
+}
+-(void)loadJointBuyerinfo{
+    
+    RentalPoolViewCellViewController *rvc = [self.storyboard instantiateViewControllerWithIdentifier:@"rentalPoolViewCellVC"];
+    [self.navigationController pushViewController:rvc animated:YES];
+    
+}
+-(void)loadPOP{    
+    POPViewController *pop = [self.storyboard instantiateViewControllerWithIdentifier:@"popVC"];
+    [self.navigationController pushViewController:pop animated:YES];
+    
+}
+-(void)loadAppointments{
+    
+}
+-(void)loadComplaints{
+    
 }
 
 

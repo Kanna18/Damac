@@ -50,6 +50,8 @@
 
 #pragma mark Webservices
 #define maiUrl @"https://ptctest.damacgroup.com/DCOFFEE/force/userid/"
+#define unitsServiceUrl @"https://ptctest.damacgroup.com/DCOFFEE/registration/party/"
+
 #define myServicesUrl @"https://partial-servicecloudtrial-155c0807bf-1580afc5db1.cs80.force.com/MobileApp/services/apexrest/getCaseDetails/"
 #define getAppointments @"https://partial-servicecloudtrial-155c0807bf-1580afc5db1.cs80.force.com/MobileApp/services/apexrest/SendAppointmentsToMObileApp/"
 

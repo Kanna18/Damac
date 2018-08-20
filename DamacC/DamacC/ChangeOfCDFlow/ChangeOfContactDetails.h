@@ -16,5 +16,9 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 - (IBAction)saveDraftClick:(id)sender;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableViewHeight;
+
 - (IBAction)downloadFormClick:(id)sender;
+@property (weak, nonatomic) IBOutlet UIView *view1;
+@property (weak, nonatomic) IBOutlet UIView *view3;
+@property (weak, nonatomic) IBOutlet UIView *view2;
 @end

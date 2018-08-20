@@ -26,6 +26,13 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lkg-QV-aR9">
                             <rect key="frame" x="0.0" y="16" width="280" height="35"/>
                             <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m7H-eH-kfE">
+                                    <rect key="frame" x="0.0" y="28" width="280" height="20"/>
+                                    <color key="backgroundColor" red="0.74901960784313726" green="0.60392156862745094" blue="0.34509803921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="20" id="psm-5j-mEU"/>
+                                    </constraints>
+                                </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eav-3F-bZ1">
                                     <rect key="frame" x="37" y="3" width="72" height="29"/>
                                     <constraints>
@@ -38,7 +45,7 @@
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DnN-zq-Cma">
                                     <rect key="frame" x="259" y="-7" width="30" height="30"/>
-                                    <color key="backgroundColor" red="0.90196078431372551" green="0.75686274509803919" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="30" id="hxW-vo-7KW"/>
                                         <constraint firstAttribute="width" constant="30" id="p5g-ci-f3z"/>
@@ -54,11 +61,14 @@
                                     </userDefinedRuntimeAttributes>
                                 </button>
                             </subviews>
-                            <color key="backgroundColor" red="0.90196078430000004" green="0.75686274509999996" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" red="0.74901960784313726" green="0.60392156862745094" blue="0.34509803921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="DnN-zq-Cma" secondAttribute="trailing" constant="-9" id="6fe-dr-HoL"/>
                                 <constraint firstAttribute="height" constant="35" id="74V-4R-DRc"/>
+                                <constraint firstAttribute="bottom" secondItem="m7H-eH-kfE" secondAttribute="bottom" constant="-13" id="AAs-Jq-U1k"/>
+                                <constraint firstItem="m7H-eH-kfE" firstAttribute="leading" secondItem="Lkg-QV-aR9" secondAttribute="leading" id="Kag-pq-Lbm"/>
                                 <constraint firstItem="DnN-zq-Cma" firstAttribute="top" secondItem="Lkg-QV-aR9" secondAttribute="top" constant="-7" id="Q3U-rM-8iI"/>
+                                <constraint firstAttribute="trailing" secondItem="m7H-eH-kfE" secondAttribute="trailing" id="Ssw-sL-whB"/>
                                 <constraint firstItem="eav-3F-bZ1" firstAttribute="leading" secondItem="Lkg-QV-aR9" secondAttribute="leading" constant="37" id="V1u-X2-hRZ"/>
                                 <constraint firstAttribute="bottom" secondItem="eav-3F-bZ1" secondAttribute="bottom" constant="3" id="ZUj-Gv-ZO3"/>
                             </constraints>
@@ -74,7 +84,7 @@
                                 <constraint firstAttribute="height" constant="40" id="bYO-cb-DkO"/>
                             </constraints>
                             <state key="normal" title="SOA" image="radioYellow">
-                                <color key="titleColor" red="0.90196078430000004" green="0.75686274509999996" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="titleColor" red="0.74901960784313726" green="0.60392156862745094" blue="0.34509803921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
                                 <action selector="soaClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="HnS-bT-ZuD"/>
@@ -83,7 +93,7 @@
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XUa-4Z-Lg1">
                             <rect key="frame" x="20" y="130" width="260" height="40"/>
                             <state key="normal" title="Service Charges" image="radioYellow">
-                                <color key="titleColor" red="0.90196078430000004" green="0.75686274509999996" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="titleColor" red="0.74901960784313726" green="0.60392156862745094" blue="0.34509803921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
                                 <action selector="serviceChargesClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="pWf-U2-Rco"/>
@@ -92,7 +102,7 @@
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aqT-2f-5Fi">
                             <rect key="frame" x="20" y="180" width="260" height="40"/>
                             <state key="normal" title="Penalty Service Charges" image="radioYellow">
-                                <color key="titleColor" red="0.90196078430000004" green="0.75686274509999996" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="titleColor" red="0.74901960784313726" green="0.60392156862745094" blue="0.34509803921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
                                 <action selector="penalityClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="td8-DB-FHh"/>

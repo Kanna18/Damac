@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Montserrat-ExtraLight.ttf">
+            <string>Montserrat-ExtraLight</string>
+        </array>
+        <array key="Montserrat-Medium.ttf">
+            <string>Montserrat-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clipsSubviews="YES" contentMode="scaleToFill" id="iN0-l3-epB" customClass="UnitsHeaderView">
+            <rect key="frame" x="0.0" y="0.0" width="514" height="67"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oXC-Qy-Y7S">
+                    <rect key="frame" x="0.0" y="0.0" width="514" height="67"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oJW-c0-Ihf" customClass="unitsLabel">
+                            <rect key="frame" x="0.0" y="0.0" width="158" height="67"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="13"/>
+                            <color key="textColor" red="0.74901960784313726" green="0.60392156862745094" blue="0.34509803921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l6y-1r-pvK" customClass="unitsLabel">
+                            <rect key="frame" x="158" y="0.0" width="158" height="67"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="fontDescription" name="Montserrat-ExtraLight" family="Montserrat" pointSize="13"/>
+                            <color key="textColor" red="0.74901960784313726" green="0.60392156862745094" blue="0.34509803921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="co1-9i-dma" customClass="unitsLabel">
+                            <rect key="frame" x="316" y="0.0" width="158" height="67"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="fontDescription" name="Montserrat-ExtraLight" family="Montserrat" pointSize="13"/>
+                            <color key="textColor" red="0.74901960784313726" green="0.60392156862745094" blue="0.34509803921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GUZ-jR-LkB">
+                            <rect key="frame" x="474" y="0.0" width="40" height="67"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="40" id="WJg-3g-WrY"/>
+                            </constraints>
+                            <color key="tintColor" red="0.74117647058823533" green="0.59999999999999998" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <state key="normal" image="sideArrow">
+                                <color key="titleColor" red="0.74117647058823533" green="0.59999999999999998" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <state key="selected" image="downArrow"/>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="co1-9i-dma" firstAttribute="width" secondItem="oJW-c0-Ihf" secondAttribute="width" id="8as-eJ-sC0"/>
+                        <constraint firstItem="l6y-1r-pvK" firstAttribute="height" secondItem="oJW-c0-Ihf" secondAttribute="height" id="98f-l1-1dn"/>
+                        <constraint firstItem="l6y-1r-pvK" firstAttribute="width" secondItem="oJW-c0-Ihf" secondAttribute="width" id="Bx0-gN-dOD"/>
+                        <constraint firstItem="GUZ-jR-LkB" firstAttribute="height" secondItem="oJW-c0-Ihf" secondAttribute="height" id="Eyn-uJ-42X"/>
+                        <constraint firstItem="oJW-c0-Ihf" firstAttribute="leading" secondItem="oXC-Qy-Y7S" secondAttribute="leading" id="Lc1-bd-a7W"/>
+                        <constraint firstItem="co1-9i-dma" firstAttribute="height" secondItem="oJW-c0-Ihf" secondAttribute="height" id="bkK-XX-8S2"/>
+                        <constraint firstAttribute="bottom" secondItem="oJW-c0-Ihf" secondAttribute="bottom" id="d6U-mP-LKY"/>
+                        <constraint firstItem="oJW-c0-Ihf" firstAttribute="top" secondItem="oXC-Qy-Y7S" secondAttribute="top" id="hUD-pV-73s"/>
+                    </constraints>
+                </stackView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aYc-Vi-jEM">
+                    <rect key="frame" x="0.0" y="0.0" width="514" height="67"/>
+                    <connections>
+                        <action selector="buttonClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="Kn7-6y-R7b"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="aYc-Vi-jEM" secondAttribute="bottom" id="6XA-sv-v3m"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="aYc-Vi-jEM" secondAttribute="trailing" id="BzC-7C-b6p"/>
+                <constraint firstItem="aYc-Vi-jEM" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Qo5-lB-aCE"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="oXC-Qy-Y7S" secondAttribute="bottom" id="Rwy-xX-rXF"/>
+                <constraint firstItem="oXC-Qy-Y7S" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="cif-Aa-KLc"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="oXC-Qy-Y7S" secondAttribute="trailing" id="puV-Fo-1VI"/>
+                <constraint firstItem="aYc-Vi-jEM" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="t3W-q9-e0v"/>
+                <constraint firstItem="oXC-Qy-Y7S" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="xZb-n7-a93"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="button" destination="GUZ-jR-LkB" id="EOq-VI-jW3"/>
+                <outlet property="headerButton" destination="aYc-Vi-jEM" id="aBe-qd-JEn"/>
+                <outlet property="label1" destination="oJW-c0-Ihf" id="Xzt-3J-Aav"/>
+                <outlet property="label2" destination="l6y-1r-pvK" id="kcz-Nm-8Uo"/>
+                <outlet property="label3" destination="co1-9i-dma" id="Jbj-rP-CzN"/>
+            </connections>
+            <point key="canvasLocation" x="-5" y="36"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="downArrow" width="30" height="30"/>
+        <image name="sideArrow" width="30" height="30"/>
+    </resources>
+</document>

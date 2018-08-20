@@ -11,5 +11,6 @@
 @interface ChangeofContactCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *sideLabel;
+@property (weak, nonatomic) IBOutlet UILabel *subLabel;
 
 @end

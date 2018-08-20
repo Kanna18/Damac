@@ -28,8 +28,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 
-    _buttonsView.layer.borderWidth = 1.0f;
+    _buttonsView.layer.borderWidth = 2.0f;
     _buttonsView.layer.borderColor = rgb(174, 134, 73).CGColor;
+    _buttonsView.layer.cornerRadius = 5.0f;
     _tableView.delegate = self;
     _tableView.dataSource =self;
     [self webServiceCall];
@@ -44,20 +45,34 @@
         _buttonsView.hidden = YES;
     }
     del = (AppDelegate*)[UIApplication sharedApplication].delegate;
+
+
 }
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:YES];
+    CAGradientLayer *gradient = [CAGradientLayer layer];
+    gradient.frame = _bottomView.bounds;
+    gradient.colors = @[(id)[[UIColor blackColor] colorWithAlphaComponent:0.3].CGColor, (id)[UIColor blackColor].CGColor];
+//    gradient.colors = @[(id)[UIColor orangeColor].CGColor, (id)[UIColor whiteColor].CGColor, (id)[UIColor greenColor].CGColor];
+    [_bottomView.layer insertSublayer:gradient atIndex:0];
 //    [self dropMenu];
 }
-
+-(void)setSelecteStates:(UIButton*)btn{
+    
+    _btnAll.selected = NO;
+    _btnNew.selected = NO;
+    _btnDraft.selected = NO;
+    btn.selected = YES;
+}
 -(void)webServiceCall{
         ServerAPIManager *server = [ServerAPIManager sharedinstance];
-    NSArray *arrPa = @[@"Draft Request",@"Submitted",@"Working",/*@"Cancelled",*/@"New"];
-    NSString *sfAccountID = [DamacSharedClass sharedInstance].userProileModel.sfAccountId;
+    NSArray *arrPa = @[@"Draft Request",@"Submitted",@"Working",@"Cancelled",@"New"];
+    SFUserAccountManager *sf = [SFUserAccountManager sharedInstance];
+    NSString *sfAccountID = sf.currentUser.credentials.userId;
+    sfAccountID = sfAccountID ? sfAccountID : @"1036240";
     for (int iValue=0; iValue<arrPa.count; iValue++) {
-        [server postRequestwithUrl:myServicesUrl withParameters:@{@"accountId":sfAccountID,@"status":arrPa[iValue]} successBlock:^(id responseObj) {
-        
+        [server postRequestwithUrl:myServicesUrl withParameters:@{@"createdbyId":sfAccountID,@"status":arrPa[iValue]} successBlock:^(id responseObj) {
             NSArray *arr = [NSJSONSerialization JSONObjectWithData:responseObj options:0 error:nil];
             if(arr.count>0){
                 for (NSDictionary *dic in arr) {
@@ -174,14 +189,17 @@
 - (IBAction)newButtonClick:(id)sender {
     
     [self sortTvData:@[@"New"]];
+    [self setSelecteStates:(UIButton*)sender];
 }
 
 - (IBAction)draftClick:(id)sender {
     [self sortTvData:@[@"Draft Request"]];
+    [self setSelecteStates:(UIButton*)sender];
 }
 
 - (IBAction)allClick:(id)sender {
     [self sortTvData:@[@"Draft Request",@"Submitted",@"Working",@"Cancelled",@"New"]];
+    [self setSelecteStates:(UIButton*)sender];
 }
 
 -(void)sortTvData:(NSArray*)arr{

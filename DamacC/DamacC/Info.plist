@@ -37,7 +37,11 @@
 	<string>partial-servicecloudtrial-155c0807bf-1580afc5db1.cs80.force.com/MobileApp</string>
 	<key>UIAppFonts</key>
 	<array>
+		<string>Montserrat-ExtraLight.ttf</string>
+		<string>Montserrat-Medium.ttf</string>
+		<string>Montserrat-SemiBold.ttf</string>
 		<string>HelveticaDin.ttf</string>
+		<string>AG_Helvetica_Bold.ttf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>

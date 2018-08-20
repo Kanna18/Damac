@@ -189,29 +189,28 @@ static NSString *reuseCell = @"servicesCell";
     }
     
 }
-
--(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
- 
-//    UIImageView *imgVw = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"backgroundImage2"]];
-//    imgVw.frame = tableView.tableHeaderView.frame;
 //
-    UIView *imgVw =[[UIView alloc]init];
-    imgVw.frame = tableView.tableHeaderView.frame;
-    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    btn.frame = CGRectMake(10, 10, scr_width-20, 60);
-    [btn setTitle:self.typeOfvc forState:UIControlStateNormal];
-    btn.titleLabel.font = [UIFont fontWithName:@"Helvetica Neuel" size:16];
-    btn.titleLabel.textColor = rgb(174, 134, 73);
-    btn.backgroundColor = rgb(76, 97, 125);
-    btn.layer.cornerRadius = 10;
-    btn.layer.borderWidth = 1.0f;
-    btn.layer.borderColor =  rgb(174, 134, 73).CGColor;
-    [imgVw addSubview:btn];
-    return  imgVw;
-}
+//-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+//    
+////    UIImageView *imgVw = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"backgroundImage2"]];
+////    imgVw.frame = tableView.tableHeaderView.frame;
+//    UIView *imgVw =[[UIView alloc]init];
+//    imgVw.frame = tableView.tableHeaderView.frame;
+//    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+//    btn.frame = CGRectMake(10, 10, scr_width-20, 60);
+//    [btn setTitle:self.typeOfvc forState:UIControlStateNormal];
+//    btn.titleLabel.font = [UIFont fontWithName:@"Helvetica Neuel" size:16];
+//    btn.titleLabel.textColor = rgb(174, 134, 73);
+//    btn.backgroundColor = rgb(76, 97, 125);
+//    btn.layer.cornerRadius = 10;
+//    btn.layer.borderWidth = 1.0f;
+//    btn.layer.borderColor =  rgb(174, 134, 73).CGColor;
+//    [imgVw addSubview:btn];
+//    return  imgVw;
+//}
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return headerHeight;
+    return 0;
 }
 
 /*

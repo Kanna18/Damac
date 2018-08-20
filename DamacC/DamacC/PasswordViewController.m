@@ -34,6 +34,9 @@
     screen_width = [UIScreen mainScreen].bounds.size.width;
     screen_height = [UIScreen mainScreen].bounds.size.height;
     
+    _resetButton.layer.borderWidth = 1.0f;
+    _resetButton.layer.borderColor = rgb(191, 154, 88).CGColor;
+    
     [self loadPinViews];
     
     
@@ -41,13 +44,13 @@
 
 -(void)loadPinViews{
     
-    mpin =[[PinView alloc]initWithFrame:CGRectMake(screen_width/2-130, screen_height/2-70, 0, 0)];
+    mpin =[[PinView alloc]initWithFrame:CGRectMake(screen_width/2-144, screen_height/2-100, 0, 0)];
     mpin.type = kMPin;
     mpin.pinheadingLabel.text = @"SET MPIN";
     [self.view addSubview:mpin];
     
     
-    confirmPin = [[PinView alloc]initWithFrame:CGRectMake(screen_width/2-130, screen_height/2+30, 0, 0)];
+    confirmPin = [[PinView alloc]initWithFrame:CGRectMake(screen_width/2-144, screen_height/2+30, 0, 0)];
     confirmPin.type = kconfirmMpin;
     confirmPin.pinheadingLabel.text = @"CONFIRM MPIN";
     [self.view addSubview:confirmPin];

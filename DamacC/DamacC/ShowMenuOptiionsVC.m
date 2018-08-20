@@ -30,6 +30,9 @@
     _img4Label1.text = [_dataArray[3] valueForKey:@"value"];
     _img4Label2.text = [_dataArray[3] valueForKey:@"key"];
     
+    _skipButton.layer.cornerRadius = 20;
+    _skipButton.clipsToBounds =YES;
+    
 }
 
 - (void)didReceiveMemoryWarning {

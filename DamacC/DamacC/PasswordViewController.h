@@ -10,5 +10,6 @@
 
 
 @interface PasswordViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UIButton *resetButton;
 
 @end

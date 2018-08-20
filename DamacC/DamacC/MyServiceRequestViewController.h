@@ -20,7 +20,10 @@
 - (IBAction)draftClick:(id)sender;
 - (IBAction)allClick:(id)sender;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *heightConstraint;
-
+@property (weak, nonatomic) IBOutlet UIView *bottomView;
+@property (weak, nonatomic) IBOutlet UIButton *btnAll;
+@property (weak, nonatomic) IBOutlet UIButton *btnNew;
+@property (weak, nonatomic) IBOutlet UIButton *btnDraft;
 
 @property NSString *typeoFVC;
 @end

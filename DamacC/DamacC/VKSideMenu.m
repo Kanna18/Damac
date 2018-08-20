@@ -89,7 +89,7 @@
 {
     self.size                       = 220;
     self.direction                  = VKSideMenuDirectionFromLeft;
-    self.rowHeight                  = 70;
+    self.rowHeight                  = 44;
     self.enableOverlay              = YES;
     self.automaticallyDeselectRow   = YES;
     self.hideOnSelection            = YES;
@@ -167,24 +167,26 @@
     self.tableView.dataSource       = self;
 //    self.tableView.separatorColor   = [UIColor grayColor];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    self.tableView.backgroundColor  = [UIColor clearColor];
-    self.tableView.backgroundView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"colorBg"]];
+    self.tableView.backgroundView.backgroundColor = [UIColor blackColor]; //[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"colorBg"]];
     
     self.tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [self.view addSubview:self.tableView];
     
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([ProfileTableViewCell class]) bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"profileTableViewCell"];
+    
+    self.tableView.backgroundColor  = [UIColor blackColor];
+    self.view.backgroundColor = [UIColor blackColor];
 }
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     
     UIView *vw = [[UIView alloc]initWithFrame:CGRectZero];
-    vw.backgroundColor = rgb(174, 134, 73);
+    vw.backgroundColor = [UIColor lightGrayColor];//rgb(208, 199, 182);
     
     return vw;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 1;
+    return 0;
 }
 
 #pragma mark - Appearance
@@ -270,12 +272,12 @@
     {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
         
-        cell.backgroundColor = [UIColor clearColor];
+        cell.backgroundColor = [UIColor blackColor];
         UIView *bgColorView = [[UIView alloc] init];
         [bgColorView setBackgroundColor:self.selectionColor];
-        [cell setSelectedBackgroundView:bgColorView];
+//        [cell setSelectedBackgroundView:bgColorView];
     }
-    
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     VKSideMenuItem *item = [self.dataSource sideMenu:self itemForRowAtIndexPath:indexPath];
     
     CGFloat contentHeight = cell.frame.size.height * .8;
@@ -287,7 +289,8 @@
         
         if (!imageViewIcon)
         {
-            imageViewIcon = [[UIImageView alloc] initWithFrame:CGRectMake(12, contentTopBottomPadding, contentHeight, contentHeight)];
+//            imageViewIcon = [[UIImageView alloc] initWithFrame:CGRectMake(12, contentTopBottomPadding, contentHeight, contentHeight)];
+            imageViewIcon = [[UIImageView alloc] initWithFrame:CGRectMake(12, contentTopBottomPadding+5, 20, 20)];
             imageViewIcon.tag = 100;
             [cell.contentView addSubview:imageViewIcon];
         }
@@ -297,7 +300,7 @@
         if (self.iconsColor)
         {
             imageViewIcon.image = [imageViewIcon.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-            imageViewIcon.tintColor = rgb(174, 134, 73);
+            imageViewIcon.tintColor = rgb(208, 199, 182);
         }
     }
     
@@ -308,13 +311,13 @@
         CGFloat titleX = item.icon ? CGRectGetMaxX(imageViewIcon.frame) + 12 : 12;
         title = [[UILabel alloc] initWithFrame:CGRectMake(titleX, contentTopBottomPadding, cell.frame.size.width - titleX - 12, contentHeight)];
         title.tag  = 200;
-        title.font = [UIFont systemFontOfSize:17.0];
+        title.font = [UIFont systemFontOfSize:12.0];
         title.adjustsFontSizeToFitWidth = YES;
         [cell.contentView addSubview:title];
     }
     
     title.text      = item.title;
-    title.textColor = [UIColor brownColor];
+    title.textColor =rgb(191, 152, 88);
     
     return cell;
     }

@@ -24,8 +24,8 @@
     self=[super initWithFrame:frame];
     if(self){
         self=[[NSBundle mainBundle]loadNibNamed:@"PinView" owner:self options:nil][0];
-        frame.size.height = 80;
-        frame.size.width = 260;
+        frame.size.height = 100;
+        frame.size.width = 288;
         self.frame = frame;
         
         _pin_tf1.tag=100;
@@ -68,7 +68,7 @@
     NSRange rang = NSMakeRange(tf.tag-100, 1);
     
     [collectPin replaceCharactersInRange:rang withString:str];
-    if([collectPin stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==4){
+    if([collectPin stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==4&&![collectPin containsString:@"*"]){
         [collectPin stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         if([_type isEqualToString: kMPin]){
             defaultSet(collectPin, kMPin);
@@ -88,8 +88,10 @@
     NSInteger nextTag = textField.tag - 1;
     // Try to find next responder
     UIResponder* nextResponder = [textField.superview viewWithTag:nextTag];
-    if (! nextResponder)
+    if (! nextResponder){
         nextResponder = [textField.superview viewWithTag:1];
+        [textField resignFirstResponder];
+    }
     
     if (nextResponder)
         // Found next responder, so set it.
@@ -98,6 +100,7 @@
 }
 -(void)textFieldDidBeginEditing:(UITextField *)textField{
     textField.text=@"";
+    [collectPin replaceCharactersInRange:NSMakeRange(textField.tag-100, 1) withString:@"*"];
     
 //    [self getTheText:textField.text ofTf:textField];
     textField.layer.borderColor = rgb(35, 22, 35).CGColor;
@@ -109,7 +112,7 @@
 }
 
 -(void)roundRadius:(UITextField*)tf{
-    tf.layer.cornerRadius=20;
+    tf.layer.cornerRadius=tf.frame.size.height/2;
     tf.layer.borderWidth = 2.0f;
     tf.layer.borderColor = rgb(254, 0, 252).CGColor;
     tf.clipsToBounds=YES;

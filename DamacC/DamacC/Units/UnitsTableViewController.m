@@ -38,7 +38,12 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"UnitsCell" bundle:nil] forCellReuseIdentifier:@"unitsCell"];
     headerIndex = -1;
      [self webServiceCall];
-     [FTIndicator showProgressWithMessage:@"Fetching Units"];
+    
+    
+}
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:YES];
+    [[CustomBarOptions alloc]initWithNavItems:self.navigationItem noOfItems:2 navRef:self.navigationController withTitle:@"My Units"];
 
 }
 
@@ -132,6 +137,10 @@
 
 
 -(void)webServiceCall{
+    
+    if(!([DamacSharedClass sharedInstance].unitsArray.count>0))
+    {
+    [FTIndicator showProgressWithMessage:@"Fetching Units"];
     if(_serverUrlString.length>0){
         ServerAPIManager *server = [ServerAPIManager sharedinstance];
         [server getRequestwithUrl:_serverUrlString successBlock:^(id responseObj) {
@@ -144,7 +153,13 @@
             [FTIndicator performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
         }];
     }
-    [FTIndicator dismissProgress];
+    }
+    else{
+        tvArray = [DamacSharedClass sharedInstance].unitsArray;
+        [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
+    
+    }
+    [FTIndicator performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
 }
 
 
@@ -153,6 +168,8 @@
     NSError *err;
     unitsDM = [[UnitsDataModel alloc]initWithDictionary:dataDictionary error:&err];
     tvArray = unitsDM.responseLines;
+    
+    [DamacSharedClass sharedInstance].unitsArray = [[NSMutableArray alloc]initWithArray:tvArray];
     [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
     
 }

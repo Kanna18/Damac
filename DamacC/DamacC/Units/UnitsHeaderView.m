@@ -32,10 +32,10 @@
 - (IBAction)topButtonClick:(id)sender {
 }
 - (IBAction)buttonClick:(id)sender {
-    if(_button.isSelected){
-        _button.selected = NO;
-    }else{
-        _button.selected = YES;
-    }
+//    if(_button.isSelected){
+//        _button.selected = NO;
+//    }else{
+//        _button.selected = YES;
+//    }
 }
 @end

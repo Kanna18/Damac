@@ -8,6 +8,7 @@
 
 #import "ScheduleAppointmentsVC.h"
 #import "AppointmentsCell.h"
+#import "CreateAppointmentVC.h"
 
 @interface ScheduleAppointmentsVC ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -25,6 +26,18 @@ static NSString *reuseCell = @"appointmentsCell";
     _tableView.dataSource =self;
     tvArray = [[NSMutableArray alloc]init];
     [self webServiceCall];
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:YES];
+    
+    CAGradientLayer *gradient = [CAGradientLayer layer];
+    gradient.frame = _bottomView.bounds;
+    gradient.colors = @[(id)[[UIColor blackColor] colorWithAlphaComponent:0.3].CGColor, (id)[UIColor blackColor].CGColor];
+    //    gradient.colors = @[(id)[UIColor orangeColor].CGColor, (id)[UIColor whiteColor].CGColor, (id)[UIColor greenColor].CGColor];
+    [_bottomView.layer insertSublayer:gradient atIndex:0];
+
+    [[CustomBarOptions alloc]initWithNavItems:self.navigationItem noOfItems:2 navRef:self.navigationController withTitle:@"Appointment Details"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -79,7 +92,7 @@ static NSString *reuseCell = @"appointmentsCell";
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     
-    return 50;
+    return 5;
 }
 
 /*
@@ -92,4 +105,9 @@ static NSString *reuseCell = @"appointmentsCell";
 }
 */
 
+- (IBAction)createAppointmentClick:(id)sender {
+    
+    CreateAppointmentVC *cvc = [self.storyboard instantiateViewControllerWithIdentifier:@"createAppointmentVC"];
+    [self.navigationController pushViewController:cvc animated:YES];
+}
 @end

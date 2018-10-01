@@ -47,6 +47,6 @@
 #import "JointBView2.h"
 #import "ChangeOfContactDetails.h"
 #import "ChangeofContactCell.h"
-
+#import "BackgroundRequests.h"
 
 #endif /* PrefixHeader_pch */

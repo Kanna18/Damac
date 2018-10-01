@@ -23,6 +23,7 @@
         self.contentView.layer.cornerRadius = 10.0f;
         self.contentView.layer.borderWidth = 1.0f;
         self.contentView.layer.borderColor = rgb(174, 134, 73).CGColor;
+        
     }
     return self;
 }

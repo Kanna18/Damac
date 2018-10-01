@@ -22,7 +22,8 @@
 
 - (id)init {
     if (self = [super init]) {
-    
+        _sfidsForJointBuyersArray = [[NSMutableArray alloc]init];
+        _unitsArray = [[NSMutableArray alloc]init];
     }
     return self;
 }

@@ -23,6 +23,7 @@ static NSString *reuse = @"changeofdetailsCell";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.tablView.separatorColor = self.tablView.backgroundColor;
+
 }
 
 - (void)didReceiveMemoryWarning {

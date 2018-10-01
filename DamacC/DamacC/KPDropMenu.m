@@ -48,7 +48,7 @@
     _titleColor = rgb(174, 134, 73);
     _titleFontSize = 14.0;
     _itemHeight = 40.0;
-    _itemBackground = [[UIColor blackColor] colorWithAlphaComponent:0.4];
+    _itemBackground = [[UIColor blackColor] colorWithAlphaComponent:1];
     _itemTextColor = rgb(174, 134, 73);
     _itemFontSize = 14.0;
     _itemsFont = [UIFont fontWithName:@"Helvetica Neuel" size:14];
@@ -201,7 +201,6 @@
             if([_delegate respondsToSelector:@selector(didHide:)])
                 [_delegate didHide:self];
         }
-        
     }
 }
 

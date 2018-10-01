@@ -1,0 +1,16 @@
+ [
+  {"key":"Select Purpose", "value":["Select sub purpose"]},
+  {"key":"01-Handover-Normal", "value":["Select sub purpose","Key handover","Documentation","Unit Viewing"]},
+  {"key":"02-Handover -Early", "value":["Select sub purpose","Documentation & Cheque Submission"]},
+  {"key":"03-Property Resale", "value":["Select sub purpose", "Documentation Signing & NOC Collection"]},
+  {"key":"04-Statement/Billing Matters*", "value":["Select sub purpose","Invoices","Fees and Charges"] },
+  {"key":"05-Project Updates*", "value":["Select sub purpose", "Penalties Relates"]},
+  {"key":"06-Change Of Details", "value":["Select sub purpose"] },
+  {"key":"07-Additional Parking*", "value":["Select sub purpose"] },
+  {"key":"08-Rejected Units*", "value":["Select sub purpose"] },
+  {"key":"09-Rental Pool*", "value":["Select sub purpose"] },
+  {"key":"10-Title Deed*", "value":["Select sub purpose"] },
+  {"key":"11-Fund Transfer*", "value":["Select sub purpose"] },
+  {"key":"12-Cheque Collection*", "value":["Select sub purpose", "Cheque Collection"]},
+  {"key":"13-Payments*", "value":["Select sub purpose", "Payment Plan Related", "Payment", "Bounced Cheque"]}
+  ]

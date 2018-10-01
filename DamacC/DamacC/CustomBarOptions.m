@@ -8,12 +8,12 @@
 
 #import "CustomBarOptions.h"
 
-#define height 30
-#define width 30
+#define heig 30
+#define widt 30
 
 @implementation CustomBarOptions
 
-- (instancetype)initWithNavItems:(UINavigationItem*)nav noOfItems:(int)num
+- (instancetype)initWithNavItems:(UINavigationItem*)nav noOfItems:(int)num navRef:(UINavigationController*)navRef withTitle:(NSString*)title
 {
     self = [super init];
     if (self) {
@@ -25,6 +25,15 @@
         }
         nav.rightBarButtonItems = arr;
         
+//        if(bord){
+//            UIView *vw = [[UIView alloc]initWithFrame:CGRectMake(0, 44, [[UIScreen mainScreen] bounds].size.width, 1)];
+//            vw.backgroundColor = rgb(174, 134, 73);
+//            [navRef.navigationBar addSubview:vw];
+//        }else{
+//            UIView *vw = [[UIView alloc]initWithFrame:CGRectMake(0, 44, [[UIScreen mainScreen] bounds].size.width, 1)];
+//            vw.backgroundColor = [UIColor clearColor];
+//            [navRef.navigationBar addSubview:vw];
+//        }
         
 ////        UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ICON.png"]];
 ////        imageView.frame = CGRectMake(0, 0, 100, 30);
@@ -32,6 +41,16 @@
 //
 //        UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithCustomView:imageView];
 //        nav.leftBarButtonItem = barButtonItem;
+        navRef.navigationBar.topItem.title = title;
+        navRef.navigationBar.barTintColor = [UIColor blackColor];
+
+//        navRef.navigationBar.backItem.title = @"Changing ";
+//        for (NSString *fNam in [UIFont familyNames]) {
+//            NSLog(@"%@",fNam);
+//        }
+        [navRef.navigationBar setTitleTextAttributes:
+         @{NSForegroundColorAttributeName:rgb(191, 154, 88),
+           NSFontAttributeName:[UIFont fontWithName:@"Montserrat-Medium" size:15]}];
     }
     return self;
 }
@@ -39,7 +58,7 @@
 -(UIBarButtonItem*)customNavigationBarButtonsimageName:(NSString*)imgName{
     UIButton *home = [UIButton buttonWithType:UIButtonTypeSystem];
     [home setBackgroundImage:[UIImage imageNamed:imgName] forState:UIControlStateNormal];
-    home.frame = CGRectMake(0, 0, height, width);
+    home.frame = CGRectMake(0, 0, heig, widt);
     return [[UIBarButtonItem alloc]initWithCustomView:home];
 }
 

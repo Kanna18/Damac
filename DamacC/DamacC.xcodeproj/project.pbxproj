@@ -71,6 +71,34 @@
 		F6A87EE7209F214B008D34C5 /* DetailMyUnitsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A87EE6209F214B008D34C5 /* DetailMyUnitsViewController.m */; };
 		F6B31BDD20F094FB001A5144 /* MyServiceRequestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B31BDC20F094FB001A5144 /* MyServiceRequestViewController.m */; };
 		F6B31BE120F33328001A5144 /* ScheduleAppointmentsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B31BE020F33328001A5144 /* ScheduleAppointmentsVC.m */; };
+		F6C57C5621585C4900970DC3 /* PassportUpdateVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C57C5521585C4900970DC3 /* PassportUpdateVC.m */; };
+		F6C57C5A21585FD900970DC3 /* ChangeofContactCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C57C5921585FD900970DC3 /* ChangeofContactCell2.m */; };
+		F6C57C5D2158649F00970DC3 /* PassportCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C57C5C2158649E00970DC3 /* PassportCell1.m */; };
+		F6C57C60215864AA00970DC3 /* PassportCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C57C5F215864AA00970DC3 /* PassportCell2.m */; };
+		F6C57C63215864B600970DC3 /* PassportCell3.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C57C62215864B600970DC3 /* PassportCell3.m */; };
+		F6C57C662158687F00970DC3 /* PassportCellHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C57C652158687F00970DC3 /* PassportCellHeader.m */; };
+		F6C57C692158718500970DC3 /* PassportCellFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C57C682158718500970DC3 /* PassportCellFooter.m */; };
+		F6C57C6C2158B63B00970DC3 /* JointBuyersDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C57C6B2158B63B00970DC3 /* JointBuyersDetails.m */; };
+		F6C57C6F2158B76D00970DC3 /* BackgroundRequests.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C57C6E2158B76D00970DC3 /* BackgroundRequests.m */; };
+		F6C57C732158CD2400970DC3 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F6C57C712158CD2400970DC3 /* libxml2.tbd */; };
+		F6C57C742158CD2400970DC3 /* libxml2.2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F6C57C722158CD2400970DC3 /* libxml2.2.tbd */; };
+		F6C57C7A2158CE1800970DC3 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C57C772158CE1700970DC3 /* NSData+Base64.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F6C57C7B2158CE1800970DC3 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C57C792158CE1800970DC3 /* XPathQuery.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F6C57CA72158EE7400970DC3 /* Response.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C57C9E2158EE6D00970DC3 /* Response.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F6C57CA82158EE7400970DC3 /* WSAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C57CA02158EE6F00970DC3 /* WSAddress.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F6C57CA92158EE7400970DC3 /* WSPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C57CA22158EE7000970DC3 /* WSPerson.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F6C57CAA2158EE7400970DC3 /* Request.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C57CA32158EE7100970DC3 /* Request.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F6C57CAB2158EE7400970DC3 /* SampleService_Enums.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C57CA62158EE7300970DC3 /* SampleService_Enums.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F6C57CB02158EE7E00970DC3 /* SampleService.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C57CAC2158EE7C00970DC3 /* SampleService.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F6C57CB12158EE7E00970DC3 /* SampleServiceProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C57CAF2158EE7D00970DC3 /* SampleServiceProxy.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F6C57CB52158F1BD00970DC3 /* SaopServices.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C57CB42158F1BD00970DC3 /* SaopServices.m */; };
+		F6C57DCE215A1C3500970DC3 /* CreateAppointmentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C57DCD215A1C3500970DC3 /* CreateAppointmentVC.m */; };
+		F6C57DD0215A361C00970DC3 /* Appointments.json in Resources */ = {isa = PBXBuildFile; fileRef = F6C57DCF215A361B00970DC3 /* Appointments.json */; };
+		F6C57DD2215A388800970DC3 /* Complaints.json in Resources */ = {isa = PBXBuildFile; fileRef = F6C57DD1215A388800970DC3 /* Complaints.json */; };
+		F6C57E17215B03E000970DC3 /* WSLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C57E11215B03DE00970DC3 /* WSLabel.m */; };
+		F6C57E18215B03E000970DC3 /* WSEventView.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C57E13215B03DE00970DC3 /* WSEventView.m */; };
+		F6C57E19215B03E000970DC3 /* WSCalendarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6C57E14215B03DF00970DC3 /* WSCalendarView.xib */; };
+		F6C57E1A215B03E000970DC3 /* WSCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C57E16215B03DF00970DC3 /* WSCalendarView.m */; };
 		F6C942B720E9C6D700D1F40C /* floatTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C942B220E9C6D300D1F40C /* floatTableViewCell.m */; };
 		F6C942B820E9C6D700D1F40C /* VCFloatingActionButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C942B520E9C6D500D1F40C /* VCFloatingActionButton.m */; };
 		F6C942B920E9C6D700D1F40C /* floatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6C942B620E9C6D600D1F40C /* floatTableViewCell.xib */; };
@@ -226,6 +254,57 @@
 		F6B31BDC20F094FB001A5144 /* MyServiceRequestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyServiceRequestViewController.m; sourceTree = "<group>"; };
 		F6B31BDF20F33328001A5144 /* ScheduleAppointmentsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScheduleAppointmentsVC.h; sourceTree = "<group>"; };
 		F6B31BE020F33328001A5144 /* ScheduleAppointmentsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScheduleAppointmentsVC.m; sourceTree = "<group>"; };
+		F6C57C5421585C4900970DC3 /* PassportUpdateVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PassportUpdateVC.h; sourceTree = "<group>"; };
+		F6C57C5521585C4900970DC3 /* PassportUpdateVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PassportUpdateVC.m; sourceTree = "<group>"; };
+		F6C57C5821585FD900970DC3 /* ChangeofContactCell2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangeofContactCell2.h; sourceTree = "<group>"; };
+		F6C57C5921585FD900970DC3 /* ChangeofContactCell2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangeofContactCell2.m; sourceTree = "<group>"; };
+		F6C57C5B2158649E00970DC3 /* PassportCell1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PassportCell1.h; sourceTree = "<group>"; };
+		F6C57C5C2158649E00970DC3 /* PassportCell1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PassportCell1.m; sourceTree = "<group>"; };
+		F6C57C5E215864AA00970DC3 /* PassportCell2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PassportCell2.h; sourceTree = "<group>"; };
+		F6C57C5F215864AA00970DC3 /* PassportCell2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PassportCell2.m; sourceTree = "<group>"; };
+		F6C57C61215864B600970DC3 /* PassportCell3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PassportCell3.h; sourceTree = "<group>"; };
+		F6C57C62215864B600970DC3 /* PassportCell3.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PassportCell3.m; sourceTree = "<group>"; };
+		F6C57C642158687F00970DC3 /* PassportCellHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PassportCellHeader.h; sourceTree = "<group>"; };
+		F6C57C652158687F00970DC3 /* PassportCellHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PassportCellHeader.m; sourceTree = "<group>"; };
+		F6C57C672158718500970DC3 /* PassportCellFooter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PassportCellFooter.h; sourceTree = "<group>"; };
+		F6C57C682158718500970DC3 /* PassportCellFooter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PassportCellFooter.m; sourceTree = "<group>"; };
+		F6C57C6A2158B63B00970DC3 /* JointBuyersDetails.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JointBuyersDetails.h; sourceTree = "<group>"; };
+		F6C57C6B2158B63B00970DC3 /* JointBuyersDetails.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JointBuyersDetails.m; sourceTree = "<group>"; };
+		F6C57C6D2158B76D00970DC3 /* BackgroundRequests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BackgroundRequests.h; sourceTree = "<group>"; };
+		F6C57C6E2158B76D00970DC3 /* BackgroundRequests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BackgroundRequests.m; sourceTree = "<group>"; };
+		F6C57C712158CD2400970DC3 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
+		F6C57C722158CD2400970DC3 /* libxml2.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.2.tbd; path = usr/lib/libxml2.2.tbd; sourceTree = SDKROOT; };
+		F6C57C762158CE1700970DC3 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
+		F6C57C772158CE1700970DC3 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
+		F6C57C782158CE1700970DC3 /* XPathQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPathQuery.h; sourceTree = "<group>"; };
+		F6C57C792158CE1800970DC3 /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPathQuery.m; sourceTree = "<group>"; };
+		F6C57C9D2158EE6D00970DC3 /* Request.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Request.h; sourceTree = "<group>"; };
+		F6C57C9E2158EE6D00970DC3 /* Response.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Response.m; sourceTree = "<group>"; };
+		F6C57C9F2158EE6E00970DC3 /* WSAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSAddress.h; sourceTree = "<group>"; };
+		F6C57CA02158EE6F00970DC3 /* WSAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSAddress.m; sourceTree = "<group>"; };
+		F6C57CA12158EE7000970DC3 /* WSPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSPerson.h; sourceTree = "<group>"; };
+		F6C57CA22158EE7000970DC3 /* WSPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSPerson.m; sourceTree = "<group>"; };
+		F6C57CA32158EE7100970DC3 /* Request.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Request.m; sourceTree = "<group>"; };
+		F6C57CA42158EE7100970DC3 /* SampleService_Enums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleService_Enums.h; sourceTree = "<group>"; };
+		F6C57CA52158EE7200970DC3 /* Response.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Response.h; sourceTree = "<group>"; };
+		F6C57CA62158EE7300970DC3 /* SampleService_Enums.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleService_Enums.m; sourceTree = "<group>"; };
+		F6C57CAC2158EE7C00970DC3 /* SampleService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleService.m; sourceTree = "<group>"; };
+		F6C57CAD2158EE7C00970DC3 /* SampleService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleService.h; sourceTree = "<group>"; };
+		F6C57CAE2158EE7D00970DC3 /* SampleServiceProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleServiceProxy.h; sourceTree = "<group>"; };
+		F6C57CAF2158EE7D00970DC3 /* SampleServiceProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleServiceProxy.m; sourceTree = "<group>"; };
+		F6C57CB32158F1BD00970DC3 /* SaopServices.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SaopServices.h; sourceTree = "<group>"; };
+		F6C57CB42158F1BD00970DC3 /* SaopServices.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SaopServices.m; sourceTree = "<group>"; };
+		F6C57DCC215A1C3500970DC3 /* CreateAppointmentVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateAppointmentVC.h; sourceTree = "<group>"; };
+		F6C57DCD215A1C3500970DC3 /* CreateAppointmentVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreateAppointmentVC.m; sourceTree = "<group>"; };
+		F6C57DCF215A361B00970DC3 /* Appointments.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Appointments.json; sourceTree = "<group>"; };
+		F6C57DD1215A388800970DC3 /* Complaints.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Complaints.json; sourceTree = "<group>"; };
+		F6C57E10215B03DD00970DC3 /* WSLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSLabel.h; sourceTree = "<group>"; };
+		F6C57E11215B03DE00970DC3 /* WSLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSLabel.m; sourceTree = "<group>"; };
+		F6C57E12215B03DE00970DC3 /* WSCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSCalendarView.h; sourceTree = "<group>"; };
+		F6C57E13215B03DE00970DC3 /* WSEventView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSEventView.m; sourceTree = "<group>"; };
+		F6C57E14215B03DF00970DC3 /* WSCalendarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WSCalendarView.xib; sourceTree = "<group>"; };
+		F6C57E15215B03DF00970DC3 /* WSEventView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSEventView.h; sourceTree = "<group>"; };
+		F6C57E16215B03DF00970DC3 /* WSCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSCalendarView.m; sourceTree = "<group>"; };
 		F6C942B220E9C6D300D1F40C /* floatTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = floatTableViewCell.m; sourceTree = "<group>"; };
 		F6C942B320E9C6D300D1F40C /* floatTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = floatTableViewCell.h; sourceTree = "<group>"; };
 		F6C942B420E9C6D400D1F40C /* VCFloatingActionButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCFloatingActionButton.h; sourceTree = "<group>"; };
@@ -280,6 +359,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6C57C732158CD2400970DC3 /* libxml2.tbd in Frameworks */,
+				F6C57C742158CD2400970DC3 /* libxml2.2.tbd in Frameworks */,
 				F6D91E3A20994A5D00DA1428 /* LocalAuthentication.framework in Frameworks */,
 				28AC5A96FAEA6FBBB6A7164F /* libPods-DamacC.a in Frameworks */,
 			);
@@ -311,6 +392,8 @@
 		4F8D5E9F1B6C0568005E64D4 /* DamacC */ = {
 			isa = PBXGroup;
 			children = (
+				F6C57E1B215B03E700970DC3 /* WSCalendar */,
+				F6C57C752158CE0B00970DC3 /* XMLServices */,
 				F67EB5E3212521AE0011AB64 /* Fonts */,
 				4FF12F911DCA9E6B004D9EF9 /* DamacC.entitlements */,
 				4F8D5ECC1B6C1021005E64D4 /* Classes */,
@@ -354,6 +437,8 @@
 				4F8D5EA51B6C0568005E64D4 /* AppDelegate.m */,
 				F6A87ECD209BFC7F008D34C5 /* ServicesTableViewController.h */,
 				F6A87ECE209BFC7F008D34C5 /* ServicesTableViewController.m */,
+				F6C57C6D2158B76D00970DC3 /* BackgroundRequests.h */,
+				F6C57C6E2158B76D00970DC3 /* BackgroundRequests.m */,
 				F6CB3FBC20EA9A0800D290A6 /* Profile */,
 				F622C29520B3B1EC007982AE /* ChangeOfDetails */,
 				F6E8321820AD11070003DC5E /* EServicesViewController.h */,
@@ -373,6 +458,8 @@
 		7E50A237DDCEAAC2CF458C8C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F6C57C722158CD2400970DC3 /* libxml2.2.tbd */,
+				F6C57C712158CD2400970DC3 /* libxml2.tbd */,
 				F6D91E3920994A5D00DA1428 /* LocalAuthentication.framework */,
 				780B86EE1A0C088A18976D02 /* libPods-DamacC.a */,
 			);
@@ -396,6 +483,8 @@
 				F6170A662101DBFE003443B1 /* AppointmentsDataModel.m */,
 				F62641B72105B9670022C4DC /* ServicesSRDetails.h */,
 				F62641B82105B9670022C4DC /* ServicesSRDetails.m */,
+				F6C57C6A2158B63B00970DC3 /* JointBuyersDetails.h */,
+				F6C57C6B2158B63B00970DC3 /* JointBuyersDetails.m */,
 			);
 			name = DataModel;
 			sourceTree = "<group>";
@@ -469,6 +558,8 @@
 				F6264265211487AB0022C4DC /* ChangeOfContactDetails.m */,
 				F626426721148D7B0022C4DC /* ChangeofContactCell.h */,
 				F626426821148D7B0022C4DC /* ChangeofContactCell.m */,
+				F6C57C5821585FD900970DC3 /* ChangeofContactCell2.h */,
+				F6C57C5921585FD900970DC3 /* ChangeofContactCell2.m */,
 			);
 			path = ChangeOfCDFlow;
 			sourceTree = "<group>";
@@ -588,6 +679,7 @@
 				F6B31BDC20F094FB001A5144 /* MyServiceRequestViewController.m */,
 				F6170A5F20FF9DB3003443B1 /* ServicesDetailController.h */,
 				F6170A6020FF9DB3003443B1 /* ServicesDetailController.m */,
+				F6C57C5721585C5500970DC3 /* PassportUpdateFlow */,
 				F6E8D4DE2119CB260063CC16 /* Units */,
 				F6A8667D211A880900560CD5 /* POPFlow */,
 				F6264263211485A80022C4DC /* ChangeOfCDFlow */,
@@ -604,8 +696,96 @@
 				F6B31BE020F33328001A5144 /* ScheduleAppointmentsVC.m */,
 				F6170A622100692E003443B1 /* AppointmentsCell.h */,
 				F6170A632100692E003443B1 /* AppointmentsCell.m */,
+				F6C57DCC215A1C3500970DC3 /* CreateAppointmentVC.h */,
+				F6C57DCD215A1C3500970DC3 /* CreateAppointmentVC.m */,
+				F6C57DCF215A361B00970DC3 /* Appointments.json */,
+				F6C57DD1215A388800970DC3 /* Complaints.json */,
 			);
 			name = ScheduleAppointments;
+			sourceTree = "<group>";
+		};
+		F6C57C5721585C5500970DC3 /* PassportUpdateFlow */ = {
+			isa = PBXGroup;
+			children = (
+				F6C57C5421585C4900970DC3 /* PassportUpdateVC.h */,
+				F6C57C5521585C4900970DC3 /* PassportUpdateVC.m */,
+				F6C57C5B2158649E00970DC3 /* PassportCell1.h */,
+				F6C57C5C2158649E00970DC3 /* PassportCell1.m */,
+				F6C57C5E215864AA00970DC3 /* PassportCell2.h */,
+				F6C57C5F215864AA00970DC3 /* PassportCell2.m */,
+				F6C57C61215864B600970DC3 /* PassportCell3.h */,
+				F6C57C62215864B600970DC3 /* PassportCell3.m */,
+				F6C57C642158687F00970DC3 /* PassportCellHeader.h */,
+				F6C57C652158687F00970DC3 /* PassportCellHeader.m */,
+				F6C57C672158718500970DC3 /* PassportCellFooter.h */,
+				F6C57C682158718500970DC3 /* PassportCellFooter.m */,
+			);
+			path = PassportUpdateFlow;
+			sourceTree = "<group>";
+		};
+		F6C57C752158CE0B00970DC3 /* XMLServices */ = {
+			isa = PBXGroup;
+			children = (
+				F6C57C762158CE1700970DC3 /* NSData+Base64.h */,
+				F6C57C772158CE1700970DC3 /* NSData+Base64.m */,
+				F6C57C782158CE1700970DC3 /* XPathQuery.h */,
+				F6C57C792158CE1800970DC3 /* XPathQuery.m */,
+				F6C57CB22158F1A000970DC3 /* SoapServices */,
+				F6C57C9A2158EBFD00970DC3 /* WSClasses */,
+				F6C57C872158EBB000970DC3 /* SampleService */,
+			);
+			name = XMLServices;
+			sourceTree = "<group>";
+		};
+		F6C57C872158EBB000970DC3 /* SampleService */ = {
+			isa = PBXGroup;
+			children = (
+				F6C57CAD2158EE7C00970DC3 /* SampleService.h */,
+				F6C57CAC2158EE7C00970DC3 /* SampleService.m */,
+				F6C57CAE2158EE7D00970DC3 /* SampleServiceProxy.h */,
+				F6C57CAF2158EE7D00970DC3 /* SampleServiceProxy.m */,
+			);
+			path = SampleService;
+			sourceTree = "<group>";
+		};
+		F6C57C9A2158EBFD00970DC3 /* WSClasses */ = {
+			isa = PBXGroup;
+			children = (
+				F6C57C9D2158EE6D00970DC3 /* Request.h */,
+				F6C57CA32158EE7100970DC3 /* Request.m */,
+				F6C57CA52158EE7200970DC3 /* Response.h */,
+				F6C57C9E2158EE6D00970DC3 /* Response.m */,
+				F6C57CA42158EE7100970DC3 /* SampleService_Enums.h */,
+				F6C57CA62158EE7300970DC3 /* SampleService_Enums.m */,
+				F6C57C9F2158EE6E00970DC3 /* WSAddress.h */,
+				F6C57CA02158EE6F00970DC3 /* WSAddress.m */,
+				F6C57CA12158EE7000970DC3 /* WSPerson.h */,
+				F6C57CA22158EE7000970DC3 /* WSPerson.m */,
+			);
+			path = WSClasses;
+			sourceTree = "<group>";
+		};
+		F6C57CB22158F1A000970DC3 /* SoapServices */ = {
+			isa = PBXGroup;
+			children = (
+				F6C57CB32158F1BD00970DC3 /* SaopServices.h */,
+				F6C57CB42158F1BD00970DC3 /* SaopServices.m */,
+			);
+			name = SoapServices;
+			sourceTree = "<group>";
+		};
+		F6C57E1B215B03E700970DC3 /* WSCalendar */ = {
+			isa = PBXGroup;
+			children = (
+				F6C57E12215B03DE00970DC3 /* WSCalendarView.h */,
+				F6C57E16215B03DF00970DC3 /* WSCalendarView.m */,
+				F6C57E14215B03DF00970DC3 /* WSCalendarView.xib */,
+				F6C57E15215B03DF00970DC3 /* WSEventView.h */,
+				F6C57E13215B03DE00970DC3 /* WSEventView.m */,
+				F6C57E10215B03DD00970DC3 /* WSLabel.h */,
+				F6C57E11215B03DE00970DC3 /* WSLabel.m */,
+			);
+			name = WSCalendar;
 			sourceTree = "<group>";
 		};
 		F6C942BA20E9C6DE00D1F40C /* VCFloatingActionButton */ = {
@@ -779,6 +959,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6CB3FD120EB753500D290A6 /* collapsed.png in Resources */,
+				F6C57DD0215A361C00970DC3 /* Appointments.json in Resources */,
 				F62641FA210EFE640022C4DC /* CustomBar.xib in Resources */,
 				F62641F4210EFA5B0022C4DC /* settingsicon.png in Resources */,
 				F6CB3FC720EB546400D290A6 /* HelveticaDin.ttf in Resources */,
@@ -788,11 +969,13 @@
 				F626425C211432AA0022C4DC /* JointBView2.xib in Resources */,
 				F686160A20962229002EA241 /* PinView.xib in Resources */,
 				F610E8C02121FBD500B09A5B /* UnitsHeaderView.xib in Resources */,
+				F6C57E19215B03E000970DC3 /* WSCalendarView.xib in Resources */,
 				F67EB5E8212521D50011AB64 /* Montserrat-Medium.ttf in Resources */,
 				F6264200211320360022C4DC /* StepperAnimation.xib in Resources */,
 				F63FCF0420F87E520027FEA8 /* CustomViewCarousel.xib in Resources */,
 				F67EB5EB212521D50011AB64 /* Montserrat-ExtraLight.ttf in Resources */,
 				F626426221143C050022C4DC /* JointView1.xib in Resources */,
+				F6C57DD2215A388800970DC3 /* Complaints.json in Resources */,
 				F6264233211404B20022C4DC /* NewStoryboard.storyboard in Resources */,
 				F6CB3FD220EB753500D290A6 /* expanded.png in Resources */,
 				B7168FBA1FACC5D900A48DB5 /* LaunchScreen.storyboard in Resources */,
@@ -855,6 +1038,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6C57CB52158F1BD00970DC3 /* SaopServices.m in Sources */,
 				F62642032113204B0022C4DC /* StepperAnimation.m in Sources */,
 				F6CB3FC320EB291600D290A6 /* DamacSharedClass.m in Sources */,
 				F686165620985841002EA241 /* DamacC-Bridging-Header.h in Sources */,
@@ -865,15 +1049,22 @@
 				F6A86689211A9B5900560CD5 /* PopCell3.m in Sources */,
 				F626420A211361880022C4DC /* StepperView.m in Sources */,
 				F6D91E412099740400DA1428 /* VKSideMenu.m in Sources */,
+				F6C57CAB2158EE7400970DC3 /* SampleService_Enums.m in Sources */,
+				F6C57CA92158EE7400970DC3 /* WSPerson.m in Sources */,
+				F6C57CB12158EE7E00970DC3 /* SampleServiceProxy.m in Sources */,
 				F6B31BE120F33328001A5144 /* ScheduleAppointmentsVC.m in Sources */,
 				F6170A5D20FCC6ED003443B1 /* MyServicesDataModel.m in Sources */,
 				F6E8321A20AD11070003DC5E /* EServicesViewController.m in Sources */,
 				4F8D5EA31B6C0568005E64D4 /* main.m in Sources */,
 				F63FCF0220F87E3A0027FEA8 /* CustomViewCarousel.m in Sources */,
 				F6D91E4720997AEA00DA1428 /* MainViewController.m in Sources */,
+				F6C57C5A21585FD900970DC3 /* ChangeofContactCell2.m in Sources */,
+				F6C57E1A215B03E000970DC3 /* WSCalendarView.m in Sources */,
 				F6A87ECF209BFC7F008D34C5 /* ServicesTableViewController.m in Sources */,
 				F62641F8210EFE580022C4DC /* CustomBar.m in Sources */,
 				F6E8D4DD2119CB1A0063CC16 /* UnitsTableViewController.m in Sources */,
+				F6C57CB02158EE7E00970DC3 /* SampleService.m in Sources */,
+				F6C57E18215B03E000970DC3 /* WSEventView.m in Sources */,
 				F6FA5B7A2099BC6F009A8F15 /* GridCollectionViewCell.m in Sources */,
 				F63FCEFE20F782E70027FEA8 /* iCarousel.m in Sources */,
 				F6FA5B772099BC64009A8F15 /* TopCollectionCell.m in Sources */,
@@ -881,9 +1072,15 @@
 				F6A86680211A884800560CD5 /* POPViewController.m in Sources */,
 				F6132E0D20A7E2E900FEEEBE /* ProfileTableViewCell.m in Sources */,
 				4F8D5ECB1B6C0FE4005E64D4 /* RootViewController.m in Sources */,
+				F6C57CA82158EE7400970DC3 /* WSAddress.m in Sources */,
+				F6C57C6C2158B63B00970DC3 /* JointBuyersDetails.m in Sources */,
+				F6C57E17215B03E000970DC3 /* WSLabel.m in Sources */,
+				F6C57CAA2158EE7400970DC3 /* Request.m in Sources */,
 				F6CB3FD720EB754100D290A6 /* ViewControllerCell.m in Sources */,
 				F6CB3FBF20EB214F00D290A6 /* ReceiptDataModel.m in Sources */,
 				F6CB3FD820EB754100D290A6 /* ViewControllerCellHeader.m in Sources */,
+				F6C57C6F2158B76D00970DC3 /* BackgroundRequests.m in Sources */,
+				F6C57CA72158EE7400970DC3 /* Response.m in Sources */,
 				F698216820ED49A400D023AF /* CustomBarOptions.m in Sources */,
 				F6A87EE4209F1B84008D34C5 /* ChangeofDetailsViewController.m in Sources */,
 				4F8D5EC81B6C0F94005E64D4 /* InitialViewController.m in Sources */,
@@ -892,16 +1089,20 @@
 				F622C29420B3B1E3007982AE /* ChangeofDetailsCell.m in Sources */,
 				F6170A672101DBFE003443B1 /* AppointmentsDataModel.m in Sources */,
 				F610E8BD2121FBC900B09A5B /* UnitsCell.m in Sources */,
+				F6C57DCE215A1C3500970DC3 /* CreateAppointmentVC.m in Sources */,
 				F626426021143BE20022C4DC /* JointView1.m in Sources */,
 				F686160820962209002EA241 /* PinView.m in Sources */,
 				F6CB3FBB20EA9A0000D290A6 /* ProfileViewController.m in Sources */,
 				F610E8CD2121FE5700B09A5B /* SampleTableViewController.m in Sources */,
+				F6C57C692158718500970DC3 /* PassportCellFooter.m in Sources */,
 				F6E8D4D421192B570063CC16 /* ShowMenuOptiionsVC.m in Sources */,
+				F6C57C5621585C4900970DC3 /* PassportUpdateVC.m in Sources */,
 				F6A87EE0209F0B53008D34C5 /* KPDropMenu.m in Sources */,
 				F626420D211367BC0022C4DC /* JointBView2.m in Sources */,
 				F698216D20EDC1CB00D023AF /* UserDetailsModel.m in Sources */,
 				F62641B92105B9670022C4DC /* ServicesSRDetails.m in Sources */,
 				F6E8321520AD07C40003DC5E /* PrintDocView.m in Sources */,
+				F6C57C7B2158CE1800970DC3 /* XPathQuery.m in Sources */,
 				F63FCF1B20FBCD0B0027FEA8 /* PaymentsCell.m in Sources */,
 				F60164F320ABF36F00E07510 /* PaymentsDataModel.m in Sources */,
 				F6170A642100692E003443B1 /* AppointmentsCell.m in Sources */,
@@ -909,8 +1110,12 @@
 				F626426921148D7B0022C4DC /* ChangeofContactCell.m in Sources */,
 				F6B31BDD20F094FB001A5144 /* MyServiceRequestViewController.m in Sources */,
 				F6264266211487AB0022C4DC /* ChangeOfContactDetails.m in Sources */,
+				F6C57C662158687F00970DC3 /* PassportCellHeader.m in Sources */,
+				F6C57C60215864AA00970DC3 /* PassportCell2.m in Sources */,
 				F6C942B720E9C6D700D1F40C /* floatTableViewCell.m in Sources */,
 				F6A87ECC209BFB87008D34C5 /* RentalPoolViewCellViewController.m in Sources */,
+				F6C57C7A2158CE1800970DC3 /* NSData+Base64.m in Sources */,
+				F6C57C63215864B600970DC3 /* PassportCell3.m in Sources */,
 				F62F4B0D20A942F200EB5C9A /* ServerAPIManager.m in Sources */,
 				F6CB3FCD20EB74E500D290A6 /* BillingViewController.m in Sources */,
 				F610E8D2212203DA00B09A5B /* unitsLabel.m in Sources */,
@@ -919,6 +1124,7 @@
 				F6FA5B7020999E31009A8F15 /* FingerPrintViewController.m in Sources */,
 				F6A86686211A9B4A00560CD5 /* PopCell2.m in Sources */,
 				F610E8BE2121FBC900B09A5B /* UnitsHeaderView.m in Sources */,
+				F6C57C5D2158649F00970DC3 /* PassportCell1.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1039,6 +1245,21 @@
 					"$(PROJECT_DIR)",
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/PrefixHeader.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/CocoaLumberjack\"",
+					"\"${PODS_ROOT}/Headers/Public/FMDB\"",
+					"\"${PODS_ROOT}/Headers/Public/FTIndicator\"",
+					"\"${PODS_ROOT}/Headers/Public/JSONModel\"",
+					"\"${PODS_ROOT}/Headers/Public/SQLCipher\"",
+					"\"${PODS_ROOT}/Headers/Public/SalesforceAnalytics\"",
+					"\"${PODS_ROOT}/Headers/Public/SalesforceSDKCore\"",
+					"\"${PODS_ROOT}/Headers/Public/SmartStore\"",
+					"\"${PODS_ROOT}/Headers/Public/SmartSync\"",
+					"$(SDK_DIR)\"/usr/include/libxml2",
+				);
 				INFOPLIST_FILE = DamacC/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1081,6 +1302,21 @@
 					"$(PROJECT_DIR)",
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/PrefixHeader.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/CocoaLumberjack\"",
+					"\"${PODS_ROOT}/Headers/Public/FMDB\"",
+					"\"${PODS_ROOT}/Headers/Public/FTIndicator\"",
+					"\"${PODS_ROOT}/Headers/Public/JSONModel\"",
+					"\"${PODS_ROOT}/Headers/Public/SQLCipher\"",
+					"\"${PODS_ROOT}/Headers/Public/SalesforceAnalytics\"",
+					"\"${PODS_ROOT}/Headers/Public/SalesforceSDKCore\"",
+					"\"${PODS_ROOT}/Headers/Public/SmartStore\"",
+					"\"${PODS_ROOT}/Headers/Public/SmartSync\"",
+					"$(SDK_DIR)\"/usr/include/libxml2",
+				);
 				INFOPLIST_FILE = DamacC/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

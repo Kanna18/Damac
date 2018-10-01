@@ -15,5 +15,7 @@
 
 @property UserDetailsModel *userProileModel;
 @property NSDictionary *firstDataObject;
+@property NSMutableArray *sfidsForJointBuyersArray;
+@property NSMutableArray *unitsArray;
 //@property UserDetailsModel *userDetailsModel;
 @end

@@ -8,7 +8,7 @@
 
 #import "EServicesViewController.h"
 #import "POPViewController.h"
-
+#import "PassportUpdateFlow/PassportUpdateVC.h"
 @interface EServicesViewController ()
 
 @end
@@ -21,7 +21,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.navigationController.navigationBar.topItem.title = _typOfVC;
     imgsArr = @[@"1ser",@"2ser",@"3ser",@"4ser",@"5ser",@"6ser",@"7ser",@"8ser"];
     
 }
@@ -32,6 +31,7 @@
 }
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:YES];
+    [[CustomBarOptions alloc]initWithNavItems:self.navigationItem noOfItems:2 navRef:self.navigationController withTitle:@"E-services"];
 }
 
 #pragma mark collection View Delegates
@@ -116,6 +116,9 @@
     [self.navigationController pushViewController:chd animated:YES];
 }
 -(void)loadPassportUpdate{
+    
+    PassportUpdateVC *chd = [self.storyboard instantiateViewControllerWithIdentifier:@"passportUpdateVC"];
+    [self.navigationController pushViewController:chd animated:YES];
     
 }
 -(void)loadJointBuyerinfo{

@@ -24,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnAll;
 @property (weak, nonatomic) IBOutlet UIButton *btnNew;
 @property (weak, nonatomic) IBOutlet UIButton *btnDraft;
+- (IBAction)creatteServiceClick:(id)sender;
 
 @property NSString *typeoFVC;
 @end

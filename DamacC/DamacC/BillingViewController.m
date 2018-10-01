@@ -20,9 +20,11 @@
     
     IBOutlet UITableView *tblView;
     NSMutableArray *arrSelectedSectionIndex;
-    BOOL isMultipleExpansionAllowed, isFilterExpanded;
+    BOOL isMultipleExpansionAllowed;
+    int isFilterExpanded;
     NSArray *headerArr;
-    NSArray *sideLabelsArray;
+    NSArray *sideLabelsArray, *addArr;
+    UserDetailsModel *udm;
     
 }
 
@@ -36,12 +38,25 @@
     }
     headerArr = @[@"BILLING ADDRESS",@"SHIPPING ADDRESS"];
     sideLabelsArray = @[@"Name",@"Address",@"City",@"Country",@"State",@"Telephone",@"Email Id"];
-    tblView.alwaysBounceVertical = NO;
-    isFilterExpanded = NO;
     
-    _proceedBtn.titleLabel.textColor = rgb(174, 134, 73);
-    _proceedBtn.titleLabel.font =  [UIFont fontWithName:@"Helvetica-Bold" size:10];
+    udm = [DamacSharedClass sharedInstance].userProileModel;
+    
+    if(udm){
+        addArr= @[udm.partyName,udm.addressLine1,udm.city,udm.countryOfResidence,udm.countryCode,udm.phoneNumber,udm.emailAddress];
+    }
+    tblView.alwaysBounceVertical = NO;
+    isFilterExpanded = _heightConstraint.constant;
+    
+//    _proceedBtn.titleLabel.textColor = rgb(174, 134, 73);
+//    _proceedBtn.titleLabel.font =  [UIFont fontWithName:@"Helvetica-Bold" size:10];
+    
 }
+
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:YES];
+    [[CustomBarOptions alloc]initWithNavItems:self.navigationItem noOfItems:2 navRef:self.navigationController withTitle:@"Pay now"];
+}
+
 
 #pragma mark - TableView methods
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -76,6 +91,7 @@
         cell = [tblView dequeueReusableCellWithIdentifier:@"ViewControllerCell"];
     }
     cell.lblName.text = sideLabelsArray[indexPath.row];//[NSString stringWithFormat:@"%ld", (long)indexPath.row];
+    cell.textField.text = addArr[indexPath.row];
 //    cell.backgroundColor = indexPath.row%2==0?[UIColor lightTextColor]:[[UIColor lightTextColor] colorWithAlphaComponent:0.5f];
     return cell;
 }
@@ -98,8 +114,14 @@
         headerView = [tableView dequeueReusableCellWithIdentifier:@"ViewControllerCellHeader"];        
     }
     headerView.lbTitle.text = headerArr[section];//[NSString stringWithFormat:@"Section %ld", (long)section];
-    headerView.lbTitle.textColor = rgb(174, 134, 73);
-    headerView.lbTitle.font =  [UIFont fontWithName:@"Helvetica-Bold" size:16];
+    
+    headerView.buttonBackground.layer.cornerRadius = 10.0f;
+    headerView.buttonBackground.layer.borderWidth = 2.0f;
+    headerView.buttonBackground.layer.borderColor = rgb(174, 134, 73).CGColor;
+    headerView.buttonBackground.clipsToBounds = YES;
+
+//    headerView.lbTitle.textColor = rgb(174, 134, 73);
+//    headerView.lbTitle.font =  [UIFont fontWithName:@"Helvetica-Bold" size:16];
     if ([arrSelectedSectionIndex containsObject:[NSNumber numberWithInteger:section]])
     {
         headerView.btnShowHide.selected = YES;
@@ -112,6 +134,7 @@
 
 -(IBAction)btnTapShowHideSection:(UIButton*)sender
 {
+//    isFilterExpanded = (int)sender.tag;
     if (!sender.selected)
     {
         if (!isMultipleExpansionAllowed) {
@@ -123,34 +146,25 @@
             [arrSelectedSectionIndex addObject:[NSNumber numberWithInteger:sender.tag]];
         }
         sender.selected = YES;
-        isFilterExpanded = YES;
+        [self adjustHeightOfTheTableView:7];
         
     }else{
         sender.selected = NO;
-        isFilterExpanded = NO;
         if ([arrSelectedSectionIndex containsObject:[NSNumber numberWithInteger:sender.tag]])
         {
             [arrSelectedSectionIndex removeObject:[NSNumber numberWithInteger:sender.tag]];
         }
+        [self adjustHeightOfTheTableView:0];
     }
     if (!isMultipleExpansionAllowed) {
         [tblView reloadData];
     }else {
-        [tblView reloadSections:[NSIndexSet indexSetWithIndex:sender.tag] withRowAnimation:UITableViewRowAnimationTop];
+        [tblView reloadSections:[NSIndexSet indexSetWithIndex:sender.tag] withRowAnimation:UITableViewRowAnimationAutomatic];
     }
-    [self adjustHeightOfTheTableView:7];
 }
 
 -(void)adjustHeightOfTheTableView:(int)numbe{
-    CGFloat num = 1;
-    if(isFilterExpanded){
-         num = numbe *50;
-    }else{
-         num = -numbe *50;
-    }
-    CGFloat con = _heightConstraint.constant;
-    
-    _heightConstraint.constant = con + num;
+    _heightConstraint.constant = numbe * 50  + isFilterExpanded;
 }
 
 

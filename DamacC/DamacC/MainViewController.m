@@ -75,11 +75,18 @@
 //    self.carousel.type = iCarouselTypeRotary;
 //    self.carousel.delegate = self;
 //    self.carousel.dataSource = self;
-    [[CustomBarOptions alloc]initWithNavItems:self.navigationItem noOfItems:2];
+    [[CustomBarOptions alloc]initWithNavItems:self.navigationItem noOfItems:2 navRef:self.navigationController withTitle:@""];
 //    [self setTopArrayData:nil];
 //    self.navigationController.navigationBar.hidden = YES;
     
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+        [self getUnitsintheBakground];
+    });
+    
 }
+
+
+
 -(NSString*)setNillValue:(NSString*)str{
     NSString *value = str ? str : @"";
     return  value;
@@ -139,8 +146,9 @@
     [_gridCollectionView reloadData];
     [_topCollectionView reloadData];
 //    [self.carousel reloadData];
-    self.navigationController.navigationBar.topItem.title = @"Dashboard";
+//    self.navigationController.navigationBar.topItem.title = @"Dashboard";
     [self loadFloatMenu];
+    
 }
 
 -(void)loadFloatMenu{
@@ -177,7 +185,6 @@
             break;
     }
 }
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -364,13 +371,16 @@
     
     if([str isEqualToString:kMyServiceRequests]){
         MyServiceRequestViewController *evc =[ self.storyboard instantiateViewControllerWithIdentifier:@"myServicesRequestVC"];
-        evc.typeoFVC = kloadingFromMenu;
+        evc.typeoFVC = kloadingFromCreateServices;
         [self.navigationController pushViewController:evc animated:YES];
     }
     if([str isEqualToString:kMyUnits]){
 //       [self pushToTableView:kMyUnits];
         UnitsTableViewController *uVC = [self.storyboard instantiateViewControllerWithIdentifier:@"unitsTableVC"];
-        uVC.serverUrlString = [unitsServiceUrl stringByAppendingString:@"1036240"];//[self returnNextScreenWebUrlBasedOnGridClick:kMyUnits];
+        NSString *str = [DamacSharedClass sharedInstance].userProileModel.partyId;;
+        uVC.serverUrlString = [unitsServiceUrl stringByAppendingString:str?str:@"1036240"];
+//        uVC.serverUrlString = [unitsServiceUrl stringByAppendingString:@"1036240"];
+        //[self returnNextScreenWebUrlBasedOnGridClick:kMyUnits];
         [self.navigationController pushViewController:uVC animated:YES];
 //
 //        SampleTableViewController *uVC = [self.storyboard instantiateViewControllerWithIdentifier:@"sampleTableVC"];
@@ -400,7 +410,22 @@
         ScheduleAppointmentsVC *pvc =[ self.storyboard instantiateViewControllerWithIdentifier:@"scheduleAppointmentsVC"];
         [self.navigationController pushViewController:pvc animated:YES];
     }
+}
+
+-(void)getUnitsintheBakground{
     
+    NSString *str = [DamacSharedClass sharedInstance].userProileModel.partyId;;
+    NSString *unitsUrl = [unitsServiceUrl stringByAppendingString:str?str:@"1036240"];
+    ServerAPIManager *server = [ServerAPIManager sharedinstance];
+    [server getRequestwithUrl:unitsUrl successBlock:^(id responseObj) {
+            if(responseObj){
+                dataDictionary = [NSJSONSerialization JSONObjectWithData:responseObj options:0 error:nil];
+                NSError *err;
+                UnitsDataModel  *unitsDM = [[UnitsDataModel alloc]initWithDictionary:dataDictionary error:&err];
+                [DamacSharedClass sharedInstance].unitsArray = [[NSMutableArray alloc]initWithArray:unitsDM.responseLines];
+            }
+        } errorBlock:^(NSError *error) {
+    }];
 }
 
 -(NSString*)returnNextScreenWebUrlBasedOnGridClick:(NSString*)type{

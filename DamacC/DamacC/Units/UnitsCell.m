@@ -19,9 +19,7 @@
     [self labelsAdjustment:_stackView3];
     [self buttonsRadius:_payNowButton];
     [self buttonsRadius:_printDocButton];
-    
     _printDocButton.layer.borderColor = rgb(191, 154, 88).CGColor;
-    
 }
 
 -(void)buttonsRadius:(UIButton*)btn{

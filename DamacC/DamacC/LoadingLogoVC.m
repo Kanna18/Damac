@@ -63,6 +63,14 @@
         [topCVArray addObject:@{@"key":openServiceRequests,@"value":@"",@"image":@"4icon"}];
         [self performSelectorOnMainThread:@selector(pustToVC) withObject:nil waitUntilDone:YES];
     }
+    [self bgndTasks];
+}
+-(void)bgndTasks{
+    
+//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+//        BackgroundRequests *req = [[BackgroundRequests alloc]init];
+//        [req getSfiDSList];
+//    });
 }
 
 -(void)pustToVC{

@@ -16,4 +16,11 @@
     [super setSelected:selected animated:animated];
 }
 
+-(void)awakeFromNib{
+    [super awakeFromNib];
+    
+    _textField.layer.cornerRadius = 2.0f;
+    _textField.layer.borderColor = rgb(191, 154, 88).CGColor;
+    _textField.layer.borderWidth = 1;
+}
 @end

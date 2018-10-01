@@ -43,7 +43,10 @@
         _editButton.hidden=NO;
     }
 }
-
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:YES];
+    [[CustomBarOptions alloc]initWithNavItems:self.navigationItem noOfItems:2 navRef:self.navigationController withTitle:@"Service Request Detail"];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -117,7 +120,7 @@
         }
             break;
         case 2:{
-            NSString *txt = [NSString stringWithFormat:@"Buyer:%@",_servicesDataModel.Contact.Name];
+            NSString *txt = [NSString stringWithFormat:@"Buyer:%@",_servicesDataModel.Account.Name];
             cell.textLabel.text =txt;
         }
             break;

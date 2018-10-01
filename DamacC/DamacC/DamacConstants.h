@@ -42,7 +42,7 @@
 
 
 #pragma mark flying Options
-#define fyProfile @"My PROFILE"
+#define fyProfile @"MY PROFILE"
 #define fyCreateReq @"CREATE REQUESTS"
 #define fyScheduleAppointments @"SCHEDULE APPOINTMENTS"
 #define fyLiveChat @"LIVE CHAT"
@@ -54,6 +54,12 @@
 
 #define myServicesUrl @"https://partial-servicecloudtrial-155c0807bf-1580afc5db1.cs80.force.com/MobileApp/services/apexrest/getCaseDetails/"
 #define getAppointments @"https://partial-servicecloudtrial-155c0807bf-1580afc5db1.cs80.force.com/MobileApp/services/apexrest/SendAppointmentsToMObileApp/"
+
+#define jointBuyersUrl @"https://partial-servicecloudtrial-155c0807bf-1580afc5db1.cs80.force.com/MobileApp/services/apexrest/GetBuyersInfoToMobileApp/" /*To get Joint Buyers info need to pass SFID*/ //(SFID is not getting in Units API so calling Bookings API to get SFIDS )
+#define bookingsAPI @"https://partial-servicecloudtrial-155c0807bf-1580afc5db1.cs80.force.com/MobileApp/services/apexrest/GetMyUnitBookings/" /*Requires Account ID from UserData Model*/
+
+#define createAppointmentRequest @"https://partial-servicecloudtrial-155c0807bf-1580afc5db1.cs80.force.com/MobileApp/services/apexrest/SaveScheduleAppointment/" /*Create a service Reequest*/
+
 
 
 #pragma mark Arrays

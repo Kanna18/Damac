@@ -16,6 +16,7 @@
     
     _nameLabel.text = kUserProfile.partyName;
     _emailLabel.text = kUserProfile.emailAddress;
+    NSLog(@"%@",kUserProfile.sfAccountId);
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

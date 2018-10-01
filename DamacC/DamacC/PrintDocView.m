@@ -8,7 +8,12 @@
 
 #import "PrintDocView.h"
 
-@implementation PrintDocView
+@implementation PrintDocView{
+    
+    __weak IBOutlet UIImageView *image1;
+    __weak IBOutlet UIImageView *image3;
+    __weak IBOutlet UIImageView *image2;
+}
 
 /*
 // Only override drawRect: if you perform custom drawing.
@@ -22,8 +27,19 @@
     self = [super initWithFrame:frame];
     if(self){
         self = [[NSBundle mainBundle] loadNibNamed:@"PrintDocView" owner:self options:nil][0];
+        [self rectBounds:image1];
+        [self rectBounds:image2];
+        [self rectBounds:image3];
     }
     return self;
+}
+
+-(void)rectBounds:(UIImageView*)img{
+    img.layer.cornerRadius = img.frame.size.height/2;
+    img.layer.borderColor = [UIColor brownColor].CGColor;
+    img.layer.borderWidth = 2.0f;
+    img.clipsToBounds = YES;
+    
 }
 - (IBAction)soaClick:(id)sender {
 }

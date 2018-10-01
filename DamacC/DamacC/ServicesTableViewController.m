@@ -48,7 +48,7 @@ static NSString *reuseCell = @"servicesCell";
     tvArray = @[@"MyServices1",@"MyServices2",@"MyServices3",@"MyServices4",@"MyServices5",@"MyServices6",@"MyServices7"];
     }
     
-    self.navigationController.navigationBar.topItem.title = [_typeOfvc stringByReplacingOccurrencesOfString:@"\n" withString:@" "];
+//    self.navigationController.navigationBar.topItem.title = [_typeOfvc stringByReplacingOccurrencesOfString:@"\n" withString:@" "];
     
     UIImageView  *boxBackView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"backgroundImage2.jpg"]];
     [self.tableView setBackgroundView:boxBackView];
@@ -57,7 +57,7 @@ static NSString *reuseCell = @"servicesCell";
     [FTIndicator showProgressWithMessage:@"Loading"];
     [self webServiceCall];
     
-    [[CustomBarOptions alloc]initWithNavItems:self.navigationItem noOfItems:4];
+//    [[CustomBarOptions alloc]initWithNavItems:self.navigationItem noOfItems:4];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -67,8 +67,9 @@ static NSString *reuseCell = @"servicesCell";
     
     self.navigationController.navigationBar.topItem.title = @" ";
     
-//    [self loadFoatMenu];
-    
+    [[CustomBarOptions alloc]initWithNavItems:self.navigationItem noOfItems:2 navRef:self.navigationController withTitle:@"My units"];
+//    [_typeOfvc stringByReplacingOccurrencesOfString:@"\n" withString:@" "]
+
 }
 
 -(void)loadFoatMenu{

@@ -10,6 +10,6 @@
 
 @interface CustomBarOptions : NSObject
 
-- (instancetype)initWithNavItems:(UINavigationItem*)nav noOfItems:(int)num;
+- (instancetype)initWithNavItems:(UINavigationItem*)nav noOfItems:(int)num navRef:(UINavigationController*)navRef withTitle:(NSString*)title;
 
 @end

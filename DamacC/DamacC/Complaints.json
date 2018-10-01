@@ -1,0 +1,11 @@
+
+[
+{"key":"Select Complaint Type*","value":[]},
+{"key":"Payment","value":["Select Complaint Sub-Type","Not reflecting in SOA","Others"]},
+{"key":"Handover","value":["Select Complaint Sub-Type","Appointment","Others","Unit Viewing","Delay"]},{"key":"Assignment","value":["Select Complaint Sub-Type","Appointment","Others","NOC Related","Process Related"]},{"key":"Parking","value":["Select Complaint Sub-Type","Others","Payment Related"]},
+{"key":"Rental Pool","value":["Select Complaint Sub-Type","Others","Service Charge Related"]},
+{"key":"Title Deed","value":["Select Complaint Sub-Type","Others","Process Related"]},
+{"key":"Mortgage","value":["Select Complaint Sub-Type","Others","Process Related"]},
+{"key":"Snagging","value":["Select Complaint Sub-Type","Others","Process Related"]},
+{"key":"Document Related","value":["Select Complaint Sub-Type","SPA Related","Others","0Q00D/PRC Related"]},{"key":"Other","value":["Select Complaint Sub-Type","Others"]}
+]

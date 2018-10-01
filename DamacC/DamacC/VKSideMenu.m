@@ -162,7 +162,7 @@
     }
     
     // Setup content table view
-    self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+    self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
     self.tableView.delegate         = self;
     self.tableView.dataSource       = self;
 //    self.tableView.separatorColor   = [UIColor grayColor];
@@ -258,6 +258,7 @@
         ProfileTableViewCell  *cell = [tableView dequeueReusableCellWithIdentifier:@"profileTableViewCell"];
         [cell.emailLabel setAdjustsFontSizeToFitWidth:YES];
         [cell.nameLabel setAdjustsFontSizeToFitWidth:YES];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
         
     }else{
@@ -277,7 +278,7 @@
         [bgColorView setBackgroundColor:self.selectionColor];
 //        [cell setSelectedBackgroundView:bgColorView];
     }
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     VKSideMenuItem *item = [self.dataSource sideMenu:self itemForRowAtIndexPath:indexPath];
     
     CGFloat contentHeight = cell.frame.size.height * .8;
@@ -340,7 +341,7 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if(indexPath.section==0){
-        return 250;
+        return 200;
     }else{
     return self.rowHeight;
     }

@@ -13,5 +13,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *lbTitle;
 
 @property (strong, nonatomic) IBOutlet UIButton *btnShowHide;
+@property (weak, nonatomic) IBOutlet UIButton *buttonBackground;
 
 @end

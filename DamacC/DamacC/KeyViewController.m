@@ -23,10 +23,7 @@
     self.navigationItem.hidesBackButton = YES;
 //    self.navigationController.navigationBar.barTintColor = rgb(230, 193, 0);
     self.navigationController.navigationBar.barTintColor = [UIColor blackColor];
-    self.navigationController.navigationBar.tintColor = rgb(174, 134, 73);
-    UIView *vw = [[UIView alloc]initWithFrame:CGRectMake(0, 44, [[UIScreen mainScreen] bounds].size.width, 1)];
-    vw.backgroundColor = rgb(174, 134, 73);
-    [self.navigationController.navigationBar addSubview:vw];
+    self.navigationController.navigationBar.tintColor = rgb(174, 134, 73);   
 }
 
 

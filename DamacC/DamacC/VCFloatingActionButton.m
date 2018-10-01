@@ -362,7 +362,6 @@ CGFloat buttonToScreenHeight;
     
     cell.imgView.image = [UIImage imageNamed:[_imageArray objectAtIndex:indexPath.row]];
     cell.title.text    = [_labelArray objectAtIndex:indexPath.row];
-
     
     return cell;
 }

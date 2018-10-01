@@ -72,7 +72,7 @@
                         <constraint firstItem="oJW-c0-Ihf" firstAttribute="top" secondItem="oXC-Qy-Y7S" secondAttribute="top" id="hUD-pV-73s"/>
                     </constraints>
                 </stackView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aYc-Vi-jEM">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aYc-Vi-jEM">
                     <rect key="frame" x="0.0" y="0.0" width="514" height="67"/>
                     <connections>
                         <action selector="buttonClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="Kn7-6y-R7b"/>

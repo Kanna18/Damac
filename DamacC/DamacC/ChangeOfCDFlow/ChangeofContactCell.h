@@ -13,4 +13,5 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *sideLabel;
 @property (weak, nonatomic) IBOutlet UILabel *subLabel;
 
+@property (weak, nonatomic) IBOutlet UIImageView *borderView;
 @end

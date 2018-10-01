@@ -40,9 +40,11 @@
     
     if([_typeoFVC isEqualToString:kloadingFromMenu]){
         _hideView.hidden = YES;
-    }else if([_typeoFVC isEqualToString:kloadingFromCreateServices]){
         _heightConstraint.constant = 100;
-        _buttonsView.hidden = YES;
+    }else if([_typeoFVC isEqualToString:kloadingFromCreateServices]){
+        _heightConstraint.constant = 140;
+         _hideView.hidden = YES;
+//        _buttonsView.hidden = YES;
     }
     del = (AppDelegate*)[UIApplication sharedApplication].delegate;
 
@@ -56,14 +58,17 @@
     gradient.colors = @[(id)[[UIColor blackColor] colorWithAlphaComponent:0.3].CGColor, (id)[UIColor blackColor].CGColor];
 //    gradient.colors = @[(id)[UIColor orangeColor].CGColor, (id)[UIColor whiteColor].CGColor, (id)[UIColor greenColor].CGColor];
     [_bottomView.layer insertSublayer:gradient atIndex:0];
+    [[CustomBarOptions alloc]initWithNavItems:self.navigationItem noOfItems:2 navRef:self.navigationController withTitle:@"My Service Request"];
 //    [self dropMenu];
 }
 -(void)setSelecteStates:(UIButton*)btn{
     
-    _btnAll.selected = NO;
-    _btnNew.selected = NO;
-    _btnDraft.selected = NO;
-    btn.selected = YES;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        _btnAll.selected = NO;
+        _btnNew.selected = NO;
+        _btnDraft.selected = NO;
+        btn.selected = YES;
+    });    
 }
 -(void)webServiceCall{
         ServerAPIManager *server = [ServerAPIManager sharedinstance];
@@ -215,4 +220,12 @@
     [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
 }
 
+- (IBAction)creatteServiceClick:(id)sender {
+    
+    EServicesViewController *evc =[ self.storyboard instantiateViewControllerWithIdentifier:@"eservicesVC"];
+    evc.typOfVC=kEServices;
+    evc.arrayOflist=eservicesArray;
+    [self.navigationController pushViewController:evc animated:YES];
+
+}
 @end

@@ -76,7 +76,7 @@
     dropNew.title = @"Select Again";
     dropNew.titleColor = [UIColor yellowColor];
     dropNew.itemsFont = [UIFont fontWithName:@"Helvetica-Regular" size:12.0];
-    dropNew.titleTextAlignment = NSTextAlignmentCenter;
+    dropNew.titleTextAlignment = NSTextAlignmentLeft;
     dropNew.DirectionDown = YES;
     [self.view addSubview:dropNew];
 

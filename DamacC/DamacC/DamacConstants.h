@@ -60,6 +60,8 @@
 
 #define createAppointmentRequest @"https://partial-servicecloudtrial-155c0807bf-1580afc5db1.cs80.force.com/MobileApp/services/apexrest/SaveScheduleAppointment/" /*Create a service Reequest*/
 
+#define getReceiptsRequest @"https://ptctest.damacgroup.com/DCOFFEE/receipt/party/"
+
 
 
 #pragma mark Arrays

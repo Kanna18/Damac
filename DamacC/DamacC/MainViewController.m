@@ -17,6 +17,7 @@
 #import "ScheduleAppointmentsVC.h"
 #import "UnitsTableViewController.h"
 #import "SampleTableViewController.h"
+#import "ReceiptsTableVC.h"
 
 
 
@@ -32,7 +33,7 @@
     
     CGFloat scr_width, scr_height;
     NSArray *gridArray,*gridArrayThumbnails;
-    NSDictionary *sideMenuDict,*dataDictionary;
+    NSDictionary *sideMenuDict,*dataDictionary,*dataDictionaryUnits;
     NSMutableArray *topCVArray;
     VCFloatingActionButton *addButton;
 }
@@ -45,13 +46,15 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    SaopServices *soap = [[SaopServices alloc]init];
+    
     self.menuLeft = [[VKSideMenu alloc] initWithSize:220 andDirection:VKSideMenuDirectionFromLeft];
     self.menuLeft.dataSource = self;
     self.menuLeft.delegate   = self;
     [self.menuLeft addSwipeGestureRecognition:self.view];
     
     topCVArray = [[NSMutableArray alloc]init];
-    gridArray = @[kMyUnits,kMyServiceRequests,kMyPaymentScedules,kMyReceipts,kSOA,kPay,kComplaints,kSurveys];
+    gridArray = @[kMyUnits,kMyServiceRequests,kSOA,kPay,kMyPaymentScedules,kMyReceipts,kComplaints,kSurveys];
     gridArrayThumbnails =@[@"1Main",@"2Main",@"3Main",@"4Main",@"5Main",@"6Main",@"7Main",@"8Main"];
 //    @[kMyUnits,@"service.jpg",@"PaymentSchedule.jpg",@"Receipts.jpg",@"Appointment.jpg",@"PayNow.jpg",@"Complaints.jpg",@"Surveys.jpg"];
     
@@ -92,20 +95,20 @@
     return  value;
 }
 
--(void)serverCall{
-    ServerAPIManager *server = [ServerAPIManager sharedinstance];
-    SFUserAccountManager *sf = [SFUserAccountManager sharedInstance];
-    NSString * url = [NSString stringWithFormat:@"%@%@",maiUrl,[sf.currentUserIdentity valueForKeyPath:@"userId"]];
-    [server getRequestwithUrl:url successBlock:^(id responseObj) {
-        dataDictionary = [NSJSONSerialization JSONObjectWithData:responseObj options:0 error:nil];
-        [self setTopArrayData:dataDictionary];
-        NSLog(@"%@",dataDictionary);
-        [self performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
-    } errorBlock:^(NSError *error) {
-        NSLog(@"%@",error);
-        [self performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
-    }];
-}
+//-(void)serverCall{
+//    ServerAPIManager *server = [ServerAPIManager sharedinstance];
+//    SFUserAccountManager *sf = [SFUserAccountManager sharedInstance];
+//    NSString * url = [NSString stringWithFormat:@"%@%@",maiUrl,[sf.currentUserIdentity valueForKeyPath:@"userId"]];
+//    [server getRequestwithUrl:url successBlock:^(id responseObj) {
+//        dataDictionary = [NSJSONSerialization JSONObjectWithData:responseObj options:0 error:nil];
+//        [self setTopArrayData:dataDictionary];
+//        NSLog(@"%@",dataDictionary);
+//        [self performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
+//    } errorBlock:^(NSError *error) {
+//        NSLog(@"%@",error);
+//        [self performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
+//    }];
+//}
 
 -(void)setTopArrayData:(NSDictionary*)dic{
     if(dic&&dic[@"responseLines"][0]){
@@ -388,10 +391,17 @@
 //        [self.navigationController pushViewController:uVC animated:YES];
     }
     if([str isEqualToString:kMyPaymentScedules]){
-        [self pushToTableView:kMyPaymentScedules];
+//        [self pushToTableView:kMyPaymentScedules];
+        PaymentsScheduleVC *uVC = [self.storyboard instantiateViewControllerWithIdentifier:@"paymentsScheduleVC"];
+        NSString *str = [DamacSharedClass sharedInstance].userProileModel.partyId;;
+        uVC.serverUrlString = [unitsServiceUrl stringByAppendingString:str?str:@"1036240"];
+        [self.navigationController pushViewController:uVC animated:YES];
     }
     if([str isEqualToString:kMyReceipts]){
-        [self pushToTableView:kMyReceipts];
+//        [self pushToTableView:kMyReceipts];
+        ReceiptsTableVC *uVC = [self.storyboard instantiateViewControllerWithIdentifier:@"receiptsTableVC"];
+        uVC.serverUrlString = [self returnNextScreenWebUrlBasedOnGridClick:kMyReceipts];
+        [self.navigationController pushViewController:uVC animated:YES];
     }
     if([str isEqualToString:kEServices]){
         EServicesViewController *evc =[ self.storyboard instantiateViewControllerWithIdentifier:@"eservicesVC"];
@@ -419,9 +429,9 @@
     ServerAPIManager *server = [ServerAPIManager sharedinstance];
     [server getRequestwithUrl:unitsUrl successBlock:^(id responseObj) {
             if(responseObj){
-                dataDictionary = [NSJSONSerialization JSONObjectWithData:responseObj options:0 error:nil];
+                dataDictionaryUnits = [NSJSONSerialization JSONObjectWithData:responseObj options:0 error:nil];
                 NSError *err;
-                UnitsDataModel  *unitsDM = [[UnitsDataModel alloc]initWithDictionary:dataDictionary error:&err];
+                UnitsDataModel  *unitsDM = [[UnitsDataModel alloc]initWithDictionary:dataDictionaryUnits error:&err];
                 [DamacSharedClass sharedInstance].unitsArray = [[NSMutableArray alloc]initWithArray:unitsDM.responseLines];
             }
         } errorBlock:^(NSError *error) {
@@ -437,7 +447,6 @@
         if([type isEqualToString:kMyReceipts]){
             return [arr[1] valueForKey:@"url"];
         }
-
     }
     return @"";
 }
@@ -445,12 +454,17 @@
 -(void)pushToTableView:(NSString*)type{
     ServicesTableViewController *svc = [self.storyboard instantiateViewControllerWithIdentifier:@"servicesTableVC"];
     svc.typeOfvc = type;
-    svc.serverUrlString = [self returnNextScreenWebUrlBasedOnGridClick:type];
-    [self.navigationController pushViewController:svc animated:YES];
+    if([type isEqualToString:kPay]){
+        NSString *str = [DamacSharedClass sharedInstance].userProileModel.partyId;;
+        svc.serverUrlString = [unitsServiceUrl stringByAppendingString:str?str:@"1036240"];
+    }else{
+        svc.serverUrlString = [self returnNextScreenWebUrlBasedOnGridClick:type];
+    }
+     [self.navigationController pushViewController:svc animated:YES];
 }
+
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    
     if(collectionView == _topCollectionView){
         return  CGSizeMake(collectionView.frame.size.width/4-10 , 130);
     }

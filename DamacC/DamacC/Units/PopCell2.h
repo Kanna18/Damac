@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PopCell2 : UICollectionViewCell
-@property (weak, nonatomic) IBOutlet UIView *baseDropView;
+@interface PopCell2 : UICollectionViewCell<KPDropMenuDelegate>
+@property (weak, nonatomic) IBOutlet KPDropMenu *baseDropView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIButton *buttonNext;
 

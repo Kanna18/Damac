@@ -15,12 +15,28 @@
 		B7168FBA1FACC5D900A48DB5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7168FB91FACC5D900A48DB5 /* LaunchScreen.storyboard */; };
 		F60164ED20ABB9D900E07510 /* UnitsDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F60164EC20ABB9D900E07510 /* UnitsDataModel.m */; };
 		F60164F320ABF36F00E07510 /* PaymentsDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F60164F220ABF36F00E07510 /* PaymentsDataModel.m */; };
+		F604B35F2165FD030047CBD2 /* ReceiptsTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F604B35E2165FD030047CBD2 /* ReceiptsTableVC.m */; };
+		F604B3642165FD300047CBD2 /* ReceiptsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F604B3622165FD300047CBD2 /* ReceiptsTableViewCell.m */; };
+		F604B3652165FD300047CBD2 /* ReceiptsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F604B3632165FD300047CBD2 /* ReceiptsTableViewCell.xib */; };
+		F604B36821670A610047CBD2 /* POPTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F604B36721670A610047CBD2 /* POPTableCell.m */; };
+		F604B36B2167245E0047CBD2 /* CameraView.m in Sources */ = {isa = PBXBuildFile; fileRef = F604B36A2167245E0047CBD2 /* CameraView.m */; };
+		F604B36D2167246C0047CBD2 /* CameraView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F604B36C2167246C0047CBD2 /* CameraView.xib */; };
 		F610E8BC2121FBC900B09A5B /* UnitsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F610E8B82121FBC800B09A5B /* UnitsCell.xib */; };
 		F610E8BD2121FBC900B09A5B /* UnitsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F610E8B92121FBC800B09A5B /* UnitsCell.m */; };
 		F610E8BE2121FBC900B09A5B /* UnitsHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = F610E8BB2121FBC900B09A5B /* UnitsHeaderView.m */; };
 		F610E8C02121FBD500B09A5B /* UnitsHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F610E8BF2121FBD500B09A5B /* UnitsHeaderView.xib */; };
 		F610E8CD2121FE5700B09A5B /* SampleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F610E8CC2121FE5700B09A5B /* SampleTableViewController.m */; };
 		F610E8D2212203DA00B09A5B /* unitsLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F610E8D1212203DA00B09A5B /* unitsLabel.m */; };
+		F61124AA2164CEB300901694 /* AOPTProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = F61124A62164CEAF00901694 /* AOPTProxy.m */; };
+		F61124AB2164CEB300901694 /* AOPT.m in Sources */ = {isa = PBXBuildFile; fileRef = F61124A72164CEAF00901694 /* AOPT.m */; };
+		F61124B52164CEEC00901694 /* DocUploadDTO.m in Sources */ = {isa = PBXBuildFile; fileRef = F61124AD2164CEE500901694 /* DocUploadDTO.m */; };
+		F61124B62164CEEC00901694 /* AOPT_Enums.m in Sources */ = {isa = PBXBuildFile; fileRef = F61124B02164CEE600901694 /* AOPT_Enums.m */; };
+		F61124B72164CEEC00901694 /* APPSXXDC_AOPT_PKG_WSX1843128X6X5.m in Sources */ = {isa = PBXBuildFile; fileRef = F61124B22164CEE900901694 /* APPSXXDC_AOPT_PKG_WSX1843128X6X5.m */; };
+		F61124B82164CEEC00901694 /* Base64Binary.m in Sources */ = {isa = PBXBuildFile; fileRef = F61124B42164CEEA00901694 /* Base64Binary.m */; };
+		F61124BE2164E21200901694 /* UnitsClassLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F61124BD2164E21200901694 /* UnitsClassLabel.m */; };
+		F61124C12165C97300901694 /* PaymentsScheduleVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F61124C02165C97300901694 /* PaymentsScheduleVC.m */; };
+		F61124C62165CA4F00901694 /* PaymentsScheduleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F61124C42165CA4F00901694 /* PaymentsScheduleCell.m */; };
+		F61124C72165CA4F00901694 /* PaymentsScheduleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F61124C52165CA4F00901694 /* PaymentsScheduleCell.xib */; };
 		F6132E0D20A7E2E900FEEEBE /* ProfileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F6132E0B20A7E2E900FEEEBE /* ProfileTableViewCell.m */; };
 		F6132E0E20A7E2E900FEEEBE /* ProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6132E0C20A7E2E900FEEEBE /* ProfileTableViewCell.xib */; };
 		F6170A5D20FCC6ED003443B1 /* MyServicesDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F6170A5C20FCC6ED003443B1 /* MyServicesDataModel.m */; };
@@ -159,6 +175,16 @@
 		F60164EC20ABB9D900E07510 /* UnitsDataModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UnitsDataModel.m; sourceTree = "<group>"; };
 		F60164F120ABF36F00E07510 /* PaymentsDataModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PaymentsDataModel.h; sourceTree = "<group>"; };
 		F60164F220ABF36F00E07510 /* PaymentsDataModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PaymentsDataModel.m; sourceTree = "<group>"; };
+		F604B35D2165FD030047CBD2 /* ReceiptsTableVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReceiptsTableVC.h; sourceTree = "<group>"; };
+		F604B35E2165FD030047CBD2 /* ReceiptsTableVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReceiptsTableVC.m; sourceTree = "<group>"; };
+		F604B3612165FD300047CBD2 /* ReceiptsTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReceiptsTableViewCell.h; sourceTree = "<group>"; };
+		F604B3622165FD300047CBD2 /* ReceiptsTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReceiptsTableViewCell.m; sourceTree = "<group>"; };
+		F604B3632165FD300047CBD2 /* ReceiptsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReceiptsTableViewCell.xib; sourceTree = "<group>"; };
+		F604B36621670A610047CBD2 /* POPTableCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = POPTableCell.h; sourceTree = "<group>"; };
+		F604B36721670A610047CBD2 /* POPTableCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = POPTableCell.m; sourceTree = "<group>"; };
+		F604B3692167245E0047CBD2 /* CameraView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CameraView.h; sourceTree = "<group>"; };
+		F604B36A2167245E0047CBD2 /* CameraView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CameraView.m; sourceTree = "<group>"; };
+		F604B36C2167246C0047CBD2 /* CameraView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CameraView.xib; sourceTree = "<group>"; };
 		F610E8B72121FBC700B09A5B /* UnitsHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnitsHeaderView.h; sourceTree = "<group>"; };
 		F610E8B82121FBC800B09A5B /* UnitsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UnitsCell.xib; sourceTree = "<group>"; };
 		F610E8B92121FBC800B09A5B /* UnitsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnitsCell.m; sourceTree = "<group>"; };
@@ -169,6 +195,25 @@
 		F610E8CC2121FE5700B09A5B /* SampleTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SampleTableViewController.m; sourceTree = "<group>"; };
 		F610E8D0212203DA00B09A5B /* unitsLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = unitsLabel.h; sourceTree = "<group>"; };
 		F610E8D1212203DA00B09A5B /* unitsLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = unitsLabel.m; sourceTree = "<group>"; };
+		F61124A62164CEAF00901694 /* AOPTProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOPTProxy.m; sourceTree = "<group>"; };
+		F61124A72164CEAF00901694 /* AOPT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOPT.m; sourceTree = "<group>"; };
+		F61124A82164CEB200901694 /* AOPTProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOPTProxy.h; sourceTree = "<group>"; };
+		F61124A92164CEB300901694 /* AOPT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOPT.h; sourceTree = "<group>"; };
+		F61124AD2164CEE500901694 /* DocUploadDTO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocUploadDTO.m; sourceTree = "<group>"; };
+		F61124AE2164CEE500901694 /* DocUploadDTO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocUploadDTO.h; sourceTree = "<group>"; };
+		F61124AF2164CEE600901694 /* AOPT_Enums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOPT_Enums.h; sourceTree = "<group>"; };
+		F61124B02164CEE600901694 /* AOPT_Enums.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOPT_Enums.m; sourceTree = "<group>"; };
+		F61124B12164CEE700901694 /* APPSXXDC_AOPT_PKG_WSX1843128X6X5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APPSXXDC_AOPT_PKG_WSX1843128X6X5.h; sourceTree = "<group>"; };
+		F61124B22164CEE900901694 /* APPSXXDC_AOPT_PKG_WSX1843128X6X5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APPSXXDC_AOPT_PKG_WSX1843128X6X5.m; sourceTree = "<group>"; };
+		F61124B32164CEEA00901694 /* Base64Binary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64Binary.h; sourceTree = "<group>"; };
+		F61124B42164CEEA00901694 /* Base64Binary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base64Binary.m; sourceTree = "<group>"; };
+		F61124BC2164E21200901694 /* UnitsClassLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UnitsClassLabel.h; sourceTree = "<group>"; };
+		F61124BD2164E21200901694 /* UnitsClassLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UnitsClassLabel.m; sourceTree = "<group>"; };
+		F61124BF2165C97300901694 /* PaymentsScheduleVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PaymentsScheduleVC.h; sourceTree = "<group>"; };
+		F61124C02165C97300901694 /* PaymentsScheduleVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PaymentsScheduleVC.m; sourceTree = "<group>"; };
+		F61124C32165CA4F00901694 /* PaymentsScheduleCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PaymentsScheduleCell.h; sourceTree = "<group>"; };
+		F61124C42165CA4F00901694 /* PaymentsScheduleCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PaymentsScheduleCell.m; sourceTree = "<group>"; };
+		F61124C52165CA4F00901694 /* PaymentsScheduleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentsScheduleCell.xib; sourceTree = "<group>"; };
 		F6132E0A20A7E2E900FEEEBE /* ProfileTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileTableViewCell.h; sourceTree = "<group>"; };
 		F6132E0B20A7E2E900FEEEBE /* ProfileTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileTableViewCell.m; sourceTree = "<group>"; };
 		F6132E0C20A7E2E900FEEEBE /* ProfileTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileTableViewCell.xib; sourceTree = "<group>"; };
@@ -392,6 +437,7 @@
 		4F8D5E9F1B6C0568005E64D4 /* DamacC */ = {
 			isa = PBXGroup;
 			children = (
+				F61124B92164CEF400901694 /* WSDLCode */,
 				F6C57E1B215B03E700970DC3 /* WSCalendar */,
 				F6C57C752158CE0B00970DC3 /* XMLServices */,
 				F67EB5E3212521AE0011AB64 /* Fonts */,
@@ -489,6 +535,28 @@
 			name = DataModel;
 			sourceTree = "<group>";
 		};
+		F604B3602165FD080047CBD2 /* Receipts */ = {
+			isa = PBXGroup;
+			children = (
+				F604B35D2165FD030047CBD2 /* ReceiptsTableVC.h */,
+				F604B35E2165FD030047CBD2 /* ReceiptsTableVC.m */,
+				F604B3612165FD300047CBD2 /* ReceiptsTableViewCell.h */,
+				F604B3622165FD300047CBD2 /* ReceiptsTableViewCell.m */,
+				F604B3632165FD300047CBD2 /* ReceiptsTableViewCell.xib */,
+			);
+			path = Receipts;
+			sourceTree = "<group>";
+		};
+		F604B36E216724830047CBD2 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				F604B3692167245E0047CBD2 /* CameraView.h */,
+				F604B36A2167245E0047CBD2 /* CameraView.m */,
+				F604B36C2167246C0047CBD2 /* CameraView.xib */,
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		F610E8B62121FBB500B09A5B /* UnitsCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -502,6 +570,48 @@
 				F610E8D1212203DA00B09A5B /* unitsLabel.m */,
 			);
 			name = UnitsCell;
+			sourceTree = "<group>";
+		};
+		F61124AC2164CED800901694 /* WSClasses */ = {
+			isa = PBXGroup;
+			children = (
+				F61124AF2164CEE600901694 /* AOPT_Enums.h */,
+				F61124B02164CEE600901694 /* AOPT_Enums.m */,
+				F61124B12164CEE700901694 /* APPSXXDC_AOPT_PKG_WSX1843128X6X5.h */,
+				F61124B22164CEE900901694 /* APPSXXDC_AOPT_PKG_WSX1843128X6X5.m */,
+				F61124B32164CEEA00901694 /* Base64Binary.h */,
+				F61124B42164CEEA00901694 /* Base64Binary.m */,
+				F61124AE2164CEE500901694 /* DocUploadDTO.h */,
+				F61124AD2164CEE500901694 /* DocUploadDTO.m */,
+			);
+			name = WSClasses;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		F61124B92164CEF400901694 /* WSDLCode */ = {
+			isa = PBXGroup;
+			children = (
+				F61124A92164CEB300901694 /* AOPT.h */,
+				F61124A72164CEAF00901694 /* AOPT.m */,
+				F61124A82164CEB200901694 /* AOPTProxy.h */,
+				F61124A62164CEAF00901694 /* AOPTProxy.m */,
+				F61124BC2164E21200901694 /* UnitsClassLabel.h */,
+				F61124BD2164E21200901694 /* UnitsClassLabel.m */,
+				F61124AC2164CED800901694 /* WSClasses */,
+			);
+			path = WSDLCode;
+			sourceTree = "<group>";
+		};
+		F61124C22165C97B00901694 /* PaymentsSchedule */ = {
+			isa = PBXGroup;
+			children = (
+				F61124BF2165C97300901694 /* PaymentsScheduleVC.h */,
+				F61124C02165C97300901694 /* PaymentsScheduleVC.m */,
+				F61124C32165CA4F00901694 /* PaymentsScheduleCell.h */,
+				F61124C42165CA4F00901694 /* PaymentsScheduleCell.m */,
+				F61124C52165CA4F00901694 /* PaymentsScheduleCell.xib */,
+			);
+			path = PaymentsSchedule;
 			sourceTree = "<group>";
 		};
 		F622C29520B3B1EC007982AE /* ChangeOfDetails */ = {
@@ -658,6 +768,8 @@
 				F6A86685211A9B4A00560CD5 /* PopCell2.m */,
 				F6A86687211A9B5900560CD5 /* PopCell3.h */,
 				F6A86688211A9B5900560CD5 /* PopCell3.m */,
+				F604B36621670A610047CBD2 /* POPTableCell.h */,
+				F604B36721670A610047CBD2 /* POPTableCell.m */,
 			);
 			name = POPFlow;
 			path = Units;
@@ -675,10 +787,13 @@
 		F6B31BDE20F09501001A5144 /* MyServices */ = {
 			isa = PBXGroup;
 			children = (
+				F604B36E216724830047CBD2 /* New Group */,
 				F6B31BDB20F094FB001A5144 /* MyServiceRequestViewController.h */,
 				F6B31BDC20F094FB001A5144 /* MyServiceRequestViewController.m */,
 				F6170A5F20FF9DB3003443B1 /* ServicesDetailController.h */,
 				F6170A6020FF9DB3003443B1 /* ServicesDetailController.m */,
+				F604B3602165FD080047CBD2 /* Receipts */,
+				F61124C22165C97B00901694 /* PaymentsSchedule */,
 				F6C57C5721585C5500970DC3 /* PassportUpdateFlow */,
 				F6E8D4DE2119CB260063CC16 /* Units */,
 				F6A8667D211A880900560CD5 /* POPFlow */,
@@ -960,6 +1075,7 @@
 			files = (
 				F6CB3FD120EB753500D290A6 /* collapsed.png in Resources */,
 				F6C57DD0215A361C00970DC3 /* Appointments.json in Resources */,
+				F61124C72165CA4F00901694 /* PaymentsScheduleCell.xib in Resources */,
 				F62641FA210EFE640022C4DC /* CustomBar.xib in Resources */,
 				F62641F4210EFA5B0022C4DC /* settingsicon.png in Resources */,
 				F6CB3FC720EB546400D290A6 /* HelveticaDin.ttf in Resources */,
@@ -969,6 +1085,7 @@
 				F626425C211432AA0022C4DC /* JointBView2.xib in Resources */,
 				F686160A20962229002EA241 /* PinView.xib in Resources */,
 				F610E8C02121FBD500B09A5B /* UnitsHeaderView.xib in Resources */,
+				F604B3652165FD300047CBD2 /* ReceiptsTableViewCell.xib in Resources */,
 				F6C57E19215B03E000970DC3 /* WSCalendarView.xib in Resources */,
 				F67EB5E8212521D50011AB64 /* Montserrat-Medium.ttf in Resources */,
 				F6264200211320360022C4DC /* StepperAnimation.xib in Resources */,
@@ -983,6 +1100,7 @@
 				F6132E0E20A7E2E900FEEEBE /* ProfileTableViewCell.xib in Resources */,
 				F6E8321720AD07D40003DC5E /* PrintDocView.xib in Resources */,
 				F67EB5EA212521D50011AB64 /* Montserrat-SemiBold.ttf in Resources */,
+				F604B36D2167246C0047CBD2 /* CameraView.xib in Resources */,
 				F6C942B920E9C6D700D1F40C /* floatTableViewCell.xib in Resources */,
 				F67EB5E9212521D50011AB64 /* AG_Helvetica_Bold.ttf in Resources */,
 			);
@@ -1045,6 +1163,7 @@
 				F6A87EE7209F214B008D34C5 /* DetailMyUnitsViewController.m in Sources */,
 				F63FCF1720FBCC200027FEA8 /* PaymentsViewController.m in Sources */,
 				4F8D5EA61B6C0568005E64D4 /* AppDelegate.m in Sources */,
+				F604B36B2167245E0047CBD2 /* CameraView.m in Sources */,
 				F6E8D4D121192B440063CC16 /* LoadingLogoVC.m in Sources */,
 				F6A86689211A9B5900560CD5 /* PopCell3.m in Sources */,
 				F626420A211361880022C4DC /* StepperView.m in Sources */,
@@ -1053,6 +1172,8 @@
 				F6C57CA92158EE7400970DC3 /* WSPerson.m in Sources */,
 				F6C57CB12158EE7E00970DC3 /* SampleServiceProxy.m in Sources */,
 				F6B31BE120F33328001A5144 /* ScheduleAppointmentsVC.m in Sources */,
+				F61124B72164CEEC00901694 /* APPSXXDC_AOPT_PKG_WSX1843128X6X5.m in Sources */,
+				F61124AB2164CEB300901694 /* AOPT.m in Sources */,
 				F6170A5D20FCC6ED003443B1 /* MyServicesDataModel.m in Sources */,
 				F6E8321A20AD11070003DC5E /* EServicesViewController.m in Sources */,
 				4F8D5EA31B6C0568005E64D4 /* main.m in Sources */,
@@ -1062,10 +1183,12 @@
 				F6C57E1A215B03E000970DC3 /* WSCalendarView.m in Sources */,
 				F6A87ECF209BFC7F008D34C5 /* ServicesTableViewController.m in Sources */,
 				F62641F8210EFE580022C4DC /* CustomBar.m in Sources */,
+				F61124C62165CA4F00901694 /* PaymentsScheduleCell.m in Sources */,
 				F6E8D4DD2119CB1A0063CC16 /* UnitsTableViewController.m in Sources */,
 				F6C57CB02158EE7E00970DC3 /* SampleService.m in Sources */,
 				F6C57E18215B03E000970DC3 /* WSEventView.m in Sources */,
 				F6FA5B7A2099BC6F009A8F15 /* GridCollectionViewCell.m in Sources */,
+				F61124AA2164CEB300901694 /* AOPTProxy.m in Sources */,
 				F63FCEFE20F782E70027FEA8 /* iCarousel.m in Sources */,
 				F6FA5B772099BC64009A8F15 /* TopCollectionCell.m in Sources */,
 				F6FA5B732099A083009A8F15 /* KeyViewController.m in Sources */,
@@ -1076,10 +1199,12 @@
 				F6C57C6C2158B63B00970DC3 /* JointBuyersDetails.m in Sources */,
 				F6C57E17215B03E000970DC3 /* WSLabel.m in Sources */,
 				F6C57CAA2158EE7400970DC3 /* Request.m in Sources */,
+				F604B3642165FD300047CBD2 /* ReceiptsTableViewCell.m in Sources */,
 				F6CB3FD720EB754100D290A6 /* ViewControllerCell.m in Sources */,
 				F6CB3FBF20EB214F00D290A6 /* ReceiptDataModel.m in Sources */,
 				F6CB3FD820EB754100D290A6 /* ViewControllerCellHeader.m in Sources */,
 				F6C57C6F2158B76D00970DC3 /* BackgroundRequests.m in Sources */,
+				F61124C12165C97300901694 /* PaymentsScheduleVC.m in Sources */,
 				F6C57CA72158EE7400970DC3 /* Response.m in Sources */,
 				F698216820ED49A400D023AF /* CustomBarOptions.m in Sources */,
 				F6A87EE4209F1B84008D34C5 /* ChangeofDetailsViewController.m in Sources */,
@@ -1094,6 +1219,7 @@
 				F686160820962209002EA241 /* PinView.m in Sources */,
 				F6CB3FBB20EA9A0000D290A6 /* ProfileViewController.m in Sources */,
 				F610E8CD2121FE5700B09A5B /* SampleTableViewController.m in Sources */,
+				F61124BE2164E21200901694 /* UnitsClassLabel.m in Sources */,
 				F6C57C692158718500970DC3 /* PassportCellFooter.m in Sources */,
 				F6E8D4D421192B570063CC16 /* ShowMenuOptiionsVC.m in Sources */,
 				F6C57C5621585C4900970DC3 /* PassportUpdateVC.m in Sources */,
@@ -1101,8 +1227,11 @@
 				F626420D211367BC0022C4DC /* JointBView2.m in Sources */,
 				F698216D20EDC1CB00D023AF /* UserDetailsModel.m in Sources */,
 				F62641B92105B9670022C4DC /* ServicesSRDetails.m in Sources */,
+				F61124B62164CEEC00901694 /* AOPT_Enums.m in Sources */,
 				F6E8321520AD07C40003DC5E /* PrintDocView.m in Sources */,
+				F604B36821670A610047CBD2 /* POPTableCell.m in Sources */,
 				F6C57C7B2158CE1800970DC3 /* XPathQuery.m in Sources */,
+				F61124B52164CEEC00901694 /* DocUploadDTO.m in Sources */,
 				F63FCF1B20FBCD0B0027FEA8 /* PaymentsCell.m in Sources */,
 				F60164F320ABF36F00E07510 /* PaymentsDataModel.m in Sources */,
 				F6170A642100692E003443B1 /* AppointmentsCell.m in Sources */,
@@ -1110,8 +1239,10 @@
 				F626426921148D7B0022C4DC /* ChangeofContactCell.m in Sources */,
 				F6B31BDD20F094FB001A5144 /* MyServiceRequestViewController.m in Sources */,
 				F6264266211487AB0022C4DC /* ChangeOfContactDetails.m in Sources */,
+				F604B35F2165FD030047CBD2 /* ReceiptsTableVC.m in Sources */,
 				F6C57C662158687F00970DC3 /* PassportCellHeader.m in Sources */,
 				F6C57C60215864AA00970DC3 /* PassportCell2.m in Sources */,
+				F61124B82164CEEC00901694 /* Base64Binary.m in Sources */,
 				F6C942B720E9C6D700D1F40C /* floatTableViewCell.m in Sources */,
 				F6A87ECC209BFB87008D34C5 /* RentalPoolViewCellViewController.m in Sources */,
 				F6C57C7A2158CE1800970DC3 /* NSData+Base64.m in Sources */,

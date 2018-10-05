@@ -28,23 +28,23 @@
                 <rect key="frame" x="0.0" y="0.0" width="655" height="302.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7nF-YI-tkr">
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7nF-YI-tkr">
                         <rect key="frame" x="20" y="10" width="100" height="20"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="100" id="awf-gu-AbT"/>
                             <constraint firstAttribute="height" constant="20" id="pGh-3p-IEQ"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="13"/>
-                        <color key="textColor" red="0.75294117647058822" green="0.60392156862745094" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="textColor" red="0.83137254901960778" green="0.70588235294117641" blue="0.38823529411764707" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xhb-XP-k4b">
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xhb-XP-k4b">
                         <rect key="frame" x="120" y="11" width="515" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="TJB-CN-nKx"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="13"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="textColor" red="0.49411764705882355" green="0.45882352941176469" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="rtu-wB-oEj">
@@ -53,27 +53,27 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R39-qR-wtu">
                                 <rect key="frame" x="0.0" y="0.0" width="215.5" height="50"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Permitted use" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5IC-vH-ccz">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Permitted use" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5IC-vH-ccz" customClass="UnitsClassHeading">
                                         <rect key="frame" x="0.0" y="5" width="215.5" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="prU-HC-Hoj"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Montserrat-ExtraLight" family="Montserrat" pointSize="10"/>
-                                        <color key="textColor" red="0.74901960784313726" green="0.60392156862745094" blue="0.34509803921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" red="0.49411764705882355" green="0.45882352941176469" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HGR-JB-fZ5">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HGR-JB-fZ5" customClass="UnitsClassLabel">
                                         <rect key="frame" x="0.0" y="30" width="215.5" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="Ti1-p0-ld8"/>
                                             <constraint firstAttribute="height" constant="20" id="efI-55-D50"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="13"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" red="0.81568627450980391" green="0.7803921568627451" blue="0.71372549019607845" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="5IC-vH-ccz" firstAttribute="top" secondItem="R39-qR-wtu" secondAttribute="top" constant="5" id="LSi-fr-zRu"/>
                                     <constraint firstItem="HGR-JB-fZ5" firstAttribute="top" secondItem="5IC-vH-ccz" secondAttribute="bottom" constant="5" id="Tc8-1c-QEM"/>
@@ -86,7 +86,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qv0-4p-UHL">
                                 <rect key="frame" x="219.5" y="0.0" width="216" height="50"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unit Type" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NGZ-ok-yL0">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unit Type" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NGZ-ok-yL0" customClass="UnitsClassHeading">
                                         <rect key="frame" x="0.0" y="5" width="216" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="Vkg-uI-eib"/>
@@ -95,7 +95,7 @@
                                         <color key="textColor" red="0.74901960784313726" green="0.60392156862745094" blue="0.34509803921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pyT-L4-zoZ">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pyT-L4-zoZ" customClass="UnitsClassLabel">
                                         <rect key="frame" x="0.0" y="30" width="216" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="6J8-3g-GBc"/>
@@ -106,7 +106,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="pyT-L4-zoZ" secondAttribute="trailing" id="03c-xg-xsm"/>
                                     <constraint firstItem="NGZ-ok-yL0" firstAttribute="leading" secondItem="Qv0-4p-UHL" secondAttribute="leading" id="O8t-td-Css"/>
@@ -119,7 +119,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5RI-eE-2bL">
                                 <rect key="frame" x="439.5" y="0.0" width="215.5" height="50"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ready/Off plan" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E9I-bt-6zm">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ready/Off plan" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E9I-bt-6zm" customClass="UnitsClassHeading">
                                         <rect key="frame" x="0.0" y="5" width="215.5" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="daV-gX-0AO"/>
@@ -128,18 +128,18 @@
                                         <color key="textColor" red="0.74901960784313726" green="0.60392156862745094" blue="0.34509803921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pm9-At-x5h">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pm9-At-x5h" customClass="UnitsClassLabel">
                                         <rect key="frame" x="0.0" y="30" width="215.5" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="3mu-cI-0OZ"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="JlE-bK-ZrO"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="13"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" red="0.81568627450980391" green="0.7803921568627451" blue="0.71372549019607845" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="pm9-At-x5h" firstAttribute="top" secondItem="E9I-bt-6zm" secondAttribute="bottom" constant="5" id="94R-G8-UYY"/>
                                     <constraint firstAttribute="trailing" secondItem="E9I-bt-6zm" secondAttribute="trailing" id="K1t-UB-ggt"/>
@@ -167,7 +167,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EqN-gX-a7w">
                                 <rect key="frame" x="0.0" y="0.0" width="215.5" height="50"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Booking date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z8r-Wo-56H">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Booking date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z8r-Wo-56H" customClass="UnitsClassHeading">
                                         <rect key="frame" x="0.0" y="5" width="215.5" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="HuO-Ga-XIH"/>
@@ -176,7 +176,7 @@
                                         <color key="textColor" red="0.74901960784313726" green="0.60392156862745094" blue="0.34509803921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qL1-bG-HT6">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qL1-bG-HT6" customClass="UnitsClassLabel">
                                         <rect key="frame" x="0.0" y="30" width="215.5" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="I7j-Hw-27P"/>
@@ -187,7 +187,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="Z8r-Wo-56H" secondAttribute="trailing" id="Bc8-GV-jMq"/>
                                     <constraint firstItem="qL1-bG-HT6" firstAttribute="top" secondItem="Z8r-Wo-56H" secondAttribute="bottom" constant="5" id="EMX-Ue-fUa"/>
@@ -200,7 +200,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1HF-dL-05s">
                                 <rect key="frame" x="219.5" y="0.0" width="216" height="50"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Competetion date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EFa-nv-beN">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Competetion date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EFa-nv-beN" customClass="UnitsClassHeading">
                                         <rect key="frame" x="0.0" y="5" width="216" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="49O-fo-9cq"/>
@@ -209,18 +209,18 @@
                                         <color key="textColor" red="0.74901960784313726" green="0.60392156862745094" blue="0.34509803921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z6Y-jm-hW0">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z6Y-jm-hW0" customClass="UnitsClassLabel">
                                         <rect key="frame" x="0.0" y="30" width="216" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="Ytx-MT-hHm"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="YuQ-YU-4jY"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="13"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" red="0.81568627450980391" green="0.7803921568627451" blue="0.71372549019607845" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="z6Y-jm-hW0" secondAttribute="trailing" id="CVh-Sk-zya"/>
                                     <constraint firstItem="z6Y-jm-hW0" firstAttribute="top" secondItem="EFa-nv-beN" secondAttribute="bottom" constant="5" id="U5R-UQ-Z2V"/>
@@ -233,7 +233,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D9i-ch-Fyz">
                                 <rect key="frame" x="439.5" y="0.0" width="215.5" height="50"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Area / Sqft" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zvj-Xd-vbL">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Area / Sqft" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zvj-Xd-vbL" customClass="UnitsClassHeading">
                                         <rect key="frame" x="0.0" y="5" width="215.5" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="H1r-gZ-Ftj"/>
@@ -242,18 +242,18 @@
                                         <color key="textColor" red="0.74901960784313726" green="0.60392156862745094" blue="0.34509803921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qQh-3B-xkq">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qQh-3B-xkq" customClass="UnitsClassLabel">
                                         <rect key="frame" x="0.0" y="30" width="215.5" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="07D-ga-hUp"/>
                                             <constraint firstAttribute="height" constant="20" id="x9d-1x-2hZ"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="13"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" red="0.81568627450980391" green="0.7803921568627451" blue="0.71372549019607845" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="zvj-Xd-vbL" secondAttribute="trailing" id="3IE-RJ-6Jk"/>
                                     <constraint firstItem="zvj-Xd-vbL" firstAttribute="top" secondItem="D9i-ch-Fyz" secondAttribute="top" constant="5" id="528-t4-791"/>
@@ -281,7 +281,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SLr-LA-BeZ">
                                 <rect key="frame" x="0.0" y="0.0" width="215.5" height="50"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Agreement date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sOi-tq-C17">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Agreement date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sOi-tq-C17" customClass="UnitsClassHeading">
                                         <rect key="frame" x="0.0" y="5" width="215.5" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="Vc4-rz-Rup"/>
@@ -290,7 +290,7 @@
                                         <color key="textColor" red="0.74901960784313726" green="0.60392156862745094" blue="0.34509803921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UrY-qF-20f">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UrY-qF-20f" customClass="UnitsClassLabel">
                                         <rect key="frame" x="0.0" y="30" width="215.5" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="1d3-kS-EZN"/>
@@ -301,7 +301,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="UrY-qF-20f" secondAttribute="trailing" id="35f-uk-kUS"/>
                                     <constraint firstItem="sOi-tq-C17" firstAttribute="top" secondItem="SLr-LA-BeZ" secondAttribute="top" constant="5" id="8G1-gK-YP3"/>
@@ -314,7 +314,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fym-1V-FQu">
                                 <rect key="frame" x="219.5" y="0.0" width="216" height="50"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bedroom type" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J8B-38-fLt">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bedroom type" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J8B-38-fLt" customClass="UnitsClassHeading">
                                         <rect key="frame" x="0.0" y="5" width="216" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="imA-BK-Gsz"/>
@@ -323,7 +323,7 @@
                                         <color key="textColor" red="0.74901960784313726" green="0.60392156862745094" blue="0.34509803921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Kp-k5-nmq">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Kp-k5-nmq" customClass="UnitsClassLabel">
                                         <rect key="frame" x="0.0" y="30" width="216" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="5zE-DL-JAO"/>
@@ -334,7 +334,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="J8B-38-fLt" secondAttribute="trailing" id="0GD-Ej-gA5"/>
                                     <constraint firstItem="J8B-38-fLt" firstAttribute="top" secondItem="fym-1V-FQu" secondAttribute="top" constant="5" id="9WF-Gp-Sk8"/>
@@ -347,7 +347,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9xA-U6-PeU">
                                 <rect key="frame" x="439.5" y="0.0" width="215.5" height="50"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="23c-bR-q7V">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="23c-bR-q7V" customClass="UnitsClassHeading">
                                         <rect key="frame" x="0.0" y="5" width="215.5" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="ZvL-9R-KaC"/>
@@ -356,7 +356,7 @@
                                         <color key="textColor" red="0.74901960784313726" green="0.60392156862745094" blue="0.34509803921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fpv-XH-MMv">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fpv-XH-MMv" customClass="UnitsClassLabel">
                                         <rect key="frame" x="0.0" y="30" width="215.5" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="GVQ-tI-yND"/>
@@ -367,7 +367,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="23c-bR-q7V" firstAttribute="leading" secondItem="9xA-U6-PeU" secondAttribute="leading" id="0JE-OG-0W6"/>
                                     <constraint firstAttribute="trailing" secondItem="23c-bR-q7V" secondAttribute="trailing" id="Ije-46-MJf"/>
@@ -389,7 +389,7 @@
                             <constraint firstAttribute="bottom" secondItem="SLr-LA-BeZ" secondAttribute="bottom" id="rL3-sR-fHG"/>
                         </constraints>
                     </stackView>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xwk-LO-f6x">
+                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xwk-LO-f6x">
                         <rect key="frame" x="40" y="236" width="282.5" height="40"/>
                         <color key="backgroundColor" red="0.10196078431372549" green="0.10196078431372549" blue="0.10196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -403,7 +403,7 @@
                             <userDefinedRuntimeAttribute type="boolean" keyPath="keyPath" value="YES"/>
                         </userDefinedRuntimeAttributes>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HVk-5I-VjK">
+                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HVk-5I-VjK">
                         <rect key="frame" x="332.5" y="236" width="282.5" height="40"/>
                         <color key="backgroundColor" red="0.74901960784313726" green="0.60392156862745094" blue="0.34509803921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -414,8 +414,8 @@
                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </state>
                     </button>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="atg-7Y-1KA">
-                        <rect key="frame" x="0.0" y="295.5" width="655" height="2"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="atg-7Y-1KA">
+                        <rect key="frame" x="0.0" y="300.5" width="655" height="2"/>
                         <color key="backgroundColor" red="0.75686274509803919" green="0.63529411764705879" blue="0.42745098039215684" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="2" id="Itf-i8-ZFc"/>
@@ -438,7 +438,7 @@
                     <constraint firstAttribute="trailing" secondItem="wjY-Ft-t7Z" secondAttribute="trailing" id="brW-1n-QWi"/>
                     <constraint firstItem="xwk-LO-f6x" firstAttribute="top" secondItem="WcD-Ku-DA7" secondAttribute="bottom" constant="20" id="g8A-XP-tHs"/>
                     <constraint firstItem="atg-7Y-1KA" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="gl9-xN-1iG"/>
-                    <constraint firstAttribute="bottom" secondItem="atg-7Y-1KA" secondAttribute="bottom" constant="5" id="hux-g2-S2c"/>
+                    <constraint firstAttribute="bottom" secondItem="atg-7Y-1KA" secondAttribute="bottom" id="hux-g2-S2c"/>
                     <constraint firstItem="rtu-wB-oEj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="j23-1G-sDa"/>
                     <constraint firstItem="xhb-XP-k4b" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="mpe-Id-AA0"/>
                     <constraint firstItem="HVk-5I-VjK" firstAttribute="top" secondItem="WcD-Ku-DA7" secondAttribute="bottom" constant="20" id="tsX-lc-uVG"/>

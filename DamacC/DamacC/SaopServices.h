@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "SampleServiceProxy.h"
+#import "AOPT.h"
 
 @interface SaopServices : NSObject <Wsdl2CodeProxyDelegate>
 

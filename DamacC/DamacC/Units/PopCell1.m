@@ -8,6 +8,65 @@
 
 #import "PopCell1.h"
 
-@implementation PopCell1
+@implementation PopCell1{
+    
+    NSMutableArray *dropItems;
+}
+
+-(void)awakeFromNib{
+    [super awakeFromNib];
+    [self roundCorners:_buttonnext];
+    [self roundCorners:_buttonUnits];
+    [self roundCornersBase:_kpDropBaseView];
+    dropItems = [[NSMutableArray alloc]init];
+    for (ResponseLine *res in [DamacSharedClass sharedInstance].unitsArray) {
+        [dropItems addObject:res.unitNumber];
+    }
+    
+    [self dropMenu];
+}
+
+-(void)roundCorners:(UIButton*)sender{
+    
+    sender.layer.cornerRadius = 5;
+    sender.layer.borderColor = rgb(191, 154, 88).CGColor;
+    sender.clipsToBounds = YES;
+    
+}
+-(void)roundCornersBase:(KPDropMenu*)sender{
+    sender.layer.cornerRadius = 20;
+    sender.layer.borderColor = rgb(191, 154, 88).CGColor;
+    sender.clipsToBounds = YES;
+}
+
+
+
+-(void)dropMenu{
+    
+    _kpDropBaseView.backgroundColor = [UIColor clearColor];
+    _kpDropBaseView.layer.cornerRadius = 10.0f;
+    _kpDropBaseView.layer.borderColor = [UIColor yellowColor].CGColor;
+    _kpDropBaseView.layer.borderWidth = 1.0f;
+    _kpDropBaseView.backgroundColor = [UIColor clearColor];
+    _kpDropBaseView.delegate = self;
+    _kpDropBaseView.items = dropItems;
+    _kpDropBaseView.title = dropItems[0];
+    _kpDropBaseView.titleColor = [UIColor yellowColor];
+    _kpDropBaseView.titleTextAlignment = NSTextAlignmentLeft;
+    _kpDropBaseView.DirectionDown = YES;
+    
+}
+#pragma mark DropMenu Delegates
+-(void)didSelectItem : (KPDropMenu *) dropMenu atIndex : (int) atIntedex
+{
+    _kpDropBaseView.title = dropItems[atIntedex];
+}
+
+-(void)didShow : (KPDropMenu *)dropMenu{
+    
+}
+-(void)didHide : (KPDropMenu *)dropMenu{
+    
+}
 
 @end

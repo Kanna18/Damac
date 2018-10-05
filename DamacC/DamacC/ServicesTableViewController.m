@@ -32,7 +32,6 @@ static NSString *reuseCell = @"servicesCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -47,16 +46,12 @@ static NSString *reuseCell = @"servicesCell";
     if([_typeOfvc isEqualToString:kMyServiceRequests]){
     tvArray = @[@"MyServices1",@"MyServices2",@"MyServices3",@"MyServices4",@"MyServices5",@"MyServices6",@"MyServices7"];
     }
-    
 //    self.navigationController.navigationBar.topItem.title = [_typeOfvc stringByReplacingOccurrencesOfString:@"\n" withString:@" "];
-    
     UIImageView  *boxBackView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"backgroundImage2.jpg"]];
     [self.tableView setBackgroundView:boxBackView];
-    
 //    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [FTIndicator showProgressWithMessage:@"Loading"];
     [self webServiceCall];
-    
 //    [[CustomBarOptions alloc]initWithNavItems:self.navigationItem noOfItems:4];
 }
 

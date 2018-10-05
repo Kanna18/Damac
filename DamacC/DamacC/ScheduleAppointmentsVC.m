@@ -64,13 +64,23 @@ static NSString *reuseCell = @"appointmentsCell";
 
 -(void)webServiceCall{
     
+
     ServerAPIManager *ser =[ ServerAPIManager sharedinstance];
-    [ser postRequestwithUrl:getAppointments withParameters:@{@"userName":@"siraj.khan@damacgroup.com"} successBlock:^(id responseObj) {
+    NSLog(@"%@",kUserProfile);
+    [ser postRequestwithUrl:getAppointments withParameters:@{@"userName":@"sasanka.rath1@damacgroup.com"} successBlock:^(id responseObj) {
         
         NSArray *arr = [NSJSONSerialization JSONObjectWithData:responseObj options:0 error:nil];
-        for (NSDictionary *dict in arr) {
-            [tvArray addObject:[[AppointmentsDataModel alloc] initWithDictionary:dict error:nil]];
+        if(arr.count>0){
+            for (NSDictionary *dic in arr) {
+                if(dic[@"message"]){
+                    SFUserAccountManager *sf = [SFUserAccountManager sharedInstance];
+                    [sf logout];
+                }else{
+                    [tvArray addObject:[[AppointmentsDataModel alloc] initWithDictionary:dic error:nil]];
+                }
+            }
         }
+       
         [_tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
     } errorBlock:^(NSError *error) {
         

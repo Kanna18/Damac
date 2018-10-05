@@ -7,17 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UnitsClassLabel.h"
 
 @interface UnitsCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UILabel *label1;
-@property (weak, nonatomic) IBOutlet UILabel *label2;
-@property (weak, nonatomic) IBOutlet UILabel *label3;
-@property (weak, nonatomic) IBOutlet UILabel *label4;
-@property (weak, nonatomic) IBOutlet UILabel *label5;
-@property (weak, nonatomic) IBOutlet UILabel *label7;
-@property (weak, nonatomic) IBOutlet UILabel *label8;
-@property (weak, nonatomic) IBOutlet UILabel *label9;
-@property (weak, nonatomic) IBOutlet UILabel *label6;
+@property (weak, nonatomic) IBOutlet UnitsClassLabel *label1;
+@property (weak, nonatomic) IBOutlet UnitsClassLabel *label2;
+@property (weak, nonatomic) IBOutlet UnitsClassLabel *label3;
+@property (weak, nonatomic) IBOutlet UnitsClassLabel *label4;
+@property (weak, nonatomic) IBOutlet UnitsClassLabel *label5;
+@property (weak, nonatomic) IBOutlet UnitsClassLabel *label7;
+@property (weak, nonatomic) IBOutlet UnitsClassLabel *label8;
+@property (weak, nonatomic) IBOutlet UnitsClassLabel *label9;
+@property (weak, nonatomic) IBOutlet UnitsClassLabel *label6;
 
 @property (weak, nonatomic) IBOutlet UIButton *printDocButton;
 @property (weak, nonatomic) IBOutlet UIButton *payNowButton;

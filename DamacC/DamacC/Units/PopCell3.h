@@ -11,5 +11,7 @@
 @interface PopCell3 : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UIButton *buttonSubmit;
 @property (weak, nonatomic) IBOutlet UIButton *buttonDocument;
+- (IBAction)uploadProofClick1:(id)sender;
+- (IBAction)uploadProofClick2:(id)sender;
 
 @end

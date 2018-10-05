@@ -48,5 +48,11 @@
 #import "ChangeOfContactDetails.h"
 #import "ChangeofContactCell.h"
 #import "BackgroundRequests.h"
+#import "SaopServices.h"
+#import "AOPT.h"
+#import "AOPTProxy.h"
+#import "NSData+Base64.h"
+#import "UnitsClassLabel.h"
+#import "PaymentsScheduleVC.h"
 
 #endif /* PrefixHeader_pch */

@@ -59,6 +59,7 @@
 
 -(void)setTitle:(NSString *)title{
     _title = title;
+    label.text = _title;
 }
 
 -(void)setTitleTextAlignment:(NSTextAlignment)titleTextAlignment{

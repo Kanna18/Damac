@@ -72,7 +72,7 @@
 }
 -(void)webServiceCall{
         ServerAPIManager *server = [ServerAPIManager sharedinstance];
-    NSArray *arrPa = @[@"Draft Request",@"Submitted",@"Working",@"Cancelled",@"New"];
+    NSArray *arrPa = @[@"Draft Request",@"Submitted",@"Working"/*,@"Cancelled",@"New"*/];
     SFUserAccountManager *sf = [SFUserAccountManager sharedInstance];
     NSString *sfAccountID = sf.currentUser.credentials.userId;
     sfAccountID = sfAccountID ? sfAccountID : @"1036240";
@@ -160,7 +160,7 @@
     dropNew.title = @"Select Again";
     dropNew.titleColor = [UIColor yellowColor];
     dropNew.itemsFont = [UIFont fontWithName:@"Helvetica-Regular" size:12.0];
-    dropNew.titleTextAlignment = NSTextAlignmentCenter;
+    dropNew.titleTextAlignment = NSTextAlignmentLeft;
     dropNew.DirectionDown = YES;
     [self.view addSubview:dropNew];
     
@@ -203,7 +203,7 @@
 }
 
 - (IBAction)allClick:(id)sender {
-    [self sortTvData:@[@"Draft Request",@"Submitted",@"Working",@"Cancelled",@"New"]];
+    [self sortTvData:@[@"Draft Request",@"Submitted",@"Working", @"Cancelled",@"New"]];
     [self setSelecteStates:(UIButton*)sender];
 }
 

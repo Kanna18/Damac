@@ -136,6 +136,7 @@
     [params appendFormat:@"<req>%@</req>" , [req toString:NO]];
     [params appendString:@"</ServiceSample>"];
     [params appendString:@"</soap:Body></soap:Envelope>"];
+    
     NSURL *onwURL = [[NSURL alloc] initWithString:[self url]];
     NSMutableURLRequest *onwreq = [NSMutableURLRequest requestWithURL:onwURL cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:30.0];
     NSString *messageLen = [NSString stringWithFormat:@"%d", [params length]];

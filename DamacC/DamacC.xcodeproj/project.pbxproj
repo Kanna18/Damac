@@ -65,7 +65,6 @@
 		F63FCF0420F87E520027FEA8 /* CustomViewCarousel.xib in Resources */ = {isa = PBXBuildFile; fileRef = F63FCF0320F87E520027FEA8 /* CustomViewCarousel.xib */; };
 		F63FCF1720FBCC200027FEA8 /* PaymentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F63FCF1620FBCC200027FEA8 /* PaymentsViewController.m */; };
 		F63FCF1B20FBCD0B0027FEA8 /* PaymentsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F63FCF1A20FBCD0B0027FEA8 /* PaymentsCell.m */; };
-		F6769C7E2167E52B00739EBA /* HelloDamac.plist in Resources */ = {isa = PBXBuildFile; fileRef = F6769C7D2167E52A00739EBA /* HelloDamac.plist */; };
 		F67EB5E8212521D50011AB64 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F67EB5E4212521C90011AB64 /* Montserrat-Medium.ttf */; };
 		F67EB5E9212521D50011AB64 /* AG_Helvetica_Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F67EB5E5212521CC0011AB64 /* AG_Helvetica_Bold.ttf */; };
 		F67EB5EA212521D50011AB64 /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F67EB5E6212521CE0011AB64 /* Montserrat-SemiBold.ttf */; };
@@ -262,7 +261,6 @@
 		F63FCF1620FBCC200027FEA8 /* PaymentsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PaymentsViewController.m; sourceTree = "<group>"; };
 		F63FCF1920FBCD0B0027FEA8 /* PaymentsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PaymentsCell.h; sourceTree = "<group>"; };
 		F63FCF1A20FBCD0B0027FEA8 /* PaymentsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PaymentsCell.m; sourceTree = "<group>"; };
-		F6769C7D2167E52A00739EBA /* HelloDamac.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = HelloDamac.plist; sourceTree = "<group>"; };
 		F67EB5E4212521C90011AB64 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
 		F67EB5E5212521CC0011AB64 /* AG_Helvetica_Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AG_Helvetica_Bold.ttf; sourceTree = "<group>"; };
 		F67EB5E6212521CE0011AB64 /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
@@ -420,7 +418,6 @@
 			isa = PBXGroup;
 			children = (
 				F686163C20982C9C002EA241 /* PrefixHeader.pch */,
-				F6769C7D2167E52A00739EBA /* HelloDamac.plist */,
 				4F8D5E9F1B6C0568005E64D4 /* DamacC */,
 				4F8D5E9E1B6C0568005E64D4 /* Products */,
 				FCFA7632E60CBEDF97358312 /* Pods */,
@@ -1083,7 +1080,6 @@
 				F62641FA210EFE640022C4DC /* CustomBar.xib in Resources */,
 				F62641F4210EFA5B0022C4DC /* settingsicon.png in Resources */,
 				F6CB3FC720EB546400D290A6 /* HelveticaDin.ttf in Resources */,
-				F6769C7E2167E52B00739EBA /* HelloDamac.plist in Resources */,
 				F610E8BC2121FBC900B09A5B /* UnitsCell.xib in Resources */,
 				F68616052096197D002EA241 /* Main.storyboard in Resources */,
 				F6264209211361880022C4DC /* StepperView.xib in Resources */,
@@ -1421,7 +1417,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.damac.salesapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "4c040c35-5ac3-46be-9b07-0087c50cf6f1";
-				PROVISIONING_PROFILE_SPECIFIER = HelloDamac1;
+				PROVISIONING_PROFILE_SPECIFIER = HelloDamac;
 				SKIP_INSTALL = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "DamacC-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1485,7 +1481,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.damac.salesapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "4c040c35-5ac3-46be-9b07-0087c50cf6f1";
-				PROVISIONING_PROFILE_SPECIFIER = HelloDamac1;
+				PROVISIONING_PROFILE_SPECIFIER = HelloDamac;
 				SKIP_INSTALL = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "DamacC-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;

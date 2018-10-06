@@ -34,6 +34,12 @@
     _skipButton.clipsToBounds =YES;
     
 }
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:YES];
+    self.navigationItem.hidesBackButton = YES;
+    DamacSharedClass.sharedInstance.windowButton.hidden =YES;
+    
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

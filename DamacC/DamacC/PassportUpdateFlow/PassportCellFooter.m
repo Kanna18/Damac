@@ -13,6 +13,8 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    [self roundCorners:_saveDraftBtn];
+    [self roundCorners:_submitBtn];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -22,8 +24,19 @@
 }
 
 - (IBAction)submitClick:(id)sender {
+
 }
 
 - (IBAction)saveDraftClick:(id)sender {
 }
+
+-(void)roundCorners:(UIButton*)sender{
+    
+    sender.layer.cornerRadius = 5;
+    sender.layer.borderColor = rgb(191, 154, 88).CGColor;
+    sender.clipsToBounds = YES;
+    
+}
+
+
 @end

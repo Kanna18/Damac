@@ -11,6 +11,7 @@
 @implementation PopCell1{
     
     NSMutableArray *dropItems;
+    int unitsIndex;
 }
 
 -(void)awakeFromNib{
@@ -24,6 +25,7 @@
     }
     
     [self dropMenu];
+    unitsIndex = 0 ;
 }
 
 -(void)roundCorners:(UIButton*)sender{
@@ -50,9 +52,9 @@
     _kpDropBaseView.backgroundColor = [UIColor clearColor];
     _kpDropBaseView.delegate = self;
     _kpDropBaseView.items = dropItems;
-    _kpDropBaseView.title = dropItems[0];
-    _kpDropBaseView.titleColor = [UIColor yellowColor];
-    _kpDropBaseView.titleTextAlignment = NSTextAlignmentLeft;
+    _kpDropBaseView.title = dropItems[0] ? dropItems[0] : @"";
+    _kpDropBaseView.titleColor = goldColor;
+//    _kpDropBaseView.titleTextAlignment = NSTextAlignmentLeft;
     _kpDropBaseView.DirectionDown = YES;
     
 }
@@ -60,6 +62,7 @@
 -(void)didSelectItem : (KPDropMenu *) dropMenu atIndex : (int) atIntedex
 {
     _kpDropBaseView.title = dropItems[atIntedex];
+    unitsIndex = atIntedex;
 }
 
 -(void)didShow : (KPDropMenu *)dropMenu{
@@ -69,4 +72,11 @@
     
 }
 
+- (IBAction)getUnitsClick:(id)sender {
+    
+    DetailMyUnitsViewController *dm = [DamacSharedClass.sharedInstance.currentVC.storyboard instantiateViewControllerWithIdentifier:@"detailMyUnitsVC"];
+    ResponseLine *responseUnit = DamacSharedClass.sharedInstance.unitsArray[unitsIndex];
+    dm.responseUnit = responseUnit;
+    [DamacSharedClass.sharedInstance.currentVC.navigationController pushViewController:dm animated:YES];
+}
 @end

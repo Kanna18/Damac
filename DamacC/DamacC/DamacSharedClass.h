@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "UserDetailsModel.h"
+#import "VCFloatingActionButton.h"
 
 @interface DamacSharedClass : NSObject
 
@@ -17,5 +18,7 @@
 @property NSDictionary *firstDataObject;
 @property NSMutableArray *sfidsForJointBuyersArray;
 @property NSMutableArray *unitsArray;
+@property UIViewController *currentVC;
+@property VCFloatingActionButton *windowButton;
 //@property UserDetailsModel *userDetailsModel;
 @end

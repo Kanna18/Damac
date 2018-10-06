@@ -31,6 +31,7 @@
     sec2 = 0;
     sec3 = 0;
     
+    DamacSharedClass.sharedInstance.currentVC = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -95,7 +96,7 @@
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     
-    return 60;
+    return 44;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     switch (section) {

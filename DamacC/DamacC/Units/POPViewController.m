@@ -30,6 +30,7 @@
 //    [_collectionView registerClass:[PopCell2 class] forCellWithReuseIdentifier:@"popCell2"];
 //    [_collectionView registerClass:[PopCell3 class] forCellWithReuseIdentifier:@"popCell3"];
     self.collectionView.scrollEnabled = NO;
+    DamacSharedClass.sharedInstance.currentVC = self;
 
 }
 -(void)viewDidAppear:(BOOL)animated{
@@ -81,6 +82,7 @@
 -(void)moveToThirdCell{
     NSIndexPath *path = [NSIndexPath indexPathForRow:2 inSection:0];
     [_collectionView scrollToItemAtIndexPath:path atScrollPosition:UICollectionViewScrollPositionRight animated:YES];
+    
 }
 /*
 #pragma mark - Navigation

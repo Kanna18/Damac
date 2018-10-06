@@ -16,7 +16,11 @@
 #define defaultRemove(key)      [[NSUserDefaults standardUserDefaults] removeObjectForKey:key]
 #define kUserProfile             [DamacSharedClass sharedInstance].userProileModel
 
+
+#define goldColor rgb(191, 154, 88)
+
 #define  kMPin @"MPIN"
+#define kfingerPrintAccessGranted @"FingerPrintAccess"
 #define kconfirmMpin @"CONFIRM_MPIN"
 #define kenterMpin @"EnterMpin"
 #define MPIN_ENTERED_NOTIFICATION @"MPINEntered"//Notification for PKey View Controller

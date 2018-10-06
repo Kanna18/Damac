@@ -198,8 +198,6 @@
 
 -(void)deactiveWSCalendarWithDate:(NSDate *)selectedDate{
     
-    
-    
     NSDateFormatter *monthFormatter=[[NSDateFormatter alloc] init];
     [monthFormatter setDateFormat:@"dd MMMM yyyy"];
     

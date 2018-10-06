@@ -15,6 +15,7 @@
 @implementation KeyViewController{
     PinView *mpin, *confirmPin;
     CGFloat screen_width, screen_height;
+    __weak IBOutlet UILabel *accessDeniedLabel;
 }
 
 - (void)viewDidLoad {
@@ -23,9 +24,21 @@
     self.navigationItem.hidesBackButton = YES;
 //    self.navigationController.navigationBar.barTintColor = rgb(230, 193, 0);
     self.navigationController.navigationBar.barTintColor = [UIColor blackColor];
-    self.navigationController.navigationBar.tintColor = rgb(174, 134, 73);   
+    self.navigationController.navigationBar.tintColor = rgb(174, 134, 73);
+    if(defaultGetBool(kfingerPrintAccessGranted)){
+        accessDeniedLabel.hidden = YES;
+    }else{
+        accessDeniedLabel.hidden = NO;
+    }
 }
 
+- (IBAction)biometric:(id)sender {
+    if(defaultGetBool(kfingerPrintAccessGranted)){
+        [self biometricOrFaceIDrecognition];
+    }else{
+        [FTIndicator showToastMessage:@"Finger Print Access is not registered"];
+    }
+}
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:YES];
@@ -47,15 +60,16 @@
     if([str isEqualToString: s]){
 //        MainViewController *m =[self.storyboard instantiateViewControllerWithIdentifier:@"mainVC"];
 //        [self.navigationController pushViewController:m animated:YES];
+        [self loadNextVC];
         
-        LoadingLogoVC *lc = [self.storyboard instantiateViewControllerWithIdentifier:@"loadingLogoVC"];
-        [self.navigationController pushViewController:lc animated:YES];        
     }else{
         [FTIndicator showToastMessage:@"MPIN is not correct"];
     }
     
-    
-    
+}
+-(void)loadNextVC{
+    LoadingLogoVC *lc = [self.storyboard instantiateViewControllerWithIdentifier:@"loadingLogoVC"];
+    [self.navigationController pushViewController:lc animated:YES];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -73,6 +87,44 @@
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     [[self view] endEditing:TRUE];
+}
+
+-(void)biometricOrFaceIDrecognition{
+    LAContext *myContext = [[LAContext alloc] init];
+    NSError *authError = nil;
+    NSString *myLocalizedReasonString = @"Authenticate using your finger";
+//    myContext.localizedFallbackTitle=@"";
+    if ([myContext canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&authError]) {
+        [myContext evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics
+                  localizedReason:myLocalizedReasonString
+                            reply:^(BOOL success, NSError *error) {
+                                if (success) {
+                                    [self performSelectorOnMainThread:@selector(loadNextVC) withObject:nil waitUntilDone:YES];
+                                } else {
+                                    switch (error.code) {
+                                        case LAErrorAuthenticationFailed:
+                                            NSLog(@"Authentication Failed");
+                                            [self biometricOrFaceIDrecognition];
+                                            break;
+                                        case LAErrorUserCancel:
+                                            NSLog(@"User pressed Cancel button");
+                                            //                                            [self performSelectorOnMainThread:@selector(gotoSetMpinViewController) withObject:nil waitUntilDone:YES];
+                                            break;
+                                        case LAErrorUserFallback:
+                                            NSLog(@"User pressed \"Enter Password\"");
+                                            [self biometricOrFaceIDrecognition];
+                                            break;
+                                        default:
+                                            NSLog(@"Touch ID is not configured");
+                                            [self biometricOrFaceIDrecognition];
+                                            break;
+                                    }
+                                    NSLog(@"Authentication Fails");
+                                }
+                            }];
+    } else {
+        NSLog(@"Can not evaluate Touch ID");
+    }
 }
 
 /*

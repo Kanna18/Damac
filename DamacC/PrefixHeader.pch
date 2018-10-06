@@ -54,5 +54,7 @@
 #import "NSData+Base64.h"
 #import "UnitsClassLabel.h"
 #import "PaymentsScheduleVC.h"
+#import "CameraView.h"
+#import "WSCalendarView.h"
 
 #endif /* PrefixHeader_pch */

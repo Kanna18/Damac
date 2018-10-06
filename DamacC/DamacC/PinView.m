@@ -12,7 +12,6 @@
     
     NSMutableString *collectPin;
 }
-
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
@@ -54,10 +53,11 @@
         UIResponder* nextResponder = [textField.superview viewWithTag:nextTag];
         if (! nextResponder)
             nextResponder = [textField.superview viewWithTag:1];
+            textField.layer.borderColor = rgb(191, 154, 88).CGColor;
 
         if (nextResponder)
             // Found next responder, so set it.
-            textField.layer.borderColor = rgb(254, 0, 252).CGColor;
+            textField.layer.borderColor = rgb(191, 154, 88).CGColor;
             [nextResponder becomeFirstResponder];
         return NO;
     }
@@ -114,7 +114,7 @@
 -(void)roundRadius:(UITextField*)tf{
     tf.layer.cornerRadius=tf.frame.size.height/2;
     tf.layer.borderWidth = 2.0f;
-    tf.layer.borderColor = rgb(254, 0, 252).CGColor;
+    tf.layer.borderColor = rgb(191, 154, 88).CGColor;
     tf.clipsToBounds=YES;
 }
 @end

@@ -45,11 +45,11 @@
     SelectedIndex = -1;
     isCollapsed = TRUE;
     _itemTextAlignment = _titleTextAlignment = NSTextAlignmentCenter;
-    _titleColor = rgb(174, 134, 73);
+    _titleColor = rgb(191, 154, 88);
     _titleFontSize = 14.0;
     _itemHeight = 40.0;
     _itemBackground = [[UIColor blackColor] colorWithAlphaComponent:1];
-    _itemTextColor = rgb(174, 134, 73);
+    _itemTextColor = rgb(191, 154, 88);
     _itemFontSize = 14.0;
     _itemsFont = [UIFont fontWithName:@"Helvetica Neuel" size:14];
     _DirectionDown = YES;

@@ -11,5 +11,7 @@
 @interface POPTableCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UITextField *popTF;
 @property (weak, nonatomic) IBOutlet UIImageView *popImageView;
+- (IBAction)buttonClick:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *buttonTop;
 
 @end

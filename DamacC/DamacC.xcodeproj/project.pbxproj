@@ -65,6 +65,7 @@
 		F63FCF0420F87E520027FEA8 /* CustomViewCarousel.xib in Resources */ = {isa = PBXBuildFile; fileRef = F63FCF0320F87E520027FEA8 /* CustomViewCarousel.xib */; };
 		F63FCF1720FBCC200027FEA8 /* PaymentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F63FCF1620FBCC200027FEA8 /* PaymentsViewController.m */; };
 		F63FCF1B20FBCD0B0027FEA8 /* PaymentsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F63FCF1A20FBCD0B0027FEA8 /* PaymentsCell.m */; };
+		F6769C7E2167E52B00739EBA /* HelloDamac.plist in Resources */ = {isa = PBXBuildFile; fileRef = F6769C7D2167E52A00739EBA /* HelloDamac.plist */; };
 		F67EB5E8212521D50011AB64 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F67EB5E4212521C90011AB64 /* Montserrat-Medium.ttf */; };
 		F67EB5E9212521D50011AB64 /* AG_Helvetica_Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F67EB5E5212521CC0011AB64 /* AG_Helvetica_Bold.ttf */; };
 		F67EB5EA212521D50011AB64 /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F67EB5E6212521CE0011AB64 /* Montserrat-SemiBold.ttf */; };
@@ -261,6 +262,7 @@
 		F63FCF1620FBCC200027FEA8 /* PaymentsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PaymentsViewController.m; sourceTree = "<group>"; };
 		F63FCF1920FBCD0B0027FEA8 /* PaymentsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PaymentsCell.h; sourceTree = "<group>"; };
 		F63FCF1A20FBCD0B0027FEA8 /* PaymentsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PaymentsCell.m; sourceTree = "<group>"; };
+		F6769C7D2167E52A00739EBA /* HelloDamac.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = HelloDamac.plist; sourceTree = "<group>"; };
 		F67EB5E4212521C90011AB64 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
 		F67EB5E5212521CC0011AB64 /* AG_Helvetica_Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AG_Helvetica_Bold.ttf; sourceTree = "<group>"; };
 		F67EB5E6212521CE0011AB64 /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
@@ -418,6 +420,7 @@
 			isa = PBXGroup;
 			children = (
 				F686163C20982C9C002EA241 /* PrefixHeader.pch */,
+				F6769C7D2167E52A00739EBA /* HelloDamac.plist */,
 				4F8D5E9F1B6C0568005E64D4 /* DamacC */,
 				4F8D5E9E1B6C0568005E64D4 /* Products */,
 				FCFA7632E60CBEDF97358312 /* Pods */,
@@ -547,14 +550,14 @@
 			path = Receipts;
 			sourceTree = "<group>";
 		};
-		F604B36E216724830047CBD2 /* New Group */ = {
+		F604B36E216724830047CBD2 /* CameraView */ = {
 			isa = PBXGroup;
 			children = (
 				F604B3692167245E0047CBD2 /* CameraView.h */,
 				F604B36A2167245E0047CBD2 /* CameraView.m */,
 				F604B36C2167246C0047CBD2 /* CameraView.xib */,
 			);
-			path = "New Group";
+			path = CameraView;
 			sourceTree = "<group>";
 		};
 		F610E8B62121FBB500B09A5B /* UnitsCell */ = {
@@ -787,7 +790,7 @@
 		F6B31BDE20F09501001A5144 /* MyServices */ = {
 			isa = PBXGroup;
 			children = (
-				F604B36E216724830047CBD2 /* New Group */,
+				F604B36E216724830047CBD2 /* CameraView */,
 				F6B31BDB20F094FB001A5144 /* MyServiceRequestViewController.h */,
 				F6B31BDC20F094FB001A5144 /* MyServiceRequestViewController.m */,
 				F6170A5F20FF9DB3003443B1 /* ServicesDetailController.h */,
@@ -951,8 +954,6 @@
 		F6E8321220AD079B0003DC5E /* MyUnitsDetails */ = {
 			isa = PBXGroup;
 			children = (
-				F6A87EE5209F214B008D34C5 /* DetailMyUnitsViewController.h */,
-				F6A87EE6209F214B008D34C5 /* DetailMyUnitsViewController.m */,
 				F6E8321320AD07C40003DC5E /* PrintDocView.h */,
 				F6E8321420AD07C40003DC5E /* PrintDocView.m */,
 				F6E8321620AD07D40003DC5E /* PrintDocView.xib */,
@@ -965,6 +966,8 @@
 			children = (
 				F6E8D4DB2119CB1A0063CC16 /* UnitsTableViewController.h */,
 				F6E8D4DC2119CB1A0063CC16 /* UnitsTableViewController.m */,
+				F6A87EE5209F214B008D34C5 /* DetailMyUnitsViewController.h */,
+				F6A87EE6209F214B008D34C5 /* DetailMyUnitsViewController.m */,
 				F610E8CB2121FE5700B09A5B /* SampleTableViewController.h */,
 				F610E8CC2121FE5700B09A5B /* SampleTableViewController.m */,
 				F610E8B62121FBB500B09A5B /* UnitsCell */,
@@ -1042,6 +1045,7 @@
 					4F8D5E9C1B6C0568005E64D4 = {
 						CreatedOnToolsVersion = 6.4;
 						LastSwiftMigration = 0920;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.Keychain = {
 								enabled = 1;
@@ -1079,6 +1083,7 @@
 				F62641FA210EFE640022C4DC /* CustomBar.xib in Resources */,
 				F62641F4210EFA5B0022C4DC /* settingsicon.png in Resources */,
 				F6CB3FC720EB546400D290A6 /* HelveticaDin.ttf in Resources */,
+				F6769C7E2167E52B00739EBA /* HelloDamac.plist in Resources */,
 				F610E8BC2121FBC900B09A5B /* UnitsCell.xib in Resources */,
 				F68616052096197D002EA241 /* Main.storyboard in Resources */,
 				F6264209211361880022C4DC /* StepperView.xib in Resources */,
@@ -1369,8 +1374,11 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = DamacC/DamacC.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: LUXURY FACILITIES MANAGEMENT LLC";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: LUXURY FACILITIES MANAGEMENT LLC";
+				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 8X7ZZ6JX89;
+				DEVELOPMENT_TEAM = 7CQW6NRRPC;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1410,11 +1418,15 @@
 					"-framework",
 					"\"Security\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "gaian.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = com.damac.salesapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "4c040c35-5ac3-46be-9b07-0087c50cf6f1";
+				PROVISIONING_PROFILE_SPECIFIER = HelloDamac1;
+				SKIP_INSTALL = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "DamacC-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1426,8 +1438,11 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = DamacC/DamacC.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: LUXURY FACILITIES MANAGEMENT LLC";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: LUXURY FACILITIES MANAGEMENT LLC";
+				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 8X7ZZ6JX89;
+				DEVELOPMENT_TEAM = 7CQW6NRRPC;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1467,10 +1482,14 @@
 					"-framework",
 					"\"Security\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "gaian.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = com.damac.salesapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "4c040c35-5ac3-46be-9b07-0087c50cf6f1";
+				PROVISIONING_PROFILE_SPECIFIER = HelloDamac1;
+				SKIP_INSTALL = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "DamacC-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

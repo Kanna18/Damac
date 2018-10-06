@@ -82,9 +82,10 @@
 //    [self setTopArrayData:nil];
 //    self.navigationController.navigationBar.hidden = YES;
     
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+        [FTIndicator showProgressWithMessage:@"Loading"];
         [self getUnitsintheBakground];
-    });
+//    });
     
 }
 
@@ -165,6 +166,7 @@
     addButton.labelArray = @[fyCustomerSer,fyLiveChat,fyScheduleAppointments,fyCreateReq,fyProfile];
     addButton.hideWhileScrolling = YES;
     addButton.delegate = self;
+    DamacSharedClass.sharedInstance.windowButton = addButton;
     [win addSubview:addButton];
 }
 
@@ -433,8 +435,10 @@
                 NSError *err;
                 UnitsDataModel  *unitsDM = [[UnitsDataModel alloc]initWithDictionary:dataDictionaryUnits error:&err];
                 [DamacSharedClass sharedInstance].unitsArray = [[NSMutableArray alloc]initWithArray:unitsDM.responseLines];
+                [FTIndicator performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
             }
         } errorBlock:^(NSError *error) {
+            [FTIndicator performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
     }];
 }
 

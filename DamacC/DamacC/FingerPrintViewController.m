@@ -19,18 +19,30 @@
     double (^simpleBlock)(double,double);
     void (^paramsBlock)(double,double);
 }
+- (IBAction)fingerPrintTap:(id)sender {
+    
+    [self biometricOrFaceIDrecognition];
+}
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [self performSelector:@selector(biometricOrFaceIDrecognition) withObject:nil afterDelay:2];
+//    [self performSelector:@selector(biometricOrFaceIDrecognition) withObject:nil afterDelay:2];
     myContext = [[LAContext alloc] init];
     
     
     SFUserAccountManager *sf =[SFUserAccountManager sharedInstance];
-    NSLog(@"%@",sf.currentUserIdentity);    
+    NSLog(@"%@",sf.currentUserIdentity);
+    if(DamacSharedClass.sharedInstance.windowButton){
+    [DamacSharedClass.sharedInstance.windowButton removeFromSuperview];
+    }
+}
+- (IBAction)skipClick:(id)sender {
+    
+    defaultSetBool(NO, kfingerPrintAccessGranted);
+    [self gotoSetMpinViewController];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -49,8 +61,6 @@
 */
 
 -(void)biometricOrFaceIDrecognition{
-    
-    
     NSError *authError = nil;
     NSString *myLocalizedReasonString = @"Authenticate using your finger";
     myContext.localizedFallbackTitle=@"";
@@ -59,6 +69,7 @@
                   localizedReason:myLocalizedReasonString
                             reply:^(BOOL success, NSError *error) {
                                 if (success) {
+                                    defaultSetBool(YES, kfingerPrintAccessGranted);
                                     [self performSelectorOnMainThread:@selector(gotoSetMpinViewController) withObject:nil waitUntilDone:YES];
                                 } else {
                                     switch (error.code) {
@@ -66,17 +77,14 @@
                                             NSLog(@"Authentication Failed");
                                             [self biometricOrFaceIDrecognition];
                                             break;
-                                            
                                         case LAErrorUserCancel:
                                             NSLog(@"User pressed Cancel button");
-                                            [self performSelectorOnMainThread:@selector(gotoSetMpinViewController) withObject:nil waitUntilDone:YES];
+//                                            [self performSelectorOnMainThread:@selector(gotoSetMpinViewController) withObject:nil waitUntilDone:YES];
                                             break;
-                                            
                                         case LAErrorUserFallback:
                                             NSLog(@"User pressed \"Enter Password\"");
                                             [self biometricOrFaceIDrecognition];
                                             break;
-                                            
                                         default:
                                             NSLog(@"Touch ID is not configured");
                                             [self biometricOrFaceIDrecognition];

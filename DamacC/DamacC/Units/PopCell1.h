@@ -12,5 +12,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *buttonnext;
 @property (weak, nonatomic) IBOutlet UIButton *buttonUnits;
 @property (weak, nonatomic) IBOutlet KPDropMenu *kpDropBaseView;
+- (IBAction)getUnitsClick:(id)sender;
 
 @end

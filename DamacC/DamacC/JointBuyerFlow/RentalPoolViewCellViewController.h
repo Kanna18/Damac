@@ -9,11 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface RentalPoolViewCellViewController : UIViewController
-
 @property (weak, nonatomic) IBOutlet UIView *dropDownView;
-
 @property (weak, nonatomic) IBOutlet UIView *stepperViewBase;
-
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIButton *nextClick;
 @property (weak, nonatomic) IBOutlet UIView *firstView;

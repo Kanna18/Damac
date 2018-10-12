@@ -12,5 +12,6 @@
 @property (weak, nonatomic) IBOutlet KPDropMenu *baseDropView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIButton *buttonNext;
+@property popObject *popObj;
 
 @end

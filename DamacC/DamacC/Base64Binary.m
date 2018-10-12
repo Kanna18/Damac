@@ -45,6 +45,8 @@
         [nsString appendString:@"</Base64Binary>" ];
     return nsString;
 }
+
+
 #pragma mark - NSCoding
 -(id)initWithCoder:(NSCoder *)decoder{
     self = [super init];

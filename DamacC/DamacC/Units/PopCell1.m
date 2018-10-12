@@ -63,6 +63,7 @@
 {
     _kpDropBaseView.title = dropItems[atIntedex];
     unitsIndex = atIntedex;
+    _popObj.selectedUnit = [DamacSharedClass sharedInstance].unitsArray[atIntedex];
 }
 
 -(void)didShow : (KPDropMenu *)dropMenu{

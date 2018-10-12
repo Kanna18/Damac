@@ -11,6 +11,5 @@
 @interface POPViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIView *stepperbaseView;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-
-
+@property popObject *popObj;
 @end

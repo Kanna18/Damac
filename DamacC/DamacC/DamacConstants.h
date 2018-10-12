@@ -66,6 +66,8 @@
 
 #define getReceiptsRequest @"https://ptctest.damacgroup.com/DCOFFEE/receipt/party/"
 
+#define prrofOfPayment @"https://partial-servicecloudtrial-155c0807bf-1580afc5db1.cs80.force.com/MobileApp/services/apexrest/SaveProofOfPayment/"
+
 
 
 #pragma mark Arrays

@@ -72,7 +72,9 @@
 }
 -(void)webServiceCall{
         ServerAPIManager *server = [ServerAPIManager sharedinstance];
-    NSArray *arrPa = @[@"Draft Request",@"Submitted",@"Working"/*,@"Cancelled",@"New"*/];
+    
+    //Note:Any chnage in array also need to change ivalue in for loop-- (Value Dependency)
+    NSArray *arrPa = @[@"Draft Request",@"Submitted",@"Working",@"New"/*,@"Cancelled"*/];
     SFUserAccountManager *sf = [SFUserAccountManager sharedInstance];
     NSString *sfAccountID = sf.currentUser.credentials.userId;
     sfAccountID = sfAccountID ? sfAccountID : @"1036240";
@@ -97,7 +99,8 @@
                  if([_typeoFVC isEqualToString:kloadingFromMenu]){
                      [self allClick:nil];
                  }else if([_typeoFVC isEqualToString:kloadingFromCreateServices]){
-                     [self draftClick:nil];
+//                     [self draftClick:nil];
+                     [self allClick:nil];
                  }
             }
         } errorBlock:^(NSError *error) {
@@ -106,7 +109,7 @@
                 [FTIndicator performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
             }
         }];
-        [FTIndicator dismissProgress];
+        [FTIndicator performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
     }
 }
 

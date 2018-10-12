@@ -78,6 +78,7 @@
     sw.dataArray = topCVArray;
     [self.navigationController pushViewController:sw animated:YES];
     
+    
 }
 -(void)viewDidAppear:(BOOL)animated
 {

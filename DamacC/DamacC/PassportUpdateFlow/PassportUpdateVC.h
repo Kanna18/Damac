@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PassportUpdateVC : UIViewController
-@property (weak, nonatomic) IBOutlet UIView *dropBaseView;
+@interface PassportUpdateVC : UIViewController<KPDropMenuDelegate>
+@property (weak, nonatomic) IBOutlet KPDropMenu *dropBaseView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end

@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5F015FFAEA5F093F2AAB703ECBC78446"
+               BlueprintIdentifier = "86C77A97CBB12488E49BF0F3B3FAD7C7"
                BlueprintName = "SalesforceSDKCore"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "libSalesforceSDKCore.a">

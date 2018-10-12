@@ -56,5 +56,8 @@
 #import "PaymentsScheduleVC.h"
 #import "CameraView.h"
 #import "WSCalendarView.h"
+#import "popObject.h"
+#import <WYPopoverController/WYPopoverController.h>
+#import "PopTableViewController.h"
 
 #endif /* PrefixHeader_pch */

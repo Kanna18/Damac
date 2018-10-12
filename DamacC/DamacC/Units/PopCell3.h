@@ -13,5 +13,5 @@
 @property (weak, nonatomic) IBOutlet UIButton *buttonDocument;
 - (IBAction)uploadProofClick1:(id)sender;
 - (IBAction)uploadProofClick2:(id)sender;
-
+@property popObject *popObj;
 @end

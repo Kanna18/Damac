@@ -10,9 +10,11 @@
 #import "PassportCell1.h"
 #import "PassportCell2.h"
 #import "PassportCell3.h"
-#import "PassportCellFooter.h"
-#import "PassportCellHeader.h"
+#import "PassportHeader.h"
+#import "PassportFooter.h"
+
 @interface PassportUpdateVC ()<UITableViewDelegate,UITableViewDataSource>
+@property (weak, nonatomic) IBOutlet UIView *baseSuperView;
 
 @end
 
@@ -20,6 +22,8 @@
     
      CGFloat heightTV,numberOfCells,sections;
     CGFloat sec1,sec2,sec3;
+    NSArray *sectionHeaders;
+    NSArray *dropItems;
 }
 
 - (void)viewDidLoad {
@@ -30,8 +34,12 @@
     sec1 = 0;
     sec2 = 0;
     sec3 = 0;
+    sectionHeaders = @[@"Existing Details",@"New Details",@"Upload Documents"];
     
+    
+    [self dropMenun];
     DamacSharedClass.sharedInstance.currentVC = self;
+    self.view.clipsToBounds = NO;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -39,6 +47,22 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)dropMenun{
+    
+    dropItems = @[@"Existing Details",@"New Details",@"Upload Documents"];
+    _dropBaseView.backgroundColor = [UIColor clearColor];
+    _dropBaseView.layer.cornerRadius = 10.0f;
+    _dropBaseView.layer.borderColor = [UIColor yellowColor].CGColor;
+    _dropBaseView.layer.borderWidth = 1.0f;
+    _dropBaseView.backgroundColor = [UIColor clearColor];
+    _dropBaseView.delegate = self;
+    _dropBaseView.items = dropItems;
+    _dropBaseView.title = dropItems[0];
+    _dropBaseView.titleColor = goldColor;
+    _dropBaseView.titleTextAlignment = NSTextAlignmentLeft;
+    _dropBaseView.DirectionDown = YES;
+    
+}
 /*
 #pragma mark - Navigation
 
@@ -50,7 +74,7 @@
 */
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 3;
+    return sectionHeaders.count;
 }
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     
@@ -104,20 +128,25 @@
             return 60;
             break;
     }
-    return 0;
+    return 10;
 }
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    PassportCellHeader *headerCell = [tableView dequeueReusableCellWithIdentifier:@"passportCellHeader"];
+//    PassportCellHeader *headerCell = [tableView dequeueReusableCellWithIdentifier:@"passportCellHeader"];
+//
+//    if (headerCell ==nil)
+//    {
+//        [_tableView registerClass:[PassportCellHeader class] forCellReuseIdentifier:@"passportCellHeader"];
+//        headerCell = [tableView dequeueReusableCellWithIdentifier:@"passportCellHeader"];
+//    }
+//    headerCell.headerButton.tag = section;
+//    [headerCell.headerButton addTarget:self action:@selector(tappedOnSection:) forControlEvents:UIControlEventTouchUpInside];
+//    headerCell.headerTitle.text = sectionHeaders[section];
     
-    if (headerCell ==nil)
-    {
-        [_tableView registerClass:[PassportCellHeader class] forCellReuseIdentifier:@"passportCellHeader"];
-        headerCell = [tableView dequeueReusableCellWithIdentifier:@"passportCellHeader"];
-    }
-    headerCell.headerButton.tag = section;
-    [headerCell.headerButton addTarget:self action:@selector(tappedOnSection:) forControlEvents:UIControlEventTouchUpInside];
-    headerCell.headerTitle.text = [NSString stringWithFormat:@"Section %ld",(long)section];
-    return headerCell;
+    PassportHeader *headerView = [[PassportHeader alloc]initWithFrame:CGRectZero];
+    headerView.headerLabel.text = sectionHeaders[section];
+    headerView.headerButton.tag = section;
+    [headerView.headerButton addTarget:self action:@selector(tappedOnSection:) forControlEvents:UIControlEventTouchUpInside];
+    return headerView;
 }
 
 -(void)tappedOnSection:(UIButton *)sender{
@@ -140,15 +169,43 @@
         default:
             break;
     }
-//    NSIndexSet *set = [NSIndexSet indexSetWithIndex:sender.tag];
-//    [_tableView reloadSections:set withRowAnimation:UITableViewRowAnimationAutomatic];
-    [_tableView reloadData];
+    NSIndexSet *set = [NSIndexSet indexSetWithIndex:sender.tag];
+    [_tableView reloadSections:set withRowAnimation:UITableViewRowAnimationAutomatic];
+//    [_tableView reloadData];
     
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
-    PassportCellFooter *footer = [tableView dequeueReusableCellWithIdentifier:@"passportCellFooter"];
+//    PassportCellFooter *footer = [tableView dequeueReusableCellWithIdentifier:@"passportCellFooter"];
+    if(section == 2){
+        PassportFooter *footer = [[PassportFooter alloc]initWithFrame:CGRectZero];
+        return footer;
+    }else{
+    UIView *footer = [[UIView alloc]initWithFrame:CGRectZero];
+    footer.backgroundColor = [UIColor clearColor];
     return footer;
+    }
 }
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:YES];
+    [self.view bringSubviewToFront:_baseSuperView];
+    [_baseSuperView setNeedsDisplay];
+}
+
+#pragma mark DropMenu Delegates
+-(void)didSelectItem : (KPDropMenu *) dropMenu atIndex : (int) atIntedex
+{
+    _dropBaseView.title = dropItems[atIntedex];
+    
+    
+}
+
+-(void)didShow : (KPDropMenu *)dropMenu{
+    
+}
+-(void)didHide : (KPDropMenu *)dropMenu{
+    
+}
+
 
 @end

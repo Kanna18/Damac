@@ -31,7 +31,7 @@
 //    [_collectionView registerClass:[PopCell3 class] forCellWithReuseIdentifier:@"popCell3"];
     self.collectionView.scrollEnabled = NO;
     DamacSharedClass.sharedInstance.currentVC = self;
-
+    _popObj = [[popObject alloc]init];
 }
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:YES];
@@ -54,15 +54,18 @@
     if(indexPath.row==0){
         PopCell1 *pCell1 = [collectionView dequeueReusableCellWithReuseIdentifier:@"popCell1" forIndexPath:indexPath];
         [pCell1.buttonnext addTarget:self action:@selector(moveTosecondCell) forControlEvents:UIControlEventTouchUpInside];
+        pCell1.popObj = _popObj;
         return pCell1;
     }
     if(indexPath.row==1){
         PopCell2 *pCell2 = [collectionView dequeueReusableCellWithReuseIdentifier:@"popCell2" forIndexPath:indexPath];
-        [pCell2.buttonNext addTarget:self action:@selector(moveToThirdCell) forControlEvents:UIControlEventTouchUpInside];
+//        [pCell2.buttonNext addTarget:self action:@selector(moveToThirdCell) forControlEvents:UIControlEventTouchUpInside];
+        pCell2.popObj = _popObj;
         return pCell2;
     }
     if(indexPath.row==2){
-        PopCell2 *pCell3 = [collectionView dequeueReusableCellWithReuseIdentifier:@"popCell3" forIndexPath:indexPath];
+        PopCell3 *pCell3 = [collectionView dequeueReusableCellWithReuseIdentifier:@"popCell3" forIndexPath:indexPath];
+        pCell3.popObj = _popObj;
         return pCell3;
     }
     
@@ -82,7 +85,6 @@
 -(void)moveToThirdCell{
     NSIndexPath *path = [NSIndexPath indexPathForRow:2 inSection:0];
     [_collectionView scrollToItemAtIndexPath:path atScrollPosition:UICollectionViewScrollPositionRight animated:YES];
-    
 }
 /*
 #pragma mark - Navigation

@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SampleServiceProxy.h"
 #import "AOPT.h"
 
-@interface SaopServices : NSObject <Wsdl2CodeProxyDelegate>
-
+@interface SaopServices : NSObject
+@property (strong,nonatomic) NSURLConnection *sessionconnection;
+@property NSMutableData *webResponseData;
 @end

@@ -9,6 +9,8 @@
 #import "PopCell2.h"
 #import "POPTableCell.h"
 #define bottomPaddingSpace 10.0
+#define textFieldTag 10000
+#import "POPViewController.h"
 
 @interface PopCell2()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate,WSCalendarViewDelegate>
 
@@ -24,6 +26,9 @@
     UITextField *textF;
     CGRect tableViewRect,contentviewRect;
     NSMutableDictionary *dictionaryTf;
+    POPViewController *superVC;
+    NSString *paymentMode;
+    NSString *paymentDate;
 }
 
 
@@ -38,7 +43,7 @@
     tvItems = @[@"Payment Date*",@"Payment Allocation remarks",@"Total Amount*",@"Sender Name",@"Bank Name",@"Swift Code"];
     [self setCalendarInit];
     superView= DamacSharedClass.sharedInstance.currentVC.view;
-    
+    superVC = DamacSharedClass.sharedInstance.currentVC;
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillShow:)
                                                  name:UIKeyboardWillShowNotification
@@ -52,6 +57,7 @@
 
     tableViewRect = _tableView.frame;
     contentviewRect = self.contentView.frame;
+    dictionaryTf = [[NSMutableDictionary alloc]init];
 }
 
 -(void)roundCorners:(UIButton*)sender{
@@ -106,6 +112,47 @@
     NSLog(@"%@",[eventArray description]);
 }
 
+-(IBAction)nextButtonCliced:(UIButton*)sender{
+    
+    [textF endEditing:YES];
+    
+    if(paymentDate.length<1){
+        [FTIndicator showToastMessage:@"please select payment date"];
+        return;
+    }
+    NSString *amount = [dictionaryTf valueForKey:[NSString stringWithFormat:@"%@",[NSNumber numberWithInt:textFieldTag+2]]];
+    if(amount.length <= 1){
+        [FTIndicator showToastMessage:@"Amount field should not be empty"];
+        return;
+    }
+    NSString *senderName = [dictionaryTf valueForKey:[NSString stringWithFormat:@"%@",[NSNumber numberWithInt:textFieldTag+3]]];
+    if(senderName.length<1){
+        [FTIndicator showToastMessage:@"please enter sender name"];
+        return;
+    }
+    if(paymentDate.length<1){
+        [FTIndicator showToastMessage:@"please select payment date"];
+        return;
+    }
+    NSString *bankName = [dictionaryTf valueForKey:[NSString stringWithFormat:@"%@",[NSNumber numberWithInt:textFieldTag+4]]];
+    if(bankName.length<1){
+        [FTIndicator showToastMessage:@"please enter bank name"];
+        return;
+    }
+    NSString *swiftCode = [dictionaryTf valueForKey:[NSString stringWithFormat:@"%@",[NSNumber numberWithInt:textFieldTag+5]]];
+    if(swiftCode.length<1){
+        [FTIndicator showToastMessage:@"please bank swift code"];
+        return;
+    }    
+    _popObj.PaymentMode = paymentMode;
+    _popObj.PARemark = [dictionaryTf valueForKey:[NSString stringWithFormat:@"%@",[NSNumber numberWithInt:textFieldTag+1]]];
+    _popObj.PaymentDate = paymentDate;
+    _popObj.SenderName = senderName;
+    _popObj.BankName = bankName;
+    _popObj.SwiftCode = swiftCode;
+    [self moveToThirdCell];
+}
+
 
 -(void)dropMenu{
     
@@ -127,6 +174,7 @@
 -(void)didSelectItem : (KPDropMenu *) dropMenu atIndex : (int) atIntedex
 {
     _baseDropView.title = dropItems[atIntedex];
+    paymentMode = dropItems[atIntedex];
 }
 
 -(void)didShow : (KPDropMenu *)dropMenu{
@@ -145,8 +193,9 @@
     
     POPTableCell *cell = (POPTableCell*)[tableView dequeueReusableCellWithIdentifier:@"pOPTableCell" forIndexPath:indexPath];
     cell.popTF.placeholder = tvItems[indexPath.row];
-    cell.popTF.tag = 100 + indexPath.row;
+    cell.popTF.tag =  indexPath.row+textFieldTag;
     cell.popTF.delegate = self;
+    [cell.popTF setValue:rgb(191, 154, 88) forKeyPath:@"_placeholderLabel.textColor"];
     if(indexPath.row == 0){
         cell.buttonTop.hidden = NO;
         [cell.buttonTop addTarget:self action:@selector(activateCalen) forControlEvents:UIControlEventTouchUpInside];
@@ -196,17 +245,15 @@
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSDateComponents *dateComponent = [calendar components:(NSWeekOfYearCalendarUnit | NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit | NSCalendarUnitWeekday) fromDate:selectedDate];
     
-    if(result == -1 ){
-//        [superView setTitle:str forState:UIControlStateNormal];
-        
-    }else if(dateComponent.weekday == 6 || dateComponent.weekday == 7){
-        [FTIndicator showErrorWithMessage:@"Friday and Saturday are weekoff"];
+    if(result == NSOrderedAscending ){
+        [FTIndicator showErrorWithMessage:@"Invalid Date selected"];
         [calendarView ActiveCalendar:superView];
+    }else{
+        paymentDate = str;
+        UITextField *tf = [_tableView viewWithTag:textFieldTag];
+        tf.text = str;
     }
-    else{
-        [FTIndicator showErrorWithMessage:@"Selected Date should be greater"];
-        [calendarView ActiveCalendar:superView];
-    }
+    
 }
 
 #pragma mark TextField Delegates
@@ -221,7 +268,9 @@
     return NO; // We do not want UITextField to insert line-breaks.
 }
 -(void)textFieldDidEndEditing:(UITextField *)textField{
-    
+    if([textField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length>0){
+        [dictionaryTf setValue:textField.text forKey:[NSString stringWithFormat:@"%@",[NSNumber numberWithInt:textField.tag]]];
+    }
 }
 
 
@@ -262,7 +311,7 @@
     CGRect frame = tableViewRect;
     
     
-    contentviewRect.origin.y = -(contentviewRect.origin.y + ((textF.tag-100) * 40));
+    contentviewRect.origin.y = -(contentviewRect.origin.y + ((textF.tag-textFieldTag) * 40));
     
     // Start animation
     [UIView beginAnimations:nil context:NULL];
@@ -321,7 +370,10 @@
     [UIView commitAnimations];
 }
 
-
+-(void)moveToThirdCell{
+    NSIndexPath *path = [NSIndexPath indexPathForRow:2 inSection:0];
+    [superVC.collectionView scrollToItemAtIndexPath:path atScrollPosition:UICollectionViewScrollPositionRight animated:YES];
+}
 -(void)setDictionary:(UITextField*)tf{
     
 }

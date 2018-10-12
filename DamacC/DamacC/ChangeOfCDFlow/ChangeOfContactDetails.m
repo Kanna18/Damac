@@ -8,7 +8,8 @@
 
 #import "ChangeOfContactDetails.h"
 #import "ChangeofContactCell2.h"
-@interface ChangeOfContactDetails ()<KPDropMenuDelegate>
+#import "PassportHeader.h"
+@interface ChangeOfContactDetails ()<KPDropMenuDelegate,UITextFieldDelegate,WYPopoverControllerDelegate,POPDelegate>
 
 @end
 
@@ -21,7 +22,9 @@
     KPDropMenu *dropNew;
     UIColor *selectedColor;
     NSArray *dropItems;
+    WYPopoverController* popoverController;
 
+    NSInteger *section2Cells;
 }
 
 - (void)viewDidLoad {
@@ -33,6 +36,7 @@
     heightTV = 50;
     numberOfCells = 3;
     sections = 1;
+    section2Cells = 0;
     _tableViewHeight.constant = heightTV;
     udm = [DamacSharedClass sharedInstance].userProileModel;
     
@@ -60,11 +64,12 @@
     dropNew.itemsFont = [UIFont fontWithName:@"Helvetica-Regular" size:12.0];
     dropNew.titleTextAlignment = NSTextAlignmentLeft;
     dropNew.DirectionDown = YES;
-    dropNew.clipsToBounds = YES;
+    dropNew.clipsToBounds = NO;
     _tableView.clipsToBounds = NO;
     dropNew.userInteractionEnabled = YES;
     self.view.clipsToBounds = NO;
 }
+
 
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -78,6 +83,32 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+-(void)showpopover:(UIButton*)button{
+    
+    PopTableViewController *popVC=[self.storyboard instantiateViewControllerWithIdentifier:@"popTableVC"];
+    popVC.delegate=self;
+    popoverController = [[WYPopoverController alloc] initWithContentViewController:popVC];
+    popoverController.delegate = self;
+    popoverController.popoverContentSize=CGSizeMake(button.frame.size.width, UIScreen.mainScreen.bounds.size.height-30);
+    popoverController.accessibilityNavigationStyle=UIAccessibilityNavigationStyleCombined;
+    [popoverController presentPopoverFromRect:button.bounds inView:button permittedArrowDirections:WYPopoverArrowDirectionUp animated:YES options:WYPopoverAnimationOptionFadeWithScale];
+}
+
+#pragma mark PopOverDelegates
+- (BOOL)popoverControllerShouldDismissPopover:(WYPopoverController *)controller
+{
+    return YES;
+}
+- (void)popoverControllerDidDismissPopover:(WYPopoverController *)controller
+{
+    popoverController.delegate = nil;
+    popoverController = nil;
+}
+
+
+#pragma mark UiTableViewDelegates
+
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return sections;
 }
@@ -85,7 +116,7 @@
     if(section ==0){
         return tvArr.count;
     }if(section ==1){
-        return  section2Array.count;
+        return  section2Cells;
     }
     return 0;
 }
@@ -95,12 +126,18 @@
         ChangeofContactCell *cell = [tableView dequeueReusableCellWithIdentifier:@"changeofContactCell" forIndexPath:indexPath];
         cell.subLabel.text = tvArr[indexPath.row][@"key"];
         cell.textField.text = tvArr[indexPath.row][@"value"];
+        cell.textField.delegate = self;
+        cell.clipsToBounds = NO;
+        [cell.selectCountryButtton addTarget:self action:@selector(showpopover:) forControlEvents:UIControlEventTouchUpInside];
         return cell;
+        
     }
     if(indexPath.section ==1){
         ChangeofContactCell2 *cell = [tableView dequeueReusableCellWithIdentifier:@"changeofContactCell2" forIndexPath:indexPath];
         cell.subLabel.text = section2Array[indexPath.row][@"key"];
         cell.textField.text = section2Array[indexPath.row][@"value"];
+        cell.textField.delegate = self;
+        cell.clipsToBounds = NO;
         return cell;
     }
     
@@ -117,12 +154,15 @@
     if(indexPath.section == 0){
         ChangeofContactCell *cell1 = (ChangeofContactCell*)cell ;
         if(indexPath.row==5){
-        dropNew.frame = cell1.textField.bounds;
-        [cell1.textField addSubview:dropNew];
-        cell1.borderView.hidden = YES;
-        cell1.clipsToBounds = NO;
-        dropNew.layer.borderWidth = 2.0;
+//        dropNew.frame = cell1.textField.bounds;
+//        [cell1.textField addSubview:dropNew];
+//        cell1.borderView.hidden = YES;
+//        cell1.clipsToBounds = NO;
+//        dropNew.layer.borderWidth = 2.0;
+            cell1.borderView.hidden = YES;
+            cell1.selectCountryButtton.hidden =NO;
         }else{
+            cell1.selectCountryButtton.hidden =YES;
             cell1.borderView.hidden = NO;
         }
     }
@@ -134,6 +174,8 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+
     return heightTV;
 }
 
@@ -147,10 +189,16 @@
     return 0;
 }
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    UIView *vi = [[UIView alloc]initWithFrame:CGRectZero];
-    vi.backgroundColor = [UIColor grayColor];
+    if(section == 1){
+    PassportHeader *vi = [[PassportHeader alloc]initWithFrame:CGRectZero];
+    vi.headerLabel.text = @"Address in Arabic";
+    vi.headerButton.tag = section;
+    [vi.headerButton addTarget:self action:@selector(hideSectioncells:) forControlEvents:UIControlEventTouchUpInside];
     return vi;
+    }
+    return nil;
 }
+
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     if(section == 0){
         return @"";
@@ -169,14 +217,25 @@
     // Pass the selected object to the new view controller.
 }
 */
-
+-(void)hideSectioncells:(UIButton*)sender{
+    if(section2Cells == (NSInteger*)section2Array.count){
+        section2Cells = 0;
+    }else{
+       section2Cells = (NSInteger*)section2Array.count;
+    }
+    NSIndexSet *set = [NSIndexSet indexSetWithIndex:sender.tag];
+    NSIndexPath *path = [NSIndexPath indexPathForRow:0 inSection:sender.tag];
+    [_tableView reloadSections:set withRowAnimation:UITableViewRowAnimationAutomatic];    
+    if(section2Cells > 0){
+        [_tableView scrollToRowAtIndexPath:path atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    }
+    
+}
 - (IBAction)mobileClick:(id)sender {
-    numberOfCells = 1;
-    sections = 1;
-    _tableViewHeight.constant = heightTV;
-    
+        sections = 1;
+        numberOfCells = 1;
+        _tableViewHeight.constant = heightTV;
     NSLog(@"%@",[DamacSharedClass sharedInstance].userProileModel);
-    
     tvArr = @[@{@"key":@"Mobile No.",
                 @"value":[NSString stringWithFormat:@"%@%@%@",udm.countryCode,udm.phoneAreaCode,udm.phoneNumber]}
               ];
@@ -194,9 +253,9 @@
 }
 
 - (IBAction)emailClick:(id)sender {
-    sections = 1;
-    numberOfCells = 1;
-    _tableViewHeight.constant = 140;
+        sections = 1;
+        numberOfCells = 1;
+        _tableViewHeight.constant = heightTV;
     tvArr = @[@{@"key":@"Email",
                 @"value":[NSString stringWithFormat:@"%@",udm.emailAddress]}];
     [_tableView reloadData];
@@ -204,9 +263,9 @@
 }
 
 - (IBAction)addressClick:(id)sender {
-    sections = 2;
-    numberOfCells = 3;
-    _tableViewHeight.constant = 280;
+        sections = 2;
+        numberOfCells = 3;
+        _tableViewHeight.constant = 280;
     tvArr = @[@{@"key":@"Address1",
                 @"value":[NSString stringWithFormat:@"%@",udm.emailAddress]},
               @{@"key":@"Address2",
@@ -241,4 +300,31 @@
 
 - (IBAction)downloadFormClick:(id)sender {
 }
+
+#pragma mark TextField Delegates
+
+-(void)textFieldDidBeginEditing:(UITextField *)textField{
+    NSLog(@"%@",textField.placeholder);
+}
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [textField resignFirstResponder];
+    return YES;
+}
+
+
+#pragma mark DropMenu Delegates
+-(void)didSelectItem : (KPDropMenu *) dropMenu atIndex : (int) atIntedex
+{
+    [self.view bringSubviewToFront:dropNew];
+    dropNew.title = dropItems[atIntedex];
+    
+}
+
+-(void)didShow : (KPDropMenu *)dropMenu{
+    
+}
+-(void)didHide : (KPDropMenu *)dropMenu{
+    
+}
+
 @end

@@ -14,4 +14,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *subLabel;
 
 @property (weak, nonatomic) IBOutlet UIImageView *borderView;
+@property (weak, nonatomic) IBOutlet UILabel *headingLabel;
+@property (weak, nonatomic) IBOutlet UIButton *selectCountryButtton;
+
+
+
 @end

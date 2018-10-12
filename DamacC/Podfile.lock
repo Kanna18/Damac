@@ -76,6 +76,7 @@ PODS:
     - SQLCipher/common
   - SQLCipher/standard (3.4.2):
     - SQLCipher/common
+  - WYPopoverController (0.2.2)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.5.4)
@@ -85,6 +86,7 @@ DEPENDENCIES:
   - SalesforceSDKCore (from `mobile_sdk/SalesforceMobileSDK-iOS`)
   - SmartStore (from `mobile_sdk/SalesforceMobileSDK-iOS`)
   - SmartSync (from `mobile_sdk/SalesforceMobileSDK-iOS`)
+  - WYPopoverController (~> 0.2.0)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -94,6 +96,7 @@ SPEC REPOS:
     - FTIndicator
     - JSONModel
     - SQLCipher
+    - WYPopoverController
 
 EXTERNAL SOURCES:
   SalesforceAnalytics:
@@ -116,7 +119,8 @@ SPEC CHECKSUMS:
   SmartStore: c35f2506507010271a4b82415a81664e7c74de0d
   SmartSync: e204bd5975ff18aa4a36172df04df64c0b51b3a7
   SQLCipher: f9fcf29b2e59ced7defc2a2bdd0ebe79b40d4990
+  WYPopoverController: 00d879c25bddd1fd873dcc21aa98c8308d7f1555
 
-PODFILE CHECKSUM: 38d2db733ca527e5935deae68f6205b736363ed6
+PODFILE CHECKSUM: 62d7331740bff07ccb010ff0cc4b29cdffd86d01
 
 COCOAPODS: 1.5.0

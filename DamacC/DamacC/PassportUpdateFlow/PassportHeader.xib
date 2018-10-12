@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="PassportHeader">
+            <rect key="frame" x="0.0" y="0.0" width="399" height="44"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nKI-R6-Txt">
+                    <rect key="frame" x="0.0" y="0.0" width="399" height="44"/>
+                    <color key="backgroundColor" white="0.33333333333333331" alpha="0.4669038955479452" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mA0-00-JWw">
+                    <rect key="frame" x="20" y="0.0" width="329" height="44"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.74901960784313726" green="0.58039215686274503" blue="0.34509803921568627" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sideArrow" translatesAutoresizingMaskIntoConstraints="NO" id="WbS-Jh-QEo">
+                    <rect key="frame" x="349" y="0.0" width="50" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="3yf-ur-CDd"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ItF-D5-eEP">
+                    <rect key="frame" x="0.0" y="0.0" width="399" height="44"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="mA0-00-JWw" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="1IV-DY-QdI"/>
+                <constraint firstItem="ItF-D5-eEP" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="4Vq-GQ-4XZ"/>
+                <constraint firstItem="nKI-R6-Txt" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="K7J-xG-iAC"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="WbS-Jh-QEo" secondAttribute="bottom" id="NRc-ce-gnX"/>
+                <constraint firstItem="nKI-R6-Txt" firstAttribute="height" secondItem="vUN-kp-3ea" secondAttribute="height" id="R4p-Rf-8cP"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="WbS-Jh-QEo" secondAttribute="trailing" id="UH3-YG-1Fb"/>
+                <constraint firstItem="WbS-Jh-QEo" firstAttribute="leading" secondItem="mA0-00-JWw" secondAttribute="trailing" id="ViU-Ry-Bzu"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="ItF-D5-eEP" secondAttribute="bottom" id="a22-Ds-7vs"/>
+                <constraint firstItem="nKI-R6-Txt" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="a4s-Qu-y74"/>
+                <constraint firstItem="mA0-00-JWw" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="ah8-Bm-Tuh"/>
+                <constraint firstItem="ItF-D5-eEP" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="g7Y-C8-lfi"/>
+                <constraint firstItem="WbS-Jh-QEo" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="j6y-cy-F0o"/>
+                <constraint firstItem="nKI-R6-Txt" firstAttribute="width" secondItem="vUN-kp-3ea" secondAttribute="width" id="oaT-oC-JGp"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="mA0-00-JWw" secondAttribute="bottom" id="rtQ-oO-9a7"/>
+                <constraint firstItem="ItF-D5-eEP" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="zyi-H9-xD8"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="headerButton" destination="ItF-D5-eEP" id="ztd-Yc-nYV"/>
+                <outlet property="headerLabel" destination="mA0-00-JWw" id="eEH-TZ-apQ"/>
+                <outlet property="imageView" destination="WbS-Jh-QEo" id="rKN-w1-0Id"/>
+            </connections>
+            <point key="canvasLocation" x="149.59999999999999" y="144.82758620689657"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="sideArrow" width="16" height="16"/>
+    </resources>
+</document>

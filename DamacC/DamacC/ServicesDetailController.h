@@ -10,8 +10,7 @@
 
 @interface ServicesDetailController : UIViewController
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet UIButton *editButton;
-- (IBAction)editButtonClick:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *cancelBtn;
 
 @property NSString *srCaseId;
 - (IBAction)cancelButton:(id)sender;

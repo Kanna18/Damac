@@ -17,73 +17,84 @@
 {
     self = [super init];
     if (self) {
-
-
-        UIImage *img = [UIImage imageNamed:@"settingsicon.png"];
-        NSData *dataImg = UIImageJPEGRepresentation(img, 1.0);
-        NSString *soapMessage = [NSString stringWithFormat:@"<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
-                                 "<SOAP-ENV:Envelope xmlns:SOAP-ENV=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ns1=\"http://action.com\" xmlns:ns2=\"http://bean.com/xsd\" xmlns:ns3=\"http://soapencoding.types.databinding.axis2.apache.org/xsd\">"
-                                 "<SOAP-ENV:Body>"
-                                 "<ns1:DocumentAttachmentMultiple>"
-                                 "<ns1:P_REQUEST_NUMBER>%@</ns1:P_REQUEST_NUMBER>"
-                                 "<ns1:P_REQUEST_NAME>%@</ns1:P_REQUEST_NAME>"
-                                 "<ns1:P_SOURCE_SYSTEM>%@</ns1:P_SOURCE_SYSTEM>"
-                                 "<ns1:regTerms>"
-                                 "<ns2:category>%@</ns2:category>"
-                                 "<ns2:entityName>%@</ns2:entityName>"
-                                 "<ns2:fileBinary>"
-                                 "<ns3:base64Binary>%@</ns3:base64Binary>"
-                                 "</ns2:fileBinary>"
-                                 "<ns2:fileDescription>%@</ns2:fileDescription>"
-                                 "<ns2:fileId>%@</ns2:fileId>"
-                                 "<ns2:fileName>%@</ns2:fileName>"
-                                 "<ns2:registrationId>%@</ns2:registrationId>"
-                                 "<ns2:sourceFileName>%@</ns2:sourceFileName>"
-                                 "<ns2:sourceId>%@</ns2:sourceId>"
-                                 "</ns1:regTerms>"
-                                 "</ns1:DocumentAttachmentMultiple>"
-                                 "</SOAP-ENV:Body>"                                 "</SOAP-ENV:Envelope>",
-                                 kUserProfile.partyId,
-                                 @"Service Request",
-                                 @"TEST-1",
-                                 @"Document",
-                                 @"Damac Service Requests",
-                                 dataImg.base64Encode,@"NationalIdCopy",
-                                 [NSString stringWithFormat:@"IPMS-%@-NationalIdCopy",
-                                  kUserProfile.partyId],
-                                 [NSString stringWithFormat:@"IPMS-%@-NationalIdCopy.pdf",kUserProfile.partyId],
-                                 kUserProfile.partyId,
-                                 [NSString stringWithFormat:@"IPMS-%@-NationalIdCopy.pdf",kUserProfile.partyId],
-                                 [NSString stringWithFormat:@"IPMS-%@NationalIdCopy",kUserProfile.partyId]];
         
-        
-        
-        
-        NSURL *url = [NSURL URLWithString:@"http://34.236.223.78:8080/CRM_SR_NEW/services/AOPT?wsdl"]; // Copy here the URL
-        NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
-        NSString *msgLength = [NSString stringWithFormat:@"%lu", (unsigned long)[soapMessage length]];
-        
-        //add required headers to the request
-        [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
-        [theRequest addValue: @"urn:DocumentAttachmentMultiple" forHTTPHeaderField:@"SOAPAction"]; // copy here the SOAP_ACTION
-        [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
-        [theRequest setHTTPMethod:@"POST"];
-        [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
-        
-        //initiate the request
-        self.sessionconnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
-        if(self.sessionconnection)
-        {
-            self.webResponseData = [NSMutableData data] ;
-        }
-        else
-        {
-            NSLog(@"Connection is NULL");
-        }
-
-    
     }
     return self;
+}
+-(void)uploadDocumentTo:(UIImage*)img
+       P_REQUEST_NUMBER:(NSString*)preqNum
+         P_REQUEST_NAME:(NSString*)preqName
+        P_SOURCE_SYSTEM:(NSString*)pSourceSys
+               category:(NSString*)cat
+             entityName:(NSString*)entityN
+        fileDescription:(NSString*)fileDescr
+                 fileId:(NSString*)file
+               fileName:(NSString*)fileNa
+         registrationId:(NSString*)regiId
+         sourceFileName:(NSString*)sourceFi
+               sourceId:(NSString*)srceId{    
+//    UIImage *img = [UIImage imageNamed:@"settingsicon.png"];
+    NSData *dataImg = UIImageJPEGRepresentation(img, 1.0);
+    NSString *soapMessage = [NSString stringWithFormat:@"<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
+                             "<SOAP-ENV:Envelope xmlns:SOAP-ENV=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ns1=\"http://action.com\" xmlns:ns2=\"http://bean.com/xsd\" xmlns:ns3=\"http://soapencoding.types.databinding.axis2.apache.org/xsd\">"
+                             "<SOAP-ENV:Body>"
+                             "<ns1:DocumentAttachmentMultiple>"
+                             "<ns1:P_REQUEST_NUMBER>%@</ns1:P_REQUEST_NUMBER>"
+                             "<ns1:P_REQUEST_NAME>%@</ns1:P_REQUEST_NAME>"
+                             "<ns1:P_SOURCE_SYSTEM>%@</ns1:P_SOURCE_SYSTEM>"
+                             "<ns1:regTerms>"
+                             "<ns2:category>%@</ns2:category>"
+                             "<ns2:entityName>%@</ns2:entityName>"
+                             "<ns2:fileBinary>"
+                             "<ns3:base64Binary>%@</ns3:base64Binary>"
+                             "</ns2:fileBinary>"
+                             "<ns2:fileDescription>%@</ns2:fileDescription>"
+                             "<ns2:fileId>%@</ns2:fileId>"
+                             "<ns2:fileName>%@</ns2:fileName>"
+                             "<ns2:registrationId>%@</ns2:registrationId>"
+                             "<ns2:sourceFileName>%@</ns2:sourceFileName>"
+                             "<ns2:sourceId>%@</ns2:sourceId>"
+                             "</ns1:regTerms>"
+                             "</ns1:DocumentAttachmentMultiple>"
+                             "</SOAP-ENV:Body>"                                 "</SOAP-ENV:Envelope>",
+                             kUserProfile.partyId,
+                             @"Service Request",
+                             @"TEST-1",
+                             @"Document",
+                             @"Damac Service Requests",
+                             dataImg.base64Encode,@"NationalIdCopy",
+                             [NSString stringWithFormat:@"IPMS-%@-NationalIdCopy",
+                              kUserProfile.partyId],
+                             [NSString stringWithFormat:@"IPMS-%@-NationalIdCopy.pdf",kUserProfile.partyId],
+                             kUserProfile.partyId,
+                             [NSString stringWithFormat:@"IPMS-%@-NationalIdCopy.pdf",kUserProfile.partyId],
+                             [NSString stringWithFormat:@"IPMS-%@NationalIdCopy",kUserProfile.partyId]];
+    
+    
+    
+    
+    NSURL *url = [NSURL URLWithString:@"http://34.236.223.78:8080/CRM_SR_NEW/services/AOPT?wsdl"]; // Copy here the URL
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    NSString *msgLength = [NSString stringWithFormat:@"%lu", (unsigned long)[soapMessage length]];
+    
+    //add required headers to the request
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    [theRequest addValue: @"urn:DocumentAttachmentMultiple" forHTTPHeaderField:@"SOAPAction"]; // copy here the SOAP_ACTION
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    //initiate the request
+    self.sessionconnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    if(self.sessionconnection)
+    {
+        self.webResponseData = [NSMutableData data] ;
+    }
+    else
+    {
+        NSLog(@"Connection is NULL");
+    }
+    
 }
 
 

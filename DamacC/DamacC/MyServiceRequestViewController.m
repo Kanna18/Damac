@@ -9,11 +9,10 @@
 #import "MyServiceRequestViewController.h"
 #import "ServicesDetailController.h"
 #import "AppDelegate.h"
+#import "ServicesCell.h"
 
-
-@interface MyServiceRequestViewController ()<KPDropMenuDelegate,UITableViewDelegate,UITableViewDataSource>{
+@interface MyServiceRequestViewController ()<UITableViewDelegate,UITableViewDataSource>{
     
-    NSArray *dropItems;
     NSMutableArray *tvDataArray,*sortedArray;
     KPDropMenu *dropNew;
 
@@ -28,9 +27,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 
-    _buttonsView.layer.borderWidth = 2.0f;
-    _buttonsView.layer.borderColor = rgb(174, 134, 73).CGColor;
-    _buttonsView.layer.cornerRadius = 5.0f;
+//    _buttonsView.layer.borderWidth = 2.0f;
+//    _buttonsView.layer.borderColor = rgb(174, 134, 73).CGColor;
+//    _buttonsView.layer.cornerRadius = 5.0f;
     _tableView.delegate = self;
     _tableView.dataSource =self;
     [self webServiceCall];
@@ -38,14 +37,6 @@
     [FTIndicator showProgressWithMessage:@"Loading Payments"];
     sortedArray = [[NSMutableArray alloc]init];
     
-    if([_typeoFVC isEqualToString:kloadingFromMenu]){
-        _hideView.hidden = YES;
-        _heightConstraint.constant = 100;
-    }else if([_typeoFVC isEqualToString:kloadingFromCreateServices]){
-        _heightConstraint.constant = 140;
-         _hideView.hidden = YES;
-//        _buttonsView.hidden = YES;
-    }
     del = (AppDelegate*)[UIApplication sharedApplication].delegate;
 
 
@@ -60,6 +51,7 @@
     [_bottomView.layer insertSublayer:gradient atIndex:0];
     [[CustomBarOptions alloc]initWithNavItems:self.navigationItem noOfItems:2 navRef:self.navigationController withTitle:@"My Service Request"];
 //    [self dropMenu];
+    DamacSharedClass.sharedInstance.windowButton.hidden = NO;
 }
 -(void)setSelecteStates:(UIButton*)btn{
     
@@ -74,7 +66,7 @@
         ServerAPIManager *server = [ServerAPIManager sharedinstance];
     
     //Note:Any chnage in array also need to change ivalue in for loop-- (Value Dependency)
-    NSArray *arrPa = @[@"Draft Request",@"Submitted",@"Working",@"New"/*,@"Cancelled"*/];
+    NSArray *arrPa = @[@"Draft Request",@"Submitted",@"Working",@"New",@"Cancelled"];
     SFUserAccountManager *sf = [SFUserAccountManager sharedInstance];
     NSString *sfAccountID = sf.currentUser.credentials.userId;
     sfAccountID = sfAccountID ? sfAccountID : @"1036240";
@@ -114,7 +106,6 @@
 }
 
 
-
 #pragma mark Tableview Delegates
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -125,49 +116,46 @@
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    static NSString *reuseCell = @"myServiceCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseCell forIndexPath:indexPath];
-    if(cell==nil){
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseCell];
-    }
+    static NSString *reuseCell = @"servicesCell";
+    ServicesCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseCell forIndexPath:indexPath];
     MyServicesDataModel *sm = sortedArray[indexPath.row];
-    NSString *txt = [NSString stringWithFormat:@"SR No.-%@ - %@ - Status - %@",sm.CaseNumber,sm.RecordType.Name,sm.Status];
-    cell.textLabel.text =txt;
+    cell.label1.text =sm.CaseNumber;
+    cell.label2.text =sm.RecordType.Name;
+    cell.label3.text =sm.Status;
     cell.textLabel.textAlignment = NSTextAlignmentCenter;
     [cell.textLabel setAdjustsFontSizeToFitWidth:YES];
+    cell.tapButton.tag = indexPath.row;
+    [cell.tapButton addTarget:self action:@selector(sendToDetailScreen:) forControlEvents:UIControlEventTouchUpInside];
+    if(indexPath.row%2==0){
+        cell.contentView.backgroundColor = [UIColor lightGrayColor];
+    }else{
+        cell.contentView.backgroundColor = [UIColor darkGrayColor];
+    }
     return cell;
+    
+}
+-(void)sendToDetailScreen:(UIButton*)sender{
+
+    MyServicesDataModel *sm = sortedArray[sender.tag];
+    if([sm.Status isEqualToString:@"Cancelled"]){
+        [FTIndicator showToastMessage:@"Service Request has been Cancelled"];
+    }else{
+        ServicesDetailController *svc = [self.storyboard instantiateViewControllerWithIdentifier:@"servicesDetailVC"];
+        svc.servicesDataModel = sortedArray[sender.tag];
+        svc.srCaseId = sm.CaseNumber;
+        [self.navigationController pushViewController:svc animated:YES];
+    }
     
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    ServicesDetailController *svc = [self.storyboard instantiateViewControllerWithIdentifier:@"servicesDetailVC"];
-    MyServicesDataModel *sm = sortedArray[indexPath.row];
-    svc.servicesDataModel = sortedArray[indexPath.row];
-    svc.srCaseId = sm.CaseNumber;
-    [self.navigationController pushViewController:svc animated:YES];
     
+    
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 60;
 }
 
--(void)dropMenu{
-    
-    CGRect fram = [_dropButton convertRect:_dropButton.bounds toView:self.view];
-    _dropButton.backgroundColor = [UIColor clearColor];
-    dropItems = @[@"New", @"Draft Request"];
-    dropNew = [[KPDropMenu alloc] initWithFrame:fram];
-    dropNew.layer.cornerRadius = 10.0f;
-    dropNew.layer.borderColor = [UIColor yellowColor].CGColor;
-    dropNew.layer.borderWidth = 1.0f;
-    dropNew.backgroundColor = [UIColor clearColor];
-    dropNew.delegate = self;
-    dropNew.items = dropItems;
-    dropNew.title = @"Select Again";
-    dropNew.titleColor = [UIColor yellowColor];
-    dropNew.itemsFont = [UIFont fontWithName:@"Helvetica-Regular" size:12.0];
-    dropNew.titleTextAlignment = NSTextAlignmentLeft;
-    dropNew.DirectionDown = YES;
-    [self.view addSubview:dropNew];
-    
-}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -183,17 +171,7 @@
 }
 */
 
-#pragma mark DropMenu Delegates
--(void)didSelectItem : (KPDropMenu *) dropMenu atIndex : (int) atIntedex
-{
-    dropMenu.title = dropItems[atIntedex];
-}
--(void)didShow : (KPDropMenu *)dropMenu{
-    
-}
--(void)didHide : (KPDropMenu *)dropMenu{
-    
-}
+
 - (IBAction)newButtonClick:(id)sender {
     
     [self sortTvData:@[@"New"]];

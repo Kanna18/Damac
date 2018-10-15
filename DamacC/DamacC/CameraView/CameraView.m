@@ -26,12 +26,28 @@
     self = [super initWithFrame:frame];
     if(self){
         self = [[NSBundle mainBundle]loadNibNamed:NSStringFromClass([CameraView class]) owner:self options:nil][0];
-        self.frame = frame;
-        parentVC = vc;
         
+        CGRect fra = [UIScreen mainScreen].bounds;
+        self.frame = CGRectMake(0,fra.size.height, fra.size.width, 85);
+        parentVC = vc;
     }
     return self;
 }
+
+-(void)frameChangeCameraView{
+    CGRect fra = self.frame;
+    CGRect mainfra = [UIScreen mainScreen].bounds;
+    if(fra.origin.y == mainfra.size.height){
+        fra.origin.y = mainfra.size.height-85;
+    }else{
+        fra.origin.y = mainfra.size.height;
+    }
+    [UIView animateWithDuration:0.2 animations:^{
+        self.frame = fra;
+    }];
+}
+
+
 - (IBAction)uploadClick:(id)sender {
     UIImagePickerController *pickerView = [[UIImagePickerController alloc] init];
     pickerView.allowsEditing = YES;

@@ -46,7 +46,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    SaopServices *soap = [[SaopServices alloc]init];
+//    SaopServices *soap = [[SaopServices alloc]init];
     
     self.menuLeft = [[VKSideMenu alloc] initWithSize:220 andDirection:VKSideMenuDirectionFromLeft];
     self.menuLeft.dataSource = self;
@@ -421,6 +421,11 @@
     if([str isEqualToString:kSOA]){
         ScheduleAppointmentsVC *pvc =[ self.storyboard instantiateViewControllerWithIdentifier:@"scheduleAppointmentsVC"];
         [self.navigationController pushViewController:pvc animated:YES];
+    }
+    if([str isEqualToString:kComplaints]){
+        ComplaintsViewController *cvc = [self.storyboard instantiateViewControllerWithIdentifier:@"complaintsViewController"];
+        [self.navigationController pushViewController:cvc animated:YES];
+        
     }
 }
 

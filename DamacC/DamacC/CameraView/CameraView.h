@@ -11,5 +11,5 @@
 @interface CameraView : UIView<UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 
 -(instancetype)initWithFrame:(CGRect)frame parentViw:(UIViewController*)vc;
-
+-(void)frameChangeCameraView;
 @end

@@ -9,17 +9,13 @@
 #import <UIKit/UIKit.h>
 
 @interface MyServiceRequestViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UIButton *dropButton;
-@property (weak, nonatomic) IBOutlet UILabel *headingLabel;
 @property (weak, nonatomic) IBOutlet UIView *buttonsView;
-@property (weak, nonatomic) IBOutlet UIView *hideView;
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 - (IBAction)newButtonClick:(id)sender;
 - (IBAction)draftClick:(id)sender;
 - (IBAction)allClick:(id)sender;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *heightConstraint;
 @property (weak, nonatomic) IBOutlet UIView *bottomView;
 @property (weak, nonatomic) IBOutlet UIButton *btnAll;
 @property (weak, nonatomic) IBOutlet UIButton *btnNew;

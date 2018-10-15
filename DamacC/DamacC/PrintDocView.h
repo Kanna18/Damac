@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface PrintDocView : UIView
+@property (weak, nonatomic) IBOutlet UIButton *penalityBtn;
+@property (weak, nonatomic) IBOutlet UIButton *serviceBtn;
+@property (weak, nonatomic) IBOutlet UIButton *soaButton;
 @property (weak, nonatomic) IBOutlet UIButton *dismissViewBtn;
 - (IBAction)soaClick:(id)sender;
 - (IBAction)serviceChargesClick:(id)sender;

@@ -59,5 +59,6 @@
 #import "popObject.h"
 #import <WYPopoverController/WYPopoverController.h>
 #import "PopTableViewController.h"
+#import "ComplaintsViewController.h"
 
 #endif /* PrefixHeader_pch */

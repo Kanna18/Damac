@@ -8,8 +8,9 @@
 
 #import "RentalPoolViewCellViewController.h"
 #import "JointView1.h"
+#import "JointBuyerCell.h"
 
-@interface RentalPoolViewCellViewController ()<KPDropMenuDelegate,WYPopoverControllerDelegate,POPDelegate>
+@interface RentalPoolViewCellViewController ()<KPDropMenuDelegate,WYPopoverControllerDelegate,POPDelegate,UITableViewDelegate,UITableViewDataSource>
 
 @end
 
@@ -24,7 +25,7 @@
     ServerAPIManager *serverAPI;
     NSMutableArray *buyersInfoArr;
     NSMutableArray *dropitems;
-    
+
 }
 
 - (void)viewDidLoad {
@@ -36,6 +37,19 @@
     [self webServicetoGetUnitSFIds];
     [FTIndicator showProgressWithMessage:@"Fetching Buyers List"];
     dropitems = [[NSMutableArray alloc]init];
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
+    _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    [self roundCorners:_dropDownCountriesBtn];
+}
+-(void)roundCorners:(UIButton*)sender{
+    
+    sender.layer.cornerRadius = 15;
+    sender.layer.borderColor = rgb(191, 154, 88).CGColor;
+    sender.layer.borderWidth = 2.0f;
+    sender.clipsToBounds = YES;
+    
 }
 
 -(void)webServicetoGetUnitSFIds{
@@ -152,21 +166,23 @@
 }
 */
 
-- (IBAction)nextClick:(id)sender {
-//    [_scrollView setContentOffset:frame2.origin animated:YES];
-//    dropNew.hidden = YES;
-//    sterView.line1Animation = YES;
-    [self showpopover:dropNew];
-    
+- (IBAction)countriesCLick:(id)sender {
+     [self showpopover:_dropDownCountriesBtn];
 }
 
--(void)showpopover:(KPDropMenu*)drop{
+- (IBAction)nextClick:(id)sender {
+    [_scrollView setContentOffset:frame2.origin animated:YES];
+    dropNew.hidden = YES;
+    sterView.line1Animation = YES;
+}
+
+-(void)showpopover:(UIButton*)drop{
     
     PopTableViewController *popVC=[self.storyboard instantiateViewControllerWithIdentifier:@"popTableVC"];
     popVC.delegate=self;
     popoverController = [[WYPopoverController alloc] initWithContentViewController:popVC];
     popoverController.delegate = self;
-    popoverController.popoverContentSize=CGSizeMake(drop.frame.size.width, 100);
+    popoverController.popoverContentSize=CGSizeMake(drop.frame.size.width, 600);
     popoverController.accessibilityNavigationStyle=UIAccessibilityNavigationStyleCombined;
     [popoverController presentPopoverFromRect:drop.bounds inView:drop permittedArrowDirections:WYPopoverArrowDirectionUp animated:YES options:WYPopoverAnimationOptionFadeWithScale];
 }
@@ -185,6 +201,8 @@
 -(void)didSelectItem : (KPDropMenu *) dropMenu atIndex : (int) atIntedex
 {
     dropMenu.title = dropitems[atIntedex];
+    _heightConstraint.constant = 20;
+    _detailView.hidden = NO;
 }
 -(void)didShow : (KPDropMenu *)dropMenu{
     
@@ -194,4 +212,23 @@
 }
 - (IBAction)selectCountryClick:(id)sender {
 }
+
+#pragma mark TableView Delegates
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
+}
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 10;
+}
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    JointBuyerCell *cell = [tableView dequeueReusableCellWithIdentifier:@"jointBuyerCell" forIndexPath:indexPath];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    return cell;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 70;
+}
+
+
+
 @end

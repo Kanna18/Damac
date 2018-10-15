@@ -18,8 +18,8 @@
     [self roundCorners:_buttonSubmit];
     [self roundCorners:_buttonDocument];
     CGRect fra = [UIScreen mainScreen].bounds;
-    camView = [[CameraView alloc]initWithFrame:CGRectMake(0,fra.size.height, fra.size.width, 85) parentViw:[DamacSharedClass sharedInstance].currentVC];
-    [[DamacSharedClass sharedInstance].currentVC.view addSubview:camView];
+    camView = [[CameraView alloc]initWithFrame:CGRectZero parentViw:[DamacSharedClass sharedInstance].currentVC];
+    [[DamacSharedClass sharedInstance].currentVC.view addSubview:camView];    
     [self roundCorners:_buttonSubmit];
     [self roundCorners:_buttonDocument];
 }
@@ -32,23 +32,10 @@
     
 }
 
--(void)frameChange{
-    CGRect fra = camView.frame;
-    CGRect mainfra = [UIScreen mainScreen].bounds;
-    if(fra.origin.y == mainfra.size.height){
-        fra.origin.y = mainfra.size.height-85;
-    }else{
-        fra.origin.y = mainfra.size.height;
-    }
-    [UIView animateWithDuration:0.2 animations:^{
-        camView.frame = fra;
-    }];
-    
-}
 - (IBAction)uploadProofClick1:(id)sender {
-    [self frameChange];
+    [camView frameChangeCameraView];
 }
 - (IBAction)uploadProofClick2:(id)sender {
-    [self frameChange];
+    [camView frameChangeCameraView];
 }
 @end

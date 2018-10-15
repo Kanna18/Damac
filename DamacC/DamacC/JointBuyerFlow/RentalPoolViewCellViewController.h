@@ -14,6 +14,11 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIButton *nextClick;
 @property (weak, nonatomic) IBOutlet UIView *firstView;
+@property (weak, nonatomic) IBOutlet UIButton *dropDownCountriesBtn;
+- (IBAction)countriesCLick:(id)sender;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *heightConstraint;
 
+@property (weak, nonatomic) IBOutlet UIView *detailView;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 - (IBAction)nextClick:(id)sender;
 @end

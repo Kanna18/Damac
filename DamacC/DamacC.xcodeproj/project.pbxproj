@@ -65,6 +65,14 @@
 		F63FCF0420F87E520027FEA8 /* CustomViewCarousel.xib in Resources */ = {isa = PBXBuildFile; fileRef = F63FCF0320F87E520027FEA8 /* CustomViewCarousel.xib */; };
 		F63FCF1720FBCC200027FEA8 /* PaymentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F63FCF1620FBCC200027FEA8 /* PaymentsViewController.m */; };
 		F63FCF1B20FBCD0B0027FEA8 /* PaymentsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F63FCF1A20FBCD0B0027FEA8 /* PaymentsCell.m */; };
+		F67D77A721749FAC009EE062 /* SurveyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F67D77A621749FAC009EE062 /* SurveyViewController.m */; };
+		F67D77AA21749FC3009EE062 /* SurveyCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = F67D77A921749FC3009EE062 /* SurveyCell1.m */; };
+		F67D77AD21749FCF009EE062 /* SurveyCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = F67D77AC21749FCF009EE062 /* SurveyCell2.m */; };
+		F67D77B021749FD9009EE062 /* SurveyCell3.m in Sources */ = {isa = PBXBuildFile; fileRef = F67D77AF21749FD9009EE062 /* SurveyCell3.m */; };
+		F67D77B321749FE3009EE062 /* SurveyCell4.m in Sources */ = {isa = PBXBuildFile; fileRef = F67D77B221749FE3009EE062 /* SurveyCell4.m */; };
+		F67D77B621749FED009EE062 /* SurveyCell5.m in Sources */ = {isa = PBXBuildFile; fileRef = F67D77B521749FED009EE062 /* SurveyCell5.m */; };
+		F67D77B921749FFD009EE062 /* SurveyCell6.m in Sources */ = {isa = PBXBuildFile; fileRef = F67D77B821749FFD009EE062 /* SurveyCell6.m */; };
+		F67D77BC2174DE74009EE062 /* SurveyRatingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F67D77BB2174DE74009EE062 /* SurveyRatingCell.m */; };
 		F67EB5E8212521D50011AB64 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F67EB5E4212521C90011AB64 /* Montserrat-Medium.ttf */; };
 		F67EB5E9212521D50011AB64 /* AG_Helvetica_Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F67EB5E5212521CC0011AB64 /* AG_Helvetica_Bold.ttf */; };
 		F67EB5EA212521D50011AB64 /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F67EB5E6212521CE0011AB64 /* Montserrat-SemiBold.ttf */; };
@@ -82,6 +90,7 @@
 		F6A37F98216E74B900A4AD11 /* PassportHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6A37F97216E74B900A4AD11 /* PassportHeader.xib */; };
 		F6A37F9A216E782100A4AD11 /* PassportFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6A37F99216E782100A4AD11 /* PassportFooter.xib */; };
 		F6A37F9D216E782D00A4AD11 /* PassportFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A37F9C216E782D00A4AD11 /* PassportFooter.m */; };
+		F6A5D362217502ED0010DE2B /* Sub-SurveyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A5D361217502ED0010DE2B /* Sub-SurveyCell.m */; };
 		F6A86680211A884800560CD5 /* POPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A8667F211A884800560CD5 /* POPViewController.m */; };
 		F6A86683211A9B3900560CD5 /* PopCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A86682211A9B3900560CD5 /* PopCell1.m */; };
 		F6A86686211A9B4A00560CD5 /* PopCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A86685211A9B4A00560CD5 /* PopCell2.m */; };
@@ -263,6 +272,22 @@
 		F63FCF1620FBCC200027FEA8 /* PaymentsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PaymentsViewController.m; sourceTree = "<group>"; };
 		F63FCF1920FBCD0B0027FEA8 /* PaymentsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PaymentsCell.h; sourceTree = "<group>"; };
 		F63FCF1A20FBCD0B0027FEA8 /* PaymentsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PaymentsCell.m; sourceTree = "<group>"; };
+		F67D77A521749FAC009EE062 /* SurveyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SurveyViewController.h; sourceTree = "<group>"; };
+		F67D77A621749FAC009EE062 /* SurveyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SurveyViewController.m; sourceTree = "<group>"; };
+		F67D77A821749FC3009EE062 /* SurveyCell1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SurveyCell1.h; sourceTree = "<group>"; };
+		F67D77A921749FC3009EE062 /* SurveyCell1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SurveyCell1.m; sourceTree = "<group>"; };
+		F67D77AB21749FCF009EE062 /* SurveyCell2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SurveyCell2.h; sourceTree = "<group>"; };
+		F67D77AC21749FCF009EE062 /* SurveyCell2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SurveyCell2.m; sourceTree = "<group>"; };
+		F67D77AE21749FD9009EE062 /* SurveyCell3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SurveyCell3.h; sourceTree = "<group>"; };
+		F67D77AF21749FD9009EE062 /* SurveyCell3.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SurveyCell3.m; sourceTree = "<group>"; };
+		F67D77B121749FE3009EE062 /* SurveyCell4.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SurveyCell4.h; sourceTree = "<group>"; };
+		F67D77B221749FE3009EE062 /* SurveyCell4.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SurveyCell4.m; sourceTree = "<group>"; };
+		F67D77B421749FED009EE062 /* SurveyCell5.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SurveyCell5.h; sourceTree = "<group>"; };
+		F67D77B521749FED009EE062 /* SurveyCell5.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SurveyCell5.m; sourceTree = "<group>"; };
+		F67D77B721749FFD009EE062 /* SurveyCell6.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SurveyCell6.h; sourceTree = "<group>"; };
+		F67D77B821749FFD009EE062 /* SurveyCell6.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SurveyCell6.m; sourceTree = "<group>"; };
+		F67D77BA2174DE74009EE062 /* SurveyRatingCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SurveyRatingCell.h; sourceTree = "<group>"; };
+		F67D77BB2174DE74009EE062 /* SurveyRatingCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SurveyRatingCell.m; sourceTree = "<group>"; };
 		F67EB5E4212521C90011AB64 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
 		F67EB5E5212521CC0011AB64 /* AG_Helvetica_Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AG_Helvetica_Bold.ttf; sourceTree = "<group>"; };
 		F67EB5E6212521CE0011AB64 /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
@@ -289,6 +314,8 @@
 		F6A37F99216E782100A4AD11 /* PassportFooter.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PassportFooter.xib; sourceTree = "<group>"; };
 		F6A37F9B216E782D00A4AD11 /* PassportFooter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PassportFooter.h; sourceTree = "<group>"; };
 		F6A37F9C216E782D00A4AD11 /* PassportFooter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PassportFooter.m; sourceTree = "<group>"; };
+		F6A5D360217502ED0010DE2B /* Sub-SurveyCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Sub-SurveyCell.h"; sourceTree = "<group>"; };
+		F6A5D361217502ED0010DE2B /* Sub-SurveyCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Sub-SurveyCell.m"; sourceTree = "<group>"; };
 		F6A8667E211A884800560CD5 /* POPViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = POPViewController.h; sourceTree = "<group>"; };
 		F6A8667F211A884800560CD5 /* POPViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = POPViewController.m; sourceTree = "<group>"; };
 		F6A86681211A9B3900560CD5 /* PopCell1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PopCell1.h; sourceTree = "<group>"; };
@@ -721,6 +748,31 @@
 			name = PaymentsVC;
 			sourceTree = "<group>";
 		};
+		F67D77A421749F95009EE062 /* Survey */ = {
+			isa = PBXGroup;
+			children = (
+				F67D77A521749FAC009EE062 /* SurveyViewController.h */,
+				F67D77A621749FAC009EE062 /* SurveyViewController.m */,
+				F67D77A821749FC3009EE062 /* SurveyCell1.h */,
+				F67D77A921749FC3009EE062 /* SurveyCell1.m */,
+				F67D77AB21749FCF009EE062 /* SurveyCell2.h */,
+				F67D77AC21749FCF009EE062 /* SurveyCell2.m */,
+				F67D77BA2174DE74009EE062 /* SurveyRatingCell.h */,
+				F67D77BB2174DE74009EE062 /* SurveyRatingCell.m */,
+				F67D77AE21749FD9009EE062 /* SurveyCell3.h */,
+				F67D77AF21749FD9009EE062 /* SurveyCell3.m */,
+				F6A5D360217502ED0010DE2B /* Sub-SurveyCell.h */,
+				F6A5D361217502ED0010DE2B /* Sub-SurveyCell.m */,
+				F67D77B121749FE3009EE062 /* SurveyCell4.h */,
+				F67D77B221749FE3009EE062 /* SurveyCell4.m */,
+				F67D77B421749FED009EE062 /* SurveyCell5.h */,
+				F67D77B521749FED009EE062 /* SurveyCell5.m */,
+				F67D77B721749FFD009EE062 /* SurveyCell6.h */,
+				F67D77B821749FFD009EE062 /* SurveyCell6.m */,
+			);
+			name = Survey;
+			sourceTree = "<group>";
+		};
 		F67EB5E3212521AE0011AB64 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -830,6 +882,7 @@
 				F6264205211361770022C4DC /* StepperView */,
 				F62641FE211315300022C4DC /* JointBuyerFlow */,
 				F6EDFADD217387BB007D7704 /* Complaints */,
+				F67D77A421749F95009EE062 /* Survey */,
 			);
 			name = MyServices;
 			sourceTree = "<group>";
@@ -1154,17 +1207,20 @@
 				F6CB3FC320EB291600D290A6 /* DamacSharedClass.m in Sources */,
 				F686165620985841002EA241 /* DamacC-Bridging-Header.h in Sources */,
 				F6A87EE7209F214B008D34C5 /* DetailMyUnitsViewController.m in Sources */,
+				F67D77B621749FED009EE062 /* SurveyCell5.m in Sources */,
 				F68CF5BD216DD6E500852EF5 /* popObject.m in Sources */,
 				F63FCF1720FBCC200027FEA8 /* PaymentsViewController.m in Sources */,
 				F6A37F9D216E782D00A4AD11 /* PassportFooter.m in Sources */,
 				4F8D5EA61B6C0568005E64D4 /* AppDelegate.m in Sources */,
 				F604B36B2167245E0047CBD2 /* CameraView.m in Sources */,
+				F67D77AD21749FCF009EE062 /* SurveyCell2.m in Sources */,
 				F6E8D4D121192B440063CC16 /* LoadingLogoVC.m in Sources */,
 				F6A86689211A9B5900560CD5 /* PopCell3.m in Sources */,
 				F626420A211361880022C4DC /* StepperView.m in Sources */,
 				F6D91E412099740400DA1428 /* VKSideMenu.m in Sources */,
 				F6B31BE120F33328001A5144 /* ScheduleAppointmentsVC.m in Sources */,
 				F61124B72164CEEC00901694 /* APPSXXDC_AOPT_PKG_WSX1843128X6X5.m in Sources */,
+				F67D77B021749FD9009EE062 /* SurveyCell3.m in Sources */,
 				F6CBCCD62171DB1000615072 /* ServicesCell.m in Sources */,
 				F61124AB2164CEB300901694 /* AOPT.m in Sources */,
 				F6170A5D20FCC6ED003443B1 /* MyServicesDataModel.m in Sources */,
@@ -1182,11 +1238,13 @@
 				F6C57E18215B03E000970DC3 /* WSEventView.m in Sources */,
 				F6FA5B7A2099BC6F009A8F15 /* GridCollectionViewCell.m in Sources */,
 				F61124AA2164CEB300901694 /* AOPTProxy.m in Sources */,
+				F67D77BC2174DE74009EE062 /* SurveyRatingCell.m in Sources */,
 				F63FCEFE20F782E70027FEA8 /* iCarousel.m in Sources */,
 				F6FA5B772099BC64009A8F15 /* TopCollectionCell.m in Sources */,
 				F6FA5B732099A083009A8F15 /* KeyViewController.m in Sources */,
 				F6A86680211A884800560CD5 /* POPViewController.m in Sources */,
 				F6132E0D20A7E2E900FEEEBE /* ProfileTableViewCell.m in Sources */,
+				F67D77B921749FFD009EE062 /* SurveyCell6.m in Sources */,
 				4F8D5ECB1B6C0FE4005E64D4 /* RootViewController.m in Sources */,
 				F6C57C6C2158B63B00970DC3 /* JointBuyersDetails.m in Sources */,
 				F6C57E17215B03E000970DC3 /* WSLabel.m in Sources */,
@@ -1200,6 +1258,7 @@
 				F6A87EE4209F1B84008D34C5 /* ChangeofDetailsViewController.m in Sources */,
 				4F8D5EC81B6C0F94005E64D4 /* InitialViewController.m in Sources */,
 				F6170A6120FF9DB3003443B1 /* ServicesDetailController.m in Sources */,
+				F6A5D362217502ED0010DE2B /* Sub-SurveyCell.m in Sources */,
 				F6C942B820E9C6D700D1F40C /* VCFloatingActionButton.m in Sources */,
 				F622C29420B3B1E3007982AE /* ChangeofDetailsCell.m in Sources */,
 				F6170A672101DBFE003443B1 /* AppointmentsDataModel.m in Sources */,
@@ -1216,6 +1275,7 @@
 				F626420D211367BC0022C4DC /* JointBView2.m in Sources */,
 				F698216D20EDC1CB00D023AF /* UserDetailsModel.m in Sources */,
 				F6E1139E216EF4320066D521 /* PopTableViewController.m in Sources */,
+				F67D77AA21749FC3009EE062 /* SurveyCell1.m in Sources */,
 				F62641B92105B9670022C4DC /* ServicesSRDetails.m in Sources */,
 				F6CBCCD92171F9E900615072 /* SerquestRequestDetailCell.m in Sources */,
 				F61124B62164CEEC00901694 /* AOPT_Enums.m in Sources */,
@@ -1229,7 +1289,9 @@
 				F6170A642100692E003443B1 /* AppointmentsCell.m in Sources */,
 				F6A86683211A9B3900560CD5 /* PopCell1.m in Sources */,
 				F626426921148D7B0022C4DC /* ChangeofContactCell.m in Sources */,
+				F67D77A721749FAC009EE062 /* SurveyViewController.m in Sources */,
 				F6B31BDD20F094FB001A5144 /* MyServiceRequestViewController.m in Sources */,
+				F67D77B321749FE3009EE062 /* SurveyCell4.m in Sources */,
 				F6264266211487AB0022C4DC /* ChangeOfContactDetails.m in Sources */,
 				F604B35F2165FD030047CBD2 /* ReceiptsTableVC.m in Sources */,
 				F6C57C60215864AA00970DC3 /* PassportCell2.m in Sources */,

@@ -18,7 +18,7 @@
 #import "UnitsTableViewController.h"
 #import "SampleTableViewController.h"
 #import "ReceiptsTableVC.h"
-
+#import "SurveyViewController.h"
 
 
 
@@ -427,6 +427,13 @@
         [self.navigationController pushViewController:cvc animated:YES];
         
     }
+    if([str isEqualToString:kSurveys]){
+        SurveyViewController *cvc = [self.storyboard instantiateViewControllerWithIdentifier:@"surveyViewController"];
+        [self.navigationController pushViewController:cvc animated:YES];
+        
+    }
+    
+    
 }
 
 -(void)getUnitsintheBakground{

@@ -130,6 +130,39 @@ enum HTTPMethod {
     
     
 }
+
+-(void)getRequestwithUrl:(NSString*)url withParameters:(NSDictionary*)dictParam successBlock:(CustomNetworkManagerCompletionBlok)success errorBlock:(CustomNetworkManagerErrorBlok)errorBlock{
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]
+                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                       timeoutInterval:10.0];
+    SFUserAccountManager *sf = [SFUserAccountManager sharedInstance];
+    NSDictionary *headers;
+    if(sf.currentUser.credentials.accessToken||[url containsString:@"partial"]){
+        headers = @{ @"content-type": @"application/json",
+                     @"Authorization":[NSString stringWithFormat:@"Bearer %@",sf.currentUser.credentials.accessToken]};
+    }else{
+        headers = @{ @"content-type": @"application/json",
+                     };
+    }
+    [request setHTTPMethod:@"GET"];
+    [request setAllHTTPHeaderFields:headers];
+    NSURLSession *session = [NSURLSession sharedSession];
+    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request
+                                                completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                                                    if (error) {
+                                                        [self customResponse:nil error:error data:nil withSuccessBlock:success ErrorBlock:errorBlock];
+                                                    } else {
+                                                        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
+                                                        NSLog(@"%@", httpResponse);
+                                                        [self customResponse:httpResponse error:nil data:data withSuccessBlock:success ErrorBlock:errorBlock];
+                                                    }
+                                                }];
+    [dataTask resume];
+    
+}
+
+
 -(void)postRequestwithUrl:(NSString*)url withParameters:(NSDictionary*)dictParam successBlock:(CustomNetworkManagerCompletionBlok)success errorBlock:(CustomNetworkManagerErrorBlok)errorBlock{
     SFUserAccountManager *sf = [SFUserAccountManager sharedInstance];
     NSDictionary *headers;

@@ -11,6 +11,12 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SurveyCell4 : UICollectionViewCell
+@property (weak, nonatomic) IBOutlet UIButton *continueSurveyBtn;
+- (IBAction)oneClick:(id)sender;
+- (IBAction)twoclick:(id)sender;
+- (IBAction)threeClick:(id)sender;
+- (IBAction)fourCLick:(id)sender;
+- (IBAction)fiveClick:(id)sender;
 
 @end
 

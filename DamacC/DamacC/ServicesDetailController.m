@@ -10,7 +10,7 @@
 #import "SerquestRequestDetailCell.h"
 
 
-#define ChangeofDetailsServicesUrl @"https://partial-servicecloudtrial-155c0807bf-1580afc5db1.cs80.force.com/MobileApp/services/apexrest/SaveChangeNameOfNationalityCase/"
+//#define ChangeofDetailsServicesUrl @"https://partial-servicecloudtrial-155c0807bf-1580afc5db1.cs80.force.com/MobileApp/services/apexrest/SaveChangeOfDetailsCase/"
 #define ComplaintsServiceUrl @"https://partial-servicecloudtrial-155c0807bf-1580afc5db1.cs80.force.com/MobileApp/services/apexrest/SaveComplaintFromMobileApp/"
 #define ProofOFPaymentServiceURl @"https://partial-servicecloudtrial-155c0807bf-1580afc5db1.cs80.force.com/MobileApp/services/apexrest/SaveProofOfPayment/"
 #define JointBuyerServiceUrl @"https://partial-servicecloudtrial-155c0807bf-1580afc5db1.cs80.force.com/MobileApp/services/apexrest/SaveJointBuyerDetails/"
@@ -106,10 +106,10 @@
                    [NSString stringWithFormat:@"%@",_servicesDataModel.Account.Name],
                    @"",
                    srD.SR_Type__c,
-                   _servicesDataModel.Origin,
+                   srD.Country__c,
                    srD.Address__c,
                    srD.City__c,
-                   @"",
+                   srD.State__c,
                    @"",
                    srD.Contact_Email__c,
                    srD.Contact_Mobile__c,
@@ -180,39 +180,39 @@
     }
 }
 
--(void)cancelChangeOfDetails{
-    ServerAPIManager *ap = [ServerAPIManager sharedinstance];
-    NSDictionary *dict = @{@"codCaseWrapper":@{    @"RecordType": @"Change of Details",
-                                                   @"UserName":  kUserProfile.emailAddress,
-                                                   @"salesforce Id": kUserProfile.sfAccountId,
-                                                   @"AccountID": kUserProfile.partyId,
-                                                   @"AddressLine1": kUserProfile.addressLine1,
-                                                   @"AddressLine2": kUserProfile.addressLine2,
-                                                   @"AddressLine3": kUserProfile.addressLine3,
-                                                   @"AddressLine4": kUserProfile.addressLine3,
-                                                   @"City": kUserProfile.city,
-                                                   @"State": @"",
-                                                   @"Postal Code": @"",
-                                                   @"Country": @"",
-                                                   @"Mobile": kUserProfile.phoneNumber,
-                                                   @"Email": kUserProfile.emailAddress,
-                                                   @" AddressLine1Arabic": @"",
-                                                   @"AddressLine2Ara bic": @"",
-                                                   @"AddressLine 3Arabic": @"",
-                                                   @"Address Line4Arabic": @"",
-                                                   @"CityArabic": @"",
-                                                   @"StateArabic": @"",
-                                                   @"PostalCodeArabic": @"",
-                                                   @"CountryArabic": @"",
-                                                   @"draft": @"true",
-                                                   @"Status": @"Draft Request",
-                                                   @"Origin": @"Mobile app",
-                                                   @"fcm": @"eatJZYr Hz_k:APA91bGU56e FMo4NvzbBAT8TzI uXkXTukWXrTIFqy kDS16xj4AFrK8ChO m- V4UGwp9zuEJb_lUc tc4b9X7oZOwGCfRb CVFdvad1o9mESkC nSRxkHKHZCH9NR cPXVO2hBH3t_DjO kQOuO5Lj7sDwTHx SE7dbzagO9zw"
-                                                   }};
-    
-    
-//    [ap postRequestwithUrl:ChangeofDetailsServicesUrl withParameters:<#(NSDictionary *)#> successBlock:<#^(id responseObj)success#> errorBlock:<#^(NSError *error)errorBlock#>]po
-}
+//-(void)cancelChangeOfDetails{
+//    ServerAPIManager *ap = [ServerAPIManager sharedinstance];
+//    NSDictionary *dict = @{@"codCaseWrapper":@{    @"RecordType": @"Change of Details",
+//                                                   @"UserName":  kUserProfile.emailAddress,
+//                                                   @"salesforce Id": kUserProfile.sfAccountId,
+//                                                   @"AccountID": kUserProfile.partyId,
+//                                                   @"AddressLine1": kUserProfile.addressLine1,
+//                                                   @"AddressLine2": kUserProfile.addressLine2,
+//                                                   @"AddressLine3": kUserProfile.addressLine3,
+//                                                   @"AddressLine4": kUserProfile.addressLine3,
+//                                                   @"City": kUserProfile.city,
+//                                                   @"State": @"",
+//                                                   @"Postal Code": @"",
+//                                                   @"Country": @"",
+//                                                   @"Mobile": kUserProfile.phoneNumber,
+//                                                   @"Email": kUserProfile.emailAddress,
+//                                                   @" AddressLine1Arabic": @"",
+//                                                   @"AddressLine2Ara bic": @"",
+//                                                   @"AddressLine 3Arabic": @"",
+//                                                   @"Address Line4Arabic": @"",
+//                                                   @"CityArabic": @"",
+//                                                   @"StateArabic": @"",
+//                                                   @"PostalCodeArabic": @"",
+//                                                   @"CountryArabic": @"",
+//                                                   @"draft": @"true",
+//                                                   @"Status": @"Draft Request",
+//                                                   @"Origin": @"Mobile app",
+//                                                   @"fcm": @"eatJZYr Hz_k:APA91bGU56e FMo4NvzbBAT8TzI uXkXTukWXrTIFqy kDS16xj4AFrK8ChO m- V4UGwp9zuEJb_lUc tc4b9X7oZOwGCfRb CVFdvad1o9mESkC nSRxkHKHZCH9NR cPXVO2hBH3t_DjO kQOuO5Lj7sDwTHx SE7dbzagO9zw"
+//                                                   }};
+//
+//
+////    [ap postRequestwithUrl:ChangeofDetailsServicesUrl withParameters:<#(NSDictionary *)#> successBlock:<#^(id responseObj)success#> errorBlock:<#^(NSError *error)errorBlock#>]po
+//}
 
 -(void)loadEditVC{
     

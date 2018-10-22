@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "COCDServerObj.h"
 
 @interface ChangeofContactCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UITextField *textField;
@@ -16,7 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *borderView;
 @property (weak, nonatomic) IBOutlet UILabel *headingLabel;
 @property (weak, nonatomic) IBOutlet UIButton *selectCountryButtton;
-
+@property COCDServerObj *cocdOBj;
 
 
 @end

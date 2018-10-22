@@ -9,6 +9,8 @@
 #import "ChangeOfContactDetails.h"
 #import "ChangeofContactCell2.h"
 #import "PassportHeader.h"
+#import "COCDServerObj.h"
+
 @interface ChangeOfContactDetails ()<KPDropMenuDelegate,UITextFieldDelegate,WYPopoverControllerDelegate,POPDelegate>
 
 @end
@@ -18,18 +20,23 @@
     StepperView *sterView;
     CGFloat heightTV,numberOfCells,sections;
     NSArray *tvArr,*section2Array ;
-    UserDetailsModel *udm;
     KPDropMenu *dropNew;
     UIColor *selectedColor;
     NSArray *dropItems;
     WYPopoverController* popoverController;
-
+    COCDServerObj *cocdOBj;
     NSInteger *section2Cells;
+    UITextField *currentTF;
+    NSArray *countriesArray;
+    
 }
+
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    DamacSharedClass.sharedInstance.currentVC = self;        
     _tableView.delegate = self;
     _tableView.dataSource = self;
     _stepperBaseView.backgroundColor = [UIColor clearColor];
@@ -38,7 +45,6 @@
     sections = 1;
     section2Cells = 0;
     _tableViewHeight.constant = heightTV;
-    udm = [DamacSharedClass sharedInstance].userProileModel;
     
     selectedColor = _view1.backgroundColor;
     [self mobileClick:nil];
@@ -68,8 +74,18 @@
     _tableView.clipsToBounds = NO;
     dropNew.userInteractionEnabled = YES;
     self.view.clipsToBounds = NO;
+    [self getCountriesList];
 }
-
+-(void)getCountriesList{
+    ServerAPIManager *server = [ServerAPIManager sharedinstance];
+    [server getRequestwithUrl:kgetCountriesList withParameters:nil successBlock:^(id responseObj) {
+        if(responseObj){
+            countriesArray = [NSJSONSerialization JSONObjectWithData:responseObj options:0 error:nil];
+        }
+    } errorBlock:^(NSError *error) {
+        
+    }];
+}
 
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -88,6 +104,7 @@
     
     PopTableViewController *popVC=[self.storyboard instantiateViewControllerWithIdentifier:@"popTableVC"];
     popVC.delegate=self;
+    popVC.tvData = countriesArray;
     popoverController = [[WYPopoverController alloc] initWithContentViewController:popVC];
     popoverController.delegate = self;
     popoverController.popoverContentSize=CGSizeMake(button.frame.size.width, UIScreen.mainScreen.bounds.size.height-30);
@@ -106,7 +123,12 @@
     popoverController = nil;
 }
 
-
+-(void)selectedFromDropMenu:(NSString *)str forType:(NSString *)type withTag:(int)tag{
+    cocdOBj.Country = str;
+    [self.tableView reloadData];
+    [popoverController dismissPopoverAnimated:YES];
+    
+}
 #pragma mark UiTableViewDelegates
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -126,18 +148,22 @@
         ChangeofContactCell *cell = [tableView dequeueReusableCellWithIdentifier:@"changeofContactCell" forIndexPath:indexPath];
         cell.subLabel.text = tvArr[indexPath.row][@"key"];
         cell.textField.text = tvArr[indexPath.row][@"value"];
+        cell.textField.tag = [tvArr[indexPath.row][@"tag"] intValue];
         cell.textField.delegate = self;
+        cell.cocdOBj = cocdOBj;
         cell.clipsToBounds = NO;
         [cell.selectCountryButtton addTarget:self action:@selector(showpopover:) forControlEvents:UIControlEventTouchUpInside];
+        [cell.selectCountryButtton setTitle:cocdOBj.Country forState:UIControlStateNormal];
         return cell;
-        
     }
     if(indexPath.section ==1){
         ChangeofContactCell2 *cell = [tableView dequeueReusableCellWithIdentifier:@"changeofContactCell2" forIndexPath:indexPath];
         cell.subLabel.text = section2Array[indexPath.row][@"key"];
         cell.textField.text = section2Array[indexPath.row][@"value"];
         cell.textField.delegate = self;
+        cell.textField.tag = [section2Array[indexPath.row][@"tag"] intValue];
         cell.clipsToBounds = NO;
+        cell.cocdOBj = cocdOBj;
         return cell;
     }
     
@@ -237,12 +263,15 @@
         _tableViewHeight.constant = heightTV;
     NSLog(@"%@",[DamacSharedClass sharedInstance].userProileModel);
     tvArr = @[@{@"key":@"Mobile No.",
-                @"value":[NSString stringWithFormat:@"%@%@%@",udm.countryCode,udm.phoneAreaCode,udm.phoneNumber]}
+                @"value":cocdOBj.Mobile,
+                @"tag" : [NSNumber numberWithInt:Mobile]
+                }
               ];
     [_tableView reloadData];
     [self setColorsForSelectedButton:_view1];
-    
 }
+
+
 -(void)setColorsForSelectedButton:(UIView*)v{
     _view1.backgroundColor = [UIColor clearColor];
     _view2.backgroundColor = [UIColor clearColor];
@@ -257,7 +286,9 @@
         numberOfCells = 1;
         _tableViewHeight.constant = heightTV;
     tvArr = @[@{@"key":@"Email",
-                @"value":[NSString stringWithFormat:@"%@",udm.emailAddress]}];
+                @"value":cocdOBj.Email,
+                @"tag" : [NSNumber numberWithInt:Email]
+                }];
     [_tableView reloadData];
     [self setColorsForSelectedButton:_view2];
 }
@@ -267,35 +298,59 @@
         numberOfCells = 3;
         _tableViewHeight.constant = 280;
     tvArr = @[@{@"key":@"Address1",
-                @"value":[NSString stringWithFormat:@"%@",udm.emailAddress]},
+                @"value":cocdOBj.AddressLine1,
+                @"tag" : [NSNumber numberWithInt:Address1]},
               @{@"key":@"Address2",
-                @"value":[NSString stringWithFormat:@"%@",udm.emailAddress]},
+                @"value":cocdOBj.AddressLine2,
+                @"tag" : [NSNumber numberWithInt:Address2]},
               @{@"key":@"Address3",
-                @"value":[NSString stringWithFormat:@"%@",udm.emailAddress]},
+                @"value":cocdOBj.AddressLine3,
+                @"tag" : [NSNumber numberWithInt:Address3]},
               @{@"key":@"Address4",
-                @"value":[NSString stringWithFormat:@"%@",udm.emailAddress]},
+                @"value":cocdOBj.AddressLine4,
+                @"tag" : [NSNumber numberWithInt:Address4]},
               @{@"key":@"City",
-                @"value":[NSString stringWithFormat:@"%@",udm.city]},
+                @"value":cocdOBj.City,
+                @"tag" : [NSNumber numberWithInt:City]},
               @{@"key":@"Country",
-                @"value":@""},//[NSString stringWithFormat:@"%@",udm.countryOfResidence]},
+                @"value":@"",
+                @"tag" : [NSNumber numberWithInt:4]},//[NSString stringWithFormat:@"%@",udm.countryOfResidence]},
               @{@"key":@"State",
-                @"value":[NSString stringWithFormat:@"%@",udm.countryCode]},
+                @"value":cocdOBj.State,
+                @"tag" : [NSNumber numberWithInt:State]},
               @{@"key":@"Postal Code",
-                @"value":[NSString stringWithFormat:@"%@",udm.countryCode]}];
-    
+                @"value":cocdOBj.PostalCode,
+                @"tag" : [NSNumber numberWithInt:PostalCode]}
+              ];
     section2Array = @[@{@"key":@"Address1\n(in Arabic) ",
-                        @"value":[NSString stringWithFormat:@"%@",udm.emailAddress]},
+                        @"value":cocdOBj.AddressLine1Arabic,
+                        @"tag" : [NSNumber numberWithInt:Address1Arabic]
+                        },
                       @{@"key":@"City\n(in Arabic)",
-                        @"value":[NSString stringWithFormat:@"%@",udm.emailAddress]},
+                        @"value":cocdOBj.AddressLine2Arabic,
+                        @"tag" : [NSNumber numberWithInt:CityArabic]
+                        },
                       @{@"key":@"Country\n(in Arabic)",
-                        @"value":[NSString stringWithFormat:@"%@",udm.emailAddress]},
+                        @"value":cocdOBj.AddressLine3Arabic,
+                        @"tag" : [NSNumber numberWithInt:CountryArabic]
+                        },
                       @{@"key":@"State(in Arabic)",
-                        @"value":[NSString stringWithFormat:@"%@",udm.emailAddress]}];
+                        @"value":cocdOBj.AddressLine4Arabic,
+                        @"tag" : [NSNumber numberWithInt:StateInArabic]
+                        }];
     
     [self setColorsForSelectedButton:_view3];
     [_tableView reloadData];
 }
 - (IBAction)saveDraftClick:(id)sender {
+    [currentTF resignFirstResponder];
+    if([cocdOBj.Email validateEmailWithString]){
+        [cocdOBj sendDraftStatusToServer:@"Draft Request"];
+        [FTIndicator showProgressWithMessage:@"Saving Draft"];
+    }else{
+        [FTIndicator showToastMessage:@"Plaease enter a valid Email"];
+        [self emailClick:nil];
+    }
 }
 
 - (IBAction)downloadFormClick:(id)sender {
@@ -304,11 +359,18 @@
 #pragma mark TextField Delegates
 
 -(void)textFieldDidBeginEditing:(UITextField *)textField{
+    currentTF = textField;
     NSLog(@"%@",textField.placeholder);
 }
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
     [textField resignFirstResponder];
     return YES;
+}
+
+-(void)textFieldDidEndEditing:(UITextField *)textField{
+    [cocdOBj changeValueBasedonTag:textField withValue:textField.text];
+    NSLog(@"%@",cocdOBj);
+    [self.tableView reloadData];
 }
 
 

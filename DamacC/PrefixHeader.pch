@@ -60,5 +60,6 @@
 #import <WYPopoverController/WYPopoverController.h>
 #import "PopTableViewController.h"
 #import "ComplaintsViewController.h"
+#import "NSString+StringValidations.h"
 
 #endif /* PrefixHeader_pch */

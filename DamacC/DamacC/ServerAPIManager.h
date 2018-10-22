@@ -26,4 +26,5 @@ typedef void (^CustomNetworkManagerErrorBlok)(NSError *error);
 - (void)processRequest:(NSString*)path params:(id)params requestType:(NSString *)type successBlock:(NetworkManagerCompletionBlock)reqSuccessDic andErrorBlock:(NetworkManagerFailureBlock)reqErrorDic;
 -(void)getRequestwithUrl:(NSString*)url successBlock:(CustomNetworkManagerCompletionBlok)success errorBlock:(CustomNetworkManagerErrorBlok)errorBlock;
 -(void)postRequestwithUrl:(NSString*)url withParameters:(NSDictionary*)dictParam successBlock:(CustomNetworkManagerCompletionBlok)success errorBlock:(CustomNetworkManagerErrorBlok)errorBlock;
+-(void)getRequestwithUrl:(NSString*)url withParameters:(NSDictionary*)dictParam successBlock:(CustomNetworkManagerCompletionBlok)success errorBlock:(CustomNetworkManagerErrorBlok)errorBlock;
  @end

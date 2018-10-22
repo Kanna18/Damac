@@ -10,4 +10,18 @@
 
 @implementation SurveyCell4
 
+- (IBAction)oneClick:(id)sender {
+}
+
+- (IBAction)twoclick:(id)sender {
+}
+
+- (IBAction)threeClick:(id)sender {
+}
+
+- (IBAction)fourCLick:(id)sender {
+}
+
+- (IBAction)fiveClick:(id)sender {
+}
 @end

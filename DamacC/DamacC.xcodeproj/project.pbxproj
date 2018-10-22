@@ -65,6 +65,7 @@
 		F63FCF0420F87E520027FEA8 /* CustomViewCarousel.xib in Resources */ = {isa = PBXBuildFile; fileRef = F63FCF0320F87E520027FEA8 /* CustomViewCarousel.xib */; };
 		F63FCF1720FBCC200027FEA8 /* PaymentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F63FCF1620FBCC200027FEA8 /* PaymentsViewController.m */; };
 		F63FCF1B20FBCD0B0027FEA8 /* PaymentsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F63FCF1A20FBCD0B0027FEA8 /* PaymentsCell.m */; };
+		F655076F217D6F4C003EC62E /* NSString+StringValidations.m in Sources */ = {isa = PBXBuildFile; fileRef = F655076E217D6F4C003EC62E /* NSString+StringValidations.m */; };
 		F67D77A721749FAC009EE062 /* SurveyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F67D77A621749FAC009EE062 /* SurveyViewController.m */; };
 		F67D77AA21749FC3009EE062 /* SurveyCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = F67D77A921749FC3009EE062 /* SurveyCell1.m */; };
 		F67D77AD21749FCF009EE062 /* SurveyCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = F67D77AC21749FCF009EE062 /* SurveyCell2.m */; };
@@ -100,6 +101,7 @@
 		F6A87EE0209F0B53008D34C5 /* KPDropMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A87EDF209F0B53008D34C5 /* KPDropMenu.m */; };
 		F6A87EE4209F1B84008D34C5 /* ChangeofDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A87EE3209F1B84008D34C5 /* ChangeofDetailsViewController.m */; };
 		F6A87EE7209F214B008D34C5 /* DetailMyUnitsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A87EE6209F214B008D34C5 /* DetailMyUnitsViewController.m */; };
+		F6AE17C72175BE3D00C0E64A /* COCDServerObj.m in Sources */ = {isa = PBXBuildFile; fileRef = F6AE17C62175BE3D00C0E64A /* COCDServerObj.m */; };
 		F6B31BDD20F094FB001A5144 /* MyServiceRequestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B31BDC20F094FB001A5144 /* MyServiceRequestViewController.m */; };
 		F6B31BE120F33328001A5144 /* ScheduleAppointmentsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B31BE020F33328001A5144 /* ScheduleAppointmentsVC.m */; };
 		F6C57C5621585C4900970DC3 /* PassportUpdateVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C57C5521585C4900970DC3 /* PassportUpdateVC.m */; };
@@ -272,6 +274,8 @@
 		F63FCF1620FBCC200027FEA8 /* PaymentsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PaymentsViewController.m; sourceTree = "<group>"; };
 		F63FCF1920FBCD0B0027FEA8 /* PaymentsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PaymentsCell.h; sourceTree = "<group>"; };
 		F63FCF1A20FBCD0B0027FEA8 /* PaymentsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PaymentsCell.m; sourceTree = "<group>"; };
+		F655076D217D6F4C003EC62E /* NSString+StringValidations.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+StringValidations.h"; sourceTree = "<group>"; };
+		F655076E217D6F4C003EC62E /* NSString+StringValidations.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+StringValidations.m"; sourceTree = "<group>"; };
 		F67D77A521749FAC009EE062 /* SurveyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SurveyViewController.h; sourceTree = "<group>"; };
 		F67D77A621749FAC009EE062 /* SurveyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SurveyViewController.m; sourceTree = "<group>"; };
 		F67D77A821749FC3009EE062 /* SurveyCell1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SurveyCell1.h; sourceTree = "<group>"; };
@@ -334,6 +338,8 @@
 		F6A87EE3209F1B84008D34C5 /* ChangeofDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangeofDetailsViewController.m; sourceTree = "<group>"; };
 		F6A87EE5209F214B008D34C5 /* DetailMyUnitsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailMyUnitsViewController.h; sourceTree = "<group>"; };
 		F6A87EE6209F214B008D34C5 /* DetailMyUnitsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailMyUnitsViewController.m; sourceTree = "<group>"; };
+		F6AE17C52175BE3D00C0E64A /* COCDServerObj.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = COCDServerObj.h; sourceTree = "<group>"; };
+		F6AE17C62175BE3D00C0E64A /* COCDServerObj.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = COCDServerObj.m; sourceTree = "<group>"; };
 		F6B31BDB20F094FB001A5144 /* MyServiceRequestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyServiceRequestViewController.h; sourceTree = "<group>"; };
 		F6B31BDC20F094FB001A5144 /* MyServiceRequestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyServiceRequestViewController.m; sourceTree = "<group>"; };
 		F6B31BDF20F33328001A5144 /* ScheduleAppointmentsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScheduleAppointmentsVC.h; sourceTree = "<group>"; };
@@ -468,6 +474,7 @@
 		4F8D5E9F1B6C0568005E64D4 /* DamacC */ = {
 			isa = PBXGroup;
 			children = (
+				F6550770217D6F57003EC62E /* Category */,
 				F6E1139C216EF4310066D521 /* PopTableViewController.h */,
 				F6E1139D216EF4320066D521 /* PopTableViewController.m */,
 				F61124BC2164E21200901694 /* UnitsClassLabel.h */,
@@ -707,6 +714,8 @@
 				F626426821148D7B0022C4DC /* ChangeofContactCell.m */,
 				F6C57C5821585FD900970DC3 /* ChangeofContactCell2.h */,
 				F6C57C5921585FD900970DC3 /* ChangeofContactCell2.m */,
+				F6AE17C52175BE3D00C0E64A /* COCDServerObj.h */,
+				F6AE17C62175BE3D00C0E64A /* COCDServerObj.m */,
 			);
 			path = ChangeOfCDFlow;
 			sourceTree = "<group>";
@@ -746,6 +755,15 @@
 				F63FCF1A20FBCD0B0027FEA8 /* PaymentsCell.m */,
 			);
 			name = PaymentsVC;
+			sourceTree = "<group>";
+		};
+		F6550770217D6F57003EC62E /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				F655076D217D6F4C003EC62E /* NSString+StringValidations.h */,
+				F655076E217D6F4C003EC62E /* NSString+StringValidations.m */,
+			);
+			name = Category;
 			sourceTree = "<group>";
 		};
 		F67D77A421749F95009EE062 /* Survey */ = {
@@ -1228,6 +1246,7 @@
 				4F8D5EA31B6C0568005E64D4 /* main.m in Sources */,
 				F692F5C8216F259E0001F32D /* BuyersModel.m in Sources */,
 				F63FCF0220F87E3A0027FEA8 /* CustomViewCarousel.m in Sources */,
+				F655076F217D6F4C003EC62E /* NSString+StringValidations.m in Sources */,
 				F6D91E4720997AEA00DA1428 /* MainViewController.m in Sources */,
 				F6C57C5A21585FD900970DC3 /* ChangeofContactCell2.m in Sources */,
 				F6C57E1A215B03E000970DC3 /* WSCalendarView.m in Sources */,
@@ -1261,6 +1280,7 @@
 				F6A5D362217502ED0010DE2B /* Sub-SurveyCell.m in Sources */,
 				F6C942B820E9C6D700D1F40C /* VCFloatingActionButton.m in Sources */,
 				F622C29420B3B1E3007982AE /* ChangeofDetailsCell.m in Sources */,
+				F6AE17C72175BE3D00C0E64A /* COCDServerObj.m in Sources */,
 				F6170A672101DBFE003443B1 /* AppointmentsDataModel.m in Sources */,
 				F610E8BD2121FBC900B09A5B /* UnitsCell.m in Sources */,
 				F6C57DCE215A1C3500970DC3 /* CreateAppointmentVC.m in Sources */,

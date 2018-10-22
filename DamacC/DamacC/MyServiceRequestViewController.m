@@ -132,7 +132,6 @@
         cell.contentView.backgroundColor = [UIColor darkGrayColor];
     }
     return cell;
-    
 }
 -(void)sendToDetailScreen:(UIButton*)sender{
 

@@ -26,6 +26,7 @@
     sender.layer.cornerRadius = 5;
     sender.layer.borderColor = rgb(191, 154, 88).CGColor;
     sender.clipsToBounds = YES;
+    sender.layer.borderWidth = 2.0f;
     
 }
 

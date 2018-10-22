@@ -68,6 +68,9 @@
 
 #define prrofOfPayment @"https://partial-servicecloudtrial-155c0807bf-1580afc5db1.cs80.force.com/MobileApp/services/apexrest/SaveProofOfPayment/"
 
+#define kgetCountriesList @"https://partial-servicecloudtrial-155c0807bf-1580afc5db1.cs80.force.com/MobileApp/services/apexrest/SendCountriesListToMobileApp"
+
+#define ChangeofDetailsServicesUrl @"https://partial-servicecloudtrial-155c0807bf-1580afc5db1.cs80.force.com/MobileApp/services/apexrest/SaveChangeOfDetailsCase/"
 
 
 #pragma mark Arrays
@@ -109,5 +112,22 @@
 #define currentPortofolio @"Current Portfolio Value"
 #define paymentsDue @"Payments Due"
 #define openServiceRequests @"Open Service Requests"
+
+
+typedef NS_ENUM(int) {
+    Mobile = 101010,
+    Email,
+    Address1,
+    Address2,
+    Address3,
+    Address4,
+    City,
+    State,
+    PostalCode,
+    Address1Arabic,
+    CityArabic,
+    CountryArabic,
+    StateInArabic
+}TextFieldTagsCocd;
 
 #endif /* DamacConstants_h */

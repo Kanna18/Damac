@@ -37,6 +37,7 @@
 @property (nonatomic) NSString <Optional> *Contact_Email_Id__c;
 @property (nonatomic) NSString <Optional> *Contact_Email__c;
 @property (nonatomic) NSString <Optional> *Contact_Mobile__c;
+@property (nonatomic) NSString <Optional> *Country__c;
 @property (nonatomic) NSString <Optional> *Contact_Nationality__c;
 @property (nonatomic) NSString <Optional> *Customer_Connected_Through_CTI__c;
 @property (nonatomic) NSString <Optional> *Customer_Eligible_For_Mortgage__c;
@@ -51,6 +52,7 @@
 @property (nonatomic) NSString <Optional> *Final_Rental_Pool_Agreement__c;
 @property (nonatomic) NSString <Optional> *First_Property__c;
 @property (nonatomic) NSString <Optional> *Generate_Addendum__c;
+@property (nonatomic) NSString <Optional> *State__c;
 @property (nonatomic) NSString <Optional> *Generate_NOC__c;
 @property (nonatomic) NSString <Optional> *Handed_Over__c;
 @property (nonatomic) NSString <Optional> *Addnm_Verified__c;

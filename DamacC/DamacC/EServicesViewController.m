@@ -20,18 +20,41 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     // Do any additional setup after loading the view.
     imgsArr = @[@"1ser",@"2ser",@"3ser",@"4ser",@"5ser",@"6ser",@"7ser",@"8ser"];
+    [self webServiceCall];
     
 }
 
 - (void)didReceiveMemoryWarning {
+    
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+    
 }
 -(void)viewDidAppear:(BOOL)animated{
+    
     [super viewDidAppear:YES];
     [[CustomBarOptions alloc]initWithNavItems:self.navigationItem noOfItems:2 navRef:self.navigationController withTitle:@"E-services"];
+    
+}
+
+
+-(void)webServiceCall{
+    
+    ServerAPIManager *server = [ServerAPIManager sharedinstance];
+    //Note:Any chnage in array also need to change ivalue in for loop-- (Value Dependency)
+    NSArray *arrPa = @[@"Draft Request"];
+    SFUserAccountManager *sf = [SFUserAccountManager sharedInstance];
+    NSString *sfAccountID = sf.currentUser.credentials.userId;
+    sfAccountID = sfAccountID ? sfAccountID : @"1036240";
+    [server postRequestwithUrl:myServicesUrl withParameters:@{@"createdbyId":sfAccountID,@"status":arrPa[0]} successBlock:^(id responseObj)
+        {
+            NSArray *arr = [NSJSONSerialization JSONObjectWithData:responseObj options:0 error:nil];
+            NSLog(@"%@",arr);
+        } errorBlock:^(NSError *error) {
+    }];
 }
 
 #pragma mark collection View Delegates

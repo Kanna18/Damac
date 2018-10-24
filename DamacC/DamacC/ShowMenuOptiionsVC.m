@@ -34,21 +34,27 @@
     _img4Label1.text = [_dataArray[3] valueForKey:@"value"];
     _img4Label2.text = [_dataArray[3] valueForKey:@"key"];
     
+    _img1Label2.adjustsFontSizeToFitWidth = YES;
+    _img2Label2.adjustsFontSizeToFitWidth = YES;
+    _img3Label2.adjustsFontSizeToFitWidth = YES;
+    _img4Label2.adjustsFontSizeToFitWidth = YES;
     _skipButton.layer.cornerRadius = 20;
     _skipButton.clipsToBounds =YES;
     
 }
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:YES];
-    DamacSharedClass.sharedInstance.windowButton.hidden =YES;
+    
     scr_width = [UIScreen mainScreen].bounds.size.width;
     scr_height = [UIScreen mainScreen].bounds.size.height;
-    
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         [self loadFloatMenu];
     });
     
+    DamacSharedClass.sharedInstance.windowButton.hidden =YES;
+
+   
 }
 -(void)viewWillAppear:(BOOL)animated
 {

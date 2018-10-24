@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "PassportObject.h"
 @interface PassportCell1 : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *topLabel;
 @property (weak, nonatomic) IBOutlet UITextField *textField;
-
+@property PassportObject *passObj;
 @end

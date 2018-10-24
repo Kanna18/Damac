@@ -12,8 +12,9 @@
 #import "PassportCell3.h"
 #import "PassportHeader.h"
 #import "PassportFooter.h"
+#import "PassportObject.h"
 
-@interface PassportUpdateVC ()<UITableViewDelegate,UITableViewDataSource>
+@interface PassportUpdateVC ()<UITableViewDelegate,UITableViewDataSource,WYPopoverControllerDelegate,POPDelegate,UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIView *baseSuperView;
 
 @end
@@ -24,6 +25,12 @@
     CGFloat sec1,sec2,sec3;
     NSArray *sectionHeaders;
     NSArray *dropItems;
+    WYPopoverController* popoverController;
+    ServerAPIManager *serverAPI;
+    NSMutableArray *buyersInfoArr,*dropitems;
+    PassportObject *passportObj;
+    NSArray *tvData;
+    int countoFImagestoUplaod,countoFImagesUploaded;
 }
 
 - (void)viewDidLoad {
@@ -35,34 +42,90 @@
     sec2 = 0;
     sec3 = 0;
     sectionHeaders = @[@"Existing Details",@"New Details",@"Upload Documents"];
-    
-    
-    [self dropMenun];
+    serverAPI = [ServerAPIManager sharedinstance];
+    buyersInfoArr = [[NSMutableArray alloc]init];
+    dropitems = [[NSMutableArray alloc]init];
+//    [self dropMenun];
     DamacSharedClass.sharedInstance.currentVC = self;
     self.view.clipsToBounds = NO;
+    [self webServicetoGetUnitSFIds];
+    [FTIndicator showProgressWithMessage:@""];
+    passportObj = [[PassportObject alloc]init];
+    tvData = @[@"Passport Number/CR Number",@"Passport Issue Place/City of Incorporation",@"Passport/CR Expiry Date"];
+    DamacSharedClass.sharedInstance.currentVC = self;
+    DamacSharedClass.sharedInstance.windowButton.hidden = YES;
+    countoFImagestoUplaod = 0 ;
+    countoFImagesUploaded = 0 ;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
--(void)dropMenun{
+-(void)webServicetoGetUnitSFIds{
     
-    dropItems = @[@"Existing Details",@"New Details",@"Upload Documents"];
-    _dropBaseView.backgroundColor = [UIColor clearColor];
-    _dropBaseView.layer.cornerRadius = 10.0f;
-    _dropBaseView.layer.borderColor = [UIColor yellowColor].CGColor;
-    _dropBaseView.layer.borderWidth = 1.0f;
-    _dropBaseView.backgroundColor = [UIColor clearColor];
-    _dropBaseView.delegate = self;
-    _dropBaseView.items = dropItems;
-    _dropBaseView.title = dropItems[0];
-    _dropBaseView.titleColor = goldColor;
-    _dropBaseView.titleTextAlignment = NSTextAlignmentLeft;
-    _dropBaseView.DirectionDown = YES;
-    
+    [serverAPI postRequestwithUrl:bookingsAPI withParameters:@{@"AccountId":kUserProfile.sfAccountId} successBlock:^(id responseObj) {
+        if(responseObj){
+            NSArray *arr = [NSJSONSerialization JSONObjectWithData:responseObj options:0 error:nil];
+            NSArray *idsArr = [arr valueForKey:@"Booking__c"];
+            [self getBuyersInfoBasedonUnitIDS:idsArr];
+        }
+    } errorBlock:^(NSError *error) {
+        
+    }];
 }
+
+-(void)getBuyersInfoBasedonUnitIDS:(NSArray*)arr{
+    __block int Count = 0;
+    for (int i = 0; i<arr.count; i++) {
+        [serverAPI postRequestwithUrl:jointBuyersUrl withParameters:@{@"bookingId":arr[i]} successBlock:^(id responseObj) {
+            if(responseObj){
+                NSArray *myarr = [NSJSONSerialization JSONObjectWithData:responseObj options:0 error:nil];
+                NSArray *arrSam = [[NSArray alloc]initWithArray:myarr];
+                for (NSDictionary *dict in arrSam) {
+                    [buyersInfoArr addObject:dict];
+                }
+                if(Count == arr.count-1){
+                    for (int i = 0; i<buyersInfoArr.count ; i++ ) {
+                        [dropitems addObject:(NSString*)[buyersInfoArr[i] valueForKey:@"First_Name__c"]];
+                    }
+                    [FTIndicator performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
+                }
+                Count++;
+            }
+        } errorBlock:^(NSError *error) {
+        }];
+    }
+}
+
+-(void)showpopover:(UIButton*)drop{
+    
+    PopTableViewController *popVC=[self.storyboard instantiateViewControllerWithIdentifier:@"popTableVC"];
+    popVC.delegate=self;
+    popVC.tvData = dropitems;
+    popoverController = [[WYPopoverController alloc] initWithContentViewController:popVC];
+    popoverController.delegate = self;
+    popoverController.popoverContentSize=CGSizeMake(drop.frame.size.width, 100);
+    popoverController.accessibilityNavigationStyle=UIAccessibilityNavigationStyleCombined;
+    [popoverController presentPopoverFromRect:drop.bounds inView:drop permittedArrowDirections:WYPopoverArrowDirectionUp animated:YES options:WYPopoverAnimationOptionFadeWithScale];
+}
+
+//-(void)dropMenun{
+//
+//    dropItems = @[@"Existing Details",@"New Details",@"Upload Documents"];
+//    _dropBaseView.backgroundColor = [UIColor clearColor];
+//    _dropBaseView.layer.cornerRadius = 10.0f;
+//    _dropBaseView.layer.borderColor = [UIColor yellowColor].CGColor;
+//    _dropBaseView.layer.borderWidth = 1.0f;
+//    _dropBaseView.backgroundColor = [UIColor clearColor];
+//    _dropBaseView.delegate = self;
+//    _dropBaseView.items = dropItems;
+//    _dropBaseView.title = dropItems[0];
+//    _dropBaseView.titleColor = goldColor;
+//    _dropBaseView.titleTextAlignment = NSTextAlignmentLeft;
+//    _dropBaseView.DirectionDown = YES;
+//
+//}
 /*
 #pragma mark - Navigation
 
@@ -80,14 +143,22 @@
     
     if (indexPath.section == 0){
             PassportCell1 *cell1 = [tableView dequeueReusableCellWithIdentifier:@"passportCell1" forIndexPath:indexPath];
-            return cell1;
+        cell1.topLabel.text =tvData[indexPath.row];
+        cell1.textField.text = @"";
+        cell1.textField.userInteractionEnabled = NO;
+        return cell1;
     }
     if (indexPath.section == 1){
             PassportCell2 *cell2 = [tableView dequeueReusableCellWithIdentifier:@"passportCell2" forIndexPath:indexPath];
+        cell2.topLabel.text =tvData[indexPath.row];
+        cell2.textField.text = @"";
+        cell2.textField.tag = 1000+indexPath.row;
+        cell2.textField.delegate = self;
             return cell2;
     }
     if (indexPath.section == 2){
             PassportCell3 *cell3 = [tableView dequeueReusableCellWithIdentifier:@"passportCell3" forIndexPath:indexPath];
+        cell3.passObj = passportObj;
             return cell3;
     }
     
@@ -179,6 +250,8 @@
 //    PassportCellFooter *footer = [tableView dequeueReusableCellWithIdentifier:@"passportCellFooter"];
     if(section == 2){
         PassportFooter *footer = [[PassportFooter alloc]initWithFrame:CGRectZero];
+        [footer.saveDraftButton addTarget:self action:@selector(saveDraftClickPassport) forControlEvents:UIControlEventTouchUpInside];
+        [footer.submitbutton addTarget:self action:@selector(submitbuttonClickPassport) forControlEvents:UIControlEventTouchUpInside];
         return footer;
     }else{
     UIView *footer = [[UIView alloc]initWithFrame:CGRectZero];
@@ -190,8 +263,41 @@
     [super viewDidAppear:YES];
     [self.view bringSubviewToFront:_baseSuperView];
     [_baseSuperView setNeedsDisplay];
+
+}
+-(void)saveDraftClickPassport{
+    passportObj.status = @"Draft Request";
+    [self responsePassport];
 }
 
+-(void)responsePassport{
+    
+    if(passportObj.AccountID.length<1){
+        [FTIndicator showToastMessage:@"Please Select Buyer"];
+        return;
+    }
+    if(passportObj.passportNo.length<1){
+        [FTIndicator showToastMessage:@"Passport No should not be empty"];
+        return;
+    }
+    if(passportObj.PassportIssuedPlace.length<1){
+        [FTIndicator showToastMessage:@"Passport Issued place should not be empty"];
+        return;
+    }
+    if(passportObj.passportImage == nil){
+        [FTIndicator showToastMessage:@"Passport of Primary buyer is not attached"];
+        return;
+    }
+    [self uploadImagesToServer];
+}
+
+
+
+-(void)submitbuttonClickPassport{
+    passportObj.status = @"Submitted";
+    [self responsePassport];
+    
+}
 #pragma mark DropMenu Delegates
 -(void)didSelectItem : (KPDropMenu *) dropMenu atIndex : (int) atIntedex
 {
@@ -209,5 +315,101 @@
 
 
 - (IBAction)buyersClick:(id)sender {
+    [self showpopover:(UIButton*)sender];
+}
+
+
+#pragma mark popover Delegates
+- (BOOL)popoverControllerShouldDismissPopover:(WYPopoverController *)controller
+{
+    return YES;
+}
+- (void)popoverControllerDidDismissPopover:(WYPopoverController *)controller
+{
+    popoverController.delegate = nil;
+    popoverController = nil;
+}
+
+-(void)selectedFromDropMenu:(NSString *)str forType:(NSString *)type withTag:(int)tag{
+    [self.tableView reloadData];
+    [popoverController dismissPopoverAnimated:YES];
+    [_buyersButton setTitle:str forState:UIControlStateNormal];
+    passportObj.AccountID = buyersInfoArr[tag][@"Id"];
+    
+}
+
+-(void)tvDataHeadigLabel{
+    
+}
+
+#pragma mark TextFieldDelegates
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [textField resignFirstResponder];
+    return YES;
+}
+-(void)textFieldDidEndEditing:(UITextField *)textField{
+    [self SetValuesbasedonTag:textField];
+}
+
+
+-(void)SetValuesbasedonTag:(UITextField*)tf{
+    
+    
+    if(tf.tag == 1000){
+        passportObj.passportNo = tf.text;
+        return;
+    }
+    if(tf.tag == 1001){
+        passportObj.PassportIssuedPlace = tf.text;
+        return;
+    }
+    if(tf.tag == 1002){
+        passportObj.PassportIssuedDate = tf.text;
+        return;
+    }
+}
+
+
+-(void)uploadImagesToServer{
+    
+    [FTIndicator showProgressWithMessage:@""];
+    _soap= [[SaopServices alloc]init];
+    _soap.delegate = self;
+    if(passportObj.passportImage){
+        [_soap uploadDocumentTo:passportObj.passportImage P_REQUEST_NUMBER:nil P_REQUEST_NAME:nil P_SOURCE_SYSTEM:nil category:nil entityName:nil fileDescription:@"NewPassport" fileId:@"NewPassport" fileName:@"NewPassport" registrationId:nil sourceFileName:@"NewPassport" sourceId:@"NewPassport"];
+        countoFImagestoUplaod++;
+    }
+    _soap2 = [[SaopServices alloc]init];
+    _soap2.delegate = self;
+    if(passportObj.additionalImage){
+        NSString *str = @"AdditionalDoc";
+        [_soap2 uploadDocumentTo:passportObj.additionalImage P_REQUEST_NUMBER:nil P_REQUEST_NAME:nil P_SOURCE_SYSTEM:nil category:nil entityName:nil fileDescription:str fileId:str fileName:str registrationId:nil sourceFileName:str sourceId:str];
+        countoFImagestoUplaod++;
+    }
+    
+    
+}
+
+
+-(void)imageUplaodedAndReturnPath:(NSString *)path{
+    NSLog(@"%@",path);
+    countoFImagesUploaded ++;
+    
+    if ([path rangeOfString:@"NewPassport"].location == NSNotFound) {
+        NSLog(@"string does not contain bla");
+    } else {
+        passportObj.passportImagePath = path;
+    }
+    
+    if ([path rangeOfString:@"AdditionalDoc"].location == NSNotFound) {
+        NSLog(@"string does not contain bla");
+    } else {
+        passportObj.additionalImagePath = path;
+    }
+
+    if(countoFImagestoUplaod == countoFImagesUploaded){
+        
+        [passportObj sendPassportResponsetoServer];
+    }
 }
 @end

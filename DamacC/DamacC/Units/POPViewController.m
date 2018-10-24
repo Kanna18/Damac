@@ -18,6 +18,7 @@
 @implementation POPViewController{
     
     StepperView *sterView;
+    
 }
 
 - (void)viewDidLoad {
@@ -32,11 +33,14 @@
     self.collectionView.scrollEnabled = NO;
     DamacSharedClass.sharedInstance.currentVC = self;
     _popObj = [[popObject alloc]init];
+
 }
+
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:YES];
     sterView = [[StepperView alloc]initWithFrame:_stepperbaseView.frame];
     [self.view addSubview:sterView];
+    DamacSharedClass.sharedInstance.windowButton.hidden = YES;
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

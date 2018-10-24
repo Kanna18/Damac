@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PassportObject.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -14,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *headerLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIButton *headerButton;
-
+@property PassportObject *passObj;
 @end
 
 NS_ASSUME_NONNULL_END

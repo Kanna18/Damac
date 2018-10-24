@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "COCDServerObj.h"
-@interface ChangeOfContactDetails : UIViewController<UITableViewDelegate,UITableViewDataSource>
+#import "SaopServices.h"
+@interface ChangeOfContactDetails : UIViewController<UITableViewDelegate,UITableViewDataSource,SoapImageuploaded>
 @property (weak, nonatomic) IBOutlet UIView *stepperBaseView;
 - (IBAction)mobileClick:(id)sender;
 - (IBAction)emailClick:(id)sender;
@@ -29,4 +30,7 @@
 @property (weak, nonatomic) IBOutlet UIView *buttonsView;
 
 @property (weak, nonatomic) IBOutlet UIButton *downloadFormButton;
+@property (nonatomic) SaopServices *soap;
+@property (nonatomic) SaopServices *soap3;
+@property (nonatomic) SaopServices *soap2;
 @end

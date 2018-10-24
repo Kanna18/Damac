@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface PassportUpdateVC : UIViewController<KPDropMenuDelegate>
+#import "SaopServices.h"
+@interface PassportUpdateVC : UIViewController<KPDropMenuDelegate,SoapImageuploaded>
 @property (weak, nonatomic) IBOutlet KPDropMenu *dropBaseView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIButton *buyersButton;
 - (IBAction)buyersClick:(id)sender;
-
+@property SaopServices *soap;
+@property SaopServices *soap2;
 @end

@@ -8,7 +8,10 @@
 
 #import "JointBuyerObject.h"
 
-@implementation JointBuyerObject
+@implementation JointBuyerObject{
+    
+    NSString *toastMessage;
+}
 -(instancetype)init{
     self =  [super init];
     if(self){
@@ -18,22 +21,48 @@
 }
 
 -(void)fillObjectWithDict:(NSDictionary*)dict{
+  
     
-    self.AccountID = @"";
-    self.AdditionalDocFileUrl = @"";
-    self.address1 = @"";
-    self.address2 = @"";
-    self.address3 = @"";
-    self.address4 = @"";
-    self.city = @"";
-    self.country = @"";
-    self.email = @"";
-    self.mobileCountryCode = @"";
-    self.origin = @"";
-    self.PassportFileUrl = @"";
-    self.phone = @"";
-    self.postalCode = @"";
-    self.RecordType = @"";
+    /*Dictionary Format*/
+//    {
+//        "Account__c" = 0012500000i4XznAAE;
+//        "Account__r" =     {
+//            Id = 0012500000i4XznAAE;
+//            "Party_ID__c" = 1748147;
+//            "Passport_Number__pc" = 484101978;
+//            attributes =         {
+//                type = Account;
+//                url = "/services/data/v43.0/sobjects/Account/0012500000i4XznAAE";
+//            };
+//        };
+//        "Booking__c" = a0y25000000vJMXAA2;
+//        "Buyer_ID__c" = 3105759;
+//        "First_Name__c" = "Barbara Maria";
+//        Id = a1m25000000jeFxAAI;
+//        "Last_Name__c" = Kennedy;
+//        Name = "B-105758";
+//        "Primary_Buyer__c" = 0;
+//        attributes =     {
+//            type = "Buyer__c";
+//            url = "/services/data/v43.0/sobjects/Buyer__c/a1m25000000jeFxAAI";
+//        };
+//    }
+    
+    self.AccountID = dict[@"Booking__c"];
+    self.AdditionalDocFileUrl =@"";// handleNull(dict[@"Booking__c"]);
+    self.address1 = handleNull(kUserProfile.addressLine1);//handleNull(dict[@"Booking__c"]);
+    self.address2 = handleNull(kUserProfile.addressLine2);//handleNull(dict[@"Booking__c"]);
+    self.address3 = handleNull(kUserProfile.addressLine3);//handleNull(dict[@"Booking__c"]);
+    self.address4 = @"";//handleNull(dict[@"Booking__c"]);
+    self.city = handleNull(kUserProfile.city);//handleNull(dict[@"Booking__c"]);
+    self.country = handleNull(kUserProfile.countryOfResidence);//handleNull(dict[@"Booking__c"])
+    self.email = handleNull(kUserProfile.emailAddress);//handleNull(dict[@"Booking__c"]);
+    self.mobileCountryCode = handleNull(kUserProfile.countryCode);//handleNull(dict[@"Booking__c"]);
+    self.origin = @"Mobile App";//handleNull(dict[@"Booking__c"]);
+    self.PassportFileUrl = @"";//handleNull(dict[@"Booking__c"]);
+    self.phone = handleNull(kUserProfile.phoneNumber);//handleNull(dict[@"Booking__c"]);
+    self.postalCode = handleNull(kUserProfile.countryCode);//handleNull(dict[@"Booking__c"]);
+    self.RecordType = @"Change of Joint Buyer";
     self.state = @"";
     self.status = @"";
     self.UploadSignedChangeofDetails = @"";
@@ -80,11 +109,10 @@
     }
    
 }
--(void)yyy{
-    
-    
+-(void)sendJointBuyerResponsetoserver{
+
     NSMutableDictionary *dict = [[NSMutableDictionary alloc]init];
-    [dict setValue:self.AccountID forKey:@"AccountID"];
+    [dict setValue:kUserProfile.sfAccountId forKey:@"AccountID"];
     [dict setValue:self.AdditionalDocFileUrl forKey:@"AdditionalDocFileUrl"];
     [dict setValue:self.address1 forKey:@"address1"];
     [dict setValue:self.address2 forKey:@"address2"];
@@ -98,13 +126,32 @@
     [dict setValue:self.PassportFileUrl forKey:@"PassportFileUrl"];
     [dict setValue:self.phone forKey:@"phone"];
     [dict setValue:self.postalCode forKey:@"postalCode"];
-    [dict setValue:self.RecordType forKey:@"RecordType"];
+    [dict setValue:@"Change of Joint Buyer" forKey:@"RecordType"];
     [dict setValue:self.state forKey:@"state"];
     [dict setValue:self.status forKey:@"status"];
     [dict setValue:self.UploadSignedChangeofDetails forKey:@"UploadSignedChangeofDetails"];
-    
     NSDictionary *response = @{@"joinBuyerWraper":dict};
     
+    ServerAPIManager *server =[ServerAPIManager sharedinstance];
+    [server postRequestwithUrl:JointBuyerServiceUrl withParameters:response successBlock:^(id responseObj) {
+        if(responseObj){
+            NSDictionary *dict =[NSJSONSerialization JSONObjectWithData:responseObj options:0 error:nil];
+            [self performSelectorOnMainThread:@selector(popToMainVC) withObject:nil waitUntilDone:YES];
+            toastMessage = @"Submitted Successfully";
+        }
+    } errorBlock:^(NSError *error) {
+        
+    }];
 }
 
+-(void)popToMainVC{
+    [FTIndicator showToastMessage:toastMessage];
+    [FTIndicator dismissProgress];
+    NSArray *arr = DamacSharedClass.sharedInstance.currentVC.navigationController.viewControllers;
+    for (UIViewController *vc in arr) {
+        if([vc isKindOfClass:[MainViewController class]]){
+            [DamacSharedClass.sharedInstance.currentVC.navigationController popToViewController:vc animated:YES];
+        }
+    }
+}
 @end

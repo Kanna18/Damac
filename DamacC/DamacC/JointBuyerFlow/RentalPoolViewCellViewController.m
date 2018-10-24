@@ -54,6 +54,7 @@
     [self getCountriesList];
     countoFImagestoUplaod = 0;
     countoFImagesUploaded = 0;
+//    _scrollView.scrollEnabled = NO;
 }
 -(void)roundCorners:(UIButton*)sender{
     
@@ -81,6 +82,7 @@
 }
 -(void)getBuyersInfoBasedonUnitIDS:(NSArray*)arr{
     
+    __block int Count = 0;
     for (int i = 0; i<arr.count; i++) {
         [serverAPI postRequestwithUrl:jointBuyersUrl withParameters:@{@"bookingId":arr[i]} successBlock:^(id responseObj) {
             if(responseObj){
@@ -89,10 +91,11 @@
                 for (NSDictionary *dict in arrSam) {
                     [buyersInfoArr addObject:dict];
                 }
-                if(i == arr.count-1){
+                if(Count == arr.count-1){
                     [self performSelectorOnMainThread:@selector(dropMenu) withObject:nil waitUntilDone:YES];
                     [FTIndicator performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
                 }
+                Count++;
             }
         } errorBlock:^(NSError *error) {
         }];
@@ -129,6 +132,8 @@
     jbView = [[JointBView2 alloc]initWithFrame:frame3];
     [_scrollView addSubview:jbView];
     [jbView.previous addTarget:self action:@selector(nextClick:) forControlEvents:UIControlEventTouchUpInside];
+    [jbView.saveDraftBtn addTarget:self action:@selector(saveDraftJointBuyers) forControlEvents:UIControlEventTouchUpInside];
+    [jbView.submitSR addTarget:self action:@selector(subJointBuyersResponse) forControlEvents:UIControlEventTouchUpInside];
 }
 
 
@@ -136,7 +141,7 @@
 
 -(void)dropMenu{
     
-    CGRect fram = [_dropDownView convertRect:_dropDownView.bounds toView:self.view];
+    CGRect fram = [_dropDownView convertRect:_dropDownView.bounds toView:_scrollView];
     _dropDownView.backgroundColor = [UIColor clearColor];
     for (int i = 0; i<buyersInfoArr.count ; i++ ) {
         [dropitems addObject:(NSString*)[buyersInfoArr[i] valueForKey:@"First_Name__c"]];
@@ -153,7 +158,7 @@
     dropNew.itemsFont = [UIFont fontWithName:@"Helvetica-Regular" size:12.0];
     dropNew.titleTextAlignment = NSTextAlignmentLeft;
     dropNew.DirectionDown = YES;
-    [self.view addSubview:dropNew];
+    [self.scrollView addSubview:dropNew];
 
 }
 
@@ -177,9 +182,15 @@
 }
 
 - (IBAction)nextClick:(id)sender {
-    [_scrollView setContentOffset:frame2.origin animated:YES];
-    dropNew.hidden = YES;
-    sterView.line1Animation = YES;
+    
+    if([joObj.email validateEmailWithString])
+    {
+        [_scrollView setContentOffset:frame2.origin animated:YES];
+        dropNew.hidden = YES;
+        sterView.line1Animation = YES;
+    }else{
+        [FTIndicator showToastMessage:@"Enter valid email Id"];
+    }
 }
 -(void)getCountriesList{
     ServerAPIManager *server = [ServerAPIManager sharedinstance];
@@ -277,7 +288,7 @@
     
     joObj = [[JointBuyerObject alloc]init];
     jbView.joObj = joObj;
-    [joObj fillObjectWithDict:nil];
+    [joObj fillObjectWithDict:buyersInfoArr[indexVal]];
     [_dropDownCountriesBtn setTitle:joObj.country forState:UIControlStateNormal];
     headingLabels = @[@{@"key":@"Address1",
                        @"value":joObj.address1,
@@ -323,24 +334,24 @@
 
 -(void)uploadImagesToServer{
     
-    SaopServices *soap= [[SaopServices alloc]init];
-    soap.delegate = self;
+    _soap= [[SaopServices alloc]init];
+    _soap.delegate = self;
     if(joObj.cocdImage){
-        [soap uploadDocumentTo:joObj.cocdImage P_REQUEST_NUMBER:nil P_REQUEST_NAME:nil P_SOURCE_SYSTEM:nil category:nil entityName:nil fileDescription:@"COCD" fileId:@"COCD" fileName:@"COCD" registrationId:nil sourceFileName:@"COCD" sourceId:@"COCD"];
+        [_soap uploadDocumentTo:joObj.cocdImage P_REQUEST_NUMBER:nil P_REQUEST_NAME:nil P_SOURCE_SYSTEM:nil category:nil entityName:nil fileDescription:@"COCD" fileId:@"COCD" fileName:@"COCD" registrationId:nil sourceFileName:@"COCD" sourceId:@"COCD"];
         countoFImagestoUplaod++;
     }
-    SaopServices *soap2 = [[SaopServices alloc]init];
-    soap2.delegate = self;
+    _soap2 = [[SaopServices alloc]init];
+    _soap2.delegate = self;
     if(joObj.additionalDocumentImage){
         NSString *str = @"AdditionalDoc";
-        [soap2 uploadDocumentTo:joObj.additionalDocumentImage P_REQUEST_NUMBER:nil P_REQUEST_NAME:nil P_SOURCE_SYSTEM:nil category:nil entityName:nil fileDescription:str fileId:str fileName:str registrationId:nil sourceFileName:str sourceId:str];
+        [_soap2 uploadDocumentTo:joObj.additionalDocumentImage P_REQUEST_NUMBER:nil P_REQUEST_NAME:nil P_SOURCE_SYSTEM:nil category:nil entityName:nil fileDescription:str fileId:str fileName:str registrationId:nil sourceFileName:str sourceId:str];
         countoFImagestoUplaod++;
     }
-    SaopServices *soap3 = [[SaopServices alloc]init];
-    soap3.delegate = self;
+    _soap3 = [[SaopServices alloc]init];
+    _soap3.delegate = self;
     if(joObj.primaryPassportImage){
         NSString *str = @"PassportOfBuyer";
-        [soap3 uploadDocumentTo:joObj.primaryPassportImage P_REQUEST_NUMBER:nil P_REQUEST_NAME:nil P_SOURCE_SYSTEM:nil category:nil entityName:nil fileDescription:str fileId:str fileName:str registrationId:nil sourceFileName:str sourceId:str];
+        [_soap3 uploadDocumentTo:joObj.primaryPassportImage P_REQUEST_NUMBER:nil P_REQUEST_NAME:nil P_SOURCE_SYSTEM:nil category:nil entityName:nil fileDescription:str fileId:str fileName:str registrationId:nil sourceFileName:str sourceId:str];
         countoFImagestoUplaod++;
     }
 }
@@ -370,8 +381,22 @@
     }
     
     if(countoFImagestoUplaod == countoFImagesUploaded){
-//        [_cocdOBj sendDraftStatusToServer];
+        
+        [joObj sendJointBuyerResponsetoserver];
     }
+}
+-(void)subJointBuyersResponse{
+    
+    if(joObj.cocdImage == nil){
+        [FTIndicator showToastMessage:@"COCD document is not attached"];
+    }else{
+        joObj.status = @"Submitted";
+        [self uploadImagesToServer];
+    }
+    
+}
+-(void)saveDraftJointBuyers{
+    
 }
 
 @end

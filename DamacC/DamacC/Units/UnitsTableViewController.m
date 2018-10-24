@@ -113,6 +113,11 @@
     headerView.label1.text =rs.unitNumber;
     headerView.label2.text =rs.unitType;
     headerView.label3.text =rs.propertyName;
+    if(section %2 == 0){
+        headerView.backgroundColor = rgb(30, 30, 30);
+    }else{
+        headerView.backgroundColor = rgb(50, 50, 50);
+    }
     return headerView;
 
 }
@@ -240,8 +245,10 @@
     }
 }
 - (void)payNow:(id)sender{
-    BillingViewController *bvc = [self.storyboard instantiateViewControllerWithIdentifier:@"billVC"];
-    [self.navigationController pushViewController:bvc animated:YES];
+    ErrorViewController *errvc =[self.storyboard instantiateViewControllerWithIdentifier:@"errorVC"];
+    [self presentViewController:errvc animated:YES completion:nil];
+//    BillingViewController *bvc = [self.storyboard instantiateViewControllerWithIdentifier:@"billVC"];
+//    [self.navigationController pushViewController:bvc animated:YES];
 }
 
 @end

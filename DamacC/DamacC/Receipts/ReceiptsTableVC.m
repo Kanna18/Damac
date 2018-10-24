@@ -30,6 +30,7 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"ReceiptsTableViewCell" bundle:nil] forCellReuseIdentifier:@"receiptsTableViewCell"];
     headerIndex = -1;
     [self webServiceCall];
+    DamacSharedClass.sharedInstance.currentVC = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -66,6 +67,8 @@
     cell.label2.text = rs.receiptReference;
     cell.label3.text = rs.cashReceiptId;
     cell.label4.text = @"";
+    
+  
     return cell;
 }
 
@@ -97,7 +100,11 @@
     headerView.label1.text =resp.receiptNumber;
     headerView.label2.text =resp.receiptDate;
     headerView.label3.text =resp.functionalAmount;
-    
+    if(section %2 == 0){
+        headerView.backgroundColor = rgb(30, 30, 30);
+    }else{
+        headerView.backgroundColor = rgb(50, 50, 50);
+    }
     return headerView;
     
 }

@@ -21,4 +21,5 @@
 @property UIViewController *currentVC;
 @property VCFloatingActionButton *windowButton;
 //@property UserDetailsModel *userDetailsModel;
+@property NSArray *unitsSFIDSArray;
 @end

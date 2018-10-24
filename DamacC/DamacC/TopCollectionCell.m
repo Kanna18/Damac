@@ -13,7 +13,7 @@
 
 -(void)awakeFromNib{
     [super awakeFromNib];
-    self.layer.borderColor = rgb(174, 134, 73).CGColor;
+    self.layer.borderColor = rgb(34, 34, 34).CGColor;
     self.layer.borderWidth = 1.5f;
     
 }

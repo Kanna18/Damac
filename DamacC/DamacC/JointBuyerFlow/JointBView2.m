@@ -53,6 +53,7 @@
     selectedButtonTag =300;
 }
 
+
 #pragma Mark PickedImageProtocol
 -(void)imagePickerSelectedImage:(UIImage *)image{
     
@@ -84,7 +85,7 @@
         _cocdObj.cocdImage = img;
         }
         if (_joObj) {
-        _cocdObj.cocdImage = img;
+        _joObj.cocdImage = img;
         }
     }
     if(selectedButtonTag == 200){
@@ -93,7 +94,7 @@
         _cocdObj.primaryPassportImage = img;
         }
         if (_joObj) {
-            _cocdObj.cocdImage = img;
+            _joObj.primaryPassportImage = img;
         }
     }
     if(selectedButtonTag == 300){
@@ -102,7 +103,7 @@
             _cocdObj.additionalDocumentImage = img;
         }
         if (_joObj) {
-            _cocdObj.cocdImage = img;
+            _joObj.additionalDocumentImage = img;
         }
     }
 }

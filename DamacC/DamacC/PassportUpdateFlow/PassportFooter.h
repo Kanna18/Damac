@@ -7,12 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PassportObject.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface PassportFooter : UIView
 @property (weak, nonatomic) IBOutlet UIButton *submitbutton;
 @property (weak, nonatomic) IBOutlet UIButton *saveDraftButton;
+@property PassportObject *passObj;
 
 @end
 

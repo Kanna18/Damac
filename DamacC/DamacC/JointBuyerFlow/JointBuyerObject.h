@@ -38,6 +38,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 -(void)fillObjectWithDict:(NSDictionary*)dict;
 -(void)changeValueBasedonTag:(UITextField*)textField withValue:(NSString*)str;
+-(void)sendJointBuyerResponsetoserver;
 
 @end
 

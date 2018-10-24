@@ -20,7 +20,7 @@
     
     NSMutableDictionary *dict = [[NSMutableDictionary alloc]init];
     [dict setValue:@"POP" forKey:@"RecordType"];
-    [dict setValue:srD.RecordTypeId forKey:@"AccountID"];
+    [dict setValue:kUserProfile.sfAccountId forKey:@"AccountID"];
     [dict setValue:@"" forKey:@"fileName"];
     [dict setValue:@"" forKey:@"AttachmentURL"];
     [dict setValue:srD.Total_Amount__c forKey:@"Totalamount"];
@@ -33,6 +33,7 @@
     [dict setValue:srD.Swift_Code__c forKey:@"SwiftCode"];
     [dict setValue:@"Mobile App" forKey:@"origin"];
     [dict setValue:@"Cancelled" forKey:@"status"];
+    [dict setValue:srD.Id forKey:@"salesforceId"];
     NSDictionary *response = @{@"proofOfPaymentWrapper": dict};
     
     ServerAPIManager *server = [ServerAPIManager sharedinstance];
@@ -59,4 +60,39 @@
         }
     }
 }
+
+
+-(void)subMitPOPfromServicesSRDetails{
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc]init];
+    [dict setValue:@"POP" forKey:@"RecordType"];
+    [dict setValue:kUserProfile.sfAccountId forKey:@"AccountID"];
+    [dict setValue:@"POP" forKey:@"fileName"];
+    [dict setValue:self.popImagePath forKey:@"AttachmentURL"];
+    [dict setValue:self.Totalamount forKey:@"Totalamount"];
+    [dict setValue:self.PARemark forKey:@"PARemark"];
+    [dict setValue:self.PaymentMode forKey:@"PaymentMode"];
+    [dict setValue:@"2018-10-12" forKey:@"PaymentDate"];
+    [dict setValue:@"" forKey:@"PaymentCurrency"];
+    [dict setValue:self.SenderName forKey:@"SenderName"];
+    [dict setValue:self.BankName forKey:@"BankName"];
+    [dict setValue:self.SwiftCode forKey:@"SwiftCode"];
+    [dict setValue:@"Mobile App" forKey:@"origin"];
+    [dict setValue:@"Submitted" forKey:@"status"];
+    NSDictionary *response = @{@"proofOfPaymentWrapper": dict};
+    
+    ServerAPIManager *server = [ServerAPIManager sharedinstance];
+    [server postRequestwithUrl:ProofOFPaymentServiceURl withParameters:response successBlock:^(id responseObj) {
+        if(responseObj){
+            NSDictionary *dict =[NSJSONSerialization JSONObjectWithData:responseObj options:0 error:nil];
+            NSLog(@"%@",dict);
+            [FTIndicator showToastMessage:@"SR has been Submitted"];
+            [FTIndicator performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
+            [self performSelectorOnMainThread:@selector(popToMainVC) withObject:nil waitUntilDone:YES];
+        }
+    } errorBlock:^(NSError *error) {
+        
+    }];
+    
+}
+
 @end

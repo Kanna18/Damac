@@ -31,6 +31,7 @@
     _headingButton.layer.cornerRadius = radiusCommon;
     _headingButton.layer.borderWidth = borderWidthCommon;
     _headingButton.layer.borderColor = borderColorCommon;
+    DamacSharedClass.sharedInstance.windowButton.hidden = YES;
     
 }
 -(void)fillValues{
@@ -98,6 +99,7 @@
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reus];
     }
     cell.textLabel.text = [NSString stringWithFormat:@"%@ %@",tvArray[indexPath.section][indexPath.row], valuesArr[indexPath.section][indexPath.row]];
+    cell.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"prof%lu",indexPath.row+1]];
     return cell;
 }
 
@@ -118,7 +120,7 @@
 -(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
     if(section==0){
         UIView *vw = [[UIView alloc]initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 1)];
-        vw.backgroundColor = rgb(197, 152, 66);
+//        vw.backgroundColor = rgb(197, 152, 66);
         return vw;
     }
     return  nil;

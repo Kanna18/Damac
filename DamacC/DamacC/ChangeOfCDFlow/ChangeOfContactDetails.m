@@ -15,7 +15,7 @@
 #define buttonTitleNext @"Next"
 
 
-@interface ChangeOfContactDetails ()<KPDropMenuDelegate,UITextFieldDelegate,WYPopoverControllerDelegate,POPDelegate,SoapImageuploaded>
+@interface ChangeOfContactDetails ()<KPDropMenuDelegate,UITextFieldDelegate,WYPopoverControllerDelegate,POPDelegate>
 
 @end
 
@@ -362,6 +362,7 @@
     {
         if(_cocdOBj.cocdImage == nil){
             [FTIndicator showToastMessage:@"COCD Document not selected"];
+            return;
         }
         else if(![_cocdOBj.Email validateEmailWithString]){
             [FTIndicator showToastMessage:@"Enter Valid Email Id"];
@@ -436,24 +437,24 @@
 }
 -(void)uploadImagesToServer{
     
-    SaopServices *soap= [[SaopServices alloc]init];
-    soap.delegate = self;
+    _soap= [[SaopServices alloc]init];
+    _soap.delegate = self;
     if(_cocdOBj.cocdImage){
-    [soap uploadDocumentTo:_cocdOBj.cocdImage P_REQUEST_NUMBER:nil P_REQUEST_NAME:nil P_SOURCE_SYSTEM:nil category:nil entityName:nil fileDescription:@"COCD" fileId:@"COCD" fileName:@"COCD" registrationId:nil sourceFileName:@"COCD" sourceId:@"COCD"];
+    [_soap uploadDocumentTo:_cocdOBj.cocdImage P_REQUEST_NUMBER:nil P_REQUEST_NAME:nil P_SOURCE_SYSTEM:nil category:nil entityName:nil fileDescription:@"COCD" fileId:@"COCD" fileName:@"COCD" registrationId:nil sourceFileName:@"COCD" sourceId:@"COCD"];
         countoFImagestoUplaod++;
     }
-    SaopServices *soap2 = [[SaopServices alloc]init];
-    soap2.delegate = self;
+    _soap2 = [[SaopServices alloc]init];
+    _soap2.delegate = self;
     if(_cocdOBj.additionalDocumentImage){
         NSString *str = @"AdditionalDoc";
-        [soap2 uploadDocumentTo:_cocdOBj.additionalDocumentImage P_REQUEST_NUMBER:nil P_REQUEST_NAME:nil P_SOURCE_SYSTEM:nil category:nil entityName:nil fileDescription:str fileId:str fileName:str registrationId:nil sourceFileName:str sourceId:str];
+        [_soap2 uploadDocumentTo:_cocdOBj.additionalDocumentImage P_REQUEST_NUMBER:nil P_REQUEST_NAME:nil P_SOURCE_SYSTEM:nil category:nil entityName:nil fileDescription:str fileId:str fileName:str registrationId:nil sourceFileName:str sourceId:str];
         countoFImagestoUplaod++;
     }
-    SaopServices *soap3 = [[SaopServices alloc]init];
-    soap3.delegate = self;
+    _soap3 = [[SaopServices alloc]init];
+    _soap3.delegate = self;
     if(_cocdOBj.primaryPassportImage){
         NSString *str = @"PassportOfBuyer";
-        [soap3 uploadDocumentTo:_cocdOBj.primaryPassportImage P_REQUEST_NUMBER:nil P_REQUEST_NAME:nil P_SOURCE_SYSTEM:nil category:nil entityName:nil fileDescription:str fileId:str fileName:str registrationId:nil sourceFileName:str sourceId:str];
+        [_soap3 uploadDocumentTo:_cocdOBj.primaryPassportImage P_REQUEST_NUMBER:nil P_REQUEST_NAME:nil P_SOURCE_SYSTEM:nil category:nil entityName:nil fileDescription:str fileId:str fileName:str registrationId:nil sourceFileName:str sourceId:str];
         countoFImagestoUplaod++;
     }
 }

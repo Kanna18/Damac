@@ -47,7 +47,7 @@ static NSString *reuseCell = @"servicesCell";
     tvArray = @[@"MyServices1",@"MyServices2",@"MyServices3",@"MyServices4",@"MyServices5",@"MyServices6",@"MyServices7"];
     }
 //    self.navigationController.navigationBar.topItem.title = [_typeOfvc stringByReplacingOccurrencesOfString:@"\n" withString:@" "];
-    UIImageView  *boxBackView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"backgroundImage2.jpg"]];
+    UIImageView  *boxBackView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"backgroundImage.jpg"]];
     [self.tableView setBackgroundView:boxBackView];
 //    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [FTIndicator showProgressWithMessage:@"Loading"];
@@ -179,9 +179,11 @@ static NSString *reuseCell = @"servicesCell";
         [self.navigationController pushViewController:paym animated:YES];
     
     }if([_typeOfvc isEqualToString:kPay]){
-        BillingViewController *bvc = [self.storyboard instantiateViewControllerWithIdentifier:@"billVC"];
-//        bvc.responseUnit = tvArray[indexPath.row];
-        [self.navigationController pushViewController:bvc animated:YES];
+        ErrorViewController *evc = [self.storyboard instantiateViewControllerWithIdentifier:@"errorVC"];
+        [self presentViewController:evc animated:YES completion:nil];
+//        BillingViewController *bvc = [self.storyboard instantiateViewControllerWithIdentifier:@"billVC"];
+////        bvc.responseUnit = tvArray[indexPath.row];
+//        [self.navigationController pushViewController:bvc animated:YES];
     }
     
 }

@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -73,7 +72,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.31372549019607843" green="0.31372549019607843" blue="0.31372549019607843" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="5IC-vH-ccz" firstAttribute="top" secondItem="R39-qR-wtu" secondAttribute="top" constant="5" id="LSi-fr-zRu"/>
                                     <constraint firstItem="HGR-JB-fZ5" firstAttribute="top" secondItem="5IC-vH-ccz" secondAttribute="bottom" constant="5" id="Tc8-1c-QEM"/>
@@ -106,7 +105,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.31372549019607843" green="0.31372549019607843" blue="0.31372549019607843" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="pyT-L4-zoZ" secondAttribute="trailing" id="03c-xg-xsm"/>
                                     <constraint firstItem="NGZ-ok-yL0" firstAttribute="leading" secondItem="Qv0-4p-UHL" secondAttribute="leading" id="O8t-td-Css"/>
@@ -139,7 +138,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.31372549019607843" green="0.31372549019607843" blue="0.31372549019607843" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="pm9-At-x5h" firstAttribute="top" secondItem="E9I-bt-6zm" secondAttribute="bottom" constant="5" id="94R-G8-UYY"/>
                                     <constraint firstAttribute="trailing" secondItem="E9I-bt-6zm" secondAttribute="trailing" id="K1t-UB-ggt"/>
@@ -187,7 +186,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.31372549019607843" green="0.31372549019607843" blue="0.31372549019607843" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="Z8r-Wo-56H" secondAttribute="trailing" id="Bc8-GV-jMq"/>
                                     <constraint firstItem="qL1-bG-HT6" firstAttribute="top" secondItem="Z8r-Wo-56H" secondAttribute="bottom" constant="5" id="EMX-Ue-fUa"/>
@@ -220,7 +219,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.31372549019607843" green="0.31372549019607843" blue="0.31372549019607843" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="z6Y-jm-hW0" secondAttribute="trailing" id="CVh-Sk-zya"/>
                                     <constraint firstItem="z6Y-jm-hW0" firstAttribute="top" secondItem="EFa-nv-beN" secondAttribute="bottom" constant="5" id="U5R-UQ-Z2V"/>
@@ -253,7 +252,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.31372549019607843" green="0.31372549019607843" blue="0.31372549019607843" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="zvj-Xd-vbL" secondAttribute="trailing" id="3IE-RJ-6Jk"/>
                                     <constraint firstItem="zvj-Xd-vbL" firstAttribute="top" secondItem="D9i-ch-Fyz" secondAttribute="top" constant="5" id="528-t4-791"/>
@@ -301,7 +300,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.31372549019607843" green="0.31372549019607843" blue="0.31372549019607843" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="UrY-qF-20f" secondAttribute="trailing" id="35f-uk-kUS"/>
                                     <constraint firstItem="sOi-tq-C17" firstAttribute="top" secondItem="SLr-LA-BeZ" secondAttribute="top" constant="5" id="8G1-gK-YP3"/>
@@ -334,7 +333,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.31372549019607843" green="0.31372549019607843" blue="0.31372549019607843" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="J8B-38-fLt" secondAttribute="trailing" id="0GD-Ej-gA5"/>
                                     <constraint firstItem="J8B-38-fLt" firstAttribute="top" secondItem="fym-1V-FQu" secondAttribute="top" constant="5" id="9WF-Gp-Sk8"/>
@@ -367,7 +366,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.31372549019607843" green="0.31372549019607843" blue="0.31372549019607843" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="23c-bR-q7V" firstAttribute="leading" secondItem="9xA-U6-PeU" secondAttribute="leading" id="0JE-OG-0W6"/>
                                     <constraint firstAttribute="trailing" secondItem="23c-bR-q7V" secondAttribute="trailing" id="Ije-46-MJf"/>
@@ -396,7 +395,7 @@
                             <constraint firstAttribute="height" constant="40" id="zEy-s6-Hgp"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="12"/>
-                        <state key="normal" title="PRINT DOCUMENT">
+                        <state key="normal" title="E-STATEMENT">
                             <color key="titleColor" red="0.74901960784313726" green="0.60392156862745094" blue="0.34509803921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </state>
                         <userDefinedRuntimeAttributes>

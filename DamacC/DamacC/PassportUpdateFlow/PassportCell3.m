@@ -11,6 +11,7 @@
 @implementation PassportCell3{
     
     CameraView *camView;
+    int currenImageTapped;
 }
 
 - (void)awakeFromNib {
@@ -21,7 +22,9 @@
     
     CGRect fra = [UIScreen mainScreen].bounds;
     camView = [[CameraView alloc]initWithFrame:CGRectZero parentViw:[DamacSharedClass sharedInstance].currentVC];
+    camView.delegate = self;
     [[DamacSharedClass sharedInstance].currentVC.view addSubview:camView];
+    currenImageTapped= 0;
     
 }
 -(void)borders:(UIView*)vw{
@@ -39,10 +42,23 @@
 
 - (IBAction)uploadbtnOneClick:(id)sender {
     [camView frameChangeCameraView];
+    currenImageTapped = 100;
 }
 
 - (IBAction)uploadbtnTwoClick:(id)sender {
     [camView frameChangeCameraView];
+    currenImageTapped = 200;
+    
 }
 
+-(void)imagePickerSelectedImage:(UIImage *)image{
+    if(currenImageTapped == 100 && image){
+        _passObj.additionalImage = image;
+        _label1.text = @"cacheJPEG1.jpg";
+    }
+    if(currenImageTapped == 200 && image){
+        _passObj.passportImage = image;
+        _label2.text = @"cacheJPEG2.jpg";
+    }
+}
 @end

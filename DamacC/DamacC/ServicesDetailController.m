@@ -9,6 +9,7 @@
 #import "ServicesDetailController.h"
 #import "SerquestRequestDetailCell.h"
 #import "popObject.h"
+#import "PassportObject.h"
 
 //#define ChangeofDetailsServicesUrl @"https://partial-servicecloudtrial-155c0807bf-1580afc5db1.cs80.force.com/MobileApp/services/apexrest/SaveChangeOfDetailsCase/"
 //#define ComplaintsServiceUrl @"https://partial-servicecloudtrial-155c0807bf-1580afc5db1.cs80.force.com/MobileApp/services/apexrest/SaveComplaintFromMobileApp/"
@@ -22,7 +23,7 @@
 #define kCODConstant            @"Change of Contact Details"
 #define kCOCDWorking            @"Working"
 #define kJointBuyerConstant     @"Change of Joint Buyer"
-#define kPassportUpdateConstant @""
+#define kPassportUpdateConstant @"Passport Detail Update SR"
 #define kPromotionsConstant     @"Promotions"
 #define kMortgageConstant       @"Mortgage"
 #define kComplaintConstant      @"Complaint"
@@ -37,6 +38,7 @@
     NSArray *headingLabels;
     NSArray *dataLabels;
     COCDServerObj *cocd;
+    PassportObject *passObj;
 }
 
 - (void)viewDidLoad {
@@ -94,8 +96,40 @@
     if([srD.SR_Type__c isEqualToString:kPOPConstant]){
         [self fillLabelsForPOP];
     }
+    if([srD.SR_Type__c isEqualToString:kPassportUpdateConstant]){
+        [self fillLabelsForPassportUpdate];
+    }
     [FTIndicator performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
 }
+
+-(void)fillLabelsForPassportUpdate{
+    
+    
+    headingLabels = @[@"SR No.",
+                      @"SR Raised Date",
+                      @"Buyer",
+                      @"Unit Name",
+                      @"SR Type",
+                      @"Passport Number",
+                      @"Passport Issue Date",
+                      @"Passport Issue Place",
+                      @"Passport File Url",
+                      @"Additional Doc File Url"];
+    
+    dataLabels = @[[NSString stringWithFormat:@"%@ - %@",handleNull(_servicesDataModel.CaseNumber),handleNull(_servicesDataModel.Status)],
+                   [self returnDate:_servicesDataModel.CreatedDate],
+                   [NSString stringWithFormat:@"%@",handleNull(_servicesDataModel.Account.Name)],
+                   @"",
+                   handleNull(srD.SR_Type__c),
+                   handleNull(srD.New_CR__c),
+                   handleNull(srD.Passport_Issue_Date__c),
+                   handleNull(srD.Passport_Issue_Place__c),
+                   handleNull(srD.Passport_File_URL__c),
+                   handleNull(srD.Additional_Doc_File_URL__c)];
+    passObj = [[PassportObject alloc]init];
+    [passObj fillValuesWIth:srD];
+}
+
 
 -(void)fillLabelsForPOP{
     
@@ -120,6 +154,8 @@
                    @"",
                    handleNull(srD.Payment_Mode__c),
                    handleNull(srD.Payment_Allocation_Details__c)];
+    
+    
         
 }
 -(void)fillLabelsforCOCD{
@@ -181,6 +217,11 @@
         popObject *pop = [[popObject alloc]init];
         [pop cancelPOPfromServicesSRDetails:srD];
         [FTIndicator showProgressWithMessage:@"Please Wait"];
+    }
+    if([srD.SR_Type__c isEqualToString:kPassportUpdateConstant]){
+        passObj.status = @"Cancelled";
+        [passObj sendPassportResponsetoServer];
+        [FTIndicator showProgressWithMessage:@"Please wait"];
     }
 }
 

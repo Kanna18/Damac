@@ -167,20 +167,20 @@
     self.tableView.dataSource       = self;
 //    self.tableView.separatorColor   = [UIColor grayColor];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    self.tableView.backgroundView.backgroundColor = [UIColor blackColor]; //[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"colorBg"]];
+    self.tableView.backgroundView.backgroundColor =rgb(34, 34, 34);// [UIColor blackColor]; //[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"colorBg"]];
     
     self.tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [self.view addSubview:self.tableView];
     
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([ProfileTableViewCell class]) bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"profileTableViewCell"];
     
-    self.tableView.backgroundColor  = [UIColor blackColor];
-    self.view.backgroundColor = [UIColor blackColor];
+    self.tableView.backgroundColor  = rgb(34, 34, 34);//[UIColor blackColor];
+    self.view.backgroundColor = rgb(34, 34, 34);//[UIColor blackColor];
 }
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     
     UIView *vw = [[UIView alloc]initWithFrame:CGRectZero];
-    vw.backgroundColor = [UIColor lightGrayColor];//rgb(208, 199, 182);
+    vw.backgroundColor = rgb(79, 79, 79);//[UIColor lightGrayColor];
     
     return vw;
 }
@@ -273,7 +273,7 @@
     {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
         
-        cell.backgroundColor = [UIColor blackColor];
+        cell.backgroundColor = [UIColor clearColor];
         UIView *bgColorView = [[UIView alloc] init];
         [bgColorView setBackgroundColor:self.selectionColor];
 //        [cell setSelectedBackgroundView:bgColorView];

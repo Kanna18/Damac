@@ -27,6 +27,9 @@
 @property (nonatomic) NSString <Optional> *Allocate_funds__c;
 @property (nonatomic) NSString <Optional> *Swift_Code__c;
 @property (nonatomic) NSString <Optional> *Amount_Approved__c;
+@property (nonatomic) NSString <Optional> *Passport_Issue_Date__c;
+@property (nonatomic) NSString <Optional> *New_CR__c;
+@property (nonatomic) NSString <Optional> *Passport_Issue_Place__c;
 @property (nonatomic) NSString <Optional> *Amount_to_be_waived__c;
 @property (nonatomic) NSString <Optional> *Apply_New_Payment_Terms__c;
 @property (nonatomic) NSString <Optional> *Assignment_Fee_Collected__c;

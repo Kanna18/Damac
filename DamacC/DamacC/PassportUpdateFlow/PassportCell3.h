@@ -7,11 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PassportObject.h"
 
-@interface PassportCell3 : UITableViewCell
+@interface PassportCell3 : UITableViewCell<ImagePickedProtocol>
 - (IBAction)uploadbtnOneClick:(id)sender;
 - (IBAction)uploadbtnTwoClick:(id)sender;
 @property (weak, nonatomic) IBOutlet UIView *view2;
 @property (weak, nonatomic) IBOutlet UIView *view1;
+@property PassportObject *passObj;
+@property (weak, nonatomic) IBOutlet UILabel *label1;
+@property (weak, nonatomic) IBOutlet UILabel *label2;
 
 @end

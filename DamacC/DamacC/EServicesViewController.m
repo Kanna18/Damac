@@ -153,8 +153,17 @@
 //    }
 //
 }
+-(BOOL)condition{
+    BOOL valid = YES;
+    if([servicesCountArray containsObject:@"Change of Contact Details"]||[servicesCountArray containsObject:@"Change of Joint Buyer"]||
+       [servicesCountArray containsObject:@"Passport Detail Update SR"])
+    {
+        valid = NO;
+    }
+    return valid;
+}
 -(void)loadChangeOfContactDetails{
-    if(servicesCountArray.count>0&&[servicesCountArray containsObject:@"Change of Contact Details"]){
+    if(servicesCountArray.count>0&&[self condition]){
         [self loadServicesRequestViewController];
     }else{
         ChangeOfContactDetails *chd = [self.storyboard instantiateViewControllerWithIdentifier:@"changeOfContactsVC"];
@@ -165,16 +174,20 @@
     }
 }
 -(void)loadPassportUpdate{
-    
+    if(servicesCountArray.count>0&&[self condition]){
+        [self loadServicesRequestViewController];
+    }else{
     PassportUpdateVC *chd = [self.storyboard instantiateViewControllerWithIdentifier:@"passportUpdateVC"];
     [self.navigationController pushViewController:chd animated:YES];
-    
+    }
 }
 -(void)loadJointBuyerinfo{
-    
+    if(servicesCountArray.count>0&&[self condition]){
+        [self loadServicesRequestViewController];
+    }else{
     RentalPoolViewCellViewController *rvc = [self.storyboard instantiateViewControllerWithIdentifier:@"rentalPoolViewCellVC"];
     [self.navigationController pushViewController:rvc animated:YES];
-    
+    }
 }
 -(void)loadPOP{    
     POPViewController *pop = [self.storyboard instantiateViewControllerWithIdentifier:@"popVC"];

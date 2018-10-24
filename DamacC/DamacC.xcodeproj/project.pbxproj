@@ -138,6 +138,7 @@
 		F6CB3FD820EB754100D290A6 /* ViewControllerCellHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = F6CB3FD520EB754000D290A6 /* ViewControllerCellHeader.m */; };
 		F6CBCCD62171DB1000615072 /* ServicesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F6CBCCD52171DB1000615072 /* ServicesCell.m */; };
 		F6CBCCD92171F9E900615072 /* SerquestRequestDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F6CBCCD82171F9E900615072 /* SerquestRequestDetailCell.m */; };
+		F6CC80572180A1840025FB1D /* ColorCodes in Resources */ = {isa = PBXBuildFile; fileRef = F6CC80562180A1840025FB1D /* ColorCodes */; };
 		F6D08AB7217282E900F81DD0 /* JointBuyerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F6D08AB6217282E900F81DD0 /* JointBuyerCell.m */; };
 		F6D91E3A20994A5D00DA1428 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6D91E3920994A5D00DA1428 /* LocalAuthentication.framework */; };
 		F6D91E412099740400DA1428 /* VKSideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = F6D91E402099740400DA1428 /* VKSideMenu.m */; };
@@ -157,6 +158,7 @@
 		F6FA5B732099A083009A8F15 /* KeyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6FA5B722099A083009A8F15 /* KeyViewController.m */; };
 		F6FA5B772099BC64009A8F15 /* TopCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F6FA5B762099BC64009A8F15 /* TopCollectionCell.m */; };
 		F6FA5B7A2099BC6F009A8F15 /* GridCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F6FA5B792099BC6F009A8F15 /* GridCollectionViewCell.m */; };
+		F6FB0E4E2180710800CBCB72 /* PassportObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F6FB0E4D2180710800CBCB72 /* PassportObject.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -406,6 +408,7 @@
 		F6CBCCD52171DB1000615072 /* ServicesCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ServicesCell.m; sourceTree = "<group>"; };
 		F6CBCCD72171F9E900615072 /* SerquestRequestDetailCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SerquestRequestDetailCell.h; sourceTree = "<group>"; };
 		F6CBCCD82171F9E900615072 /* SerquestRequestDetailCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SerquestRequestDetailCell.m; sourceTree = "<group>"; };
+		F6CC80562180A1840025FB1D /* ColorCodes */ = {isa = PBXFileReference; lastKnownFileType = text; path = ColorCodes; sourceTree = "<group>"; };
 		F6D08AB5217282E900F81DD0 /* JointBuyerCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JointBuyerCell.h; sourceTree = "<group>"; };
 		F6D08AB6217282E900F81DD0 /* JointBuyerCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JointBuyerCell.m; sourceTree = "<group>"; };
 		F6D91E3920994A5D00DA1428 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
@@ -442,6 +445,8 @@
 		F6FA5B762099BC64009A8F15 /* TopCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TopCollectionCell.m; sourceTree = "<group>"; };
 		F6FA5B782099BC6F009A8F15 /* GridCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GridCollectionViewCell.h; sourceTree = "<group>"; };
 		F6FA5B792099BC6F009A8F15 /* GridCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GridCollectionViewCell.m; sourceTree = "<group>"; };
+		F6FB0E4C2180710800CBCB72 /* PassportObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PassportObject.h; sourceTree = "<group>"; };
+		F6FB0E4D2180710800CBCB72 /* PassportObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PassportObject.m; sourceTree = "<group>"; };
 		F7697DD73D8E49EA0E15D946 /* Pods-DamacC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DamacC.release.xcconfig"; path = "Pods/Target Support Files/Pods-DamacC/Pods-DamacC.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -483,6 +488,7 @@
 		4F8D5E9F1B6C0568005E64D4 /* DamacC */ = {
 			isa = PBXGroup;
 			children = (
+				F6CC80562180A1840025FB1D /* ColorCodes */,
 				F6550770217D6F57003EC62E /* Category */,
 				F6E1139C216EF4310066D521 /* PopTableViewController.h */,
 				F6E1139D216EF4320066D521 /* PopTableViewController.m */,
@@ -951,6 +957,8 @@
 				F6A37F9B216E782D00A4AD11 /* PassportFooter.h */,
 				F6A37F9C216E782D00A4AD11 /* PassportFooter.m */,
 				F6A37F99216E782100A4AD11 /* PassportFooter.xib */,
+				F6FB0E4C2180710800CBCB72 /* PassportObject.h */,
+				F6FB0E4D2180710800CBCB72 /* PassportObject.m */,
 			);
 			path = PassportUpdateFlow;
 			sourceTree = "<group>";
@@ -1126,7 +1134,7 @@
 					4F8D5E9C1B6C0568005E64D4 = {
 						CreatedOnToolsVersion = 6.4;
 						LastSwiftMigration = 0920;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.Keychain = {
 								enabled = 1;
@@ -1187,6 +1195,7 @@
 				F6132E0E20A7E2E900FEEEBE /* ProfileTableViewCell.xib in Resources */,
 				F6E8321720AD07D40003DC5E /* PrintDocView.xib in Resources */,
 				F67EB5EA212521D50011AB64 /* Montserrat-SemiBold.ttf in Resources */,
+				F6CC80572180A1840025FB1D /* ColorCodes in Resources */,
 				F604B36D2167246C0047CBD2 /* CameraView.xib in Resources */,
 				F6C942B920E9C6D700D1F40C /* floatTableViewCell.xib in Resources */,
 				F67EB5E9212521D50011AB64 /* AG_Helvetica_Bold.ttf in Resources */,
@@ -1270,6 +1279,7 @@
 				4F8D5EA31B6C0568005E64D4 /* main.m in Sources */,
 				F692F5C8216F259E0001F32D /* BuyersModel.m in Sources */,
 				F63FCF0220F87E3A0027FEA8 /* CustomViewCarousel.m in Sources */,
+				F6FB0E4E2180710800CBCB72 /* PassportObject.m in Sources */,
 				F655076F217D6F4C003EC62E /* NSString+StringValidations.m in Sources */,
 				F6D91E4720997AEA00DA1428 /* MainViewController.m in Sources */,
 				F6C57C5A21585FD900970DC3 /* ChangeofContactCell2.m in Sources */,
@@ -1470,11 +1480,11 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = DamacC/DamacC.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: LUXURY FACILITIES MANAGEMENT LLC";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: LUXURY FACILITIES MANAGEMENT LLC";
+				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 4H7H3FYH34;
+				DEVELOPMENT_TEAM = 7CQW6NRRPC;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1514,10 +1524,10 @@
 					"-framework",
 					"\"Security\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.damac.sales;
+				PRODUCT_BUNDLE_IDENTIFIER = com.damac.salesapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = HelloDamac1;
 				SKIP_INSTALL = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "DamacC-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1534,11 +1544,11 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = DamacC/DamacC.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: LUXURY FACILITIES MANAGEMENT LLC";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: LUXURY FACILITIES MANAGEMENT LLC";
+				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 4H7H3FYH34;
+				DEVELOPMENT_TEAM = 7CQW6NRRPC;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1578,10 +1588,10 @@
 					"-framework",
 					"\"Security\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.damac.sales;
+				PRODUCT_BUNDLE_IDENTIFIER = com.damac.salesapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = HelloDamac1;
 				SKIP_INSTALL = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "DamacC-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;

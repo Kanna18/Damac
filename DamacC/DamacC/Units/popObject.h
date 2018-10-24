@@ -25,6 +25,13 @@
 @property (nonatomic) NSString <Optional> *origin;
 @property (nonatomic) NSString <Optional> *status;
 
+
+@property (nonatomic) UIImage *popImage;
+@property (nonatomic) UIImage *otherImage;
+
+@property (nonatomic) NSString <Optional> *popImagePath;
+@property (nonatomic) NSString <Optional> *otherImagePath;
 -(void)cancelPOPfromServicesSRDetails:(ServicesSRDetails*)srD;
+-(void)subMitPOPfromServicesSRDetails;
 @end
 

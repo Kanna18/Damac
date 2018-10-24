@@ -12,10 +12,12 @@
     
     NSMutableArray *dropItems;
     int unitsIndex;
+    NSArray *unitsSFIdsArray;
 }
 
 -(void)awakeFromNib{
     [super awakeFromNib];
+    [self webServicetoGetUnitSFIds];
     [self roundCorners:_buttonnext];
     [self roundCorners:_buttonUnits];
     [self roundCornersBase:_kpDropBaseView];
@@ -28,6 +30,16 @@
     unitsIndex = 0 ;
 }
 
+-(void)webServicetoGetUnitSFIds{
+    ServerAPIManager *serverAPI = [ServerAPIManager sharedinstance];
+    [serverAPI postRequestwithUrl:bookingsAPI withParameters:@{@"AccountId":kUserProfile.sfAccountId} successBlock:^(id responseObj) {
+        if(responseObj){
+            unitsSFIdsArray = [NSJSONSerialization JSONObjectWithData:responseObj options:0 error:nil];
+        }
+    } errorBlock:^(NSError *error) {
+        
+    }];
+}
 -(void)roundCorners:(UIButton*)sender{
     sender.layer.cornerRadius = 5;
     sender.layer.borderColor = rgb(191, 154, 88).CGColor;
@@ -62,6 +74,8 @@
     _kpDropBaseView.title = dropItems[atIntedex];
     unitsIndex = atIntedex;
     _popObj.selectedUnit = [DamacSharedClass sharedInstance].unitsArray[atIntedex];
+    _popObj.AccountID = unitsSFIdsArray[atIntedex][@"Booking__c"];
+    NSLog(@"ID Selected");
 }
 
 -(void)didShow : (KPDropMenu *)dropMenu{

@@ -22,6 +22,7 @@
 - (IBAction)selectFile2Click:(id)sender;
 - (IBAction)selectFile3CLick:(id)sender;
 
+
 @property COCDServerObj *cocdObj; //FOR COCD
 @property JointBuyerObject *joObj; //FOR Joint Buyer
 

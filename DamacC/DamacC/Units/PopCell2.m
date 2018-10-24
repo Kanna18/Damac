@@ -234,7 +234,7 @@
 -(void)deactiveWSCalendarWithDate:(NSDate *)selectedDate{
     
     NSDateFormatter *monthFormatter=[[NSDateFormatter alloc] init];
-    [monthFormatter setDateFormat:@"dd MMMM yyyy"];
+    [monthFormatter setDateFormat:@"yyyy-dd-MM"];
     //    NSDateFormatter *todaysDate = [[NSDateFormatter alloc]init];
     //    [todaysDate setDateFormat:@"dd MMM yyyy"];
     NSDate *tdaysDate = [NSDate date];

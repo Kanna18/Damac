@@ -22,6 +22,7 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.tableView.backgroundColor = rgb(32, 32, 32);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -47,7 +48,9 @@
         cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuse];
     }
     cell.textLabel.text=_tvData[indexPath.row];
+    cell.textLabel.textColor = rgb(191, 154, 88);
     cell.textLabel.textAlignment=NSTextAlignmentCenter;
+    cell.backgroundColor = [UIColor clearColor];
     return cell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{    

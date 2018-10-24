@@ -123,9 +123,9 @@
     cell.tapButton.tag = indexPath.row;
     [cell.tapButton addTarget:self action:@selector(sendToDetailScreen:) forControlEvents:UIControlEventTouchUpInside];
     if(indexPath.row%2==0){
-        cell.contentView.backgroundColor = [UIColor groupTableViewBackgroundColor];
+        cell.contentView.backgroundColor = rgb(20, 20, 20);
     }else{
-        cell.contentView.backgroundColor = [UIColor darkGrayColor];
+        cell.contentView.backgroundColor = rgb(30, 30, 30);
     }
     return cell;
 }

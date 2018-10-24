@@ -40,6 +40,7 @@
 #define kPay @"PAY NOW"
 #define kComplaints @"COMPLAINTS"
 #define kSurveys @"SURVEY"
+#define kprofilePage @"My Profile"
 
 #pragma mark Sidemenu Constants
 

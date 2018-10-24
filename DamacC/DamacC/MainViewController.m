@@ -169,11 +169,12 @@
             [self loadBasedontheclick:kSOA];
             break;
         case 4:
-            [self loadBasedontheclick:@"User Profile"];
+            [self loadBasedontheclick:kprofilePage];
             break;
         case 3:
             [self loadBasedontheclick:kEServices];
             break;
+            
             
         default:
             break;
@@ -266,6 +267,8 @@
         [self loadBasedontheclick:@"User Profile"];
     }if([item.title isEqualToString:kSOA]){
         [self loadBasedontheclick:kSOA];
+    }if([item.title isEqualToString:kprofilePage]){
+        [self loadBasedontheclick:kprofilePage];
     }
     
 }
@@ -403,7 +406,7 @@
     if([str isEqualToString:kPay]){
         [self pushToTableView:kPay];
     }
-    if([str isEqualToString:@"User Profile"]){
+    if([str isEqualToString:kprofilePage]){
         ProfileViewController *pvc =[ self.storyboard instantiateViewControllerWithIdentifier:@"profileVC"];
         [self.navigationController pushViewController:pvc animated:YES];
     }

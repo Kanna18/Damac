@@ -57,7 +57,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     </imageView>
                 </subviews>
-                <color key="backgroundColor" red="0.30980392156862746" green="0.31372549019607843" blue="0.29411764705882354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <color key="backgroundColor" red="0.10196078431372549" green="0.10196078431372549" blue="0.10196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 <constraints>
                     <constraint firstItem="zi5-rn-3iS" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="4lO-hY-WEv"/>
                     <constraint firstAttribute="trailing" secondItem="zi5-rn-3iS" secondAttribute="trailing" id="89h-fh-qeg"/>
@@ -82,7 +82,7 @@
                 <outlet property="emailLabel" destination="GqS-QP-GH8" id="5wY-Nx-YkB"/>
                 <outlet property="nameLabel" destination="lRP-IH-G9m" id="JWa-Ny-hCn"/>
             </connections>
-            <point key="canvasLocation" x="-144" y="155"/>
+            <point key="canvasLocation" x="-144" y="154.72263868065968"/>
         </tableViewCell>
     </objects>
     <resources>

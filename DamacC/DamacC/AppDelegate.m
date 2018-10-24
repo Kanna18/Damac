@@ -105,6 +105,16 @@ static NSString * const OAuthRedirectURI        = @"sfdc://success";
         [SmartSyncSDKManager sharedManager].switchUserAction = ^(SFUserAccount *fromUser, SFUserAccount *toUser) {
             [weakSelf handleUserSwitch:fromUser toUser:toUser];
         };
+        
+        
+        [[UIApplication sharedApplication] setStatusBarHidden:NO];
+        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+        UIView *statusBar = [[[UIApplication sharedApplication] valueForKey:@"statusBarWindow"] valueForKey:@"statusBar"];
+        
+        if ([statusBar respondsToSelector:@selector(setBackgroundColor:)]) {
+            
+            statusBar.backgroundColor = [UIColor blackColor];//set whatever color you like
+        }
     }
     return self;
 }
@@ -117,6 +127,8 @@ static NSString * const OAuthRedirectURI        = @"sfdc://success";
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [self initializeAppViewState];
     /**Commented By Me****/
+    
+    
     
 //    [[UILabel appearance] setFont:[UIFont fontWithName:@"Helvetica Neuel" size:16]];
 //    [[UILabel appearance] setTextColor:rgb(174, 134, 73)];

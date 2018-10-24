@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -25,6 +25,14 @@
                     <state key="normal" title="Select File">
                         <color key="titleColor" red="0.98823529409999999" green="0.81568627449999997" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="6"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="selectFile1Click:" destination="iN0-l3-epB" eventType="touchUpInside" id="Aae-t5-wu8"/>
+                    </connections>
                 </button>
                 <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4zp-Km-avX">
                     <rect key="frame" x="280" y="0.0" width="221" height="100"/>
@@ -35,6 +43,14 @@
                     <state key="normal" title="Select File">
                         <color key="titleColor" red="0.98823529409999999" green="0.81568627449999997" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="6"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="selectFile2Click:" destination="iN0-l3-epB" eventType="touchUpInside" id="lVJ-fR-Gta"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="upload Signed Change of Details form*" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="srp-pO-TC3">
                     <rect key="frame" x="20" y="100" width="221" height="40"/>
@@ -60,6 +76,14 @@
                     <state key="normal" title="Select File">
                         <color key="titleColor" red="0.98823529409999999" green="0.81568627449999997" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="6"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="selectFile3CLick:" destination="iN0-l3-epB" eventType="touchUpInside" id="IKt-ta-23V"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Additional Document" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a5P-G7-A8w">
                     <rect key="frame" x="20" y="240" width="221" height="20"/>
@@ -71,42 +95,59 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6DQ-lN-7bF">
-                    <rect key="frame" x="20" y="270" width="100" height="30"/>
+                    <rect key="frame" x="20" y="275" width="90" height="30"/>
                     <color key="backgroundColor" red="0.9882352941176471" green="0.84951331444035938" blue="0.25948286866830067" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="100" id="Bs8-je-Ulp"/>
+                        <constraint firstAttribute="width" constant="90" id="Bs8-je-Ulp"/>
                         <constraint firstAttribute="height" constant="30" id="sIs-SP-4Jh"/>
                     </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
                     <state key="normal" title="Previous">
                         <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="3"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                 </button>
                 <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xdi-vc-9f7">
-                    <rect key="frame" x="401" y="289" width="100" height="30"/>
+                    <rect key="frame" x="411" y="289" width="90" height="30"/>
                     <color key="backgroundColor" red="0.98823529409999999" green="0.8495133144" blue="0.25948286869999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="9MJ-Sk-y6b"/>
-                        <constraint firstAttribute="width" constant="100" id="Bny-rA-Qfr"/>
+                        <constraint firstAttribute="width" constant="90" id="Bny-rA-Qfr"/>
                     </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
                     <state key="normal" title="Submit SR">
                         <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="3"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                 </button>
                 <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ciA-x0-hQl">
-                    <rect key="frame" x="280" y="289" width="100" height="30"/>
+                    <rect key="frame" x="300" y="289" width="90" height="30"/>
                     <color key="backgroundColor" red="0.98823529409999999" green="0.8495133144" blue="0.25948286869999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="100" id="RqC-Gf-Y7A"/>
                         <constraint firstAttribute="height" constant="30" id="wlU-E0-8D5"/>
                     </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
                     <state key="normal" title="Save Draft">
                         <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="3"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                 </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="6DQ-lN-7bF" firstAttribute="top" secondItem="a5P-G7-A8w" secondAttribute="bottom" constant="10" id="1nl-Ka-oCe"/>
+                <constraint firstItem="6DQ-lN-7bF" firstAttribute="top" secondItem="a5P-G7-A8w" secondAttribute="bottom" constant="15" id="1nl-Ka-oCe"/>
                 <constraint firstItem="uxN-c1-rvJ" firstAttribute="top" secondItem="4zp-Km-avX" secondAttribute="bottom" id="3AN-8J-hxw"/>
                 <constraint firstItem="4zp-Km-avX" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" constant="-20" id="4yz-SP-Wni"/>
                 <constraint firstItem="srp-pO-TC3" firstAttribute="leading" secondItem="noE-To-LCq" secondAttribute="leading" id="6WD-tS-Ieu"/>
@@ -125,12 +166,12 @@
                 <constraint firstItem="xdi-vc-9f7" firstAttribute="centerY" secondItem="ciA-x0-hQl" secondAttribute="centerY" id="aYd-G0-53A"/>
                 <constraint firstItem="3mx-gE-ESo" firstAttribute="width" secondItem="noE-To-LCq" secondAttribute="width" id="bJn-gK-Xjg"/>
                 <constraint firstItem="uxN-c1-rvJ" firstAttribute="trailing" secondItem="4zp-Km-avX" secondAttribute="trailing" id="gOf-YF-TJg"/>
-                <constraint firstItem="6DQ-lN-7bF" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="jSH-Y4-TUy"/>
                 <constraint firstItem="3mx-gE-ESo" firstAttribute="leading" secondItem="noE-To-LCq" secondAttribute="leading" id="m8U-Nb-6Qf"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="xdi-vc-9f7" secondAttribute="bottom" constant="20" id="nlo-qY-07i"/>
                 <constraint firstItem="noE-To-LCq" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="o1f-hu-aNZ"/>
                 <constraint firstItem="4zp-Km-avX" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="rEV-S3-ZOx"/>
                 <constraint firstItem="srp-pO-TC3" firstAttribute="width" secondItem="noE-To-LCq" secondAttribute="width" id="svd-zc-hmZ"/>
+                <constraint firstItem="6DQ-lN-7bF" firstAttribute="leading" secondItem="3mx-gE-ESo" secondAttribute="leading" id="wHG-dZ-hfy"/>
                 <constraint firstItem="srp-pO-TC3" firstAttribute="top" secondItem="noE-To-LCq" secondAttribute="bottom" id="wgA-of-N9h"/>
                 <constraint firstItem="3mx-gE-ESo" firstAttribute="height" secondItem="noE-To-LCq" secondAttribute="height" id="zxn-UE-RUX"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="xdi-vc-9f7" secondAttribute="trailing" constant="20" id="zxx-1H-SkF"/>
@@ -145,7 +186,7 @@
                 <outlet property="selectFile3" destination="3mx-gE-ESo" id="T0v-nF-vCQ"/>
                 <outlet property="submitSR" destination="xdi-vc-9f7" id="jb1-RC-tFO"/>
             </connections>
-            <point key="canvasLocation" x="146.5" y="448.5"/>
+            <point key="canvasLocation" x="146.40000000000001" y="448.42578710644682"/>
         </view>
     </objects>
 </document>

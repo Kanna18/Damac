@@ -11,5 +11,7 @@
 @interface PassportUpdateVC : UIViewController<KPDropMenuDelegate>
 @property (weak, nonatomic) IBOutlet KPDropMenu *dropBaseView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIButton *buyersButton;
+- (IBAction)buyersClick:(id)sender;
 
 @end

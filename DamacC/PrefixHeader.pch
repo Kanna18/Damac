@@ -61,5 +61,6 @@
 #import "PopTableViewController.h"
 #import "ComplaintsViewController.h"
 #import "NSString+StringValidations.h"
+#import "ErrorViewController.h"
 
 #endif /* PrefixHeader_pch */

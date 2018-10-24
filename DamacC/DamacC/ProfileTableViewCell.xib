@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -25,10 +25,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newBackground" translatesAutoresizingMaskIntoConstraints="NO" id="zi5-rn-3iS">
-                        <rect key="frame" x="0.0" y="0.0" width="260" height="67"/>
+                        <rect key="frame" x="0.0" y="0.0" width="260" height="67.5"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="dinesh.kanna18@gmail.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GqS-QP-GH8">
-                        <rect key="frame" x="0.0" y="99" width="260" height="21"/>
+                        <rect key="frame" x="0.0" y="99.5" width="260" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="NSt-Rh-g4t"/>
                         </constraints>
@@ -37,14 +37,14 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <view alpha="0.84999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s2h-d3-5ok">
-                        <rect key="frame" x="30" y="98" width="200" height="1"/>
+                        <rect key="frame" x="30" y="98.5" width="200" height="1"/>
                         <color key="backgroundColor" red="0.74901960784313726" green="0.60392156862745094" blue="0.34509803921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="rYk-2e-0wJ"/>
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dinesh Kumar" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lRP-IH-G9m">
-                        <rect key="frame" x="0.0" y="77" width="260" height="21"/>
+                        <rect key="frame" x="0.0" y="77.5" width="260" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="I6i-ga-Vxx"/>
                         </constraints>
@@ -57,7 +57,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     </imageView>
                 </subviews>
-                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <color key="backgroundColor" red="0.30980392156862746" green="0.31372549019607843" blue="0.29411764705882354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 <constraints>
                     <constraint firstItem="zi5-rn-3iS" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="4lO-hY-WEv"/>
                     <constraint firstAttribute="trailing" secondItem="zi5-rn-3iS" secondAttribute="trailing" id="89h-fh-qeg"/>

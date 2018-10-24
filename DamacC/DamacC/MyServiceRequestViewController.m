@@ -34,12 +34,11 @@
     _tableView.dataSource =self;
     [self webServiceCall];
     tvDataArray = [[NSMutableArray alloc]init];
-    [FTIndicator showProgressWithMessage:@"Loading Payments"];
+    [FTIndicator showProgressWithMessage:@"Loading Service Requests"];
     sortedArray = [[NSMutableArray alloc]init];
     
     del = (AppDelegate*)[UIApplication sharedApplication].delegate;
-
-
+    DamacSharedClass.sharedInstance.currentVC = self;
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -70,7 +69,8 @@
     SFUserAccountManager *sf = [SFUserAccountManager sharedInstance];
     NSString *sfAccountID = sf.currentUser.credentials.userId;
     sfAccountID = sfAccountID ? sfAccountID : @"1036240";
-    for (int iValue=0; iValue<arrPa.count; iValue++) {
+    __block int Count = 0;
+    for (int iValue=0; iValue<arrPa.count; iValue++) {        
         [server postRequestwithUrl:myServicesUrl withParameters:@{@"createdbyId":sfAccountID,@"status":arrPa[iValue]} successBlock:^(id responseObj) {
             NSArray *arr = [NSJSONSerialization JSONObjectWithData:responseObj options:0 error:nil];
             if(arr.count>0){
@@ -85,18 +85,14 @@
                     }
                 }
             }
-        
-            if(iValue==3){
-                [FTIndicator performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
-                 if([_typeoFVC isEqualToString:kloadingFromMenu]){
-                     [self allClick:nil];
-                 }else if([_typeoFVC isEqualToString:kloadingFromCreateServices]){
-//                     [self draftClick:nil];
-                     [self allClick:nil];
-                 }
+            
+            if(Count == arrPa.count-1){
+                    [FTIndicator performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
+                    [self allClick:nil];
             }
+            Count++;
         } errorBlock:^(NSError *error) {
-            if(iValue==3){
+            if(Count == arrPa.count-1){
                 NSLog(@"%@",error.localizedDescription);
                 [FTIndicator performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
             }
@@ -123,11 +119,11 @@
     cell.label2.text =sm.RecordType.Name;
     cell.label3.text =sm.Status;
     cell.textLabel.textAlignment = NSTextAlignmentCenter;
-    [cell.textLabel setAdjustsFontSizeToFitWidth:YES];
+    [cell.textLabel setAdjustsFontSizeToFitWidth:YES];    
     cell.tapButton.tag = indexPath.row;
     [cell.tapButton addTarget:self action:@selector(sendToDetailScreen:) forControlEvents:UIControlEventTouchUpInside];
     if(indexPath.row%2==0){
-        cell.contentView.backgroundColor = [UIColor lightGrayColor];
+        cell.contentView.backgroundColor = [UIColor groupTableViewBackgroundColor];
     }else{
         cell.contentView.backgroundColor = [UIColor darkGrayColor];
     }
@@ -136,7 +132,7 @@
 -(void)sendToDetailScreen:(UIButton*)sender{
 
     MyServicesDataModel *sm = sortedArray[sender.tag];
-    if([sm.Status isEqualToString:@"Cancelled"]){
+    if([sm.Status isEqualToString:@"Cancel"]){
         [FTIndicator showToastMessage:@"Service Request has been Cancelled"];
     }else{
         ServicesDetailController *svc = [self.storyboard instantiateViewControllerWithIdentifier:@"servicesDetailVC"];
@@ -144,7 +140,6 @@
         svc.srCaseId = sm.CaseNumber;
         [self.navigationController pushViewController:svc animated:YES];
     }
-    
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
@@ -173,7 +168,7 @@
 
 - (IBAction)newButtonClick:(id)sender {
     
-    [self sortTvData:@[@"New"]];
+    [self sortTvData:@[@"New",@"Working",@"Submitted"]];
     [self setSelecteStates:(UIButton*)sender];
 }
 
@@ -183,7 +178,7 @@
 }
 
 - (IBAction)allClick:(id)sender {
-    [self sortTvData:@[@"Draft Request",@"Submitted",@"Working", @"Cancelled",@"New"]];
+    [self sortTvData:@[@"Draft Request",@"Submitted",@"Working",@"Cancelled",@"New"]];
     [self setSelecteStates:(UIButton*)sender];
 }
 

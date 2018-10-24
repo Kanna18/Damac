@@ -13,19 +13,18 @@
 
 @implementation COCDServerObj{
     
-       UserDetailsModel *udm;
+    UserDetailsModel *udm;
+    NSString *toastMessage;
 }
 -(instancetype)init{
     self = [super init];
     if(self){
-        
+        udm = [DamacSharedClass sharedInstance].userProileModel;
     }
     return self;
 }
 
--(void)fillCOCDObjectWithCaseID:(BOOL)caseID{
-    
-    udm = [DamacSharedClass sharedInstance].userProileModel;
+-(void)fillCOCDObjectWithOutCaseID{
     self.RecordType = @"";
     self.UserName = @"";
     self.salesforceId = udm.sfAccountId;
@@ -52,6 +51,39 @@
     self.Status = @"";
     self.Origin = @"";
     self.fcm = @"";
+    self.salesforceId = @"";
+}
+
+-(void)fillCOCDObjWithCaseID:(ServicesSRDetails*)srd{
+    
+    
+    self.RecordType = handleNull(srd.RecordTypeId);
+    self.UserName = @"";
+    self.salesforceId = handleNull(udm.sfAccountId);
+    self.AccountID = handleNull(udm.sfContactId);
+    self.AddressLine1 = handleNull(srd.Address__c);
+    self.AddressLine2 = handleNull(srd.Address_2__c);
+    self.AddressLine3 = handleNull(srd.Address_3__c);
+    self.AddressLine4 = handleNull(srd.Address_4__c);
+    self.City = handleNull(srd.City__c);
+    self.State = handleNull(srd.State__c);
+    self.PostalCode = @"Enter Postal Code";
+    self.Country = handleNull(srd.Country__c);
+    self.Mobile = handleNull(srd.Contact_Mobile__c);
+    self.Email = handleNull(srd.Contact_Email__c);
+    self.AddressLine1Arabic = @"";
+    self.AddressLine2Arabic = @"";
+    self.AddressLine3Arabic = @"";
+    self.AddressLine4Arabic = @"";
+    self.CityArabic = @"";
+    self.StateArabic = @"";
+    self.PostalCodeArabic = @"";
+    self.CountryArabic = @"";
+    self.draft = @"";
+    self.Status = @"";
+    self.Origin = @"";
+    self.fcm = @"";
+    self.salesforceId = handleNull(srd.Id);
 }
 -(void)changeValueBasedonTag:(UITextField*)textField withValue:(NSString*)str{
     
@@ -109,58 +141,72 @@
         return;
     }
 }
--(void)sendDraftStatusToServer:(NSString*)status{
-    
+-(void)sendDraftStatusToServer{
     
     ServerAPIManager *serverAp = [ServerAPIManager sharedinstance];
     NSNumber *boo;
-    if([status isEqualToString:@"Draft Request"])
+    
+    if([self.Status isEqualToString:@"Draft Request"])
     {
         boo = [NSNumber numberWithBool:YES];
     }
+    if([self.Status isEqualToString:@"Cancelled"]||[self.Status isEqualToString:@"Submitted"])
+    {
+        boo = [NSNumber numberWithBool:NO];
+    }
+   
+    NSMutableDictionary *wrapperDict = [[NSMutableDictionary alloc]init];
+    [wrapperDict setValue:@"Change of Details" forKey:@"RecordType"];
+    [wrapperDict setValue:kUserProfile.emailAddress forKey:@"UserName"];
+    [wrapperDict setValue:kUserProfile.sfAccountId forKey:@"AccountID"];
+    [wrapperDict setValue:self.AddressLine1 forKey:@"AddressLine1"];
+    [wrapperDict setValue:self.AddressLine2 forKey:@"AddressLine2"];
+    [wrapperDict setValue:self.AddressLine3 forKey:@"AddressLine3"];
+    [wrapperDict setValue:self.AddressLine4 forKey:@"AddressLine4"];
+    [wrapperDict setValue:self.City forKey:@"City"];
+    [wrapperDict setValue:self.State forKey:@"State"];
+    [wrapperDict setValue:self.PostalCode forKey:@"PostalCode"];
+    [wrapperDict setValue:self.Country forKey:@"Country"];
+    [wrapperDict setValue:self.Mobile forKey:@"Mobile"];
+    [wrapperDict setValue:self.Email forKey:@"Email"];
+    [wrapperDict setValue:self.AddressLine1Arabic forKey:@"AddressLine1Arabic"];
+    [wrapperDict setValue:self.AddressLine2Arabic forKey:@"AddressLine2Arabic"];
+    [wrapperDict setValue:self.AddressLine3Arabic forKey:@"AddressLine3Arabic"];
+    [wrapperDict setValue:self.AddressLine4Arabic forKey:@"AddressLine4Arabic"];
+    [wrapperDict setValue:self.CityArabic forKey:@"CityArabic"];
+    [wrapperDict setValue:self.StateArabic forKey:@"StateArabic"];
+    [wrapperDict setValue:self.PostalCodeArabic forKey:@"PostalCodeArabic"];
+    [wrapperDict setValue:self.CountryArabic forKey:@"CountryArabic"];
+    [wrapperDict setValue:boo forKey:@"draft"];
+    [wrapperDict setValue:self.Status forKey:@"Status"];
+    [wrapperDict setValue:@"Mobile app" forKey:@"Origin"];
+    [wrapperDict setValue:handleNull(self.cocdUploadedImagePath) forKey:@"crfFormUrl"];
+    [wrapperDict setValue:handleNull(self.additionalImageUploadedImagePath) forKey:@"additionalDocUrl"];
+    [wrapperDict setValue:handleNull(self.primaryPassportUploadedImagePath) forKey:@"passportFileUrl"];
+    
+    [wrapperDict setValue:@"" forKey:@"fcm"];
+    if(self.salesforceId.length>0){
+    [wrapperDict setValue:self.salesforceId forKey:@"salesforceId"];
+    }
+    
   NSDictionary *dict = @{
-        @"codCaseWrapper": @{
-            @"RecordType":@"Change of Details",
-            @"UserName": kUserProfile.emailAddress,
-            @"AccountID": kUserProfile.sfAccountId,
-            @"AddressLine1": self.AddressLine1,
-            @"AddressLine2": self.AddressLine2,
-            @"AddressLine3": self.AddressLine3,
-            @"AddressLine4": self.AddressLine4,
-            @"City": self.City,
-            @"State": self.State,
-            @"PostalCode": self.PostalCode,
-            @"Country": self.Country,
-            @"Mobile": self.Mobile,
-            @"Email": self.Email,
-            @"AddressLine1Arabic": self.AddressLine1Arabic,
-            @"AddressLine2Arabic": self.AddressLine2Arabic,
-            @"AddressLine3Arabic": self.AddressLine3Arabic,
-            @"AddressLine4Arabic": self.AddressLine4Arabic,
-            @"CityArabic": self.CityArabic,
-            @"StateArabic": self.StateArabic,
-            @"PostalCodeArabic": self.PostalCodeArabic,
-            @"CountryArabic": self.CountryArabic,
-            @"draft": boo,
-            @"Status": status,
-            @"Origin": @"Mobile app",
-            @"fcm": @""
-        }
+        @"codCaseWrapper": wrapperDict
         };
     
     [serverAp postRequestwithUrl:ChangeofDetailsServicesUrl withParameters:dict successBlock:^(id responseObj) {
         if(responseObj){
-            NSString *dic = [NSJSONSerialization JSONObjectWithData:responseObj options:0 error:nil];
+            NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObj options:0 error:nil];
             NSLog(@"%@",dic);
+            toastMessage = [NSString stringWithFormat:@"Service Request has been %@ Successfully",dic[@"Status"]];
         }
-        [FTIndicator showToastMessage:@"Draft Saved Successfully"];
-        [FTIndicator performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
         [self performSelectorOnMainThread:@selector(popToMainVC) withObject:nil waitUntilDone:YES];
     } errorBlock:^(NSError *error) {
         
     }];
 }
 -(void)popToMainVC{
+    [FTIndicator showToastMessage:toastMessage];
+    [FTIndicator dismissProgress];
     NSArray *arr = DamacSharedClass.sharedInstance.currentVC.navigationController.viewControllers;
     for (UIViewController *vc in arr) {
         if([vc isKindOfClass:[MainViewController class]]){

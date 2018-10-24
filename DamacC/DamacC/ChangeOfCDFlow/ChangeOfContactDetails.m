@@ -9,9 +9,13 @@
 #import "ChangeOfContactDetails.h"
 #import "ChangeofContactCell2.h"
 #import "PassportHeader.h"
-#import "COCDServerObj.h"
+#import "JointBView2.h"
 
-@interface ChangeOfContactDetails ()<KPDropMenuDelegate,UITextFieldDelegate,WYPopoverControllerDelegate,POPDelegate>
+#define butonTitleSubmitSR @"Submit SR"
+#define buttonTitleNext @"Next"
+
+
+@interface ChangeOfContactDetails ()<KPDropMenuDelegate,UITextFieldDelegate,WYPopoverControllerDelegate,POPDelegate,SoapImageuploaded>
 
 @end
 
@@ -20,14 +24,20 @@
     StepperView *sterView;
     CGFloat heightTV,numberOfCells,sections;
     NSArray *tvArr,*section2Array ;
-    KPDropMenu *dropNew;
     UIColor *selectedColor;
     NSArray *dropItems;
     WYPopoverController* popoverController;
-    COCDServerObj *cocdOBj;
+    
     NSInteger *section2Cells;
     UITextField *currentTF;
     NSArray *countriesArray;
+    JointBView2 *jbView;
+    CGRect frame3;
+    CGRect originalBoundsoFScrollView;
+    
+    BOOL uploadDocsPageVisible;
+    int countoFImagestoUplaod,countoFImagesUploaded;
+
     
 }
 
@@ -36,7 +46,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    DamacSharedClass.sharedInstance.currentVC = self;        
+    DamacSharedClass.sharedInstance.currentVC = self;
     _tableView.delegate = self;
     _tableView.dataSource = self;
     _stepperBaseView.backgroundColor = [UIColor clearColor];
@@ -45,6 +55,8 @@
     sections = 1;
     section2Cells = 0;
     _tableViewHeight.constant = heightTV;
+    countoFImagestoUplaod = 0;
+    countoFImagesUploaded = 0;
     
     selectedColor = _view1.backgroundColor;
     [self mobileClick:nil];
@@ -57,24 +69,12 @@
     _downloadBtn.layer.borderWidth =1.0f;
     _downloadBtn.layer.borderColor = rgb(191, 154, 88).CGColor;
     
-    dropItems = @[@"Apple", @"Grapes", @"Cherry", @"Pineapple", @"Mango", @"Orange"];
-    dropNew = [[KPDropMenu alloc] init];
-    dropNew.layer.cornerRadius = 10.0f;
-    dropNew.layer.borderColor = [UIColor yellowColor].CGColor;
-    dropNew.layer.borderWidth = 1.0f;
-    dropNew.backgroundColor = [UIColor clearColor];
-    dropNew.delegate = self;
-    dropNew.items = dropItems;
-    dropNew.title = @"Select Again";
-    dropNew.titleColor = [UIColor yellowColor];
-    dropNew.itemsFont = [UIFont fontWithName:@"Helvetica-Regular" size:12.0];
-    dropNew.titleTextAlignment = NSTextAlignmentLeft;
-    dropNew.DirectionDown = YES;
-    dropNew.clipsToBounds = NO;
-    _tableView.clipsToBounds = NO;
-    dropNew.userInteractionEnabled = YES;
-    self.view.clipsToBounds = NO;
     [self getCountriesList];
+    
+}
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
+    self.automaticallyAdjustsScrollViewInsets = NO;
 }
 -(void)getCountriesList{
     ServerAPIManager *server = [ServerAPIManager sharedinstance];
@@ -92,6 +92,11 @@
     [super viewDidAppear:YES];
     sterView = [[StepperView alloc]initWithFrame:_stepperBaseView.frame];
     [self.view addSubview:sterView];
+    originalBoundsoFScrollView = self.scrollView.bounds;
+    DamacSharedClass.sharedInstance.windowButton.hidden = YES;
+}
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -113,6 +118,7 @@
 }
 
 #pragma mark PopOverDelegates
+
 - (BOOL)popoverControllerShouldDismissPopover:(WYPopoverController *)controller
 {
     return YES;
@@ -124,7 +130,7 @@
 }
 
 -(void)selectedFromDropMenu:(NSString *)str forType:(NSString *)type withTag:(int)tag{
-    cocdOBj.Country = str;
+    _cocdOBj.Country = str;
     [self.tableView reloadData];
     [popoverController dismissPopoverAnimated:YES];
     
@@ -150,10 +156,10 @@
         cell.textField.text = tvArr[indexPath.row][@"value"];
         cell.textField.tag = [tvArr[indexPath.row][@"tag"] intValue];
         cell.textField.delegate = self;
-        cell.cocdOBj = cocdOBj;
+        cell.cocdOBj = _cocdOBj;
         cell.clipsToBounds = NO;
         [cell.selectCountryButtton addTarget:self action:@selector(showpopover:) forControlEvents:UIControlEventTouchUpInside];
-        [cell.selectCountryButtton setTitle:cocdOBj.Country forState:UIControlStateNormal];
+        [cell.selectCountryButtton setTitle:_cocdOBj.Country forState:UIControlStateNormal];
         return cell;
     }
     if(indexPath.section ==1){
@@ -163,16 +169,10 @@
         cell.textField.delegate = self;
         cell.textField.tag = [section2Array[indexPath.row][@"tag"] intValue];
         cell.clipsToBounds = NO;
-        cell.cocdOBj = cocdOBj;
+        cell.cocdOBj = _cocdOBj;
         return cell;
     }
     
-//    if(indexPath.row==5){
-//        dropNew.frame = cell.textField.bounds;
-//        [cell.contentView addSubview:dropNew];
-//        cell.borderView.hidden = YES;
-//        cell.clipsToBounds = NO;
-//    }
     return nil;
 }
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -180,11 +180,6 @@
     if(indexPath.section == 0){
         ChangeofContactCell *cell1 = (ChangeofContactCell*)cell ;
         if(indexPath.row==5){
-//        dropNew.frame = cell1.textField.bounds;
-//        [cell1.textField addSubview:dropNew];
-//        cell1.borderView.hidden = YES;
-//        cell1.clipsToBounds = NO;
-//        dropNew.layer.borderWidth = 2.0;
             cell1.borderView.hidden = YES;
             cell1.selectCountryButtton.hidden =NO;
         }else{
@@ -258,12 +253,13 @@
     
 }
 - (IBAction)mobileClick:(id)sender {
+    [currentTF resignFirstResponder];
         sections = 1;
         numberOfCells = 1;
         _tableViewHeight.constant = heightTV;
     NSLog(@"%@",[DamacSharedClass sharedInstance].userProileModel);
     tvArr = @[@{@"key":@"Mobile No.",
-                @"value":cocdOBj.Mobile,
+                @"value":_cocdOBj.Mobile,
                 @"tag" : [NSNumber numberWithInt:Mobile]
                 }
               ];
@@ -282,11 +278,12 @@
 }
 
 - (IBAction)emailClick:(id)sender {
+    [currentTF resignFirstResponder];
         sections = 1;
         numberOfCells = 1;
         _tableViewHeight.constant = heightTV;
     tvArr = @[@{@"key":@"Email",
-                @"value":cocdOBj.Email,
+                @"value":_cocdOBj.Email,
                 @"tag" : [NSNumber numberWithInt:Email]
                 }];
     [_tableView reloadData];
@@ -294,58 +291,206 @@
 }
 
 - (IBAction)addressClick:(id)sender {
+    [currentTF resignFirstResponder];
         sections = 2;
         numberOfCells = 3;
         _tableViewHeight.constant = 280;
     tvArr = @[@{@"key":@"Address1",
-                @"value":cocdOBj.AddressLine1,
+                @"value":_cocdOBj.AddressLine1,
                 @"tag" : [NSNumber numberWithInt:Address1]},
               @{@"key":@"Address2",
-                @"value":cocdOBj.AddressLine2,
+                @"value":_cocdOBj.AddressLine2,
                 @"tag" : [NSNumber numberWithInt:Address2]},
               @{@"key":@"Address3",
-                @"value":cocdOBj.AddressLine3,
+                @"value":_cocdOBj.AddressLine3,
                 @"tag" : [NSNumber numberWithInt:Address3]},
               @{@"key":@"Address4",
-                @"value":cocdOBj.AddressLine4,
+                @"value":_cocdOBj.AddressLine4,
                 @"tag" : [NSNumber numberWithInt:Address4]},
               @{@"key":@"City",
-                @"value":cocdOBj.City,
+                @"value":_cocdOBj.City,
                 @"tag" : [NSNumber numberWithInt:City]},
               @{@"key":@"Country",
                 @"value":@"",
                 @"tag" : [NSNumber numberWithInt:4]},//[NSString stringWithFormat:@"%@",udm.countryOfResidence]},
               @{@"key":@"State",
-                @"value":cocdOBj.State,
+                @"value":_cocdOBj.State,
                 @"tag" : [NSNumber numberWithInt:State]},
               @{@"key":@"Postal Code",
-                @"value":cocdOBj.PostalCode,
+                @"value":_cocdOBj.PostalCode,
                 @"tag" : [NSNumber numberWithInt:PostalCode]}
               ];
     section2Array = @[@{@"key":@"Address1\n(in Arabic) ",
-                        @"value":cocdOBj.AddressLine1Arabic,
+                        @"value":_cocdOBj.AddressLine1Arabic,
                         @"tag" : [NSNumber numberWithInt:Address1Arabic]
                         },
                       @{@"key":@"City\n(in Arabic)",
-                        @"value":cocdOBj.AddressLine2Arabic,
+                        @"value":_cocdOBj.AddressLine2Arabic,
                         @"tag" : [NSNumber numberWithInt:CityArabic]
                         },
                       @{@"key":@"Country\n(in Arabic)",
-                        @"value":cocdOBj.AddressLine3Arabic,
+                        @"value":_cocdOBj.AddressLine3Arabic,
                         @"tag" : [NSNumber numberWithInt:CountryArabic]
                         },
                       @{@"key":@"State(in Arabic)",
-                        @"value":cocdOBj.AddressLine4Arabic,
+                        @"value":_cocdOBj.AddressLine4Arabic,
                         @"tag" : [NSNumber numberWithInt:StateInArabic]
                         }];
-    
     [self setColorsForSelectedButton:_view3];
     [_tableView reloadData];
 }
-- (IBAction)saveDraftClick:(id)sender {
+-(void)addJointView2{
+    
+    _tableViewHeight.constant = 320;
+    frame3 = _scrollView.bounds;
+    frame3.origin.x = frame3.size.width+10;
+    frame3.size.height = 320;
+    _buttonsViewHeight.constant = 0;
+    
+    jbView = [[JointBView2 alloc]initWithFrame:frame3];
+    [_scrollView addSubview:jbView];
+    jbView.saveDraftBtn.hidden =YES;
+    jbView.submitSR.hidden =YES;
+    jbView.cocdObj = _cocdOBj;
+    [jbView.previous addTarget:self action:@selector(previousClick:) forControlEvents:UIControlEventTouchUpInside];
+
+}
+
+- (IBAction)nextClick:(id)sender{
+    UIButton *btn = (UIButton*)sender;
+    if([btn.titleLabel.text isEqualToString:butonTitleSubmitSR])
+    {
+        if(_cocdOBj.cocdImage == nil){
+            [FTIndicator showToastMessage:@"COCD Document not selected"];
+        }
+        else if(![_cocdOBj.Email validateEmailWithString]){
+            [FTIndicator showToastMessage:@"Enter Valid Email Id"];
+            [self previousClick:nil];
+            [self emailClick:nil];
+            [_tableView reloadData];
+            return;
+        }
+        else
+        {
+            _cocdOBj.Status = @"Submitted";
+            [self saveOrSubmitDraftRequestWithImages];
+        }
+    }
+    else
+    {
+        [self addJointView2];
+        _downloadBtn.hidden = YES;
+        _buttonsView.hidden = YES;
+        uploadDocsPageVisible = YES;
+        [_nextbtn setTitle:butonTitleSubmitSR forState:UIControlStateNormal];
+        
+        [_scrollView setContentOffset:frame3.origin animated:YES];
+        sterView.line1Animation = YES;
+    }
+    
+}
+- (IBAction)previousClick:(id)sender{
+    
+    _cocdOBj.cocdImage = [UIImage imageNamed:@""];
+    _cocdOBj.primaryPassportImage = [UIImage imageNamed:@""];
+    _cocdOBj.additionalDocumentImage = [UIImage imageNamed:@""];
     [currentTF resignFirstResponder];
-    if([cocdOBj.Email validateEmailWithString]){
-        [cocdOBj sendDraftStatusToServer:@"Draft Request"];
+    
+    _scrollView.bounds = originalBoundsoFScrollView;
+    [_scrollView setContentOffset:CGPointMake(0, 0) animated:YES];
+    [jbView removeFromSuperview];
+    [_nextbtn setTitle:buttonTitleNext forState:UIControlStateNormal];
+    _downloadBtn.hidden = NO;
+    _buttonsView.hidden = NO;
+    _tableViewHeight.constant = 70;
+    _buttonsViewHeight.constant =50;
+    
+    
+    
+}
+- (IBAction)saveDraftClick:(id)sender {
+    
+    //    case1: whenEver Clicked on SaveDraft Button Need to check Email Valdiation
+    [currentTF resignFirstResponder];
+    _cocdOBj.Status = @"Draft Request";
+    if(![_cocdOBj.Email validateEmailWithString]&&uploadDocsPageVisible){
+        [self previousClick:nil];
+        [self emailClick:nil];
+        [FTIndicator showToastMessage:@"Plaease enter a valid Email"];
+        return;
+    }
+    //    case2:Whenever Button title "SubmitSR" title appeared and Images are available
+    else if([_nextbtn.titleLabel.text isEqualToString:butonTitleSubmitSR]&&(_cocdOBj.cocdImage||_cocdOBj.additionalDocumentImage||_cocdOBj.primaryPassportImage))
+    {
+        [self saveOrSubmitDraftRequestWithImages];
+    }
+    else{
+        
+        [self saveDraftRequest];
+    }
+}
+-(void)saveOrSubmitDraftRequestWithImages{
+    [FTIndicator showProgressWithMessage:[NSString stringWithFormat:@"%@ SR",_cocdOBj.Status]];
+    [self uploadImagesToServer];
+    
+}
+-(void)uploadImagesToServer{
+    
+    SaopServices *soap= [[SaopServices alloc]init];
+    soap.delegate = self;
+    if(_cocdOBj.cocdImage){
+    [soap uploadDocumentTo:_cocdOBj.cocdImage P_REQUEST_NUMBER:nil P_REQUEST_NAME:nil P_SOURCE_SYSTEM:nil category:nil entityName:nil fileDescription:@"COCD" fileId:@"COCD" fileName:@"COCD" registrationId:nil sourceFileName:@"COCD" sourceId:@"COCD"];
+        countoFImagestoUplaod++;
+    }
+    SaopServices *soap2 = [[SaopServices alloc]init];
+    soap2.delegate = self;
+    if(_cocdOBj.additionalDocumentImage){
+        NSString *str = @"AdditionalDoc";
+        [soap2 uploadDocumentTo:_cocdOBj.additionalDocumentImage P_REQUEST_NUMBER:nil P_REQUEST_NAME:nil P_SOURCE_SYSTEM:nil category:nil entityName:nil fileDescription:str fileId:str fileName:str registrationId:nil sourceFileName:str sourceId:str];
+        countoFImagestoUplaod++;
+    }
+    SaopServices *soap3 = [[SaopServices alloc]init];
+    soap3.delegate = self;
+    if(_cocdOBj.primaryPassportImage){
+        NSString *str = @"PassportOfBuyer";
+        [soap3 uploadDocumentTo:_cocdOBj.primaryPassportImage P_REQUEST_NUMBER:nil P_REQUEST_NAME:nil P_SOURCE_SYSTEM:nil category:nil entityName:nil fileDescription:str fileId:str fileName:str registrationId:nil sourceFileName:str sourceId:str];
+        countoFImagestoUplaod++;
+    }
+}
+
+#pragma mark Soap Image uploaded Delegate
+
+-(void)imageUplaodedAndReturnPath:(NSString *)path{
+    NSLog(@"%@",path);
+    countoFImagesUploaded ++;
+    
+    if ([path rangeOfString:@"COCD"].location == NSNotFound) {
+        NSLog(@"string does not contain bla");
+    } else {
+        _cocdOBj.cocdUploadedImagePath = path;
+    }
+    
+    if ([path rangeOfString:@"AdditionalDoc"].location == NSNotFound) {
+        NSLog(@"string does not contain bla");
+    } else {
+        _cocdOBj.additionalImageUploadedImagePath = path;
+    }
+    
+    if ([path rangeOfString:@"PassportOfBuyer"].location == NSNotFound) {
+        NSLog(@"string does not contain bla");
+    } else {
+        _cocdOBj.primaryPassportUploadedImagePath = path;
+    }
+    
+    if(countoFImagestoUplaod == countoFImagesUploaded){
+        [_cocdOBj sendDraftStatusToServer];
+    }
+}
+
+-(void)saveDraftRequest{
+    if([_cocdOBj.Email validateEmailWithString]){
+        _cocdOBj.Status = @"Draft Request";
+        [_cocdOBj sendDraftStatusToServer];
         [FTIndicator showProgressWithMessage:@"Saving Draft"];
     }else{
         [FTIndicator showToastMessage:@"Plaease enter a valid Email"];
@@ -368,25 +513,19 @@
 }
 
 -(void)textFieldDidEndEditing:(UITextField *)textField{
-    [cocdOBj changeValueBasedonTag:textField withValue:textField.text];
-    NSLog(@"%@",cocdOBj);
-    [self.tableView reloadData];
+    [_cocdOBj changeValueBasedonTag:textField withValue:textField.text];
+    NSLog(@"%@",_cocdOBj);
 }
 
-
-#pragma mark DropMenu Delegates
--(void)didSelectItem : (KPDropMenu *) dropMenu atIndex : (int) atIntedex
-{
-    [self.view bringSubviewToFront:dropNew];
-    dropNew.title = dropItems[atIntedex];
+-(void)uploadImagesIfAny{
+//    Pragma Mark Uploading Images based on a condition that Button Name changed to SUBMIT SR and
+//     and cocdImag or PasportImage or AddiditionalImage is available
+    if([_nextbtn.titleLabel.text isEqualToString:butonTitleSubmitSR])
+    {
+        
+    }
     
 }
 
--(void)didShow : (KPDropMenu *)dropMenu{
-    
-}
--(void)didHide : (KPDropMenu *)dropMenu{
-    
-}
 
 @end

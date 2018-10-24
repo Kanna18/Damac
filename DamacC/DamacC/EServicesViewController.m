@@ -16,6 +16,7 @@
 @implementation EServicesViewController{
     
     NSArray *gridArray,*imgsArr;
+    NSMutableArray *servicesCountArray;
 }
 
 - (void)viewDidLoad {
@@ -24,6 +25,9 @@
     // Do any additional setup after loading the view.
     imgsArr = @[@"1ser",@"2ser",@"3ser",@"4ser",@"5ser",@"6ser",@"7ser",@"8ser"];
     [self webServiceCall];
+    DamacSharedClass.sharedInstance.currentVC = self;
+    servicesCountArray = [[NSMutableArray alloc]init];
+    [FTIndicator showProgressWithMessage:@"Loading please wait"];
     
 }
 
@@ -37,6 +41,7 @@
     
     [super viewDidAppear:YES];
     [[CustomBarOptions alloc]initWithNavItems:self.navigationItem noOfItems:2 navRef:self.navigationController withTitle:@"E-services"];
+    ;
     
 }
 
@@ -45,16 +50,30 @@
     
     ServerAPIManager *server = [ServerAPIManager sharedinstance];
     //Note:Any chnage in array also need to change ivalue in for loop-- (Value Dependency)
-    NSArray *arrPa = @[@"Draft Request"];
+    NSArray *arrPa = @[@"Draft Request",@"New",@"Submitted",@"Working"];
     SFUserAccountManager *sf = [SFUserAccountManager sharedInstance];
     NSString *sfAccountID = sf.currentUser.credentials.userId;
     sfAccountID = sfAccountID ? sfAccountID : @"1036240";
-    [server postRequestwithUrl:myServicesUrl withParameters:@{@"createdbyId":sfAccountID,@"status":arrPa[0]} successBlock:^(id responseObj)
-        {
-            NSArray *arr = [NSJSONSerialization JSONObjectWithData:responseObj options:0 error:nil];
-            NSLog(@"%@",arr);
-        } errorBlock:^(NSError *error) {
-    }];
+    __block int Count = 0;
+    for (int  i = 0; i<arrPa.count; i++) {        
+        [server postRequestwithUrl:myServicesUrl withParameters:@{@"createdbyId":sfAccountID,@"status":arrPa[i]} successBlock:^(id responseObj)
+         {
+             NSArray *arr= [NSJSONSerialization JSONObjectWithData:responseObj options:0 error:nil];
+             [servicesCountArray addObjectsFromArray:[arr valueForKey:@"Type"]];
+             NSLog(@"%@",servicesCountArray);
+             if(Count==arrPa.count-1){
+                 [FTIndicator performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
+             }
+             Count++;
+         } errorBlock:^(NSError *error) {
+         }];
+    }
+    
+}
+-(void)loadServicesRequestViewController{
+    
+    MyServiceRequestViewController *svc =[self.storyboard instantiateViewControllerWithIdentifier:@"myServicesRequestVC"];
+    [self.navigationController pushViewController:svc animated:YES];
 }
 
 #pragma mark collection View Delegates
@@ -135,8 +154,15 @@
 //
 }
 -(void)loadChangeOfContactDetails{
-    ChangeOfContactDetails *chd = [self.storyboard instantiateViewControllerWithIdentifier:@"changeOfContactsVC"];
-    [self.navigationController pushViewController:chd animated:YES];
+    if(servicesCountArray.count>0&&[servicesCountArray containsObject:@"Change of Contact Details"]){
+        [self loadServicesRequestViewController];
+    }else{
+        ChangeOfContactDetails *chd = [self.storyboard instantiateViewControllerWithIdentifier:@"changeOfContactsVC"];
+        COCDServerObj *cocd = [[COCDServerObj alloc]init];
+        [cocd fillCOCDObjectWithOutCaseID];
+        chd.cocdOBj = cocd;
+        [self.navigationController pushViewController:chd animated:YES];
+    }
 }
 -(void)loadPassportUpdate{
     

@@ -10,7 +10,7 @@
 @interface popObject : NSObject
 
 @property (nonatomic) ResponseLine *selectedUnit;
-@property (nonatomic) NSString <Optional> *RecordType;
+@property (nonatomic,assign) NSString <Optional> *RecordType;
 @property (nonatomic) NSString <Optional> *AccountID;
 @property (nonatomic) NSString <Optional> *fileName;
 @property (nonatomic) NSString <Optional> *AttachmentURL;
@@ -25,5 +25,6 @@
 @property (nonatomic) NSString <Optional> *origin;
 @property (nonatomic) NSString <Optional> *status;
 
+-(void)cancelPOPfromServicesSRDetails:(ServicesSRDetails*)srD;
 @end
 

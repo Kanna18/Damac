@@ -62,13 +62,14 @@
                              @"TEST-1",
                              @"Document",
                              @"Damac Service Requests",
-                             dataImg.base64Encode,@"NationalIdCopy",
-                             [NSString stringWithFormat:@"IPMS-%@-NationalIdCopy",
-                              kUserProfile.partyId],
-                             [NSString stringWithFormat:@"IPMS-%@-NationalIdCopy.pdf",kUserProfile.partyId],
+                             dataImg.base64Encode,
+                             fileDescr,
+                             [NSString stringWithFormat:@"IPMS-%@-%@",
+                              kUserProfile.partyId,file],
+                             [NSString stringWithFormat:@"IPMS-%@-%@.pdf",kUserProfile.partyId,fileNa],
                              kUserProfile.partyId,
-                             [NSString stringWithFormat:@"IPMS-%@-NationalIdCopy.pdf",kUserProfile.partyId],
-                             [NSString stringWithFormat:@"IPMS-%@NationalIdCopy",kUserProfile.partyId]];
+                             [NSString stringWithFormat:@"IPMS-%@-%@.pdf",kUserProfile.partyId,sourceFi],
+                             [NSString stringWithFormat:@"IPMS-%@-%@",kUserProfile.partyId,srceId]];
     
     
     
@@ -178,10 +179,14 @@
         NSString *theXML = [[NSString alloc] initWithBytes:
                             [self.webResponseData mutableBytes] length:[self.webResponseData length] encoding:NSUTF8StringEncoding];
         
-        NSLog(@"my data is %@", theXML);
-        
-        //now parse the xml
-        
+        NSArray *arr =[[theXML stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]] componentsSeparatedByString:@","];
+        NSLog(@"my data is %@", arr[3]);
+        NSString *imgURl = [[arr[3] stringByReplacingOccurrencesOfString:@"\\" withString:@""] componentsSeparatedByString:@"\":"][1];
+     imgURl = [imgURl stringByReplacingOccurrencesOfString:@"}" withString:@""];
+     imgURl = [imgURl stringByReplacingOccurrencesOfString:@"]" withString:@""];
+     imgURl = [imgURl stringByReplacingOccurrencesOfString:@"\"" withString:@""];
+        NSLog(@"%@",imgURl);        
+        [_delegate imageUplaodedAndReturnPath:imgURl];
     }
 }
 @end

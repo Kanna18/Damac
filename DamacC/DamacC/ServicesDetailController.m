@@ -8,18 +8,19 @@
 
 #import "ServicesDetailController.h"
 #import "SerquestRequestDetailCell.h"
-
+#import "popObject.h"
 
 //#define ChangeofDetailsServicesUrl @"https://partial-servicecloudtrial-155c0807bf-1580afc5db1.cs80.force.com/MobileApp/services/apexrest/SaveChangeOfDetailsCase/"
-#define ComplaintsServiceUrl @"https://partial-servicecloudtrial-155c0807bf-1580afc5db1.cs80.force.com/MobileApp/services/apexrest/SaveComplaintFromMobileApp/"
-#define ProofOFPaymentServiceURl @"https://partial-servicecloudtrial-155c0807bf-1580afc5db1.cs80.force.com/MobileApp/services/apexrest/SaveProofOfPayment/"
-#define JointBuyerServiceUrl @"https://partial-servicecloudtrial-155c0807bf-1580afc5db1.cs80.force.com/MobileApp/services/apexrest/SaveJointBuyerDetails/"
-#define PassportUpdateServiceUrl @"https://partial-servicecloudtrial-155c0807bf-1580afc5db1.cs80.force.com/MobileApp/services/apexrest/SaveUpdatePassportDetails/"
+//#define ComplaintsServiceUrl @"https://partial-servicecloudtrial-155c0807bf-1580afc5db1.cs80.force.com/MobileApp/services/apexrest/SaveComplaintFromMobileApp/"
+//#define ProofOFPaymentServiceURl @"https://partial-servicecloudtrial-155c0807bf-1580afc5db1.cs80.force.com/MobileApp/services/apexrest/SaveProofOfPayment/"
+//#define JointBuyerServiceUrl @"https://partial-servicecloudtrial-155c0807bf-1580afc5db1.cs80.force.com/MobileApp/services/apexrest/SaveJointBuyerDetails/"
+//#define PassportUpdateServiceUrl @"https://partial-servicecloudtrial-155c0807bf-1580afc5db1.cs80.force.com/MobileApp/services/apexrest/SaveUpdatePassportDetails/"
+//
+//#define getDetailsBySR @"https://partial-servicecloudtrial-155c0807bf-1580afc5db1.cs80.force.com/MobileApp/services/apexrest/SendCaseDetailToMObileApp/"
 
-#define getDetailsBySR @"https://partial-servicecloudtrial-155c0807bf-1580afc5db1.cs80.force.com/MobileApp/services/apexrest/SendCaseDetailToMObileApp/"
-
-#define kPOPConstant            @"POP"
+#define kPOPConstant            @"Proof of Payment SR"
 #define kCODConstant            @"Change of Contact Details"
+#define kCOCDWorking            @"Working"
 #define kJointBuyerConstant     @"Change of Joint Buyer"
 #define kPassportUpdateConstant @""
 #define kPromotionsConstant     @"Promotions"
@@ -35,6 +36,7 @@
     ServicesSRDetails *srD;
     NSArray *headingLabels;
     NSArray *dataLabels;
+    COCDServerObj *cocd;
 }
 
 - (void)viewDidLoad {
@@ -45,23 +47,8 @@
     _tableView.delegate =self;
     NSLog(@"%@",_servicesDataModel);
     [self webServiceCall:_srCaseId];
-    if([_servicesDataModel.Status isEqualToString:@"Draft Request"]){
-        headingLabels = @[@"SR No.",
-                          @"SR Raised Date",
-                          @"Buyer",
-                          @"Unit Name",
-                          @"SR Type",
-                          @"Country",
-                          @"Address",
-                          @"City",
-                          @"State",
-                          @"Postal Code",
-                          @"Email",
-                          @"Mobile",
-                          @"COCD Form Url",
-                          @"Addition Doc File Url",
-                          @"Passport File Url"];
-    }
+    DamacSharedClass.sharedInstance.currentVC = self;
+    [FTIndicator showProgressWithMessage:@""];
 }
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:YES];
@@ -101,22 +88,74 @@
 }
 -(void)fillLabels{
     
-    dataLabels = @[[NSString stringWithFormat:@"%@ - %@",_servicesDataModel.CaseNumber,_servicesDataModel.Status],
-                   [self returnDate:_servicesDataModel.CreatedDate],
-                   [NSString stringWithFormat:@"%@",_servicesDataModel.Account.Name],
-                   @"",
-                   srD.SR_Type__c,
-                   srD.Country__c,
-                   srD.Address__c,
-                   srD.City__c,
-                   srD.State__c,
-                   @"",
-                   srD.Contact_Email__c,
-                   srD.Contact_Mobile__c,
-                   @"",
-                   @"",
-                   @""];
+    if([srD.SR_Type__c isEqualToString:kCODConstant]){
+        [self fillLabelsforCOCD];
+    }
+    if([srD.SR_Type__c isEqualToString:kPOPConstant]){
+        [self fillLabelsForPOP];
+    }
+    [FTIndicator performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
+}
+
+-(void)fillLabelsForPOP{
     
+    headingLabels = @[@"SR No.",
+                      @"SR Raised Date",
+                      @"Buyer",
+                      @"Unit Name",
+                      @"SR Type",
+                      @"Payment Date",
+                      @"Total Amount",
+                      @"Currency",
+                      @"Payment Mode",
+                      @"Payment Allocation Details"];
+    
+    dataLabels = @[[NSString stringWithFormat:@"%@ - %@",handleNull(_servicesDataModel.CaseNumber),handleNull(_servicesDataModel.Status)],
+                   [self returnDate:_servicesDataModel.CreatedDate],
+                   [NSString stringWithFormat:@"%@",handleNull(_servicesDataModel.Account.Name)],
+                   @"",
+                   handleNull(srD.SR_Type__c),
+                   handleNull(srD.Payment_Date__c),
+                   handleNull(srD.Total_Amount__c),
+                   @"",
+                   handleNull(srD.Payment_Mode__c),
+                   handleNull(srD.Payment_Allocation_Details__c)];
+        
+}
+-(void)fillLabelsforCOCD{
+    headingLabels = @[@"SR No.",
+                      @"SR Raised Date",
+                      @"Buyer",
+                      @"Unit Name",
+                      @"SR Type",
+                      @"Country",
+                      @"Address",
+                      @"City",
+                      @"State",
+                      @"Postal Code",
+                      @"Email",
+                      @"Mobile",
+                      @"COCD Form Url",
+                      @"Addition Doc File Url",
+                      @"Passport File Url"];
+    
+    dataLabels = @[[NSString stringWithFormat:@"%@ - %@",handleNull(_servicesDataModel.CaseNumber),handleNull(_servicesDataModel.Status)],
+                   [self returnDate:_servicesDataModel.CreatedDate],
+                   [NSString stringWithFormat:@"%@",handleNull(_servicesDataModel.Account.Name)],
+                   @"",
+                   handleNull(srD.SR_Type__c),
+                   handleNull(srD.Country__c),
+                   handleNull(srD.Address__c),
+                   handleNull(srD.City__c),
+                   handleNull(srD.State__c),
+                   @"",
+                   handleNull(srD.Contact_Email__c),
+                   handleNull(srD.Contact_Mobile__c),
+                   handleNull(srD.CRF_File_URL__c),
+                   handleNull(srD.Additional_Doc_File_URL__c),
+                   handleNull(srD.Passport_File_URL__c)];
+    cocd = [[COCDServerObj alloc]init];
+    [cocd fillCOCDObjWithCaseID:srD];
 }
 -(NSString*)returnDate:(NSString*)dat{
     
@@ -130,10 +169,20 @@
 }
 
 - (IBAction)cancelButton:(id)sender {
-    [self.navigationController popToRootViewControllerAnimated:YES];
+//    [self.navigationController popToRootViewControllerAnimated:YES];
     
+    if([srD.SR_Type__c isEqualToString:kCODConstant]){
+        [FTIndicator showProgressWithMessage:@""];
+        cocd.Status = @"Cancelled";
+        [cocd sendDraftStatusToServer];
+    }
+    if([srD.SR_Type__c isEqualToString:kPOPConstant])
+    {
+        popObject *pop = [[popObject alloc]init];
+        [pop cancelPOPfromServicesSRDetails:srD];
+        [FTIndicator showProgressWithMessage:@"Please Wait"];
+    }
 }
-
 
 #pragma mark Tableview Delegates
 
@@ -150,8 +199,13 @@
     cell.label1.text =headingLabels[indexPath.row];
     cell.label2.text = dataLabels[indexPath.row];
     [cell.editButton addTarget:self action:@selector(loadEditVC) forControlEvents:UIControlEventTouchUpInside];
+    
     if(indexPath.row == 0){
-        cell.editButton.hidden = NO;
+        if([srD.Status isEqualToString:@"Draft Request"]){
+            cell.editButton.hidden = NO;
+        }else{
+            cell.editButton.hidden = YES;
+        }
     }else{
         cell.editButton.hidden = YES;
     }
@@ -180,44 +234,10 @@
     }
 }
 
-//-(void)cancelChangeOfDetails{
-//    ServerAPIManager *ap = [ServerAPIManager sharedinstance];
-//    NSDictionary *dict = @{@"codCaseWrapper":@{    @"RecordType": @"Change of Details",
-//                                                   @"UserName":  kUserProfile.emailAddress,
-//                                                   @"salesforce Id": kUserProfile.sfAccountId,
-//                                                   @"AccountID": kUserProfile.partyId,
-//                                                   @"AddressLine1": kUserProfile.addressLine1,
-//                                                   @"AddressLine2": kUserProfile.addressLine2,
-//                                                   @"AddressLine3": kUserProfile.addressLine3,
-//                                                   @"AddressLine4": kUserProfile.addressLine3,
-//                                                   @"City": kUserProfile.city,
-//                                                   @"State": @"",
-//                                                   @"Postal Code": @"",
-//                                                   @"Country": @"",
-//                                                   @"Mobile": kUserProfile.phoneNumber,
-//                                                   @"Email": kUserProfile.emailAddress,
-//                                                   @" AddressLine1Arabic": @"",
-//                                                   @"AddressLine2Ara bic": @"",
-//                                                   @"AddressLine 3Arabic": @"",
-//                                                   @"Address Line4Arabic": @"",
-//                                                   @"CityArabic": @"",
-//                                                   @"StateArabic": @"",
-//                                                   @"PostalCodeArabic": @"",
-//                                                   @"CountryArabic": @"",
-//                                                   @"draft": @"true",
-//                                                   @"Status": @"Draft Request",
-//                                                   @"Origin": @"Mobile app",
-//                                                   @"fcm": @"eatJZYr Hz_k:APA91bGU56e FMo4NvzbBAT8TzI uXkXTukWXrTIFqy kDS16xj4AFrK8ChO m- V4UGwp9zuEJb_lUc tc4b9X7oZOwGCfRb CVFdvad1o9mESkC nSRxkHKHZCH9NR cPXVO2hBH3t_DjO kQOuO5Lj7sDwTHx SE7dbzagO9zw"
-//                                                   }};
-//
-//
-////    [ap postRequestwithUrl:ChangeofDetailsServicesUrl withParameters:<#(NSDictionary *)#> successBlock:<#^(id responseObj)success#> errorBlock:<#^(NSError *error)errorBlock#>]po
-//}
-
 -(void)loadEditVC{
-    
     if([srD.SR_Type__c isEqualToString:kCODConstant]){
         ChangeOfContactDetails *chd = [self.storyboard instantiateViewControllerWithIdentifier:@"changeOfContactsVC"];
+        chd.cocdOBj = cocd;
         [self.navigationController pushViewController:chd animated:YES];
     }
 }

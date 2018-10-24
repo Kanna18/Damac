@@ -11,7 +11,7 @@
 @interface ServicesDetailController : UIViewController
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIButton *cancelBtn;
-
+@property NSString *typeOfService;
 @property NSString *srCaseId;
 - (IBAction)cancelButton:(id)sender;
 @property MyServicesDataModel *servicesDataModel;

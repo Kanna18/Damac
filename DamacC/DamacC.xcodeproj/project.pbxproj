@@ -104,6 +104,7 @@
 		F6AE17C72175BE3D00C0E64A /* COCDServerObj.m in Sources */ = {isa = PBXBuildFile; fileRef = F6AE17C62175BE3D00C0E64A /* COCDServerObj.m */; };
 		F6B31BDD20F094FB001A5144 /* MyServiceRequestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B31BDC20F094FB001A5144 /* MyServiceRequestViewController.m */; };
 		F6B31BE120F33328001A5144 /* ScheduleAppointmentsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B31BE020F33328001A5144 /* ScheduleAppointmentsVC.m */; };
+		F6B9A426217EEC6C00FF41D6 /* ErrorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B9A425217EEC6C00FF41D6 /* ErrorViewController.m */; };
 		F6C57C5621585C4900970DC3 /* PassportUpdateVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C57C5521585C4900970DC3 /* PassportUpdateVC.m */; };
 		F6C57C5A21585FD900970DC3 /* ChangeofContactCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C57C5921585FD900970DC3 /* ChangeofContactCell2.m */; };
 		F6C57C5D2158649F00970DC3 /* PassportCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C57C5C2158649E00970DC3 /* PassportCell1.m */; };
@@ -141,6 +142,8 @@
 		F6D91E3A20994A5D00DA1428 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6D91E3920994A5D00DA1428 /* LocalAuthentication.framework */; };
 		F6D91E412099740400DA1428 /* VKSideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = F6D91E402099740400DA1428 /* VKSideMenu.m */; };
 		F6D91E4720997AEA00DA1428 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6D91E4620997AEA00DA1428 /* MainViewController.m */; };
+		F6DE0FF7217FE52F00C13F72 /* JointBuyerObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F6DE0FF6217FE52F00C13F72 /* JointBuyerObject.m */; };
+		F6DE0FFE218013ED00C13F72 /* CustomLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F6DE0FFD218013ED00C13F72 /* CustomLabel.m */; };
 		F6E1139E216EF4320066D521 /* PopTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E1139D216EF4320066D521 /* PopTableViewController.m */; };
 		F6E8321520AD07C40003DC5E /* PrintDocView.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E8321420AD07C40003DC5E /* PrintDocView.m */; };
 		F6E8321720AD07D40003DC5E /* PrintDocView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6E8321620AD07D40003DC5E /* PrintDocView.xib */; };
@@ -344,6 +347,8 @@
 		F6B31BDC20F094FB001A5144 /* MyServiceRequestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyServiceRequestViewController.m; sourceTree = "<group>"; };
 		F6B31BDF20F33328001A5144 /* ScheduleAppointmentsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScheduleAppointmentsVC.h; sourceTree = "<group>"; };
 		F6B31BE020F33328001A5144 /* ScheduleAppointmentsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScheduleAppointmentsVC.m; sourceTree = "<group>"; };
+		F6B9A424217EEC6C00FF41D6 /* ErrorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ErrorViewController.h; sourceTree = "<group>"; };
+		F6B9A425217EEC6C00FF41D6 /* ErrorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ErrorViewController.m; sourceTree = "<group>"; };
 		F6C57C5421585C4900970DC3 /* PassportUpdateVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PassportUpdateVC.h; sourceTree = "<group>"; };
 		F6C57C5521585C4900970DC3 /* PassportUpdateVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PassportUpdateVC.m; sourceTree = "<group>"; };
 		F6C57C5821585FD900970DC3 /* ChangeofContactCell2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangeofContactCell2.h; sourceTree = "<group>"; };
@@ -409,6 +414,10 @@
 		F6D91E402099740400DA1428 /* VKSideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKSideMenu.m; sourceTree = "<group>"; };
 		F6D91E4520997AEA00DA1428 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		F6D91E4620997AEA00DA1428 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		F6DE0FF5217FE52F00C13F72 /* JointBuyerObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JointBuyerObject.h; sourceTree = "<group>"; };
+		F6DE0FF6217FE52F00C13F72 /* JointBuyerObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JointBuyerObject.m; sourceTree = "<group>"; };
+		F6DE0FFC218013ED00C13F72 /* CustomLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomLabel.h; sourceTree = "<group>"; };
+		F6DE0FFD218013ED00C13F72 /* CustomLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomLabel.m; sourceTree = "<group>"; };
 		F6E1139C216EF4310066D521 /* PopTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopTableViewController.h; sourceTree = "<group>"; };
 		F6E1139D216EF4320066D521 /* PopTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopTableViewController.m; sourceTree = "<group>"; };
 		F6E8321320AD07C40003DC5E /* PrintDocView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrintDocView.h; sourceTree = "<group>"; };
@@ -477,6 +486,8 @@
 				F6550770217D6F57003EC62E /* Category */,
 				F6E1139C216EF4310066D521 /* PopTableViewController.h */,
 				F6E1139D216EF4320066D521 /* PopTableViewController.m */,
+				F6B9A424217EEC6C00FF41D6 /* ErrorViewController.h */,
+				F6B9A425217EEC6C00FF41D6 /* ErrorViewController.m */,
 				F61124BC2164E21200901694 /* UnitsClassLabel.h */,
 				F61124BD2164E21200901694 /* UnitsClassLabel.m */,
 				F61124B92164CEF400901694 /* WSDLCode */,
@@ -680,6 +691,8 @@
 				F626425B211432AA0022C4DC /* JointBView2.xib */,
 				F6D08AB5217282E900F81DD0 /* JointBuyerCell.h */,
 				F6D08AB6217282E900F81DD0 /* JointBuyerCell.m */,
+				F6DE0FF5217FE52F00C13F72 /* JointBuyerObject.h */,
+				F6DE0FF6217FE52F00C13F72 /* JointBuyerObject.m */,
 			);
 			path = JointBuyerFlow;
 			sourceTree = "<group>";
@@ -794,6 +807,7 @@
 		F67EB5E3212521AE0011AB64 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				F6DE0FFF2180140200C13F72 /* BackGroundColor */,
 				F6CB3FC620EB546200D290A6 /* HelveticaDin.ttf */,
 				F67EB5E5212521CC0011AB64 /* AG_Helvetica_Bold.ttf */,
 				F67EB5E7212521D10011AB64 /* Montserrat-ExtraLight.ttf */,
@@ -998,6 +1012,15 @@
 				F6D91E402099740400DA1428 /* VKSideMenu.m */,
 			);
 			name = sideMenu;
+			sourceTree = "<group>";
+		};
+		F6DE0FFF2180140200C13F72 /* BackGroundColor */ = {
+			isa = PBXGroup;
+			children = (
+				F6DE0FFC218013ED00C13F72 /* CustomLabel.h */,
+				F6DE0FFD218013ED00C13F72 /* CustomLabel.m */,
+			);
+			path = BackGroundColor;
 			sourceTree = "<group>";
 		};
 		F6E8321220AD079B0003DC5E /* MyUnitsDetails */ = {
@@ -1225,6 +1248,7 @@
 				F6CB3FC320EB291600D290A6 /* DamacSharedClass.m in Sources */,
 				F686165620985841002EA241 /* DamacC-Bridging-Header.h in Sources */,
 				F6A87EE7209F214B008D34C5 /* DetailMyUnitsViewController.m in Sources */,
+				F6DE0FFE218013ED00C13F72 /* CustomLabel.m in Sources */,
 				F67D77B621749FED009EE062 /* SurveyCell5.m in Sources */,
 				F68CF5BD216DD6E500852EF5 /* popObject.m in Sources */,
 				F63FCF1720FBCC200027FEA8 /* PaymentsViewController.m in Sources */,
@@ -1265,6 +1289,7 @@
 				F6132E0D20A7E2E900FEEEBE /* ProfileTableViewCell.m in Sources */,
 				F67D77B921749FFD009EE062 /* SurveyCell6.m in Sources */,
 				4F8D5ECB1B6C0FE4005E64D4 /* RootViewController.m in Sources */,
+				F6DE0FF7217FE52F00C13F72 /* JointBuyerObject.m in Sources */,
 				F6C57C6C2158B63B00970DC3 /* JointBuyersDetails.m in Sources */,
 				F6C57E17215B03E000970DC3 /* WSLabel.m in Sources */,
 				F604B3642165FD300047CBD2 /* ReceiptsTableViewCell.m in Sources */,
@@ -1293,6 +1318,7 @@
 				F6C57C5621585C4900970DC3 /* PassportUpdateVC.m in Sources */,
 				F6A87EE0209F0B53008D34C5 /* KPDropMenu.m in Sources */,
 				F626420D211367BC0022C4DC /* JointBView2.m in Sources */,
+				F6B9A426217EEC6C00FF41D6 /* ErrorViewController.m in Sources */,
 				F698216D20EDC1CB00D023AF /* UserDetailsModel.m in Sources */,
 				F6E1139E216EF4320066D521 /* PopTableViewController.m in Sources */,
 				F67D77AA21749FC3009EE062 /* SurveyCell1.m in Sources */,
@@ -1448,7 +1474,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = P8MMY2XZGJ;
+				DEVELOPMENT_TEAM = 4H7H3FYH34;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1512,7 +1538,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = P8MMY2XZGJ;
+				DEVELOPMENT_TEAM = 4H7H3FYH34;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

@@ -35,7 +35,7 @@
     NSArray *gridArray,*gridArrayThumbnails;
     NSDictionary *sideMenuDict,*dataDictionary,*dataDictionaryUnits;
     NSMutableArray *topCVArray;
-    VCFloatingActionButton *addButton;
+    
 }
 - (IBAction)showMenuVCButton:(id)sender {
     
@@ -45,8 +45,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-//    SaopServices *soap = [[SaopServices alloc]init];
     
     self.menuLeft = [[VKSideMenu alloc] initWithSize:220 andDirection:VKSideMenuDirectionFromLeft];
     self.menuLeft.dataSource = self;
@@ -151,24 +149,15 @@
     [_topCollectionView reloadData];
 //    [self.carousel reloadData];
 //    self.navigationController.navigationBar.topItem.title = @"Dashboard";
-    [self loadFloatMenu];
+    
+    if( DamacSharedClass.sharedInstance.windowButton.hidden == YES){
+         DamacSharedClass.sharedInstance.windowButton.hidden = NO;
+    }
+    
     
 }
 
--(void)loadFloatMenu{
-     UIWindow *win = [UIApplication sharedApplication].keyWindow;
-    addButton = [[VCFloatingActionButton alloc]initWithFrame:CGRectMake(scr_width-70, scr_height-70, 44, 44) normalImage:[UIImage imageNamed:@"floatOpen"] andPressedImage:[UIImage imageNamed:@"floatClose"] withScrollview:nil];
-//    addButton.imageArray = @[@"floatmenu1",@"floatmenu2",@"floatmenu3",@"floatmenu4",@"floatmenu5"];
-//    addButton.labelArray = @[@"Chat",@"Schedule Appointments",@"Profile",@"Dail CRM",@"Create E-Services"];
-//    addButton.imageArray = @[@"floatmenu4",@"floatmenu5",@"floatmenu2",@"floatmenu1",@"floatmenu3"];
-//    addButton.labelArray = @[@"My Profile",@"Create Requets",@"Schedule Appointments",@"Live Chat",@"Dail Customer Service"];
-    addButton.imageArray = @[@"1float",@"2float",@"3float",@"4float",@"5float"];
-    addButton.labelArray = @[fyCustomerSer,fyLiveChat,fyScheduleAppointments,fyCreateReq,fyProfile];
-    addButton.hideWhileScrolling = YES;
-    addButton.delegate = self;
-    DamacSharedClass.sharedInstance.windowButton = addButton;
-    [win addSubview:addButton];
-}
+
 
 #pragma mark FloatingMenu Delegate
 -(void) didSelectMenuOptionAtIndex:(NSInteger)row

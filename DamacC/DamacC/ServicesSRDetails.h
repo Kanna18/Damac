@@ -25,6 +25,7 @@
 @property (nonatomic) NSString <Optional> *Agreement_Signed__c;
 @property (nonatomic) NSString <Optional> *Allocate_Parking__c;
 @property (nonatomic) NSString <Optional> *Allocate_funds__c;
+@property (nonatomic) NSString <Optional> *Swift_Code__c;
 @property (nonatomic) NSString <Optional> *Amount_Approved__c;
 @property (nonatomic) NSString <Optional> *Amount_to_be_waived__c;
 @property (nonatomic) NSString <Optional> *Apply_New_Payment_Terms__c;
@@ -48,10 +49,15 @@
 @property (nonatomic) NSString <Optional> *Dues_Cleared__c;
 @property (nonatomic) NSString <Optional> *Early_Handover_Status__c;
 @property (nonatomic) NSString <Optional> *FM_Dues_Collected__c;
+@property (nonatomic) NSString <Optional> *Sender_Name__c;
+@property (nonatomic) NSString <Optional> *Cheque_Bank_Name__c;
 @property (nonatomic) NSString <Optional> *Final_Approval_Acquired__c;
 @property (nonatomic) NSString <Optional> *Final_Rental_Pool_Agreement__c;
 @property (nonatomic) NSString <Optional> *First_Property__c;
 @property (nonatomic) NSString <Optional> *Generate_Addendum__c;
+@property (nonatomic) NSString <Optional> *Payment_Date__c;
+@property (nonatomic) NSString <Optional> *Payment_Mode__c;
+@property (nonatomic) NSString <Optional> *Total_Amount__c;
 @property (nonatomic) NSString <Optional> *State__c;
 @property (nonatomic) NSString <Optional> *Generate_NOC__c;
 @property (nonatomic) NSString <Optional> *Handed_Over__c;
@@ -69,6 +75,7 @@
 @property (nonatomic) NSString <Optional> *Is_POA_Verified__c;
 @property (nonatomic) NSString <Optional> *Is_Siebel_Migrated_Data__c;
 @property (nonatomic) NSString <Optional> *LOA_Submitted__c;
+@property (nonatomic) NSString <Optional> *Payment_Allocation_Details__c;
 @property (nonatomic) NSString <Optional> *Lease_Agreement_Submitted__c;
 @property (nonatomic) NSString <Optional> *Logged_In_User__c;
 @property (nonatomic) NSString <Optional> *Minimum_Payment_Done__c;
@@ -159,4 +166,9 @@
 @property (nonatomic) NSString <Optional> *MilestoneStatus;
 @property (nonatomic) NSString <Optional> *Booking_Unit__c;
 @property (nonatomic) NSString <Optional> *Booking_Unit_Name__c;
+
+@property (nonatomic) NSString <Optional> *CRF_File_URL__c;
+@property (nonatomic) NSString <Optional> *Passport_File_URL__c;
+@property (nonatomic) NSString <Optional> *Additional_Doc_File_URL__c;
+
 @end

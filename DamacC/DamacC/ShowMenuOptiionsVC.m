@@ -12,7 +12,11 @@
 
 @end
 
-@implementation ShowMenuOptiionsVC
+@implementation ShowMenuOptiionsVC{
+    
+    VCFloatingActionButton *addButton;
+    CGFloat scr_width, scr_height;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -36,11 +40,20 @@
 }
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:YES];
-    self.navigationItem.hidesBackButton = YES;
     DamacSharedClass.sharedInstance.windowButton.hidden =YES;
+    scr_width = [UIScreen mainScreen].bounds.size.width;
+    scr_height = [UIScreen mainScreen].bounds.size.height;
+    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        [self loadFloatMenu];
+    });
     
 }
-
+-(void)viewWillAppear:(BOOL)animated
+{
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -55,10 +68,25 @@
     // Pass the selected object to the new view controller.
 }
 */
-
+-(void)loadFloatMenu{
+    UIWindow *win = [UIApplication sharedApplication].keyWindow;
+    addButton = [[VCFloatingActionButton alloc]initWithFrame:CGRectMake(scr_width-70, scr_height-70, 44, 44) normalImage:[UIImage imageNamed:@"floatOpen"] andPressedImage:[UIImage imageNamed:@"floatClose"] withScrollview:nil];
+    //    addButton.imageArray = @[@"floatmenu1",@"floatmenu2",@"floatmenu3",@"floatmenu4",@"floatmenu5"];
+    //    addButton.labelArray = @[@"Chat",@"Schedule Appointments",@"Profile",@"Dail CRM",@"Create E-Services"];
+    //    addButton.imageArray = @[@"floatmenu4",@"floatmenu5",@"floatmenu2",@"floatmenu1",@"floatmenu3"];
+    //    addButton.labelArray = @[@"My Profile",@"Create Requets",@"Schedule Appointments",@"Live Chat",@"Dail Customer Service"];
+    addButton.imageArray = @[@"1float",@"2float",@"3float",@"4float",@"5float"];
+    addButton.labelArray = @[fyCustomerSer,fyLiveChat,fyScheduleAppointments,fyCreateReq,fyProfile];
+    addButton.hideWhileScrolling = YES;
+    DamacSharedClass.sharedInstance.windowButton = addButton;
+    [win addSubview:addButton];
+}
 - (IBAction)skipButtonClick:(id)sender {
     
     MainViewController *m =[self.storyboard instantiateViewControllerWithIdentifier:@"mainVC"];
+    addButton.delegate = m;
+    [self.navigationController setNavigationBarHidden:NO animated:NO];
     [self.navigationController pushViewController:m animated:YES];
+    
 }
 @end

@@ -9,7 +9,17 @@
 #import <Foundation/Foundation.h>
 #import "AOPT.h"
 
+
+@protocol SoapImageuploaded <NSObject>
+
+-(void)imageUplaodedAndReturnPath:(NSString*)path;
+
+@end
+
+
 @interface SaopServices : NSObject
+
+@property id <SoapImageuploaded> delegate;
 @property (strong,nonatomic) NSURLConnection *sessionconnection;
 @property NSMutableData *webResponseData;
 -(void)uploadDocumentTo:(UIImage*)img

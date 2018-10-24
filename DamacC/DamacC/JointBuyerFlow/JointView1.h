@@ -12,4 +12,10 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *previousBtn;
 @property (weak, nonatomic) IBOutlet UIButton *NextButton;
+@property (weak, nonatomic) IBOutlet UIButton *saveDraftBtn;
+@property (weak, nonatomic) IBOutlet UIButton *downloadFormBtn;
+- (IBAction)downloadDraftCLick:(id)sender;
+
+
+
 @end

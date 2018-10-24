@@ -30,4 +30,10 @@
 }
 
 
+- (IBAction)downloadDraftCLick:(id)sender {
+    ErrorViewController *errvc = [DamacSharedClass.sharedInstance.currentVC.storyboard instantiateViewControllerWithIdentifier:@"errorVC"];
+    [DamacSharedClass.sharedInstance.currentVC presentViewController:errvc animated:YES completion:nil];
+    _NextButton.hidden = NO;
+    _saveDraftBtn.hidden = NO;
+}
 @end

@@ -16,6 +16,7 @@
 #define defaultRemove(key)      [[NSUserDefaults standardUserDefaults] removeObjectForKey:key]
 #define kUserProfile             [DamacSharedClass sharedInstance].userProileModel
 
+#define handleNull(val)         val?val:@""
 
 #define goldColor rgb(191, 154, 88)
 
@@ -71,6 +72,13 @@
 #define kgetCountriesList @"https://partial-servicecloudtrial-155c0807bf-1580afc5db1.cs80.force.com/MobileApp/services/apexrest/SendCountriesListToMobileApp"
 
 #define ChangeofDetailsServicesUrl @"https://partial-servicecloudtrial-155c0807bf-1580afc5db1.cs80.force.com/MobileApp/services/apexrest/SaveChangeOfDetailsCase/"
+
+#define ComplaintsServiceUrl @"https://partial-servicecloudtrial-155c0807bf-1580afc5db1.cs80.force.com/MobileApp/services/apexrest/SaveComplaintFromMobileApp/"
+#define ProofOFPaymentServiceURl @"https://partial-servicecloudtrial-155c0807bf-1580afc5db1.cs80.force.com/MobileApp/services/apexrest/SaveProofOfPayment/"
+#define JointBuyerServiceUrl @"https://partial-servicecloudtrial-155c0807bf-1580afc5db1.cs80.force.com/MobileApp/services/apexrest/SaveJointBuyerDetails/"
+#define PassportUpdateServiceUrl @"https://partial-servicecloudtrial-155c0807bf-1580afc5db1.cs80.force.com/MobileApp/services/apexrest/SaveUpdatePassportDetails/"
+
+#define getDetailsBySR @"https://partial-servicecloudtrial-155c0807bf-1580afc5db1.cs80.force.com/MobileApp/services/apexrest/SendCaseDetailToMObileApp/"
 
 
 #pragma mark Arrays
@@ -129,5 +137,17 @@ typedef NS_ENUM(int) {
     CountryArabic,
     StateInArabic
 }TextFieldTagsCocd;
+
+typedef NS_ENUM(int) {
+    Address1J = 202020,
+    Address2J,
+    Address3J,
+    Address4J,
+    CityJ,
+    StateJ,
+    PostalCodeJ,
+    EmailJ,
+    MobileJ,
+}TextFieldTagsJointBuyer;
 
 #endif /* DamacConstants_h */

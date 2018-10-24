@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ServicesSRDetails.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -38,10 +39,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property NSString *Status;
 @property NSString *Origin;
 @property NSString *fcm;
+@property NSString *cocdUploadedImagePath;
+@property NSString *primaryPassportUploadedImagePath;
+@property NSString *additionalImageUploadedImagePath;
 
--(void)fillCOCDObjectWithCaseID:(BOOL)caseID;
+@property UIImage *cocdImage;
+@property UIImage *primaryPassportImage;
+@property UIImage *additionalDocumentImage;
+
+-(void)fillCOCDObjectWithOutCaseID;
 -(void)changeValueBasedonTag:(UITextField*)textField withValue:(NSString*)str;
--(void)sendDraftStatusToServer:(NSString*)status;
+-(void)sendDraftStatusToServer;
+-(void)fillCOCDObjWithCaseID:(ServicesSRDetails*)srd;
 @end
 
 NS_ASSUME_NONNULL_END

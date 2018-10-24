@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface JointBuyerCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UITextField *textField;
+@property (weak, nonatomic) IBOutlet UILabel *headingLabel;
 
 @end
 

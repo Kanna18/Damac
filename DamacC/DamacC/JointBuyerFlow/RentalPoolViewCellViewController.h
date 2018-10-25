@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "SaopServices.h"
+#import "JointBuyerObject.h"
 
 @interface RentalPoolViewCellViewController : UIViewController<SoapImageuploaded>
 @property (weak, nonatomic) IBOutlet UIView *dropDownView;
@@ -18,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *dropDownCountriesBtn;
 - (IBAction)countriesCLick:(id)sender;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *heightConstraint;
+- (IBAction)saveDraftCLickView:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UIView *detailView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -25,4 +27,6 @@
 @property SaopServices *soap;
 @property SaopServices *soap2;
 @property SaopServices *soap3;
+
+@property JointBuyerObject *jointObj;
 @end

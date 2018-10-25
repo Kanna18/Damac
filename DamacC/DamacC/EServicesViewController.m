@@ -9,6 +9,7 @@
 #import "EServicesViewController.h"
 #import "POPViewController.h"
 #import "PassportUpdateFlow/PassportUpdateVC.h"
+#import "PassportObject.h"
 @interface EServicesViewController ()
 
 @end
@@ -155,7 +156,7 @@
 }
 -(BOOL)condition{
     BOOL valid = YES;
-    if([servicesCountArray containsObject:@"Change of Contact Details"]||[servicesCountArray containsObject:@"Change of Joint Buyer"]||
+    if([servicesCountArray containsObject:@"Change of Contact Details"]||[servicesCountArray containsObject:@"Change of Joint Buyer Details"]||
        [servicesCountArray containsObject:@"Passport Detail Update SR"])
     {
         valid = NO;
@@ -163,7 +164,7 @@
     return valid;
 }
 -(void)loadChangeOfContactDetails{
-    if(servicesCountArray.count>0&&[self condition]){
+    if(servicesCountArray.count>0&&![self condition]){
         [self loadServicesRequestViewController];
     }else{
         ChangeOfContactDetails *chd = [self.storyboard instantiateViewControllerWithIdentifier:@"changeOfContactsVC"];
@@ -174,15 +175,18 @@
     }
 }
 -(void)loadPassportUpdate{
-    if(servicesCountArray.count>0&&[self condition]){
+    if(servicesCountArray.count>0&&![self condition]){
         [self loadServicesRequestViewController];
     }else{
-    PassportUpdateVC *chd = [self.storyboard instantiateViewControllerWithIdentifier:@"passportUpdateVC"];
+        PassportUpdateVC *chd = [self.storyboard instantiateViewControllerWithIdentifier:@"passportUpdateVC"];
+        PassportObject *pObj = [[PassportObject alloc]init];
+        [pObj fillWithDefaultValues];
+        chd.passportObj = pObj;
     [self.navigationController pushViewController:chd animated:YES];
     }
 }
 -(void)loadJointBuyerinfo{
-    if(servicesCountArray.count>0&&[self condition]){
+    if(servicesCountArray.count>0&&![self condition]){
         [self loadServicesRequestViewController];
     }else{
     RentalPoolViewCellViewController *rvc = [self.storyboard instantiateViewControllerWithIdentifier:@"rentalPoolViewCellVC"];

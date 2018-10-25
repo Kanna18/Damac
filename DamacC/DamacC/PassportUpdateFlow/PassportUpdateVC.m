@@ -28,8 +28,8 @@
     WYPopoverController* popoverController;
     ServerAPIManager *serverAPI;
     NSMutableArray *buyersInfoArr,*dropitems;
-    PassportObject *passportObj;
-    NSArray *tvData;
+    
+    NSArray *tvDataValues;
     int countoFImagestoUplaod,countoFImagesUploaded;
 }
 
@@ -50,8 +50,16 @@
     self.view.clipsToBounds = NO;
     [self webServicetoGetUnitSFIds];
     [FTIndicator showProgressWithMessage:@""];
-    passportObj = [[PassportObject alloc]init];
-    tvData = @[@"Passport Number/CR Number",@"Passport Issue Place/City of Incorporation",@"Passport/CR Expiry Date"];
+    tvDataValues = @[@{@"key":@"Passport Number/CR Number",
+                       @"value":self.passportObj.previousPPNumber,
+                       @"newValue":self.passportObj.passportNo},
+                     @{@"key":@"Passport Issue Place/City of Incorporation",
+                       @"value":self.passportObj.previousPassPlace,
+                       @"newValue":self.passportObj.PassportIssuedPlace},
+                     @{@"key":@"Passport/CR Expiry Date",
+                       @"value":self.passportObj.previousExpiryDate,
+                       @"newValue":self.passportObj.PassportIssuedDate}];
+    
     DamacSharedClass.sharedInstance.currentVC = self;
     DamacSharedClass.sharedInstance.windowButton.hidden = YES;
     countoFImagestoUplaod = 0 ;
@@ -143,22 +151,22 @@
     
     if (indexPath.section == 0){
             PassportCell1 *cell1 = [tableView dequeueReusableCellWithIdentifier:@"passportCell1" forIndexPath:indexPath];
-        cell1.topLabel.text =tvData[indexPath.row];
-        cell1.textField.text = @"";
+        cell1.topLabel.text =tvDataValues[indexPath.row][@"key"];
+        cell1.textField.text = tvDataValues[indexPath.row][@"value"];
         cell1.textField.userInteractionEnabled = NO;
         return cell1;
     }
     if (indexPath.section == 1){
             PassportCell2 *cell2 = [tableView dequeueReusableCellWithIdentifier:@"passportCell2" forIndexPath:indexPath];
-        cell2.topLabel.text =tvData[indexPath.row];
-        cell2.textField.text = @"";
+        cell2.topLabel.text =tvDataValues[indexPath.row][@"key"];
+        cell2.textField.text = tvDataValues[indexPath.row][@"newValue"];
         cell2.textField.tag = 1000+indexPath.row;
         cell2.textField.delegate = self;
             return cell2;
     }
     if (indexPath.section == 2){
             PassportCell3 *cell3 = [tableView dequeueReusableCellWithIdentifier:@"passportCell3" forIndexPath:indexPath];
-        cell3.passObj = passportObj;
+        cell3.passObj = self.passportObj;
             return cell3;
     }
     
@@ -266,25 +274,25 @@
 
 }
 -(void)saveDraftClickPassport{
-    passportObj.status = @"Draft Request";
+    self.passportObj.status = @"Draft Request";
     [self responsePassport];
 }
 
 -(void)responsePassport{
     
-    if(passportObj.AccountID.length<1){
+    if(self.passportObj.AccountID.length<1){
         [FTIndicator showToastMessage:@"Please Select Buyer"];
         return;
     }
-    if(passportObj.passportNo.length<1){
+    if(self.passportObj.passportNo.length<1){
         [FTIndicator showToastMessage:@"Passport No should not be empty"];
         return;
     }
-    if(passportObj.PassportIssuedPlace.length<1){
+    if(self.passportObj.PassportIssuedPlace.length<1){
         [FTIndicator showToastMessage:@"Passport Issued place should not be empty"];
         return;
     }
-    if(passportObj.passportImage == nil){
+    if(self.passportObj.passportImage == nil){
         [FTIndicator showToastMessage:@"Passport of Primary buyer is not attached"];
         return;
     }
@@ -294,7 +302,7 @@
 
 
 -(void)submitbuttonClickPassport{
-    passportObj.status = @"Submitted";
+    self.passportObj.status = @"Submitted";
     [self responsePassport];
     
 }
@@ -334,7 +342,9 @@
     [self.tableView reloadData];
     [popoverController dismissPopoverAnimated:YES];
     [_buyersButton setTitle:str forState:UIControlStateNormal];
-    passportObj.AccountID = buyersInfoArr[tag][@"Id"];
+//    self.passportObj.AccountID = buyersInfoArr[tag][@"Id"];
+    [_passportObj fillDefaultValuesForParticularBuyer:buyersInfoArr[tag]];
+    [self.tableView reloadData];
     
 }
 
@@ -356,15 +366,15 @@
     
     
     if(tf.tag == 1000){
-        passportObj.passportNo = tf.text;
+        self.passportObj.passportNo = tf.text;
         return;
     }
     if(tf.tag == 1001){
-        passportObj.PassportIssuedPlace = tf.text;
+        self.passportObj.PassportIssuedPlace = tf.text;
         return;
     }
     if(tf.tag == 1002){
-        passportObj.PassportIssuedDate = tf.text;
+        self.passportObj.PassportIssuedDate = tf.text;
         return;
     }
 }
@@ -375,15 +385,15 @@
     [FTIndicator showProgressWithMessage:@""];
     _soap= [[SaopServices alloc]init];
     _soap.delegate = self;
-    if(passportObj.passportImage){
-        [_soap uploadDocumentTo:passportObj.passportImage P_REQUEST_NUMBER:nil P_REQUEST_NAME:nil P_SOURCE_SYSTEM:nil category:nil entityName:nil fileDescription:@"NewPassport" fileId:@"NewPassport" fileName:@"NewPassport" registrationId:nil sourceFileName:@"NewPassport" sourceId:@"NewPassport"];
+    if(self.passportObj.passportImage){
+        [_soap uploadDocumentTo:self.passportObj.passportImage P_REQUEST_NUMBER:nil P_REQUEST_NAME:nil P_SOURCE_SYSTEM:nil category:nil entityName:nil fileDescription:@"NewPassport" fileId:@"NewPassport" fileName:@"NewPassport" registrationId:nil sourceFileName:@"NewPassport" sourceId:@"NewPassport"];
         countoFImagestoUplaod++;
     }
     _soap2 = [[SaopServices alloc]init];
     _soap2.delegate = self;
-    if(passportObj.additionalImage){
+    if(self.passportObj.additionalImage){
         NSString *str = @"AdditionalDoc";
-        [_soap2 uploadDocumentTo:passportObj.additionalImage P_REQUEST_NUMBER:nil P_REQUEST_NAME:nil P_SOURCE_SYSTEM:nil category:nil entityName:nil fileDescription:str fileId:str fileName:str registrationId:nil sourceFileName:str sourceId:str];
+        [_soap2 uploadDocumentTo:self.passportObj.additionalImage P_REQUEST_NUMBER:nil P_REQUEST_NAME:nil P_SOURCE_SYSTEM:nil category:nil entityName:nil fileDescription:str fileId:str fileName:str registrationId:nil sourceFileName:str sourceId:str];
         countoFImagestoUplaod++;
     }
     
@@ -398,18 +408,18 @@
     if ([path rangeOfString:@"NewPassport"].location == NSNotFound) {
         NSLog(@"string does not contain bla");
     } else {
-        passportObj.passportImagePath = path;
+        self.passportObj.passportImagePath = path;
     }
     
     if ([path rangeOfString:@"AdditionalDoc"].location == NSNotFound) {
         NSLog(@"string does not contain bla");
     } else {
-        passportObj.additionalImagePath = path;
+        self.passportObj.additionalImagePath = path;
     }
 
     if(countoFImagestoUplaod == countoFImagesUploaded){
         
-        [passportObj sendPassportResponsetoServer];
+        [self.passportObj sendPassportResponsetoServer];
     }
 }
 @end

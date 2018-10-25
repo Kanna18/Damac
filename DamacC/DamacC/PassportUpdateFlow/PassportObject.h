@@ -34,6 +34,14 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)sendPassportResponsetoServer;
 -(void)fillWithDefaultValues;
 -(void)fillValuesWIth:(ServicesSRDetails*)srd;
+-(void)fillDefaultValuesForTheFirstTime;
+-(void)fillDefaultValuesForParticularBuyer:(NSDictionary*)buyerDict;
+
+@property NSString* previousPPNumber;
+@property NSString* previousPassPlace;
+@property NSString* previousExpiryDate;
+
+
 @end
 
 NS_ASSUME_NONNULL_END

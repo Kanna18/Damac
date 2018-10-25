@@ -28,7 +28,6 @@
     NSMutableArray *buyersInfoArr;
     NSMutableArray *dropitems;
     NSArray *headingLabels ,*dataLabels;
-    JointBuyerObject *joObj;
     NSArray *countriesArray;
     int countoFImagestoUplaod,countoFImagesUploaded;
 
@@ -121,6 +120,8 @@
     
     jbView1 = [[JointView1 alloc]initWithFrame:frame2];
     [_scrollView addSubview:jbView1];
+    
+    [jbView1.saveDraftBtn addTarget:self action:@selector(saveDraftJointBuyers) forControlEvents:UIControlEventTouchUpInside];
     [jbView1.NextButton addTarget:self action:@selector(loadThirdView) forControlEvents:UIControlEventTouchUpInside];
     [jbView1.previousBtn addTarget:self action:@selector(loadFirstView) forControlEvents:UIControlEventTouchUpInside];
     
@@ -132,6 +133,7 @@
     jbView = [[JointBView2 alloc]initWithFrame:frame3];
     [_scrollView addSubview:jbView];
     [jbView.previous addTarget:self action:@selector(nextClick:) forControlEvents:UIControlEventTouchUpInside];
+    [jbView.saveDraftBtn addTarget:self action:@selector(saveDraftJointBuyers) forControlEvents:UIControlEventTouchUpInside];
     [jbView.saveDraftBtn addTarget:self action:@selector(saveDraftJointBuyers) forControlEvents:UIControlEventTouchUpInside];
     [jbView.submitSR addTarget:self action:@selector(subJointBuyersResponse) forControlEvents:UIControlEventTouchUpInside];
 }
@@ -146,6 +148,7 @@
     for (int i = 0; i<buyersInfoArr.count ; i++ ) {
         [dropitems addObject:(NSString*)[buyersInfoArr[i] valueForKey:@"First_Name__c"]];
     }
+    [dropitems addObject:kUserProfile.partyName];
     dropNew = [[KPDropMenu alloc] initWithFrame:fram];
     dropNew.layer.cornerRadius = 10.0f;
     dropNew.layer.borderColor = [UIColor yellowColor].CGColor;
@@ -183,7 +186,7 @@
 
 - (IBAction)nextClick:(id)sender {
     
-    if([joObj.email validateEmailWithString])
+    if([self.jointObj.email validateEmailWithString])
     {
         [_scrollView setContentOffset:frame2.origin animated:YES];
         dropNew.hidden = YES;
@@ -227,8 +230,8 @@
 }
 
 -(void)selectedFromDropMenu:(NSString *)str forType:(NSString *)type withTag:(int)tag{
-    joObj.country = str;
-    [_dropDownCountriesBtn setTitle:joObj.country forState:UIControlStateNormal];
+    self.jointObj.country = str;
+    [_dropDownCountriesBtn setTitle:self.jointObj.country forState:UIControlStateNormal];
     [self.tableView reloadData];
     [popoverController dismissPopoverAnimated:YES];
     
@@ -286,36 +289,39 @@
 
 -(void)fillLabelsforJointBuyer:(int)indexVal{
     
-    joObj = [[JointBuyerObject alloc]init];
-    jbView.joObj = joObj;
-    [joObj fillObjectWithDict:buyersInfoArr[indexVal]];
-    [_dropDownCountriesBtn setTitle:joObj.country forState:UIControlStateNormal];
+    jbView.joObj = self.jointObj;
+    if(indexVal == dropitems.count-1){
+        [self.jointObj fillObjectWithPrimaryBuyerInfo];
+    }else{
+        [self.jointObj fillObjectWithParticularBuyerDict:buyersInfoArr[indexVal]];
+    }
+    [_dropDownCountriesBtn setTitle:self.jointObj.country forState:UIControlStateNormal];
     headingLabels = @[@{@"key":@"Address1",
-                       @"value":joObj.address1,
+                       @"value":self.jointObj.address1,
                        @"tag" : [NSNumber numberWithInt:Address1J]},
                      @{@"key":@"Address2",
-                       @"value":joObj.address2,
+                       @"value":self.jointObj.address2,
                        @"tag" : [NSNumber numberWithInt:Address2J]},
                      @{@"key":@"Address3",
-                       @"value":joObj.address3,
+                       @"value":self.jointObj.address3,
                        @"tag" : [NSNumber numberWithInt:Address3J]},
                      @{@"key":@"Address4",
-                       @"value":joObj.address4,
+                       @"value":self.jointObj.address4,
                        @"tag" : [NSNumber numberWithInt:Address4J]},
                      @{@"key":@"City",
-                       @"value":joObj.city,
+                       @"value":self.jointObj.city,
                        @"tag" : [NSNumber numberWithInt:CityJ]},
                      @{@"key":@"State",
-                       @"value":joObj.state,
+                       @"value":self.jointObj.state,
                        @"tag" : [NSNumber numberWithInt:StateJ]},
                      @{@"key":@"PostalCode",
-                       @"value":joObj.postalCode,
+                       @"value":self.jointObj.postalCode,
                        @"tag" : [NSNumber numberWithInt:PostalCodeJ]},
                      @{@"key":@"Email",
-                       @"value":joObj.email,
+                       @"value":self.jointObj.email,
                        @"tag" : [NSNumber numberWithInt:EmailJ]},
                      @{@"key":@"Mobile",
-                       @"value":joObj.phone,
+                       @"value":self.jointObj.phone,
                        @"tag" : [NSNumber numberWithInt:MobileJ]}];
     
     [_tableView reloadData];
@@ -327,31 +333,30 @@
 }
 
 -(void)textFieldDidEndEditing:(UITextField *)textField{
-    [joObj changeValueBasedonTag:textField withValue:textField.text];
-    NSLog(@"%@",joObj);
+    [self.jointObj changeValueBasedonTag:textField withValue:textField.text];
+    NSLog(@"%@",self.jointObj);
 }
 
 
 -(void)uploadImagesToServer{
-    
     _soap= [[SaopServices alloc]init];
     _soap.delegate = self;
-    if(joObj.cocdImage){
-        [_soap uploadDocumentTo:joObj.cocdImage P_REQUEST_NUMBER:nil P_REQUEST_NAME:nil P_SOURCE_SYSTEM:nil category:nil entityName:nil fileDescription:@"COCD" fileId:@"COCD" fileName:@"COCD" registrationId:nil sourceFileName:@"COCD" sourceId:@"COCD"];
+    if(self.jointObj.cocdImage){
+        [_soap uploadDocumentTo:self.jointObj.cocdImage P_REQUEST_NUMBER:nil P_REQUEST_NAME:nil P_SOURCE_SYSTEM:nil category:nil entityName:nil fileDescription:@"COCD" fileId:@"COCD" fileName:@"COCD" registrationId:nil sourceFileName:@"COCD" sourceId:@"COCD"];
         countoFImagestoUplaod++;
     }
     _soap2 = [[SaopServices alloc]init];
     _soap2.delegate = self;
-    if(joObj.additionalDocumentImage){
+    if(self.jointObj.additionalDocumentImage){
         NSString *str = @"AdditionalDoc";
-        [_soap2 uploadDocumentTo:joObj.additionalDocumentImage P_REQUEST_NUMBER:nil P_REQUEST_NAME:nil P_SOURCE_SYSTEM:nil category:nil entityName:nil fileDescription:str fileId:str fileName:str registrationId:nil sourceFileName:str sourceId:str];
+        [_soap2 uploadDocumentTo:self.jointObj.additionalDocumentImage P_REQUEST_NUMBER:nil P_REQUEST_NAME:nil P_SOURCE_SYSTEM:nil category:nil entityName:nil fileDescription:str fileId:str fileName:str registrationId:nil sourceFileName:str sourceId:str];
         countoFImagestoUplaod++;
     }
     _soap3 = [[SaopServices alloc]init];
     _soap3.delegate = self;
-    if(joObj.primaryPassportImage){
+    if(self.jointObj.primaryPassportImage){
         NSString *str = @"PassportOfBuyer";
-        [_soap3 uploadDocumentTo:joObj.primaryPassportImage P_REQUEST_NUMBER:nil P_REQUEST_NAME:nil P_SOURCE_SYSTEM:nil category:nil entityName:nil fileDescription:str fileId:str fileName:str registrationId:nil sourceFileName:str sourceId:str];
+        [_soap3 uploadDocumentTo:self.jointObj.primaryPassportImage P_REQUEST_NUMBER:nil P_REQUEST_NAME:nil P_SOURCE_SYSTEM:nil category:nil entityName:nil fileDescription:str fileId:str fileName:str registrationId:nil sourceFileName:str sourceId:str];
         countoFImagestoUplaod++;
     }
 }
@@ -365,38 +370,49 @@
     if ([path rangeOfString:@"COCD"].location == NSNotFound) {
         NSLog(@"string does not contain bla");
     } else {
-        joObj.UploadSignedChangeofDetails = path;
+        self.jointObj.UploadSignedChangeofDetails = path;
     }
     
     if ([path rangeOfString:@"AdditionalDoc"].location == NSNotFound) {
         NSLog(@"string does not contain bla");
     } else {
-        joObj.AdditionalDocFileUrl = path;
+        self.jointObj.AdditionalDocFileUrl = path;
     }
     
     if ([path rangeOfString:@"PassportOfBuyer"].location == NSNotFound) {
         NSLog(@"string does not contain bla");
     } else {
-        joObj.PassportFileUrl = path;
+        self.jointObj.PassportFileUrl = path;
     }
     
     if(countoFImagestoUplaod == countoFImagesUploaded){
         
-        [joObj sendJointBuyerResponsetoserver];
+        [self.jointObj sendJointBuyerResponsetoserver];
     }
 }
 -(void)subJointBuyersResponse{
     
-    if(joObj.cocdImage == nil){
+    if(self.jointObj.cocdImage == nil){
         [FTIndicator showToastMessage:@"COCD document is not attached"];
     }else{
-        joObj.status = @"Submitted";
+        self.jointObj.status = @"Submitted";
+        [FTIndicator showProgressWithMessage:@"Please Wait"];
         [self uploadImagesToServer];
     }
     
 }
 -(void)saveDraftJointBuyers{
+    self.jointObj.status = @"Draft Request";
+    [FTIndicator showProgressWithMessage:@"Please Wait"];
     
+    if(self.jointObj.cocdImage||self.jointObj.additionalDocumentImage||self.jointObj.primaryPassportImage){
+        [self subJointBuyersResponse];
+    }else{
+        [self.jointObj sendJointBuyerResponsetoserver];
+    }
 }
 
+- (IBAction)saveDraftCLickView:(id)sender {
+    [self saveDraftJointBuyers];
+}
 @end

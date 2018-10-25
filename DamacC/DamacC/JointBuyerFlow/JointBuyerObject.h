@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "ServicesSRDetails.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface JointBuyerObject : NSObject
@@ -30,13 +30,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property NSString *state;
 @property NSString *status;
 @property NSString *UploadSignedChangeofDetails;
-
+@property NSString *salesforceId;
 
 @property UIImage *cocdImage;
 @property UIImage *primaryPassportImage;
 @property UIImage *additionalDocumentImage;
 
--(void)fillObjectWithDict:(NSDictionary*)dict;
+-(void)fillObjectWithParticularBuyerDict:(NSDictionary*)dict;
+-(void)fillObjectWithPrimaryBuyerInfo;
+-(void)fillObjectWIthSerViceRequestDetail:(ServicesSRDetails*)srd;
+
 -(void)changeValueBasedonTag:(UITextField*)textField withValue:(NSString*)str;
 -(void)sendJointBuyerResponsetoserver;
 

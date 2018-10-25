@@ -8,8 +8,10 @@
 
 #import "ServicesDetailController.h"
 #import "SerquestRequestDetailCell.h"
+#import "PassportUpdateVC.h"
 #import "popObject.h"
 #import "PassportObject.h"
+#import "JointBuyerObject.h"
 
 //#define ChangeofDetailsServicesUrl @"https://partial-servicecloudtrial-155c0807bf-1580afc5db1.cs80.force.com/MobileApp/services/apexrest/SaveChangeOfDetailsCase/"
 //#define ComplaintsServiceUrl @"https://partial-servicecloudtrial-155c0807bf-1580afc5db1.cs80.force.com/MobileApp/services/apexrest/SaveComplaintFromMobileApp/"
@@ -22,7 +24,7 @@
 #define kPOPConstant            @"Proof of Payment SR"
 #define kCODConstant            @"Change of Contact Details"
 #define kCOCDWorking            @"Working"
-#define kJointBuyerConstant     @"Change of Joint Buyer"
+#define kJointBuyerConstant     @"Change of Joint Buyer Details"
 #define kPassportUpdateConstant @"Passport Detail Update SR"
 #define kPromotionsConstant     @"Promotions"
 #define kMortgageConstant       @"Mortgage"
@@ -39,12 +41,12 @@
     NSArray *dataLabels;
     COCDServerObj *cocd;
     PassportObject *passObj;
+    JointBuyerObject *jointBuyerObj;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    DamacSharedClass.sharedInstance.windowButton.hidden = YES;
     _tableView.dataSource =self;
     _tableView.delegate =self;
     NSLog(@"%@",_servicesDataModel);
@@ -55,6 +57,8 @@
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:YES];
     [[CustomBarOptions alloc]initWithNavItems:self.navigationItem noOfItems:2 navRef:self.navigationController withTitle:@"Service Request Detail"];
+    
+    DamacSharedClass.sharedInstance.windowButton.hidden = YES;
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -99,7 +103,45 @@
     if([srD.SR_Type__c isEqualToString:kPassportUpdateConstant]){
         [self fillLabelsForPassportUpdate];
     }
+    if([srD.SR_Type__c isEqualToString:kJointBuyerConstant]){
+        [self fillLabelsForJointBuyer];
+    }
     [FTIndicator performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
+}
+-(void)fillLabelsForJointBuyer{
+    headingLabels = @[@"SR No.",
+                      @"SR Raised Date",
+                      @"Buyer",
+                      @"Unit Name",
+                      @"SR Type",
+                      @"Country",
+                      @"Address",
+                      @"City",
+                      @"State",
+                      @"Postal Code",
+                      @"Email",
+                      @"Mobile",
+                      @"COCD Form Url",
+                      @"Addition Doc File Url",
+                      @"Passport File Url"];
+    
+    dataLabels = @[[NSString stringWithFormat:@"%@ - %@",handleNull(_servicesDataModel.CaseNumber),handleNull(_servicesDataModel.Status)],
+                   [self returnDate:_servicesDataModel.CreatedDate],
+                   [NSString stringWithFormat:@"%@",handleNull(_servicesDataModel.Account.Name)],
+                   @"",
+                   handleNull(srD.SR_Type__c),
+                   handleNull(srD.Country__c),
+                   handleNull(srD.Address__c),
+                   handleNull(srD.City__c),
+                   handleNull(srD.State__c),
+                   @"",
+                   handleNull(srD.Contact_Email__c),
+                   handleNull(srD.Contact_Mobile__c),
+                   handleNull(srD.CRF_File_URL__c),
+                   handleNull(srD.Additional_Doc_File_URL__c),
+                   handleNull(srD.Passport_File_URL__c)];
+    jointBuyerObj = [[JointBuyerObject alloc]init];
+    [jointBuyerObj fillObjectWIthSerViceRequestDetail:srD];
 }
 
 -(void)fillLabelsForPassportUpdate{
@@ -223,6 +265,12 @@
         [passObj sendPassportResponsetoServer];
         [FTIndicator showProgressWithMessage:@"Please wait"];
     }
+    
+    if([srD.SR_Type__c isEqualToString:kJointBuyerConstant]){
+        jointBuyerObj.status = @"Cancelled";
+        [jointBuyerObj sendJointBuyerResponsetoserver];
+        [FTIndicator showProgressWithMessage:@"Please wait"];
+    }
 }
 
 #pragma mark Tableview Delegates
@@ -262,23 +310,33 @@
     return 60;
 }
 
-- (IBAction)editButtonClick:(id)sender {
-    
-    if([_servicesDataModel.RecordType.Name isEqualToString:kJointBuyerConstant]){
-        
-        RentalPoolViewCellViewController *rvc = [self.storyboard instantiateViewControllerWithIdentifier:@"rentalPoolViewCellVC"];
-        [self.navigationController pushViewController:rvc animated:YES];
-    }
-    if([_servicesDataModel.RecordType.Name isEqualToString:kPOPConstant]){
-        ChangeOfContactDetails *rvc = [self.storyboard instantiateViewControllerWithIdentifier:@"changeOfContactsVC"];
-        [self.navigationController pushViewController:rvc animated:YES];
-    }
-}
+//- (IBAction)editButtonClick:(id)sender {
+//
+//    if([_servicesDataModel.RecordType.Name isEqualToString:kJointBuyerConstant]){
+//
+//        RentalPoolViewCellViewController *rvc = [self.storyboard instantiateViewControllerWithIdentifier:@"rentalPoolViewCellVC"];
+//        [self.navigationController pushViewController:rvc animated:YES];
+//    }
+//    if([_servicesDataModel.RecordType.Name isEqualToString:kPOPConstant]){
+//        ChangeOfContactDetails *rvc = [self.storyboard instantiateViewControllerWithIdentifier:@"changeOfContactsVC"];
+//        [self.navigationController pushViewController:rvc animated:YES];
+//    }
+//}
 
 -(void)loadEditVC{
     if([srD.SR_Type__c isEqualToString:kCODConstant]){
         ChangeOfContactDetails *chd = [self.storyboard instantiateViewControllerWithIdentifier:@"changeOfContactsVC"];
         chd.cocdOBj = cocd;
+        [self.navigationController pushViewController:chd animated:YES];
+    }
+    if([srD.SR_Type__c isEqualToString:kPassportUpdateConstant]){
+        PassportUpdateVC *chd = [self.storyboard instantiateViewControllerWithIdentifier:@"passportUpdateVC"];
+        chd.passportObj = passObj;
+        [self.navigationController pushViewController:chd animated:YES];
+    }
+    if([srD.SR_Type__c isEqualToString:kJointBuyerConstant]){
+        RentalPoolViewCellViewController *chd = [self.storyboard instantiateViewControllerWithIdentifier:@"rentalPoolViewCellVC"];
+        chd.jointObj = jointBuyerObj;
         [self.navigationController pushViewController:chd animated:YES];
     }
 }

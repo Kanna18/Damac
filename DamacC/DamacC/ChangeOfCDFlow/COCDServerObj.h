@@ -51,6 +51,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)changeValueBasedonTag:(UITextField*)textField withValue:(NSString*)str;
 -(void)sendDraftStatusToServer;
 -(void)fillCOCDObjWithCaseID:(ServicesSRDetails*)srd;
+
 @end
 
 NS_ASSUME_NONNULL_END

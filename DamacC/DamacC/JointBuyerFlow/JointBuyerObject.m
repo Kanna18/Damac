@@ -19,8 +19,29 @@
     }
     return self;
 }
-
--(void)fillObjectWithDict:(NSDictionary*)dict{
+-(void)fillObjectWithPrimaryBuyerInfo{
+    
+    self.AccountID = kUserProfile.sfAccountId;
+    self.AdditionalDocFileUrl =@"";
+    self.address1 = handleNull(kUserProfile.addressLine1);
+    self.address2 = handleNull(kUserProfile.addressLine2);
+    self.address3 = handleNull(kUserProfile.addressLine3);
+    self.address4 = @"";
+    self.city = handleNull(kUserProfile.city);
+    self.country = handleNull(kUserProfile.countryOfResidence);
+    self.email = handleNull(kUserProfile.emailAddress);
+    self.mobileCountryCode = handleNull(kUserProfile.countryCode);
+    self.origin = @"Mobile App";
+    self.PassportFileUrl = @"";
+    self.phone = handleNull(kUserProfile.phoneNumber);
+    self.postalCode = handleNull(kUserProfile.countryCode);
+    self.RecordType = @"Change of Joint Buyer";
+    self.state = @"";
+    self.status = @"";
+    self.UploadSignedChangeofDetails = @"";
+        
+}
+-(void)fillObjectWithParticularBuyerDict:(NSDictionary*)dict{
   
     
     /*Dictionary Format*/
@@ -48,26 +69,53 @@
 //        };
 //    }
     
-    self.AccountID = dict[@"Booking__c"];
-    self.AdditionalDocFileUrl =@"";// handleNull(dict[@"Booking__c"]);
-    self.address1 = handleNull(kUserProfile.addressLine1);//handleNull(dict[@"Booking__c"]);
-    self.address2 = handleNull(kUserProfile.addressLine2);//handleNull(dict[@"Booking__c"]);
-    self.address3 = handleNull(kUserProfile.addressLine3);//handleNull(dict[@"Booking__c"]);
-    self.address4 = @"";//handleNull(dict[@"Booking__c"]);
-    self.city = handleNull(kUserProfile.city);//handleNull(dict[@"Booking__c"]);
-    self.country = handleNull(kUserProfile.countryOfResidence);//handleNull(dict[@"Booking__c"])
-    self.email = handleNull(kUserProfile.emailAddress);//handleNull(dict[@"Booking__c"]);
-    self.mobileCountryCode = handleNull(kUserProfile.countryCode);//handleNull(dict[@"Booking__c"]);
-    self.origin = @"Mobile App";//handleNull(dict[@"Booking__c"]);
-    self.PassportFileUrl = @"";//handleNull(dict[@"Booking__c"]);
-    self.phone = handleNull(kUserProfile.phoneNumber);//handleNull(dict[@"Booking__c"]);
-    self.postalCode = handleNull(kUserProfile.countryCode);//handleNull(dict[@"Booking__c"]);
+    self.AccountID = handleNull(dict[@"Account__r"][@"Id"]);
+    self.AdditionalDocFileUrl =@"";
+    self.address1 = @"";
+    self.address2 = @"";
+    self.address3 = @"";
+    self.address4 = @"";
+    self.city = @"";
+    self.country = @"";
+    self.email = @"";
+    self.mobileCountryCode = @"";
+    self.origin = @"Mobile App";
+    self.PassportFileUrl = @"";
+    self.phone = @"";
+    self.postalCode = @"";
     self.RecordType = @"Change of Joint Buyer";
     self.state = @"";
     self.status = @"";
     self.UploadSignedChangeofDetails = @"";
     
+    
 }
+
+
+
+-(void)fillObjectWIthSerViceRequestDetail:(ServicesSRDetails *)srd{
+    
+    self.AccountID = handleNull(srd.AccountId);
+    self.AdditionalDocFileUrl = handleNull(srd.Additional_Doc_File_URL__c);
+    self.address1 = handleNull(srd.Address__c);
+    self.address2 = handleNull(srd.Address_2__c);
+    self.address3 = handleNull(srd.Address_3__c);
+    self.address4 = handleNull(srd.Address_4__c);
+    self.city = handleNull(srd.City__c);
+    self.country = handleNull(srd.Country__c);
+    self.email = handleNull(srd.Contact_Email__c);
+    self.mobileCountryCode = handleNull(srd.Contact_Mobile__c);
+    self.origin = @"Mobile App";
+    self.PassportFileUrl = handleNull(srd.Passport_File_URL__c);
+    self.phone = handleNull(srd.Contact_Mobile__c);
+    self.postalCode = @"";
+    self.RecordType = @"Change of Joint Buyer";
+    self.state = handleNull(srd.State__c);
+    self.status = @"";
+    self.UploadSignedChangeofDetails = handleNull(srd.Signed_KRF_Uploaded__c);
+    self.salesforceId = handleNull(srd.Id);
+}
+
 -(void)changeValueBasedonTag:(UITextField*)textField withValue:(NSString*)str{
     
     int tagValue = textField.tag;
@@ -121,7 +169,7 @@
     [dict setValue:self.city forKey:@"city"];
     [dict setValue:self.country forKey:@"country"];
     [dict setValue:self.email forKey:@"email"];
-    [dict setValue:self.mobileCountryCode forKey:@"mobileCountryCode"];
+    [dict setValue:@"" forKey:@"mobileCountryCode"];
     [dict setValue:self.origin forKey:@"origin"];
     [dict setValue:self.PassportFileUrl forKey:@"PassportFileUrl"];
     [dict setValue:self.phone forKey:@"phone"];
@@ -130,6 +178,9 @@
     [dict setValue:self.state forKey:@"state"];
     [dict setValue:self.status forKey:@"status"];
     [dict setValue:self.UploadSignedChangeofDetails forKey:@"UploadSignedChangeofDetails"];
+    if(self.salesforceId.length>0){
+        [dict setValue:self.salesforceId forKey:@"salesforceId"];
+    }
     NSDictionary *response = @{@"joinBuyerWraper":dict};
     
     ServerAPIManager *server =[ServerAPIManager sharedinstance];

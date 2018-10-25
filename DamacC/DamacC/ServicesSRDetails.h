@@ -9,7 +9,8 @@
 #import "JSONModel.h"
 
 @interface ServicesSRDetails : JSONModel
-@property (nonatomic) AppointemsAttrib <Optional> *attributes;
+
+//@property (nonatomic) AppointemsAttrib <Optional> *attributes;
 @property (nonatomic) NSString <Optional> *Id;
 @property (nonatomic) NSString <Optional> *CaseNumber;
 @property (nonatomic) NSString <Optional> *AccountId;

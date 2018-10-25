@@ -21,9 +21,41 @@
     return self;
 }
 -(void)fillWithDefaultValues{
-
-
+    self.RecordType = @"Passport Detail Update";
+    self.AccountID = handleNull(kUserProfile.sfAccountId);
+    self.origin = @"Mobile App";
+    self.fcm = @"";
+    self.AdditionalDocFileUrl = @"";
+    self.passportNo = @"";
+    self.PassportIssuedPlace = @"";
+    self.AdditionalDocFileUrl = @"";
+    self.PassportIssuedPlaceArabic = @"";
+    self.PassportIssuedDate = @"";
+    
+    self.previousPPNumber = handleNull(kUserProfile.passportNumber);
+    self.previousPassPlace = handleNull(kUserProfile.ppIssuePlace);
+    self.previousExpiryDate = handleNull(kUserProfile.ppIssueDate);
+    
 }
+-(void)fillDefaultValuesForParticularBuyer:(NSDictionary*)buyerDict{
+    
+    self.previousPPNumber = handleNull(buyerDict[@"Account__r"][@"Passport_Number__pc"]);
+    self.previousPassPlace = @"";
+    self.previousExpiryDate = handleNull(kUserProfile.ppIssueDate);
+    
+    
+    self.RecordType = @"Passport Detail Update";
+    self.AccountID = handleNull(buyerDict[@"Account__r"][@"Id"]);
+    self.origin = @"Mobile App";
+    self.fcm = @"";
+    self.AdditionalDocFileUrl = @"";
+    self.passportNo = @"";
+    self.PassportIssuedPlace = @"";
+    self.AdditionalDocFileUrl = @"";
+    self.PassportIssuedPlaceArabic = @"";
+    self.PassportIssuedDate = @"";
+}
+
 -(void)sendPassportResponsetoServer{
     
     NSMutableDictionary *dict = [[NSMutableDictionary alloc]init];
@@ -38,7 +70,7 @@
     [dict setValue:self.PassportIssuedPlace forKey:@"PassportIssuedPlace"];
     [dict setValue:self.PassportIssuedPlaceArabic forKey:@"PassportIssuedPlaceArabic"];
     [dict setValue:self.PassportIssuedDate forKey:@"PassportIssuedDate"];
-    if(self.salesforceId){
+    if(self.salesforceId.length>0){
         [dict setValue:self.salesforceId forKey:@"salesforceId"];
     }
     NSDictionary *response =   @{@"passPortUpdateWraper":dict};
@@ -61,13 +93,16 @@
     self.AccountID = handleNull(srd.AccountId);
     self.origin = @"Mobile App";
     self.fcm = @"";
-    self.AdditionalDocFileUrl = handleNull(srd.Passport_File_URL__c);
+    self.AdditionalDocFileUrl = handleNull(srd.Additional_Doc_File_URL__c);
     self.passportNo = handleNull(srd.New_CR__c);
     self.PassportIssuedPlace = handleNull(srd.Passport_Issue_Place__c);
-    self.AdditionalDocFileUrl = handleNull(srd.Additional_Doc_File_URL__c);
     self.PassportIssuedPlaceArabic = @"";
     self.PassportIssuedDate = handleNull(srd.Passport_Issue_Date__c);
     self.salesforceId = handleNull(srd.Id);
+    
+    self.previousPPNumber = handleNull(srd.New_CR__c);
+    self.previousPassPlace = handleNull(srd.Passport_Issue_Place__c);
+    self.previousExpiryDate = handleNull(srd.Passport_Issue_Date__c);
 }
 
 -(void)popToMainVC{

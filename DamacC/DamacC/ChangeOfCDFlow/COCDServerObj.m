@@ -25,9 +25,9 @@
 }
 
 -(void)fillCOCDObjectWithOutCaseID{
-    self.RecordType = @"";
-    self.UserName = @"";
-    self.salesforceId = udm.sfAccountId;
+    self.RecordType = @"Change of Details";
+    self.UserName = kUserProfile.partyName;
+    self.salesforceId = kUserProfile.sfAccountId;
     self.AccountID = udm.sfContactId;
     self.AddressLine1 = udm.addressLine1;
     self.AddressLine2 = udm.addressLine2;
@@ -55,7 +55,6 @@
 }
 
 -(void)fillCOCDObjWithCaseID:(ServicesSRDetails*)srd{
-    
     
     self.RecordType = handleNull(srd.RecordTypeId);
     self.UserName = @"";
@@ -214,5 +213,6 @@
         }
     }
 }
+
 
 @end

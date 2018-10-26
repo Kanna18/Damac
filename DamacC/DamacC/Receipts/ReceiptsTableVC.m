@@ -67,7 +67,7 @@
     cell.label2.text = rs.receiptReference;
     cell.label3.text = rs.cashReceiptId;
     cell.label4.text = @"";
-    
+    cell.rs = rs;
   
     return cell;
 }
@@ -152,5 +152,6 @@
     [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
     
 }
+
 
 @end

@@ -22,11 +22,13 @@
 @property (nonatomic) NSString <Optional> *Priority;
 @property (nonatomic) NSString <Optional> *Case_origin__c;
 @property (nonatomic) NSString <Optional> *AOPT_IsPDC_Provided__c;
+@property (nonatomic) NSString <Optional> *OD_File_URL__c;
 @property (nonatomic) NSString <Optional> *Actual_Approving_Percent__c;
 @property (nonatomic) NSString <Optional> *Agreement_Signed__c;
 @property (nonatomic) NSString <Optional> *Allocate_Parking__c;
 @property (nonatomic) NSString <Optional> *Allocate_funds__c;
 @property (nonatomic) NSString <Optional> *Swift_Code__c;
+@property (nonatomic) NSString <Optional> *Description;
 @property (nonatomic) NSString <Optional> *Amount_Approved__c;
 @property (nonatomic) NSString <Optional> *Passport_Issue_Date__c;
 @property (nonatomic) NSString <Optional> *New_CR__c;
@@ -34,7 +36,9 @@
 @property (nonatomic) NSString <Optional> *Amount_to_be_waived__c;
 @property (nonatomic) NSString <Optional> *Apply_New_Payment_Terms__c;
 @property (nonatomic) NSString <Optional> *Assignment_Fee_Collected__c;
+@property (nonatomic) NSString <Optional> *Complaint_Sub_Type__c;
 @property (nonatomic) NSString <Optional> *Buyer_Approved__c;
+@property (nonatomic) NSString <Optional> *Complaint_Type__c;
 @property (nonatomic) NSString <Optional> *Buyer_POA__c;
 @property (nonatomic) NSString <Optional> *Buyer_SOA__c;
 @property (nonatomic) NSString <Optional> *Buyer_Verified__c;
@@ -170,7 +174,7 @@
 @property (nonatomic) NSString <Optional> *MilestoneStatus;
 @property (nonatomic) NSString <Optional> *Booking_Unit__c;
 @property (nonatomic) NSString <Optional> *Booking_Unit_Name__c;
-
+@property (nonatomic) NSString <Optional> *Unit_Name__c;
 @property (nonatomic) NSString <Optional> *CRF_File_URL__c;
 @property (nonatomic) NSString <Optional> *Passport_File_URL__c;
 @property (nonatomic) NSString <Optional> *Additional_Doc_File_URL__c;

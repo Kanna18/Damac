@@ -33,4 +33,5 @@
 @property (nonatomic) SaopServices *soap;
 @property (nonatomic) SaopServices *soap3;
 @property (nonatomic) SaopServices *soap2;
+@property NSIndexPath *editingIndexPath;
 @end

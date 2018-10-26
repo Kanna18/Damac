@@ -19,6 +19,7 @@
 #import "SampleTableViewController.h"
 #import "ReceiptsTableVC.h"
 #import "SurveyViewController.h"
+#import "ComplaintsObj.h"
 
 
 
@@ -416,6 +417,9 @@
     }
     if([str isEqualToString:kComplaints]){
         ComplaintsViewController *cvc = [self.storyboard instantiateViewControllerWithIdentifier:@"complaintsViewController"];
+        ComplaintsObj *comp = [[ComplaintsObj alloc]init];
+        [comp fillWithDefaultValues];
+        cvc.complaintsObj = comp;
         [self.navigationController pushViewController:cvc animated:YES];
         
     }

@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ComplaintsObj.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ComplaintsViewController : UIViewController<POPDelegate>
+@interface ComplaintsViewController : UIViewController<WYPopoverControllerDelegate,POPDelegate,SoapImageuploaded>
 - (IBAction)selectUnits:(id)sender;
 
 - (IBAction)selectCompleintClick:(id)sender;
@@ -31,6 +32,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIButton *selectUnitsButton;
 
 
+@property (weak, nonatomic) IBOutlet UILabel *attachment2Label;
+@property (weak, nonatomic) IBOutlet UILabel *attachment1Label;
+
+@property ComplaintsObj *complaintsObj;
+
+@property SaopServices *soap;
+@property SaopServices *soap2;
 @end
 
 NS_ASSUME_NONNULL_END

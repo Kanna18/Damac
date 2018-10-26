@@ -8,7 +8,7 @@
 
 #import "ProfileViewController.h"
 
-@interface ProfileViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface ProfileViewController ()<UITableViewDelegate,UITableViewDataSource,ImagePickedProtocol>
 
 @end
 
@@ -17,6 +17,7 @@
     
     NSArray *tvArray;
     NSArray *valuesArr;
+    CameraView *ca;
 }
 
 - (void)viewDidLoad {
@@ -32,7 +33,15 @@
     _headingButton.layer.borderWidth = borderWidthCommon;
     _headingButton.layer.borderColor = borderColorCommon;
     DamacSharedClass.sharedInstance.windowButton.hidden = YES;
+    ca = [[CameraView alloc]initWithFrame:CGRectZero parentViw:self];
+    [self.view addSubview:ca];
+    ca.delegate = self;
     
+    UIImage *image = [UIImage imageWithContentsOfFile:[self isImageAvailable]];
+    if(image){
+        _profilePic.image = image;
+    }
+
 }
 -(void)fillValues{
     
@@ -125,4 +134,40 @@
     }
     return  nil;
 }
+- (IBAction)profileImageUploadClick:(id)sender {
+    
+    [ca frameChangeCameraView];
+}
+
+#pragma mark Cam ViewDelegate
+-(void)imagePickerSelectedImage:(UIImage *)image{
+    _profilePic.image = image;
+    NSData *data = UIImageJPEGRepresentation(image, 1.0);
+    [self saveImageLocally:data];
+}
+
+-(NSString*)isImageAvailable{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *imagePath =[documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.png",@"cached"]];
+    return imagePath;
+}
+-(void)saveImageLocally:(NSData*)imageData{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    
+    NSString *imagePath =[documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.png",@"cached"]];
+    
+    NSLog(@"pre writing to file");
+    if (![imageData writeToFile:imagePath atomically:NO])
+    {
+        NSLog(@"Failed to cache image data to disk");
+    }
+    else
+    {
+        NSLog(@"the cachedImagedPath is %@",imagePath);
+    }
+
+}
+
 @end

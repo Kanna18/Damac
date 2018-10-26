@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "COCDServerObj.h"
-
+#import "COCDTF.h"
 @interface ChangeofContactCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UITextField *textField;
+@property (weak, nonatomic) IBOutlet COCDTF *textField;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *sideLabel;
 @property (weak, nonatomic) IBOutlet UILabel *subLabel;
 

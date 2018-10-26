@@ -10,6 +10,8 @@
 #import "ChangeofContactCell2.h"
 #import "PassportHeader.h"
 #import "JointBView2.h"
+#import "COCDTF.h"
+
 
 #define butonTitleSubmitSR @"Submit SR"
 #define buttonTitleNext @"Next"
@@ -29,7 +31,7 @@
     WYPopoverController* popoverController;
     
     NSInteger *section2Cells;
-    UITextField *currentTF;
+    COCDTF *currentTF;
     NSArray *countriesArray;
     JointBView2 *jbView;
     CGRect frame3;
@@ -71,7 +73,19 @@
     
     [self getCountriesList];
     
+    
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShow:)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHide:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
 }
+
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
     self.automaticallyAdjustsScrollViewInsets = NO;
@@ -160,6 +174,7 @@
         cell.clipsToBounds = NO;
         [cell.selectCountryButtton addTarget:self action:@selector(showpopover:) forControlEvents:UIControlEventTouchUpInside];
         [cell.selectCountryButtton setTitle:_cocdOBj.Country forState:UIControlStateNormal];
+        cell.textField.tfIndexPath = indexPath;
         return cell;
     }
     if(indexPath.section ==1){
@@ -170,6 +185,7 @@
         cell.textField.tag = [section2Array[indexPath.row][@"tag"] intValue];
         cell.clipsToBounds = NO;
         cell.cocdOBj = _cocdOBj;
+        cell.textField.userInteractionEnabled = NO;
         return cell;
     }
     
@@ -500,20 +516,23 @@
 }
 
 - (IBAction)downloadFormClick:(id)sender {
+    [self downloadFormDetails];
 }
 
 #pragma mark TextField Delegates
 
--(void)textFieldDidBeginEditing:(UITextField *)textField{
+-(void)textFieldDidBeginEditing:(COCDTF *)textField{
     currentTF = textField;
-    NSLog(@"%@",textField.placeholder);
+    NSLog(@"%@",textField.placeholder);        
+    self.editingIndexPath = currentTF.tfIndexPath;
+    
 }
--(BOOL)textFieldShouldReturn:(UITextField *)textField{
+-(BOOL)textFieldShouldReturn:(COCDTF *)textField{
     [textField resignFirstResponder];
     return YES;
 }
 
--(void)textFieldDidEndEditing:(UITextField *)textField{
+-(void)textFieldDidEndEditing:(COCDTF *)textField{
     [_cocdOBj changeValueBasedonTag:textField withValue:textField.text];
     NSLog(@"%@",_cocdOBj);
 }
@@ -528,5 +547,67 @@
     
 }
 
+-(void)downloadFormDetails{
+    
+   NSDictionary * dict = @{
+        @"buyersInfoWrapper":
+        @{
+                @"AccountID":_cocdOBj.salesforceId,
+                @"city":handleNull(_cocdOBj.City),
+                @"country":handleNull(_cocdOBj.Country),
+                @"phone":handleNull(_cocdOBj.Mobile),
+                @"state":handleNull(_cocdOBj.State),
+                @"postalCode":handleNull(_cocdOBj.PostalCode),
+                @"email":handleNull(_cocdOBj.Email),
+                @"mobileCountryCode":handleNull(kUserProfile.countryCode),
+                @"address1":handleNull(_cocdOBj.AddressLine1),
+                @"address2":handleNull(_cocdOBj.AddressLine2),
+                @"address3":handleNull(_cocdOBj.AddressLine3),
+                @"address4":handleNull(_cocdOBj.AddressLine4),
+        }
+        };
+    
+    ServerAPIManager *srvr = [ServerAPIManager sharedinstance];
+    [srvr postRequestwithUrl:downloadFormUrl withParameters:dict successBlock:^(id responseObj) {
+        if(responseObj){
+            NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObj options:0 error:nil];
+            NSLog(@"%@",dic);
+        }
+    } errorBlock:^(NSError *error) {
+        
+    }];
+}
 
+
+#pragma Mark Keyboard
+- (void)keyboardWillShow:(NSNotification *)notification
+{
+    CGSize keyboardSize = [[[notification userInfo] objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    
+    UIEdgeInsets contentInsets;
+    if (UIInterfaceOrientationIsPortrait([[UIApplication sharedApplication] statusBarOrientation])) {
+        contentInsets = UIEdgeInsetsMake(0.0, 0.0, (keyboardSize.height), 0.0);
+    } else {
+        contentInsets = UIEdgeInsetsMake(0.0, 0.0, (keyboardSize.width), 0.0);
+    }
+    
+    NSNumber *rate = notification.userInfo[UIKeyboardAnimationDurationUserInfoKey];
+    [UIView animateWithDuration:rate.floatValue animations:^{
+        self.tableView.contentInset = contentInsets;
+        self.tableView.scrollIndicatorInsets = contentInsets;
+        [self.tableView scrollToRowAtIndexPath:self.editingIndexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    }];
+    
+}
+- (void)keyboardWillHide:(NSNotification *)notification
+{
+    
+    NSNumber *rate = notification.userInfo[UIKeyboardAnimationDurationUserInfoKey];
+    [UIView animateWithDuration:rate.floatValue animations:^{
+        self.tableView.contentInset = UIEdgeInsetsZero;
+        self.tableView.scrollIndicatorInsets = UIEdgeInsetsZero;
+    }];
+
+   
+}
 @end

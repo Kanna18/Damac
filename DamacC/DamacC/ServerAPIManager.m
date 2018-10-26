@@ -174,6 +174,7 @@ enum HTTPMethod {
                                    };
     }
     NSDictionary *parameters = dictParam;
+    NSLog(@"BearerToken--%@",[NSString stringWithFormat:@"Bearer %@",sf.currentUser.credentials.accessToken]);
     
     NSData *postData = [NSJSONSerialization dataWithJSONObject:parameters options:0 error:nil];
     

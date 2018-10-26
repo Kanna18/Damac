@@ -12,6 +12,7 @@
 #import "popObject.h"
 #import "PassportObject.h"
 #import "JointBuyerObject.h"
+#import "ComplaintsObj.h"
 
 //#define ChangeofDetailsServicesUrl @"https://partial-servicecloudtrial-155c0807bf-1580afc5db1.cs80.force.com/MobileApp/services/apexrest/SaveChangeOfDetailsCase/"
 //#define ComplaintsServiceUrl @"https://partial-servicecloudtrial-155c0807bf-1580afc5db1.cs80.force.com/MobileApp/services/apexrest/SaveComplaintFromMobileApp/"
@@ -28,7 +29,8 @@
 #define kPassportUpdateConstant @"Passport Detail Update SR"
 #define kPromotionsConstant     @"Promotions"
 #define kMortgageConstant       @"Mortgage"
-#define kComplaintConstant      @"Complaint"
+#define kComplaintConstant      @"Complaints SR"
+
 
 
 @interface ServicesDetailController ()<UITableViewDelegate,UITableViewDataSource>
@@ -42,6 +44,7 @@
     COCDServerObj *cocd;
     PassportObject *passObj;
     JointBuyerObject *jointBuyerObj;
+    ComplaintsObj *complaintsObj;
 }
 
 - (void)viewDidLoad {
@@ -106,8 +109,39 @@
     if([srD.SR_Type__c isEqualToString:kJointBuyerConstant]){
         [self fillLabelsForJointBuyer];
     }
+    if([srD.Type isEqualToString:kComplaintConstant]){
+        [self fillLabelsForComplaints];
+    }
     [FTIndicator performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
 }
+
+-(void)fillLabelsForComplaints{
+    headingLabels = @[@"SR No.",
+                      @"SR Raised Date",
+                      @"Buyer",
+                      @"Unit Name",
+                      @"SR Type",
+                      @"Complaint Type",
+                      @"Complaint Sub-Type",
+                      @"Complaint Description",
+                      @"Attachment1 Url",
+                      @"Attachment2 Url"];
+    
+    dataLabels = @[[NSString stringWithFormat:@"%@ - %@",handleNull(_servicesDataModel.CaseNumber),handleNull(_servicesDataModel.Status)],
+                   [self returnDate:_servicesDataModel.CreatedDate],
+                   [NSString stringWithFormat:@"%@",handleNull(_servicesDataModel.Account.Name)],
+                   handleNull(srD.Unit_Name__c),
+                   handleNull(srD.Type),
+                   handleNull(srD.Complaint_Type__c),
+                   handleNull(srD.Complaint_Sub_Type__c),
+                   handleNull(srD.Description),
+                   handleNull(srD.OD_File_URL__c),
+                   handleNull(srD.Additional_Doc_File_URL__c),
+                   ];
+    complaintsObj = [[ComplaintsObj alloc]init];
+    [complaintsObj fillValuesWithServiceDetails:srD];
+}
+
 -(void)fillLabelsForJointBuyer{
     headingLabels = @[@"SR No.",
                       @"SR Raised Date",
@@ -271,6 +305,11 @@
         [jointBuyerObj sendJointBuyerResponsetoserver];
         [FTIndicator showProgressWithMessage:@"Please wait"];
     }
+    if([srD.Type isEqualToString:kComplaintConstant]){
+        complaintsObj.Status = @"Cancelled";
+        [complaintsObj sendDraftStatusToServer];
+        [FTIndicator showProgressWithMessage:@"Please wait"];
+    }
 }
 
 #pragma mark Tableview Delegates
@@ -339,6 +378,13 @@
         chd.jointObj = jointBuyerObj;
         [self.navigationController pushViewController:chd animated:YES];
     }
+    if([srD.Type isEqualToString:kComplaintConstant]){
+        ComplaintsViewController *chd = [self.storyboard instantiateViewControllerWithIdentifier:@"complaintsViewController"];
+        chd.complaintsObj= complaintsObj;
+        [self.navigationController pushViewController:chd animated:YES];
+    }
+    
+    
 }
 
 @end

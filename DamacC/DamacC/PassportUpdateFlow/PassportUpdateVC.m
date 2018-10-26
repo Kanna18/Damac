@@ -397,7 +397,11 @@
         countoFImagestoUplaod++;
     }
     
-    
+    if(countoFImagestoUplaod==0){//If there are noImages To upload while saving
+        
+        [self.passportObj sendPassportResponsetoServer];
+    }
+
 }
 
 

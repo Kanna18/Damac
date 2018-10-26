@@ -15,5 +15,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *currentLabel;
 @property (weak, nonatomic) IBOutlet UITableView *detailsTableview;
 @property (weak, nonatomic) IBOutlet UIButton *headingButton;
+- (IBAction)profileImageUploadClick:(id)sender;
+@property (weak, nonatomic) IBOutlet UIImageView *profilePic;
 
 @end

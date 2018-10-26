@@ -120,6 +120,9 @@
                                 <integer key="value" value="4"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
+                        <connections>
+                            <action selector="receiptsClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="zOl-Bh-PKT"/>
+                        </connections>
                     </button>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yvy-41-4Xh">
                         <rect key="frame" x="0.0" y="225.5" width="434" height="1"/>
@@ -145,6 +148,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
+                <outlet property="generateReceiptButton" destination="dEf-kx-FGK" id="TPi-sM-ynb"/>
                 <outlet property="label1" destination="hqw-vM-dUh" id="d4v-nt-F1g"/>
                 <outlet property="label2" destination="X00-Pv-Xq9" id="UoJ-DG-ubr"/>
                 <outlet property="label3" destination="3su-Jw-fTI" id="nPs-RU-ZAI"/>

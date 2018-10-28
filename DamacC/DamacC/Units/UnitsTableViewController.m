@@ -38,6 +38,7 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"UnitsCell" bundle:nil] forCellReuseIdentifier:@"unitsCell"];
     headerIndex = -1;
      [self webServiceCall];
+    DamacSharedClass.sharedInstance.currentVC = self;
     
     
 }
@@ -82,7 +83,8 @@
     cell.printDocButton.tag = 100 +indexPath.section;
     cell.payNowButton.tag = 500 +indexPath.section;
     [cell.printDocButton addTarget:self action:@selector(printDocumentsClick:) forControlEvents:UIControlEventTouchUpInside];
-    [cell.payNowButton addTarget:self action:@selector(payNow:) forControlEvents:UIControlEventTouchUpInside];
+    cell.dueAmount = rs.totalDueInvoice;
+//    [cell.payNowButton addTarget:self action:@selector(payNow:) forControlEvents:UIControlEventTouchUpInside];
     return cell;
 }
 
@@ -245,6 +247,7 @@
     }
 }
 - (void)payNow:(id)sender{
+    
     ErrorViewController *errvc =[self.storyboard instantiateViewControllerWithIdentifier:@"errorVC"];
     [self presentViewController:errvc animated:YES completion:nil];
 //    BillingViewController *bvc = [self.storyboard instantiateViewControllerWithIdentifier:@"billVC"];

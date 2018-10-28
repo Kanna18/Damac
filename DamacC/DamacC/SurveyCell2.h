@@ -11,13 +11,15 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SurveyCell2 : UICollectionViewCell<UITableViewDelegate,UITableViewDataSource>
+@interface SurveyCell2 : UICollectionViewCell<UITableViewDelegate,UITableViewDataSource,UITextViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *continueSurveyBtn;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *textViewHeightConstraint;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-
+@property (nonatomic) UICollectionView *parentCollectionView;
+- (IBAction)surveyBtnClick:(id)sender;
+@property NSMutableArray *surveyArray;
 @end
 
 NS_ASSUME_NONNULL_END

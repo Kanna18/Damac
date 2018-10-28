@@ -29,6 +29,8 @@
     //    [_collectionView registerClass:[PopCell2 class] forCellWithReuseIdentifier:@"popCell2"];
     //    [_collectionView registerClass:[PopCell3 class] forCellWithReuseIdentifier:@"popCell3"];
 //    self.collectionView.scrollEnabled = NO;
+    DamacSharedClass.sharedInstance.currentVC = self;
+    _collectionView.scrollEnabled = NO;
 }
 
 
@@ -42,26 +44,38 @@
     
     if(indexPath.row==0){
         SurveyCell1 *pCell1 = [collectionView dequeueReusableCellWithReuseIdentifier:@"surveyCell1" forIndexPath:indexPath];
+        pCell1.parentCollectionView = _collectionView;
+        pCell1.surveyArray = _surveyArray;
         return pCell1;
     }
     if(indexPath.row==1){
         SurveyCell2 *pCell2 = [collectionView dequeueReusableCellWithReuseIdentifier:@"surveyCell2" forIndexPath:indexPath];
+        pCell2.parentCollectionView = _collectionView;
+        pCell2.surveyArray = _surveyArray;
         return pCell2;
     }
     if(indexPath.row==2){
         SurveyCell3 *pCell3 = [collectionView dequeueReusableCellWithReuseIdentifier:@"surveyCell3" forIndexPath:indexPath];
+        pCell3.parentCollectionView = _collectionView;
+        pCell3.surveyArray = _surveyArray;
         return pCell3;
     }
     if(indexPath.row==3){
         SurveyCell4 *pCell4 = [collectionView dequeueReusableCellWithReuseIdentifier:@"surveyCell4" forIndexPath:indexPath];
+        pCell4.parentCollectionView = _collectionView;
+        pCell4.surveyArray = _surveyArray;
         return pCell4;
     }
     if(indexPath.row==4){
         SurveyCell5 *pCell5 = [collectionView dequeueReusableCellWithReuseIdentifier:@"surveyCell5" forIndexPath:indexPath];
+        pCell5.parentCollectionView = _collectionView;
+        pCell5.surveyArray = _surveyArray;
         return pCell5;
     }
     if(indexPath.row==5){
         SurveyCell6 *pCell6 = [collectionView dequeueReusableCellWithReuseIdentifier:@"surveyCell6" forIndexPath:indexPath];
+        pCell6.parentCollectionView = _collectionView;
+        pCell6.surveyArray = _surveyArray;
         return pCell6;
     }
     

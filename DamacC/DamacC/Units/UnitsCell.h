@@ -26,5 +26,5 @@
 @property (weak, nonatomic) IBOutlet UIStackView *stackView2;
 @property (weak, nonatomic) IBOutlet UIStackView *stackView3;
 @property (weak, nonatomic) IBOutlet UILabel *statusLabel;
-
+@property (weak, nonatomic) NSString *dueAmount;
 @end

@@ -17,7 +17,10 @@ NS_ASSUME_NONNULL_BEGIN
 - (IBAction)threeClick:(id)sender;
 - (IBAction)fourCLick:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextView *uitextView;
-
+@property (nonatomic) UICollectionView *parentCollectionView;
+@property NSMutableArray *surveyArray;
+@property (weak, nonatomic) IBOutlet UIButton *surveyButton;
+- (IBAction)surveyClick:(id)sender;
 
 @end
 

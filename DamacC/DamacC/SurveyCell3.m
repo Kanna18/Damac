@@ -25,6 +25,7 @@
                       @"Please rate your overall experience on DAMAC customer service provided",
                       @"How would you rate your overall experience with DAMAC properties"
                       ];
+    _continueSurveyBtn.enabled = YES;        
 }
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
@@ -36,13 +37,18 @@
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
     Sub_SurveyCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"sub_SurveyCell" forIndexPath:indexPath];
+    cell.cellTagValue = (int)indexPath.row;
     cell.questionLabel.text = [NSString stringWithFormat:@"%ld",indexPath.row +1];
     cell.headingLabel.text = headingLabels[indexPath.row];
+    cell.surveyArray = _surveyArray;
     return cell;
     
 }
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    return CGSizeMake(_collectionView.frame.size.width-80, 330);
+    return CGSizeMake(_collectionView.frame.size.width-80, 340);
+}
+- (IBAction)continueSurveyClick:(id)sender {
+     [_parentCollectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:3 inSection:0] atScrollPosition:UICollectionViewScrollPositionRight animated:YES];
 }
 @end

@@ -17,7 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (IBAction)threeClick:(id)sender;
 - (IBAction)fourCLick:(id)sender;
 - (IBAction)fiveClick:(id)sender;
-
+@property (nonatomic) UICollectionView *parentCollectionView;
+@property NSMutableArray *surveyArray;
 @end
 
 NS_ASSUME_NONNULL_END

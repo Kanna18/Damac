@@ -10,14 +10,23 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Sub_SurveyCell : UICollectionViewCell
+
+@interface Sub_SurveyCell : UICollectionViewCell<UITextViewDelegate>
 - (IBAction)highlyDissatisfiedClick:(id)sender;
 - (IBAction)satisfiedClick:(id)sender;
 - (IBAction)happyClick:(id)sender;
 @property (weak, nonatomic) IBOutlet UILabel *headingLabel;
 - (IBAction)notApplicableClick:(id)sender;
 @property (weak, nonatomic) IBOutlet UILabel *questionLabel;
+@property (weak, nonatomic) IBOutlet UITextView *textView;
 
+@property (weak, nonatomic) IBOutlet UIImageView *dissatisfiedImage;
+@property (weak, nonatomic) IBOutlet UIImageView *satisfiedImage;
+@property (weak, nonatomic) IBOutlet UIImageView *happyImage;
+@property (weak, nonatomic) IBOutlet UIImageView *notApplicableImage;
+@property (nonatomic) UICollectionView *parentCollectionView;
+@property NSMutableArray *surveyArray;
+@property int cellTagValue;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -7,7 +7,7 @@
 //
 
 #import "UnitsCell.h"
-
+#import "BillingViewController.h"
 @implementation UnitsCell
 
 - (void)awakeFromNib {
@@ -20,6 +20,7 @@
     [self buttonsRadius:_payNowButton];
     [self buttonsRadius:_printDocButton];
     _printDocButton.layer.borderColor = rgb(191, 154, 88).CGColor;
+    [_payNowButton addTarget:self action:@selector(payNow:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 -(void)buttonsRadius:(UIButton*)btn{
@@ -41,4 +42,17 @@
     // Configure the view for the selected state
 }
 
+- (void)payNow:(id)sender{
+ 
+    if([_dueAmount integerValue]>0){
+        BillingViewController *bvc = [DamacSharedClass.sharedInstance.currentVC.storyboard instantiateViewControllerWithIdentifier:@"billVC"];
+        [DamacSharedClass.sharedInstance.currentVC.navigationController pushViewController:bvc animated:YES];
+    }
+    else{
+        [FTIndicator showToastMessage:@"No OutStanding Amount"];
+    }
+//    ErrorViewController *errvc =[self.storyboard instantiateViewControllerWithIdentifier:@"errorVC"];
+//    [self presentViewController:errvc animated:YES completion:nil];
+
+}
 @end

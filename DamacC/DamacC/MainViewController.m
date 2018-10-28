@@ -20,6 +20,7 @@
 #import "ReceiptsTableVC.h"
 #import "SurveyViewController.h"
 #import "ComplaintsObj.h"
+#import "SurveyController.h"
 
 
 
@@ -84,6 +85,7 @@
 //    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
         [FTIndicator showProgressWithMessage:@"Loading"];
         [self getUnitsintheBakground];
+        self.view.userInteractionEnabled = NO;
 //    });
     
 }
@@ -136,6 +138,7 @@
 }
 -(void)dismissProgress{
     [FTIndicator dismissProgress];
+    self.view.userInteractionEnabled = YES;
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -424,9 +427,8 @@
         
     }
     if([str isEqualToString:kSurveys]){
-        SurveyViewController *cvc = [self.storyboard instantiateViewControllerWithIdentifier:@"surveyViewController"];
+        SurveyController *cvc = [self.storyboard instantiateViewControllerWithIdentifier:@"surveyController"];
         [self.navigationController pushViewController:cvc animated:YES];
-        
     }
     
     

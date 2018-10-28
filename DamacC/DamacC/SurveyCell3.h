@@ -13,7 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface SurveyCell3 : UICollectionViewCell<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UIButton *continueSurveyBtn;
-
+- (IBAction)continueSurveyClick:(id)sender;
+@property (nonatomic) UICollectionView *parentCollectionView;
+@property NSMutableArray *surveyArray;
 @end
-
 NS_ASSUME_NONNULL_END

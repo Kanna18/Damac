@@ -16,4 +16,5 @@
 - (IBAction)soaClick:(id)sender;
 - (IBAction)serviceChargesClick:(id)sender;
 - (IBAction)penalityClick:(id)sender;
+@property ResponseLine *currentUnit;
 @end

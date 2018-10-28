@@ -13,6 +13,7 @@
     __weak IBOutlet UIImageView *image1;
     __weak IBOutlet UIImageView *image3;
     __weak IBOutlet UIImageView *image2;
+    
 }
 
 /*
@@ -41,12 +42,47 @@
     img.clipsToBounds = YES;
     
 }
+
 - (IBAction)soaClick:(id)sender {
+    
+    NSLog(@"%@",_currentUnit);
+    [self getArrayAndLoadWebService:1];
 }
 
 - (IBAction)serviceChargesClick:(id)sender {
+    NSLog(@"%@",_currentUnit);
+    [self getArrayAndLoadWebService:2];
 }
 
 - (IBAction)penalityClick:(id)sender {
+    NSLog(@"%@",_currentUnit);
+    [self getArrayAndLoadWebService:3];
+}
+
+
+-(void)getArrayAndLoadWebService:(int)index{
+    
+    [FTIndicator showProgressWithMessage:@"Please wait"];
+    Action *action = _currentUnit.actions[index];
+    ServerAPIManager *server = [ServerAPIManager sharedinstance];
+    [server getRequestwithUrl:action.url successBlock:^(id responseObj) {
+        if(responseObj){
+            NSDictionary *di = [NSJSONSerialization JSONObjectWithData:responseObj options:0 error:nil];
+            NSString *url = [di[@"actions"][0] valueForKey:@"url"];
+            [self openReceiptinSafari:url];
+        }
+    } errorBlock:^(NSError *error) {
+        
+    }];
+}
+
+-(void)openReceiptinSafari:(NSString*)url{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [FTIndicator dismissProgress];
+        if([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:url]])
+        {
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url] options:nil completionHandler:nil];
+        }
+    });
 }
 @end

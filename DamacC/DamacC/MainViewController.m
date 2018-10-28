@@ -84,8 +84,10 @@
     
 //    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
         [FTIndicator showProgressWithMessage:@"Loading"];
+    if(!([DamacSharedClass sharedInstance].unitsArray.count>0)){
         [self getUnitsintheBakground];
         self.view.userInteractionEnabled = NO;
+    }
 //    });
     
 }
@@ -138,7 +140,7 @@
 }
 -(void)dismissProgress{
     [FTIndicator dismissProgress];
-    self.view.userInteractionEnabled = YES;
+
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -265,7 +267,7 @@
         [self loadBasedontheclick:kMyServiceRequests];
     }if([item.title isEqualToString:@"Create E-Services"]){
         [self loadBasedontheclick:kEServices];
-    }if([item.title isEqualToString:@"Payments"]){
+    }if([item.title isEqualToString:@"Payment Schedules"]){
         [self loadBasedontheclick:kMyPaymentScedules];
     }if([item.title isEqualToString:@"User Profile"]){
         [self loadBasedontheclick:@"User Profile"];
@@ -273,6 +275,9 @@
         [self loadBasedontheclick:kSOA];
     }if([item.title isEqualToString:kprofilePage]){
         [self loadBasedontheclick:kprofilePage];
+    }
+    if([item.title isEqualToString:@"Create Requests"]){
+        [self loadBasedontheclick:kEServices];
     }
     
 }
@@ -341,7 +346,6 @@
         cell.thumbImageView.image = [UIImage imageNamed:[topCVArray[indexPath.row] valueForKey:@"image"]];
         cell.label1.text = [topCVArray[indexPath.row] valueForKey:@"value"];
         cell.label2.text = [topCVArray[indexPath.row] valueForKey:@"key"];
-        [cell.label2 setAdjustsFontSizeToFitWidth:YES];
         [cell.label1 setAdjustsFontSizeToFitWidth:YES];
         return cell;
     }
@@ -435,7 +439,7 @@
 }
 
 -(void)getUnitsintheBakground{
-    
+    DamacSharedClass.sharedInstance.windowButton.userInteractionEnabled = NO;
     NSString *str = [DamacSharedClass sharedInstance].userProileModel.partyId;;
     NSString *unitsUrl = [unitsServiceUrl stringByAppendingString:str?str:@"1036240"];
     ServerAPIManager *server = [ServerAPIManager sharedinstance];
@@ -445,13 +449,18 @@
                 NSError *err;
                 UnitsDataModel  *unitsDM = [[UnitsDataModel alloc]initWithDictionary:dataDictionaryUnits error:&err];
                 [DamacSharedClass sharedInstance].unitsArray = [[NSMutableArray alloc]initWithArray:unitsDM.responseLines];
-                [FTIndicator performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
+                [self performSelectorOnMainThread:@selector(loadingUnitsValidations) withObject:nil waitUntilDone:YES];
             }
         } errorBlock:^(NSError *error) {
-            [FTIndicator performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
+            [FTIndicator performSelectorOnMainThread:@selector(loadingUnitsValidations) withObject:nil waitUntilDone:YES];
+            
     }];
 }
-
+-(void)loadingUnitsValidations{
+    self.view.userInteractionEnabled = YES;
+    DamacSharedClass.sharedInstance.windowButton.userInteractionEnabled = YES;
+    [FTIndicator dismissProgress];
+}
 -(NSString*)returnNextScreenWebUrlBasedOnGridClick:(NSString*)type{
     if(dataDictionary&&[dataDictionary[@"actions"] count]>0){
         NSArray *arr = dataDictionary[@"actions"];

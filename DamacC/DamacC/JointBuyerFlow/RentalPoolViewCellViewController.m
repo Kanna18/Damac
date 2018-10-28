@@ -19,6 +19,8 @@
 @implementation RentalPoolViewCellViewController{
     
     WYPopoverController* popoverController;
+    WYPopoverController* popoverBuyers;
+    
     KPDropMenu *dropNew;
     StepperView *sterView;
     JointBView2 *jbView ;
@@ -30,6 +32,7 @@
     NSArray *headingLabels ,*dataLabels;
     NSArray *countriesArray;
     int countoFImagestoUplaod,countoFImagesUploaded;
+    COCDTF *currentTextFieldRef;
 
 }
 
@@ -54,17 +57,17 @@
     countoFImagestoUplaod = 0;
     countoFImagesUploaded = 0;
 //    _scrollView.scrollEnabled = NO;
+    [self roundCorners:_buyersNewBtn];
 }
+
 -(void)roundCorners:(UIButton*)sender{
     
-    sender.layer.cornerRadius = 15;
+    sender.layer.cornerRadius = 5;
     sender.layer.borderColor = rgb(191, 154, 88).CGColor;
     sender.layer.borderWidth = 2.0f;
     sender.clipsToBounds = YES;
     
 }
-
-
 
 -(void)webServicetoGetUnitSFIds{
     
@@ -91,7 +94,7 @@
                     [buyersInfoArr addObject:dict];
                 }
                 if(Count == arr.count-1){
-                    [self performSelectorOnMainThread:@selector(dropMenu) withObject:nil waitUntilDone:YES];
+                    [self performSelectorOnMainThread:@selector(fillBuyersArray) withObject:nil waitUntilDone:YES];
                     [FTIndicator performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
                 }
                 Count++;
@@ -108,8 +111,22 @@
     [self.view addSubview:sterView];
     _stepperViewBase.backgroundColor = [UIColor clearColor];
     DamacSharedClass.sharedInstance.windowButton.hidden = YES;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShow:)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHide:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
 }
-
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:YES];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+}
 
 -(void)initialiseSecondViewThirdView{
     
@@ -217,6 +234,23 @@
     popoverController.accessibilityNavigationStyle=UIAccessibilityNavigationStyleCombined;
     [popoverController presentPopoverFromRect:drop.bounds inView:drop permittedArrowDirections:WYPopoverArrowDirectionUp animated:YES options:WYPopoverAnimationOptionFadeWithScale];
 }
+-(void)fillBuyersArray{
+    for (int i = 0; i<buyersInfoArr.count ; i++ ) {
+        [dropitems addObject:(NSString*)[buyersInfoArr[i] valueForKey:@"First_Name__c"]];
+    }
+    [dropitems addObject:kUserProfile.partyName];
+}
+-(void)showpBuyersopover:(UIButton*)drop{
+    PopTableViewController *popVC=[self.storyboard instantiateViewControllerWithIdentifier:@"popTableVC"];
+    popVC.delegate=self;
+    popVC.tvData = dropitems;
+    
+    popoverBuyers = [[WYPopoverController alloc] initWithContentViewController:popVC];
+    popoverBuyers.delegate = self;
+    popoverBuyers.popoverContentSize=CGSizeMake(drop.frame.size.width, dropitems.count*50);
+    popoverBuyers.accessibilityNavigationStyle=UIAccessibilityNavigationStyleCombined;
+    [popoverBuyers presentPopoverFromRect:drop.bounds inView:drop permittedArrowDirections:WYPopoverArrowDirectionUp animated:YES options:WYPopoverAnimationOptionFadeWithScale];
+}
 
 #pragma mark popover Delegates
 - (BOOL)popoverControllerShouldDismissPopover:(WYPopoverController *)controller
@@ -230,10 +264,20 @@
 }
 
 -(void)selectedFromDropMenu:(NSString *)str forType:(NSString *)type withTag:(int)tag{
-    self.jointObj.country = str;
-    [_dropDownCountriesBtn setTitle:self.jointObj.country forState:UIControlStateNormal];
-    [self.tableView reloadData];
-    [popoverController dismissPopoverAnimated:YES];
+    
+    if(popoverBuyers){
+        [_buyersNewBtn setTitle:dropitems[tag] forState:UIControlStateNormal];
+        _heightConstraint.constant = 20;
+        _detailView.hidden = NO;
+        [self fillLabelsforJointBuyer:tag];
+        [popoverBuyers dismissPopoverAnimated:YES];
+    }
+    if(popoverController){
+        self.jointObj.country = str;
+        [_dropDownCountriesBtn setTitle:self.jointObj.country forState:UIControlStateNormal];
+        [self.tableView reloadData];
+        [popoverController dismissPopoverAnimated:YES];
+    }
     
 }
 
@@ -277,6 +321,7 @@
     cell.headingLabel.text = headingLabels[indexPath.row][@"key"];
     cell.textField.text = headingLabels[indexPath.row][@"value"];
     cell.textField.delegate = self;
+    cell.textField.tfIndexPath = indexPath;
     cell.textField.tag = [headingLabels[indexPath.row][@"tag"] intValue];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
 
@@ -288,8 +333,13 @@
 
 
 -(void)fillLabelsforJointBuyer:(int)indexVal{
-    
-    jbView.joObj = self.jointObj;
+    if(!self.jointObj){
+        JointBuyerObject *jobj = [[JointBuyerObject alloc]init];
+        jbView.joObj = jobj;
+        self.jointObj = jobj;
+    }else{
+        jbView.joObj = self.jointObj;
+    }
     if(indexVal == dropitems.count-1){
         [self.jointObj fillObjectWithPrimaryBuyerInfo];
     }else{
@@ -297,42 +347,48 @@
     }
     [_dropDownCountriesBtn setTitle:self.jointObj.country forState:UIControlStateNormal];
     headingLabels = @[@{@"key":@"Address1",
-                       @"value":self.jointObj.address1,
+                       @"value":handleNull(self.jointObj.address1),
                        @"tag" : [NSNumber numberWithInt:Address1J]},
                      @{@"key":@"Address2",
-                       @"value":self.jointObj.address2,
+                       @"value":handleNull(self.jointObj.address2),
                        @"tag" : [NSNumber numberWithInt:Address2J]},
                      @{@"key":@"Address3",
-                       @"value":self.jointObj.address3,
+                       @"value":handleNull(self.jointObj.address3),
                        @"tag" : [NSNumber numberWithInt:Address3J]},
                      @{@"key":@"Address4",
-                       @"value":self.jointObj.address4,
+                       @"value":handleNull(self.jointObj.address4),
                        @"tag" : [NSNumber numberWithInt:Address4J]},
                      @{@"key":@"City",
-                       @"value":self.jointObj.city,
+                       @"value":handleNull(self.jointObj.city),
                        @"tag" : [NSNumber numberWithInt:CityJ]},
                      @{@"key":@"State",
-                       @"value":self.jointObj.state,
+                       @"value":handleNull(self.jointObj.state),
                        @"tag" : [NSNumber numberWithInt:StateJ]},
                      @{@"key":@"PostalCode",
-                       @"value":self.jointObj.postalCode,
+                       @"value":handleNull(self.jointObj.postalCode),
                        @"tag" : [NSNumber numberWithInt:PostalCodeJ]},
                      @{@"key":@"Email",
-                       @"value":self.jointObj.email,
+                       @"value":handleNull(self.jointObj.email),
                        @"tag" : [NSNumber numberWithInt:EmailJ]},
                      @{@"key":@"Mobile",
-                       @"value":self.jointObj.phone,
+                       @"value":handleNull(self.jointObj.phone),
                        @"tag" : [NSNumber numberWithInt:MobileJ]}];
     
     [_tableView reloadData];
 }
 #pragma mark: Textfield Delegates
--(BOOL)textFieldShouldReturn:(UITextField *)textField{
+-(void)textFieldDidBeginEditing:(COCDTF *)textField{
+    
+    currentTextFieldRef = textField;
+    self.editingIndexPath = textField.tfIndexPath;
+    
+}
+-(BOOL)textFieldShouldReturn:(COCDTF *)textField{
     [textField resignFirstResponder];
     return YES;
 }
 
--(void)textFieldDidEndEditing:(UITextField *)textField{
+-(void)textFieldDidEndEditing:(COCDTF *)textField{
     [self.jointObj changeValueBasedonTag:textField withValue:textField.text];
     NSLog(@"%@",self.jointObj);
 }
@@ -414,5 +470,41 @@
 
 - (IBAction)saveDraftCLickView:(id)sender {
     [self saveDraftJointBuyers];
+}
+- (IBAction)buyersNewDropDownClick:(id)sender {
+    [self showpBuyersopover:(UIButton*)sender];
+}
+
+
+#pragma Mark Keyboard
+- (void)keyboardWillShow:(NSNotification *)notification
+{
+    CGSize keyboardSize = [[[notification userInfo] objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    
+    UIEdgeInsets contentInsets;
+    if (UIInterfaceOrientationIsPortrait([[UIApplication sharedApplication] statusBarOrientation])) {
+        contentInsets = UIEdgeInsetsMake(0.0, 0.0, (keyboardSize.height), 0.0);
+    } else {
+        contentInsets = UIEdgeInsetsMake(0.0, 0.0, (keyboardSize.width), 0.0);
+    }
+    
+    NSNumber *rate = notification.userInfo[UIKeyboardAnimationDurationUserInfoKey];
+    [UIView animateWithDuration:rate.floatValue animations:^{
+        self.tableView.contentInset = contentInsets;
+        self.tableView.scrollIndicatorInsets = contentInsets;
+        [self.tableView scrollToRowAtIndexPath:self.editingIndexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    }];
+    
+}
+- (void)keyboardWillHide:(NSNotification *)notification
+{
+    
+    NSNumber *rate = notification.userInfo[UIKeyboardAnimationDurationUserInfoKey];
+    [UIView animateWithDuration:rate.floatValue animations:^{
+        self.tableView.contentInset = UIEdgeInsetsZero;
+        self.tableView.scrollIndicatorInsets = UIEdgeInsetsZero;
+    }];
+    
+    
 }
 @end

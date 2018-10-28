@@ -82,7 +82,10 @@
     NSArray *arr = DamacSharedClass.sharedInstance.currentVC.navigationController.viewControllers;
     for (UIViewController *vc in arr) {
         if([vc isKindOfClass:[MainViewController class]]){
+            dispatch_async(dispatch_get_main_queue(), ^{
             [DamacSharedClass.sharedInstance.currentVC.navigationController popToViewController:vc animated:YES];
+            });
+            
         }
     }
 }

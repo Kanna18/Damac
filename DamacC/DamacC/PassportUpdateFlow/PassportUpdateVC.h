@@ -17,4 +17,6 @@
 - (IBAction)buyersClick:(id)sender;
 @property SaopServices *soap;
 @property SaopServices *soap2;
+
+@property NSIndexPath *editingIndexPath;
 @end

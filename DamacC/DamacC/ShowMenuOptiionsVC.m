@@ -42,6 +42,9 @@
     _skipButton.clipsToBounds =YES;
     
 }
+
+
+
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:YES];
     

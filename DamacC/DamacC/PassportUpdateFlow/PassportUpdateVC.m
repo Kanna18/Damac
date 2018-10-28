@@ -31,6 +31,10 @@
     
     NSArray *tvDataValues;
     int countoFImagestoUplaod,countoFImagesUploaded;
+    WSCalendarView *calendarView;
+    WSCalendarView *calendarViewEvent;
+    NSMutableArray *eventArray;
+    COCDTF *dateTFref;
 }
 
 - (void)viewDidLoad {
@@ -64,6 +68,8 @@
     DamacSharedClass.sharedInstance.windowButton.hidden = YES;
     countoFImagestoUplaod = 0 ;
     countoFImagesUploaded = 0 ;
+    
+    _tableView.clipsToBounds = YES;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -83,6 +89,75 @@
     }];
 }
 
+-(void)setCalendarInit{
+    
+    calendarView = [[[NSBundle mainBundle] loadNibNamed:@"WSCalendarView" owner:self options:nil] firstObject];
+    calendarView.tappedDayBackgroundColor=[UIColor blackColor];
+    calendarView.calendarStyle = WSCalendarStyleDialog;
+    calendarView.isShowEvent=false;
+    [calendarView setupAppearance];
+    [self.view addSubview:calendarView];
+    calendarView.delegate=self;
+    
+    eventArray=[[NSMutableArray alloc] init];
+    NSDate *lastDate;
+    NSDateComponents *dateComponent=[[NSDateComponents alloc] init];
+    for (int i=0; i<10; i++) {
+        
+        if (!lastDate) {
+            lastDate=[NSDate date];
+        }
+        else{
+            [dateComponent setDay:1];
+        }
+        NSDate *datein = [[NSCalendar currentCalendar] dateByAddingComponents:dateComponent toDate:lastDate options:0];
+        lastDate=datein;
+        [eventArray addObject:datein];
+    }
+    [calendarViewEvent reloadCalendar];
+    
+    NSLog(@"%@",[eventArray description]);
+}
+
+#pragma mark WSCalendarViewDelegate
+
+-(NSArray *)setupEventForDate{
+    return eventArray;
+}
+
+-(void)didTapLabel:(WSLabel *)lblView withDate:(NSDate *)selectedDate
+{
+    
+}
+-(void)deactiveWSCalendarWithDate:(NSDate *)selectedDate{
+    
+    NSDateFormatter *monthFormatter=[[NSDateFormatter alloc] init];
+    [monthFormatter setDateFormat:@"yyyy-MM-dd"];
+    
+    //    NSDateFormatter *todaysDate = [[NSDateFormatter alloc]init];
+    //    [todaysDate setDateFormat:@"dd MMM yyyy"];
+    NSDate *tdaysDate = [NSDate date];
+    NSComparisonResult result = [tdaysDate compare:selectedDate];
+    NSString *str=[monthFormatter stringFromDate:selectedDate];
+    NSLog(@"%ld",(long)result);
+    
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *dateComponent = [calendar components:(NSWeekOfYearCalendarUnit | NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit | NSCalendarUnitWeekday) fromDate:selectedDate];
+    
+    if(result == -1 ){
+        dateTFref.text =str;
+    }
+//    else if(dateComponent.weekday == 6 || dateComponent.weekday == 7){
+//        [FTIndicator showErrorWithMessage:@"Friday and Saturday are weekoff"];
+//        [calendarView ActiveCalendar:self.view];
+//    }
+    else{
+        [FTIndicator showErrorWithMessage:@"Selected Date should be greater"];
+        [calendarView ActiveCalendar:self.view];
+    }
+    self.passportObj.PassportIssuedDate = str;
+    
+}
 -(void)getBuyersInfoBasedonUnitIDS:(NSArray*)arr{
     __block int Count = 0;
     for (int i = 0; i<arr.count; i++) {
@@ -154,6 +229,7 @@
         cell1.topLabel.text =tvDataValues[indexPath.row][@"key"];
         cell1.textField.text = tvDataValues[indexPath.row][@"value"];
         cell1.textField.userInteractionEnabled = NO;
+        cell1.textField.tfIndexPath = indexPath;
         return cell1;
     }
     if (indexPath.section == 1){
@@ -162,6 +238,7 @@
         cell2.textField.text = tvDataValues[indexPath.row][@"newValue"];
         cell2.textField.tag = 1000+indexPath.row;
         cell2.textField.delegate = self;
+        cell2.textField.tfIndexPath = indexPath;
             return cell2;
     }
     if (indexPath.section == 2){
@@ -271,15 +348,32 @@
     [super viewDidAppear:YES];
     [self.view bringSubviewToFront:_baseSuperView];
     [_baseSuperView setNeedsDisplay];
+    [self setCalendarInit];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShow:)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHide:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
 
 }
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:YES];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+}
+
 -(void)saveDraftClickPassport{
     self.passportObj.status = @"Draft Request";
     [self responsePassport];
 }
 
 -(void)responsePassport{
-    
+        
     if(self.passportObj.AccountID.length<1){
         [FTIndicator showToastMessage:@"Please Select Buyer"];
         return;
@@ -353,16 +447,26 @@
 }
 
 #pragma mark TextFieldDelegates
--(BOOL)textFieldShouldReturn:(UITextField *)textField{
+
+-(void)textFieldDidBeginEditing:(COCDTF *)textField{
+    if(textField.tag == 1002){
+        [textField resignFirstResponder];
+        [calendarView ActiveCalendar:self.view];
+        dateTFref = textField;
+    }
+    self.editingIndexPath = textField.tfIndexPath;
+}
+-(BOOL)textFieldShouldReturn:(COCDTF *)textField{
     [textField resignFirstResponder];
     return YES;
 }
--(void)textFieldDidEndEditing:(UITextField *)textField{
+-(void)textFieldDidEndEditing:(COCDTF *)textField{
     [self SetValuesbasedonTag:textField];
+    [textField resignFirstResponder];
 }
 
 
--(void)SetValuesbasedonTag:(UITextField*)tf{
+-(void)SetValuesbasedonTag:(COCDTF*)tf{
     
     
     if(tf.tag == 1000){
@@ -425,5 +529,43 @@
         
         [self.passportObj sendPassportResponsetoServer];
     }
+}
+
+
+
+
+#pragma Mark Keyboard
+- (void)keyboardWillShow:(NSNotification *)notification
+{
+    CGSize keyboardSize = [[[notification userInfo] objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    
+    UIEdgeInsets contentInsets;
+    if (UIInterfaceOrientationIsPortrait([[UIApplication sharedApplication] statusBarOrientation])) {
+        contentInsets = UIEdgeInsetsMake(0.0, 0.0, (keyboardSize.height), 0.0);
+    } else {
+        contentInsets = UIEdgeInsetsMake(0.0, 0.0, (keyboardSize.width), 0.0);
+    }
+    
+    NSNumber *rate = notification.userInfo[UIKeyboardAnimationDurationUserInfoKey];
+    [UIView animateWithDuration:rate.floatValue animations:^{
+        self.tableView.contentInset = contentInsets;
+        self.tableView.scrollIndicatorInsets = contentInsets;
+        [self.tableView scrollToRowAtIndexPath:self.editingIndexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    }];
+    if(dateTFref.tag == 1002){
+        [dateTFref resignFirstResponder];
+    }
+    
+}
+- (void)keyboardWillHide:(NSNotification *)notification
+{
+    
+    NSNumber *rate = notification.userInfo[UIKeyboardAnimationDurationUserInfoKey];
+    [UIView animateWithDuration:rate.floatValue animations:^{
+        self.tableView.contentInset = UIEdgeInsetsZero;
+        self.tableView.scrollIndicatorInsets = UIEdgeInsetsZero;
+    }];
+    
+    
 }
 @end

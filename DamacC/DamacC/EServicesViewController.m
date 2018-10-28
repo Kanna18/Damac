@@ -10,6 +10,7 @@
 #import "POPViewController.h"
 #import "PassportUpdateFlow/PassportUpdateVC.h"
 #import "PassportObject.h"
+#import "ScheduleAppointmentsVC.h"
 @interface EServicesViewController ()
 
 @end
@@ -199,10 +200,16 @@
     
 }
 -(void)loadAppointments{
-    
+    ScheduleAppointmentsVC *pvc =[ self.storyboard instantiateViewControllerWithIdentifier:@"scheduleAppointmentsVC"];
+    [self.navigationController pushViewController:pvc animated:YES];
 }
 -(void)loadComplaints{
     
+    ComplaintsViewController *cvc = [self.storyboard instantiateViewControllerWithIdentifier:@"complaintsViewController"];
+    ComplaintsObj *comp = [[ComplaintsObj alloc]init];
+    [comp fillWithDefaultValues];
+    cvc.complaintsObj = comp;
+    [self.navigationController pushViewController:cvc animated:YES];
 }
 
 

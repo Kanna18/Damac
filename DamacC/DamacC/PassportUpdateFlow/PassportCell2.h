@@ -10,6 +10,6 @@
 #import "PassportObject.h"
 @interface PassportCell2 : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *topLabel;
-@property (weak, nonatomic) IBOutlet UITextField *textField;
+@property (weak, nonatomic) IBOutlet COCDTF *textField;
 @property PassportObject *passObj;
 @end

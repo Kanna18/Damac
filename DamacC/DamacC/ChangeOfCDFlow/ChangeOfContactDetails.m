@@ -72,9 +72,11 @@
     _downloadBtn.layer.borderColor = rgb(191, 154, 88).CGColor;
     
     [self getCountriesList];
-    
-    
+}
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
+    self.automaticallyAdjustsScrollViewInsets = NO;
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillShow:)
                                                  name:UIKeyboardWillShowNotification
@@ -84,11 +86,6 @@
                                              selector:@selector(keyboardWillHide:)
                                                  name:UIKeyboardWillHideNotification
                                                object:nil];
-}
-
--(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:YES];
-    self.automaticallyAdjustsScrollViewInsets = NO;
 }
 -(void)getCountriesList{
     ServerAPIManager *server = [ServerAPIManager sharedinstance];
@@ -111,6 +108,9 @@
 }
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:YES];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
 }
 
 - (void)didReceiveMemoryWarning {

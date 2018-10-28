@@ -49,9 +49,9 @@
 
 #pragma mark flying Options
 #define fyProfile @"MY PROFILE"
-#define fyCreateReq @"CREATE REQUESTS"
+#define fyCreateReq @"RAISE SERVICE REQUESTS"
 #define fyScheduleAppointments @"SCHEDULE APPOINTMENTS"
-#define fyLiveChat @"LIVE CHAT"
+#define fyLiveChat @"EMAIL"
 #define fyCustomerSer @"CALL CUSTOMER SERVICE"
 
 #pragma mark Webservices

@@ -83,6 +83,7 @@
     cell.printDocButton.tag = 100 +indexPath.section;
     cell.payNowButton.tag = 500 +indexPath.section;
     [cell.printDocButton addTarget:self action:@selector(printDocumentsClick:) forControlEvents:UIControlEventTouchUpInside];
+    cell.printDocButton.tag = indexPath.section;
     cell.dueAmount = rs.totalDueInvoice;
 //    [cell.payNowButton addTarget:self action:@selector(payNow:) forControlEvents:UIControlEventTouchUpInside];
     return cell;
@@ -225,7 +226,7 @@
 }
 */
 
-- (void)printDocumentsClick:(id)sender {
+- (void)printDocumentsClick:(UIButton*)sender {
     
     [self dismissDocView];
     
@@ -236,7 +237,8 @@
     docView = [[PrintDocView alloc]initWithFrame:CGRectMake(0, 0, 300, 276)];
     [bgView addSubview:docView];
     docView.center = self.view.center;
-    [docView.dismissViewBtn addTarget:self action:@selector(dismissDocView) forControlEvents:UIControlEventTouchUpInside];
+    [docView.dismissViewBtn addTarget:self action:@selector(dismissDocView) forControlEvents:UIControlEventTouchUpInside];    
+    docView.currentUnit = tvArray[sender.tag];
 }
 -(void)dismissDocView{
     if(docView){

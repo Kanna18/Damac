@@ -27,6 +27,9 @@
 @property SaopServices *soap;
 @property SaopServices *soap2;
 @property SaopServices *soap3;
+- (IBAction)buyersNewDropDownClick:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UIButton *buyersNewBtn;
 @property JointBuyerObject *jointObj;
+@property NSIndexPath *editingIndexPath;
 @end

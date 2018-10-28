@@ -171,7 +171,7 @@
                    @"",
                    handleNull(srD.Contact_Email__c),
                    handleNull(srD.Contact_Mobile__c),
-                   handleNull(srD.CRF_File_URL__c),
+                   handleNull(srD.OD_File_URL__c),
                    handleNull(srD.Additional_Doc_File_URL__c),
                    handleNull(srD.Passport_File_URL__c)];
     jointBuyerObj = [[JointBuyerObject alloc]init];

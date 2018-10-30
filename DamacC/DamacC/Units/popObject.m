@@ -8,7 +8,10 @@
 
 #import "popObject.h"
 
-@implementation popObject
+@implementation popObject{
+    
+    NSString *toastMessage;
+}
 -(instancetype)init{
     self = [super init];
     if(self){
@@ -51,15 +54,7 @@
     
 }
 
--(void)popToMainVC{
-    
-    NSArray *arr = DamacSharedClass.sharedInstance.currentVC.navigationController.viewControllers;
-    for (UIViewController *vc in arr) {
-        if([vc isKindOfClass:[MainViewController class]]){
-            [DamacSharedClass.sharedInstance.currentVC.navigationController popToViewController:vc animated:YES];
-        }
-    }
-}
+
 
 
 -(void)subMitPOPfromServicesSRDetails{
@@ -85,8 +80,7 @@
         if(responseObj){
             NSDictionary *dict =[NSJSONSerialization JSONObjectWithData:responseObj options:0 error:nil];
             NSLog(@"%@",dict);
-            [FTIndicator showToastMessage:@"SR has been Submitted"];
-            [FTIndicator performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
+            
             [self performSelectorOnMainThread:@selector(popToMainVC) withObject:nil waitUntilDone:YES];
         }
     } errorBlock:^(NSError *error) {
@@ -94,5 +88,28 @@
     }];
     
 }
+
+-(void)popToMainVC{
+    
+    if([self.status isEqualToString:@"Cancelled"]){
+        toastMessage = @"SR has been Cancelled successfully";
+    }
+    if([self.status isEqualToString:@"Draft Request"]){
+        toastMessage = @"Draft has been Successfully saved";
+    }
+    if([self.status isEqualToString:@"Submitted"]){
+        toastMessage = @"Submitted Successfully";
+    }
+    
+    [FTIndicator dismissProgress];
+    [FTIndicator showToastMessage:toastMessage];
+    NSArray *arr = DamacSharedClass.sharedInstance.currentVC.navigationController.viewControllers;
+    for (UIViewController *vc in arr) {
+        if([vc isKindOfClass:[MainViewController class]]){
+            [DamacSharedClass.sharedInstance.currentVC.navigationController popToViewController:vc animated:YES];
+        }
+    }
+}
+
 
 @end

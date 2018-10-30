@@ -17,6 +17,7 @@
 #define kUserProfile             [DamacSharedClass sharedInstance].userProileModel
 
 #define handleNull(val)         val?val:@""
+#define isEmpty(str) [str stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]].length>0?NO:YES
 
 #define goldColor rgb(191, 154, 88)
 

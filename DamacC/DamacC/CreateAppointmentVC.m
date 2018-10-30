@@ -7,8 +7,9 @@
 //
 
 #import "CreateAppointmentVC.h"
+#import "AppointmentsSlotsViewController.h"
 
-@interface CreateAppointmentVC ()
+@interface CreateAppointmentVC ()<WYPopoverControllerDelegate,POPDelegate>
 
 @end
 
@@ -18,6 +19,9 @@
     WSCalendarView *calendarView;
     WSCalendarView *calendarViewEvent;
     NSMutableArray *eventArray;
+    WYPopoverController* popoverPurpose;
+    WYPopoverController* popoverSubPurpose;
+    WYPopoverController* popoverUnit;
 
 }
 
@@ -34,6 +38,10 @@
                    @"16:00 - 17:00",
                    @"17:00 - 18:00"];
     [self loadingDropDownsList];
+    
+    _appointObj = [[AppointmentObject alloc]init];
+    
+
 }
 
 -(void)loadingDropDownsList{
@@ -45,9 +53,128 @@
     
 }
 -(void)viewDidAppear:(BOOL)animated{
+    
     [super viewDidAppear:YES];
-    [self setCalendarInit];
+    DamacSharedClass.sharedInstance.currentVC = self;
+//    [self setCalendarInit];
+    [self roundCorners:_selectUnitBtn];
+    [self roundCorners:_selectPurposeBtn];
+    [self roundCorners:_selectSubPurposeBtn];
+    
+    if(isEmpty(_appointObj.AppointmentDate)){
+        [_calendarBtn setTitle:@"select Appointment slot" forState:UIControlStateNormal];
+    }else{
+        [_calendarBtn setTitle:_appointObj.AppointmentDate forState:UIControlStateNormal];
+    }
+    if(isEmpty(_appointObj.TimeSlot)){
+        _slotLabel.text = @"Select Slot";
+    }else{
+        _slotLabel.text = _appointObj.TimeSlot;
+    }
+    
 }
+
+
+-(void)roundCorners:(UIButton*)sender{
+    
+    sender.layer.cornerRadius = 5;
+    sender.layer.borderColor = rgb(191, 154, 88).CGColor;
+    sender.layer.borderWidth = 2.0f;
+    sender.clipsToBounds = YES;
+    
+}
+#pragma mark: PopOver allocation
+-(void)showpopover:(UIButton*)drop{
+    
+    PopTableViewController *popVC=[self.storyboard instantiateViewControllerWithIdentifier:@"popTableVC"];
+    popVC.delegate=self;
+    popVC.tvData =pusrposeArray;
+    popoverPurpose = [[WYPopoverController alloc] initWithContentViewController:popVC];
+    popoverPurpose.delegate = self;
+    popoverPurpose.popoverContentSize=CGSizeMake(drop.frame.size.width, pusrposeArray.count*50);
+    popoverPurpose.accessibilityNavigationStyle=UIAccessibilityNavigationStyleCombined;
+    [popoverPurpose presentPopoverFromRect:drop.bounds inView:drop permittedArrowDirections:WYPopoverArrowDirectionUp animated:YES options:WYPopoverAnimationOptionFadeWithScale];
+}
+-(void)showSubpopover:(UIButton*)drop{
+    
+    PopTableViewController *popVC=[self.storyboard instantiateViewControllerWithIdentifier:@"popTableVC"];
+    popVC.delegate=self;
+        popVC.tvData =subPurposeArray;
+    popoverSubPurpose = [[WYPopoverController alloc] initWithContentViewController:popVC];
+    popoverSubPurpose.delegate = self;
+    popoverSubPurpose.popoverContentSize=CGSizeMake(drop.frame.size.width, subPurposeArray.count*50);
+    popoverSubPurpose.accessibilityNavigationStyle=UIAccessibilityNavigationStyleCombined;
+    [popoverSubPurpose presentPopoverFromRect:drop.bounds inView:drop permittedArrowDirections:WYPopoverArrowDirectionUp animated:YES options:WYPopoverAnimationOptionFadeWithScale];
+}
+-(void)showUnitspopover:(UIButton*)drop{
+    
+    PopTableViewController *popVC=[self.storyboard instantiateViewControllerWithIdentifier:@"popTableVC"];
+    popVC.delegate=self;
+    popVC.tvData =unitsArray;
+    popoverUnit = [[WYPopoverController alloc] initWithContentViewController:popVC];
+    popoverUnit.delegate = self;
+    popoverUnit.popoverContentSize=CGSizeMake(drop.frame.size.width, unitsArray.count*50);
+    popoverUnit.accessibilityNavigationStyle=UIAccessibilityNavigationStyleCombined;
+    [popoverUnit presentPopoverFromRect:drop.bounds inView:drop permittedArrowDirections:WYPopoverArrowDirectionUp animated:YES options:WYPopoverAnimationOptionFadeWithScale];
+}
+
+#pragma mark popover Delegates
+- (BOOL)popoverControllerShouldDismissPopover:(WYPopoverController *)controller
+{
+    return YES;
+}
+- (void)popoverControllerDidDismissPopover:(WYPopoverController *)controller
+{
+    if(popoverPurpose){
+        popoverPurpose.delegate = nil;
+        popoverPurpose = nil;
+    }
+    if(popoverSubPurpose){
+        popoverSubPurpose.delegate = nil;
+        popoverSubPurpose = nil;
+    }
+    if(popoverUnit){
+        popoverUnit.delegate = nil;
+        popoverUnit = nil;
+    }
+}
+
+-(void)selectedFromDropMenu:(NSString *)str forType:(NSString *)type withTag:(int)tag{
+    
+    if(popoverPurpose){
+        [_selectPurposeBtn setTitle:pusrposeArray[tag] forState:UIControlStateNormal];
+        subPurposeArray = [dtarr[tag] valueForKey:@"value"];
+        [_selectSubPurposeBtn setTitle:subPurposeArray[0] forState:UIControlStateNormal];
+        popoverPurpose.delegate = nil;
+        popoverPurpose = nil;
+        [popoverPurpose dismissPopoverAnimated:YES];
+        _appointObj.ServiceType = pusrposeArray[tag];
+        if(!(isEmpty(_appointObj.TimeSlot))){
+            [self setToNormalValuesWhenSelectionChanged:YES];
+        }
+    }
+    if(popoverSubPurpose){
+       [_selectSubPurposeBtn setTitle:subPurposeArray[tag] forState:UIControlStateNormal];
+        popoverSubPurpose.delegate = nil;
+        popoverSubPurpose = nil;
+        [popoverSubPurpose dismissPopoverAnimated:YES];
+        _appointObj.SubProcessName = subPurposeArray[tag];
+        if(!(isEmpty(_appointObj.TimeSlot))){
+            [self setToNormalValuesWhenSelectionChanged:NO];
+        }
+    }
+    if(popoverUnit){
+        [_selectUnitBtn setTitle:unitsArray[tag] forState:UIControlStateNormal];
+        popoverUnit.delegate = nil;
+        popoverUnit = nil;
+        [popoverUnit dismissPopoverAnimated:YES];
+        
+        
+        _appointObj.BookingUnit = unitsArray[tag];
+    }
+}
+
+
 
 -(void)dropMenu{
     _purposeDropDown.delegate = self;
@@ -65,7 +192,7 @@
     
     
     _unitsDropDown.delegate = self;
-    unitsArray = [[DamacSharedClass sharedInstance].unitsArray valueForKey:@"unitId"];
+    unitsArray = [[DamacSharedClass sharedInstance].unitsArray valueForKey:@"unitNumber"];
     _unitsDropDown.items = unitsArray;
     _unitsDropDown.title = @"Select unit";
     _unitsDropDown.titleColor = rgb(191, 152, 36);
@@ -79,86 +206,74 @@
     _timeSlotDropMenu.DirectionDown = YES;
     
 }
--(void)setCalendarInit{
-    
-    calendarView = [[[NSBundle mainBundle] loadNibNamed:@"WSCalendarView" owner:self options:nil] firstObject];
-    //calendarView.dayColor=[UIColor blackColor];
-    //calendarView.weekDayNameColor=[UIColor purpleColor];
-    //calendarView.barDateColor=[UIColor purpleColor];
-    //calendarView.todayBackgroundColor=[UIColor blackColor];
-    calendarView.tappedDayBackgroundColor=[UIColor blackColor];
-    calendarView.calendarStyle = WSCalendarStyleDialog;
-    calendarView.isShowEvent=false;
-    [calendarView setupAppearance];
-    [self.baseView addSubview:calendarView];
-    calendarView.delegate=self;
-    
-//    calendarViewEvent = [[[NSBundle mainBundle] loadNibNamed:@"WSCalendarView" owner:self options:nil] firstObject];
-//    calendarViewEvent.calendarStyle = WSCalendarStyleView;
-//    calendarViewEvent.isShowEvent=true;
-//    calendarViewEvent.tappedDayBackgroundColor=[UIColor blackColor];
-////    calendarViewEvent.frame = CGRectMake(0, 0, self.containerView.frame.size.width, self.containerView.frame.size.height);
-//    calendarViewEvent.frame = CGRectMake(0,0 , self.view.frame.size.width-10, self.view.frame.size.height/3);
-//    calendarViewEvent.center = self.baseView.center;
-//    [calendarViewEvent setupAppearance];
-//    calendarViewEvent.delegate=self;
-//    [self.baseView addSubview:calendarViewEvent];
-
-    
-    eventArray=[[NSMutableArray alloc] init];
-    NSDate *lastDate;
-    NSDateComponents *dateComponent=[[NSDateComponents alloc] init];
-    for (int i=0; i<10; i++) {
-        
-        if (!lastDate) {
-            lastDate=[NSDate date];
-        }
-        else{
-            [dateComponent setDay:1];
-        }
-        NSDate *datein = [[NSCalendar currentCalendar] dateByAddingComponents:dateComponent toDate:lastDate options:0];
-        lastDate=datein;
-        [eventArray addObject:datein];
-    }
-    [calendarViewEvent reloadCalendar];
-    
-    NSLog(@"%@",[eventArray description]);
-}
+//-(void)setCalendarInit{
+//
+//    calendarView = [[[NSBundle mainBundle] loadNibNamed:@"WSCalendarView" owner:self options:nil] firstObject];
+//    //calendarView.dayColor=[UIColor blackColor];
+//    //calendarView.weekDayNameColor=[UIColor purpleColor];
+//    //calendarView.barDateColor=[UIColor purpleColor];
+//    //calendarView.todayBackgroundColor=[UIColor blackColor];
+//    calendarView.tappedDayBackgroundColor=[UIColor blackColor];
+//    calendarView.calendarStyle = WSCalendarStyleDialog;
+//    calendarView.isShowEvent=false;
+//    [calendarView setupAppearance];
+//    [self.baseView addSubview:calendarView];
+//    calendarView.delegate=self;
+//
+//    eventArray=[[NSMutableArray alloc] init];
+//    NSDate *lastDate;
+//    NSDateComponents *dateComponent=[[NSDateComponents alloc] init];
+//    for (int i=0; i<10; i++) {
+//
+//        if (!lastDate) {
+//            lastDate=[NSDate date];
+//        }
+//        else{
+//            [dateComponent setDay:1];
+//        }
+//        NSDate *datein = [[NSCalendar currentCalendar] dateByAddingComponents:dateComponent toDate:lastDate options:0];
+//        lastDate=datein;
+//        [eventArray addObject:datein];
+//    }
+//    [calendarViewEvent reloadCalendar];
+//
+//    NSLog(@"%@",[eventArray description]);
+//}
 
 
 
-#pragma mark DropMenu Delegates
--(void)didSelectItem : (KPDropMenu *) dropMenu atIndex : (int) atIntedex
-{
-    if(dropMenu == _purposeDropDown){
-        _purposeDropDown.title = pusrposeArray[atIntedex];
-        subPurposeArray = [dtarr[atIntedex] valueForKey:@"value"];
-        _subPurposeDropDown.items = subPurposeArray;
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            _subPurposeDropDown.title = subPurposeArray[0];
-        });
-    }
-    if(dropMenu == _subPurposeDropDown){
-        _subPurposeDropDown.title = subPurposeArray[atIntedex];
-    }
-    if(dropMenu == _unitsDropDown){
-        _unitsDropDown.title = unitsArray[atIntedex];
-    }
-    if(dropMenu == _timeSlotDropMenu){
-        _timeSlotDropMenu.title = slotsArray[atIntedex];
-    }
-    
-}
--(void)changeSubPurposeDropDown{
-    
-}
-
--(void)didShow : (KPDropMenu *)dropMenu{
-    
-}
--(void)didHide : (KPDropMenu *)dropMenu{
-    
-}
+//#pragma mark DropMenu Delegates
+//-(void)didSelectItem : (KPDropMenu *) dropMenu atIndex : (int) atIntedex
+//{
+//    if(dropMenu == _purposeDropDown){
+//        _purposeDropDown.title = pusrposeArray[atIntedex];
+//        subPurposeArray = [dtarr[atIntedex] valueForKey:@"value"];
+//        _subPurposeDropDown.items = subPurposeArray;
+//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//            _subPurposeDropDown.title = subPurposeArray[0];
+//        });
+//    }
+//    if(dropMenu == _subPurposeDropDown){
+//        _subPurposeDropDown.title = subPurposeArray[atIntedex];
+//    }
+//    if(dropMenu == _unitsDropDown){
+//        _unitsDropDown.title = unitsArray[atIntedex];
+//    }
+//    if(dropMenu == _timeSlotDropMenu){
+//        _timeSlotDropMenu.title = slotsArray[atIntedex];
+//    }
+//
+//}
+//-(void)changeSubPurposeDropDown{
+//
+//}
+//
+//-(void)didShow : (KPDropMenu *)dropMenu{
+//
+//}
+//-(void)didHide : (KPDropMenu *)dropMenu{
+//
+//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -176,15 +291,42 @@
 */
 
 - (IBAction)calendarClick:(id)sender {
+  
+//    [calendarView ActiveCalendar:self.baseView];
     
-    [calendarView ActiveCalendar:self.baseView];
+    [self getAvailableSlots];
     
 }
 - (IBAction)sendRequestClick:(id)sender {
+    
+    if(isEmpty(_appointObj.ServiceType)){
+        [FTIndicator showToastMessage:@"please select purpose"];
+        return;
+    }
+    if(isEmpty(_appointObj.TimeSlot)){
+        [FTIndicator showToastMessage:@"please select slot"];
+        return;
+    }
+    [FTIndicator showProgressWithMessage:@"Please Wait"];
+    [_appointObj createappointment];
+    
 }
 
 
-
+-(void)setToNormalValuesWhenSelectionChanged:(BOOL)purpose{
+    
+    if(purpose){
+        _appointObj.SubProcessName = @"";
+        [_selectSubPurposeBtn setTitle:@"Select Sub Purpose" forState:UIControlStateNormal];
+    }
+    else{
+        _appointObj.AppointmentDate = @"";
+        [_calendarBtn setTitle:@"Select Appointment Date" forState:UIControlStateNormal];
+    }
+    
+    _slotLabel.text = @"Select Slot";
+    _appointObj.TimeSlot = @"";
+}
 #pragma mark WSCalendarViewDelegate
 
 -(NSArray *)setupEventForDate{
@@ -222,10 +364,7 @@
             [FTIndicator showErrorWithMessage:@"Selected Date should be greater"];
             [calendarView ActiveCalendar:self.baseView];
     }
-    
-    
-    
-    
+        
 }
 
 
@@ -241,5 +380,67 @@
     return [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
 }
 
+
+- (IBAction)selectPurposeNewClick:(id)sender {
+    [self showpopover:_selectPurposeBtn];
+}
+
+- (IBAction)selectSubPurposeNewClick:(id)sender{
+    [self showSubpopover:_selectSubPurposeBtn];
+}
+- (IBAction)selectUnitNewClick:(id)sender{
+    [self showUnitspopover:_selectUnitBtn];
+}
+-(void)getAvailableSlots{
+    
+    if(isEmpty(_appointObj.ServiceType))
+    {
+        [FTIndicator showToastMessage:@"Please select Purpose"];
+        return;
+    }
+//    if(isEmpty(_appointObj.SubProcessName))
+//    {
+//        [FTIndicator showToastMessage:@"Please select Sub-Purpose"];
+//        return;
+//    }
+    if(isEmpty(_appointObj.BookingUnit))
+    {
+        [FTIndicator showToastMessage:@"Please select Unit"];
+        return;
+    }
+    
+    [FTIndicator showProgressWithMessage:@"Please wait"];
+    NSDateFormatter *dtFormat = [[NSDateFormatter alloc]init];
+    [dtFormat setDateFormat:@"YYYY-MM-dd"];
+    NSDateComponents *comp = [[NSDateComponents alloc]init];
+    [comp setDay:2];
+    
+    NSDate *date = [[NSCalendar currentCalendar]dateByAddingComponents:comp toDate:[NSDate date] options:0];
+    NSString *dtStr =[dtFormat stringFromDate:date];
+    
+    NSDictionary *dict =@{ @"strSelectedProcess" : _appointObj.ServiceType,
+                           @"strSelectedSubProcess":_appointObj.SubProcessName,
+                           @"buildingId":_appointObj.BookingUnit,
+                           @"strSelectedDate":dtStr
+                           };
+    
+    ServerAPIManager *ser = [ServerAPIManager sharedinstance];
+    [ser postRequestwithUrl:@"https://partial-servicecloudtrial-155c0807bf-1580afc5db1.cs80.force.com/MobileApp/services/apexrest/SendAvailableAppointmentsToMObileApp/" withParameters:dict successBlock:^(id responseObj) {
+        if(responseObj){
+            NSDictionary *dictSlots = [NSJSONSerialization JSONObjectWithData:responseObj options:0 error:nil];
+            NSLog(@"%@",dictSlots);
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [FTIndicator dismissProgress];
+                AppointmentsSlotsViewController *appvc = [self.storyboard instantiateViewControllerWithIdentifier:@"appointmentsSlotsViewController"];
+                appvc.appointObj = _appointObj;
+                appvc.totalArrayDates = dictSlots[@"AvailableSlotsList"];
+                [self presentViewController:appvc animated:NO completion:nil];
+            });
+        }
+    } errorBlock:^(NSError *error) {
+        
+    }];
+}
 
 @end

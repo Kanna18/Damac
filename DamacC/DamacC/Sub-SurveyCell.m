@@ -63,7 +63,7 @@
     if([textView.text isEqualToString:@"Please Specify Reason"]){
         textView.text =@"";
     }
-    if([textView.text isEqualToString:@""]){
+    else if([textView.text isEqualToString:@""]){
         textView.text =@"Please Specify Reason";
     }
 

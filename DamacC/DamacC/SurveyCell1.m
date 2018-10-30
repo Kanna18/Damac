@@ -99,10 +99,6 @@
     if([textView.text isEqualToString:@"Please Specify the purpose of contact"]){
         textView.text =@"";
     }
-    if([textView.text isEqualToString:@""]){
-        textView.text =@"Please Specify the purpose of contact";
-    }
-    
 }
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
     
@@ -112,6 +108,11 @@
     }
     
     return YES;
+}
+-(void)textViewDidEndEditing:(UITextView *)textView{
+    if([textView.text isEqualToString:@""]){
+        textView.text =@"Please Specify the purpose of contact";
+    }
 }
 
 -(void)fillWithOptionNumber:(int)value{

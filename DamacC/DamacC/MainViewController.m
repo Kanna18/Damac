@@ -25,7 +25,7 @@
 
 
 
-@interface MainViewController ()<VKSideMenuDelegate, VKSideMenuDataSource,floatMenuDelegate>
+@interface MainViewController ()<VKSideMenuDelegate, VKSideMenuDataSource,floatMenuDelegate,MFMailComposeViewControllerDelegate>
 
 @property (nonatomic, strong) VKSideMenu *menuLeft;
 
@@ -149,6 +149,7 @@
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:YES];
+    DamacSharedClass.sharedInstance.currentVC = self;
     scr_width = [UIScreen mainScreen].bounds.size.width;
     scr_height = [UIScreen mainScreen].bounds.size.height;
     [_gridCollectionView reloadData];
@@ -180,8 +181,11 @@
         case 3:
             [self loadBasedontheclick:kEServices];
             break;
-            
-            
+        case 1:
+            [self openEmailFeature];
+            break;
+        case 0:
+            [self callCustomerService];
         default:
             break;
     }
@@ -677,6 +681,61 @@
 
 
 
+-(void)openEmailFeature{
+    
+    if ([MFMailComposeViewController canSendMail])
+    {
+//        NSArray* documentDirectories = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask,YES);
+//        NSString* documentDirectory = [documentDirectories objectAtIndex:0];
+//        NSString* documentDirectoryFilename = [documentDirectory stringByAppendingPathComponent:[orderStatusFolder stringByAppendingPathComponent:[NSString stringWithFormat:@"%@%d.pdf",_sfID.text,(int)indexInteger]]];
+//        NSLog(@"%@",documentDirectoryFilename);
+
+
+        NSString *emailTitle = [NSString stringWithFormat:@"Email Title"];
+        NSString *messageBody = @"e-mail body";
+        NSArray *toRecipents = [NSArray arrayWithObject:@""];
+//        NSString *path = [[NSBundle mainBundle] pathForResource:documentDirectoryFilename ofType:@"pdf"];
+//        NSData *myData= [NSData dataWithContentsOfFile:documentDirectoryFilename];
+        MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
+        mc.mailComposeDelegate = self;
+        [mc setSubject:emailTitle];
+        [mc setMessageBody:messageBody isHTML:NO];
+        [mc setToRecipients:@[@"atyourservice@damacproperties.address"]];
+//        [mc addAttachmentData:ni mimeType:@"application/pdf" fileName:@""];
+        [mc setToRecipients:toRecipents];
+        [DamacSharedClass.sharedInstance.currentVC presentViewController:mc animated:YES completion:NULL];
+    }
+    else
+    {
+        [FTIndicator showToastMessage:@"Please Configure Mail Settings in your Device"];
+    }
+}
+-(void)callCustomerService{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tel:+97142375000"]];
+}
+#pragma Mark Mail Delegate
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+{
+    switch (result) {
+        case MFMailComposeResultSent:
+            NSLog(@"You sent the email.");
+            break;
+        case MFMailComposeResultSaved:
+            NSLog(@"You saved a draft of this email");
+            break;
+        case MFMailComposeResultCancelled:
+            NSLog(@"You cancelled sending this email.");
+            break;
+        case MFMailComposeResultFailed:
+            NSLog(@"Mail failed:  An error occurred when trying to compose this email");
+            break;
+        default:
+            NSLog(@"An error occurred when trying to compose this email");
+            break;
+    }
+    
+    [DamacSharedClass.sharedInstance.currentVC dismissViewControllerAnimated:YES completion:NULL];
+}
 
 
 @end

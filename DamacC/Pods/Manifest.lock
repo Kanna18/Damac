@@ -30,13 +30,13 @@ PODS:
     - CocoaLumberjack/Default
   - FMDB/SQLCipher (2.7.2):
     - SQLCipher
-  - FTIndicator (1.2.8):
-    - FTIndicator/FTNotificationIndicator (= 1.2.8)
-    - FTIndicator/FTProgressIndicator (= 1.2.8)
-    - FTIndicator/FTToastIndicator (= 1.2.8)
-  - FTIndicator/FTNotificationIndicator (1.2.8)
-  - FTIndicator/FTProgressIndicator (1.2.8)
-  - FTIndicator/FTToastIndicator (1.2.8)
+  - FTIndicator (1.2.9):
+    - FTIndicator/FTNotificationIndicator (= 1.2.9)
+    - FTIndicator/FTProgressIndicator (= 1.2.9)
+    - FTIndicator/FTToastIndicator (= 1.2.9)
+  - FTIndicator/FTNotificationIndicator (1.2.9)
+  - FTIndicator/FTProgressIndicator (1.2.9)
+  - FTIndicator/FTToastIndicator (1.2.9)
   - JSONModel (1.7.0)
   - SalesforceAnalytics (6.1.0):
     - SalesforceAnalytics/SalesforceAnalytics (= 6.1.0)
@@ -112,7 +112,7 @@ SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
   CocoaLumberjack: aa9dcab71bdf9eaf2a63bbd9ddc87863efe45457
   FMDB: 6198a90e7b6900cfc046e6bc0ef6ebb7be9236aa
-  FTIndicator: 5218a42e6a3bb6623f58e4931fc36bb09b7e1b78
+  FTIndicator: f7f071fd159e5befa1d040a9ef2e3ab53fa9322c
   JSONModel: 840bc0fcffb24b8454d2c026bf26fea454b8e98d
   SalesforceAnalytics: 3ffafbb278d6a8a9fda6e04d0e6fe00ed5a9cd6b
   SalesforceSDKCore: b2949f3f22fecd1243c44efbd22f6eeb33d1e510

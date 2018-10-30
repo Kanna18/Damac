@@ -152,7 +152,7 @@
 //        [calendarView ActiveCalendar:self.view];
 //    }
     else{
-        [FTIndicator showErrorWithMessage:@"Selected Date should be greater"];
+        [FTIndicator showErrorWithMessage:@"Selected date should be future date"];
         [calendarView ActiveCalendar:self.view];
     }
     self.passportObj.PassportIssuedDate = str;
@@ -239,7 +239,7 @@
         cell2.textField.tag = 1000+indexPath.row;
         cell2.textField.delegate = self;
         cell2.textField.tfIndexPath = indexPath;
-            return cell2;
+        return cell2;
     }
     if (indexPath.section == 2){
             PassportCell3 *cell3 = [tableView dequeueReusableCellWithIdentifier:@"passportCell3" forIndexPath:indexPath];

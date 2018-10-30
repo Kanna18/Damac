@@ -25,6 +25,7 @@
     NSArray *headerArr;
     NSArray *sideLabelsArray, *addArr;
     UserDetailsModel *udm;
+    InitialViewController *initial;
     
 }
 

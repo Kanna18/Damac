@@ -108,7 +108,7 @@
 -(void)popToMainVC{
     
     if([self.status isEqualToString:@"Cancelled"]){
-        toastMessage = @"SR has benn Cancelled";
+        toastMessage = @"SR has been Cancelled successfully";
     }
     if([self.status isEqualToString:@"Draft Request"]){
         toastMessage = @"Draft has been Successfully saved";

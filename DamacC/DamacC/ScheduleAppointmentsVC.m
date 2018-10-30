@@ -30,7 +30,7 @@ static NSString *reuseCell = @"appointmentsCell";
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:YES];
-    
+    DamacSharedClass.sharedInstance.currentVC = self;    
     CAGradientLayer *gradient = [CAGradientLayer layer];
     gradient.frame = _bottomView.bounds;
     gradient.colors = @[(id)[[UIColor blackColor] colorWithAlphaComponent:0.3].CGColor, (id)[UIColor blackColor].CGColor];

@@ -58,6 +58,7 @@
     countoFImagesUploaded = 0;
 //    _scrollView.scrollEnabled = NO;
     [self roundCorners:_buyersNewBtn];
+    DamacSharedClass.sharedInstance.windowButton.hidden = YES;
 }
 
 -(void)roundCorners:(UIButton*)sender{
@@ -136,6 +137,7 @@
     frame2.origin.x = [UIScreen mainScreen].bounds.size.width+3;
     
     jbView1 = [[JointView1 alloc]initWithFrame:frame2];
+    [jbView1.downloadFormBtn addTarget:self action:@selector(downloadFormDetails) forControlEvents:UIControlEventTouchUpInside];
     [_scrollView addSubview:jbView1];
     
     [jbView1.saveDraftBtn addTarget:self action:@selector(saveDraftJointBuyers) forControlEvents:UIControlEventTouchUpInside];
@@ -203,13 +205,11 @@
 
 - (IBAction)nextClick:(id)sender {
     
-    if([self.jointObj.email validateEmailWithString])
+    if([self validationSetForJointBuyer])
     {
         [_scrollView setContentOffset:frame2.origin animated:YES];
         dropNew.hidden = YES;
         sterView.line1Animation = YES;
-    }else{
-        [FTIndicator showToastMessage:@"Enter valid email Id"];
     }
 }
 -(void)getCountriesList{
@@ -259,24 +259,41 @@
 }
 - (void)popoverControllerDidDismissPopover:(WYPopoverController *)controller
 {
-    popoverController.delegate = nil;
-    popoverController = nil;
+    if(popoverController){
+        popoverController.delegate = nil;
+        popoverController = nil;
+    }
+    if(popoverBuyers){
+        popoverBuyers.delegate = nil;
+        popoverBuyers = nil;
+    }
 }
 
 -(void)selectedFromDropMenu:(NSString *)str forType:(NSString *)type withTag:(int)tag{
     
     if(popoverBuyers){
         [_buyersNewBtn setTitle:dropitems[tag] forState:UIControlStateNormal];
-        _heightConstraint.constant = 20;
+        _heightConstraint.constant = 10;
         _detailView.hidden = NO;
         [self fillLabelsforJointBuyer:tag];
         [popoverBuyers dismissPopoverAnimated:YES];
+        
+//        CGRect fram = _tableView.frame;
+//        fram.size.height = headingLabels.count *50;
+//        _tableView.frame = fram;
+//        _scrollView.contentSize = CGSizeMake(0, fram.size.height+fram.origin.y+250);
+        
+        popoverBuyers.delegate = nil;
+        popoverBuyers = nil;
     }
     if(popoverController){
         self.jointObj.country = str;
         [_dropDownCountriesBtn setTitle:self.jointObj.country forState:UIControlStateNormal];
         [self.tableView reloadData];
         [popoverController dismissPopoverAnimated:YES];
+        popoverController.delegate = nil;
+        popoverController = nil;
+
     }
     
 }
@@ -296,9 +313,11 @@
 -(void)didSelectItem : (KPDropMenu *) dropMenu atIndex : (int) atIntedex
 {
     dropMenu.title = dropitems[atIntedex];
-    _heightConstraint.constant = 20;
+    _heightConstraint.constant = -50;
     _detailView.hidden = NO;
     [self fillLabelsforJointBuyer:atIntedex];
+    
+    
 }
 -(void)didShow : (KPDropMenu *)dropMenu{
     
@@ -323,8 +342,12 @@
     cell.textField.delegate = self;
     cell.textField.tfIndexPath = indexPath;
     cell.textField.tag = [headingLabels[indexPath.row][@"tag"] intValue];
+    if(indexPath.row == 8){
+        cell.textField.keyboardType = UIKeyboardTypePhonePad;
+    }else{
+        cell.textField.keyboardType = UIKeyboardTypeDefault;
+    }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-
     return cell;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -335,6 +358,7 @@
 -(void)fillLabelsforJointBuyer:(int)indexVal{
     if(!self.jointObj){
         JointBuyerObject *jobj = [[JointBuyerObject alloc]init];
+        _jointObj.AccountID = @"";
         jbView.joObj = jobj;
         self.jointObj = jobj;
     }else{
@@ -458,13 +482,16 @@
     
 }
 -(void)saveDraftJointBuyers{
-    self.jointObj.status = @"Draft Request";
-    [FTIndicator showProgressWithMessage:@"Please Wait"];
     
-    if(self.jointObj.cocdImage||self.jointObj.additionalDocumentImage||self.jointObj.primaryPassportImage){
-        [self subJointBuyersResponse];
-    }else{
-        [self.jointObj sendJointBuyerResponsetoserver];
+    if([self validationSetForJointBuyer]){
+        self.jointObj.status = @"Draft Request";
+        [FTIndicator showProgressWithMessage:@"Please Wait"];
+        
+        if(self.jointObj.cocdImage||self.jointObj.additionalDocumentImage||self.jointObj.primaryPassportImage){
+            [self subJointBuyersResponse];
+        }else{
+            [self.jointObj sendJointBuyerResponsetoserver];
+        }
     }
 }
 
@@ -506,5 +533,85 @@
     }];
     
     
+}
+
+-(void)downloadFormDetails{
+    
+    [FTIndicator showProgressWithMessage:@"Please wait"];
+    NSDictionary * dict = @{
+                            @"buyersInfoWrapper":
+                                @{
+                                    @"AccountID":_jointObj.AccountID,
+                                    @"city":handleNull(_jointObj.city),
+                                    @"country":handleNull(_jointObj.country),
+                                    @"phone":handleNull(_jointObj.phone),
+                                    @"state":handleNull(_jointObj.state),
+                                    @"postalCode":handleNull(_jointObj.postalCode),
+                                    @"email":handleNull(_jointObj.email),
+                                    @"mobileCountryCode":handleNull(_jointObj.mobileCountryCode),
+                                    @"address1":handleNull(_jointObj.address1),
+                                    @"address2":handleNull(_jointObj.address2),
+                                    @"address3":handleNull(_jointObj.address3),
+                                    @"address4":handleNull(_jointObj.address4),
+                                    }
+                            };
+    
+    ServerAPIManager *srvr = [ServerAPIManager sharedinstance];
+    [srvr postRequestwithUrl:downloadFormUrl withParameters:dict successBlock:^(id responseObj) {
+        if(responseObj){
+            //            NSString *str = [NSJSONSerialization JSONObjectWithData:responseObj options:0 error:nil];
+            
+            NSString *str = [[NSString alloc]initWithData:responseObj encoding:NSUTF8StringEncoding];
+            NSLog(@"%@",str);
+            [self openReceiptinSafari:[str stringByReplacingOccurrencesOfString:@"\"" withString:@""]];
+        }
+    } errorBlock:^(NSError *error) {
+        NSLog(@"%@",error.localizedDescription);
+    }];
+}
+
+-(void)openReceiptinSafari:(NSString*)url{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [FTIndicator dismissProgress];
+        if([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:url]])
+        {
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url] options:nil completionHandler:nil];
+        }
+    });
+}
+
+
+-(BOOL)validationSetForJointBuyer{
+    
+    if(isEmpty(_jointObj.AccountID)){
+        [FTIndicator showToastMessage:@"Please Select Buyer"];
+        return NO;
+    }
+    if(isEmpty(_jointObj.country)){
+        [FTIndicator showToastMessage:@"Please enter Country"];
+        return NO;
+    }
+    if(isEmpty(_jointObj.city)){
+        [FTIndicator showToastMessage:@"Please enter City"];
+        return NO;
+    }
+    if(isEmpty(_jointObj.state)){
+        [FTIndicator showToastMessage:@"Please enter State"];
+        return NO;
+    }
+    if(isEmpty(_jointObj.mobileCountryCode)){
+        [FTIndicator showToastMessage:@"Please enter postal code"];
+        return NO;
+    }
+    if(![_jointObj.email validateEmailWithString]){
+        [FTIndicator showToastMessage:@"Please enter valid e-mail"];
+        return NO;
+    }
+    if(![_jointObj.phone validatewithPhoneNumber]){
+        [FTIndicator showToastMessage:@"Please enter valid phone Number"];
+    return NO;
+    }
+
+    return YES;
 }
 @end

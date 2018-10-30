@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "WSCalendarView.h"
-
+#import "AppointmentObject.h"
 @interface CreateAppointmentVC : UIViewController<WSCalendarViewDelegate,KPDropMenuDelegate>
 @property (weak, nonatomic) IBOutlet KPDropMenu *purposeDropDown;
 @property (weak, nonatomic) IBOutlet KPDropMenu *subPurposeDropDown;
@@ -20,5 +20,15 @@
 @property UIView *containerView;
 @property (weak, nonatomic) IBOutlet UIView *baseView;
 
+
+@property (weak, nonatomic) IBOutlet UIButton *selectPurposeBtn;
+@property (weak, nonatomic) IBOutlet UIButton *selectSubPurposeBtn;
+@property (weak, nonatomic) IBOutlet UIButton *selectUnitBtn;
+- (IBAction)selectPurposeNewClick:(id)sender;
+- (IBAction)selectSubPurposeNewClick:(id)sender;
+- (IBAction)selectUnitNewClick:(id)sender;
+@property (weak, nonatomic) IBOutlet UILabel *slotLabel;
+
+@property AppointmentObject *appointObj;
 
 @end

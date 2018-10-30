@@ -7,6 +7,7 @@
 //
 
 #import "FTIndicator.h"
+
 @interface FTIndicator ()
 
 @end

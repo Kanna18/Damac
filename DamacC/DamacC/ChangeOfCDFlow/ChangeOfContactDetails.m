@@ -373,38 +373,40 @@
 }
 
 - (IBAction)nextClick:(id)sender{
-    UIButton *btn = (UIButton*)sender;
-    if([btn.titleLabel.text isEqualToString:butonTitleSubmitSR])
-    {
-        if(_cocdOBj.cocdImage == nil){
-            [FTIndicator showToastMessage:@"COCD Document not selected"];
-            return;
-        }
-        else if(![_cocdOBj.Email validateEmailWithString]){
-            [FTIndicator showToastMessage:@"Enter Valid Email Id"];
-            [self previousClick:nil];
-            [self emailClick:nil];
-            [_tableView reloadData];
-            return;
+    if([self validationSetForCOCD]){
+        UIButton *btn = (UIButton*)sender;
+        if([btn.titleLabel.text isEqualToString:butonTitleSubmitSR])
+        {
+            if(_cocdOBj.cocdImage == nil){
+                [FTIndicator showToastMessage:@"COCD Document not selected"];
+                return;
+            }
+            else if(![_cocdOBj.Email validateEmailWithString]){
+                [FTIndicator showToastMessage:@"Enter Valid Email Id"];
+                [self previousClick:nil];
+                [self emailClick:nil];
+                [_tableView reloadData];
+                return;
+            }
+            else
+            {
+                _cocdOBj.Status = @"Submitted";
+                [self saveOrSubmitDraftRequestWithImages];
+            }
         }
         else
         {
-            _cocdOBj.Status = @"Submitted";
-            [self saveOrSubmitDraftRequestWithImages];
+            [self addJointView2];
+            _downloadBtn.hidden = YES;
+            _buttonsView.hidden = YES;
+            uploadDocsPageVisible = YES;
+            [_nextbtn setTitle:butonTitleSubmitSR forState:UIControlStateNormal];
+            
+            [_scrollView setContentOffset:frame3.origin animated:YES];
+            sterView.line1Animation = YES;
         }
-    }
-    else
-    {
-        [self addJointView2];
-        _downloadBtn.hidden = YES;
-        _buttonsView.hidden = YES;
-        uploadDocsPageVisible = YES;
-        [_nextbtn setTitle:butonTitleSubmitSR forState:UIControlStateNormal];
         
-        [_scrollView setContentOffset:frame3.origin animated:YES];
-        sterView.line1Animation = YES;
     }
-    
 }
 - (IBAction)previousClick:(id)sender{
     
@@ -427,27 +429,29 @@
 }
 - (IBAction)saveDraftClick:(id)sender {
     
-    //    case1: whenEver Clicked on SaveDraft Button Need to check Email Valdiation
-    [currentTF resignFirstResponder];
-    _cocdOBj.Status = @"Draft Request";
-    if(![_cocdOBj.Email validateEmailWithString]&&uploadDocsPageVisible){
-        [self previousClick:nil];
-        [self emailClick:nil];
-        [FTIndicator showToastMessage:@"Plaease enter a valid Email"];
-        return;
-    }
-    //    case2:Whenever Button title "SubmitSR" title appeared and Images are available
-    else if([_nextbtn.titleLabel.text isEqualToString:butonTitleSubmitSR]&&(_cocdOBj.cocdImage||_cocdOBj.additionalDocumentImage||_cocdOBj.primaryPassportImage))
-    {
-        [self saveOrSubmitDraftRequestWithImages];
-    }
-    else{
-        
-        [self saveDraftRequest];
+    if([self validationSetForCOCD]){
+        //    case1: whenEver Clicked on SaveDraft Button Need to check Email Valdiation
+        [currentTF resignFirstResponder];
+        _cocdOBj.Status = @"Draft Request";
+        if(![_cocdOBj.Email validateEmailWithString]&&uploadDocsPageVisible){
+            [self previousClick:nil];
+            [self emailClick:nil];
+            [FTIndicator showToastMessage:@"Plaease enter a valid Email"];
+            return;
+        }
+        //    case2:Whenever Button title "SubmitSR" title appeared and Images are available
+        else if([_nextbtn.titleLabel.text isEqualToString:butonTitleSubmitSR]&&(_cocdOBj.cocdImage||_cocdOBj.additionalDocumentImage||_cocdOBj.primaryPassportImage))
+        {
+            [self saveOrSubmitDraftRequestWithImages];
+        }
+        else{
+            
+            [self saveDraftRequest];
+        }
     }
 }
 -(void)saveOrSubmitDraftRequestWithImages{
-    [FTIndicator showProgressWithMessage:[NSString stringWithFormat:@"%@ SR",_cocdOBj.Status]];
+    [FTIndicator showProgressWithMessage:@"Please wait"];
     [self uploadImagesToServer];
     
 }
@@ -508,7 +512,7 @@
     if([_cocdOBj.Email validateEmailWithString]){
         _cocdOBj.Status = @"Draft Request";
         [_cocdOBj sendDraftStatusToServer];
-        [FTIndicator showProgressWithMessage:@"Saving Draft"];
+        [FTIndicator showProgressWithMessage:@"Please wait"];
     }else{
         [FTIndicator showToastMessage:@"Plaease enter a valid Email"];
         [self emailClick:nil];
@@ -549,10 +553,11 @@
 
 -(void)downloadFormDetails{
     
+    [FTIndicator showProgressWithMessage:@"Please wait"];
    NSDictionary * dict = @{
         @"buyersInfoWrapper":
         @{
-                @"AccountID":_cocdOBj.salesforceId,
+                @"AccountID":kUserProfile.sfAccountId,
                 @"city":handleNull(_cocdOBj.City),
                 @"country":handleNull(_cocdOBj.Country),
                 @"phone":handleNull(_cocdOBj.Mobile),
@@ -570,12 +575,24 @@
     ServerAPIManager *srvr = [ServerAPIManager sharedinstance];
     [srvr postRequestwithUrl:downloadFormUrl withParameters:dict successBlock:^(id responseObj) {
         if(responseObj){
-            NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObj options:0 error:nil];
-            NSLog(@"%@",dic);
+//            NSString *str = [NSJSONSerialization JSONObjectWithData:responseObj options:0 error:nil];
+            
+            NSString *str = [[NSString alloc]initWithData:responseObj encoding:NSUTF8StringEncoding];
+            NSLog(@"%@",str);
+            [self openReceiptinSafari:[str stringByReplacingOccurrencesOfString:@"\"" withString:@""]];
         }
     } errorBlock:^(NSError *error) {
-        
+        NSLog(@"%@",error.localizedDescription);
     }];
+}
+-(void)openReceiptinSafari:(NSString*)url{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [FTIndicator dismissProgress];
+        if([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:url]])
+        {
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url] options:nil completionHandler:nil];
+        }
+    });
 }
 
 
@@ -607,7 +624,40 @@
         self.tableView.contentInset = UIEdgeInsetsZero;
         self.tableView.scrollIndicatorInsets = UIEdgeInsetsZero;
     }];
-
-   
 }
+
+-(BOOL)validationSetForCOCD{
+    
+    if(isEmpty(_cocdOBj.AccountID)){
+        [FTIndicator showToastMessage:@"Please Select Buyer"];
+        return NO;
+    }
+    if(isEmpty(_cocdOBj.AddressLine1)){
+        [FTIndicator showToastMessage:@"Please enter Country"];
+        return NO;
+    }
+    if(isEmpty(_cocdOBj.City)){
+        [FTIndicator showToastMessage:@"Please enter City"];
+        return NO;
+    }
+    if(isEmpty(_cocdOBj.State)){
+        [FTIndicator showToastMessage:@"Please enter State"];
+        return NO;
+    }
+    if(isEmpty(_cocdOBj.PostalCode)){
+        [FTIndicator showToastMessage:@"Please enter postal code"];
+        return NO;
+    }
+    if(![_cocdOBj.Email validateEmailWithString]){
+        [FTIndicator showToastMessage:@"Please enter valid e-mail"];
+        return NO;
+    }
+    if(![_cocdOBj.Mobile validatewithPhoneNumber]){
+        [FTIndicator showToastMessage:@"Please enter valid phone Number"];
+        return NO;
+    }
+    
+    return YES;
+}
+
 @end

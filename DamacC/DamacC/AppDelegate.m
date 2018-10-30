@@ -23,7 +23,7 @@
  */
 
 #import "AppDelegate.h"
-#import "InitialViewController.h"
+#import "InitialViewController1.h"
 #import "RootViewController.h"
 #import <SalesforceAnalytics/SFSDKLogger.h>
 #import <SalesforceSDKCore/SFSDKAppConfig.h>
@@ -188,7 +188,7 @@ static NSString * const OAuthRedirectURI        = @"sfdc://success";
         return;
     }
 
-    self.window.rootViewController = [[InitialViewController alloc] initWithNibName:nil bundle:nil];
+    self.window.rootViewController = [[InitialViewController1 alloc] initWithNibName:nil bundle:nil];
     [self.window makeKeyAndVisible];
 }
 

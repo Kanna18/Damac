@@ -187,8 +187,7 @@
     [server postRequestwithUrl:JointBuyerServiceUrl withParameters:response successBlock:^(id responseObj) {
         if(responseObj){
             NSDictionary *dict =[NSJSONSerialization JSONObjectWithData:responseObj options:0 error:nil];
-            [self performSelectorOnMainThread:@selector(popToMainVC) withObject:nil waitUntilDone:YES];
-            toastMessage = @"Submitted Successfully";
+            [self performSelectorOnMainThread:@selector(popToMainVC) withObject:nil waitUntilDone:YES];            
         }
     } errorBlock:^(NSError *error) {
         
@@ -196,6 +195,18 @@
 }
 
 -(void)popToMainVC{
+    
+    if([self.status isEqualToString:@"Draft Request"]){
+        toastMessage= @"SR has been sucessufully saved";
+    }
+    if([self.status isEqualToString:@"Submitted"]){
+        toastMessage= @"SR has been sucessufully Submitted";
+    }
+    if([self.status isEqualToString:@"Cancelled"]){
+        toastMessage= @"SR has been sucessufully Cancelled";
+    }
+
+    
     [FTIndicator showToastMessage:toastMessage];
     [FTIndicator dismissProgress];
     NSArray *arr = DamacSharedClass.sharedInstance.currentVC.navigationController.viewControllers;

@@ -21,7 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    _nameLabel.text = [NSString stringWithFormat:@"Dear Mr. %@",kUserProfile.partyName];
+    _nameLabel.text = [NSString stringWithFormat:@"Dear %@",kUserProfile.partyName];
     DamacSharedClass.sharedInstance.windowButton.hidden = YES;
     [self getResponseFromTheServer];
 }

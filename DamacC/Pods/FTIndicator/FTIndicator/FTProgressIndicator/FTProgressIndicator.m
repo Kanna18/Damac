@@ -267,15 +267,21 @@
     self.isDuringAnimation = YES;
 	self.isCurrentlyOnScreen = YES;
 	[self startDismissTimer];
+//    [UIView animateWithDuration:kFTProgressDefaultAnimationDuration
+//                          delay:0
+//         usingSpringWithDamping:0.5
+//          initialSpringVelocity:0
+//                        options:(UIViewAnimationOptionCurveEaseIn | UIViewAnimationOptionAllowUserInteraction)
+//                     animations:^{
+//                         self.progressView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1, 1);
+//                     } completion:^(BOOL finished) {
+//                         self.isDuringAnimation = NO;
+//                     }];
     [UIView animateWithDuration:kFTProgressDefaultAnimationDuration
                           delay:0
-         usingSpringWithDamping:0.5
-          initialSpringVelocity:0
-                        options:(UIViewAnimationOptionCurveEaseIn | UIViewAnimationOptionAllowUserInteraction)
+                        options:UIViewAnimationOptionCurveEaseOut
                      animations:^{
-                         
                          self.progressView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1, 1);
-                         
                      } completion:^(BOOL finished) {
                          self.isDuringAnimation = NO;
                      }];
@@ -289,9 +295,7 @@
                           delay:0
                         options:(UIViewAnimationOptionCurveEaseIn | UIViewAnimationOptionAllowUserInteraction)
                      animations:^{
-                         
                          self.progressView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.2, 0.2);
-                         
                      } completion:^(BOOL finished) {
                          self.isDuringAnimation = NO;
                          self.isCurrentlyOnScreen = NO;

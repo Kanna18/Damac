@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		28AC5A96FAEA6FBBB6A7164F /* libPods-DamacC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 780B86EE1A0C088A18976D02 /* libPods-DamacC.a */; };
+		49FF0CFB3FDBAAADC3D52B7F /* libPods-DamacC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0644B8EF6622C0581DE79A9B /* libPods-DamacC.a */; };
 		4F8D5EA31B6C0568005E64D4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8D5EA21B6C0568005E64D4 /* main.m */; };
 		4F8D5EA61B6C0568005E64D4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8D5EA51B6C0568005E64D4 /* AppDelegate.m */; };
-		4F8D5EC81B6C0F94005E64D4 /* InitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8D5EC71B6C0F94005E64D4 /* InitialViewController.m */; };
+		4F8D5EC81B6C0F94005E64D4 /* InitialViewController1.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8D5EC71B6C0F94005E64D4 /* InitialViewController1.m */; };
 		4F8D5ECB1B6C0FE4005E64D4 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8D5ECA1B6C0FE4005E64D4 /* RootViewController.m */; };
 		B7168FBA1FACC5D900A48DB5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7168FB91FACC5D900A48DB5 /* LaunchScreen.storyboard */; };
 		F60164ED20ABB9D900E07510 /* UnitsDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F60164EC20ABB9D900E07510 /* UnitsDataModel.m */; };
@@ -60,12 +60,16 @@
 		F6264266211487AB0022C4DC /* ChangeOfContactDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = F6264265211487AB0022C4DC /* ChangeOfContactDetails.m */; };
 		F626426921148D7B0022C4DC /* ChangeofContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F626426821148D7B0022C4DC /* ChangeofContactCell.m */; };
 		F62F4B0D20A942F200EB5C9A /* ServerAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F62F4B0B20A942F100EB5C9A /* ServerAPIManager.m */; };
+		F6327BD62186DB65001D5949 /* CCAvenueSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F6327BD52186DB65001D5949 /* CCAvenueSDK.bundle */; };
 		F63FCEFE20F782E70027FEA8 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = F63FCEFC20F782E60027FEA8 /* iCarousel.m */; };
 		F63FCF0220F87E3A0027FEA8 /* CustomViewCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = F63FCF0120F87E3A0027FEA8 /* CustomViewCarousel.m */; };
 		F63FCF0420F87E520027FEA8 /* CustomViewCarousel.xib in Resources */ = {isa = PBXBuildFile; fileRef = F63FCF0320F87E520027FEA8 /* CustomViewCarousel.xib */; };
 		F63FCF1720FBCC200027FEA8 /* PaymentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F63FCF1620FBCC200027FEA8 /* PaymentsViewController.m */; };
 		F63FCF1B20FBCD0B0027FEA8 /* PaymentsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F63FCF1A20FBCD0B0027FEA8 /* PaymentsCell.m */; };
+		F653D3EE21876EB700F6021F /* AppointmentsSlotsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F653D3ED21876EB700F6021F /* AppointmentsSlotsViewController.m */; };
+		F653D3F12187712000F6021F /* SlotCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F653D3F02187712000F6021F /* SlotCell.m */; };
 		F655076F217D6F4C003EC62E /* NSString+StringValidations.m in Sources */ = {isa = PBXBuildFile; fileRef = F655076E217D6F4C003EC62E /* NSString+StringValidations.m */; };
+		F659E0AF2188E46D00A9DB16 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F659E0AE2188E46D00A9DB16 /* MessageUI.framework */; };
 		F66B30B32183B7B90071AA93 /* COCDTF.m in Sources */ = {isa = PBXBuildFile; fileRef = F66B30B22183B7B90071AA93 /* COCDTF.m */; };
 		F66B30B62184AF110071AA93 /* SurveyController.m in Sources */ = {isa = PBXBuildFile; fileRef = F66B30B52184AF110071AA93 /* SurveyController.m */; };
 		F67D77A721749FAC009EE062 /* SurveyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F67D77A621749FAC009EE062 /* SurveyViewController.m */; };
@@ -104,6 +108,7 @@
 		F6A87EE4209F1B84008D34C5 /* ChangeofDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A87EE3209F1B84008D34C5 /* ChangeofDetailsViewController.m */; };
 		F6A87EE7209F214B008D34C5 /* DetailMyUnitsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A87EE6209F214B008D34C5 /* DetailMyUnitsViewController.m */; };
 		F6AE17C72175BE3D00C0E64A /* COCDServerObj.m in Sources */ = {isa = PBXBuildFile; fileRef = F6AE17C62175BE3D00C0E64A /* COCDServerObj.m */; };
+		F6B166CA2188780F0094A2B4 /* AppointmentObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B166C92188780F0094A2B4 /* AppointmentObject.m */; };
 		F6B31BDD20F094FB001A5144 /* MyServiceRequestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B31BDC20F094FB001A5144 /* MyServiceRequestViewController.m */; };
 		F6B31BE120F33328001A5144 /* ScheduleAppointmentsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B31BE020F33328001A5144 /* ScheduleAppointmentsVC.m */; };
 		F6B75ADE218376B20070FB4C /* ComplaintsObj.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B75ADD218376B20070FB4C /* ComplaintsObj.m */; };
@@ -179,19 +184,19 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1F713E521327193BA2508C63 /* Pods-DamacC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DamacC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DamacC/Pods-DamacC.debug.xcconfig"; sourceTree = "<group>"; };
+		0644B8EF6622C0581DE79A9B /* libPods-DamacC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DamacC.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F277E8C1DC7F5DF00E5A77C /* Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
 		4F8D5E9D1B6C0568005E64D4 /* DamacC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DamacC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F8D5EA11B6C0568005E64D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4F8D5EA21B6C0568005E64D4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4F8D5EA41B6C0568005E64D4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4F8D5EA51B6C0568005E64D4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		4F8D5EC61B6C0F94005E64D4 /* InitialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitialViewController.h; sourceTree = "<group>"; };
-		4F8D5EC71B6C0F94005E64D4 /* InitialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitialViewController.m; sourceTree = "<group>"; };
+		4F8D5EC61B6C0F94005E64D4 /* InitialViewController1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitialViewController1.h; sourceTree = "<group>"; };
+		4F8D5EC71B6C0F94005E64D4 /* InitialViewController1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitialViewController1.m; sourceTree = "<group>"; };
 		4F8D5EC91B6C0FE4005E64D4 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		4F8D5ECA1B6C0FE4005E64D4 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		4FF12F911DCA9E6B004D9EF9 /* DamacC.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DamacC.entitlements; sourceTree = "<group>"; };
-		780B86EE1A0C088A18976D02 /* libPods-DamacC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DamacC.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		63F48985EF30F2A699FA42F3 /* Pods-DamacC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DamacC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DamacC/Pods-DamacC.debug.xcconfig"; sourceTree = "<group>"; };
 		B7168FB91FACC5D900A48DB5 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = "../mobile_sdk/SalesforceMobileSDK-iOS/shared/resources/LaunchScreen.storyboard"; sourceTree = "<group>"; };
 		F60164EB20ABB9D900E07510 /* UnitsDataModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UnitsDataModel.h; sourceTree = "<group>"; };
 		F60164EC20ABB9D900E07510 /* UnitsDataModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UnitsDataModel.m; sourceTree = "<group>"; };
@@ -274,6 +279,8 @@
 		F626426821148D7B0022C4DC /* ChangeofContactCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangeofContactCell.m; sourceTree = "<group>"; };
 		F62F4B0B20A942F100EB5C9A /* ServerAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerAPIManager.m; sourceTree = "<group>"; };
 		F62F4B0C20A942F100EB5C9A /* ServerAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerAPIManager.h; sourceTree = "<group>"; };
+		F6327BD22186DAB4001D5949 /* CCAvenueSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CCAvenueSDK.framework; sourceTree = "<group>"; };
+		F6327BD52186DB65001D5949 /* CCAvenueSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = CCAvenueSDK.bundle; path = ../../../Downloads/CCAvenueSDK_iOS_V2.0/CCAvenueSDK.bundle; sourceTree = "<group>"; };
 		F63FCEFC20F782E60027FEA8 /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
 		F63FCEFD20F782E60027FEA8 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
 		F63FCF0020F87E3A0027FEA8 /* CustomViewCarousel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomViewCarousel.h; sourceTree = "<group>"; };
@@ -283,8 +290,13 @@
 		F63FCF1620FBCC200027FEA8 /* PaymentsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PaymentsViewController.m; sourceTree = "<group>"; };
 		F63FCF1920FBCD0B0027FEA8 /* PaymentsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PaymentsCell.h; sourceTree = "<group>"; };
 		F63FCF1A20FBCD0B0027FEA8 /* PaymentsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PaymentsCell.m; sourceTree = "<group>"; };
+		F653D3EC21876EB700F6021F /* AppointmentsSlotsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppointmentsSlotsViewController.h; sourceTree = "<group>"; };
+		F653D3ED21876EB700F6021F /* AppointmentsSlotsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppointmentsSlotsViewController.m; sourceTree = "<group>"; };
+		F653D3EF2187712000F6021F /* SlotCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SlotCell.h; sourceTree = "<group>"; };
+		F653D3F02187712000F6021F /* SlotCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SlotCell.m; sourceTree = "<group>"; };
 		F655076D217D6F4C003EC62E /* NSString+StringValidations.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+StringValidations.h"; sourceTree = "<group>"; };
 		F655076E217D6F4C003EC62E /* NSString+StringValidations.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+StringValidations.m"; sourceTree = "<group>"; };
+		F659E0AE2188E46D00A9DB16 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		F66B30B12183B7B90071AA93 /* COCDTF.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = COCDTF.h; sourceTree = "<group>"; };
 		F66B30B22183B7B90071AA93 /* COCDTF.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = COCDTF.m; sourceTree = "<group>"; };
 		F66B30B42184AF110071AA93 /* SurveyController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SurveyController.h; sourceTree = "<group>"; };
@@ -353,6 +365,8 @@
 		F6A87EE6209F214B008D34C5 /* DetailMyUnitsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailMyUnitsViewController.m; sourceTree = "<group>"; };
 		F6AE17C52175BE3D00C0E64A /* COCDServerObj.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = COCDServerObj.h; sourceTree = "<group>"; };
 		F6AE17C62175BE3D00C0E64A /* COCDServerObj.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = COCDServerObj.m; sourceTree = "<group>"; };
+		F6B166C82188780F0094A2B4 /* AppointmentObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppointmentObject.h; sourceTree = "<group>"; };
+		F6B166C92188780F0094A2B4 /* AppointmentObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppointmentObject.m; sourceTree = "<group>"; };
 		F6B31BDB20F094FB001A5144 /* MyServiceRequestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyServiceRequestViewController.h; sourceTree = "<group>"; };
 		F6B31BDC20F094FB001A5144 /* MyServiceRequestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyServiceRequestViewController.m; sourceTree = "<group>"; };
 		F6B31BDF20F33328001A5144 /* ScheduleAppointmentsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScheduleAppointmentsVC.h; sourceTree = "<group>"; };
@@ -459,7 +473,7 @@
 		F6FA5B792099BC6F009A8F15 /* GridCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GridCollectionViewCell.m; sourceTree = "<group>"; };
 		F6FB0E4C2180710800CBCB72 /* PassportObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PassportObject.h; sourceTree = "<group>"; };
 		F6FB0E4D2180710800CBCB72 /* PassportObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PassportObject.m; sourceTree = "<group>"; };
-		F7697DD73D8E49EA0E15D946 /* Pods-DamacC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DamacC.release.xcconfig"; path = "Pods/Target Support Files/Pods-DamacC/Pods-DamacC.release.xcconfig"; sourceTree = "<group>"; };
+		F70028AEC7D055578894526C /* Pods-DamacC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DamacC.release.xcconfig"; path = "Pods/Target Support Files/Pods-DamacC/Pods-DamacC.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -467,10 +481,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F659E0AF2188E46D00A9DB16 /* MessageUI.framework in Frameworks */,
 				F6C57C732158CD2400970DC3 /* libxml2.tbd in Frameworks */,
 				F6C57C742158CD2400970DC3 /* libxml2.2.tbd in Frameworks */,
 				F6D91E3A20994A5D00DA1428 /* LocalAuthentication.framework in Frameworks */,
-				28AC5A96FAEA6FBBB6A7164F /* libPods-DamacC.a in Frameworks */,
+				49FF0CFB3FDBAAADC3D52B7F /* libPods-DamacC.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -483,9 +498,9 @@
 				F686163C20982C9C002EA241 /* PrefixHeader.pch */,
 				4F8D5E9F1B6C0568005E64D4 /* DamacC */,
 				4F8D5E9E1B6C0568005E64D4 /* Products */,
-				FCFA7632E60CBEDF97358312 /* Pods */,
 				7E50A237DDCEAAC2CF458C8C /* Frameworks */,
 				F686163F209852AD002EA241 /* DamacC-Bridging-Header.h */,
+				E2827E4787D15E8ABCD5055C /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -500,6 +515,8 @@
 		4F8D5E9F1B6C0568005E64D4 /* DamacC */ = {
 			isa = PBXGroup;
 			children = (
+				F6327BD52186DB65001D5949 /* CCAvenueSDK.bundle */,
+				F6327BD22186DAB4001D5949 /* CCAvenueSDK.framework */,
 				F6CC80562180A1840025FB1D /* ColorCodes */,
 				F6550770217D6F57003EC62E /* Category */,
 				F6E1139C216EF4310066D521 /* PopTableViewController.h */,
@@ -547,8 +564,8 @@
 				F6A87EE1209F0B5A008D34C5 /* KPDropMenu */,
 				4F8D5EC91B6C0FE4005E64D4 /* RootViewController.h */,
 				4F8D5ECA1B6C0FE4005E64D4 /* RootViewController.m */,
-				4F8D5EC61B6C0F94005E64D4 /* InitialViewController.h */,
-				4F8D5EC71B6C0F94005E64D4 /* InitialViewController.m */,
+				4F8D5EC61B6C0F94005E64D4 /* InitialViewController1.h */,
+				4F8D5EC71B6C0F94005E64D4 /* InitialViewController1.m */,
 				4F8D5EA41B6C0568005E64D4 /* AppDelegate.h */,
 				4F8D5EA51B6C0568005E64D4 /* AppDelegate.m */,
 				F6A87ECD209BFC7F008D34C5 /* ServicesTableViewController.h */,
@@ -574,12 +591,22 @@
 		7E50A237DDCEAAC2CF458C8C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F659E0AE2188E46D00A9DB16 /* MessageUI.framework */,
 				F6C57C722158CD2400970DC3 /* libxml2.2.tbd */,
 				F6C57C712158CD2400970DC3 /* libxml2.tbd */,
 				F6D91E3920994A5D00DA1428 /* LocalAuthentication.framework */,
-				780B86EE1A0C088A18976D02 /* libPods-DamacC.a */,
+				0644B8EF6622C0581DE79A9B /* libPods-DamacC.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E2827E4787D15E8ABCD5055C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				63F48985EF30F2A699FA42F3 /* Pods-DamacC.debug.xcconfig */,
+				F70028AEC7D055578894526C /* Pods-DamacC.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		F60164EE20ABB9DE00E07510 /* DataModel */ = {
@@ -952,6 +979,12 @@
 				F6170A632100692E003443B1 /* AppointmentsCell.m */,
 				F6C57DCC215A1C3500970DC3 /* CreateAppointmentVC.h */,
 				F6C57DCD215A1C3500970DC3 /* CreateAppointmentVC.m */,
+				F653D3EC21876EB700F6021F /* AppointmentsSlotsViewController.h */,
+				F653D3ED21876EB700F6021F /* AppointmentsSlotsViewController.m */,
+				F653D3EF2187712000F6021F /* SlotCell.h */,
+				F653D3F02187712000F6021F /* SlotCell.m */,
+				F6B166C82188780F0094A2B4 /* AppointmentObject.h */,
+				F6B166C92188780F0094A2B4 /* AppointmentObject.m */,
 				F6C57DCF215A361B00970DC3 /* Appointments.json */,
 				F6C57DD1215A388800970DC3 /* Complaints.json */,
 			);
@@ -1110,15 +1143,6 @@
 			name = CollectionViewCells;
 			sourceTree = "<group>";
 		};
-		FCFA7632E60CBEDF97358312 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				1F713E521327193BA2508C63 /* Pods-DamacC.debug.xcconfig */,
-				F7697DD73D8E49EA0E15D946 /* Pods-DamacC.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1126,12 +1150,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4F8D5EC01B6C0568005E64D4 /* Build configuration list for PBXNativeTarget "DamacC" */;
 			buildPhases = (
-				EA18C06EC86E988D49E18AF3 /* [CP] Check Pods Manifest.lock */,
+				7BBF917AB239793A3272F4AD /* [CP] Check Pods Manifest.lock */,
 				4F8D5E991B6C0568005E64D4 /* Sources */,
 				4F8D5E9A1B6C0568005E64D4 /* Frameworks */,
 				4F8D5E9B1B6C0568005E64D4 /* Resources */,
-				B167900E8CAE044F1666A7AF /* [CP] Copy Pods Resources */,
 				F686165B20987584002EA241 /* Embed Frameworks */,
+				A16F602140C030304A95E7F8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1196,6 +1220,7 @@
 				F68616052096197D002EA241 /* Main.storyboard in Resources */,
 				F6264209211361880022C4DC /* StepperView.xib in Resources */,
 				F626425C211432AA0022C4DC /* JointBView2.xib in Resources */,
+				F6327BD62186DB65001D5949 /* CCAvenueSDK.bundle in Resources */,
 				F686160A20962229002EA241 /* PinView.xib in Resources */,
 				F610E8C02121FBD500B09A5B /* UnitsHeaderView.xib in Resources */,
 				F604B3652165FD300047CBD2 /* ReceiptsTableViewCell.xib in Resources */,
@@ -1225,7 +1250,25 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		B167900E8CAE044F1666A7AF /* [CP] Copy Pods Resources */ = {
+		7BBF917AB239793A3272F4AD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DamacC-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A16F602140C030304A95E7F8 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1245,24 +1288,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DamacC/Pods-DamacC-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		EA18C06EC86E988D49E18AF3 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-DamacC-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1292,6 +1317,7 @@
 				F6B31BE120F33328001A5144 /* ScheduleAppointmentsVC.m in Sources */,
 				F61124B72164CEEC00901694 /* APPSXXDC_AOPT_PKG_WSX1843128X6X5.m in Sources */,
 				F67D77B021749FD9009EE062 /* SurveyCell3.m in Sources */,
+				F6B166CA2188780F0094A2B4 /* AppointmentObject.m in Sources */,
 				F6CBCCD62171DB1000615072 /* ServicesCell.m in Sources */,
 				F61124AB2164CEB300901694 /* AOPT.m in Sources */,
 				F6170A5D20FCC6ED003443B1 /* MyServicesDataModel.m in Sources */,
@@ -1302,6 +1328,7 @@
 				F6FB0E4E2180710800CBCB72 /* PassportObject.m in Sources */,
 				F655076F217D6F4C003EC62E /* NSString+StringValidations.m in Sources */,
 				F6D91E4720997AEA00DA1428 /* MainViewController.m in Sources */,
+				F653D3EE21876EB700F6021F /* AppointmentsSlotsViewController.m in Sources */,
 				F6C57C5A21585FD900970DC3 /* ChangeofContactCell2.m in Sources */,
 				F6C57E1A215B03E000970DC3 /* WSCalendarView.m in Sources */,
 				F6A87ECF209BFC7F008D34C5 /* ServicesTableViewController.m in Sources */,
@@ -1333,7 +1360,7 @@
 				F61124C12165C97300901694 /* PaymentsScheduleVC.m in Sources */,
 				F698216820ED49A400D023AF /* CustomBarOptions.m in Sources */,
 				F6A87EE4209F1B84008D34C5 /* ChangeofDetailsViewController.m in Sources */,
-				4F8D5EC81B6C0F94005E64D4 /* InitialViewController.m in Sources */,
+				4F8D5EC81B6C0F94005E64D4 /* InitialViewController1.m in Sources */,
 				F6170A6120FF9DB3003443B1 /* ServicesDetailController.m in Sources */,
 				F6A5D362217502ED0010DE2B /* Sub-SurveyCell.m in Sources */,
 				F6C942B820E9C6D700D1F40C /* VCFloatingActionButton.m in Sources */,
@@ -1346,6 +1373,7 @@
 				F686160820962209002EA241 /* PinView.m in Sources */,
 				F6CB3FBB20EA9A0000D290A6 /* ProfileViewController.m in Sources */,
 				F610E8CD2121FE5700B09A5B /* SampleTableViewController.m in Sources */,
+				F653D3F12187712000F6021F /* SlotCell.m in Sources */,
 				F61124BE2164E21200901694 /* UnitsClassLabel.m in Sources */,
 				F6E8D4D421192B570063CC16 /* ShowMenuOptiionsVC.m in Sources */,
 				F6C57C5621585C4900970DC3 /* PassportUpdateVC.m in Sources */,
@@ -1498,7 +1526,7 @@
 		};
 		4F8D5EC11B6C0568005E64D4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1F713E521327193BA2508C63 /* Pods-DamacC.debug.xcconfig */;
+			baseConfigurationReference = 63F48985EF30F2A699FA42F3 /* Pods-DamacC.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1512,6 +1540,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/DamacC",
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/PrefixHeader.pch";
 				HEADER_SEARCH_PATHS = (
@@ -1562,7 +1591,7 @@
 		};
 		4F8D5EC21B6C0568005E64D4 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F7697DD73D8E49EA0E15D946 /* Pods-DamacC.release.xcconfig */;
+			baseConfigurationReference = F70028AEC7D055578894526C /* Pods-DamacC.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1576,6 +1605,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/DamacC",
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/PrefixHeader.pch";
 				HEADER_SEARCH_PATHS = (

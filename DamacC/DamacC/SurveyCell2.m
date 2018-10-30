@@ -94,10 +94,6 @@
     if([textView.text isEqualToString:@"Please tell us the reason for your low rating"]){
         textView.text =@"";
     }
-    if([textView.text isEqualToString:@""]){
-        textView.text =@"Please tell us the reason for your low rating";
-    }
-    
 }
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
     
@@ -107,6 +103,11 @@
     }
     
     return YES;
+}
+- (void)textViewDidEndEditing:(UITextView *)textView{
+    if([textView.text isEqualToString:@""]){
+        textView.text =@"Please tell us the reason for your low rating";
+    }
 }
 
 
@@ -120,6 +121,7 @@
     NSMutableDictionary *dict = _surveyArray[0];
     [dict setValue:[NSString stringWithFormat:@"%d",value] forKey:@"selectedOption"];
     NSLog(@"%@",_surveyArray);
-    
+
 }
+
 @end

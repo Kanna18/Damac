@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSString (StringValidations)
 - (BOOL)validateEmailWithString;
+-(BOOL)validatewithPhoneNumber;
 @end
 
 NS_ASSUME_NONNULL_END

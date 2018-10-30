@@ -16,5 +16,17 @@
     NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
     return [emailTest evaluateWithObject:self];
 }
-
+-(BOOL)validatewithPhoneNumber{
+    NSString *str1 = [[self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] stringByReplacingOccurrencesOfString:@" " withString:@""];
+    if(str1.length>3)
+    {
+        NSString *str = [str1 substringToIndex:3];
+        if([str isEqualToString:@"000"]){
+            return NO;
+        }else{
+            return YES;
+        }
+    }
+    return NO;
+}
 @end

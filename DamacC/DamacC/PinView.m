@@ -75,8 +75,8 @@
         }else if ([_type isEqualToString: kconfirmMpin]){
             defaultSet(collectPin, kconfirmMpin);
         }else if([_type isEqualToString:kenterMpin]){
-            [[NSNotificationCenter defaultCenter]postNotificationName:MPIN_ENTERED_NOTIFICATION object:nil];
             defaultSet(collectPin, kenterMpin);
+            [[NSNotificationCenter defaultCenter]postNotificationName:MPIN_ENTERED_NOTIFICATION object:nil];            
         }
     }
 }

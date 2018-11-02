@@ -26,7 +26,6 @@
         self.frame = frame;
     }
     return self;
-    
 }
 
 

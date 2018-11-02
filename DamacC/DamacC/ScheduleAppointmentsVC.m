@@ -58,7 +58,7 @@ static NSString *reuseCell = @"appointmentsCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     AppointmentsCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseCell forIndexPath:indexPath];
-    [cell setLabelsData:tvArray[indexPath.row]];
+    [cell setLabelsData:tvArray[indexPath.section]];
     return cell;
 }
 

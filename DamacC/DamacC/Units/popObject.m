@@ -95,10 +95,10 @@
         toastMessage = @"SR has been Cancelled successfully";
     }
     if([self.status isEqualToString:@"Draft Request"]){
-        toastMessage = @"Draft has been Successfully saved";
+        toastMessage = @"Draft has been successfully saved";
     }
     if([self.status isEqualToString:@"Submitted"]){
-        toastMessage = @"Submitted Successfully";
+        toastMessage = @"Submitted successfully";
     }
     
     [FTIndicator dismissProgress];

@@ -70,10 +70,11 @@
     for (NSString *str in _totalArrayDates) {
         NSArray *ar = [str componentsSeparatedByString:@"\("];
         NSString *mont = ar[0];
-        if([mont containsString:[NSString stringWithFormat:@"-%d-",countOfObj]]){
+        if([mont containsString:[NSString stringWithFormat:@"-%d-",countOfObj]]&&![dateArray containsObject:mont]){
             [dateArray  addObject:mont];
         }
     }
+       dateArray =  [[NSMutableArray alloc]initWithArray:[dateArray sortedArrayUsingSelector:@selector(compare:)]];
     
 }
 -(void)sortSlotsArray:(NSString*)date{
@@ -196,6 +197,7 @@
         popovermonth.delegate = nil;
         popovermonth = nil;
         [popovermonth dismissPopoverAnimated:YES];
+        _heightConstraint.constant = 120;
     }
     if(popoverDate){
         

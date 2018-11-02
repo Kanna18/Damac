@@ -73,6 +73,7 @@
     dataDictionary = [DamacSharedClass sharedInstance].firstDataObject;
     [self setTopArrayData:[DamacSharedClass sharedInstance].firstDataObject];
 //    [FTIndicator showProgressWithMessage:@"Loading" userInteractionEnable:NO];
+
     NSLog(@"%@",self.navigationItem);
     
 //    self.carousel.type = iCarouselTypeRotary;
@@ -82,11 +83,13 @@
 //    [self setTopArrayData:nil];
 //    self.navigationController.navigationBar.hidden = YES;
     
+    
+    
 //    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
-        [FTIndicator showProgressWithMessage:@"Loading"];
     if(!([DamacSharedClass sharedInstance].unitsArray.count>0)){
-        [self getUnitsintheBakground];
-        self.view.userInteractionEnabled = NO;
+         [FTIndicator showProgressWithMessage:@"Loading Please Wait" userInteractionEnable:NO];
+         [self getUnitsintheBakground];
+//        self.view.userInteractionEnabled = NO;
     }
 //    });
     
@@ -145,6 +148,13 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
+    [self customNavBarVie];
+}
+
+-(void)customNavBarVie{
+    
+    CustomBar *cstm = [[CustomBar alloc]initWithFrame:self.navigationController.accessibilityFrame];
+    [self.navigationController.navigationBar addSubview:cstm];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -458,10 +468,11 @@
         } errorBlock:^(NSError *error) {
             [FTIndicator performSelectorOnMainThread:@selector(loadingUnitsValidations) withObject:nil waitUntilDone:YES];
             
+            
     }];
 }
 -(void)loadingUnitsValidations{
-    self.view.userInteractionEnabled = YES;
+//    self.view.userInteractionEnabled = YES;
     DamacSharedClass.sharedInstance.windowButton.userInteractionEnabled = YES;
     [FTIndicator dismissProgress];
 }

@@ -77,6 +77,17 @@
     }];
 }
 -(void)popToMainVC{
+    
+    if([self.Status isEqualToString:@"Cancelled"]){
+        toastMessage = @"Complaint has been Cancelled successfully";
+    }
+    if([self.Status isEqualToString:@"Draft Request"]){
+        toastMessage = @"Complaint has been successfully saved";
+    }
+    if([self.Status isEqualToString:@"Submitted"]){
+        toastMessage = @"Complaint has been submitted successfully";
+    }
+    
     [FTIndicator showToastMessage:toastMessage];
     [FTIndicator dismissProgress];
     NSArray *arr = DamacSharedClass.sharedInstance.currentVC.navigationController.viewControllers;

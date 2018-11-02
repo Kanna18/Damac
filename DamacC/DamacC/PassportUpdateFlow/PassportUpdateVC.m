@@ -53,7 +53,7 @@
     DamacSharedClass.sharedInstance.currentVC = self;
     self.view.clipsToBounds = NO;
     [self webServicetoGetUnitSFIds];
-    [FTIndicator showProgressWithMessage:@""];
+    [FTIndicator showProgressWithMessage:@"Loading Please Wait" userInteractionEnable:NO];
     tvDataValues = @[@{@"key":@"Passport Number/CR Number",
                        @"value":self.passportObj.previousPPNumber,
                        @"newValue":self.passportObj.passportNo},
@@ -236,6 +236,7 @@
             PassportCell2 *cell2 = [tableView dequeueReusableCellWithIdentifier:@"passportCell2" forIndexPath:indexPath];
         cell2.topLabel.text =tvDataValues[indexPath.row][@"key"];
         cell2.textField.text = tvDataValues[indexPath.row][@"newValue"];
+        NSLog(@"%@---%@",tvDataValues[indexPath.row][@"newValue"],_passportObj);
         cell2.textField.tag = 1000+indexPath.row;
         cell2.textField.delegate = self;
         cell2.textField.tfIndexPath = indexPath;
@@ -386,7 +387,8 @@
         [FTIndicator showToastMessage:@"Passport Issued place should not be empty"];
         return;
     }
-    if(self.passportObj.passportImage == nil){
+    
+    if(self.passportObj.passportImage == nil&&[self.passportObj.status isEqualToString:@"Submitted"]){
         [FTIndicator showToastMessage:@"Passport of Primary buyer is not attached"];
         return;
     }
@@ -438,6 +440,16 @@
     [_buyersButton setTitle:str forState:UIControlStateNormal];
 //    self.passportObj.AccountID = buyersInfoArr[tag][@"Id"];
     [_passportObj fillDefaultValuesForParticularBuyer:buyersInfoArr[tag]];
+    
+    tvDataValues = @[@{@"key":@"Passport Number/CR Number",
+                       @"value":self.passportObj.previousPPNumber,
+                       @"newValue":self.passportObj.passportNo},
+                     @{@"key":@"Passport Issue Place/City of Incorporation",
+                       @"value":self.passportObj.previousPassPlace,
+                       @"newValue":self.passportObj.PassportIssuedPlace},
+                     @{@"key":@"Passport/CR Expiry Date",
+                       @"value":self.passportObj.previousExpiryDate,
+                       @"newValue":self.passportObj.PassportIssuedDate}];
     [self.tableView reloadData];
     
 }
@@ -450,7 +462,7 @@
 
 -(void)textFieldDidBeginEditing:(COCDTF *)textField{
     if(textField.tag == 1002){
-        [textField resignFirstResponder];
+        [[UIApplication sharedApplication] resignFirstResponder];
         [calendarView ActiveCalendar:self.view];
         dateTFref = textField;
     }
@@ -471,22 +483,30 @@
     
     if(tf.tag == 1000){
         self.passportObj.passportNo = tf.text;
-        return;
     }
     if(tf.tag == 1001){
         self.passportObj.PassportIssuedPlace = tf.text;
-        return;
     }
     if(tf.tag == 1002){
         self.passportObj.PassportIssuedDate = tf.text;
-        return;
     }
+    
+    tvDataValues = @[@{@"key":@"Passport Number/CR Number",
+                       @"value":self.passportObj.previousPPNumber,
+                       @"newValue":self.passportObj.passportNo},
+                     @{@"key":@"Passport Issue Place/City of Incorporation",
+                       @"value":self.passportObj.previousPassPlace,
+                       @"newValue":self.passportObj.PassportIssuedPlace},
+                     @{@"key":@"Passport/CR Expiry Date",
+                       @"value":self.passportObj.previousExpiryDate,
+                       @"newValue":self.passportObj.PassportIssuedDate}];
+    [_tableView reloadData];
 }
 
 
 -(void)uploadImagesToServer{
     
-    [FTIndicator showProgressWithMessage:@""];
+    [FTIndicator showProgressWithMessage:@"Loading Please Wait" userInteractionEnable:NO];
     _soap= [[SaopServices alloc]init];
     _soap.delegate = self;
     if(self.passportObj.passportImage){

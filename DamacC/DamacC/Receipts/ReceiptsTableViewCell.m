@@ -27,7 +27,7 @@
     
     ReceiptActions *rcpt = _rs.actions[0];
     [self generateReceiptAction:rcpt.url];
-    [FTIndicator showProgressWithMessage:@"Please Wait"];
+    [FTIndicator showProgressWithMessage:@"Loading Please Wait" userInteractionEnable:NO];
 }
 
 -(void)generateReceiptAction:(NSString*)str{

@@ -17,5 +17,14 @@
     // Drawing code
 }
 */
-
+-(instancetype)initWithFrame:(CGRect)frame{
+    self = [super initWithFrame:frame];
+    if(self){
+        self = [[NSBundle mainBundle]loadNibNamed:@"CustomBar" owner:self options:nil][0];
+    }
+    return self;
+}
+- (IBAction)backClick:(id)sender {
+    [DamacSharedClass.sharedInstance.currentVC.navigationController popViewControllerAnimated:YES];
+}
 @end

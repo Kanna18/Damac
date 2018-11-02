@@ -111,7 +111,7 @@ enum HTTPMethod {
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]
                                                            cachePolicy:NSURLRequestUseProtocolCachePolicy
-                                                       timeoutInterval:100.0];
+                                                       timeoutInterval:20.0];
     [request setHTTPMethod:@"GET"];
     NSURLSession *session = [NSURLSession sharedSession];
     NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request
@@ -182,7 +182,7 @@ enum HTTPMethod {
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]
                                                            cachePolicy:NSURLRequestUseProtocolCachePolicy
-                                                       timeoutInterval:100.0];
+                                                       timeoutInterval:20.0];
     [request setHTTPMethod:@"POST"];
     [request setAllHTTPHeaderFields:headers];
     [request setHTTPBody:postData];
@@ -206,7 +206,7 @@ enum HTTPMethod {
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]
                                                            cachePolicy:NSURLRequestUseProtocolCachePolicy
-                                                       timeoutInterval:10.0];
+                                                       timeoutInterval:20.0];
     SFUserAccountManager *sf = [SFUserAccountManager sharedInstance];
     NSDictionary *headers;
     if(sf.currentUser.credentials.accessToken||[url containsString:@"partial"]){

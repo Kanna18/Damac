@@ -17,7 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [FTIndicator showProgressWithMessage:@"Loading"];
+    [FTIndicator showProgressWithMessage:@"Loading please wait" userInteractionEnable:NO];
 
 }
 -(void)viewDidAppear:(BOOL)animated{

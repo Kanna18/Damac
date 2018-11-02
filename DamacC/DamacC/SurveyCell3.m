@@ -9,11 +9,14 @@
 #import "SurveyCell3.h"
 #import "Sub-SurveyCell.h"
 
+@interface SurveyCell3()
+
+@end
+
 @implementation SurveyCell3
 
 {
-    NSArray *headingLabels;
-    
+    NSArray *headingLabels;    
 }
 
 - (void)awakeFromNib{
@@ -25,7 +28,8 @@
                       @"Please rate your overall experience on DAMAC customer service provided",
                       @"How would you rate your overall experience with DAMAC properties"
                       ];
-    _continueSurveyBtn.enabled = YES;        
+    _continueSurveyBtn.enabled = YES;
+    _optionsDict = [[NSMutableDictionary alloc]init];
 }
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
@@ -41,6 +45,7 @@
     cell.questionLabel.text = [NSString stringWithFormat:@"%ld",indexPath.row +1];
     cell.headingLabel.text = headingLabels[indexPath.row];
     cell.surveyArray = _surveyArray;
+    cell.optionsDict = _optionsDict;
     return cell;
     
 }
@@ -56,6 +61,14 @@
     return CGSizeMake(_collectionView.frame.size.width-80, 340);
 }
 - (IBAction)continueSurveyClick:(id)sender {
+    NSNumber *flag1 = [_optionsDict valueForKey:@"0"];
+    NSNumber *flag2 = [_optionsDict valueForKey:@"1"];
+    NSNumber *flag3 = [_optionsDict valueForKey:@"2"];
+    NSNumber *flag4 = [_optionsDict valueForKey:@"3"];    
+    if(flag1.boolValue||flag2.boolValue||flag3.boolValue||flag4.boolValue){
+        [FTIndicator showToastMessage:@"Please specify reason"];
+    }else{
      [_parentCollectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:3 inSection:0] atScrollPosition:UICollectionViewScrollPositionRight animated:YES];
+    }
 }
 @end

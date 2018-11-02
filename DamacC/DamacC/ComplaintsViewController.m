@@ -54,11 +54,12 @@
     
     
     [self fillLabelsWithSRDValues];
+    
 }
 -(void)fillLabelsWithSRDValues{
     [_selectUnitsButton setTitle:_complaintsObj.BookingUnit forState:UIControlStateNormal];
-    [_selectComplaintBtn setTitle:_complaintsObj.ComplaintType forState:UIControlStateNormal];
-    [_selectSubBtn setTitle:_complaintsObj.ComplaintSubType forState:UIControlStateNormal];
+    [_selectComplaintBtn setTitle:@"Select Complaint Type*" forState:UIControlStateNormal];
+    [_selectSubBtn setTitle:@"Select Complaint Sub-Type" forState:UIControlStateNormal];
     _complaintsTF.text = _complaintsObj.Description;
 }
 
@@ -115,7 +116,8 @@
         [FTIndicator showToastMessage:@"Please select complaint type"];
         return;
     }
-
+    
+    [FTIndicator showProgressWithMessage:@"Loading Please Wait" userInteractionEnable:NO];
     _complaintsObj.Status = @"Submitted";
     [self uploadImagesToServer];
     
@@ -138,7 +140,7 @@
         [_complaintsObj sendDraftStatusToServer];
         
     }
-     [FTIndicator showProgressWithMessage:@"Please Wait"];
+     [FTIndicator showProgressWithMessage:@"Loading Please Wait" userInteractionEnable:NO];
 }
 
 -(void)roundCorners:(UIButton*)sender{
@@ -213,11 +215,11 @@
 #pragma Mark camView Delegate
 
 -(void)imagePickerSelectedImage:(UIImage *)image{
-    if(currentImagebtn == 1){
+    if(currentImagebtn == 1&&image){
         _complaintsObj.attactment1 = image;
         _attachment1Label.text = @"cacheJPEG1.jpg";
     }
-    if(currentImagebtn == 2){
+    if(currentImagebtn == 2&&image){
         _complaintsObj.attactment2 = image;
         _attachment2Label.text = @"cacheJPEG2.jpg";
     }
@@ -248,7 +250,7 @@
     NSLog(@"%@",path);
     countoFImagesUploaded ++;
     
-    [FTIndicator showProgressWithMessage:@"Please Wait"];
+    [FTIndicator showProgressWithMessage:@"Loading Please Wait" userInteractionEnable:NO];
     
     if ([path rangeOfString:@"ComplaintsAttachment1"].location == NSNotFound) {
         NSLog(@"string does not contain bla");

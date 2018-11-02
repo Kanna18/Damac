@@ -11,6 +11,7 @@
 @implementation SurveyCell2{
     
     int tappedCEllIndex, labelsCount;
+    BOOL additionalResponseNeeded;
 }
 
 
@@ -107,12 +108,26 @@
 - (void)textViewDidEndEditing:(UITextView *)textView{
     if([textView.text isEqualToString:@""]){
         textView.text =@"Please tell us the reason for your low rating";
+        additionalResponseNeeded = YES;
+
     }
+    if(!(isEmpty(textView.text))){
+        NSMutableDictionary *dict = _surveyArray[0];
+        [dict setValue:textView.text forKey:@"additionalResponse"];
+        additionalResponseNeeded = NO;
+    }
+    
 }
 
 
 - (IBAction)surveyBtnClick:(id)sender {
-       [_parentCollectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0] atScrollPosition:UICollectionViewScrollPositionRight animated:YES];
+    
+    if(additionalResponseNeeded){
+        [FTIndicator showToastMessage:@"Please enter comments for your low rating"];
+    }else{
+        [_parentCollectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0] atScrollPosition:UICollectionViewScrollPositionRight animated:YES];
+    }
+    
 }
 
 
@@ -121,6 +136,14 @@
     NSMutableDictionary *dict = _surveyArray[0];
     [dict setValue:[NSString stringWithFormat:@"%d",value] forKey:@"selectedOption"];
     NSLog(@"%@",_surveyArray);
+    if(value<8){
+        [dict setValue:[NSNumber numberWithBool:YES] forKey:@"renderFreeText"];
+        additionalResponseNeeded = YES;
+    }else{
+        [dict setValue:[NSNumber numberWithBool:NO] forKey:@"renderFreeText"];
+        [dict setValue:@"" forKey:@"additionalResponse"];
+        additionalResponseNeeded = NO;
+    }
 
 }
 

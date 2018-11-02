@@ -29,7 +29,7 @@
     [self webServiceCall];
     DamacSharedClass.sharedInstance.currentVC = self;
     servicesCountArray = [[NSMutableArray alloc]init];
-    [FTIndicator showProgressWithMessage:@"Loading please wait"];
+    [FTIndicator showProgressWithMessage:@"Loading please wait" userInteractionEnable:NO];
     
 }
 

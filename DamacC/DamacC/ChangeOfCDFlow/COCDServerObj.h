@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "ServicesSRDetails.h"
+#import "Translator.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -47,10 +48,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property UIImage *primaryPassportImage;
 @property UIImage *additionalDocumentImage;
 
+
+
 -(void)fillCOCDObjectWithOutCaseID;
 -(void)changeValueBasedonTag:(UITextField*)textField withValue:(NSString*)str;
 -(void)sendDraftStatusToServer;
 -(void)fillCOCDObjWithCaseID:(ServicesSRDetails*)srd;
+
+- (void)updateTranslatewithText:(NSString*)txt;
 
 @end
 

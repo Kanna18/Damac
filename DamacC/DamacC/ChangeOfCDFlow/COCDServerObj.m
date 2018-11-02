@@ -10,35 +10,87 @@
 #import "COCDServerObj.h"
 
 
+@interface COCDServerObj () <TranslatorDelegate>
+
+@property  TranslateEntity *translatingEntity;
+@property Translator *translator;
+
+@end
+
 
 @implementation COCDServerObj{
     
     UserDetailsModel *udm;
     NSString *toastMessage;
+    int CountobobjectstoTranslate;
 }
 -(instancetype)init{
     self = [super init];
     if(self){
         udm = [DamacSharedClass sharedInstance].userProileModel;
+        self.translator = [[Translator alloc] initWithDelegate:self];
+        if(!self.translator){
+            self.translator = [Translator sharedInstance];
+            self.translator.delegate = self;
+            CountobobjectstoTranslate = 1;
+        }
     }
     return self;
 }
+
+
+- (void)fullRefreshTranslatewithText:(NSString*)text {
+    _translatingEntity = [[TranslateEntity alloc] initWithLangFrom:@"English" andLangOn:@"Arabic" andInput:text];
+    [_translator translate:_translatingEntity];
+}
+
+- (void)updateTranslatewithText:(NSString*)txt {
+    if (_translatingEntity) {
+        _translatingEntity.inputText = txt;
+        [_translator translate:_translatingEntity];
+    } else {
+        [self fullRefreshTranslatewithText:txt];
+    }
+    
+}
+
+- (void)receiveTranslate:(TranslateEntity *)translate withError:(NSError *)error {
+    
+    
+
+    if (error) {
+        
+        
+    } else {
+        
+        if (_translatingEntity == translate) { // link comparing
+            NSLog(@"ArabicText= %@---%@",translate.outputText,translate.inputText);
+            [self fillArabicTexts:translate];
+        }
+    }
+    CountobobjectstoTranslate++;
+    [self sendArabicTexts];
+}
+- (void)receiveLanguagesList:(NSArray<NSString *> *)allLanguages withError:(NSError*)error{
+    NSLog(@"%@",allLanguages);
+}
+
 
 -(void)fillCOCDObjectWithOutCaseID{
     self.RecordType = @"Change of Details";
     self.UserName = kUserProfile.partyName;
     self.salesforceId = kUserProfile.sfAccountId;
-    self.AccountID = udm.sfContactId;
-    self.AddressLine1 = udm.addressLine1;
-    self.AddressLine2 = udm.addressLine2;
-    self.AddressLine3 = @"Enter Address3";
-    self.AddressLine4 = @"Enter Address3";
-    self.City = [NSString stringWithFormat:@"%@",udm.city];
-    self.State = @"Enter State";
-    self.PostalCode = @"Enter Postal Code";
-    self.Country = udm.countryOfResidence;
-    self.Mobile = [NSString stringWithFormat:@"%@%@%@",udm.phoneCountry,udm.phoneAreaCode,udm.phoneNumber];
-    self.Email = [NSString stringWithFormat:@"%@",udm.emailAddress];
+    self.AccountID = handleNull(udm.sfContactId);
+    self.AddressLine1 = handleNull(udm.addressLine1);
+    self.AddressLine2 = handleNull(udm.addressLine2);
+    self.AddressLine3 = handleNull(udm.addressLine3);
+    self.AddressLine4 = handleNull(udm.addressLine4);
+    self.City = handleNull(udm.city);
+    self.State = handleNull(udm.city);
+    self.PostalCode = handleNull(udm.countryCode);
+    self.Country = handleNull(udm.countryOfResidence);
+    self.Mobile = [NSString stringWithFormat:@"%@%@%@",handleNull(udm.phoneCountry),handleNull(udm.phoneAreaCode),handleNull(udm.phoneNumber)];
+    self.Email = [NSString stringWithFormat:@"%@",handleNull(udm.emailAddress)];
     self.AddressLine1Arabic = @"";
     self.AddressLine2Arabic = @"";
     self.AddressLine3Arabic = @"";
@@ -52,8 +104,59 @@
     self.Origin = @"";
     self.fcm = @"";
     self.salesforceId = @"";
+    [self sendArabicTexts];
 }
 
+-(void)sendArabicTexts{
+    if(CountobobjectstoTranslate==1){
+    [self updateTranslatewithText:self.AddressLine1];
+    }else if (CountobobjectstoTranslate==2){
+    [self updateTranslatewithText:self.AddressLine2];
+    }else if (CountobobjectstoTranslate==3){
+    [self updateTranslatewithText:self.AddressLine3];
+    }else if (CountobobjectstoTranslate==4){
+    [self updateTranslatewithText:self.AddressLine4];
+    }else if (CountobobjectstoTranslate==5){
+    [self updateTranslatewithText:self.State];
+    }else if (CountobobjectstoTranslate==6){
+    [self updateTranslatewithText:self.Country];
+    }else if (CountobobjectstoTranslate==7){
+    [self updateTranslatewithText:self.PostalCode];
+    }
+        
+}
+
+-(void)fillArabicTexts:(TranslateEntity*)trans{
+    if([trans.inputText isEqualToString:self.AddressLine1])
+    {
+        self.AddressLine1Arabic = trans.outputText;
+    }
+    if([trans.inputText isEqualToString:self.AddressLine2])
+    {
+        self.AddressLine2Arabic = trans.outputText;
+    }
+    if([trans.inputText isEqualToString:self.AddressLine3])
+    {
+        self.AddressLine3Arabic = trans.outputText;
+    }
+    if([trans.inputText isEqualToString:self.AddressLine4])
+    {
+        self.AddressLine4Arabic = trans.outputText;
+    }
+    if([trans.inputText isEqualToString:self.State])
+    {
+        self.StateArabic = trans.outputText;
+    }
+    if([trans.inputText isEqualToString:self.Country])
+    {
+        self.CountryArabic = trans.outputText;
+    }
+    if([trans.inputText isEqualToString:self.PostalCode])
+    {
+        self.PostalCodeArabic = trans.outputText;
+    }
+
+}
 -(void)fillCOCDObjWithCaseID:(ServicesSRDetails*)srd{
     
     self.RecordType = handleNull(srd.RecordTypeId);
@@ -83,6 +186,7 @@
     self.Origin = @"";
     self.fcm = @"";
     self.salesforceId = handleNull(srd.Id);
+    [self sendArabicTexts];
 }
 -(void)changeValueBasedonTag:(UITextField*)textField withValue:(NSString*)str{
     
@@ -139,6 +243,8 @@
         self.StateArabic = str;
         return;
     }
+    [self updateTranslatewithText:str];
+
 }
 -(void)sendDraftStatusToServer{
     
@@ -205,16 +311,16 @@
 -(void)popToMainVC{
     
     if([self.Status isEqualToString:@"Draft Request"]){
-        toastMessage= @"SR has been sucessufully saved";
+        toastMessage= @"SR has been successfully saved";
     }
     if([self.Status isEqualToString:@"Submitted"]){
-        toastMessage= @"SR has been sucessufully Submitted";
+        toastMessage= @"SR has been successfully Submitted";
     }
     if([self.Status isEqualToString:@"Cancelled"]){
-       toastMessage= @"SR has been sucessufully Cancelled";
+       toastMessage= @"SR has been successfully Cancelled";
     }
-    [FTIndicator showToastMessage:toastMessage];
     [FTIndicator dismissProgress];
+    [FTIndicator showToastMessage:toastMessage];    
     NSArray *arr = DamacSharedClass.sharedInstance.currentVC.navigationController.viewControllers;
     for (UIViewController *vc in arr) {
         if([vc isKindOfClass:[MainViewController class]]){

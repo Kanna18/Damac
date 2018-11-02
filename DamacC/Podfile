@@ -15,8 +15,8 @@ pod 'FTIndicator'
 pod 'AFNetworking', '~> 2.5.4'
 pod 'JSONModel'
 pod 'WYPopoverController', '~> 0.2.0'
-
-
+pod 'Firebase/Core'
+pod 'Firebase/Messaging'
 end
 
 post_install do | installer |

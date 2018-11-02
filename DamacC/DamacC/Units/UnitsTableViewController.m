@@ -148,7 +148,7 @@
     
     if(!([DamacSharedClass sharedInstance].unitsArray.count>0))
     {
-    [FTIndicator showProgressWithMessage:@"Fetching Units"];
+    [FTIndicator showProgressWithMessage:@"Loading Please Wait" userInteractionEnable:NO];
     if(_serverUrlString.length>0){
         ServerAPIManager *server = [ServerAPIManager sharedinstance];
         [server getRequestwithUrl:_serverUrlString successBlock:^(id responseObj) {

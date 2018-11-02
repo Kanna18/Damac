@@ -45,7 +45,7 @@
     serverAPI =[ServerAPIManager sharedinstance];
     buyersInfoArr = [[NSMutableArray alloc]init];
     [self webServicetoGetUnitSFIds];
-    [FTIndicator showProgressWithMessage:@"Fetching Buyers List"];
+    [FTIndicator showProgressWithMessage:@"Loading Please Wait" userInteractionEnable:NO];
     dropitems = [[NSMutableArray alloc]init];
     _tableView.delegate = self;
     _tableView.dataSource = self;
@@ -476,7 +476,7 @@
         [FTIndicator showToastMessage:@"COCD document is not attached"];
     }else{
         self.jointObj.status = @"Submitted";
-        [FTIndicator showProgressWithMessage:@"Please Wait"];
+        [FTIndicator showProgressWithMessage:@"Loading Please Wait" userInteractionEnable:NO];
         [self uploadImagesToServer];
     }
     
@@ -485,7 +485,7 @@
     
     if([self validationSetForJointBuyer]){
         self.jointObj.status = @"Draft Request";
-        [FTIndicator showProgressWithMessage:@"Please Wait"];
+        [FTIndicator showProgressWithMessage:@"Loading Please Wait" userInteractionEnable:NO];
         
         if(self.jointObj.cocdImage||self.jointObj.additionalDocumentImage||self.jointObj.primaryPassportImage){
             [self subJointBuyersResponse];
@@ -537,7 +537,7 @@
 
 -(void)downloadFormDetails{
     
-    [FTIndicator showProgressWithMessage:@"Please wait"];
+    [FTIndicator showProgressWithMessage:@"Loading Please Wait" userInteractionEnable:NO];
     NSDictionary * dict = @{
                             @"buyersInfoWrapper":
                                 @{

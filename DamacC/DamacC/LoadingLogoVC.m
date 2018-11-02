@@ -35,6 +35,7 @@
     NSString * url = [NSString stringWithFormat:@"%@%@",maiUrl,[sf.currentUserIdentity valueForKeyPath:@"userId"]];
     [server getRequestwithUrl:url successBlock:^(id responseObj) {        
         [DamacSharedClass sharedInstance].firstDataObject = [NSJSONSerialization JSONObjectWithData:responseObj options:0 error:nil];
+        NSLog(@"User Profile Model -- %@",[NSJSONSerialization JSONObjectWithData:responseObj options:0 error:nil]);
         [self setTopArrayData:[DamacSharedClass sharedInstance].firstDataObject];
     } errorBlock:^(NSError *error) {
         NSLog(@"%@",error);

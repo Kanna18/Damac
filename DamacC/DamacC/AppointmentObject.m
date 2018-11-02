@@ -45,9 +45,9 @@
 }
 
 -(void)popToMainVC{
-
-    [FTIndicator showToastMessage:@"Appointment Successfully Scheduled"];
+            
     [FTIndicator dismissProgress];
+    [FTIndicator showToastMessage:@"Appointment successfully Scheduled"];    
     NSArray *arr = DamacSharedClass.sharedInstance.currentVC.navigationController.viewControllers;
     for (UIViewController *vc in arr) {
         if([vc isKindOfClass:[MainViewController class]]){

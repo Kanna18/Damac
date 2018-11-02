@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface CustomBar : UIView
+@property (weak, nonatomic) IBOutlet UIButton *backBtn;
+- (IBAction)backClick:(id)sender;
 
+@property UINavigationController *navController;
 @end

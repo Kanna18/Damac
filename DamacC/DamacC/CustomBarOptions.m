@@ -21,7 +21,7 @@
         NSArray *imgsArr = @[/*@"menu.png",@"logout.png",@"help.png",*/@"iconSettings",@"iconBell"/*@"home.png"*/];
         NSMutableArray *arr =[[NSMutableArray alloc]init];
         for (int i = 0 ; i<num&&num<=imgsArr.count; i++){
-            [arr addObject:[self customNavigationBarButtonsimageName:imgsArr[i]]];
+            [arr addObject:[self customNavigationBarButtonsimageName:imgsArr[i] withTag:i]];
         }
         nav.rightBarButtonItems = arr;
         
@@ -55,11 +55,22 @@
     return self;
 }
 
--(UIBarButtonItem*)customNavigationBarButtonsimageName:(NSString*)imgName{
+-(UIBarButtonItem*)customNavigationBarButtonsimageName:(NSString*)imgName withTag:(int)tag{
     UIButton *home = [UIButton buttonWithType:UIButtonTypeSystem];
     [home setBackgroundImage:[UIImage imageNamed:imgName] forState:UIControlStateNormal];
     home.frame = CGRectMake(0, 0, heig, widt);
-    return [[UIBarButtonItem alloc]initWithCustomView:home];
+    
+//    if(tag == 1){
+//        [home addTarget:self action:@selector(loadNotifications) forControlEvents:UIControlEventTouchUpInside];
+//    }
+    UIBarButtonItem *btn = [[UIBarButtonItem alloc]initWithCustomView:home];
+    btn.target = self;
+    if(tag == 1){
+        btn.action = @selector(loadNotifications);
+    }
+    return btn;
 }
-
+-(void)loadNotifications{
+    NotificationsTableVC *nvc = [DamacSharedClass.sharedInstance.currentVC.storyboard instantiateViewControllerWithIdentifier:@"notificationsTableVC"]; [DamacSharedClass.sharedInstance.currentVC.navigationController pushViewController:nvc animated:YES];
+}
 @end

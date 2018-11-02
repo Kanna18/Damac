@@ -40,6 +40,7 @@
     BOOL uploadDocsPageVisible;
     int countoFImagestoUplaod,countoFImagesUploaded;
 
+   
     
 }
 
@@ -72,6 +73,7 @@
     _downloadBtn.layer.borderColor = rgb(191, 154, 88).CGColor;
     
     [self getCountriesList];
+
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -312,19 +314,19 @@
         numberOfCells = 3;
         _tableViewHeight.constant = 280;
     tvArr = @[@{@"key":@"Address1",
-                @"value":_cocdOBj.AddressLine1,
+                @"value":handleNull(_cocdOBj.AddressLine1),
                 @"tag" : [NSNumber numberWithInt:Address1]},
               @{@"key":@"Address2",
-                @"value":_cocdOBj.AddressLine2,
+                @"value":handleNull(_cocdOBj.AddressLine2),
                 @"tag" : [NSNumber numberWithInt:Address2]},
               @{@"key":@"Address3",
-                @"value":_cocdOBj.AddressLine3,
+                @"value":handleNull(_cocdOBj.AddressLine3),
                 @"tag" : [NSNumber numberWithInt:Address3]},
               @{@"key":@"Address4",
-                @"value":_cocdOBj.AddressLine4,
+                @"value":handleNull(_cocdOBj.AddressLine4),
                 @"tag" : [NSNumber numberWithInt:Address4]},
               @{@"key":@"City",
-                @"value":_cocdOBj.City,
+                @"value":handleNull(_cocdOBj.City),
                 @"tag" : [NSNumber numberWithInt:City]},
               @{@"key":@"Country",
                 @"value":@"",
@@ -451,7 +453,7 @@
     }
 }
 -(void)saveOrSubmitDraftRequestWithImages{
-    [FTIndicator showProgressWithMessage:@"Please wait"];
+    [FTIndicator showProgressWithMessage:@"Loading Please Wait" userInteractionEnable:NO];
     [self uploadImagesToServer];
     
 }
@@ -512,7 +514,7 @@
     if([_cocdOBj.Email validateEmailWithString]){
         _cocdOBj.Status = @"Draft Request";
         [_cocdOBj sendDraftStatusToServer];
-        [FTIndicator showProgressWithMessage:@"Please wait"];
+        [FTIndicator showProgressWithMessage:@"Loading Please Wait" userInteractionEnable:NO];
     }else{
         [FTIndicator showToastMessage:@"Plaease enter a valid Email"];
         [self emailClick:nil];
@@ -539,6 +541,14 @@
 -(void)textFieldDidEndEditing:(COCDTF *)textField{
     [_cocdOBj changeValueBasedonTag:textField withValue:textField.text];
     NSLog(@"%@",_cocdOBj);
+    if(textField.tag == Email){
+        [self emailClick:nil];
+    }
+    else if(textField.tag == Mobile){
+        [self mobileClick:nil];
+    }else{
+        [self addressClick:nil];
+    }
 }
 
 -(void)uploadImagesIfAny{
@@ -553,7 +563,7 @@
 
 -(void)downloadFormDetails{
     
-    [FTIndicator showProgressWithMessage:@"Please wait"];
+    [FTIndicator showProgressWithMessage:@"Loading Please Wait" userInteractionEnable:NO];
    NSDictionary * dict = @{
         @"buyersInfoWrapper":
         @{

@@ -50,7 +50,7 @@ static NSString *reuseCell = @"servicesCell";
     UIImageView  *boxBackView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"backgroundImage2.jpg"]];
     [self.tableView setBackgroundView:boxBackView];
 //    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    [FTIndicator showProgressWithMessage:@"Loading"];
+    [FTIndicator showProgressWithMessage:@"Loading please wait" userInteractionEnable:NO];
     [self webServiceCall];
 //    [[CustomBarOptions alloc]initWithNavItems:self.navigationItem noOfItems:4];
 }

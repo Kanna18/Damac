@@ -62,7 +62,7 @@
 
 -(void)getArrayAndLoadWebService:(int)index{
     
-    [FTIndicator showProgressWithMessage:@"Please wait"];
+    [FTIndicator showProgressWithMessage:@"Loading Please Wait" userInteractionEnable:NO];
     Action *action = _currentUnit.actions[index];
     ServerAPIManager *server = [ServerAPIManager sharedinstance];
     [server getRequestwithUrl:action.url successBlock:^(id responseObj) {

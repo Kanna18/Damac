@@ -26,7 +26,7 @@
     _tableView.delegate = self;
     _tableView.dataSource = self;
     [self webServiceCall];
-    [FTIndicator showProgressWithMessage:@"Loading"];
+    [FTIndicator showProgressWithMessage:@"Loading please wait" userInteractionEnable:NO];
 }
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:YES];

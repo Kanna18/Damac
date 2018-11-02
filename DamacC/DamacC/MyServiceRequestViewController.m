@@ -34,7 +34,7 @@
     _tableView.dataSource =self;
     [self webServiceCall];
     tvDataArray = [[NSMutableArray alloc]init];
-    [FTIndicator showProgressWithMessage:@"Loading Service Requests"];
+    [FTIndicator showProgressWithMessage:@"Loading please wait" userInteractionEnable:NO];
     sortedArray = [[NSMutableArray alloc]init];
     
     del = (AppDelegate*)[UIApplication sharedApplication].delegate;

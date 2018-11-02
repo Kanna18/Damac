@@ -10,7 +10,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-
 @interface Sub_SurveyCell : UICollectionViewCell<UITextViewDelegate>
 - (IBAction)highlyDissatisfiedClick:(id)sender;
 - (IBAction)satisfiedClick:(id)sender;
@@ -27,6 +26,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) UICollectionView *parentCollectionView;
 @property NSMutableArray *surveyArray;
 @property int cellTagValue;
+
+@property NSMutableDictionary *optionsDict;
 @end
 
 NS_ASSUME_NONNULL_END

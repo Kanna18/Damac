@@ -16,5 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (IBAction)continueSurveyClick:(id)sender;
 @property (nonatomic) UICollectionView *parentCollectionView;
 @property NSMutableArray *surveyArray;
+@property NSMutableDictionary *optionsDict;
+
 @end
 NS_ASSUME_NONNULL_END

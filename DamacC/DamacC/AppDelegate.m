@@ -34,7 +34,8 @@
 #import <SmartSync/SmartSyncSDKManager.h>
 #import <SalesforceSDKCore/SFLoginViewController.h>
 #import <SalesforceSDKCore/SFSDKLoginViewControllerConfig.h>
-
+#import <UserNotifications/UserNotifications.h>
+@import Firebase;
 // Fill these in when creating a new Connected Application on Force.com
 //static NSString * const RemoteAccessConsumerKey = @"3MVG9Iu66FKeHhINkB1l7xt7kR8czFcCTUhgoA8Ol2Ltf1eYHOU4SqQRSEitYFDUpqRWcoQ2.dBv_a1Dyu5xa";
 //static NSString * const OAuthRedirectURI        = @"testsfdc:///mobilesdk/detect/oauth/done";
@@ -146,12 +147,70 @@ static NSString * const OAuthRedirectURI        = @"sfdc://success";
     //[SFUserAccountManager sharedInstance].loginViewControllerConfig = loginViewConfig;
     
     [[SmartSyncSDKManager sharedManager] launch];
+    
+    [FIRApp configure];
+    [FIRMessaging messaging].delegate = self;
+//    [FIRMessaging messaging].autoInitEnabled = YES;
+    
+    if ([UNUserNotificationCenter class] != nil) {
+        // iOS 10 or later
+        // For iOS 10 display notification (sent via APNS)
+        [UNUserNotificationCenter currentNotificationCenter].delegate = self;
+        UNAuthorizationOptions authOptions = UNAuthorizationOptionAlert |
+        UNAuthorizationOptionSound | UNAuthorizationOptionBadge;
+        [[UNUserNotificationCenter currentNotificationCenter]
+         requestAuthorizationWithOptions:authOptions
+         completionHandler:^(BOOL granted, NSError * _Nullable error) {
+             // ...
+         }];
+    } else {
+        // iOS 10 notifications aren't available; fall back to iOS 8-9 notifications.
+        UIUserNotificationType allNotificationTypes =
+        (UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIUserNotificationTypeBadge);
+        UIUserNotificationSettings *settings =
+        [UIUserNotificationSettings settingsForTypes:allNotificationTypes categories:nil];
+        [application registerUserNotificationSettings:settings];
+    }
+    
+    
+    [application registerForRemoteNotifications];
+    
+    
+    
+//    [[FIRInstanceID instanceID] instanceIDWithHandler:^(FIRInstanceIDResult * _Nullable result,
+//                                                        NSError * _Nullable error) {
+//        if (error != nil) {
+//            NSLog(@"Error fetching remote instance ID: %@", error);
+//        } else {
+//            NSLog(@"Remote instance ID token: %@", result.token);
+//            NSString* message =
+//            [NSString stringWithFormat:@"Remote InstanceID token: %@", result.token];
+//            self.instanceIDTokenMessage.text = message;
+//        }
+//    }];
+    
+    
+    
     return YES;
 }
 
+
+#pragma Mark Delegates FCM
+
+- (void)messaging:(FIRMessaging *)messaging didReceiveRegistrationToken:(NSString *)fcmToken {
+    NSLog(@"FCM registration token: %@", fcmToken);
+    // Notify about received token.
+    NSDictionary *dataDict = [NSDictionary dictionaryWithObject:fcmToken forKey:@"token"];
+    [[NSNotificationCenter defaultCenter] postNotificationName:
+     @"FCMToken" object:nil userInfo:dataDict];
+    // TODO: If necessary send token to application server.
+    // Note: This callback is fired at each app startup and whenever a new token is generated.
+}
+
+// With "FirebaseAppDelegateProxyEnabled": NO
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 {
-    //
+    [FIRMessaging messaging].APNSToken = deviceToken;
     // Uncomment the code below to register your device token with the push notification manager
     //
     //[[SFPushNotificationManager sharedInstance] didRegisterForRemoteNotificationsWithDeviceToken:deviceToken];

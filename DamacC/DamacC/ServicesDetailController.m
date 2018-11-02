@@ -55,7 +55,7 @@
     NSLog(@"%@",_servicesDataModel);
     [self webServiceCall:_srCaseId];
     DamacSharedClass.sharedInstance.currentVC = self;
-    [FTIndicator showProgressWithMessage:@""];
+    [FTIndicator showProgressWithMessage:@"" userInteractionEnable:NO];
 }
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:YES];
@@ -284,7 +284,7 @@
 //    [self.navigationController popToRootViewControllerAnimated:YES];
     
     if([srD.SR_Type__c isEqualToString:kCODConstant]){
-        [FTIndicator showProgressWithMessage:@""];
+        [FTIndicator showProgressWithMessage:@"" userInteractionEnable:NO];
         cocd.Status = @"Cancelled";
         [cocd sendDraftStatusToServer];
     }
@@ -292,23 +292,23 @@
     {
         popObject *pop = [[popObject alloc]init];
         [pop cancelPOPfromServicesSRDetails:srD];
-        [FTIndicator showProgressWithMessage:@"Please Wait"];
+        [FTIndicator showProgressWithMessage:@"Loading Please Wait" userInteractionEnable:NO];
     }
     if([srD.SR_Type__c isEqualToString:kPassportUpdateConstant]){
         passObj.status = @"Cancelled";
         [passObj sendPassportResponsetoServer];
-        [FTIndicator showProgressWithMessage:@"Please wait"];
+        [FTIndicator showProgressWithMessage:@"Loading Please Wait" userInteractionEnable:NO];
     }
     
     if([srD.SR_Type__c isEqualToString:kJointBuyerConstant]){
         jointBuyerObj.status = @"Cancelled";
         [jointBuyerObj sendJointBuyerResponsetoserver];
-        [FTIndicator showProgressWithMessage:@"Please wait"];
+        [FTIndicator showProgressWithMessage:@"Loading Please Wait" userInteractionEnable:NO];
     }
     if([srD.Type isEqualToString:kComplaintConstant]){
         complaintsObj.Status = @"Cancelled";
         [complaintsObj sendDraftStatusToServer];
-        [FTIndicator showProgressWithMessage:@"Please wait"];
+        [FTIndicator showProgressWithMessage:@"Loading Please Wait" userInteractionEnable:NO];
     }
 }
 

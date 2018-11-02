@@ -65,7 +65,7 @@
     NSString *mpin = [defaultGet(kMPin) stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     NSString *confirm = [defaultGet(kconfirmMpin) stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     if([mpin isEqualToString:confirm]){
-        [FTIndicator showToastMessage:@"MPIN Successfully created"];
+        [FTIndicator showToastMessage:@"MPIN successfully created"];
         KeyViewController *key =[self.storyboard instantiateViewControllerWithIdentifier:@"keyVC"];
         [self.navigationController pushViewController:key animated:YES];
         

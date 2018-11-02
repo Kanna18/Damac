@@ -70,6 +70,7 @@
 		F653D3F12187712000F6021F /* SlotCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F653D3F02187712000F6021F /* SlotCell.m */; };
 		F655076F217D6F4C003EC62E /* NSString+StringValidations.m in Sources */ = {isa = PBXBuildFile; fileRef = F655076E217D6F4C003EC62E /* NSString+StringValidations.m */; };
 		F659E0AF2188E46D00A9DB16 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F659E0AE2188E46D00A9DB16 /* MessageUI.framework */; };
+		F659E0B22188F46C00A9DB16 /* Translator.m in Sources */ = {isa = PBXBuildFile; fileRef = F659E0B02188F46C00A9DB16 /* Translator.m */; };
 		F66B30B32183B7B90071AA93 /* COCDTF.m in Sources */ = {isa = PBXBuildFile; fileRef = F66B30B22183B7B90071AA93 /* COCDTF.m */; };
 		F66B30B62184AF110071AA93 /* SurveyController.m in Sources */ = {isa = PBXBuildFile; fileRef = F66B30B52184AF110071AA93 /* SurveyController.m */; };
 		F67D77A721749FAC009EE062 /* SurveyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F67D77A621749FAC009EE062 /* SurveyViewController.m */; };
@@ -107,6 +108,9 @@
 		F6A87EE0209F0B53008D34C5 /* KPDropMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A87EDF209F0B53008D34C5 /* KPDropMenu.m */; };
 		F6A87EE4209F1B84008D34C5 /* ChangeofDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A87EE3209F1B84008D34C5 /* ChangeofDetailsViewController.m */; };
 		F6A87EE7209F214B008D34C5 /* DetailMyUnitsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A87EE6209F214B008D34C5 /* DetailMyUnitsViewController.m */; };
+		F6ABE34D218AD72100968772 /* NotificationsTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F6ABE34C218AD72100968772 /* NotificationsTableVC.m */; };
+		F6ABE351218AD77100968772 /* NotificationsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F6ABE350218AD77100968772 /* NotificationsCell.m */; };
+		F6ABE353218B507700968772 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F6ABE352218B507700968772 /* GoogleService-Info.plist */; };
 		F6AE17C72175BE3D00C0E64A /* COCDServerObj.m in Sources */ = {isa = PBXBuildFile; fileRef = F6AE17C62175BE3D00C0E64A /* COCDServerObj.m */; };
 		F6B166CA2188780F0094A2B4 /* AppointmentObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B166C92188780F0094A2B4 /* AppointmentObject.m */; };
 		F6B31BDD20F094FB001A5144 /* MyServiceRequestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B31BDC20F094FB001A5144 /* MyServiceRequestViewController.m */; };
@@ -297,6 +301,8 @@
 		F655076D217D6F4C003EC62E /* NSString+StringValidations.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+StringValidations.h"; sourceTree = "<group>"; };
 		F655076E217D6F4C003EC62E /* NSString+StringValidations.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+StringValidations.m"; sourceTree = "<group>"; };
 		F659E0AE2188E46D00A9DB16 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		F659E0B02188F46C00A9DB16 /* Translator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Translator.m; sourceTree = "<group>"; };
+		F659E0B12188F46C00A9DB16 /* Translator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Translator.h; sourceTree = "<group>"; };
 		F66B30B12183B7B90071AA93 /* COCDTF.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = COCDTF.h; sourceTree = "<group>"; };
 		F66B30B22183B7B90071AA93 /* COCDTF.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = COCDTF.m; sourceTree = "<group>"; };
 		F66B30B42184AF110071AA93 /* SurveyController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SurveyController.h; sourceTree = "<group>"; };
@@ -363,6 +369,11 @@
 		F6A87EE3209F1B84008D34C5 /* ChangeofDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangeofDetailsViewController.m; sourceTree = "<group>"; };
 		F6A87EE5209F214B008D34C5 /* DetailMyUnitsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailMyUnitsViewController.h; sourceTree = "<group>"; };
 		F6A87EE6209F214B008D34C5 /* DetailMyUnitsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailMyUnitsViewController.m; sourceTree = "<group>"; };
+		F6ABE34B218AD72100968772 /* NotificationsTableVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationsTableVC.h; sourceTree = "<group>"; };
+		F6ABE34C218AD72100968772 /* NotificationsTableVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationsTableVC.m; sourceTree = "<group>"; };
+		F6ABE34F218AD77100968772 /* NotificationsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationsCell.h; sourceTree = "<group>"; };
+		F6ABE350218AD77100968772 /* NotificationsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationsCell.m; sourceTree = "<group>"; };
+		F6ABE352218B507700968772 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F6AE17C52175BE3D00C0E64A /* COCDServerObj.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = COCDServerObj.h; sourceTree = "<group>"; };
 		F6AE17C62175BE3D00C0E64A /* COCDServerObj.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = COCDServerObj.m; sourceTree = "<group>"; };
 		F6B166C82188780F0094A2B4 /* AppointmentObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppointmentObject.h; sourceTree = "<group>"; };
@@ -541,6 +552,7 @@
 			children = (
 				B7168FB91FACC5D900A48DB5 /* LaunchScreen.storyboard */,
 				4F8D5EA11B6C0568005E64D4 /* Info.plist */,
+				F6ABE352218B507700968772 /* GoogleService-Info.plist */,
 				4F277E8C1DC7F5DF00E5A77C /* Prefix.pch */,
 				4F8D5EA21B6C0568005E64D4 /* main.m */,
 				F68616042096197D002EA241 /* Main.storyboard */,
@@ -551,6 +563,7 @@
 		4F8D5ECC1B6C1021005E64D4 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				F6ABE34E218AD75C00968772 /* Notifications */,
 				F6A4F90F20ECB28000C19142 /* Icons */,
 				F6C942BA20E9C6DE00D1F40C /* VCFloatingActionButton */,
 				F62F4B0C20A942F100EB5C9A /* ServerAPIManager.h */,
@@ -820,10 +833,20 @@
 		F6550770217D6F57003EC62E /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				F659E0B32188F47600A9DB16 /* Translator */,
 				F655076D217D6F4C003EC62E /* NSString+StringValidations.h */,
 				F655076E217D6F4C003EC62E /* NSString+StringValidations.m */,
 			);
 			name = Category;
+			sourceTree = "<group>";
+		};
+		F659E0B32188F47600A9DB16 /* Translator */ = {
+			isa = PBXGroup;
+			children = (
+				F659E0B12188F46C00A9DB16 /* Translator.h */,
+				F659E0B02188F46C00A9DB16 /* Translator.m */,
+			);
+			name = Translator;
 			sourceTree = "<group>";
 		};
 		F67D77A421749F95009EE062 /* Survey */ = {
@@ -942,6 +965,17 @@
 				F6A87EDE209F0B52008D34C5 /* KPDropMenu.h */,
 			);
 			name = KPDropMenu;
+			sourceTree = "<group>";
+		};
+		F6ABE34E218AD75C00968772 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				F6ABE34B218AD72100968772 /* NotificationsTableVC.h */,
+				F6ABE34C218AD72100968772 /* NotificationsTableVC.m */,
+				F6ABE34F218AD77100968772 /* NotificationsCell.h */,
+				F6ABE350218AD77100968772 /* NotificationsCell.m */,
+			);
+			name = Notifications;
 			sourceTree = "<group>";
 		};
 		F6B31BDE20F09501001A5144 /* MyServices */ = {
@@ -1183,6 +1217,9 @@
 							com.apple.Keychain = {
 								enabled = 1;
 							};
+							com.apple.Push = {
+								enabled = 0;
+							};
 						};
 					};
 				};
@@ -1237,6 +1274,7 @@
 				F6CB3FD220EB753500D290A6 /* expanded.png in Resources */,
 				B7168FBA1FACC5D900A48DB5 /* LaunchScreen.storyboard in Resources */,
 				F6E8D4C7211817360063CC16 /* Images.xcassets in Resources */,
+				F6ABE353218B507700968772 /* GoogleService-Info.plist in Resources */,
 				F6132E0E20A7E2E900FEEEBE /* ProfileTableViewCell.xib in Resources */,
 				F6E8321720AD07D40003DC5E /* PrintDocView.xib in Resources */,
 				F67EB5EA212521D50011AB64 /* Montserrat-SemiBold.ttf in Resources */,
@@ -1321,6 +1359,7 @@
 				F6CBCCD62171DB1000615072 /* ServicesCell.m in Sources */,
 				F61124AB2164CEB300901694 /* AOPT.m in Sources */,
 				F6170A5D20FCC6ED003443B1 /* MyServicesDataModel.m in Sources */,
+				F6ABE34D218AD72100968772 /* NotificationsTableVC.m in Sources */,
 				F6E8321A20AD11070003DC5E /* EServicesViewController.m in Sources */,
 				4F8D5EA31B6C0568005E64D4 /* main.m in Sources */,
 				F692F5C8216F259E0001F32D /* BuyersModel.m in Sources */,
@@ -1344,6 +1383,7 @@
 				F6FA5B772099BC64009A8F15 /* TopCollectionCell.m in Sources */,
 				F6FA5B732099A083009A8F15 /* KeyViewController.m in Sources */,
 				F6A86680211A884800560CD5 /* POPViewController.m in Sources */,
+				F659E0B22188F46C00A9DB16 /* Translator.m in Sources */,
 				F6132E0D20A7E2E900FEEEBE /* ProfileTableViewCell.m in Sources */,
 				F67D77B921749FFD009EE062 /* SurveyCell6.m in Sources */,
 				F66B30B32183B7B90071AA93 /* COCDTF.m in Sources */,
@@ -1381,6 +1421,7 @@
 				F626420D211367BC0022C4DC /* JointBView2.m in Sources */,
 				F6B9A426217EEC6C00FF41D6 /* ErrorViewController.m in Sources */,
 				F698216D20EDC1CB00D023AF /* UserDetailsModel.m in Sources */,
+				F6ABE351218AD77100968772 /* NotificationsCell.m in Sources */,
 				F6E1139E216EF4320066D521 /* PopTableViewController.m in Sources */,
 				F67D77AA21749FC3009EE062 /* SurveyCell1.m in Sources */,
 				F62641B92105B9670022C4DC /* ServicesSRDetails.m in Sources */,

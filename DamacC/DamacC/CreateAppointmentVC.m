@@ -15,33 +15,46 @@
 
 @implementation CreateAppointmentVC{
     
-    NSArray *pusrposeArray, *subPurposeArray,*dtarr,*unitsArray,*slotsArray;
+    NSArray *pusrposeArray, *subPurposeArray,*dtarr,*unitsArray,*slotsArray,*unitsWholeArray;
     WSCalendarView *calendarView;
     WSCalendarView *calendarViewEvent;
     NSMutableArray *eventArray;
     WYPopoverController* popoverPurpose;
     WYPopoverController* popoverSubPurpose;
     WYPopoverController* popoverUnit;
+    BOOL validationBool;
 
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    slotsArray = @[@"09:00 - 10:00",
-                   @"10:00 - 11:00",
-                   @"11:00 - 12:00",
-                   @"12:00 - 13:00",
-                   @"13:00 - 14:00",
-                   @"14:00 - 15:00",
-                   @"15:00 - 16:00",
-                   @"16:00 - 17:00",
-                   @"17:00 - 18:00"];
+//    slotsArray = @[@"09:00 - 10:00",
+//                   @"10:00 - 11:00",
+//                   @"11:00 - 12:00",
+//                   @"12:00 - 13:00",
+//                   @"13:00 - 14:00",
+//                   @"14:00 - 15:00",
+//                   @"15:00 - 16:00",
+//                   @"16:00 - 17:00",
+//                   @"17:00 - 18:00"];
     [self loadingDropDownsList];
-    
     _appointObj = [[AppointmentObject alloc]init];
-    
+    [FTIndicator showProgressWithMessage:@"Loading please wait" userInteractionEnable:NO];
+    [self webServicetoGetUnitSFIds];
 
+}
+-(void)webServicetoGetUnitSFIds{
+    ServerAPIManager *serverAPI = [ServerAPIManager sharedinstance];
+    [serverAPI postRequestwithUrl:bookingsAPI withParameters:@{@"AccountId":kUserProfile.sfAccountId} successBlock:^(id responseObj) {
+        if(responseObj){
+            unitsWholeArray = [NSJSONSerialization JSONObjectWithData:responseObj options:0 error:nil];
+            unitsArray = [unitsWholeArray valueForKey:@"Unit_Name__c"];
+            [FTIndicator performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
+        }
+    } errorBlock:^(NSError *error) {
+        
+    }];
 }
 
 -(void)loadingDropDownsList{
@@ -49,7 +62,7 @@
     dtarr = [self JSONFromFile:@"Appointments"];
     pusrposeArray = [dtarr valueForKey:@"key"];
     subPurposeArray = [dtarr[0] valueForKey:@"value"];
-    [self dropMenu];
+//    [self dropMenu];
     
 }
 -(void)viewDidAppear:(BOOL)animated{
@@ -105,6 +118,34 @@
     popoverSubPurpose.popoverContentSize=CGSizeMake(drop.frame.size.width, subPurposeArray.count*50);
     popoverSubPurpose.accessibilityNavigationStyle=UIAccessibilityNavigationStyleCombined;
     [popoverSubPurpose presentPopoverFromRect:drop.bounds inView:drop permittedArrowDirections:WYPopoverArrowDirectionUp animated:YES options:WYPopoverAnimationOptionFadeWithScale];
+}
+
+-(BOOL)handOverNotificationsValidation:(int)indexofUnit{
+    
+    if([_appointObj.ServiceType isEqualToString:@"01-Handover"]&&([_appointObj.SubProcessName isEqualToString:@"Key Handover"]||[_appointObj.SubProcessName isEqualToString:@"Unit Viewing"])){
+        
+        NSDictionary *dict = unitsWholeArray[indexofUnit];
+        
+        NSNumber* boolean1 = dict[@"Early_Handover__c"];
+        NSNumber* boolean2 = dict[@"Handover_Flag__c"];
+        NSNumber* boolean3 = dict[@"Handover_Notice_Sent__c"];
+                      
+          if(boolean1.boolValue||boolean2.boolValue){
+              if(boolean3.boolValue){
+                  [FTIndicator showToastMessage:@"No Handover notice available"];
+                  return NO;
+                  
+              }
+              
+          }else{
+              return YES;
+              
+          }
+//        Early_Handover__c
+//        Handover_Flag__c
+//        Handover_Notice_Sent__c
+    }
+    return YES;
 }
 -(void)showUnitspopover:(UIButton*)drop{
     
@@ -168,44 +209,43 @@
         popoverUnit.delegate = nil;
         popoverUnit = nil;
         [popoverUnit dismissPopoverAnimated:YES];
-        
-        
         _appointObj.BookingUnit = unitsArray[tag];
+        validationBool = [self handOverNotificationsValidation:tag];
     }
 }
 
 
 
--(void)dropMenu{
-    _purposeDropDown.delegate = self;
-    _purposeDropDown.items = pusrposeArray;
-    _purposeDropDown.title = pusrposeArray[0];
-    _purposeDropDown.titleColor = rgb(191, 152, 36);
-    _purposeDropDown.DirectionDown = YES;
+//-(void)dropMenu{
+//    _purposeDropDown.delegate = self;
+//    _purposeDropDown.items = pusrposeArray;
+//    _purposeDropDown.title = pusrposeArray[0];
+//    _purposeDropDown.titleColor = rgb(191, 152, 36);
+//    _purposeDropDown.DirectionDown = YES;
+//
+//
+//    _subPurposeDropDown.delegate = self;
+//    _subPurposeDropDown.items = subPurposeArray;
+//    _subPurposeDropDown.title = subPurposeArray[0];
+//    _subPurposeDropDown.titleColor = rgb(191, 152, 36);
+//    _subPurposeDropDown.DirectionDown = YES;
     
     
-    _subPurposeDropDown.delegate = self;
-    _subPurposeDropDown.items = subPurposeArray;
-    _subPurposeDropDown.title = subPurposeArray[0];
-    _subPurposeDropDown.titleColor = rgb(191, 152, 36);
-    _subPurposeDropDown.DirectionDown = YES;
-    
-    
-    _unitsDropDown.delegate = self;
-    unitsArray = [[DamacSharedClass sharedInstance].unitsArray valueForKey:@"unitNumber"];
-    _unitsDropDown.items = unitsArray;
-    _unitsDropDown.title = @"Select unit";
-    _unitsDropDown.titleColor = rgb(191, 152, 36);
-    _unitsDropDown.DirectionDown = YES;
-    
-    
-    _timeSlotDropMenu.delegate = self;
-    _timeSlotDropMenu.items = slotsArray;
-    _timeSlotDropMenu.title = @"Select slot";
-    _timeSlotDropMenu.titleColor = rgb(191, 152, 36);
-    _timeSlotDropMenu.DirectionDown = YES;
-    
-}
+//    _unitsDropDown.delegate = self;
+//    unitsArray = [[DamacSharedClass sharedInstance].unitsArray valueForKey:@"unitNumber"];
+//    _unitsDropDown.items = unitsArray;
+//    _unitsDropDown.title = @"Select unit";
+//    _unitsDropDown.titleColor = rgb(191, 152, 36);
+//    _unitsDropDown.DirectionDown = YES;
+//
+//
+//    _timeSlotDropMenu.delegate = self;
+//    _timeSlotDropMenu.items = slotsArray;
+//    _timeSlotDropMenu.title = @"Select slot";
+//    _timeSlotDropMenu.titleColor = rgb(191, 152, 36);
+//    _timeSlotDropMenu.DirectionDown = YES;
+//
+//}
 //-(void)setCalendarInit{
 //
 //    calendarView = [[[NSBundle mainBundle] loadNibNamed:@"WSCalendarView" owner:self options:nil] firstObject];
@@ -294,7 +334,11 @@
   
 //    [calendarView ActiveCalendar:self.baseView];
     
-    [self getAvailableSlots];
+    if(validationBool){
+        [FTIndicator showToastMessage:@"No Handover notice available"];
+    }else{
+        [self getAvailableSlots];
+    }
     
 }
 - (IBAction)sendRequestClick:(id)sender {
@@ -307,7 +351,7 @@
         [FTIndicator showToastMessage:@"please select slot"];
         return;
     }
-    [FTIndicator showProgressWithMessage:@"Please Wait"];
+    [FTIndicator showProgressWithMessage:@"Loading please wait" userInteractionEnable:NO];
     [_appointObj createappointment];
     
 }
@@ -409,7 +453,7 @@
         return;
     }
     
-    [FTIndicator showProgressWithMessage:@"Please wait"];
+    [FTIndicator showProgressWithMessage:@"Loading please wait" userInteractionEnable:NO];
     NSDateFormatter *dtFormat = [[NSDateFormatter alloc]init];
     [dtFormat setDateFormat:@"YYYY-MM-dd"];
     NSDateComponents *comp = [[NSDateComponents alloc]init];

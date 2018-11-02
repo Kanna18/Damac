@@ -55,7 +55,7 @@
     }else{
         
         _popObj.status = @"Submitted";
-        [FTIndicator showProgressWithMessage:@""];
+        [FTIndicator showProgressWithMessage:@"Loading Please Wait" userInteractionEnable:NO];
         [self uploadImagesToServer];
     }
 }

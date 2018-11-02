@@ -29,7 +29,7 @@
     _tableView.dataSource = self;
      [self.tableView registerNib:[UINib nibWithNibName:@"PaymentsScheduleCell" bundle:nil] forCellReuseIdentifier:@"paymentsScheduleCell"];
     headerIndex = -1;
-    [FTIndicator showProgressWithMessage:@"Loading"];
+    [FTIndicator showProgressWithMessage:@"Loading Please Wait" userInteractionEnable:NO];
 //    [self webServiceCall];
     [self webServiceCallForPayments];
     tvMutableDictionary = [[NSMutableDictionary alloc]init];

@@ -111,14 +111,13 @@
         toastMessage = @"SR has been Cancelled successfully";
     }
     if([self.status isEqualToString:@"Draft Request"]){
-        toastMessage = @"Draft has been Successfully saved";
+        toastMessage = @"Draft has been successfully saved";
     }
     if([self.status isEqualToString:@"Submitted"]){
-        toastMessage = @"Submitted Successfully";
+        toastMessage = @"Submitted successfully";
     }
-    
-    [FTIndicator showToastMessage:toastMessage];
     [FTIndicator dismissProgress];
+    [FTIndicator showToastMessage:toastMessage];    
     NSArray *arr = DamacSharedClass.sharedInstance.currentVC.navigationController.viewControllers;
     for (UIViewController *vc in arr) {
         if([vc isKindOfClass:[MainViewController class]]){

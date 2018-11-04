@@ -7,9 +7,9 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>325651907604-ehbov11sqo3c8rk754ovsuj7muui8c6j.apps.googleusercontent.com</string>
+	<string>325651907604-6arpb22vn06fdd9579oqg2mg8jfvlafd.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.325651907604-ehbov11sqo3c8rk754ovsuj7muui8c6j</string>
+	<string>com.googleusercontent.apps.325651907604-6arpb22vn06fdd9579oqg2mg8jfvlafd</string>
 	<key>API_KEY</key>
 	<string>AIzaSyAXUu4nCYq3Fc9L44iNnepvWJmCux1i0qA</string>
 	<key>GCM_SENDER_ID</key>
@@ -17,7 +17,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.damac.salesapp</string>
+	<string>com.damac.HelloDamac</string>
 	<key>PROJECT_ID</key>
 	<string>hellodamac-59828</string>
 	<key>STORAGE_BUCKET</key>
@@ -33,7 +33,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:325651907604:ios:0f42ee1dbb6f0a17</string>
+	<string>1:325651907604:ios:d11f70a61c0af0f9</string>
 	<key>DATABASE_URL</key>
 	<string>https://hellodamac-59828.firebaseio.com</string>
 </dict>

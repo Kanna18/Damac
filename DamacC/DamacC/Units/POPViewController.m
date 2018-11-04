@@ -31,13 +31,14 @@
 //    [_collectionView registerClass:[PopCell2 class] forCellWithReuseIdentifier:@"popCell2"];
 //    [_collectionView registerClass:[PopCell3 class] forCellWithReuseIdentifier:@"popCell3"];
     self.collectionView.scrollEnabled = NO;
-    DamacSharedClass.sharedInstance.currentVC = self;
+    
     _popObj = [[popObject alloc]init];
 
 }
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:YES];
+    DamacSharedClass.sharedInstance.currentVC = self;
     sterView = [[StepperView alloc]initWithFrame:_stepperbaseView.frame];
     [self.view addSubview:sterView];
     DamacSharedClass.sharedInstance.windowButton.hidden = YES;

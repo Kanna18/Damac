@@ -29,10 +29,12 @@
     //    [_collectionView registerClass:[PopCell2 class] forCellWithReuseIdentifier:@"popCell2"];
     //    [_collectionView registerClass:[PopCell3 class] forCellWithReuseIdentifier:@"popCell3"];
 //    self.collectionView.scrollEnabled = NO;
-    DamacSharedClass.sharedInstance.currentVC = self;
     _collectionView.scrollEnabled = NO;
 }
-
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:YES];
+    DamacSharedClass.sharedInstance.currentVC = self;
+}
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
     return 1;

@@ -90,6 +90,7 @@
 		F686160A20962229002EA241 /* PinView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F686160920962229002EA241 /* PinView.xib */; };
 		F686161820982837002EA241 /* PasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F686161720982837002EA241 /* PasswordViewController.m */; };
 		F686165620985841002EA241 /* DamacC-Bridging-Header.h in Sources */ = {isa = PBXBuildFile; fileRef = F686163F209852AD002EA241 /* DamacC-Bridging-Header.h */; };
+		F688503F218CA33700CBD859 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F688503E218CA33700CBD859 /* GoogleService-Info.plist */; };
 		F68CF5BD216DD6E500852EF5 /* popObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F68CF5BC216DD6E500852EF5 /* popObject.m */; };
 		F692F5C8216F259E0001F32D /* BuyersModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F692F5C7216F259E0001F32D /* BuyersModel.m */; };
 		F698216820ED49A400D023AF /* CustomBarOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = F698216720ED49A400D023AF /* CustomBarOptions.m */; };
@@ -110,13 +111,14 @@
 		F6A87EE7209F214B008D34C5 /* DetailMyUnitsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A87EE6209F214B008D34C5 /* DetailMyUnitsViewController.m */; };
 		F6ABE34D218AD72100968772 /* NotificationsTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F6ABE34C218AD72100968772 /* NotificationsTableVC.m */; };
 		F6ABE351218AD77100968772 /* NotificationsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F6ABE350218AD77100968772 /* NotificationsCell.m */; };
-		F6ABE353218B507700968772 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F6ABE352218B507700968772 /* GoogleService-Info.plist */; };
 		F6AE17C72175BE3D00C0E64A /* COCDServerObj.m in Sources */ = {isa = PBXBuildFile; fileRef = F6AE17C62175BE3D00C0E64A /* COCDServerObj.m */; };
 		F6B166CA2188780F0094A2B4 /* AppointmentObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B166C92188780F0094A2B4 /* AppointmentObject.m */; };
 		F6B31BDD20F094FB001A5144 /* MyServiceRequestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B31BDC20F094FB001A5144 /* MyServiceRequestViewController.m */; };
 		F6B31BE120F33328001A5144 /* ScheduleAppointmentsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B31BE020F33328001A5144 /* ScheduleAppointmentsVC.m */; };
 		F6B75ADE218376B20070FB4C /* ComplaintsObj.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B75ADD218376B20070FB4C /* ComplaintsObj.m */; };
 		F6B9A426217EEC6C00FF41D6 /* ErrorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B9A425217EEC6C00FF41D6 /* ErrorViewController.m */; };
+		F6BBF407218EDFA600C9A566 /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6BBF406218EDFA600C9A566 /* HelpViewController.m */; };
+		F6BBF40B218EF5E100C9A566 /* HelpTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F6BBF40A218EF5E100C9A566 /* HelpTableViewCell.m */; };
 		F6C57C5621585C4900970DC3 /* PassportUpdateVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C57C5521585C4900970DC3 /* PassportUpdateVC.m */; };
 		F6C57C5A21585FD900970DC3 /* ChangeofContactCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C57C5921585FD900970DC3 /* ChangeofContactCell2.m */; };
 		F6C57C5D2158649F00970DC3 /* PassportCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C57C5C2158649E00970DC3 /* PassportCell1.m */; };
@@ -335,6 +337,7 @@
 		F686161720982837002EA241 /* PasswordViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PasswordViewController.m; sourceTree = "<group>"; };
 		F686163C20982C9C002EA241 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		F686163F209852AD002EA241 /* DamacC-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DamacC-Bridging-Header.h"; sourceTree = "<group>"; };
+		F688503E218CA33700CBD859 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F68CF5BB216DD6E500852EF5 /* popObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = popObject.h; sourceTree = "<group>"; };
 		F68CF5BC216DD6E500852EF5 /* popObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = popObject.m; sourceTree = "<group>"; };
 		F692F5C6216F259E0001F32D /* BuyersModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BuyersModel.h; sourceTree = "<group>"; };
@@ -373,7 +376,6 @@
 		F6ABE34C218AD72100968772 /* NotificationsTableVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationsTableVC.m; sourceTree = "<group>"; };
 		F6ABE34F218AD77100968772 /* NotificationsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationsCell.h; sourceTree = "<group>"; };
 		F6ABE350218AD77100968772 /* NotificationsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationsCell.m; sourceTree = "<group>"; };
-		F6ABE352218B507700968772 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F6AE17C52175BE3D00C0E64A /* COCDServerObj.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = COCDServerObj.h; sourceTree = "<group>"; };
 		F6AE17C62175BE3D00C0E64A /* COCDServerObj.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = COCDServerObj.m; sourceTree = "<group>"; };
 		F6B166C82188780F0094A2B4 /* AppointmentObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppointmentObject.h; sourceTree = "<group>"; };
@@ -386,6 +388,10 @@
 		F6B75ADD218376B20070FB4C /* ComplaintsObj.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ComplaintsObj.m; sourceTree = "<group>"; };
 		F6B9A424217EEC6C00FF41D6 /* ErrorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ErrorViewController.h; sourceTree = "<group>"; };
 		F6B9A425217EEC6C00FF41D6 /* ErrorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ErrorViewController.m; sourceTree = "<group>"; };
+		F6BBF405218EDFA600C9A566 /* HelpViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelpViewController.h; sourceTree = "<group>"; };
+		F6BBF406218EDFA600C9A566 /* HelpViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelpViewController.m; sourceTree = "<group>"; };
+		F6BBF409218EF5E100C9A566 /* HelpTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelpTableViewCell.h; sourceTree = "<group>"; };
+		F6BBF40A218EF5E100C9A566 /* HelpTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelpTableViewCell.m; sourceTree = "<group>"; };
 		F6C57C5421585C4900970DC3 /* PassportUpdateVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PassportUpdateVC.h; sourceTree = "<group>"; };
 		F6C57C5521585C4900970DC3 /* PassportUpdateVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PassportUpdateVC.m; sourceTree = "<group>"; };
 		F6C57C5821585FD900970DC3 /* ChangeofContactCell2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangeofContactCell2.h; sourceTree = "<group>"; };
@@ -551,8 +557,8 @@
 			isa = PBXGroup;
 			children = (
 				B7168FB91FACC5D900A48DB5 /* LaunchScreen.storyboard */,
+				F688503E218CA33700CBD859 /* GoogleService-Info.plist */,
 				4F8D5EA11B6C0568005E64D4 /* Info.plist */,
-				F6ABE352218B507700968772 /* GoogleService-Info.plist */,
 				4F277E8C1DC7F5DF00E5A77C /* Prefix.pch */,
 				4F8D5EA21B6C0568005E64D4 /* main.m */,
 				F68616042096197D002EA241 /* Main.storyboard */,
@@ -571,6 +577,7 @@
 				F6CB3FC120EB291600D290A6 /* DamacSharedClass.h */,
 				F6CB3FC220EB291600D290A6 /* DamacSharedClass.m */,
 				F6264232211404B20022C4DC /* NewStoryboard.storyboard */,
+				F6BBF408218EDFB000C9A566 /* Help */,
 				F6264204211320520022C4DC /* Stepper */,
 				F63FCEFF20F782F00027FEA8 /* iCarousel */,
 				F6CB3FCE20EB74EA00D290A6 /* Billing */,
@@ -1025,6 +1032,17 @@
 			name = ScheduleAppointments;
 			sourceTree = "<group>";
 		};
+		F6BBF408218EDFB000C9A566 /* Help */ = {
+			isa = PBXGroup;
+			children = (
+				F6BBF405218EDFA600C9A566 /* HelpViewController.h */,
+				F6BBF406218EDFA600C9A566 /* HelpViewController.m */,
+				F6BBF409218EF5E100C9A566 /* HelpTableViewCell.h */,
+				F6BBF40A218EF5E100C9A566 /* HelpTableViewCell.m */,
+			);
+			name = Help;
+			sourceTree = "<group>";
+		};
 		F6C57C5721585C5500970DC3 /* PassportUpdateFlow */ = {
 			isa = PBXGroup;
 			children = (
@@ -1214,11 +1232,14 @@
 						LastSwiftMigration = 0920;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.Keychain = {
 								enabled = 1;
 							};
 							com.apple.Push = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
 					};
@@ -1274,7 +1295,7 @@
 				F6CB3FD220EB753500D290A6 /* expanded.png in Resources */,
 				B7168FBA1FACC5D900A48DB5 /* LaunchScreen.storyboard in Resources */,
 				F6E8D4C7211817360063CC16 /* Images.xcassets in Resources */,
-				F6ABE353218B507700968772 /* GoogleService-Info.plist in Resources */,
+				F688503F218CA33700CBD859 /* GoogleService-Info.plist in Resources */,
 				F6132E0E20A7E2E900FEEEBE /* ProfileTableViewCell.xib in Resources */,
 				F6E8321720AD07D40003DC5E /* PrintDocView.xib in Resources */,
 				F67EB5EA212521D50011AB64 /* Montserrat-SemiBold.ttf in Resources */,
@@ -1360,6 +1381,7 @@
 				F61124AB2164CEB300901694 /* AOPT.m in Sources */,
 				F6170A5D20FCC6ED003443B1 /* MyServicesDataModel.m in Sources */,
 				F6ABE34D218AD72100968772 /* NotificationsTableVC.m in Sources */,
+				F6BBF407218EDFA600C9A566 /* HelpViewController.m in Sources */,
 				F6E8321A20AD11070003DC5E /* EServicesViewController.m in Sources */,
 				4F8D5EA31B6C0568005E64D4 /* main.m in Sources */,
 				F692F5C8216F259E0001F32D /* BuyersModel.m in Sources */,
@@ -1410,6 +1432,7 @@
 				F610E8BD2121FBC900B09A5B /* UnitsCell.m in Sources */,
 				F6C57DCE215A1C3500970DC3 /* CreateAppointmentVC.m in Sources */,
 				F626426021143BE20022C4DC /* JointView1.m in Sources */,
+				F6BBF40B218EF5E100C9A566 /* HelpTableViewCell.m in Sources */,
 				F686160820962209002EA241 /* PinView.m in Sources */,
 				F6CB3FBB20EA9A0000D290A6 /* ProfileViewController.m in Sources */,
 				F610E8CD2121FE5700B09A5B /* SampleTableViewController.m in Sources */,
@@ -1618,10 +1641,10 @@
 					"-framework",
 					"\"Security\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.damac.salesapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.damac.HelloDamac;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = HelloDamac1;
+				PROVISIONING_PROFILE_SPECIFIER = HelloDamacPushNConfigured;
 				SKIP_INSTALL = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "DamacC-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1683,10 +1706,10 @@
 					"-framework",
 					"\"Security\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.damac.salesapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.damac.HelloDamac;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = HelloDamac1;
+				PROVISIONING_PROFILE_SPECIFIER = HelloDamacPushNConfigured;
 				SKIP_INSTALL = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "DamacC-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;

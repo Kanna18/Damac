@@ -27,7 +27,6 @@
     // Do any additional setup after loading the view.
     imgsArr = @[@"1ser",@"2ser",@"3ser",@"4ser",@"5ser",@"6ser",@"7ser",@"8ser"];
     [self webServiceCall];
-    DamacSharedClass.sharedInstance.currentVC = self;
     servicesCountArray = [[NSMutableArray alloc]init];
     [FTIndicator showProgressWithMessage:@"Loading please wait" userInteractionEnable:NO];
     
@@ -42,7 +41,8 @@
 -(void)viewDidAppear:(BOOL)animated{
     
     [super viewDidAppear:YES];
-    [[CustomBarOptions alloc]initWithNavItems:self.navigationItem noOfItems:2 navRef:self.navigationController withTitle:@"E-services"];
+    DamacSharedClass.sharedInstance.currentVC = self;
+//    [[CustomBarOptions alloc]initWithNavItems:self.navigationItem noOfItems:2 navRef:self.navigationController withTitle:@"E-services"];
     ;
     
 }

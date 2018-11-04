@@ -37,14 +37,13 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     [self.tableView registerNib:[UINib nibWithNibName:@"UnitsCell" bundle:nil] forCellReuseIdentifier:@"unitsCell"];
     headerIndex = -1;
-     [self webServiceCall];
-    DamacSharedClass.sharedInstance.currentVC = self;
-    
+     [self webServiceCall];    
     
 }
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:YES];
-    [[CustomBarOptions alloc]initWithNavItems:self.navigationItem noOfItems:2 navRef:self.navigationController withTitle:@"My Units"];
+    DamacSharedClass.sharedInstance.currentVC = self;
+//    [[CustomBarOptions alloc]initWithNavItems:self.navigationItem noOfItems:2 navRef:self.navigationController withTitle:@"My Units"];
 
 }
 

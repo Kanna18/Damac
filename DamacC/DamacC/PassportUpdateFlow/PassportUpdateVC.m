@@ -50,7 +50,6 @@
     buyersInfoArr = [[NSMutableArray alloc]init];
     dropitems = [[NSMutableArray alloc]init];
 //    [self dropMenun];
-    DamacSharedClass.sharedInstance.currentVC = self;
     self.view.clipsToBounds = NO;
     [self webServicetoGetUnitSFIds];
     [FTIndicator showProgressWithMessage:@"Loading Please Wait" userInteractionEnable:NO];
@@ -64,7 +63,6 @@
                        @"value":self.passportObj.previousExpiryDate,
                        @"newValue":self.passportObj.PassportIssuedDate}];
     
-    DamacSharedClass.sharedInstance.currentVC = self;
     DamacSharedClass.sharedInstance.windowButton.hidden = YES;
     countoFImagestoUplaod = 0 ;
     countoFImagesUploaded = 0 ;
@@ -347,6 +345,7 @@
 }
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:YES];
+    DamacSharedClass.sharedInstance.currentVC = self;
     [self.view bringSubviewToFront:_baseSuperView];
     [_baseSuperView setNeedsDisplay];
     [self setCalendarInit];

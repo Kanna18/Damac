@@ -38,7 +38,7 @@
     sortedArray = [[NSMutableArray alloc]init];
     
     del = (AppDelegate*)[UIApplication sharedApplication].delegate;
-    DamacSharedClass.sharedInstance.currentVC = self;
+
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -48,9 +48,10 @@
     gradient.colors = @[(id)[[UIColor blackColor] colorWithAlphaComponent:0.3].CGColor, (id)[UIColor blackColor].CGColor];
 //    gradient.colors = @[(id)[UIColor orangeColor].CGColor, (id)[UIColor whiteColor].CGColor, (id)[UIColor greenColor].CGColor];
     [_bottomView.layer insertSublayer:gradient atIndex:0];
-    [[CustomBarOptions alloc]initWithNavItems:self.navigationItem noOfItems:2 navRef:self.navigationController withTitle:@"My Service Request"];
+//    [[CustomBarOptions alloc]initWithNavItems:self.navigationItem noOfItems:2 navRef:self.navigationController withTitle:@"My Service Request"];
 //    [self dropMenu];
     DamacSharedClass.sharedInstance.windowButton.hidden = NO;
+    DamacSharedClass.sharedInstance.currentVC = self;
 }
 -(void)setSelecteStates:(UIButton*)btn{
     
@@ -132,7 +133,7 @@
 -(void)sendToDetailScreen:(UIButton*)sender{
 
     MyServicesDataModel *sm = sortedArray[sender.tag];
-    if([sm.Status isEqualToString:@"Cancel"]){
+    if([sm.Status isEqualToString:@"Cancelled"]){
         [FTIndicator showToastMessage:@"Service Request has been Cancelled"];
     }else{
         ServicesDetailController *svc = [self.storyboard instantiateViewControllerWithIdentifier:@"servicesDetailVC"];

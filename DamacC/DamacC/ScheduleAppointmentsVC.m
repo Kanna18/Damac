@@ -37,7 +37,7 @@ static NSString *reuseCell = @"appointmentsCell";
     //    gradient.colors = @[(id)[UIColor orangeColor].CGColor, (id)[UIColor whiteColor].CGColor, (id)[UIColor greenColor].CGColor];
     [_bottomView.layer insertSublayer:gradient atIndex:0];
 
-    [[CustomBarOptions alloc]initWithNavItems:self.navigationItem noOfItems:2 navRef:self.navigationController withTitle:@"Appointment Details"];
+//    [[CustomBarOptions alloc]initWithNavItems:self.navigationItem noOfItems:2 navRef:self.navigationController withTitle:@"Appointment Details"];
 }
 
 - (void)didReceiveMemoryWarning {

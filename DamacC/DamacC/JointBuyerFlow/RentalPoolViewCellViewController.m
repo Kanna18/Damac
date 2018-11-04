@@ -40,7 +40,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    DamacSharedClass.sharedInstance.currentVC = self;
+    
     [self initialiseSecondViewThirdView];
     serverAPI =[ServerAPIManager sharedinstance];
     buyersInfoArr = [[NSMutableArray alloc]init];
@@ -107,6 +107,7 @@
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:YES];
+    DamacSharedClass.sharedInstance.currentVC = self;
     
     sterView = [[StepperView alloc]initWithFrame:_stepperViewBase.frame];
     [self.view addSubview:sterView];

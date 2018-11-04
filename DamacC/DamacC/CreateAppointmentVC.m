@@ -145,7 +145,7 @@
 //        Handover_Flag__c
 //        Handover_Notice_Sent__c
     }
-    return YES;
+    return NO;
 }
 -(void)showUnitspopover:(UIButton*)drop{
     
@@ -462,10 +462,10 @@
     NSDate *date = [[NSCalendar currentCalendar]dateByAddingComponents:comp toDate:[NSDate date] options:0];
     NSString *dtStr =[dtFormat stringFromDate:date];
     
-    NSDictionary *dict =@{ @"strSelectedProcess" : _appointObj.ServiceType,
-                           @"strSelectedSubProcess":_appointObj.SubProcessName,
-                           @"buildingId":_appointObj.BookingUnit,
-                           @"strSelectedDate":dtStr
+    NSDictionary *dict =@{ @"strSelectedProcess" : handleNull(_appointObj.ServiceType),
+                           @"strSelectedSubProcess":handleNull(_appointObj.SubProcessName),
+                           @"buildingId":handleNull(_appointObj.BookingUnit),
+                           @"strSelectedDate":handleNull(dtStr)
                            };
     
     ServerAPIManager *ser = [ServerAPIManager sharedinstance];

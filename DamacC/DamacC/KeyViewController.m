@@ -48,6 +48,16 @@
     [self loadPinViews];
     
 }
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+    for (CustomBar *cstB in self.navigationController.view.subviews) {
+        if([cstB isKindOfClass:[CustomBar class]]){
+            [cstB removeFromSuperview];
+        }
+    }
+    DamacSharedClass.sharedInstance.windowButton.hidden = YES;
+}
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:YES];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:MPIN_ENTERED_NOTIFICATION object:nil];

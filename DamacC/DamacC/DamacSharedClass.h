@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "UserDetailsModel.h"
 #import "VCFloatingActionButton.h"
-
+#import "CustomBar.h"
 @interface DamacSharedClass : NSObject
 
 + (DamacSharedClass *)sharedInstance;
@@ -22,4 +22,6 @@
 @property VCFloatingActionButton *windowButton;
 //@property UserDetailsModel *userDetailsModel;
 @property NSArray *unitsSFIDSArray;
+
+@property CustomBar *navigationCustomBar;
 @end

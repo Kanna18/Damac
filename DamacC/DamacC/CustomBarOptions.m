@@ -71,6 +71,8 @@
     return btn;
 }
 -(void)loadNotifications{
-    NotificationsTableVC *nvc = [DamacSharedClass.sharedInstance.currentVC.storyboard instantiateViewControllerWithIdentifier:@"notificationsTableVC"]; [DamacSharedClass.sharedInstance.currentVC.navigationController pushViewController:nvc animated:YES];
+    NotificationsTableVC *nvc = [DamacSharedClass.sharedInstance.currentVC.storyboard instantiateViewControllerWithIdentifier:@"notificationsTableVC"];
+    
+    [DamacSharedClass.sharedInstance.currentVC.navigationController pushViewController:nvc animated:YES];
 }
 @end

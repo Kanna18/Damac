@@ -30,14 +30,17 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"ReceiptsTableViewCell" bundle:nil] forCellReuseIdentifier:@"receiptsTableViewCell"];
     headerIndex = -1;
     [self webServiceCall];
-    DamacSharedClass.sharedInstance.currentVC = self;
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:YES];
+    DamacSharedClass.sharedInstance.currentVC = self;
+}
 /*
 #pragma mark - Navigation
 

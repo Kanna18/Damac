@@ -54,12 +54,12 @@
     _tableView.delegate =self;
     NSLog(@"%@",_servicesDataModel);
     [self webServiceCall:_srCaseId];
-    DamacSharedClass.sharedInstance.currentVC = self;
     [FTIndicator showProgressWithMessage:@"" userInteractionEnable:NO];
 }
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:YES];
-    [[CustomBarOptions alloc]initWithNavItems:self.navigationItem noOfItems:2 navRef:self.navigationController withTitle:@"Service Request Detail"];
+    DamacSharedClass.sharedInstance.currentVC = self;
+//    [[CustomBarOptions alloc]initWithNavItems:self.navigationItem noOfItems:2 navRef:self.navigationController withTitle:@"Service Request Detail"];
     
     DamacSharedClass.sharedInstance.windowButton.hidden = YES;
 }

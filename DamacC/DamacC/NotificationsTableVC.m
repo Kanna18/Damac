@@ -38,10 +38,17 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NotificationsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"notificationsCell" forIndexPath:indexPath];
+    if(indexPath.row %2 == 0){
+        cell.contentView.backgroundColor = rgb(30, 30, 30);
+    }else{
+        cell.contentView.backgroundColor = rgb(50, 50, 50);
+    }
             
     return cell;
 }
-
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 60;
+}
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {

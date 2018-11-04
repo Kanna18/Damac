@@ -49,7 +49,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    DamacSharedClass.sharedInstance.currentVC = self;
+    
     _tableView.delegate = self;
     _tableView.dataSource = self;
     _stepperBaseView.backgroundColor = [UIColor clearColor];
@@ -103,6 +103,7 @@
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:YES];
+    DamacSharedClass.sharedInstance.currentVC = self;
     sterView = [[StepperView alloc]initWithFrame:_stepperBaseView.frame];
     [self.view addSubview:sterView];
     originalBoundsoFScrollView = self.scrollView.bounds;

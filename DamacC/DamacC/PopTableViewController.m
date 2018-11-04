@@ -51,6 +51,9 @@
     cell.textLabel.textColor = rgb(191, 154, 88);
     cell.textLabel.textAlignment=NSTextAlignmentCenter;
     cell.backgroundColor = [UIColor clearColor];
+    if(_thumbNailsArray.count>0){
+        cell.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@",_thumbNailsArray[indexPath.row]]];
+    }
     return cell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{    

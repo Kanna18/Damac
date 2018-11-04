@@ -19,5 +19,6 @@
 
 @property id <POPDelegate>delegate;
 @property NSArray *tvData;
+@property NSArray *thumbNailsArray;
 
 @end

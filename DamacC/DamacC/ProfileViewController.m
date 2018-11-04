@@ -80,7 +80,9 @@
 }
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:YES];
-    [[CustomBarOptions alloc]initWithNavItems:self.navigationItem noOfItems:2 navRef:self.navigationController withTitle:@"My Profile"];
+//    [[CustomBarOptions alloc]initWithNavItems:self.navigationItem noOfItems:2 navRef:self.navigationController withTitle:@"My Profile"];
+    DamacSharedClass.sharedInstance.currentVC = self;
+    [DamacSharedClass.sharedInstance.navigationCustomBar.backBtn setImage:[UIImage imageNamed:@"backArrow"] forState:UIControlStateNormal];
     [self allLabes];
 }
 

@@ -223,7 +223,7 @@
 //        }
 //    }
 //    return  CGSizeZero;
-    return CGSizeMake(collectionView.frame.size.width/2-5, 250);
+    return CGSizeMake(collectionView.frame.size.width/2-10, 200);
 }
 
 

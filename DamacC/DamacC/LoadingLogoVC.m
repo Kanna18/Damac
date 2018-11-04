@@ -51,16 +51,22 @@
         
         NSString * port = kUserProfile.overallPortfolio;//[NSString stringWithFormat:@"%@",di[@"overallPortfolio"]];
         NSString * curent = kUserProfile.currentPortfolio;//[NSString stringWithFormat:@"%@",di[@"currentPortfolio"]];
+        
+        port = [self setNumberFormatter:port];
+        curent = [self setNumberFormatter:curent];
+        
+        [self setNumberFormatter:port];
+        [self setNumberFormatter:curent];
         [topCVArray addObject:@{@"key":overallPortofolio,@"value":port,@"image":@"1icon",}];
         [topCVArray addObject:@{@"key":currentPortofolio,@"value":curent,@"image":@"2icon",}];
-        [topCVArray addObject:@{@"key":paymentsDue,@"value":@"125.52k",@"image":@"3icon",}];
+        [topCVArray addObject:@{@"key":paymentsDue,@"value":@"",@"image":@"3icon",}];
         [topCVArray addObject:@{@"key":openServiceRequests,@"value":kUserProfile.openCases,@"image":@"4icon"}];
         //        [self.carousel performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
         [self performSelectorOnMainThread:@selector(pustToVC) withObject:nil waitUntilDone:YES];
     }else{
         [topCVArray addObject:@{@"key":overallPortofolio,@"value":@"",@"image":@"1icon",}];
         [topCVArray addObject:@{@"key":currentPortofolio,@"value":@"",@"image":@"2icon",}];
-        [topCVArray addObject:@{@"key":paymentsDue,@"value":@"",@"image":@"3icon",}];
+        [topCVArray addObject:@{@"key":paymentsDue,@"value":@"0",@"image":@"3icon",}];
         [topCVArray addObject:@{@"key":openServiceRequests,@"value":@"",@"image":@"4icon"}];
         [self performSelectorOnMainThread:@selector(pustToVC) withObject:nil waitUntilDone:YES];
     }
@@ -87,6 +93,26 @@
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
     });
     
+}
+-(NSString*)setNumberFormatter:(NSString*)numberStr{
+    NSInteger anInt = numberStr.integerValue;
+    NSString *wordNumber;
+    
+    //convert to words
+    NSNumber *numberValue = [NSNumber numberWithInt:anInt]; //needs to be NSNumber!
+    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+    [numberFormatter setNumberStyle:NSNumberFormatterSpellOutStyle];
+    wordNumber = [numberFormatter stringFromNumber:numberValue];
+    NSLog(@"Answer: %@", wordNumber);
+    if([wordNumber containsString:@"million"]){
+        return [NSString stringWithFormat:@"%c.%c Million",[numberStr characterAtIndex:0],[numberStr characterAtIndex:1]];
+    }
+    else if([wordNumber containsString:@"thousand"]&&(wordNumber.length > 4)){
+        return [NSString stringWithFormat:@"%c%c K",[numberStr characterAtIndex:0],[numberStr characterAtIndex:1]];
+    }else if([wordNumber containsString:@"thousand"]&&(wordNumber.length > 3)){
+        return [NSString stringWithFormat:@"%c.%c K",[numberStr characterAtIndex:0],[numberStr characterAtIndex:1]];
+    }
+    return numberStr;
 }
 /*
 #pragma mark - Navigation

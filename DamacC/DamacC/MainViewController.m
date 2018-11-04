@@ -80,7 +80,7 @@
 //    self.carousel.type = iCarouselTypeRotary;
 //    self.carousel.delegate = self;
 //    self.carousel.dataSource = self;
-    [[CustomBarOptions alloc]initWithNavItems:self.navigationItem noOfItems:2 navRef:self.navigationController withTitle:@""];
+//    [[CustomBarOptions alloc]initWithNavItems:self.navigationItem noOfItems:2 navRef:self.navigationController withTitle:@""];
 //    [self setTopArrayData:nil];
 //    self.navigationController.navigationBar.hidden = YES;
     
@@ -126,8 +126,8 @@
         NSString * curent = kUserProfile.currentPortfolio;//[NSString stringWithFormat:@"%@",di[@"currentPortfolio"]];
         [topCVArray addObject:@{@"key":[self setNillValue:overallPortofolio],@"value":[self setNillValue:port],@"image":@"1icon",}];
         [topCVArray addObject:@{@"key":[self setNillValue:currentPortofolio],@"value":[self setNillValue:curent],@"image":@"2icon",}];
-        [topCVArray addObject:@{@"key":[self setNillValue:paymentsDue],@"value":@"125.52k",@"image":@"3icon",}];
-        [topCVArray addObject:@{@"key":[self setNillValue:openServiceRequests],@"value":@"",@"image":@"4icon"}];
+        [topCVArray addObject:@{@"key":[self setNillValue:paymentsDue],@"value":@"0",@"image":@"3icon",}];
+        [topCVArray addObject:@{@"key":[self setNillValue:openServiceRequests],@"value":kUserProfile.openCases,@"image":@"4icon"}];
         [_topCollectionView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
 //        [self.carousel performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
     }else{
@@ -138,7 +138,7 @@
         [topCVArray addObject:@{@"key":[self setNillValue:overallPortofolio],@"value":[self setNillValue:port],@"image":@"1icon",}];
         [topCVArray addObject:@{@"key":[self setNillValue:currentPortofolio],@"value":[self setNillValue:curent],@"image":@"2icon",}];
         [topCVArray addObject:@{@"key":[self setNillValue:paymentsDue],@"value":@"",@"image":@"3icon",}];
-        [topCVArray addObject:@{@"key":[self setNillValue:openServiceRequests],@"value":@"",@"image":@"4icon"}];
+        [topCVArray addObject:@{@"key":[self setNillValue:openServiceRequests],@"value":kUserProfile.openCases,@"image":@"4icon"}];
         [_topCollectionView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
     }
 }
@@ -158,9 +158,8 @@
 -(void)customNavBarVie{
     cstm = [[CustomBar alloc]initWithFrame:CGRectMake(0, 0, UIScreen.mainScreen.bounds.size.width, 65)];
     DamacSharedClass.sharedInstance.navigationCustomBar = cstm;
-    
+    [cstm.backBtn setTitle:@"" forState:UIControlStateNormal];
     [cstm.backBtn setImage:[UIImage imageNamed:@"icon1"] forState:UIControlStateNormal];
-    [cstm.backBtn setTitle:@"" forState:UIControlStateNormal];    
     [cstm.backBtn addTarget:self action:@selector(buttonMenuLeft:) forControlEvents:UIControlEventTouchUpInside];
     [self.navigationController.view addSubview:cstm];
 //    [[[UIApplication sharedApplication].delegate window] addSubview:cstm];
@@ -216,8 +215,9 @@
 
 -(IBAction)buttonMenuLeft:(id)sender
 {
-    if(cstm.backBtn.imageView.image == [UIImage imageNamed:@"icon1"]){
+    if([cstm.backBtn.imageView.image isEqual: [UIImage imageNamed:@"icon1"]]){
         [self.menuLeft show];
+        DamacSharedClass.sharedInstance.windowButton.hidden = YES;
     }
 }
 
@@ -318,6 +318,7 @@
 
 -(void)sideMenuDidHide:(VKSideMenu *)sideMenu
 {
+    DamacSharedClass.sharedInstance.windowButton.hidden = NO;
     NSString *menu = @"";
     
     if (sideMenu == self.menuLeft)
@@ -369,7 +370,7 @@
         static NSString *cellIdentifier = @"topCell";
         TopCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
         cell.thumbImageView.image = [UIImage imageNamed:[topCVArray[indexPath.row] valueForKey:@"image"]];
-        cell.label1.text = [topCVArray[indexPath.row] valueForKey:@"value"];
+        cell.label1.text = [self setNumberFormatter:[topCVArray[indexPath.row] valueForKey:@"value"]];
         cell.label2.text = [topCVArray[indexPath.row] valueForKey:@"key"];
         [cell.label1 setAdjustsFontSizeToFitWidth:YES];
         return cell;
@@ -379,6 +380,7 @@
         GridCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
         
         cell.headingLabel.text = gridArray[indexPath.row];
+        cell.headingLabel.adjustsFontSizeToFitWidth = YES;
         dispatch_async(dispatch_get_main_queue(), ^{
         cell.thumbNail.image = [UIImage imageNamed:gridArrayThumbnails[indexPath.row]];
         });
@@ -386,6 +388,27 @@
     }
    
     return nil;
+}
+
+-(NSString*)setNumberFormatter:(NSString*)numberStr{
+    NSInteger anInt = numberStr.integerValue;
+    NSString *wordNumber;
+    
+    //convert to words
+    NSNumber *numberValue = [NSNumber numberWithInt:anInt]; //needs to be NSNumber!
+    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+    [numberFormatter setNumberStyle:NSNumberFormatterSpellOutStyle];
+    wordNumber = [numberFormatter stringFromNumber:numberValue];
+    NSLog(@"Answer: %@", wordNumber);
+    if([wordNumber containsString:@"million"]){
+        return [NSString stringWithFormat:@"%c.%c Million",[numberStr characterAtIndex:0],[numberStr characterAtIndex:1]];
+    }
+    else if([wordNumber containsString:@"thousand"]&&(wordNumber.length > 4)){
+        return [NSString stringWithFormat:@"%c%c K",[numberStr characterAtIndex:0],[numberStr characterAtIndex:1]];
+    }else if([wordNumber containsString:@"thousand"]&&(wordNumber.length > 3)){
+        return [NSString stringWithFormat:@"%c.%c K",[numberStr characterAtIndex:0],[numberStr characterAtIndex:1]];
+    }
+    return numberStr;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
@@ -538,7 +561,7 @@
         return  CGSizeMake(collectionView.frame.size.width/4-10 , 130);
     }
     if(collectionView == _gridCollectionView){
-        return  CGSizeMake(collectionView.frame.size.width/2-10, 150);
+        return  CGSizeMake(collectionView.frame.size.width/2-10, 140);
     }
     return  CGSizeZero;
 }

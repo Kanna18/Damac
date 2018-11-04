@@ -106,7 +106,7 @@
     self.sectionTitleColor  = UIColorFromRGB(0x8f8f8f);
     
     if(!SYSTEM_VERSION_LESS_THAN(@"8.0"))
-        self.blurEffectStyle = UIBlurEffectStyleDark;
+        self.blurEffectStyle = UIBlurEffectStyleDark;    
 }
 
 -(void)initViews

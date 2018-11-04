@@ -36,8 +36,8 @@
     return self;
 }
 - (IBAction)backClick:(id)sender {
-    if(_backBtn.imageView.image == [UIImage imageNamed:@"backArrow"]){
-        [DamacSharedClass.sharedInstance.currentVC.navigationController popViewControllerAnimated:YES];
+    if([_backBtn.imageView.image isEqual:[UIImage imageNamed:@"backArrow"]]){
+        [DamacSharedClass.sharedInstance.currentVC.navigationController popViewControllerAnimated:YES];        
     }
 }
 - (IBAction)loadNotifications:(id)sender {

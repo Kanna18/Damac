@@ -94,6 +94,7 @@
     }
 //    });
     
+    [self sendFCMTokenTokenToServer];
 }
 
 
@@ -808,5 +809,26 @@
     [DamacSharedClass.sharedInstance.currentVC dismissViewControllerAnimated:YES completion:NULL];
 }
 
-
+-(void)sendFCMTokenTokenToServer{
+    
+    NSString *token = [[NSUserDefaults standardUserDefaults] valueForKey:@"FCMNewToken"];
+    ServerAPIManager *fcmServer = [ServerAPIManager sharedinstance];
+    SFUserAccountManager *sf = [SFUserAccountManager sharedInstance];
+    
+    NSDictionary *resp = @{@"AccountId":kUserProfile.sfAccountId,
+                           @"userId":sf.currentUser.credentials.userId,
+                           @"fcmToken":token
+                           };
+    
+    [fcmServer postRequestwithUrl:@"https://partial-servicecloudtrial-155c0807bf-1580afc5db1.cs80.force.com/MobileApp/services/apexrest/SaveFCMTokenFromMobileApp/" withParameters:resp successBlock:^(id responseObj) {
+        
+        if(responseObj){
+            NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:responseObj options:0 error:nil];
+            NSLog(@"%@",dict);
+        }
+    } errorBlock:^(NSError *error) {
+        NSLog(@"%@",error.localizedDescription);
+    }];
+    
+}
 @end

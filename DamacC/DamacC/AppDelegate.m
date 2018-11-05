@@ -169,6 +169,8 @@ NSString *const kGCMMessageIDKey = @"gcm.message_id";
         [[UNUserNotificationCenter currentNotificationCenter]
          requestAuthorizationWithOptions:authOptions
          completionHandler:^(BOOL granted, NSError * _Nullable error) {
+             
+             
              // ...
          }];
     } else {
@@ -249,7 +251,9 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     NSLog(@"%@", userInfo);
     
     // Change this to your preferred presentation option
-    completionHandler(UNNotificationPresentationOptionNone);
+    completionHandler(UNNotificationPresentationOptionAlert);
+    
+    
 }
 
 // Handle notification messages after display notification is tapped by the user.
@@ -281,6 +285,7 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
      @"FCMToken" object:nil userInfo:dataDict];
     // TODO: If necessary send token to application server.
     // Note: This callback is fired at each app startup and whenever a new token is generated.
+    [[NSUserDefaults standardUserDefaults] setValue:fcmToken forKey:@"FCMNewToken"];
 }
 // [END refresh_token]
 

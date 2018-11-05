@@ -241,6 +241,10 @@
         [_soap2 uploadDocumentTo:_complaintsObj.attactment2 P_REQUEST_NUMBER:nil P_REQUEST_NAME:nil P_SOURCE_SYSTEM:nil category:nil entityName:nil fileDescription:str fileId:str fileName:str registrationId:nil sourceFileName:str sourceId:str];
         countoFImagestoUplaod++;
     }
+    
+    if(!_complaintsObj.attactment2&&!_complaintsObj.attactment2){
+        [_complaintsObj sendDraftStatusToServer];
+    }
    
     
 }

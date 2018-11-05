@@ -108,4 +108,10 @@
     
 }
 
+-(void)setPageTite:(NSString*)str{
+    DamacSharedClass.sharedInstance.navigationCustomBar.NavigationTitle.text = str;
+    DamacSharedClass.sharedInstance.navigationCustomBar.NavigationTitle.hidden = NO;
+    DamacSharedClass.sharedInstance.navigationCustomBar.damacLogo.hidden = YES;
+}
+
 @end

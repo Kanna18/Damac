@@ -127,9 +127,9 @@
                       @"Attachment1 Url",
                       @"Attachment2 Url"];
     
-    dataLabels = @[[NSString stringWithFormat:@"%@ - %@",handleNull(_servicesDataModel.CaseNumber),handleNull(_servicesDataModel.Status)],
-                   [self returnDate:_servicesDataModel.CreatedDate],
-                   [NSString stringWithFormat:@"%@",handleNull(_servicesDataModel.Account.Name)],
+    dataLabels = @[[NSString stringWithFormat:@"%@ - %@",handleNull(srD.CaseNumber),handleNull(srD.Status)],
+                   [self returnDate:srD.CreatedDate],
+                   [NSString stringWithFormat:@" "],
                    handleNull(srD.Unit_Name__c),
                    handleNull(srD.Type),
                    handleNull(srD.Complaint_Type__c),
@@ -159,9 +159,9 @@
                       @"Addition Doc File Url",
                       @"Passport File Url"];
     
-    dataLabels = @[[NSString stringWithFormat:@"%@ - %@",handleNull(_servicesDataModel.CaseNumber),handleNull(_servicesDataModel.Status)],
-                   [self returnDate:_servicesDataModel.CreatedDate],
-                   [NSString stringWithFormat:@"%@",handleNull(_servicesDataModel.Account.Name)],
+    dataLabels = @[[NSString stringWithFormat:@"%@ - %@",handleNull(srD.CaseNumber),handleNull(srD.Status)],
+                   [self returnDate:srD.CreatedDate],
+                   [NSString stringWithFormat:@" "],
                    @"",
                    handleNull(srD.SR_Type__c),
                    handleNull(srD.Country__c),
@@ -192,9 +192,9 @@
                       @"Passport File Url",
                       @"Additional Doc File Url"];
     
-    dataLabels = @[[NSString stringWithFormat:@"%@ - %@",handleNull(_servicesDataModel.CaseNumber),handleNull(_servicesDataModel.Status)],
-                   [self returnDate:_servicesDataModel.CreatedDate],
-                   [NSString stringWithFormat:@"%@",handleNull(_servicesDataModel.Account.Name)],
+    dataLabels = @[[NSString stringWithFormat:@"%@ - %@",handleNull(srD.CaseNumber),handleNull(srD.Status)],
+                   [self returnDate:srD.CreatedDate],
+                   [NSString stringWithFormat:@" "],
                    @"",
                    handleNull(srD.SR_Type__c),
                    handleNull(srD.New_CR__c),
@@ -220,9 +220,9 @@
                       @"Payment Mode",
                       @"Payment Allocation Details"];
     
-    dataLabels = @[[NSString stringWithFormat:@"%@ - %@",handleNull(_servicesDataModel.CaseNumber),handleNull(_servicesDataModel.Status)],
-                   [self returnDate:_servicesDataModel.CreatedDate],
-                   [NSString stringWithFormat:@"%@",handleNull(_servicesDataModel.Account.Name)],
+    dataLabels = @[[NSString stringWithFormat:@"%@ - %@",handleNull(srD.CaseNumber),handleNull(srD.Status)],
+                   [self returnDate:srD.CreatedDate],
+                   [NSString stringWithFormat:@" "],
                    @"",
                    handleNull(srD.SR_Type__c),
                    handleNull(srD.Payment_Date__c),
@@ -230,9 +230,17 @@
                    @"",
                    handleNull(srD.Payment_Mode__c),
                    handleNull(srD.Payment_Allocation_Details__c)];
+}
+
+-(NSString*)returnDate:(NSString*)dat{
     
+    NSDateFormatter *format = [[NSDateFormatter alloc]init];
+    [format setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZ"];
+    NSDate *dt = [format dateFromString:dat];
+    [format setDateFormat:@"EEE, d MMM yyyy h:mm a"];
+    NSString *output = [format stringFromDate:dt];
+    return  output;
     
-        
 }
 -(void)fillLabelsforCOCD{
     headingLabels = @[@"SR No.",
@@ -251,9 +259,9 @@
                       @"Addition Doc File Url",
                       @"Passport File Url"];
     
-    dataLabels = @[[NSString stringWithFormat:@"%@ - %@",handleNull(_servicesDataModel.CaseNumber),handleNull(_servicesDataModel.Status)],
-                   [self returnDate:_servicesDataModel.CreatedDate],
-                   [NSString stringWithFormat:@"%@",handleNull(_servicesDataModel.Account.Name)],
+    dataLabels = @[[NSString stringWithFormat:@"%@ - %@",handleNull(srD.CaseNumber),handleNull(srD.Status)],
+                   [self returnDate:srD.CreatedDate],
+                   [NSString stringWithFormat:@" "],
                    @"",
                    handleNull(srD.SR_Type__c),
                    handleNull(srD.Country__c),
@@ -268,16 +276,6 @@
                    handleNull(srD.Passport_File_URL__c)];
     cocd = [[COCDServerObj alloc]init];
     [cocd fillCOCDObjWithCaseID:srD];
-}
--(NSString*)returnDate:(NSString*)dat{
-    
-    NSDateFormatter *format = [[NSDateFormatter alloc]init];
-    [format setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZ"];
-    NSDate *dt = [format dateFromString:dat];
-    [format setDateFormat:@"EEE, d MMM yyyy h:mm a"];
-    NSString *output = [format stringFromDate:dt];
-    return  output;
-    
 }
 
 - (IBAction)cancelButton:(id)sender {

@@ -40,6 +40,11 @@
      [self webServiceCall];    
     
 }
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
+    [[DamacSharedClass sharedInstance].navigationCustomBar setPageTite:@"My Units"];
+
+}
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:YES];
     DamacSharedClass.sharedInstance.currentVC = self;
@@ -114,7 +119,7 @@
     ResponseLine *rs = tvArray[section];
     headerView.label1.text =rs.unitNumber;
     headerView.label2.text =rs.unitType;
-    headerView.label3.text =rs.propertyName;
+    headerView.label3.text =rs.propertyCity;
     if(section %2 == 0){
         headerView.backgroundColor = rgb(30, 30, 30);
     }else{

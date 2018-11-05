@@ -11,6 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NotificationsTableVC : UITableViewController
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 

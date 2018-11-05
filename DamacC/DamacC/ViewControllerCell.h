@@ -11,6 +11,6 @@
 @interface ViewControllerCell : UITableViewCell
 
 @property (strong, nonatomic) IBOutlet UILabel *lblName;
-@property (weak, nonatomic) IBOutlet UITextField *textField;
+@property (weak, nonatomic) IBOutlet COCDTF *textField;
 
 @end

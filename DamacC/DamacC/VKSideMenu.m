@@ -258,7 +258,7 @@
         ProfileTableViewCell  *cell = [tableView dequeueReusableCellWithIdentifier:@"profileTableViewCell"];
         [cell.emailLabel setAdjustsFontSizeToFitWidth:YES];
         [cell.nameLabel setAdjustsFontSizeToFitWidth:YES];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;        
         return cell;
         
     }else{

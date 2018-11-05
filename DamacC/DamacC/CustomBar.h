@@ -19,6 +19,10 @@
 @property (weak, nonatomic) IBOutlet UIButton *settingsBtn;
 - (IBAction)settingsClick:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UILabel *NavigationTitle;
+@property (weak, nonatomic) IBOutlet UIImageView *damacLogo;
+
+-(void)setPageTite:(NSString*)str;
 
 @property UINavigationController *navController;
 @end

@@ -8,6 +8,7 @@
 
 #import "EServicesViewController.h"
 #import "POPViewController.h"
+#import "ProofOfPaymentNewVC.h"
 #import "PassportUpdateFlow/PassportUpdateVC.h"
 #import "PassportObject.h"
 #import "ScheduleAppointmentsVC.h"
@@ -195,8 +196,11 @@
     }
 }
 -(void)loadPOP{    
-    POPViewController *pop = [self.storyboard instantiateViewControllerWithIdentifier:@"popVC"];
-    [self.navigationController pushViewController:pop animated:YES];
+//    POPViewController *pop = [self.storyboard instantiateViewControllerWithIdentifier:@"popVC"];
+//    [self.navigationController pushViewController:pop animated:YES];
+        ProofOfPaymentNewVC *pop = [self.storyboard instantiateViewControllerWithIdentifier:@"proofOfPaymentNewVC"];
+        [self.navigationController pushViewController:pop animated:YES];
+    
     
 }
 -(void)loadAppointments{

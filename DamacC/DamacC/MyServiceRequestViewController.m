@@ -41,6 +41,10 @@
 
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
+    [[DamacSharedClass sharedInstance].navigationCustomBar setPageTite:@"My service request"];
+}
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:YES];
     CAGradientLayer *gradient = [CAGradientLayer layer];

@@ -8,11 +8,15 @@
 
 #import "NotificationsTableVC.h"
 #import "NotificationsCell.h"
+#import "ServicesDetailController.h"
 @interface NotificationsTableVC ()
 
 @end
 
-@implementation NotificationsTableVC
+@implementation NotificationsTableVC{
+    
+    NSArray *tvData;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -22,8 +26,24 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [self getListOfNotifications];
+    
+    
 }
 
+-(void)getListOfNotifications{
+    SFUserAccountManager *sf = [SFUserAccountManager sharedInstance];
+    ServerAPIManager *server = [ServerAPIManager sharedinstance];
+    [server postRequestwithUrl:@"https://partial-servicecloudtrial-155c0807bf-1580afc5db1.cs80.force.com/MobileApp/services/apexrest/SendNotificationsToMobileApp/" withParameters:@{@"accountId":sf.currentUser.credentials.userId} successBlock:^(id responseObj) {
+        if(responseObj){
+            tvData =[NSJSONSerialization JSONObjectWithData:responseObj options:0 error:nil];
+            NSLog(@"%@",tvData);
+            [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
+        }
+    } errorBlock:^(NSError *error) {
+        
+    }];
+}
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -33,7 +53,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete implementation, return the number of rows
-    return 10;
+    return tvData.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -43,11 +63,35 @@
     }else{
         cell.contentView.backgroundColor = rgb(50, 50, 50);
     }
-            
+    NSArray *arr = [[tvData[indexPath.row] valueForKey:@"Notification_Text__c"] componentsSeparatedByString:@" "];
+    cell.label1.text = arr.lastObject;
+    cell.label2.text = [tvData[indexPath.row] valueForKey:@"Notification_Text__c"];
+    cell.label3.text =  [self returnDate:[tvData[indexPath.row] valueForKey:@"CreatedDate"]];
+    cell.label3.adjustsFontSizeToFitWidth = YES;
+    cell.label2.adjustsFontSizeToFitWidth = YES;
     return cell;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 60;
+    return 70;
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    ServicesDetailController *svc = [self.storyboard instantiateViewControllerWithIdentifier:@"servicesDetailVC"];
+    NSArray *arr = [[tvData[indexPath.row] valueForKey:@"Notification_Text__c"] componentsSeparatedByString:@" "];
+    svc.srCaseId = arr.lastObject;;
+    [self.navigationController pushViewController:svc animated:YES];
+    
+}
+
+
+-(NSString*)returnDate:(NSString*)dat{
+    
+    NSDateFormatter *format = [[NSDateFormatter alloc]init];
+    [format setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZ"];
+    NSDate *dt = [format dateFromString:dat];
+    [format setDateFormat:@"EEE, d MMM yyyy h:mm a"];
+    NSString *output = [format stringFromDate:dt];
+    return  output;
+    
 }
 /*
 // Override to support conditional editing of the table view.

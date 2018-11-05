@@ -154,6 +154,7 @@
     [self customNavBarVie];
     
     
+    
 }
 
 -(void)customNavBarVie{
@@ -162,6 +163,7 @@
     [cstm.backBtn setTitle:@"" forState:UIControlStateNormal];
     [cstm.backBtn setImage:[UIImage imageNamed:@"icon1"] forState:UIControlStateNormal];
     [cstm.backBtn addTarget:self action:@selector(buttonMenuLeft:) forControlEvents:UIControlEventTouchUpInside];
+    cstm.NavigationTitle.hidden = YES;
     [self.navigationController.view addSubview:cstm];
 //    [[[UIApplication sharedApplication].delegate window] addSubview:cstm];
 }
@@ -519,7 +521,7 @@
                 [self performSelectorOnMainThread:@selector(loadingUnitsValidations) withObject:nil waitUntilDone:YES];
             }
         } errorBlock:^(NSError *error) {
-            [FTIndicator performSelectorOnMainThread:@selector(loadingUnitsValidations) withObject:nil waitUntilDone:YES];
+            [self performSelectorOnMainThread:@selector(loadingUnitsValidations) withObject:nil waitUntilDone:YES];
             
             
     }];

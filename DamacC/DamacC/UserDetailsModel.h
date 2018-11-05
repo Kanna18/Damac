@@ -70,5 +70,8 @@
 @property (nonatomic) NSString <Optional> *totalActiveUnits;
 @property (nonatomic) NSString <Optional> *totalUnits;
 
+@property (nonatomic) NSString <Optional> *crNumber;
+@property (nonatomic) NSString <Optional> *crRegPlace;
+@property (nonatomic) NSString <Optional> *organizationName;
 
 @end

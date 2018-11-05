@@ -239,7 +239,8 @@
     for (int i = 0; i<buyersInfoArr.count ; i++ ) {
         [dropitems addObject:(NSString*)[buyersInfoArr[i] valueForKey:@"First_Name__c"]];
     }
-    [dropitems addObject:kUserProfile.partyName];
+    NSLog(@"%@",kUserProfile);
+    [dropitems addObject:handleNull(kUserProfile.partyName)];
 }
 -(void)showpBuyersopover:(UIButton*)drop{
     PopTableViewController *popVC=[self.storyboard instantiateViewControllerWithIdentifier:@"popTableVC"];

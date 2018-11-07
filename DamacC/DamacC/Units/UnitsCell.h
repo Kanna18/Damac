@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "UnitsClassLabel.h"
+#import "KATCircularProgress.h"
 
 @interface UnitsCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UnitsClassLabel *label1;
@@ -27,4 +28,9 @@
 @property (weak, nonatomic) IBOutlet UIStackView *stackView3;
 @property (weak, nonatomic) IBOutlet UILabel *statusLabel;
 @property (weak, nonatomic) NSString *dueAmount;
+@property (weak, nonatomic) IBOutlet KATCircularProgress *progressView;
+@property CGFloat percentValue;
+@property (weak, nonatomic) IBOutlet UILabel *percentLabel;
+-(void)setProgressView;
+
 @end

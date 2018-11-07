@@ -104,6 +104,7 @@
     self.Origin = @"";
     self.fcm = @"";
     self.salesforceId = @"";
+    CountobobjectstoTranslate = 1;
     [self sendArabicTexts];
 }
 
@@ -122,7 +123,10 @@
     [self updateTranslatewithText:self.Country];
     }else if (CountobobjectstoTranslate==7){
     [self updateTranslatewithText:self.PostalCode];
+    }else if (CountobobjectstoTranslate==8){
+    [self updateTranslatewithText:self.City];
     }
+    
         
 }
 
@@ -151,11 +155,16 @@
     {
         self.CountryArabic = trans.outputText;
     }
+    if([trans.inputText isEqualToString:self.City])
+    {
+        self.CityArabic = trans.outputText;
+    }
     if([trans.inputText isEqualToString:self.PostalCode])
     {
         self.PostalCodeArabic = trans.outputText;
     }
-
+    
+    [_delegate arabicConversionDone];
 }
 -(void)fillCOCDObjWithCaseID:(ServicesSRDetails*)srd{
     
@@ -201,6 +210,7 @@
     }
     if(tagValue == Address1){
         self.AddressLine1 = str;
+        [self updateTranslatewithText:str];
         return;
     }
     if(tagValue == Address2){
@@ -217,10 +227,12 @@
     }
     if(tagValue == City){
         self.City = str;
+        [self updateTranslatewithText:str];
         return;
     }
     if(tagValue == State){
         self.State = str;
+        [self updateTranslatewithText:str];
         return;
     }
     if(tagValue == PostalCode){
@@ -243,7 +255,7 @@
         self.StateArabic = str;
         return;
     }
-    [self updateTranslatewithText:str];
+    
 
 }
 -(void)sendDraftStatusToServer{
@@ -305,7 +317,8 @@
         }
         [self performSelectorOnMainThread:@selector(popToMainVC) withObject:nil waitUntilDone:YES];
     } errorBlock:^(NSError *error) {
-        
+        [FTIndicator performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
+        [FTIndicator showToastMessage:error.localizedDescription];
     }];
 }
 -(void)popToMainVC{

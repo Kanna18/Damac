@@ -13,5 +13,9 @@
 @property (weak, nonatomic) IBOutlet UIView *bottomView;
 
 - (IBAction)createAppointmentClick:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *recentlyCreatedBtn;
+- (IBAction)recentlyCreatedClick:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *upcomingBtn;
+- (IBAction)upcomingClick:(id)sender;
 
 @end

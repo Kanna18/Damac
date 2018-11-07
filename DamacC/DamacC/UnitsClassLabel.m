@@ -22,7 +22,7 @@
 
 -(void)awakeFromNib{
     [super awakeFromNib];
-    self.textColor = rgb(126, 117, 94);
+    self.textColor = rgb(126, 117, 67);
 }
 
 @end

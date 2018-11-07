@@ -17,6 +17,8 @@
     KPDropMenu *dropNew;
 
     AppDelegate *del;
+    
+    UIColor *selectedColor,*unselectedColor;
 }
 
 @end
@@ -38,9 +40,20 @@
     sortedArray = [[NSMutableArray alloc]init];
     
     del = (AppDelegate*)[UIApplication sharedApplication].delegate;
-
+    selectedColor = rgb(151, 121, 73);
+    unselectedColor = rgb(68, 68, 68);
+    [self changeSelectedColor:_btnAll];
 }
 
+-(void)changeSelectedColor:(UIButton*)sender{
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [_btnAll setTitleColor:unselectedColor forState:UIControlStateNormal];
+        [_btnNew setTitleColor:unselectedColor forState:UIControlStateNormal];
+        [_btnDraft setTitleColor:unselectedColor forState:UIControlStateNormal];
+        [sender setTitleColor:selectedColor forState:UIControlStateNormal];
+    });
+}
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
     [[DamacSharedClass sharedInstance].navigationCustomBar setPageTite:@"My service request"];
@@ -93,7 +106,7 @@
             
             if(Count == arrPa.count-1){
                     [FTIndicator performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
-                    [self allClick:nil];
+                    [self allClick:_btnAll];
             }
             Count++;
         } errorBlock:^(NSError *error) {
@@ -128,9 +141,9 @@
     cell.tapButton.tag = indexPath.row;
     [cell.tapButton addTarget:self action:@selector(sendToDetailScreen:) forControlEvents:UIControlEventTouchUpInside];
     if(indexPath.row%2==0){
-        cell.contentView.backgroundColor = rgb(20, 20, 20);
+        cell.contentView.backgroundColor = rgb(50, 50, 50);
     }else{
-        cell.contentView.backgroundColor = rgb(30, 30, 30);
+        cell.contentView.backgroundColor = rgb(41, 41, 41);
     }
     return cell;
 }
@@ -175,16 +188,19 @@
     
     [self sortTvData:@[@"New",@"Working",@"Submitted"]];
     [self setSelecteStates:(UIButton*)sender];
+    [self changeSelectedColor:(UIButton*)sender];
 }
 
 - (IBAction)draftClick:(id)sender {
     [self sortTvData:@[@"Draft Request"]];
     [self setSelecteStates:(UIButton*)sender];
+    [self changeSelectedColor:(UIButton*)sender];
 }
 
 - (IBAction)allClick:(id)sender {
     [self sortTvData:@[@"Draft Request",@"Submitted",@"Working",@"Cancelled",@"New"]];
     [self setSelecteStates:(UIButton*)sender];
+    [self changeSelectedColor:(UIButton*)sender];
 }
 
 -(void)sortTvData:(NSArray*)arr{

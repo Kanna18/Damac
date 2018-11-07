@@ -83,13 +83,16 @@
     cell.label7.text = rs.agreementDate;
     cell.label8.text = rs.unitCategory;
     cell.label9.text = rs.propertyCity;
+    cell.percentLabel.text = [NSString stringWithFormat:@"%@ %%",rs.percentCompleted];
     cell.statusLabel.text = @"Agreement executed by DAMAC";
     cell.printDocButton.tag = 100 +indexPath.section;
     cell.payNowButton.tag = 500 +indexPath.section;
     [cell.printDocButton addTarget:self action:@selector(printDocumentsClick:) forControlEvents:UIControlEventTouchUpInside];
     cell.printDocButton.tag = indexPath.section;
     cell.dueAmount = rs.totalDueInvoice;
+    cell.percentValue = rs.percentCompleted.floatValue;
 //    [cell.payNowButton addTarget:self action:@selector(payNow:) forControlEvents:UIControlEventTouchUpInside];
+    [cell setProgressView];
     return cell;
 }
 
@@ -103,10 +106,13 @@
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if(indexPath.section == headerIndex){
-        return 303;
+        return 436;
     }else{
         return 0;
     }
+}
+-(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
+    [self dismissDocView];
 }
 
 
@@ -121,9 +127,9 @@
     headerView.label2.text =rs.unitType;
     headerView.label3.text =rs.propertyCity;
     if(section %2 == 0){
-        headerView.backgroundColor = rgb(30, 30, 30);
-    }else{
         headerView.backgroundColor = rgb(50, 50, 50);
+    }else{
+        headerView.backgroundColor = rgb(41, 41, 41);
     }
     return headerView;
 
@@ -236,7 +242,7 @@
     
     bgView = [[UIView alloc]initWithFrame:[UIScreen mainScreen].bounds];
     [self.view addSubview:bgView];
-    bgView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
+    bgView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.9];
     
     docView = [[PrintDocView alloc]initWithFrame:CGRectMake(0, 0, 300, 276)];
     [bgView addSubview:docView];

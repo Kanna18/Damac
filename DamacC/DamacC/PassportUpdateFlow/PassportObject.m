@@ -82,9 +82,11 @@
             NSLog(@"%@",dict);
             [self performSelectorOnMainThread:@selector(popToMainVC) withObject:nil waitUntilDone:YES];
         }
-    } errorBlock:^(NSError *error) {
-        
+    }  errorBlock:^(NSError *error) {
+        [FTIndicator performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
+        [FTIndicator showToastMessage:error.localizedDescription];
     }];
+
 }
 
 -(void)fillValuesWIth:(ServicesSRDetails *)srd{

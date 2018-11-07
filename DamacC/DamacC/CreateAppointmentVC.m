@@ -53,8 +53,14 @@
             [FTIndicator performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
         }
     } errorBlock:^(NSError *error) {
-        
+        [FTIndicator performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
+        [FTIndicator showToastMessage:error.localizedDescription];
     }];
+    
+    [self adjustImageEdgeInsetsOfButton:_selectPurposeBtn];
+    [self adjustImageEdgeInsetsOfButton:_selectSubPurposeBtn];
+    [self adjustImageEdgeInsetsOfButton:_selectUnitBtn];
+    [self adjustImageEdgeInsetsOfButton:_calendarBtn];
 }
 
 -(void)loadingDropDownsList{
@@ -75,7 +81,7 @@
     [self roundCorners:_selectSubPurposeBtn];
     
     if(isEmpty(_appointObj.AppointmentDate)){
-        [_calendarBtn setTitle:@"select Appointment slot" forState:UIControlStateNormal];
+        [_calendarBtn setTitle:@"Select Appointment slot" forState:UIControlStateNormal];
     }else{
         [_calendarBtn setTitle:_appointObj.AppointmentDate forState:UIControlStateNormal];
     }
@@ -87,11 +93,15 @@
     
 }
 
+-(void)adjustImageEdgeInsetsOfButton:(UIButton*)sender{
+    sender.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
+    sender.imageEdgeInsets = UIEdgeInsetsMake(0, sender.frame.size.width-100, 0, 0);
+}
 
 -(void)roundCorners:(UIButton*)sender{
     
     sender.layer.cornerRadius = 5;
-    sender.layer.borderColor = rgb(191, 154, 88).CGColor;
+//    sender.layer.borderColor = rgb(191, 154, 88).CGColor;
     sender.layer.borderWidth = 2.0f;
     sender.clipsToBounds = YES;
     
@@ -193,6 +203,7 @@
         if(!(isEmpty(_appointObj.TimeSlot))){
             [self setToNormalValuesWhenSelectionChanged:YES];
         }
+        validationBool = [self handOverNotificationsValidation:tag];
     }
     if(popoverSubPurpose){
        [_selectSubPurposeBtn setTitle:subPurposeArray[tag] forState:UIControlStateNormal];
@@ -203,6 +214,7 @@
         if(!(isEmpty(_appointObj.TimeSlot))){
             [self setToNormalValuesWhenSelectionChanged:NO];
         }
+        validationBool = [self handOverNotificationsValidation:tag];
     }
     if(popoverUnit){
         [_selectUnitBtn setTitle:unitsArray[tag] forState:UIControlStateNormal];
@@ -333,7 +345,9 @@
 - (IBAction)calendarClick:(id)sender {
   
 //    [calendarView ActiveCalendar:self.baseView];
-    
+    if(!(_appointObj.BookingUnit.length>0)){
+        [FTIndicator showToastMessage:@"Please select unit"];
+    }
     if(validationBool){
         [FTIndicator showToastMessage:@"No Handover notice available"];
     }else{
@@ -473,7 +487,8 @@
         if(responseObj){
             NSDictionary *dictSlots = [NSJSONSerialization JSONObjectWithData:responseObj options:0 error:nil];
             NSLog(@"%@",dictSlots);
-            
+            if([dictSlots[@"AvailableSlotsList"] count]>0)
+            {
             dispatch_async(dispatch_get_main_queue(), ^{
                 [FTIndicator dismissProgress];
                 AppointmentsSlotsViewController *appvc = [self.storyboard instantiateViewControllerWithIdentifier:@"appointmentsSlotsViewController"];
@@ -481,9 +496,14 @@
                 appvc.totalArrayDates = dictSlots[@"AvailableSlotsList"];
                 [self presentViewController:appvc animated:NO completion:nil];
             });
+            }else{
+                [FTIndicator performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
+                [FTIndicator showToastMessage:@"No Appointment slots available Please try for some other day"];
+            }
         }
     } errorBlock:^(NSError *error) {
-        
+        [FTIndicator performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
+        [FTIndicator showToastMessage:error.localizedDescription];
     }];
 }
 

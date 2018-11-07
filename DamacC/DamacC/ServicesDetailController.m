@@ -62,6 +62,7 @@
 //    [[CustomBarOptions alloc]initWithNavItems:self.navigationItem noOfItems:2 navRef:self.navigationController withTitle:@"Service Request Detail"];
     
     DamacSharedClass.sharedInstance.windowButton.hidden = YES;
+    [DamacSharedClass.sharedInstance.navigationCustomBar setPageTite:@"Service Request Detail"];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -90,9 +91,11 @@
             [self fillLabels];
             [_tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
         }
-    } errorBlock:^(NSError *error) {
-        
+    }  errorBlock:^(NSError *error) {
+        [FTIndicator performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
+        [FTIndicator showToastMessage:error.localizedDescription];
     }];
+
     
 }
 -(void)fillLabels{
@@ -369,11 +372,13 @@
     if([srD.SR_Type__c isEqualToString:kPassportUpdateConstant]){
         PassportUpdateVC *chd = [self.storyboard instantiateViewControllerWithIdentifier:@"passportUpdateVC"];
         chd.passportObj = passObj;
+        
         [self.navigationController pushViewController:chd animated:YES];
     }
     if([srD.SR_Type__c isEqualToString:kJointBuyerConstant]){
         RentalPoolViewCellViewController *chd = [self.storyboard instantiateViewControllerWithIdentifier:@"rentalPoolViewCellVC"];
         chd.jointObj = jointBuyerObj;
+        chd.srdRental = srD;
         [self.navigationController pushViewController:chd animated:YES];
     }
     if([srD.Type isEqualToString:kComplaintConstant]){

@@ -59,6 +59,11 @@
 //    _scrollView.scrollEnabled = NO;
     [self roundCorners:_buyersNewBtn];
     DamacSharedClass.sharedInstance.windowButton.hidden = YES;
+    
+    
+    if(_srdRental){
+        
+    }
 }
 
 -(void)roundCorners:(UIButton*)sender{
@@ -79,7 +84,8 @@
             [self getBuyersInfoBasedonUnitIDS:idsArr];
         }
     } errorBlock:^(NSError *error) {
-        
+        [FTIndicator performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
+        [FTIndicator showToastMessage:error.localizedDescription];
     }];
     
 }
@@ -100,8 +106,11 @@
                 }
                 Count++;
             }
-        } errorBlock:^(NSError *error) {
-        }];
+        }  errorBlock:^(NSError *error) {
+        [FTIndicator performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
+        [FTIndicator showToastMessage:error.localizedDescription];
+    }];
+
     }
 }
 
@@ -220,7 +229,8 @@
             countriesArray = [NSJSONSerialization JSONObjectWithData:responseObj options:0 error:nil];
         }
     } errorBlock:^(NSError *error) {
-        
+        [FTIndicator performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
+        [FTIndicator showToastMessage:error.localizedDescription];
     }];
 }
 
@@ -311,24 +321,24 @@
     [sterView nolineColor];
 }
 
-#pragma mark DropMenu Delegates
--(void)didSelectItem : (KPDropMenu *) dropMenu atIndex : (int) atIntedex
-{
-    dropMenu.title = dropitems[atIntedex];
-    _heightConstraint.constant = -50;
-    _detailView.hidden = NO;
-    [self fillLabelsforJointBuyer:atIntedex];
-    
-    
-}
--(void)didShow : (KPDropMenu *)dropMenu{
-    
-}
--(void)didHide : (KPDropMenu *)dropMenu{
-    
-}
-- (IBAction)selectCountryClick:(id)sender {
-}
+//#pragma mark DropMenu Delegates
+//-(void)didSelectItem : (KPDropMenu *) dropMenu atIndex : (int) atIntedex
+//{
+//    dropMenu.title = dropitems[atIntedex];
+//    _heightConstraint.constant = -50;
+//    _detailView.hidden = NO;
+//    [self fillLabelsforJointBuyer:atIntedex];
+//
+//
+//}
+//-(void)didShow : (KPDropMenu *)dropMenu{
+//
+//}
+//-(void)didHide : (KPDropMenu *)dropMenu{
+//
+//}
+//- (IBAction)selectCountryClick:(id)sender {
+//}
 
 #pragma mark TableView Delegates
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -358,50 +368,62 @@
 
 
 -(void)fillLabelsforJointBuyer:(int)indexVal{
+    
+    //This condition applies only when fresh SR is Modifying
     if(!self.jointObj){
         JointBuyerObject *jobj = [[JointBuyerObject alloc]init];
         _jointObj.AccountID = @"";
         jbView.joObj = jobj;
         self.jointObj = jobj;
-    }else{
+    }
+    //This condition applies while Editing SR
+    else{
         jbView.joObj = self.jointObj;
     }
+    
+    //This condition For Showing Primary Buyer info
     if(indexVal == dropitems.count-1){
         [self.jointObj fillObjectWithPrimaryBuyerInfo];
     }else{
         [self.jointObj fillObjectWithParticularBuyerDict:buyersInfoArr[indexVal]];
     }
+    [self fillLabels];
+}
+
+-(void)fillLabels{
+    
     [_dropDownCountriesBtn setTitle:self.jointObj.country forState:UIControlStateNormal];
     headingLabels = @[@{@"key":@"Address1",
-                       @"value":handleNull(self.jointObj.address1),
-                       @"tag" : [NSNumber numberWithInt:Address1J]},
-                     @{@"key":@"Address2",
-                       @"value":handleNull(self.jointObj.address2),
-                       @"tag" : [NSNumber numberWithInt:Address2J]},
-                     @{@"key":@"Address3",
-                       @"value":handleNull(self.jointObj.address3),
-                       @"tag" : [NSNumber numberWithInt:Address3J]},
-                     @{@"key":@"Address4",
-                       @"value":handleNull(self.jointObj.address4),
-                       @"tag" : [NSNumber numberWithInt:Address4J]},
-                     @{@"key":@"City",
-                       @"value":handleNull(self.jointObj.city),
-                       @"tag" : [NSNumber numberWithInt:CityJ]},
-                     @{@"key":@"State",
-                       @"value":handleNull(self.jointObj.state),
-                       @"tag" : [NSNumber numberWithInt:StateJ]},
-                     @{@"key":@"PostalCode",
-                       @"value":handleNull(self.jointObj.postalCode),
-                       @"tag" : [NSNumber numberWithInt:PostalCodeJ]},
-                     @{@"key":@"Email",
-                       @"value":handleNull(self.jointObj.email),
-                       @"tag" : [NSNumber numberWithInt:EmailJ]},
-                     @{@"key":@"Mobile",
-                       @"value":handleNull(self.jointObj.phone),
-                       @"tag" : [NSNumber numberWithInt:MobileJ]}];
+                        @"value":handleNull(self.jointObj.address1),
+                        @"tag" : [NSNumber numberWithInt:Address1J]},
+                      @{@"key":@"Address2",
+                        @"value":handleNull(self.jointObj.address2),
+                        @"tag" : [NSNumber numberWithInt:Address2J]},
+                      @{@"key":@"Address3",
+                        @"value":handleNull(self.jointObj.address3),
+                        @"tag" : [NSNumber numberWithInt:Address3J]},
+                      @{@"key":@"Address4",
+                        @"value":handleNull(self.jointObj.address4),
+                        @"tag" : [NSNumber numberWithInt:Address4J]},
+                      @{@"key":@"City",
+                        @"value":handleNull(self.jointObj.city),
+                        @"tag" : [NSNumber numberWithInt:CityJ]},
+                      @{@"key":@"State",
+                        @"value":handleNull(self.jointObj.state),
+                        @"tag" : [NSNumber numberWithInt:StateJ]},
+                      @{@"key":@"PostalCode",
+                        @"value":handleNull(self.jointObj.postalCode),
+                        @"tag" : [NSNumber numberWithInt:PostalCodeJ]},
+                      @{@"key":@"Email",
+                        @"value":handleNull(self.jointObj.email),
+                        @"tag" : [NSNumber numberWithInt:EmailJ]},
+                      @{@"key":@"Mobile",
+                        @"value":handleNull(self.jointObj.phone),
+                        @"tag" : [NSNumber numberWithInt:MobileJ]}];
     
     [_tableView reloadData];
 }
+
 #pragma mark: Textfield Delegates
 -(void)textFieldDidBeginEditing:(COCDTF *)textField{
     
@@ -416,6 +438,7 @@
 
 -(void)textFieldDidEndEditing:(COCDTF *)textField{
     [self.jointObj changeValueBasedonTag:textField withValue:textField.text];
+    [self fillLabels];
     NSLog(@"%@",self.jointObj);
 }
 
@@ -569,6 +592,8 @@
         }
     } errorBlock:^(NSError *error) {
         NSLog(@"%@",error.localizedDescription);
+        [FTIndicator showToastMessage:error.localizedDescription];
+        [FTIndicator performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
     }];
 }
 
@@ -601,7 +626,7 @@
         [FTIndicator showToastMessage:@"Please enter State"];
         return NO;
     }
-    if(isEmpty(_jointObj.mobileCountryCode)){
+    if(isEmpty(_jointObj.postalCode)){
         [FTIndicator showToastMessage:@"Please enter postal code"];
         return NO;
     }

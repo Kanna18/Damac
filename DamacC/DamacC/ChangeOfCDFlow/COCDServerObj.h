@@ -12,6 +12,12 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol ArabicDelegate <NSObject>
+
+-(void)arabicConversionDone;
+
+@end
+
 @interface COCDServerObj : NSObject
 
 @property NSString *RecordType;
@@ -56,6 +62,9 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)fillCOCDObjWithCaseID:(ServicesSRDetails*)srd;
 
 - (void)updateTranslatewithText:(NSString*)txt;
+
+
+@property id<ArabicDelegate> delegate;
 
 @end
 

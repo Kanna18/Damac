@@ -94,7 +94,8 @@
     }
 //    });
     
-    [self sendFCMTokenTokenToServer];
+    
+    
 }
 
 
@@ -152,6 +153,7 @@
     [super viewWillAppear:YES];
     static dispatch_once_t onceToken;
     [self customNavBarVie];
+    [self sendFCMTokenTokenToServer];
     
     
     

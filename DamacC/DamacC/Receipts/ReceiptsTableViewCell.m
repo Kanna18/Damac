@@ -39,9 +39,11 @@
             [self openReceiptinSafari:dict[@"actions"][0][@"url"]];
             
         }
-    } errorBlock:^(NSError *error) {
-        
+    }  errorBlock:^(NSError *error) {
+        [FTIndicator performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
+        [FTIndicator showToastMessage:error.localizedDescription];
     }];
+
 }
 -(void)openReceiptinSafari:(NSString*)url{
     dispatch_async(dispatch_get_main_queue(), ^{

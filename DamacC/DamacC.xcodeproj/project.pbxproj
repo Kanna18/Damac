@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		49FF0CFB3FDBAAADC3D52B7F /* libPods-DamacC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0644B8EF6622C0581DE79A9B /* libPods-DamacC.a */; };
 		4F8D5EA31B6C0568005E64D4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8D5EA21B6C0568005E64D4 /* main.m */; };
 		4F8D5EA61B6C0568005E64D4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8D5EA51B6C0568005E64D4 /* AppDelegate.m */; };
 		4F8D5EC81B6C0F94005E64D4 /* InitialViewController1.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8D5EC71B6C0F94005E64D4 /* InitialViewController1.m */; };
 		4F8D5ECB1B6C0FE4005E64D4 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8D5ECA1B6C0FE4005E64D4 /* RootViewController.m */; };
+		99BA92AC3AFED11B4EDED681 /* libPods-DamacC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 37A6CC5BAEC98628A221C49E /* libPods-DamacC.a */; };
 		B7168FBA1FACC5D900A48DB5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7168FB91FACC5D900A48DB5 /* LaunchScreen.storyboard */; };
 		F60164ED20ABB9D900E07510 /* UnitsDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F60164EC20ABB9D900E07510 /* UnitsDataModel.m */; };
 		F60164F320ABF36F00E07510 /* PaymentsDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F60164F220ABF36F00E07510 /* PaymentsDataModel.m */; };
@@ -73,6 +73,7 @@
 		F65D8CCD21907A4800B4823E /* ProofOfPaymentNewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F65D8CCC21907A4800B4823E /* ProofOfPaymentNewVC.m */; };
 		F66B30B32183B7B90071AA93 /* COCDTF.m in Sources */ = {isa = PBXBuildFile; fileRef = F66B30B22183B7B90071AA93 /* COCDTF.m */; };
 		F66B30B62184AF110071AA93 /* SurveyController.m in Sources */ = {isa = PBXBuildFile; fileRef = F66B30B52184AF110071AA93 /* SurveyController.m */; };
+		F673C0C32192CA8100A4ED0E /* KATCircularProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = F673C0C12192CA8000A4ED0E /* KATCircularProgress.m */; };
 		F67D77A721749FAC009EE062 /* SurveyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F67D77A621749FAC009EE062 /* SurveyViewController.m */; };
 		F67D77AA21749FC3009EE062 /* SurveyCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = F67D77A921749FC3009EE062 /* SurveyCell1.m */; };
 		F67D77AD21749FCF009EE062 /* SurveyCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = F67D77AC21749FCF009EE062 /* SurveyCell2.m */; };
@@ -194,7 +195,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0644B8EF6622C0581DE79A9B /* libPods-DamacC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DamacC.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		37A6CC5BAEC98628A221C49E /* libPods-DamacC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DamacC.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F277E8C1DC7F5DF00E5A77C /* Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
 		4F8D5E9D1B6C0568005E64D4 /* DamacC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DamacC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F8D5EA11B6C0568005E64D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -206,8 +207,9 @@
 		4F8D5EC91B6C0FE4005E64D4 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		4F8D5ECA1B6C0FE4005E64D4 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		4FF12F911DCA9E6B004D9EF9 /* DamacC.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DamacC.entitlements; sourceTree = "<group>"; };
-		63F48985EF30F2A699FA42F3 /* Pods-DamacC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DamacC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DamacC/Pods-DamacC.debug.xcconfig"; sourceTree = "<group>"; };
 		B7168FB91FACC5D900A48DB5 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = "../mobile_sdk/SalesforceMobileSDK-iOS/shared/resources/LaunchScreen.storyboard"; sourceTree = "<group>"; };
+		BB73445D9F417BF26A16B7B3 /* Pods-DamacC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DamacC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DamacC/Pods-DamacC.debug.xcconfig"; sourceTree = "<group>"; };
+		C89979F9DFABEB44F2780B71 /* Pods-DamacC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DamacC.release.xcconfig"; path = "Pods/Target Support Files/Pods-DamacC/Pods-DamacC.release.xcconfig"; sourceTree = "<group>"; };
 		F60164EB20ABB9D900E07510 /* UnitsDataModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UnitsDataModel.h; sourceTree = "<group>"; };
 		F60164EC20ABB9D900E07510 /* UnitsDataModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UnitsDataModel.m; sourceTree = "<group>"; };
 		F60164F120ABF36F00E07510 /* PaymentsDataModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PaymentsDataModel.h; sourceTree = "<group>"; };
@@ -313,6 +315,8 @@
 		F66B30B22183B7B90071AA93 /* COCDTF.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = COCDTF.m; sourceTree = "<group>"; };
 		F66B30B42184AF110071AA93 /* SurveyController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SurveyController.h; sourceTree = "<group>"; };
 		F66B30B52184AF110071AA93 /* SurveyController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SurveyController.m; sourceTree = "<group>"; };
+		F673C0C12192CA8000A4ED0E /* KATCircularProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KATCircularProgress.m; sourceTree = "<group>"; };
+		F673C0C22192CA8100A4ED0E /* KATCircularProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KATCircularProgress.h; sourceTree = "<group>"; };
 		F67D77A521749FAC009EE062 /* SurveyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SurveyViewController.h; sourceTree = "<group>"; };
 		F67D77A621749FAC009EE062 /* SurveyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SurveyViewController.m; sourceTree = "<group>"; };
 		F67D77A821749FC3009EE062 /* SurveyCell1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SurveyCell1.h; sourceTree = "<group>"; };
@@ -500,7 +504,6 @@
 		F6FA5B792099BC6F009A8F15 /* GridCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GridCollectionViewCell.m; sourceTree = "<group>"; };
 		F6FB0E4C2180710800CBCB72 /* PassportObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PassportObject.h; sourceTree = "<group>"; };
 		F6FB0E4D2180710800CBCB72 /* PassportObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PassportObject.m; sourceTree = "<group>"; };
-		F70028AEC7D055578894526C /* Pods-DamacC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DamacC.release.xcconfig"; path = "Pods/Target Support Files/Pods-DamacC/Pods-DamacC.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -514,7 +517,7 @@
 				F6C57C732158CD2400970DC3 /* libxml2.tbd in Frameworks */,
 				F6C57C742158CD2400970DC3 /* libxml2.2.tbd in Frameworks */,
 				F6D91E3A20994A5D00DA1428 /* LocalAuthentication.framework in Frameworks */,
-				49FF0CFB3FDBAAADC3D52B7F /* libPods-DamacC.a in Frameworks */,
+				99BA92AC3AFED11B4EDED681 /* libPods-DamacC.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -529,7 +532,7 @@
 				4F8D5E9E1B6C0568005E64D4 /* Products */,
 				7E50A237DDCEAAC2CF458C8C /* Frameworks */,
 				F686163F209852AD002EA241 /* DamacC-Bridging-Header.h */,
-				E2827E4787D15E8ABCD5055C /* Pods */,
+				EB401446E4052F656D3E825C /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -629,16 +632,16 @@
 				F6C57C722158CD2400970DC3 /* libxml2.2.tbd */,
 				F6C57C712158CD2400970DC3 /* libxml2.tbd */,
 				F6D91E3920994A5D00DA1428 /* LocalAuthentication.framework */,
-				0644B8EF6622C0581DE79A9B /* libPods-DamacC.a */,
+				37A6CC5BAEC98628A221C49E /* libPods-DamacC.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		E2827E4787D15E8ABCD5055C /* Pods */ = {
+		EB401446E4052F656D3E825C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				63F48985EF30F2A699FA42F3 /* Pods-DamacC.debug.xcconfig */,
-				F70028AEC7D055578894526C /* Pods-DamacC.release.xcconfig */,
+				BB73445D9F417BF26A16B7B3 /* Pods-DamacC.debug.xcconfig */,
+				C89979F9DFABEB44F2780B71 /* Pods-DamacC.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -691,6 +694,8 @@
 		F610E8B62121FBB500B09A5B /* UnitsCell */ = {
 			isa = PBXGroup;
 			children = (
+				F673C0C22192CA8100A4ED0E /* KATCircularProgress.h */,
+				F673C0C12192CA8000A4ED0E /* KATCircularProgress.m */,
 				F610E8BA2121FBC800B09A5B /* UnitsCell.h */,
 				F610E8B92121FBC800B09A5B /* UnitsCell.m */,
 				F610E8B82121FBC800B09A5B /* UnitsCell.xib */,
@@ -1220,12 +1225,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4F8D5EC01B6C0568005E64D4 /* Build configuration list for PBXNativeTarget "DamacC" */;
 			buildPhases = (
-				7BBF917AB239793A3272F4AD /* [CP] Check Pods Manifest.lock */,
+				AF3A0EA70BF39046CC723D11 /* [CP] Check Pods Manifest.lock */,
 				4F8D5E991B6C0568005E64D4 /* Sources */,
 				4F8D5E9A1B6C0568005E64D4 /* Frameworks */,
 				4F8D5E9B1B6C0568005E64D4 /* Resources */,
-				A16F602140C030304A95E7F8 /* [CP] Copy Pods Resources */,
 				F691B3552190CFA8008EA47D /* Embed Frameworks */,
+				2FEFDE6B551492BC48A13CBB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1248,16 +1253,16 @@
 					4F8D5E9C1B6C0568005E64D4 = {
 						CreatedOnToolsVersion = 6.4;
 						LastSwiftMigration = 0920;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
-								enabled = 1;
+								enabled = 0;
 							};
 							com.apple.Keychain = {
 								enabled = 0;
 							};
 							com.apple.Push = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -1327,25 +1332,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		7BBF917AB239793A3272F4AD /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-DamacC-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A16F602140C030304A95E7F8 /* [CP] Copy Pods Resources */ = {
+		2FEFDE6B551492BC48A13CBB /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1365,6 +1352,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DamacC/Pods-DamacC-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AF3A0EA70BF39046CC723D11 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DamacC-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1480,6 +1485,7 @@
 				F6170A642100692E003443B1 /* AppointmentsCell.m in Sources */,
 				F6A86683211A9B3900560CD5 /* PopCell1.m in Sources */,
 				F626426921148D7B0022C4DC /* ChangeofContactCell.m in Sources */,
+				F673C0C32192CA8100A4ED0E /* KATCircularProgress.m in Sources */,
 				F67D77A721749FAC009EE062 /* SurveyViewController.m in Sources */,
 				F6B31BDD20F094FB001A5144 /* MyServiceRequestViewController.m in Sources */,
 				F67D77B321749FE3009EE062 /* SurveyCell4.m in Sources */,
@@ -1610,17 +1616,16 @@
 		};
 		4F8D5EC11B6C0568005E64D4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 63F48985EF30F2A699FA42F3 /* Pods-DamacC.debug.xcconfig */;
+			baseConfigurationReference = BB73445D9F417BF26A16B7B3 /* Pods-DamacC.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = DamacC/DamacC.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: LUXURY FACILITIES MANAGEMENT LLC";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: LUXURY FACILITIES MANAGEMENT LLC";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 7CQW6NRRPC;
+				DEVELOPMENT_TEAM = 4H7H3FYH34;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1664,7 +1669,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.damac.HelloDamac;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = HelloDamacPushNConfigured;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "DamacC-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1675,17 +1680,16 @@
 		};
 		4F8D5EC21B6C0568005E64D4 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F70028AEC7D055578894526C /* Pods-DamacC.release.xcconfig */;
+			baseConfigurationReference = C89979F9DFABEB44F2780B71 /* Pods-DamacC.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = DamacC/DamacC.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: LUXURY FACILITIES MANAGEMENT LLC";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: LUXURY FACILITIES MANAGEMENT LLC";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 7CQW6NRRPC;
+				DEVELOPMENT_TEAM = 4H7H3FYH34;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1729,7 +1733,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.damac.HelloDamac;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = HelloDamacPushNConfigured;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "DamacC-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;

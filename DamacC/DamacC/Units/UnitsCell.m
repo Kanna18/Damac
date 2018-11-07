@@ -22,7 +22,28 @@
     _printDocButton.layer.borderColor = rgb(191, 154, 88).CGColor;
     [_payNowButton addTarget:self action:@selector(payNow:) forControlEvents:UIControlEventTouchUpInside];
 }
+-(void)setProgressView{
+    
+    _progressView.backgroundColor = [UIColor clearColor];
+    [self.progressView.sliceItems removeAllObjects];
+    
+    SliceItem *item1 = [SliceItem new];
+    item1.itemValue = 100+_percentValue;
+    item1.itemColor = [UIColor greenColor];
 
+    SliceItem *item2 = [[SliceItem alloc] init];
+    item2.itemValue = 100-_percentValue;
+    item2.itemColor = [UIColor grayColor];
+
+    [self.progressView.sliceItems addObject:item1];
+    [self.progressView.sliceItems addObject:item2];
+    
+   [self.progressView setLineWidth:10.0]; // Set Line thickness of the chart.
+    [self.progressView setAnimationDuration:1]; // Set Animation Duration.
+    [self.progressView reloadData];
+    
+ 
+}
 -(void)buttonsRadius:(UIButton*)btn{
     btn.layer.cornerRadius = 10;
     btn.layer.borderWidth = 1.0f;

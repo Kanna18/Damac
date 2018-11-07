@@ -38,7 +38,7 @@
 -(void)rectBounds:(UIButton*)img{
     img.layer.cornerRadius = img.frame.size.height/2;
     img.layer.borderColor = [UIColor blackColor].CGColor;
-    img.layer.borderWidth = 2.0f;
+    img.layer.borderWidth = 1.0f;
     img.clipsToBounds = YES;
     
 }
@@ -71,9 +71,11 @@
             NSString *url = [di[@"actions"][0] valueForKey:@"url"];
             [self openReceiptinSafari:url];
         }
-    } errorBlock:^(NSError *error) {
-        
+    }  errorBlock:^(NSError *error) {
+        [FTIndicator performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
+        [FTIndicator showToastMessage:error.localizedDescription];
     }];
+
 }
 
 -(void)openReceiptinSafari:(NSString*)url{

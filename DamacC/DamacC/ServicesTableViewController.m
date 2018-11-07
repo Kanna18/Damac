@@ -11,7 +11,7 @@
 #import "AppDelegate.h"
 #import "BillingViewController.h"
 #import "PaymentsViewController.h"
-
+#import "UnitsHeaderView.h"
 @interface ServicesTableViewController ()<floatMenuDelegate>
 
 @end
@@ -53,6 +53,13 @@ static NSString *reuseCell = @"servicesCell";
     [FTIndicator showProgressWithMessage:@"Loading please wait" userInteractionEnable:NO];
     [self webServiceCall];
 //    [[CustomBarOptions alloc]initWithNavItems:self.navigationItem noOfItems:4];
+    
+    
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
+    [DamacSharedClass.sharedInstance.navigationCustomBar setPageTite:@"My Units"];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -60,9 +67,8 @@ static NSString *reuseCell = @"servicesCell";
     scr_width = [UIScreen mainScreen].bounds.size.width;
     scr_height = [UIScreen mainScreen].bounds.size.height;
     
-    self.navigationController.navigationBar.topItem.title = @" ";
     
-    [[CustomBarOptions alloc]initWithNavItems:self.navigationItem noOfItems:2 navRef:self.navigationController withTitle:@"My units"];
+    
 //    [_typeOfvc stringByReplacingOccurrencesOfString:@"\n" withString:@" "]
 
 }
@@ -95,6 +101,8 @@ static NSString *reuseCell = @"servicesCell";
             }
         } errorBlock:^(NSError *error) {
             [FTIndicator performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
+            [FTIndicator showToastMessage:error.localizedDescription];
+            
         }];
     }
     [FTIndicator dismissProgress];
@@ -136,13 +144,27 @@ static NSString *reuseCell = @"servicesCell";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseCell forIndexPath:indexPath];
     if(cell==nil){
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseCell];
     }
     if([_typeOfvc isEqualToString:kMyUnits]||[_typeOfvc isEqualToString:kMyPaymentScedules]||[_typeOfvc isEqualToString:kPay]){
         ResponseLine *rs = tvArray[indexPath.row];
-       cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@ - %@",rs.unitNumber,rs.unitType,rs.totalInvoiced];
+//       cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@ - %@",rs.unitNumber,rs.unitType,rs.totalInvoiced];
+        cell.textLabel.text = @"";
+        UnitsHeaderView *vw = [[UnitsHeaderView alloc]initWithFrame:CGRectMake(0, 0, cell.contentView.frame.size.width, cell.contentView.frame.size.height)];
+        vw.headerButton.hidden = YES;
+        vw.label1.text =rs.unitNumber;
+        vw.label2.text =rs.unitType;
+        vw.label3.text =rs.totalInvoiced;
+        [cell.contentView addSubview:vw];
+        if(indexPath.row %2 == 0){
+            vw.backgroundColor = rgb(50, 50, 50);
+        }else{
+            vw.backgroundColor = rgb(41, 41, 41);
+        }
+        
     }
     if([_typeOfvc isEqualToString:kMyReceipts]){
         ReceiptResponseLines *rs = tvArray[indexPath.row];
@@ -179,8 +201,16 @@ static NSString *reuseCell = @"servicesCell";
         [self.navigationController pushViewController:paym animated:YES];
     
     }if([_typeOfvc isEqualToString:kPay]){
-        ErrorViewController *evc = [self.storyboard instantiateViewControllerWithIdentifier:@"errorVC"];
-        [self presentViewController:evc animated:YES completion:nil];
+        
+         ResponseLine *rs = tvArray[indexPath.row];
+        if(rs.totalDueInvoice.intValue >0){
+            BillingViewController *bvc = [DamacSharedClass.sharedInstance.currentVC.storyboard instantiateViewControllerWithIdentifier:@"billVC"];
+            [DamacSharedClass.sharedInstance.currentVC.navigationController pushViewController:bvc animated:YES];
+        }else{
+            [FTIndicator showToastMessage:@"No OutStanding Amount"];
+        }
+//        ErrorViewController *evc = [self.storyboard instantiateViewControllerWithIdentifier:@"errorVC"];
+//        [self presentViewController:evc animated:YES completion:nil];
 //        BillingViewController *bvc = [self.storyboard instantiateViewControllerWithIdentifier:@"billVC"];
 ////        bvc.responseUnit = tvArray[indexPath.row];
 //        [self.navigationController pushViewController:bvc animated:YES];

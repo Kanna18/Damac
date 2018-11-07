@@ -17,7 +17,7 @@
 #define buttonTitleNext @"Next"
 
 
-@interface ChangeOfContactDetails ()<KPDropMenuDelegate,UITextFieldDelegate,WYPopoverControllerDelegate,POPDelegate>
+@interface ChangeOfContactDetails ()<KPDropMenuDelegate,UITextFieldDelegate,WYPopoverControllerDelegate,POPDelegate,ArabicDelegate>
 
 @end
 
@@ -73,7 +73,11 @@
     _downloadBtn.layer.borderColor = rgb(191, 154, 88).CGColor;
     
     [self getCountriesList];
-
+    [self roundCorners:_view1];
+    [self roundCorners:_view2];
+    [self roundCorners:_view3];
+    
+    _nextButtonWidth.constant = 0;
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -95,9 +99,11 @@
         if(responseObj){
             countriesArray = [NSJSONSerialization JSONObjectWithData:responseObj options:0 error:nil];
         }
-    } errorBlock:^(NSError *error) {
-        
+    }  errorBlock:^(NSError *error) {
+        [FTIndicator performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
+        [FTIndicator showToastMessage:error.localizedDescription];
     }];
+
 }
 
 
@@ -184,6 +190,7 @@
         ChangeofContactCell2 *cell = [tableView dequeueReusableCellWithIdentifier:@"changeofContactCell2" forIndexPath:indexPath];
         cell.subLabel.text = section2Array[indexPath.row][@"key"];
         cell.textField.text = section2Array[indexPath.row][@"value"];
+        cell.textField.textAlignment = NSTextAlignmentRight;
         cell.textField.delegate = self;
         cell.textField.tag = [section2Array[indexPath.row][@"tag"] intValue];
         cell.clipsToBounds = NO;
@@ -284,6 +291,7 @@
               ];
     [_tableView reloadData];
     [self setColorsForSelectedButton:_view1];
+    _cocdOBj.delegate = nil;
 }
 
 
@@ -293,6 +301,16 @@
     _view3.backgroundColor = [UIColor clearColor];
     
     v.backgroundColor = selectedColor;
+    
+    
+    
+}
+-(void)roundCorners:(UIView*)sender{
+    
+    sender.layer.cornerRadius = 5;
+    sender.layer.borderColor = goldColor.CGColor;
+    sender.clipsToBounds = YES;
+    sender.layer.borderWidth = 2.0f;
     
 }
 
@@ -307,9 +325,13 @@
                 }];
     [_tableView reloadData];
     [self setColorsForSelectedButton:_view2];
+    _cocdOBj.delegate = nil;
+    
 }
 
 - (IBAction)addressClick:(id)sender {
+    
+    _cocdOBj.delegate = self;
     [currentTF resignFirstResponder];
         sections = 2;
         numberOfCells = 3;
@@ -344,20 +366,26 @@
                         @"tag" : [NSNumber numberWithInt:Address1Arabic]
                         },
                       @{@"key":@"City\n(in Arabic)",
-                        @"value":_cocdOBj.AddressLine2Arabic,
+                        @"value":_cocdOBj.CityArabic,
                         @"tag" : [NSNumber numberWithInt:CityArabic]
                         },
                       @{@"key":@"Country\n(in Arabic)",
-                        @"value":_cocdOBj.AddressLine3Arabic,
+                        @"value":_cocdOBj.CountryArabic,
                         @"tag" : [NSNumber numberWithInt:CountryArabic]
                         },
                       @{@"key":@"State(in Arabic)",
-                        @"value":_cocdOBj.AddressLine4Arabic,
+                        @"value":_cocdOBj.StateArabic,
                         @"tag" : [NSNumber numberWithInt:StateInArabic]
                         }];
     [self setColorsForSelectedButton:_view3];
     [_tableView reloadData];
 }
+
+-(void)arabicConversionDone{
+
+    [self addressClick:nil];
+}
+
 -(void)addJointView2{
     
     _tableViewHeight.constant = 320;
@@ -523,8 +551,13 @@
 }
 
 - (IBAction)downloadFormClick:(id)sender {
-    [self downloadFormDetails];
+    
+    if([self validationSetForCOCD])
+    {
+        [self downloadFormDetails];
+    }
 }
+
 
 #pragma mark TextField Delegates
 
@@ -564,6 +597,8 @@
 
 -(void)downloadFormDetails{
     
+    
+    _nextButtonWidth.constant = 70;
     [FTIndicator showProgressWithMessage:@"Loading Please Wait" userInteractionEnable:NO];
    NSDictionary * dict = @{
         @"buyersInfoWrapper":
@@ -594,8 +629,13 @@
         }
     } errorBlock:^(NSError *error) {
         NSLog(@"%@",error.localizedDescription);
+        [FTIndicator performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
+        [FTIndicator showToastMessage:error.localizedDescription];
     }];
 }
+
+
+
 -(void)openReceiptinSafari:(NSString*)url{
     dispatch_async(dispatch_get_main_queue(), ^{
         [FTIndicator dismissProgress];
@@ -610,11 +650,13 @@
 #pragma Mark Keyboard
 - (void)keyboardWillShow:(NSNotification *)notification
 {
+    
+    if(tvArr.count>2){
     CGSize keyboardSize = [[[notification userInfo] objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
     
     UIEdgeInsets contentInsets;
     if (UIInterfaceOrientationIsPortrait([[UIApplication sharedApplication] statusBarOrientation])) {
-        contentInsets = UIEdgeInsetsMake(0.0, 0.0, (keyboardSize.height), 0.0);
+        contentInsets = UIEdgeInsetsMake(0.0, 0.0, (keyboardSize.height-200), 0.0);
     } else {
         contentInsets = UIEdgeInsetsMake(0.0, 0.0, (keyboardSize.width), 0.0);
     }
@@ -625,16 +667,19 @@
         self.tableView.scrollIndicatorInsets = contentInsets;
         [self.tableView scrollToRowAtIndexPath:self.editingIndexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
     }];
+    }
     
 }
 - (void)keyboardWillHide:(NSNotification *)notification
 {
+    if(tvArr.count>2){
     
     NSNumber *rate = notification.userInfo[UIKeyboardAnimationDurationUserInfoKey];
     [UIView animateWithDuration:rate.floatValue animations:^{
         self.tableView.contentInset = UIEdgeInsetsZero;
         self.tableView.scrollIndicatorInsets = UIEdgeInsetsZero;
     }];
+    }
 }
 
 -(BOOL)validationSetForCOCD{

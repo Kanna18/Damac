@@ -96,9 +96,9 @@
     headerView.label2.text =resp.unitType;
     headerView.label3.text =resp.propertyCity;
     if(section %2 == 0){
-        headerView.backgroundColor = rgb(30, 30, 30);
-    }else{
         headerView.backgroundColor = rgb(50, 50, 50);
+    }else{
+        headerView.backgroundColor = rgb(41, 41, 41);
     }
     return headerView;
     

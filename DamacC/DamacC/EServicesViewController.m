@@ -69,6 +69,8 @@
              }
              Count++;
          } errorBlock:^(NSError *error) {
+             [FTIndicator performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
+             [FTIndicator showToastMessage:error.localizedDescription];
          }];
     }
     

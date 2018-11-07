@@ -16,6 +16,7 @@
 static NSString *reuseCell = @"appointmentsCell";
 @implementation ScheduleAppointmentsVC{
     NSMutableArray *tvArray;
+    UIColor *selectedColor,*unselectedColor;
 }
 
 - (void)viewDidLoad {
@@ -26,6 +27,19 @@ static NSString *reuseCell = @"appointmentsCell";
     _tableView.dataSource =self;
     tvArray = [[NSMutableArray alloc]init];
     [self webServiceCall];
+    
+    selectedColor = rgb(151, 121, 73);
+    unselectedColor = rgb(68, 68, 68);
+    [self changeSelectedColor:_recentlyCreatedBtn];
+}
+
+-(void)changeSelectedColor:(UIButton*)sender{
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [_upcomingBtn setTitleColor:unselectedColor forState:UIControlStateNormal];
+        [_recentlyCreatedBtn setTitleColor:unselectedColor forState:UIControlStateNormal];
+        [sender setTitleColor:selectedColor forState:UIControlStateNormal];
+    });
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -38,6 +52,7 @@ static NSString *reuseCell = @"appointmentsCell";
     [_bottomView.layer insertSublayer:gradient atIndex:0];
 
 //    [[CustomBarOptions alloc]initWithNavItems:self.navigationItem noOfItems:2 navRef:self.navigationController withTitle:@"Appointment Details"];
+    [DamacSharedClass.sharedInstance.navigationCustomBar setPageTite:@"Appointment details"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -79,6 +94,8 @@ static NSString *reuseCell = @"appointmentsCell";
         }
         [_tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
     } errorBlock:^(NSError *error) {
+        [FTIndicator performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
+        [FTIndicator showToastMessage:error.localizedDescription];
     }];
 }
 
@@ -113,5 +130,12 @@ static NSString *reuseCell = @"appointmentsCell";
     
     CreateAppointmentVC *cvc = [self.storyboard instantiateViewControllerWithIdentifier:@"createAppointmentVC"];
     [self.navigationController pushViewController:cvc animated:YES];
+}
+- (IBAction)recentlyCreatedClick:(id)sender {
+    [self changeSelectedColor:(UIButton*)sender];
+}
+
+- (IBAction)upcomingClick:(id)sender {
+    [self changeSelectedColor:(UIButton*)sender];
 }
 @end

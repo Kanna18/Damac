@@ -82,9 +82,11 @@
             NSArray *idsArr = [arr valueForKey:@"Booking__c"];
             [self getBuyersInfoBasedonUnitIDS:idsArr];
         }
-    } errorBlock:^(NSError *error) {
-        
+    }  errorBlock:^(NSError *error) {
+        [FTIndicator performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
+        [FTIndicator showToastMessage:error.localizedDescription];
     }];
+
 }
 
 -(void)setCalendarInit{
@@ -174,8 +176,11 @@
                 }
                 Count++;
             }
-        } errorBlock:^(NSError *error) {
-        }];
+        }  errorBlock:^(NSError *error) {
+        [FTIndicator performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
+        [FTIndicator showToastMessage:error.localizedDescription];
+    }];
+
     }
 }
 

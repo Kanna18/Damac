@@ -28,9 +28,13 @@
     [self webServiceCall];
     [FTIndicator showProgressWithMessage:@"Loading please wait" userInteractionEnable:NO];
 }
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
+    [DamacSharedClass.sharedInstance.navigationCustomBar setPageTite:@"Payment Schedules"];
+}
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:YES];
-    [[CustomBarOptions alloc]initWithNavItems:self.navigationItem noOfItems:2 navRef:self.navigationController withTitle:@"Payment schedules"];
+
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -47,6 +51,7 @@
             }
         } errorBlock:^(NSError *error) {
             [FTIndicator performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
+            [FTIndicator showToastMessage:error.localizedDescription];
         }];
     }
     [FTIndicator dismissProgress];

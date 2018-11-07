@@ -41,8 +41,14 @@
     [self sortMonthsArray];
     [_selectDateBtn setTitle:@"" forState:UIControlStateNormal];
     _heightConstraint.constant = 120;
+    [self adjustImageEdgeInsetsOfButton:_selectMonthBtn];
+    [self adjustImageEdgeInsetsOfButton:_selectDateBtn];
 }
 
+-(void)adjustImageEdgeInsetsOfButton:(UIButton*)sender{
+    sender.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
+    sender.imageEdgeInsets = UIEdgeInsetsMake(0, sender.frame.size.width-40, 0, 0);
+}
 -(void)sortMonthsArray{
     
     NSSet *dupSet = [[NSSet alloc]initWithArray:_totalArrayDates];

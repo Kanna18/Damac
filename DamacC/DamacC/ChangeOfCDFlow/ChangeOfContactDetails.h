@@ -34,4 +34,7 @@
 @property (nonatomic) SaopServices *soap3;
 @property (nonatomic) SaopServices *soap2;
 @property NSIndexPath *editingIndexPath;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *nextButtonWidth;
+
+
 @end

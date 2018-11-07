@@ -112,9 +112,11 @@
         if(responseObj){
             unitsSFIdsArray = [NSJSONSerialization JSONObjectWithData:responseObj options:0 error:nil];
         }
-    } errorBlock:^(NSError *error) {
-        
+    }  errorBlock:^(NSError *error) {
+        [FTIndicator performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
+        [FTIndicator showToastMessage:error.localizedDescription];
     }];
+
 }
 
 

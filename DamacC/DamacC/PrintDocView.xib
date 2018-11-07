@@ -24,6 +24,10 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tju-5g-Coe">
                     <rect key="frame" x="0.0" y="0.0" width="300" height="276"/>
                     <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4CM-4Q-Ivw">
+                            <rect key="frame" x="0.0" y="0.0" width="300" height="276"/>
+                            <color key="backgroundColor" red="0.20784313725490194" green="0.20784313725490194" blue="0.20784313725490194" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dlo-eu-M4y">
                             <rect key="frame" x="0.0" y="16" width="280" height="260"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -81,7 +85,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </button>
                             </subviews>
-                            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" red="0.16078431372549018" green="0.16078431372549018" blue="0.16862745098039217" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="DnN-zq-Cma" secondAttribute="trailing" constant="9" id="6fe-dr-HoL"/>
                                 <constraint firstAttribute="height" constant="50" id="74V-4R-DRc"/>
@@ -98,7 +102,7 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="bYO-cb-DkO"/>
                             </constraints>
-                            <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="15"/>
+                            <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="12"/>
                             <state key="normal" title="UNIT STATEMENT">
                                 <color key="titleColor" red="0.74901960784313726" green="0.60392156862745094" blue="0.34509803921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
@@ -108,7 +112,7 @@
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XUa-4Z-Lg1">
                             <rect key="frame" x="40" y="129" width="220" height="40"/>
-                            <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="15"/>
+                            <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="12"/>
                             <state key="normal" title="SERVICE CHARGES">
                                 <color key="titleColor" red="0.74901960784313726" green="0.60392156862745094" blue="0.34509803921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
@@ -118,7 +122,7 @@
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aqT-2f-5Fi">
                             <rect key="frame" x="40" y="179" width="220" height="40"/>
-                            <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="15"/>
+                            <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="12"/>
                             <state key="normal" title="PENALITIES">
                                 <color key="titleColor" red="0.74901960784313726" green="0.60392156862745094" blue="0.34509803921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
@@ -135,16 +139,18 @@
                             </constraints>
                         </imageView>
                     </subviews>
-                    <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                    <color key="backgroundColor" red="0.20784313725490194" green="0.20784313725490194" blue="0.20784313725490194" alpha="0.81999999999999995" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="aqT-2f-5Fi" firstAttribute="width" secondItem="XUa-4Z-Lg1" secondAttribute="width" id="3f8-ML-tax"/>
                         <constraint firstItem="aqT-2f-5Fi" firstAttribute="height" secondItem="XUa-4Z-Lg1" secondAttribute="height" id="6lc-ni-Wnr"/>
                         <constraint firstItem="6Gt-C6-8aH" firstAttribute="leading" secondItem="dVo-pr-ofn" secondAttribute="leading" id="AWL-dG-SHC"/>
                         <constraint firstAttribute="trailing" secondItem="g87-7h-lgk" secondAttribute="trailing" constant="40" id="Co1-Ys-sIE"/>
                         <constraint firstItem="Dlo-eu-M4y" firstAttribute="leading" secondItem="Tju-5g-Coe" secondAttribute="leading" id="F6I-hQ-nlN"/>
+                        <constraint firstItem="4CM-4Q-Ivw" firstAttribute="centerX" secondItem="Tju-5g-Coe" secondAttribute="centerX" id="Fwk-nX-7A5"/>
                         <constraint firstItem="XUa-4Z-Lg1" firstAttribute="top" secondItem="g87-7h-lgk" secondAttribute="bottom" constant="10" id="MOW-4W-0we"/>
                         <constraint firstItem="6Z2-ri-R2j" firstAttribute="leading" secondItem="Tju-5g-Coe" secondAttribute="leading" constant="5" id="MwK-LZ-8Sn"/>
                         <constraint firstItem="6Gt-C6-8aH" firstAttribute="centerY" secondItem="aqT-2f-5Fi" secondAttribute="centerY" id="PLB-Cg-t9b"/>
+                        <constraint firstItem="4CM-4Q-Ivw" firstAttribute="centerY" secondItem="Tju-5g-Coe" secondAttribute="centerY" id="PXb-Sq-hki"/>
                         <constraint firstItem="g87-7h-lgk" firstAttribute="top" secondItem="Lkg-QV-aR9" secondAttribute="bottom" constant="29" id="RfE-Hy-Mhu"/>
                         <constraint firstItem="aqT-2f-5Fi" firstAttribute="top" secondItem="XUa-4Z-Lg1" secondAttribute="bottom" constant="10" id="TKg-gC-4te"/>
                         <constraint firstItem="Lkg-QV-aR9" firstAttribute="leading" secondItem="Tju-5g-Coe" secondAttribute="leading" id="WEt-mg-icZ"/>
@@ -158,6 +164,8 @@
                         <constraint firstItem="Dlo-eu-M4y" firstAttribute="top" secondItem="Tju-5g-Coe" secondAttribute="top" constant="16" id="nAH-U9-CcH"/>
                         <constraint firstItem="XUa-4Z-Lg1" firstAttribute="width" secondItem="g87-7h-lgk" secondAttribute="width" id="qyW-cw-0M9"/>
                         <constraint firstItem="XUa-4Z-Lg1" firstAttribute="leading" secondItem="g87-7h-lgk" secondAttribute="leading" id="rkL-Sp-Emz"/>
+                        <constraint firstItem="4CM-4Q-Ivw" firstAttribute="width" secondItem="Tju-5g-Coe" secondAttribute="width" id="tfB-Kb-rBm"/>
+                        <constraint firstItem="4CM-4Q-Ivw" firstAttribute="height" secondItem="Tju-5g-Coe" secondAttribute="height" id="upO-Pj-Qqw"/>
                         <constraint firstItem="aqT-2f-5Fi" firstAttribute="leading" secondItem="XUa-4Z-Lg1" secondAttribute="leading" id="zb4-VY-i0B"/>
                         <constraint firstAttribute="trailing" secondItem="Dlo-eu-M4y" secondAttribute="trailing" constant="20" id="zd9-BF-p3B"/>
                         <constraint firstAttribute="bottom" secondItem="Dlo-eu-M4y" secondAttribute="bottom" id="zxf-lB-HGB"/>

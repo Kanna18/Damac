@@ -59,7 +59,7 @@ PODS:
     - GoogleUtilities/Environment (~> 5.2)
     - GoogleUtilities/Reachability (~> 5.2)
     - Protobuf (~> 3.1)
-  - FMDB/SQLCipher (2.7.2):
+  - FMDB/SQLCipher (2.7.5):
     - SQLCipher
   - FTIndicator (1.2.9):
     - FTIndicator/FTNotificationIndicator (= 1.2.9)
@@ -92,7 +92,7 @@ PODS:
     - GoogleUtilities/Logger
   - GoogleUtilities/UserDefaults (5.3.4):
     - GoogleUtilities/Logger
-  - JSONModel (1.7.0)
+  - JSONModel (1.8.0)
   - nanopb (0.3.901):
     - nanopb/decode (= 0.3.901)
     - nanopb/encode (= 0.3.901)
@@ -190,11 +190,11 @@ SPEC CHECKSUMS:
   FirebaseCore: d16552f06821489ce1affe2e5e3e5593402ddfe3
   FirebaseInstanceID: e2fa4cb35ef5558c200f7f0ad8a53e212215f93e
   FirebaseMessaging: 0f14a264b0d7f867e8eff5d3556bc5d0d4e57888
-  FMDB: 6198a90e7b6900cfc046e6bc0ef6ebb7be9236aa
+  FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   FTIndicator: f7f071fd159e5befa1d040a9ef2e3ab53fa9322c
   GoogleAppMeasurement: 5029d78f2b438bd30ffb44e6c558b57c21622727
   GoogleUtilities: abb092d2c12e817fa3e0e7b274987dd72fb86ec3
-  JSONModel: 840bc0fcffb24b8454d2c026bf26fea454b8e98d
+  JSONModel: 02ab723958366a3fd27da57ea2af2113658762e9
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
   SalesforceAnalytics: 3ffafbb278d6a8a9fda6e04d0e6fe00ed5a9cd6b
@@ -204,6 +204,6 @@ SPEC CHECKSUMS:
   SQLCipher: f9fcf29b2e59ced7defc2a2bdd0ebe79b40d4990
   WYPopoverController: 00d879c25bddd1fd873dcc21aa98c8308d7f1555
 
-PODFILE CHECKSUM: 2d4750c6351c48b25cbe79b288d447b9867b0122
+PODFILE CHECKSUM: 3433aa03a2e42c08da4a6ee65850cf24a2a4554e
 
 COCOAPODS: 1.5.0

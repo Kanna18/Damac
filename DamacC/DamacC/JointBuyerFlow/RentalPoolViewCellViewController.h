@@ -32,4 +32,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *buyersNewBtn;
 @property JointBuyerObject *jointObj;
 @property NSIndexPath *editingIndexPath;
+
+
+@property ServicesSRDetails *srdRental;
 @end

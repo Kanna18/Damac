@@ -172,6 +172,7 @@
                     for (int i = 0; i<buyersInfoArr.count ; i++ ) {
                         [dropitems addObject:(NSString*)[buyersInfoArr[i] valueForKey:@"First_Name__c"]];
                     }
+                    [dropitems addObject:kUserProfile.partyName];
                     [FTIndicator performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
                 }
                 Count++;
@@ -191,7 +192,7 @@
     popVC.tvData = dropitems;
     popoverController = [[WYPopoverController alloc] initWithContentViewController:popVC];
     popoverController.delegate = self;
-    popoverController.popoverContentSize=CGSizeMake(drop.frame.size.width, 100);
+    popoverController.popoverContentSize=CGSizeMake(drop.frame.size.width, dropitems.count*50);
     popoverController.accessibilityNavigationStyle=UIAccessibilityNavigationStyleCombined;
     [popoverController presentPopoverFromRect:drop.bounds inView:drop permittedArrowDirections:WYPopoverArrowDirectionUp animated:YES options:WYPopoverAnimationOptionFadeWithScale];
 }
@@ -443,7 +444,14 @@
     [popoverController dismissPopoverAnimated:YES];
     [_buyersButton setTitle:str forState:UIControlStateNormal];
 //    self.passportObj.AccountID = buyersInfoArr[tag][@"Id"];
-    [_passportObj fillDefaultValuesForParticularBuyer:buyersInfoArr[tag]];
+    
+    
+    if (tag == dropitems.count-1) {
+        [_passportObj fillDefaultValuesForPrimaryBuyer];
+    }else
+    {
+     [_passportObj fillDefaultValuesForParticularBuyer:buyersInfoArr[tag]];
+    }
     
     tvDataValues = @[@{@"key":@"Passport Number/CR Number",
                        @"value":self.passportObj.previousPPNumber,

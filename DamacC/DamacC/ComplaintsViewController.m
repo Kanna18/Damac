@@ -52,17 +52,30 @@
     
     _complaintsTF.delegate = self;
     
+    [_selectUnitsButton setTitle:@"Select Units" forState:UIControlStateNormal];
+    [self.complaintsTF setValue:goldColor
+                    forKeyPath:@"_placeholderLabel.textColor"];
+
     
-    [self fillLabelsWithSRDValues];
-    
+    [self adjustImageEdgeInsetsOfButton:_selectSubBtn];
+    [self adjustImageEdgeInsetsOfButton:_selectComplaintBtn];
+    [self adjustImageEdgeInsetsOfButton:_selectUnitsButton];
+}
+
+-(void)adjustImageEdgeInsetsOfButton:(UIButton*)sender{
+    sender.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
+    sender.imageEdgeInsets = UIEdgeInsetsMake(0, sender.frame.size.width-100, 0, 0);
 }
 -(void)fillLabelsWithSRDValues{
-    [_selectUnitsButton setTitle:_complaintsObj.BookingUnit forState:UIControlStateNormal];
+    [_selectUnitsButton setTitle:@"Select Units" forState:UIControlStateNormal];
     [_selectComplaintBtn setTitle:@"Select Complaint Type*" forState:UIControlStateNormal];
     [_selectSubBtn setTitle:@"Select Complaint Sub-Type" forState:UIControlStateNormal];
     _complaintsTF.text = _complaintsObj.Description;
 }
-
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
+    [[DamacSharedClass sharedInstance].navigationCustomBar setPageTite:@"My complaints"];
+}
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:YES];
     DamacSharedClass.sharedInstance.windowButton.hidden = YES;
@@ -108,31 +121,22 @@
 
 - (IBAction)submitSRClick:(id)sender {
     
-    if(!(_complaintsObj.BookingUnit.length>0)){
-        [FTIndicator showToastMessage:@"Please Select UnitType"];
-        return;
+    if([self validationsForSubmitComplaint]){
+        
+    }else{
+        [FTIndicator showProgressWithMessage:@"Loading Please Wait" userInteractionEnable:NO];
+        _complaintsObj.Status = @"Submitted";
+        [self uploadImagesToServer];
     }
-    if(!(_complaintsObj.ComplaintType.length>0)){
-        [FTIndicator showToastMessage:@"Please select complaint type"];
-        return;
-    }
-    
-    [FTIndicator showProgressWithMessage:@"Loading Please Wait" userInteractionEnable:NO];
-    _complaintsObj.Status = @"Submitted";
-    [self uploadImagesToServer];
     
 }
 
 - (IBAction)saveDraftClick:(id)sender {
     
-    if(!(_complaintsObj.BookingUnit.length>0)){
-        [FTIndicator showToastMessage:@"Please Select UnitType"];
-        return;
+    if([self validationsForSubmitComplaint]){
+        
     }
-    if(!(_complaintsObj.ComplaintType.length>0)){
-        [FTIndicator showToastMessage:@"Please select complaint type"];
-        return;
-    }
+    else{
     _complaintsObj.Status = @"Draft Request";
     if(_complaintsObj.attactment1||_complaintsObj.attactment2){
         [self uploadImagesToServer];
@@ -141,6 +145,7 @@
         
     }
      [FTIndicator showProgressWithMessage:@"Loading Please Wait" userInteractionEnable:NO];
+    }
 }
 
 -(void)roundCorners:(UIButton*)sender{
@@ -186,7 +191,12 @@
     if(currentButton.tag == 2000){
         subComplaintsArray = [localJSONFileArray[tag] valueForKey:@"value"];
         [_selectSubBtn setTitle:@"Select Complaint Sub-Type" forState:UIControlStateNormal];
+        if(tag >0){
         _complaintsObj.ComplaintType = str;
+        }else{
+            _complaintsObj.ComplaintType = @"";
+        }
+        _complaintsObj.ComplaintSubType = @"";
     }
     if(currentButton.tag == 3000){
         _complaintsObj.ComplaintSubType = str;
@@ -282,6 +292,25 @@
 -(void)textFieldDidEndEditing:(UITextField *)textField{
     
     _complaintsObj.Description = textField.text;
+}
+
+-(BOOL)validationsForSubmitComplaint{
+    
+    if(isEmpty(_complaintsObj.BookingUnit)){
+        [FTIndicator showToastMessage:@"Please Select UnitType"];
+        return YES;
+    }
+    if(isEmpty(_complaintsObj.ComplaintType)){
+        [FTIndicator showToastMessage:@"Please select complaint type"];
+        return YES;
+    }
+    if(isEmpty(_complaintsObj.Description)){
+        [FTIndicator showToastMessage:@"Complaint Description is mandatory"];
+        return YES;
+    }
+    return NO;
+    
+    
 }
 
 @end

@@ -60,10 +60,6 @@
     [self roundCorners:_buyersNewBtn];
     DamacSharedClass.sharedInstance.windowButton.hidden = YES;
     
-    
-    if(_srdRental){
-        
-    }
 }
 
 -(void)roundCorners:(UIButton*)sender{
@@ -89,6 +85,24 @@
     }];
     
 }
+
+-(void)jointBuyerEditFormDetails{
+    if(_srdRental){
+        for (NSDictionary *dic in buyersInfoArr) {
+            if([dic[@"Account__c"] isEqualToString:_srdRental.AccountId]){
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [_buyersNewBtn setTitle:dic[@"First_Name__c"] forState:UIControlStateNormal];
+                    _heightConstraint.constant = 10;
+                    _detailView.hidden = NO;
+                    [self fillLabelsforJointBuyer:-1];
+                });
+                return;
+            }
+        }
+        
+    }
+}
+
 -(void)getBuyersInfoBasedonUnitIDS:(NSArray*)arr{
     
     __block int Count = 0;
@@ -103,6 +117,7 @@
                 if(Count == arr.count-1){
                     [self performSelectorOnMainThread:@selector(fillBuyersArray) withObject:nil waitUntilDone:YES];
                     [FTIndicator performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
+                    [self jointBuyerEditFormDetails];
                 }
                 Count++;
             }
@@ -177,7 +192,7 @@
     for (int i = 0; i<buyersInfoArr.count ; i++ ) {
         [dropitems addObject:(NSString*)[buyersInfoArr[i] valueForKey:@"First_Name__c"]];
     }
-    [dropitems addObject:kUserProfile.partyName];
+//    [dropitems addObject:kUserProfile.partyName];
     dropNew = [[KPDropMenu alloc] initWithFrame:fram];
     dropNew.layer.cornerRadius = 10.0f;
     dropNew.layer.borderColor = [UIColor yellowColor].CGColor;
@@ -250,7 +265,7 @@
         [dropitems addObject:(NSString*)[buyersInfoArr[i] valueForKey:@"First_Name__c"]];
     }
     NSLog(@"%@",kUserProfile);
-    [dropitems addObject:handleNull(kUserProfile.partyName)];
+//    [dropitems addObject:handleNull(kUserProfile.partyName)];
 }
 -(void)showpBuyersopover:(UIButton*)drop{
     PopTableViewController *popVC=[self.storyboard instantiateViewControllerWithIdentifier:@"popTableVC"];
@@ -381,12 +396,26 @@
         jbView.joObj = self.jointObj;
     }
     
-    //This condition For Showing Primary Buyer info
-    if(indexVal == dropitems.count-1){
-        [self.jointObj fillObjectWithPrimaryBuyerInfo];
-    }else{
-        [self.jointObj fillObjectWithParticularBuyerDict:buyersInfoArr[indexVal]];
+    //Showing Details for the first time edit
+    if(indexVal == -1){
+        [self.jointObj fillObjectWIthSerViceRequestDetail:_srdRental];
     }
+    else{
+        //If Edit form is available then
+        NSDictionary *dict = buyersInfoArr[indexVal];
+        if([dict[@"Account__c"] isEqualToString:_srdRental.AccountId]){
+            [self.jointObj fillObjectWIthSerViceRequestDetail:_srdRental];
+        }else{
+            [self.jointObj fillObjectWithParticularBuyerDict:buyersInfoArr[indexVal]];
+        }
+    }
+    
+    //This condition For Showing Primary Buyer info
+//    if(indexVal == dropitems.count-1){
+//        [self.jointObj fillObjectWithPrimaryBuyerInfo];
+//    }else{
+//        [self.jointObj fillObjectWithParticularBuyerDict:buyersInfoArr[indexVal]];
+//    }
     [self fillLabels];
 }
 

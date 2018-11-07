@@ -39,6 +39,11 @@
     // Dispose of any resources that can be recreated.
     
 }
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
+    [DamacSharedClass.sharedInstance.navigationCustomBar setPageTite:@"E-services"];
+}
 -(void)viewDidAppear:(BOOL)animated{
     
     [super viewDidAppear:YES];
@@ -229,7 +234,7 @@
 //        }
 //    }
 //    return  CGSizeZero;
-    return CGSizeMake(collectionView.frame.size.width/2-10, collectionView.frame.size.height/3-10);
+    return CGSizeMake(collectionView.frame.size.width/2-10, collectionView.frame.size.height/3-15);
 }
 
 

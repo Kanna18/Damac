@@ -92,6 +92,7 @@
                                              selector:@selector(keyboardWillHide:)
                                                  name:UIKeyboardWillHideNotification
                                                object:nil];
+    [DamacSharedClass.sharedInstance.navigationCustomBar setPageTite:@"Change of contact details"];
 }
 -(void)getCountriesList{
     ServerAPIManager *server = [ServerAPIManager sharedinstance];

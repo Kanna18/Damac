@@ -160,7 +160,7 @@
 -(void)sendJointBuyerResponsetoserver{
 
     NSMutableDictionary *dict = [[NSMutableDictionary alloc]init];
-    [dict setValue:kUserProfile.sfAccountId forKey:@"AccountID"];
+    [dict setValue:self.AccountID forKey:@"AccountID"];
     [dict setValue:self.AdditionalDocFileUrl forKey:@"AdditionalDocFileUrl"];
     [dict setValue:self.address1 forKey:@"address1"];
     [dict setValue:self.address2 forKey:@"address2"];

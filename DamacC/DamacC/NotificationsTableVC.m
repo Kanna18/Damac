@@ -46,6 +46,10 @@
     }];
 
 }
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
+    [DamacSharedClass.sharedInstance.navigationCustomBar setPageTite:@"Notifications"];
+}
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -61,9 +65,9 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NotificationsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"notificationsCell" forIndexPath:indexPath];
     if(indexPath.row %2 == 0){
-        cell.contentView.backgroundColor = rgb(30, 30, 30);
-    }else{
         cell.contentView.backgroundColor = rgb(50, 50, 50);
+    }else{
+        cell.contentView.backgroundColor = rgb(41, 41, 41);
     }
     NSArray *arr = [[tvData[indexPath.row] valueForKey:@"Notification_Text__c"] componentsSeparatedByString:@" "];
     cell.label1.text = arr.lastObject;

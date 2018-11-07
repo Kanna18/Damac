@@ -258,7 +258,7 @@
         ProfileTableViewCell  *cell = [tableView dequeueReusableCellWithIdentifier:@"profileTableViewCell"];
         [cell.emailLabel setAdjustsFontSizeToFitWidth:YES];
         [cell.nameLabel setAdjustsFontSizeToFitWidth:YES];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;        
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
         
     }else{
@@ -312,13 +312,14 @@
         CGFloat titleX = item.icon ? CGRectGetMaxX(imageViewIcon.frame) + 12 : 12;
         title = [[UILabel alloc] initWithFrame:CGRectMake(titleX, contentTopBottomPadding, cell.frame.size.width - titleX - 12, contentHeight)];
         title.tag  = 200;
-        title.font = [UIFont systemFontOfSize:12.0];
+        title.font = [UIFont systemFontOfSize:15.0];
         title.adjustsFontSizeToFitWidth = YES;
         [cell.contentView addSubview:title];
     }
     
     title.text      = item.title;
     title.textColor =rgb(191, 152, 88);
+    cell.textLabel.font = [UIFont fontWithName:@"Montserrat-Medium" size:17];
     
     return cell;
     }

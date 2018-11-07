@@ -33,8 +33,8 @@
 #define rgb(r,g,b) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1]
 
 #define kMyUnits @"MY UNITS"
-#define kMyServiceRequests @"SERVICE REQUEST"
-#define kMyPaymentScedules @"PAYMENT SCHEDULE"
+#define kMyServiceRequests @"SERVICE\nREQUEST"
+#define kMyPaymentScedules @"PAYMENT\nSCHEDULE"
 #define kEServices @"CREATE REQUESTS"
 #define kMyReceipts @"RECEIPTS"
 #define kSOA @"APPOINTMENT"

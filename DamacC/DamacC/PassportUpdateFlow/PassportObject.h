@@ -41,7 +41,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property NSString* previousPassPlace;
 @property NSString* previousExpiryDate;
 
-
+-(void)fillDefaultValuesForPrimaryBuyer;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -72,7 +72,29 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if(indexPath.row==4){
         [self dismissViewControllerAnimated:YES completion:nil];
+    }else{
+        
+        NSString *url = @"";
+        if(indexPath.row == 0){
+            url = @"https://www.hellodamac.com/resource/1535633311000/WalkInByAppointment/BookAppointmentsPortal.pdf";
+        }
+        if(indexPath.row == 1){
+            url = @"https://www.hellodamac.com/resource/1529559930000/HelloDamacUserGuide";
+        }
+        if(indexPath.row == 2){
+            url = @"https://www.hellodamac.com/resource/1528979216000/PaymentPlan";
+        }
+        if(indexPath.row == 3){
+            url = @"https://www.hellodamac.com/usefulinfo";
+        }
+        if([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:url]])
+        {
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url] options:nil completionHandler:nil];
+        }
+
     }
+    
+    
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if(indexPath.row==4){

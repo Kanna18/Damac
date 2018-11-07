@@ -37,7 +37,29 @@
     self.previousExpiryDate = handleNull(kUserProfile.ppIssueDate);
     
 }
+
+-(void)fillDefaultValuesForPrimaryBuyer{
+    self.previousPPNumber = handleNull(kUserProfile.passportNumber);
+    self.previousPassPlace = handleNull(kUserProfile.ppIssuePlace);
+    self.previousExpiryDate = handleNull(kUserProfile.ppIssueDate);
+    
+    
+    self.RecordType = @"Passport Detail Update";
+    self.AccountID = handleNull(kUserProfile.sfAccountId);
+    self.origin = @"Mobile App";
+    self.fcm = @"";
+    self.AdditionalDocFileUrl = @"";
+    self.passportNo = @"";
+    self.PassportIssuedPlace = @"";
+    self.AdditionalDocFileUrl = @"";
+    self.PassportIssuedPlaceArabic = @"";
+    self.PassportIssuedDate = @"";
+    
+}
 -(void)fillDefaultValuesForParticularBuyer:(NSDictionary*)buyerDict{
+    
+    
+    
     
     self.previousPPNumber = handleNull(buyerDict[@"Account__r"][@"Passport_Number__pc"]);
     self.previousPassPlace = @"";

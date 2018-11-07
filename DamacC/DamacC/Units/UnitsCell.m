@@ -29,7 +29,7 @@
     
     SliceItem *item1 = [SliceItem new];
     item1.itemValue = 100+_percentValue;
-    item1.itemColor = [UIColor greenColor];
+    item1.itemColor = goldColor;
 
     SliceItem *item2 = [[SliceItem alloc] init];
     item2.itemValue = 100-_percentValue;

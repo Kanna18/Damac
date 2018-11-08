@@ -28,7 +28,16 @@
     self.navigationItem.hidesBackButton = YES;
     //self.navigationController.navigationBar.barTintColor = [UIColor redColor];
 }
-
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+    for (CustomBar *cstB in self.navigationController.view.subviews) {
+        if([cstB isKindOfClass:[CustomBar class]]){
+            [cstB removeFromSuperview];
+        }
+    }
+    DamacSharedClass.sharedInstance.windowButton.hidden = YES;
+}
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:YES];
     screen_width = [UIScreen mainScreen].bounds.size.width;

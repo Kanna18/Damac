@@ -25,6 +25,11 @@
     DamacSharedClass.sharedInstance.windowButton.hidden = YES;
     [self getResponseFromTheServer];
 }
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
+    DamacSharedClass.sharedInstance.currentVC = self;
+    [DamacSharedClass.sharedInstance.navigationCustomBar setPageTite:@"Customer satisfaction survey"];
+}
 -(void)getResponseFromTheServer{
     ServerAPIManager *apiMa = [ServerAPIManager sharedinstance];
     
@@ -51,7 +56,6 @@
 */
 
 - (IBAction)taketheSurveyClick:(id)sender {
-    
     if(surverArray.count>0){
         SurveyViewController *cvc = [self.storyboard instantiateViewControllerWithIdentifier:@"surveyViewController"];
         cvc.surveyArray = surverArray;

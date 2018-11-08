@@ -69,7 +69,10 @@
     
     _tableView.clipsToBounds = YES;
 }
-
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
+    [DamacSharedClass.sharedInstance.navigationCustomBar setPageTite:@"Passport update"];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -88,6 +91,22 @@
     }];
 
 }
+
+-(void)PassportUpdateEditFormDetails{
+    if(_srdRental){
+        for (NSDictionary *dic in buyersInfoArr) {
+            if([dic[@"Account__c"] isEqualToString:_srdRental.AccountId]){
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [_buyersButton setTitle:dic[@"First_Name__c"] forState:UIControlStateNormal];
+                    [_passportObj fillValuesWIth:_srdRental];
+                });
+                return;
+            }
+        }
+        
+    }
+}
+
 
 -(void)setCalendarInit{
     
@@ -173,6 +192,11 @@
                         [dropitems addObject:(NSString*)[buyersInfoArr[i] valueForKey:@"First_Name__c"]];
                     }
                     [dropitems addObject:kUserProfile.partyName];
+                    //If Edit form details are available
+                    if(_srdRental){
+                        [self PassportUpdateEditFormDetails];
+                    }
+                    
                     [FTIndicator performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
                 }
                 Count++;
@@ -447,10 +471,21 @@
     
     
     if (tag == dropitems.count-1) {
-        [_passportObj fillDefaultValuesForPrimaryBuyer];
-    }else
+        
+        if([kUserProfile.sfAccountId isEqualToString:_srdRental.AccountId]){
+             [_passportObj fillValuesWIth:_srdRental];
+        }else{
+            [_passportObj fillDefaultValuesForPrimaryBuyer];
+        }
+    }
+    else
     {
-     [_passportObj fillDefaultValuesForParticularBuyer:buyersInfoArr[tag]];
+        NSDictionary *dict = buyersInfoArr[tag];
+        if([dict[@"Account__c"] isEqualToString:_srdRental.AccountId]){
+            [_passportObj fillValuesWIth:_srdRental];
+        }else{
+         [_passportObj fillDefaultValuesForParticularBuyer:buyersInfoArr[tag]];
+        }
     }
     
     tvDataValues = @[@{@"key":@"Passport Number/CR Number",

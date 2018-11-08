@@ -372,7 +372,7 @@
     if([srD.SR_Type__c isEqualToString:kPassportUpdateConstant]){
         PassportUpdateVC *chd = [self.storyboard instantiateViewControllerWithIdentifier:@"passportUpdateVC"];
         chd.passportObj = passObj;
-        
+        chd.srdRental = srD;
         [self.navigationController pushViewController:chd animated:YES];
     }
     if([srD.SR_Type__c isEqualToString:kJointBuyerConstant]){
@@ -384,6 +384,7 @@
     if([srD.Type isEqualToString:kComplaintConstant]){
         ComplaintsViewController *chd = [self.storyboard instantiateViewControllerWithIdentifier:@"complaintsViewController"];
         chd.complaintsObj= complaintsObj;
+        chd.srdRental = srD;
         [self.navigationController pushViewController:chd animated:YES];
     }
     

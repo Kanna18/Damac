@@ -19,4 +19,6 @@
 @property SaopServices *soap2;
 
 @property NSIndexPath *editingIndexPath;
+
+@property ServicesSRDetails *srdRental;
 @end

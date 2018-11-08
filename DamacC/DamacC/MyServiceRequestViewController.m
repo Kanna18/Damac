@@ -213,7 +213,10 @@
     }
     NSCompoundPredicate *fPredicate = [NSCompoundPredicate orPredicateWithSubpredicates:preArr];
     NSArray *a = [tvDataArray filteredArrayUsingPredicate:fPredicate];
-    sortedArray = [NSMutableArray arrayWithArray:a];
+    NSMutableArray *finalArr = [NSMutableArray arrayWithArray:a];
+        
+    NSSortDescriptor* sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"CaseNumber" ascending:NO selector:@selector(localizedCompare:)];
+    sortedArray = [NSMutableArray arrayWithArray:[finalArr sortedArrayUsingDescriptors:@[sortDescriptor]]];
     [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
 }
 

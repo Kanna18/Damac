@@ -78,6 +78,10 @@
         return @" ";
     }
 }
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
+    [DamacSharedClass.sharedInstance.navigationCustomBar setPageTite:@"My profile"];
+}
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:YES];
 //    [[CustomBarOptions alloc]initWithNavItems:self.navigationItem noOfItems:2 navRef:self.navigationController withTitle:@"My Profile"];

@@ -60,6 +60,18 @@
     [self adjustImageEdgeInsetsOfButton:_selectSubBtn];
     [self adjustImageEdgeInsetsOfButton:_selectComplaintBtn];
     [self adjustImageEdgeInsetsOfButton:_selectUnitsButton];
+    
+    if(_srdRental){
+        [self complaintsEditForm];
+        [_complaintsObj  fillValuesWithServiceDetails:_srdRental];
+    }
+}
+
+-(void)complaintsEditForm{
+    [_selectUnitsButton setTitle:_srdRental.Booking_Unit_Name__c forState:UIControlStateNormal];
+    [_selectComplaintBtn setTitle:_srdRental.Complaint_Type__c forState:UIControlStateNormal];
+    [_selectSubBtn setTitle:_srdRental.Complaint_Sub_Type__c forState:UIControlStateNormal];
+    _complaintsTF.text = _srdRental.Description;
 }
 
 -(void)adjustImageEdgeInsetsOfButton:(UIButton*)sender{

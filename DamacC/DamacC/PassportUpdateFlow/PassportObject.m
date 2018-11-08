@@ -58,9 +58,6 @@
 }
 -(void)fillDefaultValuesForParticularBuyer:(NSDictionary*)buyerDict{
     
-    
-    
-    
     self.previousPPNumber = handleNull(buyerDict[@"Account__r"][@"Passport_Number__pc"]);
     self.previousPassPlace = @"";
     self.previousExpiryDate = handleNull(kUserProfile.ppIssueDate);

@@ -56,8 +56,7 @@
             [cstB removeFromSuperview];
         }
     }
-    DamacSharedClass.sharedInstance.windowButton.hidden = NO;
-    [[UIApplication sharedApplication].keyWindow bringSubviewToFront:DamacSharedClass.sharedInstance.windowButton];
+    DamacSharedClass.sharedInstance.windowButton.hidden = YES;
     
 }
 -(void)viewWillDisappear:(BOOL)animated{

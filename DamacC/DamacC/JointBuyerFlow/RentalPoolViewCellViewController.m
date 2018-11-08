@@ -12,7 +12,7 @@
 #import "JointBuyerObject.h"
 
 
-@interface RentalPoolViewCellViewController ()<KPDropMenuDelegate,WYPopoverControllerDelegate,POPDelegate,UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate>
+@interface RentalPoolViewCellViewController ()<KPDropMenuDelegate,WYPopoverControllerDelegate,POPDelegate,UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate,UIScrollViewDelegate>
 
 @end
 
@@ -59,6 +59,8 @@
 //    _scrollView.scrollEnabled = NO;
     [self roundCorners:_buyersNewBtn];
     DamacSharedClass.sharedInstance.windowButton.hidden = YES;
+    _scrollView.delegate = self;
+    _tableView.scrollEnabled = NO;
     
 }
 
@@ -380,7 +382,9 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 50;
 }
-
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"jadbcks");
+}
 
 -(void)fillLabelsforJointBuyer:(int)indexVal{
     
@@ -452,7 +456,9 @@
     
     [_tableView reloadData];
 }
-
+-(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
+    [currentTextFieldRef resignFirstResponder];
+}
 #pragma mark: Textfield Delegates
 -(void)textFieldDidBeginEditing:(COCDTF *)textField{
     
@@ -564,16 +570,16 @@
     
     UIEdgeInsets contentInsets;
     if (UIInterfaceOrientationIsPortrait([[UIApplication sharedApplication] statusBarOrientation])) {
-        contentInsets = UIEdgeInsetsMake(0.0, 0.0, (keyboardSize.height), 0.0);
+        contentInsets = UIEdgeInsetsMake(0.0, 0.0, (keyboardSize.height)+100, 0.0);
     } else {
-        contentInsets = UIEdgeInsetsMake(0.0, 0.0, (keyboardSize.width), 0.0);
+        contentInsets = UIEdgeInsetsMake(0.0, 0.0, (keyboardSize.width)+100, 0.0);
     }
     
     NSNumber *rate = notification.userInfo[UIKeyboardAnimationDurationUserInfoKey];
     [UIView animateWithDuration:rate.floatValue animations:^{
-        self.tableView.contentInset = contentInsets;
-        self.tableView.scrollIndicatorInsets = contentInsets;
-        [self.tableView scrollToRowAtIndexPath:self.editingIndexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+        self.scrollView.contentInset = contentInsets;
+        self.scrollView.scrollIndicatorInsets = contentInsets;
+//        [self.tableView scrollToRowAtIndexPath:self.editingIndexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
     }];
     
 }
@@ -582,8 +588,8 @@
     
     NSNumber *rate = notification.userInfo[UIKeyboardAnimationDurationUserInfoKey];
     [UIView animateWithDuration:rate.floatValue animations:^{
-        self.tableView.contentInset = UIEdgeInsetsZero;
-        self.tableView.scrollIndicatorInsets = UIEdgeInsetsZero;
+        self.scrollView.contentInset = UIEdgeInsetsZero;
+        self.scrollView.scrollIndicatorInsets = UIEdgeInsetsZero;
     }];
     
     

@@ -39,6 +39,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property SaopServices *soap;
 @property SaopServices *soap2;
+
+@property ServicesSRDetails *srdRental;
 @end
 
 NS_ASSUME_NONNULL_END

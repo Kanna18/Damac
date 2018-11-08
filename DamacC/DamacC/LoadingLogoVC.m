@@ -59,7 +59,7 @@
         [self setNumberFormatter:curent];
         [topCVArray addObject:@{@"key":overallPortofolio,@"value":port,@"image":@"1icon",}];
         [topCVArray addObject:@{@"key":currentPortofolio,@"value":curent,@"image":@"2icon",}];
-        [topCVArray addObject:@{@"key":paymentsDue,@"value":@"",@"image":@"3icon",}];
+        [topCVArray addObject:@{@"key":paymentsDue,@"value":@"0",@"image":@"3icon",}];
         [topCVArray addObject:@{@"key":openServiceRequests,@"value":kUserProfile.openCases,@"image":@"4icon"}];
         //        [self.carousel performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
         [self performSelectorOnMainThread:@selector(pustToVC) withObject:nil waitUntilDone:YES];

@@ -23,6 +23,8 @@
     WYPopoverController* popoverSubPurpose;
     WYPopoverController* popoverUnit;
     BOOL validationBool;
+    
+    int selectedUnitTag;
 
 }
 
@@ -42,6 +44,7 @@
     _appointObj = [[AppointmentObject alloc]init];
     [FTIndicator showProgressWithMessage:@"Loading please wait" userInteractionEnable:NO];
     [self webServicetoGetUnitSFIds];
+    selectedUnitTag = -1;
 
 }
 -(void)webServicetoGetUnitSFIds{
@@ -203,7 +206,9 @@
         if(!(isEmpty(_appointObj.TimeSlot))){
             [self setToNormalValuesWhenSelectionChanged:YES];
         }
-        validationBool = [self handOverNotificationsValidation:tag];
+        if(selectedUnitTag>=0){
+            validationBool = [self handOverNotificationsValidation:selectedUnitTag];
+        }
     }
     if(popoverSubPurpose){
        [_selectSubPurposeBtn setTitle:subPurposeArray[tag] forState:UIControlStateNormal];
@@ -214,7 +219,9 @@
         if(!(isEmpty(_appointObj.TimeSlot))){
             [self setToNormalValuesWhenSelectionChanged:NO];
         }
-        validationBool = [self handOverNotificationsValidation:tag];
+        if(selectedUnitTag>=0){
+            validationBool = [self handOverNotificationsValidation:selectedUnitTag];
+        }
     }
     if(popoverUnit){
         [_selectUnitBtn setTitle:unitsArray[tag] forState:UIControlStateNormal];
@@ -223,6 +230,7 @@
         [popoverUnit dismissPopoverAnimated:YES];
         _appointObj.BookingUnit = unitsArray[tag];
         validationBool = [self handOverNotificationsValidation:tag];
+        selectedUnitTag = tag;
     }
 }
 

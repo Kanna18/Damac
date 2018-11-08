@@ -33,6 +33,10 @@
         [DamacSharedClass.sharedInstance.currentVC.view addSubview:camView];
         camView.delegate = self;
         selectedButtonTag = 0;
+        
+        [self cornerRadius:_selectFile1];
+        [self cornerRadius:_selectFile2];
+        [self cornerRadius:_selectFile3];
     }
     return self;
     
@@ -106,5 +110,11 @@
             _joObj.additionalDocumentImage = img;
         }
     }
+}
+-(void)cornerRadius:(UIButton*)btn{
+    btn.layer.cornerRadius = 6;
+    btn.layer.borderWidth = 1.0f;
+    btn.layer.borderColor = goldColor.CGColor;    
+    btn.titleEdgeInsets = UIEdgeInsetsMake(0, 0, 80, 0);
 }
 @end

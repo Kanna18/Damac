@@ -3773,14 +3773,14 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dpZ-vE-2Vc">
-                                <rect key="frame" x="20" y="333" width="335" height="120"/>
+                                <rect key="frame" x="20" y="333" width="335" height="80"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SSo-Qf-aNa">
-                                        <rect key="frame" x="0.0" y="20" width="160" height="50"/>
+                                        <rect key="frame" x="0.0" y="20" width="130" height="50"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="Vda-3V-twS"/>
-                                            <constraint firstAttribute="width" constant="160" id="vjr-yF-ZFE"/>
+                                            <constraint firstAttribute="width" constant="130" id="vjr-yF-ZFE"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="9"/>
                                         <state key="normal" title="DOWNLOAD FORM" image="downloadIcon">
@@ -3791,7 +3791,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KoH-jC-iEP">
-                                        <rect key="frame" x="255" y="75" width="80" height="35"/>
+                                        <rect key="frame" x="255" y="35" width="80" height="35"/>
                                         <color key="backgroundColor" red="0.74901960784313726" green="0.60392156862745094" blue="0.34509803921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="80" id="L3L-MT-Df8"/>
@@ -3810,7 +3810,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z7d-5g-vwJ">
-                                        <rect key="frame" x="167" y="75" width="80" height="35"/>
+                                        <rect key="frame" x="167" y="35" width="80" height="35"/>
                                         <color key="backgroundColor" red="0.74901960779999999" green="0.60392156860000001" blue="0.34509803919999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="9cy-74-46J"/>
@@ -3833,7 +3833,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="z7d-5g-vwJ" firstAttribute="centerY" secondItem="KoH-jC-iEP" secondAttribute="centerY" id="0gN-Bg-rlp"/>
-                                    <constraint firstAttribute="height" constant="120" id="AM7-RG-Mla"/>
+                                    <constraint firstAttribute="height" constant="80" id="AM7-RG-Mla"/>
                                     <constraint firstItem="KoH-jC-iEP" firstAttribute="leading" secondItem="z7d-5g-vwJ" secondAttribute="trailing" constant="8" id="PRo-dr-yFQ"/>
                                     <constraint firstItem="SSo-Qf-aNa" firstAttribute="top" secondItem="dpZ-vE-2Vc" secondAttribute="top" constant="20" id="WrB-cL-VYW"/>
                                     <constraint firstAttribute="trailing" secondItem="KoH-jC-iEP" secondAttribute="trailing" id="e15-o9-cHn"/>

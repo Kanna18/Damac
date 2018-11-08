@@ -49,6 +49,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(10 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        static dispatch_once_t onceToken;
+        dispatch_once(&onceToken, ^{
+            SFUserAccountManager *sf = [SFUserAccountManager sharedInstance];
+            [sf logout];
+        });
+    });
     self.menuLeft = [[VKSideMenu alloc] initWithSize:220 andDirection:VKSideMenuDirectionFromLeft];
     self.menuLeft.dataSource = self;
     self.menuLeft.delegate   = self;
@@ -827,8 +834,22 @@
     [fcmServer postRequestwithUrl:@"https://partial-servicecloudtrial-155c0807bf-1580afc5db1.cs80.force.com/MobileApp/services/apexrest/SaveFCMTokenFromMobileApp/" withParameters:resp successBlock:^(id responseObj) {
         
         if(responseObj){
-            NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:responseObj options:0 error:nil];
-            NSLog(@"%@",dict);
+            if([[NSJSONSerialization JSONObjectWithData:responseObj options:0 error:nil] isKindOfClass:[NSArray class]]){
+                NSArray *arr = [NSJSONSerialization JSONObjectWithData:responseObj options:0 error:nil];
+                if(arr.count>0){
+                    for (NSDictionary *dic in arr) {
+                        NSError *conErr;
+                        if(dic[@"message"]){
+                            SFUserAccountManager *sf = [SFUserAccountManager sharedInstance];
+                            [sf logout];
+                            DamacSharedClass.sharedInstance.windowButton = nil;
+                        }
+                    }
+                }
+            }else{
+                NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:responseObj options:0 error:nil];
+                NSLog(@"%@",dict);
+            }
         }
     } errorBlock:^(NSError *error) {
         NSLog(@"%@",error.localizedDescription);

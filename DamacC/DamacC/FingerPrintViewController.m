@@ -36,7 +36,7 @@
     SFUserAccountManager *sf =[SFUserAccountManager sharedInstance];
     NSLog(@"%@",sf.currentUserIdentity);
     if(DamacSharedClass.sharedInstance.windowButton){
-    [DamacSharedClass.sharedInstance.windowButton removeFromSuperview];
+        DamacSharedClass.sharedInstance.windowButton.hidden = YES;
     }
 }
 - (IBAction)skipClick:(id)sender {

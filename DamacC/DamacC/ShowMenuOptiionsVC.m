@@ -50,12 +50,10 @@
     
     scr_width = [UIScreen mainScreen].bounds.size.width;
     scr_height = [UIScreen mainScreen].bounds.size.height;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        [self loadFloatMenu];
-    });
     
-    DamacSharedClass.sharedInstance.windowButton.hidden =YES;
+
+    [DamacSharedClass.sharedInstance.windowButton removeFromSuperview];
+    [self loadFloatMenu];
 
    
 }
@@ -93,8 +91,9 @@
     addButton.imageArray = @[@"1float",@"2float",@"3float",@"4float",@"5float"];
     addButton.labelArray = @[fyCustomerSer,fyLiveChat,fyScheduleAppointments,fyCreateReq,fyProfile];
     addButton.hideWhileScrolling = YES;
-    DamacSharedClass.sharedInstance.windowButton = addButton;
     [win addSubview:addButton];
+    DamacSharedClass.sharedInstance.windowButton = addButton;
+    DamacSharedClass.sharedInstance.windowButton.hidden = YES;
 }
 - (IBAction)skipButtonClick:(id)sender {
     

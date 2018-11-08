@@ -104,6 +104,7 @@
                 }
             }
             
+            
             if(Count == arrPa.count-1){
                     [FTIndicator performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
                     [self allClick:_btnAll];

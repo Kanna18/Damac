@@ -68,6 +68,8 @@
     countoFImagesUploaded = 0 ;
     
     _tableView.clipsToBounds = YES;
+    
+    [self adjustImageEdgeInsetsOfButton:_buyersButton];
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
@@ -396,7 +398,10 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
 }
-
+-(void)adjustImageEdgeInsetsOfButton:(UIButton*)sender{
+    sender.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
+    sender.imageEdgeInsets = UIEdgeInsetsMake(0, sender.frame.size.width-100, 0, 0);
+}
 -(void)saveDraftClickPassport{
     self.passportObj.status = @"Draft Request";
     [self responsePassport];

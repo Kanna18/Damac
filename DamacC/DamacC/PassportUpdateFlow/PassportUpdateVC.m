@@ -401,6 +401,8 @@
 -(void)adjustImageEdgeInsetsOfButton:(UIButton*)sender{
     sender.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
     sender.imageEdgeInsets = UIEdgeInsetsMake(0, sender.frame.size.width-100, 0, 0);
+    sender.layer.cornerRadius = 2.0f;
+    
 }
 -(void)saveDraftClickPassport{
     self.passportObj.status = @"Draft Request";
@@ -436,20 +438,20 @@
     [self responsePassport];
     
 }
-#pragma mark DropMenu Delegates
--(void)didSelectItem : (KPDropMenu *) dropMenu atIndex : (int) atIntedex
-{
-    _dropBaseView.title = dropItems[atIntedex];
-    
-    
-}
-
--(void)didShow : (KPDropMenu *)dropMenu{
-    
-}
--(void)didHide : (KPDropMenu *)dropMenu{
-    
-}
+//#pragma mark DropMenu Delegates
+//-(void)didSelectItem : (KPDropMenu *) dropMenu atIndex : (int) atIntedex
+//{
+////    _dropBaseView.title = dropItems[atIntedex];
+//    
+//    
+//}
+//
+//-(void)didShow : (KPDropMenu *)dropMenu{
+//    
+//}
+//-(void)didHide : (KPDropMenu *)dropMenu{
+//    
+//}
 
 
 - (IBAction)buyersClick:(id)sender {

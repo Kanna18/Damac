@@ -18,6 +18,8 @@ static NSString *reuse = @"changeofdetailsCell";
 {
     KPDropMenu *dropNew;
     NSArray *dropItems;
+    
+    
 }
 - (void)viewDidLoad {
     [super viewDidLoad];

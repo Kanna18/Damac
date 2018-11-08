@@ -39,8 +39,7 @@
     
     BOOL uploadDocsPageVisible;
     int countoFImagestoUplaod,countoFImagesUploaded;
-
-   
+    
     
 }
 
@@ -78,6 +77,22 @@
     [self roundCorners:_view3];
     
     _nextButtonWidth.constant = 0;
+    
+}
+
+
+-(void)setSelectedButtonBackgroundColor:(UIView*)sender withLabel:(UILabel*)label{
+    _view1.backgroundColor = [UIColor clearColor];
+    _view2.backgroundColor = [UIColor clearColor];
+    _view3.backgroundColor = [UIColor clearColor];
+    
+    _addressBtn.textColor = goldColor;
+    _emailBtn.textColor = goldColor;
+    _mobileBtn.textColor = goldColor;
+    
+    sender.backgroundColor = goldColor;
+    label.textColor = rgb(36, 36, 36);
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -280,6 +295,7 @@
     
 }
 - (IBAction)mobileClick:(id)sender {
+    [self  setSelectedButtonBackgroundColor:_view1 withLabel:_mobileBtn];
     [currentTF resignFirstResponder];
         sections = 1;
         numberOfCells = 1;
@@ -291,7 +307,7 @@
                 }
               ];
     [_tableView reloadData];
-    [self setColorsForSelectedButton:_view1];
+//    [self setColorsForSelectedButton:_view1];
     _cocdOBj.delegate = nil;
 }
 
@@ -316,6 +332,8 @@
 }
 
 - (IBAction)emailClick:(id)sender {
+    
+    [self  setSelectedButtonBackgroundColor:_view2 withLabel:_emailBtn];
     [currentTF resignFirstResponder];
         sections = 1;
         numberOfCells = 1;
@@ -325,13 +343,13 @@
                 @"tag" : [NSNumber numberWithInt:Email]
                 }];
     [_tableView reloadData];
-    [self setColorsForSelectedButton:_view2];
+//    [self setColorsForSelectedButton:_view2];
     _cocdOBj.delegate = nil;
     
 }
 
 - (IBAction)addressClick:(id)sender {
-    
+    [self  setSelectedButtonBackgroundColor:_view3 withLabel:_addressBtn];
     _cocdOBj.delegate = self;
     [currentTF resignFirstResponder];
         sections = 2;
@@ -378,7 +396,7 @@
                         @"value":_cocdOBj.StateArabic,
                         @"tag" : [NSNumber numberWithInt:StateInArabic]
                         }];
-    [self setColorsForSelectedButton:_view3];
+//    [self setColorsForSelectedButton:_view3];
     [_tableView reloadData];
 }
 

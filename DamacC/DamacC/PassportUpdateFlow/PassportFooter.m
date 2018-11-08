@@ -27,6 +27,9 @@
         self.clipsToBounds = YES;
         [self roundCorners:_submitbutton];
         [self roundCorners:_saveDraftButton];
+        
+        _saveDraftButton.layer.borderWidth = 1.0f;
+        _saveDraftButton.layer.borderColor = goldColor.CGColor;
     }
     return self;
 }

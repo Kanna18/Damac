@@ -182,7 +182,7 @@ enum HTTPMethod {
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]
                                                            cachePolicy:NSURLRequestUseProtocolCachePolicy
-                                                       timeoutInterval:20.0];
+                                                       timeoutInterval:40.0];
     [request setHTTPMethod:@"POST"];
     [request setAllHTTPHeaderFields:headers];
     [request setHTTPBody:postData];

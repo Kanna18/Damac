@@ -37,4 +37,9 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *nextButtonWidth;
 
 
+
+@property (weak, nonatomic) IBOutlet UILabel *emailBtn;
+@property (weak, nonatomic) IBOutlet UILabel *mobileBtn;
+@property (weak, nonatomic) IBOutlet UILabel *addressBtn
+;
 @end

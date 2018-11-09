@@ -114,7 +114,7 @@
 -(void)cornerRadius:(UIButton*)btn{
     btn.layer.cornerRadius = 6;
     btn.layer.borderWidth = 1.0f;
-    btn.layer.borderColor = goldColor.CGColor;    
-    btn.titleEdgeInsets = UIEdgeInsetsMake(0, 0, 80, 0);
+    btn.layer.borderColor = goldColor.CGColor;
+//    btn.titleEdgeInsets = UIEdgeInsetsMake(<#CGFloat top#>, <#CGFloat left#>, <#CGFloat bottom#>, <#CGFloat right#>)
 }
 @end

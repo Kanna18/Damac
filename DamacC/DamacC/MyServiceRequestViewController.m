@@ -43,6 +43,11 @@
     selectedColor = rgb(151, 121, 73);
     unselectedColor = rgb(68, 68, 68);
     [self changeSelectedColor:_btnAll];
+    if(_loadFromServisesMenu){
+        _eservicesMessage.hidden = NO;
+    }else{
+        _eservicesMessage.hidden = YES;
+    }
 }
 
 -(void)changeSelectedColor:(UIButton*)sender{
@@ -107,7 +112,11 @@
             
             if(Count == arrPa.count-1){
                     [FTIndicator performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
+                if(_loadFromServisesMenu){
+                    [self draftClickForESErvices:nil];
+                }else{
                     [self allClick:_btnAll];
+                }
             }
             Count++;
         } errorBlock:^(NSError *error) {
@@ -183,6 +192,12 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (IBAction)draftClickForESErvices:(id)sender {
+    [self sortTvData:@[@"Draft Request",@"Submitted"]];
+    [self setSelecteStates:(UIButton*)sender];
+    [self changeSelectedColor:(UIButton*)sender];
+}
 
 
 - (IBAction)newButtonClick:(id)sender {

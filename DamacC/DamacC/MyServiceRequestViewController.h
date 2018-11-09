@@ -23,4 +23,8 @@
 - (IBAction)creatteServiceClick:(id)sender;
 
 @property NSString *typeoFVC;
+
+@property (weak, nonatomic) IBOutlet UIView *eservicesMessage;
+
+@property BOOL loadFromServisesMenu;
 @end

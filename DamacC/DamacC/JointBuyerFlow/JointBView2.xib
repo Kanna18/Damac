@@ -22,7 +22,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ImageUpload" translatesAutoresizingMaskIntoConstraints="NO" id="9jQ-mU-IGI">
-                    <rect key="frame" x="115.5" y="25" width="30" height="30"/>
+                    <rect key="frame" x="115.5" y="35" width="30" height="30"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="30" id="EUZ-sm-2QM"/>
                         <constraint firstAttribute="height" constant="30" id="hCE-Tn-38J"/>
@@ -35,6 +35,7 @@
                         <constraint firstAttribute="height" constant="100" id="ML4-4n-BpU"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="12"/>
+                    <inset key="titleEdgeInsets" minX="0.0" minY="50" maxX="0.0" maxY="0.0"/>
                     <state key="normal" title="Select File">
                         <color key="titleColor" red="0.74901960784313726" green="0.60392156862745094" blue="0.28235294117647058" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
@@ -43,7 +44,7 @@
                     </connections>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ImageUpload" translatesAutoresizingMaskIntoConstraints="NO" id="ICh-PJ-762">
-                    <rect key="frame" x="375.5" y="25" width="30" height="30"/>
+                    <rect key="frame" x="375.5" y="35" width="30" height="30"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="30" id="DLt-3k-C8k"/>
                         <constraint firstAttribute="height" constant="30" id="zb2-bQ-aBo"/>
@@ -56,6 +57,7 @@
                         <constraint firstAttribute="height" constant="100" id="f0W-sz-9Q3"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="12"/>
+                    <inset key="titleEdgeInsets" minX="0.0" minY="50" maxX="0.0" maxY="0.0"/>
                     <state key="normal" title="Select File">
                         <color key="titleColor" red="0.74901960784313726" green="0.60392156862745094" blue="0.28235294117647058" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
@@ -82,7 +84,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ImageUpload" translatesAutoresizingMaskIntoConstraints="NO" id="Haz-oQ-12Y">
-                    <rect key="frame" x="115.5" y="165" width="30" height="30"/>
+                    <rect key="frame" x="115.5" y="175" width="30" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="YFE-7U-aYw"/>
                         <constraint firstAttribute="width" constant="30" id="clx-ph-kSk"/>
@@ -92,6 +94,7 @@
                     <rect key="frame" x="20" y="140" width="221" height="100"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="12"/>
+                    <inset key="titleEdgeInsets" minX="0.0" minY="50" maxX="0.0" maxY="0.0"/>
                     <state key="normal" title="Select File">
                         <color key="titleColor" red="0.74901960784313726" green="0.60392156862745094" blue="0.28235294117647058" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
@@ -166,7 +169,7 @@
                 <constraint firstItem="ICh-PJ-762" firstAttribute="centerX" secondItem="4zp-Km-avX" secondAttribute="centerX" id="46l-zN-wKa"/>
                 <constraint firstItem="4zp-Km-avX" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" constant="-20" id="4yz-SP-Wni"/>
                 <constraint firstItem="srp-pO-TC3" firstAttribute="leading" secondItem="noE-To-LCq" secondAttribute="leading" id="6WD-tS-Ieu"/>
-                <constraint firstItem="ICh-PJ-762" firstAttribute="top" secondItem="4zp-Km-avX" secondAttribute="top" constant="25" id="6qH-ie-ayE"/>
+                <constraint firstItem="ICh-PJ-762" firstAttribute="top" secondItem="4zp-Km-avX" secondAttribute="top" constant="35" id="6qH-ie-ayE"/>
                 <constraint firstItem="4zp-Km-avX" firstAttribute="width" secondItem="noE-To-LCq" secondAttribute="width" id="7IR-nn-jC7"/>
                 <constraint firstItem="noE-To-LCq" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="7eZ-mO-6HR"/>
                 <constraint firstItem="a5P-G7-A8w" firstAttribute="top" secondItem="3mx-gE-ESo" secondAttribute="bottom" id="AhM-pa-ing"/>
@@ -179,9 +182,9 @@
                 <constraint firstItem="uxN-c1-rvJ" firstAttribute="width" secondItem="4zp-Km-avX" secondAttribute="width" id="Fzq-lz-3gX"/>
                 <constraint firstItem="xdi-vc-9f7" firstAttribute="height" secondItem="ciA-x0-hQl" secondAttribute="height" id="In1-f4-bjc"/>
                 <constraint firstItem="4zp-Km-avX" firstAttribute="height" secondItem="noE-To-LCq" secondAttribute="height" id="Pgv-Y1-Egf"/>
-                <constraint firstItem="Haz-oQ-12Y" firstAttribute="top" secondItem="3mx-gE-ESo" secondAttribute="top" constant="25" id="QhE-gv-5Fx"/>
+                <constraint firstItem="Haz-oQ-12Y" firstAttribute="top" secondItem="3mx-gE-ESo" secondAttribute="top" constant="35" id="QhE-gv-5Fx"/>
                 <constraint firstItem="4zp-Km-avX" firstAttribute="leading" secondItem="noE-To-LCq" secondAttribute="trailing" constant="39" id="S3l-Dc-8zW"/>
-                <constraint firstItem="9jQ-mU-IGI" firstAttribute="top" secondItem="noE-To-LCq" secondAttribute="top" constant="25" id="a5A-bM-uEd"/>
+                <constraint firstItem="9jQ-mU-IGI" firstAttribute="top" secondItem="noE-To-LCq" secondAttribute="top" constant="35" id="a5A-bM-uEd"/>
                 <constraint firstItem="xdi-vc-9f7" firstAttribute="centerY" secondItem="ciA-x0-hQl" secondAttribute="centerY" id="aYd-G0-53A"/>
                 <constraint firstItem="3mx-gE-ESo" firstAttribute="width" secondItem="noE-To-LCq" secondAttribute="width" id="bJn-gK-Xjg"/>
                 <constraint firstItem="uxN-c1-rvJ" firstAttribute="trailing" secondItem="4zp-Km-avX" secondAttribute="trailing" id="gOf-YF-TJg"/>

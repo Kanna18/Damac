@@ -15,8 +15,10 @@
 @end
 static NSString *reuseCell = @"appointmentsCell";
 @implementation ScheduleAppointmentsVC{
-    NSMutableArray *tvArray;
+    NSMutableArray *tvArray,*originalArray;
+    NSMutableArray *upcomingArray;
     UIColor *selectedColor,*unselectedColor;
+    
 }
 
 - (void)viewDidLoad {
@@ -26,6 +28,7 @@ static NSString *reuseCell = @"appointmentsCell";
     _tableView.delegate = self;
     _tableView.dataSource =self;
     tvArray = [[NSMutableArray alloc]init];
+    originalArray= [[NSMutableArray alloc]init];
     [self webServiceCall];
     
     selectedColor = rgb(151, 121, 73);
@@ -91,6 +94,8 @@ static NSString *reuseCell = @"appointmentsCell";
                     [tvArray addObject:[[AppointmentsDataModel alloc] initWithDictionary:dic error:nil]];
                 }
             }
+            originalArray = [[NSMutableArray alloc]initWithArray:tvArray];
+            [self upcomingAppointmentsList];
         }
         [_tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
     } errorBlock:^(NSError *error) {
@@ -133,9 +138,33 @@ static NSString *reuseCell = @"appointmentsCell";
 }
 - (IBAction)recentlyCreatedClick:(id)sender {
     [self changeSelectedColor:(UIButton*)sender];
+    [tvArray removeAllObjects];
+    tvArray = [[NSMutableArray alloc]initWithArray:originalArray];
+    [_tableView reloadData];
 }
 
 - (IBAction)upcomingClick:(id)sender {
     [self changeSelectedColor:(UIButton*)sender];
+    [tvArray removeAllObjects];
+    tvArray = [[NSMutableArray alloc]initWithArray:upcomingArray];
+    [_tableView reloadData];
+}
+
+-(void)upcomingAppointmentsList{
+    
+    upcomingArray = [[NSMutableArray alloc]init];
+    for (AppointmentsDataModel *dict in originalArray) {
+        
+        NSDateFormatter *format = [[NSDateFormatter alloc]init];
+        [format setDateFormat:@"yyyy-MM-dd"];
+        NSDate *givenDate = [format dateFromString:dict.Appointment_Date__c];
+        NSDate *date = [NSDate date];
+        NSComparisonResult result = [date compare:givenDate];
+        if((result == NSOrderedAscending)||(result == NSOrderedSame)){
+            [upcomingArray addObject:dict];
+        }
+    }
+    
+    
 }
 @end

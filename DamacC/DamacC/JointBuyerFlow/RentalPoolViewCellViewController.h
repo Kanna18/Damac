@@ -12,7 +12,6 @@
 
 @interface RentalPoolViewCellViewController : UIViewController<SoapImageuploaded>
 @property (weak, nonatomic) IBOutlet UIView *dropDownView;
-@property (weak, nonatomic) IBOutlet UIView *stepperViewBase;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIButton *nextClick;
 @property (weak, nonatomic) IBOutlet UIView *firstView;

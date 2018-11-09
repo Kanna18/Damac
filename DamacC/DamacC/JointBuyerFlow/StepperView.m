@@ -32,7 +32,9 @@
     if(line1Animation == YES){
         [UIView animateWithDuration:2.0 animations:^{
             _line2.backgroundColor = [UIColor whiteColor];
-            _line1.backgroundColor = [UIColor yellowColor];
+            _line1.backgroundColor = goldColor;
+            _btn1.selected = YES;
+            _btn2.selected = NO;
         } completion:NULL];
     }
 }
@@ -40,12 +42,16 @@
 -(void)setLine2Animation:(BOOL)line2Animation{
     if(line2Animation == YES){
         [UIView animateWithDuration:2.0 animations:^{
-            _line2.backgroundColor = [UIColor yellowColor];
+            _line2.backgroundColor = goldColor;
         } completion:NULL];
+        _btn2.selected = YES;
     }
 }
 -(void)nolineColor{
     _line2.backgroundColor = [UIColor whiteColor];
     _line1.backgroundColor = [UIColor whiteColor];
+    
+    _btn1.selected = NO;
+    _btn2.selected = NO;
 }
 @end

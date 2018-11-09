@@ -90,6 +90,9 @@
     [self roundCorners:_getUnitsButtonDetail];
     [self roundCorners:_buttonDocument];
     
+    [self adjustImageEdgeInsetsOfButton:_buttonUnits];
+    [self adjustImageEdgeInsetsOfButton:_selectPaymentModeBtn];
+    
 }
 -(void)roundCorners:(UIButton*)sender{
     sender.layer.cornerRadius = 5;
@@ -100,6 +103,12 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
     DamacSharedClass.sharedInstance.currentVC = self;
+    [DamacSharedClass.sharedInstance.navigationCustomBar setPageTite:@"Proof of payment"];
+}
+
+-(void)adjustImageEdgeInsetsOfButton:(UIButton*)sender{
+    sender.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
+    sender.imageEdgeInsets = UIEdgeInsetsMake(0, sender.frame.size.width-30-sender.titleLabel.intrinsicContentSize.width, 0, 0);
 }
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:YES];
@@ -189,7 +198,7 @@
     popVC.tvData = dropItems;
     paymentsPopoverController = [[WYPopoverController alloc] initWithContentViewController:popVC];
     paymentsPopoverController.delegate = self;
-    paymentsPopoverController.popoverContentSize=CGSizeMake(drop.frame.size.width, 100);
+    paymentsPopoverController.popoverContentSize=CGSizeMake(drop.frame.size.width, dropItems.count*50);
     paymentsPopoverController.accessibilityNavigationStyle=UIAccessibilityNavigationStyleCombined;
     [paymentsPopoverController presentPopoverFromRect:drop.bounds inView:drop permittedArrowDirections:WYPopoverArrowDirectionUp animated:YES options:WYPopoverAnimationOptionFadeWithScale];
 }
@@ -316,7 +325,7 @@
 -(void)deactiveWSCalendarWithDate:(NSDate *)selectedDate{
     
     NSDateFormatter *monthFormatter=[[NSDateFormatter alloc] init];
-    [monthFormatter setDateFormat:@"yyyy-dd-MM"];
+    [monthFormatter setDateFormat:@"yyyy-MM-dd"];
     //    NSDateFormatter *todaysDate = [[NSDateFormatter alloc]init];
     //    [todaysDate setDateFormat:@"dd MMM yyyy"];
     NSDate *tdaysDate = [NSDate date];

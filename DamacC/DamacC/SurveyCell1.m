@@ -21,6 +21,16 @@
     _continuSurveyBtn.enabled = NO;
     _textView.delegate = self;
     _textViewHeight.constant = 0;
+    [self adjustImageEdgeInsetsOfButton:_purposeCntctBtn];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShow:)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHide:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
 }
 
 
@@ -62,24 +72,28 @@
     }else{
         _textViewHeight.constant = 0;
     }
-    
+    [self adjustImageEdgeInsetsOfButton:_purposeCntctBtn];
 }
 
 
 - (IBAction)emailClick:(id)sender {
     [self fillWithOptionNumber:0];
+    [self setSelectedButtonBackgroundColor:(UIButton*)sender];
 }
 
 - (IBAction)phoneClick:(id)sender {
     [self fillWithOptionNumber:1];
+    [self setSelectedButtonBackgroundColor:(UIButton*)sender];
 }
 
 - (IBAction)walkInClick:(id)sender {
     [self fillWithOptionNumber:2];
+    [self setSelectedButtonBackgroundColor:(UIButton*)sender];
 }
 
 - (IBAction)webChatClick:(id)sender {
     [self fillWithOptionNumber:3];
+    [self setSelectedButtonBackgroundColor:(UIButton*)sender];
 }
 
 - (IBAction)purposeOfChatClick:(id)sender {
@@ -122,4 +136,48 @@
     NSLog(@"%@",_surveyArray);
     
 }
+
+-(void)setSelectedButtonBackgroundColor:(UIButton*)sender{
+    _emailBtn.selected = NO;
+    _phoneBtn.selected = NO;
+    _walkInBtn.selected = NO;
+    _webChatBtn.selected = NO;
+    sender.selected = YES;
+    
+}
+-(void)adjustImageEdgeInsetsOfButton:(UIButton*)sender{
+    sender.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
+    sender.imageEdgeInsets = UIEdgeInsetsMake(0, sender.frame.size.width-30-sender.titleLabel.intrinsicContentSize.width, 0, 0);
+}
+
+
+
+
+#pragma Mark Keyboard
+- (void)keyboardWillShow:(NSNotification *)notification
+{
+        CGSize keyboardSize = [[[notification userInfo] objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+        
+        CGRect contentInsets;
+        if (UIInterfaceOrientationIsPortrait([[UIApplication sharedApplication] statusBarOrientation])) {
+            contentInsets = CGRectMake(0, (keyboardSize.height-_textView.frame.size.height-_textView.frame.origin.y),self.contentView.frame.size.width,self.contentView.frame.size.height);
+        } else {
+            contentInsets = CGRectMake(0.0, 0.0, (keyboardSize.width), 0.0);
+        }
+        
+        NSNumber *rate = notification.userInfo[UIKeyboardAnimationDurationUserInfoKey];
+        [UIView animateWithDuration:rate.floatValue animations:^{
+            self.contentView.frame = contentInsets;
+        }];
+    
+}
+- (void)keyboardWillHide:(NSNotification *)notification
+{
+    
+        NSNumber *rate = notification.userInfo[UIKeyboardAnimationDurationUserInfoKey];
+        [UIView animateWithDuration:rate.floatValue animations:^{
+            self.contentView.frame = CGRectMake(0, 0,self.contentView.frame.size.width,self.contentView.frame.size.height);;
+        }];
+}
+
 @end

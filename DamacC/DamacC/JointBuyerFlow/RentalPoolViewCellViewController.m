@@ -23,7 +23,7 @@
     
     KPDropMenu *dropNew;
     StepperView *sterView;
-    JointBView2 *jbView ;
+//    JointBView2 *jbView ;
     JointView1 *jbView1;
     CGRect frame2 , frame3;
     ServerAPIManager *serverAPI;
@@ -40,8 +40,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    
+
     [self initialiseSecondViewThirdView];
+    
     serverAPI =[ServerAPIManager sharedinstance];
     buyersInfoArr = [[NSMutableArray alloc]init];
     [self webServicetoGetUnitSFIds];
@@ -57,20 +58,20 @@
     countoFImagestoUplaod = 0;
     countoFImagesUploaded = 0;
 //    _scrollView.scrollEnabled = NO;
-    [self roundCorners:_buyersNewBtn];
     DamacSharedClass.sharedInstance.windowButton.hidden = YES;
     _scrollView.delegate = self;
     _tableView.scrollEnabled = NO;
     
+    [self adjustImageEdgeInsetsOfButton:_buyersNewBtn];
 }
 
 -(void)roundCorners:(UIButton*)sender{
     
     sender.layer.cornerRadius = 5;
-    sender.layer.borderColor = rgb(191, 154, 88).CGColor;
+//    sender.layer.borderColor = rgb(191, 154, 88).CGColor;
     sender.layer.borderWidth = 2.0f;
     sender.clipsToBounds = YES;
-    
+    [self adjustImageEdgeInsetsOfButton:sender];
 }
 
 -(void)webServicetoGetUnitSFIds{
@@ -88,13 +89,19 @@
     
 }
 
+-(void)adjustImageEdgeInsetsOfButton:(UIButton*)sender{
+    sender.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
+    sender.imageEdgeInsets = UIEdgeInsetsMake(0, sender.frame.size.width-30-sender.titleLabel.intrinsicContentSize.width, 0, 0);
+}
+
+
 -(void)jointBuyerEditFormDetails{
     if(_srdRental){
         for (NSDictionary *dic in buyersInfoArr) {
             if([dic[@"Account__c"] isEqualToString:_srdRental.AccountId]){
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [_buyersNewBtn setTitle:dic[@"First_Name__c"] forState:UIControlStateNormal];
-                    _heightConstraint.constant = 10;
+                    _heightConstraint.constant = 5;
                     _detailView.hidden = NO;
                     [self fillLabelsforJointBuyer:-1];
                 });
@@ -135,9 +142,6 @@
     [super viewDidAppear:YES];
     DamacSharedClass.sharedInstance.currentVC = self;
     
-    sterView = [[StepperView alloc]initWithFrame:_stepperViewBase.frame];
-    [self.view addSubview:sterView];
-    _stepperViewBase.backgroundColor = [UIColor clearColor];
     DamacSharedClass.sharedInstance.windowButton.hidden = YES;
     
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -150,6 +154,10 @@
                                                  name:UIKeyboardWillHideNotification
                                                object:nil];
 }
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
+    [DamacSharedClass.sharedInstance.navigationCustomBar setPageTite:@"Joint buyer info"];
+}
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:YES];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
@@ -158,9 +166,10 @@
 
 -(void)initialiseSecondViewThirdView{
     
+//    _scrollView.contentSize = CGSizeMake([UIScreen mainScreen].bounds.size.width+3, _firstView.frame.size.height);
     
     frame2 = _firstView.frame;
-    frame2.size.height = 300    ;
+    frame2.size.height = 500    ;
     frame2.origin.x = [UIScreen mainScreen].bounds.size.width+3;
     
     jbView1 = [[JointView1 alloc]initWithFrame:frame2];
@@ -171,17 +180,21 @@
     [jbView1.NextButton addTarget:self action:@selector(loadThirdView) forControlEvents:UIControlEventTouchUpInside];
     [jbView1.previousBtn addTarget:self action:@selector(loadFirstView) forControlEvents:UIControlEventTouchUpInside];
     
+    [jbView1.saveDraftBtn2 addTarget:self action:@selector(saveDraftJointBuyers) forControlEvents:UIControlEventTouchUpInside];
+    [jbView1.previousBtn2 addTarget:self action:@selector(loadFirstView) forControlEvents:UIControlEventTouchUpInside];
+    [jbView1.submitSR addTarget:self action:@selector(subJointBuyersResponse) forControlEvents:UIControlEventTouchUpInside];
+    
     
     frame3 = _firstView.frame;
     frame3.size.height = 380    ;
     frame3.origin.x = 2*[UIScreen mainScreen].bounds.size.width+3;
 
-    jbView = [[JointBView2 alloc]initWithFrame:frame3];
-    [_scrollView addSubview:jbView];
-    [jbView.previous addTarget:self action:@selector(nextClick:) forControlEvents:UIControlEventTouchUpInside];
-    [jbView.saveDraftBtn addTarget:self action:@selector(saveDraftJointBuyers) forControlEvents:UIControlEventTouchUpInside];
-    [jbView.saveDraftBtn addTarget:self action:@selector(saveDraftJointBuyers) forControlEvents:UIControlEventTouchUpInside];
-    [jbView.submitSR addTarget:self action:@selector(subJointBuyersResponse) forControlEvents:UIControlEventTouchUpInside];
+//    jbView = [[JointBView2 alloc]initWithFrame:frame3];
+//    [_scrollView addSubview:jbView];
+//    [jbView.previous addTarget:self action:@selector(nextClick:) forControlEvents:UIControlEventTouchUpInside];
+//    [jbView.saveDraftBtn addTarget:self action:@selector(saveDraftJointBuyers) forControlEvents:UIControlEventTouchUpInside];
+//    [jbView.saveDraftBtn addTarget:self action:@selector(saveDraftJointBuyers) forControlEvents:UIControlEventTouchUpInside];
+//    [jbView.submitSR addTarget:self action:@selector(subJointBuyersResponse) forControlEvents:UIControlEventTouchUpInside];
 }
 
 
@@ -302,7 +315,7 @@
     
     if(popoverBuyers){
         [_buyersNewBtn setTitle:dropitems[tag] forState:UIControlStateNormal];
-        _heightConstraint.constant = 10;
+        _heightConstraint.constant = 5;
         _detailView.hidden = NO;
         [self fillLabelsforJointBuyer:tag];
         [popoverBuyers dismissPopoverAnimated:YES];
@@ -322,6 +335,7 @@
         [popoverController dismissPopoverAnimated:YES];
         popoverController.delegate = nil;
         popoverController = nil;
+        [self adjustImageEdgeInsetsOfButton:_dropDownCountriesBtn];
 
     }
     
@@ -392,12 +406,14 @@
     if(!self.jointObj){
         JointBuyerObject *jobj = [[JointBuyerObject alloc]init];
         _jointObj.AccountID = @"";
-        jbView.joObj = jobj;
+//        jbView.joObj = jobj;
         self.jointObj = jobj;
+        jbView1.joObj = jobj;
     }
     //This condition applies while Editing SR
     else{
-        jbView.joObj = self.jointObj;
+//        jbView.joObj = self.jointObj;
+            jbView1.joObj = self.jointObj;
     }
     
     //Showing Details for the first time edit
@@ -425,7 +441,8 @@
 
 -(void)fillLabels{
     
-    [_dropDownCountriesBtn setTitle:self.jointObj.country forState:UIControlStateNormal];
+    [self adjustImageEdgeInsetsOfButton:_dropDownCountriesBtn];
+    [_dropDownCountriesBtn setTitle:self.jointObj.country.length>0?self.jointObj.country:@"Select Country" forState:UIControlStateNormal];
     headingLabels = @[@{@"key":@"Address1",
                         @"value":handleNull(self.jointObj.address1),
                         @"tag" : [NSNumber numberWithInt:Address1J]},
@@ -456,9 +473,7 @@
     
     [_tableView reloadData];
 }
--(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
-    [currentTextFieldRef resignFirstResponder];
-}
+
 #pragma mark: Textfield Delegates
 -(void)textFieldDidBeginEditing:(COCDTF *)textField{
     
@@ -556,6 +571,8 @@
 }
 
 - (IBAction)saveDraftCLickView:(id)sender {
+    
+    [currentTextFieldRef resignFirstResponder];
     [self saveDraftJointBuyers];
 }
 - (IBAction)buyersNewDropDownClick:(id)sender {
@@ -594,9 +611,18 @@
     
     
 }
+-(void)enableViewsAfterDownloadForm{
+    jbView1.previous1height.constant = 0;
+    jbView1.previousBtn.hidden = YES;
+    jbView1.bottomButtomsView.hidden = NO;
+    jbView1.uploadsView.hidden = NO;
+    jbView1.downloadImage.highlighted = YES;
+    jbView1.downloadText.text = @"Download\nCompleted";
+}
 
 -(void)downloadFormDetails{
     
+    [self enableViewsAfterDownloadForm];
     [FTIndicator showProgressWithMessage:@"Loading Please Wait" userInteractionEnable:NO];
     NSDictionary * dict = @{
                             @"buyersInfoWrapper":

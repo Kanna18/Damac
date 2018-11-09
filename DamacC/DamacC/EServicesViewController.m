@@ -83,6 +83,7 @@
 -(void)loadServicesRequestViewController{
     
     MyServiceRequestViewController *svc =[self.storyboard instantiateViewControllerWithIdentifier:@"myServicesRequestVC"];
+    svc.loadFromServisesMenu =YES;
     [self.navigationController pushViewController:svc animated:YES];
 }
 

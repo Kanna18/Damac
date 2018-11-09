@@ -423,6 +423,7 @@
 }
 
 - (IBAction)nextClick:(id)sender{
+    
     if([self validationSetForCOCD]){
         UIButton *btn = (UIButton*)sender;
         if([btn.titleLabel.text isEqualToString:butonTitleSubmitSR])
@@ -454,6 +455,7 @@
             
             [_scrollView setContentOffset:frame3.origin animated:YES];
             sterView.line1Animation = YES;
+            sterView.line2Animation = YES;
         }
         
     }
@@ -474,7 +476,7 @@
     _tableViewHeight.constant = 70;
     _buttonsViewHeight.constant =50;
     
-    
+    [sterView nolineColor];
     
 }
 - (IBAction)saveDraftClick:(id)sender {
@@ -616,7 +618,7 @@
 
 -(void)downloadFormDetails{
     
-    
+    sterView.line2Animation = YES;
     _nextButtonWidth.constant = 70;
     [FTIndicator showProgressWithMessage:@"Loading Please Wait" userInteractionEnable:NO];
    NSDictionary * dict = @{

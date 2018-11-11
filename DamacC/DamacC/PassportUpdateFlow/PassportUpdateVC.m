@@ -400,7 +400,7 @@
 }
 -(void)adjustImageEdgeInsetsOfButton:(UIButton*)sender{
     sender.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
-    sender.imageEdgeInsets = UIEdgeInsetsMake(0, sender.frame.size.width-100, 0, 0);
+    sender.imageEdgeInsets = UIEdgeInsetsMake(0, sender.frame.size.width-30-sender.titleLabel.intrinsicContentSize.width, 0, 0);
     sender.layer.cornerRadius = 2.0f;
     
 }

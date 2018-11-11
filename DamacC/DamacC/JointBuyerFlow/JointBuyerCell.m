@@ -13,6 +13,8 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    _textField.contentVerticalAlignment = UIControlContentVerticalAlignmentBottom;
+
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

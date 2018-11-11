@@ -178,5 +178,6 @@
 @property (nonatomic) NSString <Optional> *CRF_File_URL__c;
 @property (nonatomic) NSString <Optional> *Passport_File_URL__c;
 @property (nonatomic) NSString <Optional> *Additional_Doc_File_URL__c;
+@property (nonatomic) NSString <Optional> *Postal_Code__c;
 
 @end

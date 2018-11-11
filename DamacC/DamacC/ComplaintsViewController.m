@@ -37,7 +37,6 @@
     [self roundCorners:_saveDraftNumber];
     [self roundCorners:_attachDoc1Btn];
     [self roundCorners:_attachDoc2Btn];
-    [DamacSharedClass sharedInstance].currentVC = self;
     camView = [[CameraView alloc]initWithFrame:CGRectZero parentViw:self];
     camView.delegate = self;
     [self.view addSubview:camView];
@@ -86,7 +85,7 @@
 
 -(void)adjustImageEdgeInsetsOfButton:(UIButton*)sender{
     sender.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
-    sender.imageEdgeInsets = UIEdgeInsetsMake(0, sender.frame.size.width-100, 0, 0);
+    sender.imageEdgeInsets = UIEdgeInsetsMake(0, sender.frame.size.width-30-sender.titleLabel.intrinsicContentSize.width, 0, 0);
 }
 -(void)fillLabelsWithSRDValues{
     [_selectUnitsButton setTitle:@"Select Units" forState:UIControlStateNormal];
@@ -96,6 +95,7 @@
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
+    [DamacSharedClass sharedInstance].currentVC = self;
     [[DamacSharedClass sharedInstance].navigationCustomBar setPageTite:@"My complaints"];
 }
 -(void)viewDidAppear:(BOOL)animated{
@@ -248,6 +248,7 @@
     if(currentButton.tag == 3000){
         _complaintsObj.ComplaintSubType = str;
     }
+    [self adjustImageEdgeInsetsOfButton:currentButton];
 }
 
 -(void)fillUnitsArray{

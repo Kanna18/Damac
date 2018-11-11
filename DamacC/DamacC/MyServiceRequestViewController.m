@@ -195,7 +195,7 @@
 */
 
 - (IBAction)draftClickForESErvices:(id)sender {
-    [self sortTvData:@[@"Draft Request",@"Submitted"]];
+    [self sortTvData:@[@"Draft Request",@"Submitted",@"Working"]];
     [self setSelecteStates:(UIButton*)sender];
     [self changeSelectedColor:(UIButton*)sender];
 }

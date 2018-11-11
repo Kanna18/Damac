@@ -58,12 +58,7 @@
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
-    if([srD.Status isEqualToString:@"Draft Request"]){
-       
-        [self ediButtonHideUnhide:NO];
-    }else{
-        [self ediButtonHideUnhide:YES];
-    }
+    
 }
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:YES];
@@ -99,6 +94,13 @@
             NSLog(@"%@",srD);
             [self fillLabels];
             [_tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
+            
+            if([srD.Status isEqualToString:@"Draft Request"]){
+                
+                [self ediButtonHideUnhide:NO];
+            }else{
+                [self ediButtonHideUnhide:YES];
+            }
         }
     }  errorBlock:^(NSError *error) {
         [FTIndicator performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
@@ -356,12 +358,15 @@
     
 }
 -(void)ediButtonHideUnhide:(BOOL)bo{
-    if(bo){
-        _editButtonNew.hidden = YES;
-        _xaxix.constant = 0;
-    }else{
-        _editButtonNew.hidden = NO;
-    }
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if(bo){
+            _editButtonNew.hidden = YES;
+            _xaxix.constant = 0;
+        }else{
+            _editButtonNew.hidden = NO;
+        }
+    });
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{

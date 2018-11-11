@@ -98,7 +98,7 @@
 
 -(void)adjustImageEdgeInsetsOfButton:(UIButton*)sender{
     sender.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
-    sender.imageEdgeInsets = UIEdgeInsetsMake(0, sender.frame.size.width-100, 0, 0);
+    sender.imageEdgeInsets = UIEdgeInsetsMake(0, sender.frame.size.width-30-sender.titleLabel.intrinsicContentSize.width, 0, 0);
 }
 
 -(void)roundCorners:(UIButton*)sender{
@@ -209,7 +209,9 @@
         if(selectedUnitTag>=0){
             validationBool = [self handOverNotificationsValidation:selectedUnitTag];
         }
+        [self adjustImageEdgeInsetsOfButton:_selectPurposeBtn];
     }
+    
     if(popoverSubPurpose){
        [_selectSubPurposeBtn setTitle:subPurposeArray[tag] forState:UIControlStateNormal];
         popoverSubPurpose.delegate = nil;
@@ -222,6 +224,7 @@
         if(selectedUnitTag>=0){
             validationBool = [self handOverNotificationsValidation:selectedUnitTag];
         }
+        [self adjustImageEdgeInsetsOfButton:_selectSubPurposeBtn];
     }
     if(popoverUnit){
         [_selectUnitBtn setTitle:unitsArray[tag] forState:UIControlStateNormal];
@@ -231,6 +234,7 @@
         _appointObj.BookingUnit = unitsArray[tag];
         validationBool = [self handOverNotificationsValidation:tag];
         selectedUnitTag = tag;
+        [self adjustImageEdgeInsetsOfButton:_selectUnitBtn];
     }
 }
 

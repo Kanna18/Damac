@@ -177,7 +177,7 @@
     [_scrollView addSubview:jbView1];
     
     [jbView1.saveDraftBtn addTarget:self action:@selector(saveDraftJointBuyers) forControlEvents:UIControlEventTouchUpInside];
-    [jbView1.NextButton addTarget:self action:@selector(loadThirdView) forControlEvents:UIControlEventTouchUpInside];
+//    [jbView1.NextButton addTarget:self action:@selector(loadThirdView) forControlEvents:UIControlEventTouchUpInside];
     [jbView1.previousBtn addTarget:self action:@selector(loadFirstView) forControlEvents:UIControlEventTouchUpInside];
     
     [jbView1.saveDraftBtn2 addTarget:self action:@selector(saveDraftJointBuyers) forControlEvents:UIControlEventTouchUpInside];
@@ -188,6 +188,8 @@
     frame3 = _firstView.frame;
     frame3.size.height = 380    ;
     frame3.origin.x = 2*[UIScreen mainScreen].bounds.size.width+3;
+    
+    
 
 //    jbView = [[JointBView2 alloc]initWithFrame:frame3];
 //    [_scrollView addSubview:jbView];
@@ -245,11 +247,14 @@
 
 - (IBAction)nextClick:(id)sender {
     
+    [currentTextFieldRef resignFirstResponder];
     if([self validationSetForJointBuyer])
     {
-        [_scrollView setContentOffset:frame2.origin animated:YES];
+        [_scrollView setContentOffset:jbView1.frame.origin animated:YES];
         dropNew.hidden = YES;
-        sterView.line1Animation = YES;
+        _scrollView.scrollEnabled = NO;
+//        sterView.line1Animation = YES;
+//        _scrollView.contentSize = CGSizeMake(2*_scrollView.frame.size.width, _scrollView.frame.size.height);
     }
 }
 -(void)getCountriesList{
@@ -344,12 +349,14 @@
 
 -(void)loadThirdView{
     [_scrollView setContentOffset:frame3.origin animated:YES];
-    sterView.line2Animation = YES;
+//    sterView.line2Animation = YES;
 }
 -(void)loadFirstView{
     [_scrollView setContentOffset:_firstView.frame.origin animated:YES];
+//    _scrollView.contentSize = CGSizeMake(_scrollView.frame.size.width, _detailView.frame.size.height);
+    _scrollView.scrollEnabled = YES;
     dropNew.hidden = NO;
-    [sterView nolineColor];
+//    [sterView nolineColor];
 }
 
 //#pragma mark DropMenu Delegates

@@ -176,6 +176,14 @@
     
     self.tableView.backgroundColor  = rgb(34, 34, 34);//[UIColor blackColor];
     self.view.backgroundColor = rgb(34, 34, 34);//[UIColor blackColor];
+    [self addwipeLeftDismissFeature];
+}
+
+
+-(void)addwipeLeftDismissFeature{
+    UISwipeGestureRecognizer *left = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(hide)];
+    left.direction = UISwipeGestureRecognizerDirectionLeft;
+    [_tableView addGestureRecognizer:left];
 }
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     
@@ -193,6 +201,8 @@
 
 -(void)show
 {
+    
+    DamacSharedClass.sharedInstance.windowButton.hidden =YES;
     [self initViews];
     
     [ROOTVC.view addSubview:self.overlay];

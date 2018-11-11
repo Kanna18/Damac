@@ -68,7 +68,8 @@
     popVC.tvData =pusrposeArray;
     popoverSettings = [[WYPopoverController alloc] initWithContentViewController:popVC];
     popoverSettings.delegate = self;
-    popoverSettings.popoverContentSize=CGSizeMake(200, pusrposeArray.count*50);
+    popVC.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    popoverSettings.popoverContentSize=CGSizeMake(140, pusrposeArray.count*50);
     popoverSettings.accessibilityNavigationStyle=UIAccessibilityNavigationStyleCombined;
     [popoverSettings presentPopoverFromRect:drop.bounds inView:drop permittedArrowDirections:WYPopoverArrowDirectionUp animated:YES options:WYPopoverAnimationOptionFadeWithScale];
 }

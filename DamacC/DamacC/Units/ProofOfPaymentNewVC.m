@@ -280,6 +280,7 @@
         [unitsPopoverController dismissPopoverAnimated:YES];
         unitsPopoverController.delegate = nil;
         unitsPopoverController = nil;
+        [self adjustImageEdgeInsetsOfButton:_buttonUnits];
     }
     if(paymentsPopoverController)
     {
@@ -289,6 +290,7 @@
         [_selectPaymentModeBtn setTitle:str forState:UIControlStateNormal];
         paymentsPopoverController.delegate = nil;
         paymentsPopoverController = nil;
+        [self adjustImageEdgeInsetsOfButton:_selectPaymentModeBtn];
     }
     
     

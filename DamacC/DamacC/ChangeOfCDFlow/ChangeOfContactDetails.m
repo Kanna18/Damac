@@ -677,7 +677,7 @@
     
     UIEdgeInsets contentInsets;
     if (UIInterfaceOrientationIsPortrait([[UIApplication sharedApplication] statusBarOrientation])) {
-        contentInsets = UIEdgeInsetsMake(0.0, 0.0, (keyboardSize.height-200), 0.0);
+        contentInsets = UIEdgeInsetsMake(0.0, 0.0, (keyboardSize.height), 0.0);
     } else {
         contentInsets = UIEdgeInsetsMake(0.0, 0.0, (keyboardSize.width), 0.0);
     }

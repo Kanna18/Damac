@@ -22,6 +22,8 @@
     NSMutableArray *dateArray;
     NSMutableArray *monthArray;
     NSMutableArray *timeSlotsArray;
+    NSMutableArray *onlyDayArray;
+    
     
 }
 
@@ -38,11 +40,34 @@
     monthArray = [[NSMutableArray alloc]init];
     dateArray = [[NSMutableArray alloc]init];
     timeSlotsArray = [[NSMutableArray alloc]init];
+    onlyDayArray = [[NSMutableArray alloc]init];
+    
     [self sortMonthsArray];
     [_selectDateBtn setTitle:@"" forState:UIControlStateNormal];
-    _heightConstraint.constant = 120;
+    _heightConstraint.constant = 140;
     [self adjustImageEdgeInsetsOfButton:_selectMonthBtn];
     [self adjustImageEdgeInsetsOfButton:_selectDateBtn];
+    
+    [self roundCorners:_selectMonthBtn];
+    [self roundCorners:_selectDateBtn];
+    [self roundCornersView:_viewBackground];
+    
+}
+
+-(void)roundCornersView:(UIView*)sender{
+    sender.layer.cornerRadius = 5;
+    sender.layer.borderColor = goldColor.CGColor;
+    sender.layer.borderWidth = 1.0f;
+    sender.clipsToBounds = YES;
+}
+
+-(void)roundCorners:(UIButton*)sender{
+    
+    sender.layer.cornerRadius = 5;
+    sender.layer.borderColor = goldColor.CGColor;
+    sender.layer.borderWidth = 1.0f;
+    sender.clipsToBounds = YES;
+    [self adjustImageEdgeInsetsOfButton:sender];
 }
 
 -(void)adjustImageEdgeInsetsOfButton:(UIButton*)sender{
@@ -71,6 +96,8 @@
 -(void)sortDatesArray:(NSString*)date{
     
     [dateArray removeAllObjects];
+    [onlyDayArray removeAllObjects];
+    
     NSDateFormatter *dt = [[NSDateFormatter alloc]init];
     int countOfObj = (int)[[dt monthSymbols] indexOfObject:date]+1;
     for (NSString *str in _totalArrayDates) {
@@ -81,7 +108,9 @@
         }
     }
        dateArray =  [[NSMutableArray alloc]initWithArray:[dateArray sortedArrayUsingSelector:@selector(compare:)]];
-    
+    for (NSString *dtt in dateArray) {
+        [onlyDayArray addObject:[[dtt componentsSeparatedByString:@"-"] lastObject]];
+    }
 }
 -(void)sortSlotsArray:(NSString*)date{
     
@@ -135,10 +164,11 @@
     
     PopTableViewController *popVC=[self.storyboard instantiateViewControllerWithIdentifier:@"popTableVC"];
     popVC.delegate=self;
-        popVC.tvData =dateArray;
+//        popVC.tvData =dateArray;
+    popVC.tvData = onlyDayArray;
     popoverDate = [[WYPopoverController alloc] initWithContentViewController:popVC];
     popoverDate.delegate = self;
-        popovermonth.popoverContentSize=CGSizeMake(drop.frame.size.width, dateArray.count*50);
+    popoverDate.popoverContentSize=CGSizeMake(80, dateArray.count*50);
     popoverDate.accessibilityNavigationStyle=UIAccessibilityNavigationStyleCombined;
     [popoverDate presentPopoverFromRect:drop.bounds inView:drop permittedArrowDirections:WYPopoverArrowDirectionUp animated:YES options:WYPopoverAnimationOptionFadeWithScale];
 }
@@ -153,8 +183,11 @@
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    
     SlotCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"slotCell" forIndexPath:indexPath];
-    cell.timeSLotLabel.text = timeSlotsArray[indexPath.row];
+    NSArray *arr = [timeSlotsArray[indexPath.row] componentsSeparatedByString:@"-"];
+    cell.timeSLotLabel.text = [NSString stringWithFormat:@"%@-\n%@",removeEmpty(arr[0]),removeEmpty(arr[1])];
     cell.timeSLotLabel.adjustsFontSizeToFitWidth = YES;
     return cell;
     
@@ -162,7 +195,7 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     SlotCell *cell = (SlotCell*)[collectionView cellForItemAtIndexPath:indexPath];
-    _appointObj.TimeSlot = cell.timeSLotLabel.text;
+    _appointObj.TimeSlot = [cell.timeSLotLabel.text stringByReplacingOccurrencesOfString:@"\n" withString:@""];
     [self dismissViewControllerAnimated:NO completion:nil];
     
 }
@@ -203,18 +236,19 @@
         popovermonth.delegate = nil;
         popovermonth = nil;
         [popovermonth dismissPopoverAnimated:YES];
-        _heightConstraint.constant = 120;
+        _heightConstraint.constant = 140;
     }
     if(popoverDate){
         
         _heightConstraint.constant = 351;
-        [_selectDateBtn setTitle:dateArray[tag] forState:UIControlStateNormal];
-        [self sortSlotsArray:str];
+//        [_selectDateBtn setTitle:dateArray[tag] forState:UIControlStateNormal];
+        [_selectDateBtn setTitle:onlyDayArray[tag] forState:UIControlStateNormal];
+        [self sortSlotsArray:dateArray[tag]];
         popoverDate.delegate = nil;
         popoverDate = nil;
         [popoverDate dismissPopoverAnimated:YES];
-        [self sortSlotsArray:str];
-        _appointObj.AppointmentDate = str;
+        [self sortSlotsArray:dateArray[tag]];
+        _appointObj.AppointmentDate = dateArray[tag];
     }
 }
 @end

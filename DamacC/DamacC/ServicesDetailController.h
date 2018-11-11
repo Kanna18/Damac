@@ -15,4 +15,6 @@
 @property NSString *srCaseId;
 - (IBAction)cancelButton:(id)sender;
 @property MyServicesDataModel *servicesDataModel;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *xaxix;
+@property (weak, nonatomic) IBOutlet UIButton *editButtonNew;
 @end

@@ -21,6 +21,8 @@
     UIButton *currentButton;
     int countoFImagestoUplaod,countoFImagesUploaded,currentImagebtn;
     
+    BOOL attachingDocumentsBool;
+    
     
 }
 
@@ -33,6 +35,8 @@
     [self roundCorners:_attachDocButton];
     [self roundCorners:_submitSRButton];
     [self roundCorners:_saveDraftNumber];
+    [self roundCorners:_attachDoc1Btn];
+    [self roundCorners:_attachDoc2Btn];
     [DamacSharedClass sharedInstance].currentVC = self;
     camView = [[CameraView alloc]initWithFrame:CGRectZero parentViw:self];
     camView.delegate = self;
@@ -60,12 +64,18 @@
     [self adjustImageEdgeInsetsOfButton:_selectSubBtn];
     [self adjustImageEdgeInsetsOfButton:_selectComplaintBtn];
     [self adjustImageEdgeInsetsOfButton:_selectUnitsButton];
+    [self adjustImageEdgeInsetsOfButton:_attachDoc1Btn];
+    [self adjustImageEdgeInsetsOfButton:_attachDoc2Btn];
     
     if(_srdRental){
         [self complaintsEditForm];
         [_complaintsObj  fillValuesWithServiceDetails:_srdRental];
     }
+    attachingDocumentsBool = NO;
+    [self hideAttachmentsView:YES];
+    
 }
+
 
 -(void)complaintsEditForm{
     [_selectUnitsButton setTitle:_srdRental.Booking_Unit_Name__c forState:UIControlStateNormal];
@@ -91,7 +101,24 @@
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:YES];
     DamacSharedClass.sharedInstance.windowButton.hidden = YES;
+    
 }
+
+-(void)hideAttachmentsView:(BOOL)bo
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if(bo){
+            _attachDocsViewBase.hidden =YES;
+            _attachDocsViewHeight.constant = 0;
+        }else{
+            _attachDocsViewBase.hidden =NO;
+            _attachDocsViewHeight.constant = 104;
+        }
+        _scrollView.contentSize = CGSizeMake(_scrollView.frame.size.width,_saveDraftNumber.frame.origin.y+_attachDocsViewHeight.constant+40+20);
+    });
+    
+}
+
 -(void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:YES];
 }
@@ -129,6 +156,14 @@
 }
 
 - (IBAction)attachDocument:(id)sender {
+    
+    if(_complaintsObj.attactment1||_complaintsObj.attactment2){
+        [FTIndicator showProgressWithMessage:@"Please wait"];
+        [self uploadAttachments];
+    }else{
+        [FTIndicator showToastMessage:@"Please select Attachment"];
+    }
+    
 }
 
 - (IBAction)submitSRClick:(id)sender {
@@ -246,9 +281,24 @@
         _attachment2Label.text = @"cacheJPEG2.jpg";
     }
 }
-
--(void)uploadImagesToServer{
+-(void)uploadAttachments{
+    attachingDocumentsBool = YES;
+    _soap= [[SaopServices alloc]init];
+    _soap.delegate = self;
+    if(_complaintsObj.attactment1){
+        NSString *str = @"ComplaintsAttachment1";
+        [_soap uploadDocumentTo:_complaintsObj.attactment1 P_REQUEST_NUMBER:nil P_REQUEST_NAME:nil P_SOURCE_SYSTEM:nil category:nil entityName:nil fileDescription:str fileId:str fileName:str registrationId:nil sourceFileName:str sourceId:str];
+    }
+    _soap2 = [[SaopServices alloc]init];
+    _soap2.delegate = self;
+    if(_complaintsObj.attactment2){
+        NSString *str = @"ComplaintsAttachment2";
+        [_soap2 uploadDocumentTo:_complaintsObj.attactment2 P_REQUEST_NUMBER:nil P_REQUEST_NAME:nil P_SOURCE_SYSTEM:nil category:nil entityName:nil fileDescription:str fileId:str fileName:str registrationId:nil sourceFileName:str sourceId:str];
+    }
     
+}
+-(void)uploadImagesToServer{
+    attachingDocumentsBool = NO;
     _soap= [[SaopServices alloc]init];
     _soap.delegate = self;
     if(_complaintsObj.attactment1){
@@ -274,24 +324,48 @@
 
 -(void)imageUplaodedAndReturnPath:(NSString *)path{
     NSLog(@"%@",path);
-    countoFImagesUploaded ++;
     
-    [FTIndicator showProgressWithMessage:@"Loading Please Wait" userInteractionEnable:NO];
     
-    if ([path rangeOfString:@"ComplaintsAttachment1"].location == NSNotFound) {
-        NSLog(@"string does not contain bla");
-    } else {
-        _complaintsObj.attactment1Path = path;
+    if(attachingDocumentsBool){
+        
+        if ([path rangeOfString:@"ComplaintsAttachment1"].location == NSNotFound) {
+            NSLog(@"string does not contain bla");
+        } else {
+            _complaintsObj.attactment1Path = path;
+            [_attachDoc1Btn setTitle:path forState:UIControlStateNormal];
+        }
+      
+        if ([path rangeOfString:@"ComplaintsAttachment2"].location == NSNotFound) {
+            NSLog(@"string does not contain bla");
+        } else {
+            _complaintsObj.attactment2Path = path;
+            [_attachDoc2Btn setTitle:path forState:UIControlStateNormal];
+        }
+        [FTIndicator performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
+        [self hideAttachmentsView:NO];
     }
     
-    if ([path rangeOfString:@"ComplaintsAttachment2"].location == NSNotFound) {
-        NSLog(@"string does not contain bla");
-    } else {
-        _complaintsObj.attactment2Path = path;
-    }
-    
-    if(countoFImagestoUplaod == countoFImagesUploaded){
-        [_complaintsObj sendDraftStatusToServer];
+    else{
+        
+        countoFImagesUploaded ++;
+        
+        [FTIndicator showProgressWithMessage:@"Loading Please Wait" userInteractionEnable:NO];
+        
+        if ([path rangeOfString:@"ComplaintsAttachment1"].location == NSNotFound) {
+            NSLog(@"string does not contain bla");
+        } else {
+            _complaintsObj.attactment1Path = path;
+        }
+        
+        if ([path rangeOfString:@"ComplaintsAttachment2"].location == NSNotFound) {
+            NSLog(@"string does not contain bla");
+        } else {
+            _complaintsObj.attactment2Path = path;
+        }
+        
+        if(countoFImagestoUplaod == countoFImagesUploaded){
+            [_complaintsObj sendDraftStatusToServer];
+        }
     }
 }
 
@@ -325,4 +399,20 @@
     
 }
 
+- (IBAction)attachDoc1Click:(id)sender {
+    
+    if([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:_attachDoc1Btn.currentTitle]])
+    {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:_attachDoc1Btn.currentTitle] options:nil completionHandler:nil];
+    }
+
+}
+
+- (IBAction)attachDoc2CLick:(id)sender {
+    
+    if([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:_attachDoc2Btn.currentTitle]])
+    {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:_attachDoc2Btn.currentTitle] options:nil completionHandler:nil];
+    }
+}
 @end

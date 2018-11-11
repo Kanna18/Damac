@@ -37,7 +37,7 @@
                         <color key="textColor" red="0.83137254901960778" green="0.70588235294117641" blue="0.38823529411764707" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xhb-XP-k4b">
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xhb-XP-k4b" customClass="UnitsClassHeading">
                         <rect key="frame" x="120" y="11" width="515" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="TJB-CN-nKx"/>
@@ -90,8 +90,8 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="Vkg-uI-eib"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Montserrat-ExtraLight" family="Montserrat" pointSize="10"/>
-                                        <color key="textColor" red="0.74901960784313726" green="0.60392156862745094" blue="0.34509803921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="10"/>
+                                        <color key="textColor" red="0.63986545138888884" green="0.60110324149248584" blue="0.43976863813988959" alpha="0.58401113013698636" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pyT-L4-zoZ" customClass="UnitsClassLabel">
@@ -199,7 +199,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1HF-dL-05s">
                                 <rect key="frame" x="219.5" y="0.0" width="216" height="50"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Completetion date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EFa-nv-beN" customClass="UnitsClassHeading">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Completion date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EFa-nv-beN" customClass="UnitsClassHeading">
                                         <rect key="frame" x="0.0" y="5" width="216" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="49O-fo-9cq"/>

@@ -70,14 +70,22 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ReceiptsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"receiptsTableViewCell" forIndexPath:indexPath];
+    
     ReceiptResponseLines *rs = tvArray[indexPath.section];
     cell.label1.text = rs.appliedAmount;
     cell.label2.text = rs.receiptReference;
     cell.label3.text = rs.cashReceiptId;
-    cell.label4.text = @"";
+    cell.label4.text = rs.comment;
     cell.rs = rs;
   
     return cell;
+}
+-(NSString*)numberFormatter:(NSString*)str{
+    NSNumberFormatter *formatter = [NSNumberFormatter new];
+    [formatter setNumberStyle:NSNumberFormatterDecimalStyle]; // this line is important!
+    NSString *formatted = [formatter stringFromNumber:[NSNumber numberWithInteger:str.integerValue]];
+    return formatted;
+
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
@@ -91,7 +99,7 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if(indexPath.section == headerIndex){
-        return 230;
+        return UITableViewAutomaticDimension;
     }else{
         return 0;
     }
@@ -107,7 +115,7 @@
     ReceiptResponseLines *resp = tvArray[section];
     headerView.label1.text =resp.receiptNumber;
     headerView.label2.text =resp.receiptDate;
-    headerView.label3.text =resp.functionalAmount;
+    headerView.label3.text =[self numberFormatter:resp.functionalAmount];
     if(section %2 == 0){
         headerView.backgroundColor = rgb(50, 50, 50);
     }else{

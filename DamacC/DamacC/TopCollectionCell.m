@@ -18,9 +18,15 @@
     CGRect fra = self.label2.frame;
     fra.size.width = self.label2.intrinsicContentSize.width;
     self.label2.frame =fra;
-    [NSTimer scheduledTimerWithTimeInterval:0.5 repeats:YES block:^(NSTimer * _Nonnull timer) {
-        [self animateLabel];
-    }];
+    
+    self.label2.marqueeType = MLContinuous;
+    self.label2.scrollDuration = 5.0f;
+    self.label2.fadeLength = 10.0f;
+    self.label2.trailingBuffer = 10.0f;
+    
+//    [NSTimer scheduledTimerWithTimeInterval:0.5 repeats:YES block:^(NSTimer * _Nonnull timer) {
+//        [self animateLabel];
+//    }];
 }
 
 -(void)animateLabel{

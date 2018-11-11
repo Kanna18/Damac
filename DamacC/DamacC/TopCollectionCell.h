@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MarqueeLabel.h"
 
 @interface TopCollectionCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UILabel *label1;
-@property (weak, nonatomic) IBOutlet UILabel *label2;
+@property (weak, nonatomic) IBOutlet MarqueeLabel *label2;
 @property (weak, nonatomic) IBOutlet UIImageView *thumbImageView;
 
 @end

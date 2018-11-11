@@ -75,7 +75,7 @@
                                         <constraint firstAttribute="height" constant="30" id="hxW-vo-7KW"/>
                                         <constraint firstAttribute="width" constant="30" id="p5g-ci-f3z"/>
                                     </constraints>
-                                    <state key="normal" image="crossBlack">
+                                    <state key="normal" image="closeRound">
                                         <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </state>
                                     <userDefinedRuntimeAttributes>
@@ -197,6 +197,6 @@
         </view>
     </objects>
     <resources>
-        <image name="crossBlack" width="25" height="25"/>
+        <image name="closeRound" width="32" height="32"/>
     </resources>
 </document>

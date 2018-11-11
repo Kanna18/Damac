@@ -36,6 +36,7 @@
     [apiMa postRequestWithOutDict:@"https://partial-servicecloudtrial-155c0807bf-1580afc5db1.cs80.force.com/Customer/services/apexrest/surveyQuestions/" withParameters:nil successBlock:^(id responseObj) {
         if(responseObj){
             surverArray = [NSJSONSerialization JSONObjectWithData:responseObj options:NSJSONReadingMutableContainers error:nil];
+            _surverFirstView.hidden = YES;
         }
 
     } errorBlock:^(NSError *error) {

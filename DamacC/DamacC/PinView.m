@@ -53,11 +53,11 @@
         UIResponder* nextResponder = [textField.superview viewWithTag:nextTag];
         if (! nextResponder)
             nextResponder = [textField.superview viewWithTag:1];
-            textField.layer.borderColor = rgb(191, 154, 88).CGColor;
+//            textField.layer.borderColor = rgb(191, 154, 88).CGColor;
 
         if (nextResponder)
             // Found next responder, so set it.
-            textField.layer.borderColor = rgb(191, 154, 88).CGColor;
+//            textField.layer.borderColor = rgb(191, 154, 88).CGColor;
             [nextResponder becomeFirstResponder];
         return NO;
     }
@@ -103,7 +103,7 @@
     [collectPin replaceCharactersInRange:NSMakeRange(textField.tag-100, 1) withString:@"*"];
     
 //    [self getTheText:textField.text ofTf:textField];
-    textField.layer.borderColor = rgb(35, 22, 35).CGColor;
+//    textField.layer.borderColor = rgb(35, 22, 35).CGColor;
 }
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{

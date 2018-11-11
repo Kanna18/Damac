@@ -39,7 +39,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property SaopServices *soap;
 @property SaopServices *soap2;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *attachDocsViewHeight;
+@property (weak, nonatomic) IBOutlet UIButton *attachDoc1Btn;
 
+@property (weak, nonatomic) IBOutlet UIButton *attachDoc2Btn;
+- (IBAction)attachDoc1Click:(id)sender;
+- (IBAction)attachDoc2CLick:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+
+
+@property (weak, nonatomic) IBOutlet UIView *attachDocsViewBase;
 @property ServicesSRDetails *srdRental;
 @end
 

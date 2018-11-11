@@ -56,6 +56,15 @@
     [self webServiceCall:_srCaseId];
     [FTIndicator showProgressWithMessage:@"" userInteractionEnable:NO];
 }
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
+    if([srD.Status isEqualToString:@"Draft Request"]){
+       
+        [self ediButtonHideUnhide:NO];
+    }else{
+        [self ediButtonHideUnhide:YES];
+    }
+}
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:YES];
     DamacSharedClass.sharedInstance.currentVC = self;
@@ -313,6 +322,7 @@
     }
 }
 
+
 #pragma mark Tableview Delegates
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -328,20 +338,32 @@
     cell.label1.text =headingLabels[indexPath.row];
     cell.label2.text = dataLabels[indexPath.row];
     [cell.editButton addTarget:self action:@selector(loadEditVC) forControlEvents:UIControlEventTouchUpInside];
-    
-    if(indexPath.row == 0){
-        if([srD.Status isEqualToString:@"Draft Request"]){
-            cell.editButton.hidden = NO;
-        }else{
-            cell.editButton.hidden = YES;
-        }
-    }else{
+    [_editButtonNew addTarget:self action:@selector(loadEditVC) forControlEvents:UIControlEventTouchUpInside];
+//    if(indexPath.row == 0){
+//        if([srD.Status isEqualToString:@"Draft Request"]){
+////            cell.editButton.hidden = NO;
+//            cell.editButton.hidden = YES;
+//            [self ediButtonHideUnhide:NO];
+//        }else{
+//            cell.editButton.hidden = YES;
+//            [self ediButtonHideUnhide:YES];
+//        }
+//    }else{
         cell.editButton.hidden = YES;
-    }
+//    }
 
     return cell;
     
 }
+-(void)ediButtonHideUnhide:(BOOL)bo{
+    if(bo){
+        _editButtonNew.hidden = YES;
+        _xaxix.constant = 0;
+    }else{
+        _editButtonNew.hidden = NO;
+    }
+}
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
 }

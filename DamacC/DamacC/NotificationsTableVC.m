@@ -31,6 +31,7 @@
     
 }
 
+
 -(void)getListOfNotifications{
     SFUserAccountManager *sf = [SFUserAccountManager sharedInstance];
     ServerAPIManager *server = [ServerAPIManager sharedinstance];
@@ -49,6 +50,7 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
     [DamacSharedClass.sharedInstance.navigationCustomBar setPageTite:@"Notifications"];
+    DamacSharedClass.sharedInstance.currentVC = self;
 }
 #pragma mark - Table view data source
 
@@ -83,12 +85,29 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     ServicesDetailController *svc = [self.storyboard instantiateViewControllerWithIdentifier:@"servicesDetailVC"];
     NSArray *arr = [[tvData[indexPath.row] valueForKey:@"Notification_Text__c"] componentsSeparatedByString:@" "];
-    svc.srCaseId = arr.lastObject;;
+    svc.srCaseId = arr.lastObject;
+    [self readANotificationStatus:[tvData[indexPath.row] valueForKey:@"Id"]];
     [self.navigationController pushViewController:svc animated:YES];
     
 }
 
-
+-(void)readANotificationStatus:(NSString*)notitfiID{
+    
+    NSDictionary *dict = @{
+        @"notificationId" : notitfiID,
+        @"status":[NSNumber numberWithBool:YES]
+    };
+    
+    ServerAPIManager *svr = [ServerAPIManager sharedinstance];
+    [svr postRequestwithUrl:@"https://partial-servicecloudtrial-155c0807bf-1580afc5db1.cs80.force.com/MobileApp/services/apexrest/UpdateNotificationsFromMobileApp/" withParameters:dict successBlock:^(id responseObj) {
+        if(responseObj){
+            NSDictionary *di = [NSJSONSerialization JSONObjectWithData:responseObj options:0 error:nil];
+            NSLog(@"%@",di);
+        }
+    } errorBlock:^(NSError *error) {
+        NSLog(@"Notification Error %@",error.localizedDescription);
+    }];
+}
 -(NSString*)returnDate:(NSString*)dat{
     
     NSDateFormatter *format = [[NSDateFormatter alloc]init];

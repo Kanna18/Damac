@@ -18,6 +18,8 @@
 
 #define handleNull(val)         val?val:@""
 #define isEmpty(str) [str stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]].length>0?NO:YES
+#define removeEmpty(str) [str stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]
+
 
 #define goldColor rgb(191, 154, 88)
 

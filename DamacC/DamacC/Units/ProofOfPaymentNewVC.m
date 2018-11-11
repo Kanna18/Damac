@@ -41,12 +41,14 @@
     CameraView *camView;
     int countoFImagestoUplaod,countoFImagesUploaded;
     int clickedImage;
+    BOOL attachingDocumentsBool;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    attachingDocumentsBool = NO;
     // Do any additional setup after loading the view.
-    
+    [self hideAttachmentsView:YES];
     [self webServicetoGetUnitSFIds];
     unitsDropDown = [[NSMutableArray alloc]init];
     for (ResponseLine *res in [DamacSharedClass sharedInstance].unitsArray) {
@@ -89,9 +91,15 @@
     [self roundCorners:_buttonSubmit];
     [self roundCorners:_getUnitsButtonDetail];
     [self roundCorners:_buttonDocument];
+//    [self roundCorners:_attach1Btn];
+//    [self roundCorners:_attach2Btn];
+    
     
     [self adjustImageEdgeInsetsOfButton:_buttonUnits];
     [self adjustImageEdgeInsetsOfButton:_selectPaymentModeBtn];
+    [self adjustImageEdgeInsetsOfButton:_attach1Btn];
+    [self adjustImageEdgeInsetsOfButton:_attach2Btn];
+
     
 }
 -(void)roundCorners:(UIButton*)sender{
@@ -126,6 +134,20 @@
         [FTIndicator showToastMessage:error.localizedDescription];
     }];
 
+}
+-(void)hideAttachmentsView:(BOOL)bo
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if(bo){
+            _attachDocsBaseView.hidden =YES;
+            _attachDocsViewHeighgt.constant = 0;
+        }else{
+            _attachDocsBaseView.hidden =NO;
+            _attachDocsViewHeighgt.constant = 104;
+        }
+        _scrollView.contentSize = CGSizeMake(_scrollView.frame.size.width,_buttonSubmit.frame.origin.y+_attachDocsViewHeighgt.constant+40+20);
+    });
+    
 }
 
 
@@ -483,8 +505,28 @@
     }
 }
 
+-(void)uploadAttachments{
+    attachingDocumentsBool = YES;
+    _soap = [[SaopServices alloc]init];
+    _soap.delegate = self;
+    if(_popObj.popImage){
+        [_soap uploadDocumentTo:_popObj.popImage P_REQUEST_NUMBER:nil P_REQUEST_NAME:nil P_SOURCE_SYSTEM:nil category:nil entityName:nil fileDescription:@"POP" fileId:@"POP" fileName:@"POP" registrationId:nil sourceFileName:@"POP" sourceId:@"POP"];
+        countoFImagestoUplaod++;
+    }
+    _soap2 = [[SaopServices alloc]init];
+    _soap2.delegate = self;
+    if(_popObj.otherImage){
+        NSString *str = @"POP1";
+        [_soap2 uploadDocumentTo:_popObj.otherImage P_REQUEST_NUMBER:nil P_REQUEST_NAME:nil P_SOURCE_SYSTEM:nil category:nil entityName:nil fileDescription:str fileId:str fileName:str registrationId:nil sourceFileName:str sourceId:str];
+        countoFImagestoUplaod++;
+    }
+    
+}
+
+
 -(void)uploadImagesToServer{
     
+    attachingDocumentsBool = NO;
     _soap = [[SaopServices alloc]init];
     _soap.delegate = self;
     if(_popObj.popImage){
@@ -506,23 +548,46 @@
 
 -(void)imageUplaodedAndReturnPath:(NSString *)path{
     NSLog(@"%@",path);
-    countoFImagesUploaded ++;
     
-    if ([path rangeOfString:@"POP"].location == NSNotFound) {
-        NSLog(@"string does not contain bla");
-    } else {
-        _popObj.popImagePath = path;
+    if(attachingDocumentsBool){
         
-    }
+        if ([path rangeOfString:@"POP"].location == NSNotFound) {
+            NSLog(@"string does not contain bla");
+        } else {
+            _popObj.popImagePath = path;
+            [_attach1Btn setTitle:path forState:UIControlStateNormal];
+            
+        }
+        
+        if ([path rangeOfString:@"POP1"].location == NSNotFound) {
+            NSLog(@"string does not contain bla");
+        } else {
+            _popObj.otherImagePath = path;
+            [_attach2Btn setTitle:path forState:UIControlStateNormal];
+        }
+        [FTIndicator performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
+        [self hideAttachmentsView:NO];
+    }else{
+        
+        countoFImagesUploaded ++;
+        
+        if ([path rangeOfString:@"POP"].location == NSNotFound) {
+            NSLog(@"string does not contain bla");
+        } else {
+            _popObj.popImagePath = path;
+            
+        }
+        
+        if ([path rangeOfString:@"POP1"].location == NSNotFound) {
+            NSLog(@"string does not contain bla");
+        } else {
+            _popObj.otherImagePath = path;
+        }
+        
+        if(countoFImagestoUplaod == countoFImagesUploaded){
+            [_popObj subMitPOPfromServicesSRDetails];
+        }
     
-    if ([path rangeOfString:@"POP1"].location == NSNotFound) {
-        NSLog(@"string does not contain bla");
-    } else {
-        _popObj.otherImagePath = path;
-    }
-    
-    if(countoFImagestoUplaod == countoFImagesUploaded){
-        [_popObj subMitPOPfromServicesSRDetails];
     }
 }
 
@@ -580,6 +645,13 @@
 
 - (IBAction)atatchDocClick:(id)sender {
     
+    if(_popObj.popImage||_popObj.otherImage){
+        [FTIndicator showProgressWithMessage:@"Please wait"];
+        [self uploadAttachments];
+    }else{
+        [FTIndicator showToastMessage:@"Please select Attachment"];
+    }
+    
     
 }
 -(void)contentViewScroll{
@@ -588,4 +660,17 @@
     
 }
 
+- (IBAction)attach1Click:(id)sender {
+    if([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:_attach1Btn.currentTitle]])
+    {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:_attach1Btn.currentTitle] options:nil completionHandler:nil];
+    }
+}
+
+- (IBAction)attach2Click:(id)sender {
+    if([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:_attach2Btn.currentTitle]])
+    {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:_attach2Btn.currentTitle] options:nil completionHandler:nil];
+    }
+}
 @end

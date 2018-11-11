@@ -34,6 +34,8 @@ static NSString *reuseCell = @"appointmentsCell";
     selectedColor = rgb(151, 121, 73);
     unselectedColor = rgb(68, 68, 68);
     [self changeSelectedColor:_recentlyCreatedBtn];
+    [_tableView setContentInset:UIEdgeInsetsMake(0, 0, 200, 0)];
+
 }
 
 -(void)changeSelectedColor:(UIButton*)sender{

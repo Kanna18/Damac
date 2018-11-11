@@ -1,0 +1,27 @@
+
+
+
+-(void)roundCorners:(UIButton*)sender{
+sender.layer.cornerRadius = 5;
+sender.layer.borderColor = rgb(191, 154, 88).CGColor;
+sender.clipsToBounds = YES;
+}
+
+-(void)adjustImageEdgeInsetsOfButton:(UIButton*)sender{
+sender.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
+sender.imageEdgeInsets = UIEdgeInsetsMake(0, sender.frame.size.width-100, 0, 0);
+}
+
+
+-(NSString*)numberFormatter:(NSString*)str{
+NSNumberFormatter *formatter = [NSNumberFormatter new];
+[formatter setNumberStyle:NSNumberFormatterDecimalStyle]; // this line is important!
+NSString *formatted = [formatter stringFromNumber:[NSNumber numberWithInteger:str.integerValue]];
+return formatted;
+
+}
+
+if([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:url]])
+{
+[[UIApplication sharedApplication] openURL:[NSURL URLWithString:url] options:nil completionHandler:nil];
+}

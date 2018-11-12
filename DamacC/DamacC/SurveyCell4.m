@@ -60,4 +60,9 @@
     currentButton = (UIButton*)sender;
     
 }
+-(void)prepareForReuse{
+    [super prepareForReuse];
+    NSLog(@"prepar for reuse Cell 4");
+    
+}
 @end

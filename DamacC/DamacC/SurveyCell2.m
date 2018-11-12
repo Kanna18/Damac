@@ -187,4 +187,10 @@
     }];
 }
 
+-(void)prepareForReuse{
+    [super prepareForReuse];
+    NSLog(@"prepar for reuse Cell 2");
+    
+}
+
 @end

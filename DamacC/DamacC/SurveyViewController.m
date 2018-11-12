@@ -99,5 +99,8 @@
     NSIndexPath *path = [NSIndexPath indexPathForRow:indexpath.row inSection:indexpath.section];
     [_collectionView scrollToItemAtIndexPath:path atScrollPosition:UICollectionViewScrollPositionRight animated:YES];
 }
-
+-(BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"Highlighting CollectionView CEll");
+    return NO;
+}
 @end

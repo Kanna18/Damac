@@ -123,10 +123,10 @@
 
 
 #pragma mark TopGridArrayConstants
-#define overallPortofolio @"Overall Portfolio Value"
-#define currentPortofolio @"Current Portfolio Value"
-#define paymentsDue @"Payments Due"
-#define openServiceRequests @"Open Service Requests"
+#define overallPortofolio @"overall portfolio value"
+#define currentPortofolio @"current portfolio value"
+#define paymentsDue @"payments due"
+#define openServiceRequests @"open service requests"
 
 
 typedef NS_ENUM(int) {

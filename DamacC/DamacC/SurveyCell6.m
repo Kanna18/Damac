@@ -9,7 +9,9 @@
 #import "SurveyCell6.h"
 #import "FinishSurveyViewController.h"
 
-@implementation SurveyCell6
+@implementation SurveyCell6{
+    UIButton *currentButton;
+}
 
 -(void)awakeFromNib{
     
@@ -29,19 +31,23 @@
 - (IBAction)oneClick:(id)sender{
     [self oveToNext];
     [self fillRating:0];
+    [self setSelectedButtonBackgroundColor:(UIButton*)sender];
 }
 
 - (IBAction)twoclick:(id)sender{
     [self oveToNext];
     [self fillRating:1];
+    [self setSelectedButtonBackgroundColor:(UIButton*)sender];
 }
 - (IBAction)threeClick:(id)sender{
     [self oveToNext];
     [self fillRating:2];
+    [self setSelectedButtonBackgroundColor:(UIButton*)sender];
 }
 - (IBAction)fourCLick:(id)sender{
     [self oveToNext];
     [self fillRating:3];
+    [self setSelectedButtonBackgroundColor:(UIButton*)sender];
 }
 
 -(void)oveToNext{
@@ -128,6 +134,20 @@
     if([textView.text isEqualToString:@""]){
         textView.text =@"Please share any other comments you have";
     }
+}
+
+-(void)setSelectedButtonBackgroundColor:(UIButton*)sender{
+    
+    sender.selected = YES;
+    currentButton.selected = NO;
+    currentButton = (UIButton*)sender;
+    
+}
+
+-(void)prepareForReuse{
+    [super prepareForReuse];
+    NSLog(@"prepar for reuse Cell 6");
+    
 }
 
 

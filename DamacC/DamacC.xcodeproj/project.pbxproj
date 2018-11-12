@@ -75,6 +75,8 @@
 		F66B30B62184AF110071AA93 /* SurveyController.m in Sources */ = {isa = PBXBuildFile; fileRef = F66B30B52184AF110071AA93 /* SurveyController.m */; };
 		F66CC4A92196CF8D00470F13 /* MarqueeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F66CC4A72196CF8C00470F13 /* MarqueeLabel.m */; };
 		F673C0C32192CA8100A4ED0E /* KATCircularProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = F673C0C12192CA8000A4ED0E /* KATCircularProgress.m */; };
+		F67668AB2199A51E00FFBDC4 /* AlertPopUp.m in Sources */ = {isa = PBXBuildFile; fileRef = F67668AA2199A51E00FFBDC4 /* AlertPopUp.m */; };
+		F67668AD2199A52C00FFBDC4 /* AlertPopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = F67668AC2199A52C00FFBDC4 /* AlertPopUp.xib */; };
 		F67D77A721749FAC009EE062 /* SurveyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F67D77A621749FAC009EE062 /* SurveyViewController.m */; };
 		F67D77AA21749FC3009EE062 /* SurveyCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = F67D77A921749FC3009EE062 /* SurveyCell1.m */; };
 		F67D77AD21749FCF009EE062 /* SurveyCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = F67D77AC21749FCF009EE062 /* SurveyCell2.m */; };
@@ -97,7 +99,6 @@
 		F691B34E2190B402008EA47D /* BillingObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F691B34D2190B402008EA47D /* BillingObject.m */; };
 		F691B3572190CFB3008EA47D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F691B3562190CFB3008EA47D /* Foundation.framework */; };
 		F691B3592190CFBE008EA47D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F691B3582190CFBE008EA47D /* UIKit.framework */; };
-		F691B3822190D121008EA47D /* CCAvenueSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F691B3802190D11E008EA47D /* CCAvenueSDK.bundle */; };
 		F692F5C8216F259E0001F32D /* BuyersModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F692F5C7216F259E0001F32D /* BuyersModel.m */; };
 		F698216820ED49A400D023AF /* CustomBarOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = F698216720ED49A400D023AF /* CustomBarOptions.m */; };
 		F698216D20EDC1CB00D023AF /* UserDetailsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F698216C20EDC1CB00D023AF /* UserDetailsModel.m */; };
@@ -313,6 +314,7 @@
 		F659E0B12188F46C00A9DB16 /* Translator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Translator.h; sourceTree = "<group>"; };
 		F65D8CCB21907A4800B4823E /* ProofOfPaymentNewVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProofOfPaymentNewVC.h; sourceTree = "<group>"; };
 		F65D8CCC21907A4800B4823E /* ProofOfPaymentNewVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProofOfPaymentNewVC.m; sourceTree = "<group>"; };
+		F667D0E521994C7C003A058F /* CCAvenueSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CCAvenueSDK.framework; path = ../../Downloads/CCAvenueSDK_iOS_V3.0.2/Framework/CCAvenueSDK.framework; sourceTree = "<group>"; };
 		F66B30B12183B7B90071AA93 /* COCDTF.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = COCDTF.h; sourceTree = "<group>"; };
 		F66B30B22183B7B90071AA93 /* COCDTF.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = COCDTF.m; sourceTree = "<group>"; };
 		F66B30B42184AF110071AA93 /* SurveyController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SurveyController.h; sourceTree = "<group>"; };
@@ -321,6 +323,9 @@
 		F66CC4A82196CF8C00470F13 /* MarqueeLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarqueeLabel.h; sourceTree = "<group>"; };
 		F673C0C12192CA8000A4ED0E /* KATCircularProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KATCircularProgress.m; sourceTree = "<group>"; };
 		F673C0C22192CA8100A4ED0E /* KATCircularProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KATCircularProgress.h; sourceTree = "<group>"; };
+		F67668A92199A51E00FFBDC4 /* AlertPopUp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AlertPopUp.h; sourceTree = "<group>"; };
+		F67668AA2199A51E00FFBDC4 /* AlertPopUp.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AlertPopUp.m; sourceTree = "<group>"; };
+		F67668AC2199A52C00FFBDC4 /* AlertPopUp.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertPopUp.xib; sourceTree = "<group>"; };
 		F67D77A521749FAC009EE062 /* SurveyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SurveyViewController.h; sourceTree = "<group>"; };
 		F67D77A621749FAC009EE062 /* SurveyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SurveyViewController.m; sourceTree = "<group>"; };
 		F67D77A821749FC3009EE062 /* SurveyCell1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SurveyCell1.h; sourceTree = "<group>"; };
@@ -356,8 +361,6 @@
 		F691B34D2190B402008EA47D /* BillingObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BillingObject.m; sourceTree = "<group>"; };
 		F691B3562190CFB3008EA47D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F691B3582190CFBE008EA47D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		F691B3802190D11E008EA47D /* CCAvenueSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = CCAvenueSDK.bundle; path = ../../../Downloads/CCAvenueSDK_iOS_V2.0/CCAvenueSDK.bundle; sourceTree = "<group>"; };
-		F691B3812190D120008EA47D /* CCAvenueSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CCAvenueSDK.framework; sourceTree = "<group>"; };
 		F692F5C6216F259E0001F32D /* BuyersModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BuyersModel.h; sourceTree = "<group>"; };
 		F692F5C7216F259E0001F32D /* BuyersModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BuyersModel.m; sourceTree = "<group>"; };
 		F698216620ED49A400D023AF /* CustomBarOptions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomBarOptions.h; sourceTree = "<group>"; };
@@ -552,8 +555,6 @@
 		4F8D5E9F1B6C0568005E64D4 /* DamacC */ = {
 			isa = PBXGroup;
 			children = (
-				F691B3802190D11E008EA47D /* CCAvenueSDK.bundle */,
-				F691B3812190D120008EA47D /* CCAvenueSDK.framework */,
 				F6CC80562180A1840025FB1D /* ColorCodes */,
 				F6FF90B82197359F0090D2FE /* RepeatedFunctions */,
 				F6550770217D6F57003EC62E /* Category */,
@@ -626,6 +627,7 @@
 				F6FA5B742099BC4D009A8F15 /* MainVC */,
 				F6D91E42209976DC00DA1428 /* sideMenu */,
 				F68616192098295D002EA241 /* Password */,
+				F67668AE2199A53600FFBDC4 /* AlertPopup */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -633,6 +635,7 @@
 		7E50A237DDCEAAC2CF458C8C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F667D0E521994C7C003A058F /* CCAvenueSDK.framework */,
 				F691B3582190CFBE008EA47D /* UIKit.framework */,
 				F691B3562190CFB3008EA47D /* Foundation.framework */,
 				F659E0AE2188E46D00A9DB16 /* MessageUI.framework */,
@@ -889,6 +892,16 @@
 				F66CC4A72196CF8C00470F13 /* MarqueeLabel.m */,
 			);
 			name = MarqueeLabel;
+			sourceTree = "<group>";
+		};
+		F67668AE2199A53600FFBDC4 /* AlertPopup */ = {
+			isa = PBXGroup;
+			children = (
+				F67668A92199A51E00FFBDC4 /* AlertPopUp.h */,
+				F67668AA2199A51E00FFBDC4 /* AlertPopUp.m */,
+				F67668AC2199A52C00FFBDC4 /* AlertPopUp.xib */,
+			);
+			name = AlertPopup;
 			sourceTree = "<group>";
 		};
 		F67D77A421749F95009EE062 /* Survey */ = {
@@ -1269,16 +1282,16 @@
 					4F8D5E9C1B6C0568005E64D4 = {
 						CreatedOnToolsVersion = 6.4;
 						LastSwiftMigration = 0920;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
-								enabled = 1;
+								enabled = 0;
 							};
 							com.apple.Keychain = {
 								enabled = 0;
 							};
 							com.apple.Push = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -1318,10 +1331,10 @@
 				F6264209211361880022C4DC /* StepperView.xib in Resources */,
 				F626425C211432AA0022C4DC /* JointBView2.xib in Resources */,
 				F686160A20962229002EA241 /* PinView.xib in Resources */,
+				F67668AD2199A52C00FFBDC4 /* AlertPopUp.xib in Resources */,
 				F610E8C02121FBD500B09A5B /* UnitsHeaderView.xib in Resources */,
 				F6FF90B92197359F0090D2FE /* RepeatedFunctions in Resources */,
 				F604B3652165FD300047CBD2 /* ReceiptsTableViewCell.xib in Resources */,
-				F691B3822190D121008EA47D /* CCAvenueSDK.bundle in Resources */,
 				F6C57E19215B03E000970DC3 /* WSCalendarView.xib in Resources */,
 				F6A37F9A216E782100A4AD11 /* PassportFooter.xib in Resources */,
 				F6A37F98216E74B900A4AD11 /* PassportHeader.xib in Resources */,
@@ -1499,6 +1512,7 @@
 				F61124B52164CEEC00901694 /* DocUploadDTO.m in Sources */,
 				F63FCF1B20FBCD0B0027FEA8 /* PaymentsCell.m in Sources */,
 				F6D08AB7217282E900F81DD0 /* JointBuyerCell.m in Sources */,
+				F67668AB2199A51E00FFBDC4 /* AlertPopUp.m in Sources */,
 				F60164F320ABF36F00E07510 /* PaymentsDataModel.m in Sources */,
 				F6170A642100692E003443B1 /* AppointmentsCell.m in Sources */,
 				F6A86683211A9B3900560CD5 /* PopCell1.m in Sources */,
@@ -1639,12 +1653,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = DamacC/DamacC.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: LUXURY FACILITIES MANAGEMENT LLC";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: LUXURY FACILITIES MANAGEMENT LLC";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 7CQW6NRRPC;
+				DEVELOPMENT_TEAM = 4H7H3FYH34;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1671,7 +1684,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
-					"-ObjC",
 					"-l\"CocoaLumberjack\"",
 					"-l\"FMDB\"",
 					"-l\"SQLCipher\"",
@@ -1688,7 +1700,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.damac.HelloDamac;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = HelloDamacPushNConfigured;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "DamacC-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1704,12 +1716,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = DamacC/DamacC.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: LUXURY FACILITIES MANAGEMENT LLC";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: LUXURY FACILITIES MANAGEMENT LLC";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 7CQW6NRRPC;
+				DEVELOPMENT_TEAM = 4H7H3FYH34;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1736,7 +1747,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
-					"-ObjC",
 					"-l\"CocoaLumberjack\"",
 					"-l\"FMDB\"",
 					"-l\"SQLCipher\"",
@@ -1753,7 +1763,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.damac.HelloDamac;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = HelloDamacPushNConfigured;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "DamacC-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;

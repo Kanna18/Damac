@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface SurveyViewController : UIViewController<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property NSMutableArray *surveyArray;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -9,14 +9,15 @@
 #import "SurveyCell3.h"
 #import "Sub-SurveyCell.h"
 
-@interface SurveyCell3()
+@interface SurveyCell3()<TappedOnSmiley>
 
 @end
 
 @implementation SurveyCell3
 
 {
-    NSArray *headingLabels;    
+    NSArray *headingLabels;
+    NSMutableArray *allOptionsSelectedArray;
 }
 
 - (void)awakeFromNib{
@@ -40,6 +41,8 @@
                                              selector:@selector(keyboardWillHide:)
                                                  name:UIKeyboardWillHideNotification
                                                object:nil];
+    allOptionsSelectedArray = [[NSMutableArray alloc]initWithObjects:@"0",@"0",@"0",@"0", nil];
+    _continueSurveyBtn.enabled = NO;    
 }
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
@@ -55,16 +58,19 @@
     cell.questionLabel.text = [NSString stringWithFormat:@"%ld",indexPath.row +1];
     cell.headingLabel.text = headingLabels[indexPath.row];
     cell.surveyArray = _surveyArray;
+    cell.delegate = self;
+    cell.TagValue = indexPath.row;
     cell.optionsDict = _optionsDict;
     return cell;
     
 }
 -(BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"Highlighting CollectionView CEll");
     return NO;
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    
+    NSLog(@"Tapping on CollectionView CEll");
 }
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     
@@ -108,5 +114,25 @@
         self.contentView.frame = CGRectMake(0, 0,self.contentView.frame.size.width,self.contentView.frame.size.height);;
     }];
 }
+
+
+#pragma subCell Delegate
+-(void)tappedOnSmiley:(int)cellIndex{
+    [allOptionsSelectedArray replaceObjectAtIndex:cellIndex withObject:@"1"];
+    if([allOptionsSelectedArray containsObject:@"0"]){
+        _continueSurveyBtn.enabled = NO;
+    }else{
+        _continueSurveyBtn.enabled = YES;
+        _continueSurveyBtn.backgroundColor = goldColor;
+        
+    }
+    
+}
+-(void)prepareForReuse{
+    [super prepareForReuse];
+    NSLog(@"prepar for reuse Cell 3");
+    
+}
+
 
 @end

@@ -8,28 +8,36 @@
 
 #import "SurveyCell5.h"
 
-@implementation SurveyCell5
+@implementation SurveyCell5{
+    
+    UIButton *currentButton;
+}
 
 - (IBAction)oneClick:(id)sender{
     [self oveToNext];
     [self fillRating:1];
+    [self setSelectedButtonBackgroundColor:(UIButton*)sender];
 }
 
 - (IBAction)twoclick:(id)sender{
     [self oveToNext];
     [self fillRating:2];
+    [self setSelectedButtonBackgroundColor:(UIButton*)sender];
 }
 - (IBAction)threeClick:(id)sender{
     [self oveToNext];
     [self fillRating:3];
+    [self setSelectedButtonBackgroundColor:(UIButton*)sender];
 }
 - (IBAction)fourCLick:(id)sender{
     [self oveToNext];
     [self fillRating:4];
+    [self setSelectedButtonBackgroundColor:(UIButton*)sender];
 }
 - (IBAction)fiveClick:(id)sender{
     [self oveToNext];
     [self fillRating:5];
+    [self setSelectedButtonBackgroundColor:(UIButton*)sender];
 }
 
 -(void)oveToNext{
@@ -40,6 +48,20 @@
     NSMutableDictionary *dict = _surveyArray[3];
     [dict setValue:[NSString stringWithFormat:@"%d",value] forKey:@"selectedOption"];
     NSLog(@"%@",_surveyArray);
+    
+}
+
+-(void)setSelectedButtonBackgroundColor:(UIButton*)sender{
+    
+    sender.selected = YES;
+    currentButton.selected = NO;
+    currentButton = (UIButton*)sender;
+    
+}
+
+-(void)prepareForReuse{
+    [super prepareForReuse];
+    NSLog(@"prepar for reuse Cell 5");
     
 }
 @end

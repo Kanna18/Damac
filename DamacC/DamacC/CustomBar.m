@@ -9,6 +9,7 @@
 #import "CustomBar.h"
 #import "KeyViewController.h"
 #import "HelpViewController.h"
+#import "SurveyViewController.h"
 
 @interface CustomBar ()<WYPopoverControllerDelegate,POPDelegate>
 
@@ -32,12 +33,25 @@
     if(self){
         self = [[NSBundle mainBundle]loadNibNamed:@"CustomBar" owner:self options:nil][0];
         self.frame = frame;
+
+
     }
     return self;
 }
 - (IBAction)backClick:(id)sender {
-    if([_backBtn.imageView.image isEqual:[UIImage imageNamed:@"backArrow"]]){
-        [DamacSharedClass.sharedInstance.currentVC.navigationController popViewControllerAnimated:YES];        
+    
+    if ([DamacSharedClass.sharedInstance.currentVC isKindOfClass:[SurveyViewController class]]){
+        SurveyViewController *svc = (SurveyViewController*)DamacSharedClass.sharedInstance.currentVC;
+        NSArray *indexsArray = [svc.collectionView indexPathsForVisibleItems];
+        NSIndexPath *indexpath = indexsArray.firstObject;
+        if(indexpath.row>0){
+            [svc.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:indexpath.row-1 inSection:0] atScrollPosition:UICollectionViewScrollPositionRight animated:YES];
+        }else{
+            [DamacSharedClass.sharedInstance.currentVC.navigationController popViewControllerAnimated:YES];
+        }
+
+    }else if([_backBtn.imageView.image isEqual:[UIImage imageNamed:@"backArrow"]]){
+        [DamacSharedClass.sharedInstance.currentVC.navigationController popViewControllerAnimated:YES];
     }
 }
 - (IBAction)loadNotifications:(id)sender {

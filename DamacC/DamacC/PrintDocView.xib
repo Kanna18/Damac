@@ -197,6 +197,6 @@
         </view>
     </objects>
     <resources>
-        <image name="closeRound" width="32" height="32"/>
+        <image name="closeRound" width="16" height="16"/>
     </resources>
 </document>

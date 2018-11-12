@@ -30,7 +30,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillHide:)
                                                  name:UIKeyboardWillHideNotification
-                                               object:nil];
+                                               object:nil];    
 }
 
 
@@ -179,5 +179,7 @@
             self.contentView.frame = CGRectMake(0, 0,self.contentView.frame.size.width,self.contentView.frame.size.height);;
         }];
 }
+
+
 
 @end

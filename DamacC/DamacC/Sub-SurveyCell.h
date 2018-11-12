@@ -9,6 +9,12 @@
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
+@protocol TappedOnSmiley <NSObject>
+
+-(void)tappedOnSmiley:(int)cellIndex;
+
+@end
+
 
 @interface Sub_SurveyCell : UICollectionViewCell<UITextViewDelegate>
 - (IBAction)highlyDissatisfiedClick:(id)sender;
@@ -28,6 +34,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property int cellTagValue;
 
 @property NSMutableDictionary *optionsDict;
+
+@property int TagValue;
+
+@property id<TappedOnSmiley>delegate;
+
+
+
 @end
 
 NS_ASSUME_NONNULL_END

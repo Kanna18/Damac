@@ -26,22 +26,26 @@
 - (IBAction)highlyDissatisfiedClick:(id)sender {
     [self hilightImageView:_dissatisfiedImage];
     [self fillRating:_cellTagValue changeVale:2];
+    [_delegate tappedOnSmiley:_TagValue];
 }
 
 - (IBAction)satisfiedClick:(id)sender {
     [self hilightImageView:_satisfiedImage];
     [self fillRating:_cellTagValue changeVale:1];
+    [_delegate tappedOnSmiley:_TagValue];
   
 }
 
 - (IBAction)happyClick:(id)sender {
     [self hilightImageView:_happyImage];
     [self fillRating:_cellTagValue changeVale:0];
+    [_delegate tappedOnSmiley:_TagValue];
 }
 
 - (IBAction)notApplicableClick:(id)sender {
     [self hilightImageView:_notApplicableImage];
     [self fillRating:_cellTagValue changeVale:3];
+    [_delegate tappedOnSmiley:_TagValue];
 }
 
 -(void)hilightImageView:(UIImageView*)imgView{

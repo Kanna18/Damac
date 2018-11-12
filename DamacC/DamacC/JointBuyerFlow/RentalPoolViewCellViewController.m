@@ -33,6 +33,7 @@
     NSArray *countriesArray;
     int countoFImagestoUplaod,countoFImagesUploaded;
     COCDTF *currentTextFieldRef;
+    AlertPopUp *alertPop;
 
 }
 
@@ -152,6 +153,10 @@
                                              selector:@selector(keyboardWillHide:)
                                                  name:UIKeyboardWillHideNotification
                                                object:nil];
+    
+    alertPop = [[AlertPopUp alloc]initWithFrame:self.view.frame];
+    [self.view addSubview:alertPop];
+    alertPop.hidden = YES;
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
@@ -180,7 +185,7 @@
     
     [jbView1.saveDraftBtn2 addTarget:self action:@selector(saveDraftJointBuyers) forControlEvents:UIControlEventTouchUpInside];
     [jbView1.previousBtn2 addTarget:self action:@selector(loadFirstView) forControlEvents:UIControlEventTouchUpInside];
-    [jbView1.submitSR addTarget:self action:@selector(subJointBuyersResponse) forControlEvents:UIControlEventTouchUpInside];
+    [jbView1.submitSR addTarget:self action:@selector(submitJointBuyersResponse) forControlEvents:UIControlEventTouchUpInside];
     
     
     frame3 = _firstView.frame;
@@ -349,6 +354,7 @@
     [_scrollView setContentOffset:frame3.origin animated:YES];
 //    sterView.line2Animation = YES;
 }
+
 -(void)loadFirstView{
     [_scrollView setContentOffset:_firstView.frame.origin animated:YES];
 //    _scrollView.contentSize = CGSizeMake(_scrollView.frame.size.width, _detailView.frame.size.height);
@@ -564,15 +570,26 @@
 -(void)saveDraftJointBuyers{
     
     if([self validationSetForJointBuyer]){
-        self.jointObj.status = @"Draft Request";
-        [FTIndicator showProgressWithMessage:@"Loading Please Wait" userInteractionEnable:NO];
-        
-        if(self.jointObj.cocdImage||self.jointObj.additionalDocumentImage||self.jointObj.primaryPassportImage){
-            [self uploadImagesToServer];
-        }else{
-            [self.jointObj sendJointBuyerResponsetoserver];
-        }
+    alertPop.hidden = NO;
+    alertPop.saveDraftView.hidden = NO;
+    alertPop.headingLabel.text = @"   Save Draft";
+        [alertPop setOkHandler:^{
+            self.jointObj.status = @"Draft Request";
+            [FTIndicator showProgressWithMessage:@"Loading Please Wait" userInteractionEnable:NO];
+            
+            if(self.jointObj.cocdImage||self.jointObj.additionalDocumentImage||self.jointObj.primaryPassportImage){
+                [self uploadImagesToServer];
+            }else{
+                [self.jointObj sendJointBuyerResponsetoserver];
+            }
+        }];
     }
+    [alertPop setCancelHandler:^{
+        alertPop.hidden =YES;
+    }];
+
+    
+
 }
 
 - (IBAction)saveDraftCLickView:(id)sender {
@@ -617,22 +634,36 @@
     
 }
 -(void)enableViewsAfterDownloadForm{
-    jbView1.previous1height.constant = 0;
-    jbView1.previousBtn.hidden = YES;
-    jbView1.bottomButtomsView.hidden = NO;
-    jbView1.uploadsView.hidden = NO;
-    jbView1.downloadImage.highlighted = YES;
-    jbView1.downloadText.text = @"Download\nCompleted";
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        jbView1.previous1height.constant = 0;
+        jbView1.previousBtn.hidden = YES;
+        jbView1.bottomButtomsView.hidden = NO;
+        jbView1.uploadsView.hidden = NO;
+        jbView1.downloadImage.highlighted = YES;
+        jbView1.downloadText.text = @"Download\nCompleted";
+    });
 }
 
 -(void)downloadFormDetails{
     
-    [self enableViewsAfterDownloadForm];
+    alertPop.hidden = NO;
+    alertPop.saveDraftView.hidden =YES;
+    alertPop.headingLabel.text = @"   Download,Fill,Scan and Upload COCD Form";
+    [alertPop setOkHandler:^{
+        alertPop.hidden = YES;
+        [self downloadFunction];
+    }];
+    [alertPop setCancelHandler:^{
+        alertPop.hidden = YES;
+    }];
+}
+-(void)downloadFunction{
     [FTIndicator showProgressWithMessage:@"Loading Please Wait" userInteractionEnable:NO];
     NSDictionary * dict = @{
                             @"buyersInfoWrapper":
                                 @{
-                                    @"AccountID":_jointObj.AccountID,
+                                    @"AccountID":kUserProfile.sfAccountId, //_jointObj.AccountID,
                                     @"city":handleNull(_jointObj.city),
                                     @"country":handleNull(_jointObj.country),
                                     @"phone":handleNull(_jointObj.phone),
@@ -650,11 +681,11 @@
     ServerAPIManager *srvr = [ServerAPIManager sharedinstance];
     [srvr postRequestwithUrl:downloadFormUrl withParameters:dict successBlock:^(id responseObj) {
         if(responseObj){
-            //            NSString *str = [NSJSONSerialization JSONObjectWithData:responseObj options:0 error:nil];
-            
+            //            NSString *str = [NSJSONSerialization JSONObjectWithData:responseObj options:0 error:nil];            
             NSString *str = [[NSString alloc]initWithData:responseObj encoding:NSUTF8StringEncoding];
             NSLog(@"%@",str);
             [self openReceiptinSafari:[str stringByReplacingOccurrencesOfString:@"\"" withString:@""]];
+            [self enableViewsAfterDownloadForm];
         }
     } errorBlock:^(NSError *error) {
         NSLog(@"%@",error.localizedDescription);

@@ -66,6 +66,6 @@
 #import "Translator.h"
 #import "NotificationsTableVC.h"
 #import "CustomBar.h"
-
+#import "AlertPopUp.h"
 
 #endif /* PrefixHeader_pch */

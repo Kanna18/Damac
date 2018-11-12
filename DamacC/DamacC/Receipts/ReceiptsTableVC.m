@@ -80,12 +80,12 @@
   
     return cell;
 }
+
 -(NSString*)numberFormatter:(NSString*)str{
     NSNumberFormatter *formatter = [NSNumberFormatter new];
     [formatter setNumberStyle:NSNumberFormatterDecimalStyle]; // this line is important!
     NSString *formatted = [formatter stringFromNumber:[NSNumber numberWithInteger:str.integerValue]];
     return formatted;
-
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{

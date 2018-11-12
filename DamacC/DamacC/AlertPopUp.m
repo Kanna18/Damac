@@ -18,4 +18,31 @@
 }
 */
 
+-(instancetype)initWithFrame:(CGRect)frame{
+    self = [super initWithFrame:frame];
+    if(self)
+    {
+        self = [[NSBundle mainBundle] loadNibNamed:@"AlertPopUp" owner:self options:nil][0];
+        self.frame = frame;
+        
+    }
+    return self;
+}
+
+- (IBAction)okClick:(id)sender {
+    _okHandler();
+}
+
+- (IBAction)closeClick:(id)sender {
+    _cancelHandler();
+}
+
+
+
+//-(void)alertViewWithTitle:(NSString *)title descriptionMsg:(NSString *)descrp okClick:(okBlock)ok cancelClick:(cancelBlock)cancel{
+//    
+//}
+
+
+
 @end

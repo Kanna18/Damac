@@ -40,6 +40,7 @@
     UIImage *image = [UIImage imageWithContentsOfFile:[self isImageAvailable]];
     if(image){
         _profilePic.image = image;
+        [self roundCorners:_profilePic];
     }
 
 }
@@ -95,6 +96,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)roundCorners:(UIImageView*)sender{
+    sender.layer.cornerRadius = sender.frame.size.height/2;
+    sender.layer.borderColor = goldColor.CGColor;
+    sender.layer.borderWidth =3.0;
+    sender.clipsToBounds = YES;
+}
 /*
 #pragma mark - Navigation
 

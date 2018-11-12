@@ -11,6 +11,7 @@
 
 @implementation SurveyCell6{
     UIButton *currentButton;
+    AlertPopUp *alert;
 }
 
 -(void)awakeFromNib{
@@ -27,6 +28,10 @@
                                                  name:UIKeyboardWillHideNotification
                                                object:nil];
     _uitextView.delegate = self;
+    alert = [[AlertPopUp alloc]initWithFrame:DamacSharedClass.sharedInstance.currentVC.view.frame];
+    [DamacSharedClass.sharedInstance.currentVC.view addSubview:alert];
+    alert.hidden = YES;
+    
 }
 - (IBAction)oneClick:(id)sender{
     [self oveToNext];
@@ -82,8 +87,26 @@
 }
 -(void)finishSurveyViewController{
     
-    FinishSurveyViewController *finish = [DamacSharedClass.sharedInstance.currentVC.storyboard instantiateViewControllerWithIdentifier:@"finishSurveyViewController"];
-    [DamacSharedClass.sharedInstance.currentVC.navigationController pushViewController:finish animated:YES];
+//    FinishSurveyViewController *finish = [DamacSharedClass.sharedInstance.currentVC.storyboard instantiateViewControllerWithIdentifier:@"finishSurveyViewController"];
+//    [DamacSharedClass.sharedInstance.currentVC.navigationController pushViewController:finish animated:YES];
+    alert.hidden = NO;
+    alert.closeButton.hidden = YES;
+    alert.headingLabel.text = @"Finish Survey";
+    alert.headingLabel.textAlignment = NSTextAlignmentCenter;
+    alert.descriptionlabel.text = @"Thank you for taking the time to complete the survey. We truly value your inputs inorder to enhance customer experience";
+    
+    [alert setOkHandler:^{
+        alert.hidden = YES;
+        [FTIndicator dismissProgress];
+        NSArray *arr = DamacSharedClass.sharedInstance.currentVC.navigationController.viewControllers;
+        for (UIViewController *vc in arr) {
+            if([vc isKindOfClass:[MainViewController class]]){
+                [DamacSharedClass.sharedInstance.currentVC.navigationController popToViewController:vc animated:YES];
+            }
+        }
+        
+    }];
+    
 }
 
 

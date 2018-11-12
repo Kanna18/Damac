@@ -24,25 +24,23 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QVI-6Y-WBT">
                     <rect key="frame" x="20" y="30" width="521" height="150"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hQw-md-EMw">
-                            <rect key="frame" x="215.5" y="30" width="90" height="90"/>
+                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hQw-md-EMw">
+                            <rect key="frame" x="210.5" y="25" width="100" height="100"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="downloadCOCD" highlightedImage="downloadComplete" translatesAutoresizingMaskIntoConstraints="NO" id="aPu-YJ-gKp" customClass="downloadForum">
-                                    <rect key="frame" x="15" y="10" width="60" height="60"/>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="downloadCOCD" highlightedImage="downloadComplete" highlighted="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aPu-YJ-gKp" customClass="downloadForum">
+                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="60" id="NSY-WS-1ld"/>
-                                        <constraint firstAttribute="width" constant="60" id="p3y-8X-Enp"/>
-                                    </constraints>
                                 </imageView>
                             </subviews>
                             <color key="backgroundColor" red="0.33725490196078434" green="0.33725490196078434" blue="0.33725490196078434" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="90" id="9pe-5L-dJD"/>
+                                <constraint firstAttribute="height" constant="100" id="9pe-5L-dJD"/>
+                                <constraint firstItem="aPu-YJ-gKp" firstAttribute="width" secondItem="hQw-md-EMw" secondAttribute="width" id="Gaa-JR-mgJ"/>
                                 <constraint firstItem="aPu-YJ-gKp" firstAttribute="centerX" secondItem="hQw-md-EMw" secondAttribute="centerX" id="Vfl-xM-rgk"/>
+                                <constraint firstItem="aPu-YJ-gKp" firstAttribute="centerY" secondItem="hQw-md-EMw" secondAttribute="centerY" id="WdC-z2-hAI"/>
                                 <constraint firstItem="aPu-YJ-gKp" firstAttribute="centerX" secondItem="hQw-md-EMw" secondAttribute="centerX" id="mdk-Qh-xaj"/>
-                                <constraint firstItem="aPu-YJ-gKp" firstAttribute="top" secondItem="hQw-md-EMw" secondAttribute="top" constant="10" id="tB9-RU-iac"/>
-                                <constraint firstAttribute="width" constant="90" id="tnw-7W-cyZ"/>
+                                <constraint firstAttribute="width" constant="100" id="tnw-7W-cyZ"/>
+                                <constraint firstItem="aPu-YJ-gKp" firstAttribute="height" secondItem="hQw-md-EMw" secondAttribute="height" id="wmz-Nw-axg"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -357,7 +355,7 @@
     </objects>
     <resources>
         <image name="ImageUpload" width="15" height="15"/>
-        <image name="downloadCOCD" width="165" height="169"/>
-        <image name="downloadComplete" width="180" height="201"/>
+        <image name="downloadCOCD" width="145" height="143"/>
+        <image name="downloadComplete" width="140" height="145"/>
     </resources>
 </document>

@@ -35,6 +35,7 @@
     WSCalendarView *calendarViewEvent;
     NSMutableArray *eventArray;
     COCDTF *dateTFref;
+    AlertPopUp *alertPop;
 }
 
 - (void)viewDidLoad {
@@ -391,7 +392,9 @@
                                              selector:@selector(keyboardWillHide:)
                                                  name:UIKeyboardWillHideNotification
                                                object:nil];
-
+    alertPop = [[AlertPopUp alloc]initWithFrame:self.view.frame];
+    [self.view addSubview:alertPop];
+    alertPop.hidden = YES;
 }
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:YES];
@@ -406,7 +409,36 @@
 }
 -(void)saveDraftClickPassport{
     self.passportObj.status = @"Draft Request";
-    [self responsePassport];
+    
+    if(self.passportObj.AccountID.length<1){
+        [FTIndicator showToastMessage:@"Please Select Buyer"];
+        return;
+    }
+    if(self.passportObj.passportNo.length<1){
+        [FTIndicator showToastMessage:@"Passport No should not be empty"];
+        return;
+    }
+    if(self.passportObj.PassportIssuedPlace.length<1){
+        [FTIndicator showToastMessage:@"Passport Issued place should not be empty"];
+        return;
+    }
+    
+    if(self.passportObj.passportImage == nil&&[self.passportObj.status isEqualToString:@"Submitted"]){
+        [FTIndicator showToastMessage:@"Passport of Primary buyer is not attached"];
+        return;
+    }
+    
+    alertPop.hidden = NO;
+    alertPop.saveDraftView.hidden = NO;
+    alertPop.headingLabel.text = @"   Save Draft";
+    [alertPop setOkHandler:^{
+        alertPop.hidden =YES;
+        [self responsePassport];
+    }];
+    [alertPop setCancelHandler:^{
+        alertPop.hidden =YES;
+    }];
+    
 }
 
 -(void)responsePassport{
@@ -428,6 +460,7 @@
         [FTIndicator showToastMessage:@"Passport of Primary buyer is not attached"];
         return;
     }
+    
     [self uploadImagesToServer];
 }
 

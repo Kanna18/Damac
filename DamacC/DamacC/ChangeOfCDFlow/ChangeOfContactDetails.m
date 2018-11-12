@@ -13,6 +13,8 @@
 #import "COCDTF.h"
 
 
+
+
 #define butonTitleSubmitSR @"Submit SR"
 #define buttonTitleNext @"Next"
 
@@ -40,7 +42,7 @@
     BOOL uploadDocsPageVisible;
     int countoFImagestoUplaod,countoFImagesUploaded;
     
-    
+    AlertPopUp *alertPop;
 }
 
 
@@ -130,6 +132,10 @@
     [self.view addSubview:sterView];
     originalBoundsoFScrollView = self.scrollView.bounds;
     DamacSharedClass.sharedInstance.windowButton.hidden = YES;
+    alertPop = [[AlertPopUp alloc]initWithFrame:self.view.frame];
+    [self.view addSubview:alertPop];
+    alertPop.hidden = YES;
+    
 }
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:YES];
@@ -480,27 +486,39 @@
     
 }
 - (IBAction)saveDraftClick:(id)sender {
-    
     if([self validationSetForCOCD]){
         //    case1: whenEver Clicked on SaveDraft Button Need to check Email Valdiation
-        [currentTF resignFirstResponder];
-        _cocdOBj.Status = @"Draft Request";
-        if(![_cocdOBj.Email validateEmailWithString]&&uploadDocsPageVisible){
-            [self previousClick:nil];
-            [self emailClick:nil];
-            [FTIndicator showToastMessage:@"Plaease enter a valid Email"];
-            return;
-        }
-        //    case2:Whenever Button title "SubmitSR" title appeared and Images are available
-        else if([_nextbtn.titleLabel.text isEqualToString:butonTitleSubmitSR]&&(_cocdOBj.cocdImage||_cocdOBj.additionalDocumentImage||_cocdOBj.primaryPassportImage))
-        {
-            [self saveOrSubmitDraftRequestWithImages];
-        }
-        else{
-            
-            [self saveDraftRequest];
-        }
+        alertPop.hidden = NO;
+        alertPop.saveDraftView.hidden = NO;
+        alertPop.headingLabel.text = @"   Save Draft";
+    [alertPop setOkHandler:^{
+            alertPop.hidden =YES;
+            [currentTF resignFirstResponder];
+            _cocdOBj.Status = @"Draft Request";
+            if(![_cocdOBj.Email validateEmailWithString]&&uploadDocsPageVisible){
+                [self previousClick:nil];
+                [self emailClick:nil];
+                [FTIndicator showToastMessage:@"Plaease enter a valid Email"];
+                return;
+            }
+            //    case2:Whenever Button title "SubmitSR" title appeared and Images are available
+            else if([_nextbtn.titleLabel.text isEqualToString:butonTitleSubmitSR]&&(_cocdOBj.cocdImage||_cocdOBj.additionalDocumentImage||_cocdOBj.primaryPassportImage))
+            {
+                [self saveOrSubmitDraftRequestWithImages];
+            }
+            else{
+                
+                [self saveDraftRequest];
+            }
+        
+        }];
     }
+    
+    [alertPop setCancelHandler:^{
+        alertPop.hidden =YES;
+    }];
+    
+    
 }
 -(void)saveOrSubmitDraftRequestWithImages{
     [FTIndicator showProgressWithMessage:@"Loading Please Wait" userInteractionEnable:NO];
@@ -575,7 +593,16 @@
     
     if([self validationSetForCOCD])
     {
-        [self downloadFormDetails];
+        alertPop.hidden = NO;
+        alertPop.saveDraftView.hidden =YES;
+        alertPop.headingLabel.text = @"   Download,Fill,Scan and Upload COCD Form";
+        [alertPop setOkHandler:^{
+            alertPop.hidden = YES;
+           [self downloadFormDetails];
+        }];
+        [alertPop setCancelHandler:^{
+            alertPop.hidden = YES;
+        }];
     }
 }
 

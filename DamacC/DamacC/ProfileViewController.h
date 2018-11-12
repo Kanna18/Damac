@@ -17,5 +17,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *headingButton;
 - (IBAction)profileImageUploadClick:(id)sender;
 @property (weak, nonatomic) IBOutlet UIImageView *profilePic;
+@property (weak, nonatomic) IBOutlet UIButton *imageButton;
 
 @end

@@ -30,6 +30,8 @@
         self.frame = frame;
         
         camView = [[CameraView alloc]initWithFrame:CGRectZero parentViw:DamacSharedClass.sharedInstance.currentVC];
+        
+        NSLog(@"Current View %@, Subviews --%@, Class - %@",[DamacSharedClass.sharedInstance.currentVC class],DamacSharedClass.sharedInstance.currentVC.view.subviews,[DamacSharedClass.sharedInstance.currentVC.view class]);
         [DamacSharedClass.sharedInstance.currentVC.view addSubview:camView];
         camView.delegate = self;
         selectedButtonTag = 0;
@@ -83,7 +85,7 @@
     if([DamacSharedClass.sharedInstance.currentVC isKindOfClass:[RentalPoolViewCellViewController class]])
     {
         RentalPoolViewCellViewController *ch = (RentalPoolViewCellViewController*)DamacSharedClass.sharedInstance.currentVC;
-        [ch.scrollView setContentOffset:CGPointMake(2*ch.scrollView.bounds.size.width+3, 0)];
+        [ch.scrollView setContentOffset:self.frame.origin];
     }
 }
 

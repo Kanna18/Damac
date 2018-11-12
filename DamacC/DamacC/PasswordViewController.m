@@ -38,6 +38,7 @@
     }
     DamacSharedClass.sharedInstance.windowButton.hidden = YES;
 }
+
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:YES];
     screen_width = [UIScreen mainScreen].bounds.size.width;
@@ -139,6 +140,7 @@
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     [[self view] endEditing:TRUE];
 }
+
 /*
 #pragma mark - Navigation
 
@@ -149,4 +151,17 @@
 }
 */
 
+- (IBAction)resetClick:(id)sender {
+    
+    mpin.pin_tf1.text = @"";
+    mpin.pin_tf2.text = @"";
+    mpin.pin_tf3.text = @"";
+    mpin.pin_tf4.text = @"";
+    
+    confirmPin.pin_tf1.text = @"";
+    confirmPin.pin_tf2.text = @"";
+    confirmPin.pin_tf3.text = @"";
+    confirmPin.pin_tf4.text = @"";
+    
+}
 @end

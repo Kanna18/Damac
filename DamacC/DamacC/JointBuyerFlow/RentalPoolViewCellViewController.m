@@ -40,7 +40,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-
+    DamacSharedClass.sharedInstance.currentVC = self;
     [self initialiseSecondViewThirdView];
     
     serverAPI =[ServerAPIManager sharedinstance];
@@ -141,7 +141,6 @@
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:YES];
     DamacSharedClass.sharedInstance.currentVC = self;
-    
     DamacSharedClass.sharedInstance.windowButton.hidden = YES;
     
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -166,8 +165,7 @@
 
 -(void)initialiseSecondViewThirdView{
     
-//    _scrollView.contentSize = CGSizeMake([UIScreen mainScreen].bounds.size.width+3, _firstView.frame.size.height);
-    
+//    _scrollView.contentSize = CGSizeMake(2*([UIScreen mainScreen].bounds.size.width+3), _firstView.frame.size.height);
     frame2 = _firstView.frame;
     frame2.size.height = 500    ;
     frame2.origin.x = [UIScreen mainScreen].bounds.size.width+3;
@@ -552,7 +550,7 @@
         [self.jointObj sendJointBuyerResponsetoserver];
     }
 }
--(void)subJointBuyersResponse{
+-(void)submitJointBuyersResponse{
     
     if(self.jointObj.cocdImage == nil){
         [FTIndicator showToastMessage:@"COCD document is not attached"];
@@ -570,7 +568,7 @@
         [FTIndicator showProgressWithMessage:@"Loading Please Wait" userInteractionEnable:NO];
         
         if(self.jointObj.cocdImage||self.jointObj.additionalDocumentImage||self.jointObj.primaryPassportImage){
-            [self subJointBuyersResponse];
+            [self uploadImagesToServer];
         }else{
             [self.jointObj sendJointBuyerResponsetoserver];
         }

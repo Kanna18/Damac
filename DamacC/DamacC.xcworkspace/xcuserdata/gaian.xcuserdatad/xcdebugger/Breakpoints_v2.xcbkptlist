@@ -19,22 +19,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DamacC/PasswordViewController.m"
-            timestampString = "563378108.562247"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
-            landmarkName = "-viewWillAppear:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "DamacC/PassportUpdateFlow/PassportObject.m"
             timestampString = "563398587.3929271"
             startingColumnNumber = "9223372036854775807"
@@ -228,11 +212,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DamacC/JointBuyerFlow/RentalPoolViewCellViewController.m"
-            timestampString = "563627371.339517"
+            timestampString = "563630710.7070971"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "353"
-            endingLineNumber = "353"
+            startingLineNumber = "351"
+            endingLineNumber = "351"
             landmarkName = "-loadThirdView"
             landmarkType = "7">
          </BreakpointContent>
@@ -244,11 +228,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DamacC/JointBuyerFlow/RentalPoolViewCellViewController.m"
-            timestampString = "563627371.340263"
+            timestampString = "563630710.7078429"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "349"
-            endingLineNumber = "349"
+            startingLineNumber = "347"
+            endingLineNumber = "347"
             landmarkName = "RentalPoolViewCellViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -260,7 +244,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DamacC/JointBuyerFlow/JointBView2.m"
-            timestampString = "563473483.1534981"
+            timestampString = "563630710.708428"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "73"
@@ -276,7 +260,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DamacC/JointBuyerFlow/JointBView2.m"
-            timestampString = "563473483.153726"
+            timestampString = "563630710.7085119"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "64"
@@ -292,11 +276,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DamacC/JointBuyerFlow/JointView1.m"
-            timestampString = "563473483.153792"
+            timestampString = "563630710.708588"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "78"
-            endingLineNumber = "78"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
             landmarkName = "-setContentOffsetsofVC"
             landmarkType = "7">
          </BreakpointContent>
@@ -308,11 +292,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DamacC/JointBuyerFlow/RentalPoolViewCellViewController.m"
-            timestampString = "563627371.340818"
+            timestampString = "563630710.7086771"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "502"
-            endingLineNumber = "502"
+            startingLineNumber = "500"
+            endingLineNumber = "500"
             landmarkName = "RentalPoolViewCellViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -324,11 +308,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DamacC/JointBuyerFlow/JointView1.m"
-            timestampString = "563473483.154308"
+            timestampString = "563630710.70919"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "91"
-            endingLineNumber = "91"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
             landmarkName = "-setImageNamesAsSelected:withImage:"
             landmarkType = "7">
          </BreakpointContent>
@@ -372,7 +356,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DamacC/Receipts/ReceiptsTableVC.m"
-            timestampString = "563627371.341349"
+            timestampString = "563656059.948683"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "74"
@@ -490,6 +474,118 @@
             startingLineNumber = "675"
             endingLineNumber = "675"
             landmarkName = "-keyboardWillShow:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DamacC/JointBuyerFlow/JointView1.m"
+            timestampString = "563630710.711085"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "-selectFile1Click:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DamacC/JointBuyerFlow/RentalPoolViewCellViewController.m"
+            timestampString = "563630710.711208"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "144"
+            endingLineNumber = "144"
+            landmarkName = "-viewDidAppear:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DamacC/JointBuyerFlow/JointView1.m"
+            timestampString = "563630710.712254"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "-selectFile2Click:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DamacC/JointBuyerFlow/JointView1.m"
+            timestampString = "563630710.7123851"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "-selectFile3CLick:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DamacC/JointBuyerFlow/JointView1.m"
+            timestampString = "563630710.712479"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "-initWithFrame:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DamacC/JointBuyerFlow/RentalPoolViewCellViewController.m"
+            timestampString = "563630710.712585"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "566"
+            endingLineNumber = "566"
+            landmarkName = "-saveDraftJointBuyers"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DamacC/JointBuyerFlow/RentalPoolViewCellViewController.m"
+            timestampString = "563630710.713443"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "555"
+            endingLineNumber = "555"
+            landmarkName = "-submitJointBuyersResponse"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

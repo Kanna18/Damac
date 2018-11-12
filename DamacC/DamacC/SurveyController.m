@@ -37,9 +37,11 @@
         if(responseObj){
             surverArray = [NSJSONSerialization JSONObjectWithData:responseObj options:NSJSONReadingMutableContainers error:nil];
             
-            dispatch_async(dispatch_get_main_queue(), ^{
-                _surverFirstView.hidden = YES;
-            });            
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    _surverFirstView.hidden = YES;
+                });
+            });
         }
 
     } errorBlock:^(NSError *error) {

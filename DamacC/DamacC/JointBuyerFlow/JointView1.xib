@@ -27,31 +27,19 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hQw-md-EMw">
                             <rect key="frame" x="215.5" y="30" width="90" height="90"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="downloadForum" highlightedImage="goldTick" translatesAutoresizingMaskIntoConstraints="NO" id="aPu-YJ-gKp" customClass="downloadForum">
-                                    <rect key="frame" x="25" y="10" width="40" height="40"/>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="downloadCOCD" highlightedImage="downloadComplete" translatesAutoresizingMaskIntoConstraints="NO" id="aPu-YJ-gKp" customClass="downloadForum">
+                                    <rect key="frame" x="15" y="10" width="60" height="60"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="40" id="NSY-WS-1ld"/>
-                                        <constraint firstAttribute="width" constant="40" id="p3y-8X-Enp"/>
+                                        <constraint firstAttribute="height" constant="60" id="NSY-WS-1ld"/>
+                                        <constraint firstAttribute="width" constant="60" id="p3y-8X-Enp"/>
                                     </constraints>
                                 </imageView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Download change of details form" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RM8-fZ-bSq">
-                                    <rect key="frame" x="-5" y="60" width="100" height="20"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="100" id="ZKx-zE-csH"/>
-                                    </constraints>
-                                    <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="8"/>
-                                    <color key="textColor" red="0.74901960779999999" green="0.60392156860000001" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
                             </subviews>
                             <color key="backgroundColor" red="0.33725490196078434" green="0.33725490196078434" blue="0.33725490196078434" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="90" id="9pe-5L-dJD"/>
-                                <constraint firstItem="RM8-fZ-bSq" firstAttribute="top" secondItem="aPu-YJ-gKp" secondAttribute="bottom" constant="10" id="Fah-1M-g6H"/>
                                 <constraint firstItem="aPu-YJ-gKp" firstAttribute="centerX" secondItem="hQw-md-EMw" secondAttribute="centerX" id="Vfl-xM-rgk"/>
-                                <constraint firstItem="RM8-fZ-bSq" firstAttribute="centerX" secondItem="hQw-md-EMw" secondAttribute="centerX" id="ajd-21-pc3"/>
-                                <constraint firstItem="RM8-fZ-bSq" firstAttribute="centerX" secondItem="hQw-md-EMw" secondAttribute="centerX" id="bku-Md-V8U"/>
                                 <constraint firstItem="aPu-YJ-gKp" firstAttribute="centerX" secondItem="hQw-md-EMw" secondAttribute="centerX" id="mdk-Qh-xaj"/>
                                 <constraint firstItem="aPu-YJ-gKp" firstAttribute="top" secondItem="hQw-md-EMw" secondAttribute="top" constant="10" id="tB9-RU-iac"/>
                                 <constraint firstAttribute="width" constant="90" id="tnw-7W-cyZ"/>
@@ -353,7 +341,6 @@
                 <outlet property="bottomButtomsView" destination="SnW-Cv-dim" id="1HC-aF-6WI"/>
                 <outlet property="downloadFormBtn" destination="CZQ-Qa-NMW" id="gwu-a6-ymO"/>
                 <outlet property="downloadImage" destination="aPu-YJ-gKp" id="eco-zX-puS"/>
-                <outlet property="downloadText" destination="RM8-fZ-bSq" id="NnG-9u-bMA"/>
                 <outlet property="previous1height" destination="yYi-VR-c7P" id="3FL-am-GIF"/>
                 <outlet property="previousBtn" destination="MLx-8W-1bb" id="WsG-Jm-YMA"/>
                 <outlet property="previousBtn2" destination="uHD-G5-MtQ" id="Oie-uu-saG"/>
@@ -370,7 +357,7 @@
     </objects>
     <resources>
         <image name="ImageUpload" width="15" height="15"/>
-        <image name="downloadForum" width="32" height="32"/>
-        <image name="goldTick" width="48" height="48"/>
+        <image name="downloadCOCD" width="165" height="169"/>
+        <image name="downloadComplete" width="180" height="201"/>
     </resources>
 </document>

@@ -175,7 +175,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="submitClick:" destination="gAf-4P-d5p" eventType="touchUpInside" id="kXj-U0-1SY"/>
+                                    <action selector="resetClick:" destination="gAf-4P-d5p" eventType="touchUpInside" id="alv-o3-Lj6"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -244,13 +244,13 @@
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fingerprint" translatesAutoresizingMaskIntoConstraints="NO" id="Td4-Ax-zBp">
-                                <rect key="frame" x="162.5" y="384.5" width="50" height="50"/>
+                                <rect key="frame" x="152.5" y="384.5" width="70" height="70"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="DfV-2t-oOk"/>
-                                    <constraint firstAttribute="width" constant="50" id="GKJ-LN-ly7"/>
+                                    <constraint firstAttribute="height" constant="70" id="DfV-2t-oOk"/>
+                                    <constraint firstAttribute="width" constant="70" id="GKJ-LN-ly7"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hellodamacicon" translatesAutoresizingMaskIntoConstraints="NO" id="t2b-lc-ZqK">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hellodamacicon" translatesAutoresizingMaskIntoConstraints="NO" id="t2b-lc-ZqK">
                                 <rect key="frame" x="97.5" y="40" width="180" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="AK3-Zy-fHi"/>
@@ -258,7 +258,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BIOMETRIC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uuI-YK-rDM">
-                                <rect key="frame" x="149.5" y="452.5" width="76" height="16.5"/>
+                                <rect key="frame" x="148" y="472.5" width="79" height="13.5"/>
                                 <fontDescription key="fontDescription" name="AGHelveticaBold" family="AG_Helvetica" pointSize="14"/>
                                 <color key="textColor" red="0.72941176470588232" green="0.58823529411764708" blue="0.34509803921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -1336,19 +1336,19 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4gv-fO-249">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="162"/>
-                                        <color key="backgroundColor" red="0.31372549019607843" green="0.31372549019607843" blue="0.31372549019607843" alpha="0.66403574486301364" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.31372549019607843" green="0.31372549019607843" blue="0.31372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jF8-IB-8rN">
                                         <rect key="frame" x="0.0" y="162" width="375" height="161.5"/>
-                                        <color key="backgroundColor" red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.14901960784313725" green="0.14509803921568626" blue="0.14509803921568626" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ff4-cz-MUK">
                                         <rect key="frame" x="0.0" y="323.5" width="375" height="162"/>
-                                        <color key="backgroundColor" red="0.31372549019607843" green="0.31372549019607843" blue="0.31372549019607843" alpha="0.66403574486301364" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.31372549019607843" green="0.31372549019607843" blue="0.31372549019607843" alpha="0.66000000000000003" colorSpace="calibratedRGB"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xLw-23-U6t">
                                         <rect key="frame" x="0.0" y="485.5" width="375" height="161.5"/>
-                                        <color key="backgroundColor" red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.14901960784313725" green="0.14509803921568626" blue="0.14509803921568626" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
                                 </subviews>
                                 <constraints>
@@ -1446,7 +1446,7 @@
                                         </constraints>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.31372549019607843" green="0.31372549019607843" blue="0.31372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.14901960784313725" green="0.14509803921568626" blue="0.14509803921568626" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="YoI-EE-VjO" firstAttribute="width" secondItem="D3B-oP-OSh" secondAttribute="width" id="6Ws-jh-1lG"/>
                                     <constraint firstItem="D3B-oP-OSh" firstAttribute="top" secondItem="iHt-zN-stf" secondAttribute="top" constant="5" id="CIk-Qc-tqf"/>
@@ -3038,11 +3038,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yNY-su-pln">
-                                <rect key="frame" x="0.0" y="1" width="375" height="647"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yNY-su-pln">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7L3-u2-mff">
-                                        <rect key="frame" x="0.0" y="-177" width="375" height="906"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7L3-u2-mff">
+                                        <rect key="frame" x="0.0" y="-2" width="375" height="906"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Unit*" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5D1-1F-BA7">
                                                 <rect key="frame" x="20" y="20" width="335" height="18.5"/>
@@ -4787,13 +4787,13 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dear Mr." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4BO-Ew-AcN">
-                                <rect key="frame" x="20" y="320.5" width="335" height="16.5"/>
+                                <rect key="frame" x="20" y="300.5" width="335" height="17.5"/>
                                 <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="14"/>
                                 <color key="textColor" red="0.74901960779999999" green="0.60392156860000001" blue="0.28235294119999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5OL-rj-pn3">
-                                <rect key="frame" x="-42" y="293" width="42" height="20"/>
+                                <rect key="frame" x="-42" y="293" width="42" height="21"/>
                                 <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="17"/>
                                 <color key="textColor" red="0.74901960779999999" green="0.60392156860000001" blue="0.28235294119999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -4817,15 +4817,15 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="your opinion in just 2 minutes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zpG-4k-6a5">
-                                <rect key="frame" x="20" y="343" width="335" height="14"/>
+                                <rect key="frame" x="20" y="327" width="335" height="15"/>
                                 <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="12"/>
                                 <color key="textColor" red="0.74901960779999999" green="0.60392156860000001" blue="0.28235294119999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tOW-Xr-CuE">
-                                <rect key="frame" x="20" y="370.5" width="335" height="31.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="8" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tOW-Xr-CuE">
+                                <rect key="frame" x="20" y="351" width="335" height="44"/>
                                 <string key="text">Thank you for taking time out to provide your feedback. With the intention of improving your experience with DAMAC we reuest you to take a  few minutes to share ypur inputs.</string>
-                                <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="9"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="12"/>
                                 <color key="textColor" red="0.74901960779999999" green="0.60392156860000001" blue="0.28235294119999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -4861,10 +4861,10 @@
                             <constraint firstItem="zpG-4k-6a5" firstAttribute="trailing" secondItem="BwK-Dh-VLq" secondAttribute="trailing" id="5XG-vv-8Ch"/>
                             <constraint firstItem="b82-td-gmy" firstAttribute="width" secondItem="qBF-TO-6XO" secondAttribute="width" id="A8V-ce-YUn"/>
                             <constraint firstItem="ecJ-Vq-csB" firstAttribute="trailing" secondItem="zFO-0x-zBX" secondAttribute="trailing" id="BMR-ZG-M1D"/>
-                            <constraint firstItem="BwK-Dh-VLq" firstAttribute="top" secondItem="zpG-4k-6a5" secondAttribute="bottom" constant="60" id="DIy-45-604"/>
+                            <constraint firstItem="BwK-Dh-VLq" firstAttribute="top" secondItem="zpG-4k-6a5" secondAttribute="bottom" constant="75" id="DIy-45-604"/>
                             <constraint firstItem="5OL-rj-pn3" firstAttribute="top" secondItem="qBF-TO-6XO" secondAttribute="top" constant="293" id="HAS-OQ-edA"/>
                             <constraint firstItem="b82-td-gmy" firstAttribute="centerY" secondItem="qBF-TO-6XO" secondAttribute="centerY" id="MoE-kW-J9P"/>
-                            <constraint firstItem="BwK-Dh-VLq" firstAttribute="top" secondItem="tOW-Xr-CuE" secondAttribute="bottom" constant="15" id="QZy-8i-ibG"/>
+                            <constraint firstItem="BwK-Dh-VLq" firstAttribute="top" secondItem="tOW-Xr-CuE" secondAttribute="bottom" constant="22" id="QZy-8i-ibG"/>
                             <constraint firstItem="ecJ-Vq-csB" firstAttribute="bottom" secondItem="zFO-0x-zBX" secondAttribute="bottom" id="RUJ-3d-fOc"/>
                             <constraint firstItem="tOW-Xr-CuE" firstAttribute="leading" secondItem="BwK-Dh-VLq" secondAttribute="leading" id="SFN-Hp-vKD"/>
                             <constraint firstItem="b82-td-gmy" firstAttribute="centerX" secondItem="qBF-TO-6XO" secondAttribute="centerX" id="Smw-Rg-2a1"/>
@@ -4874,7 +4874,7 @@
                             <constraint firstItem="BwK-Dh-VLq" firstAttribute="centerX" secondItem="qBF-TO-6XO" secondAttribute="centerX" id="bHs-bD-YFp"/>
                             <constraint firstItem="zFO-0x-zBX" firstAttribute="top" secondItem="ecJ-Vq-csB" secondAttribute="top" id="dQR-Ma-Mj8"/>
                             <constraint firstItem="zFO-0x-zBX" firstAttribute="leading" secondItem="ecJ-Vq-csB" secondAttribute="leading" id="eeA-JQ-TNa"/>
-                            <constraint firstItem="BwK-Dh-VLq" firstAttribute="top" secondItem="4BO-Ew-AcN" secondAttribute="bottom" constant="80" id="iU7-m9-dSX"/>
+                            <constraint firstItem="BwK-Dh-VLq" firstAttribute="top" secondItem="4BO-Ew-AcN" secondAttribute="bottom" constant="99" id="iU7-m9-dSX"/>
                             <constraint firstItem="tOW-Xr-CuE" firstAttribute="trailing" secondItem="BwK-Dh-VLq" secondAttribute="trailing" id="kKj-l4-g9e"/>
                             <constraint firstItem="BwK-Dh-VLq" firstAttribute="leading" secondItem="5OL-rj-pn3" secondAttribute="trailing" constant="20" id="prn-7o-qfd"/>
                             <constraint firstItem="5OL-rj-pn3" firstAttribute="leading" secondItem="qBF-TO-6XO" secondAttribute="leadingMargin" constant="-58" id="qlM-kA-hOj"/>
@@ -4890,7 +4890,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d6W-Nv-PIR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="10801" y="1497"/>
+            <point key="canvasLocation" x="10800.799999999999" y="1496.4017991004498"/>
         </scene>
         <!--Show Menu OptiionsVC-->
         <scene sceneID="kUU-iN-wwO">
@@ -5594,7 +5594,7 @@
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EoY-BY-KyA" customClass="COCDTF">
-                                                                            <rect key="frame" x="15" y="0.0" width="305" height="60"/>
+                                                                            <rect key="frame" x="15" y="0.0" width="305" height="59.5"/>
                                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <color key="textColor" red="0.74901960779999999" green="0.60392156860000001" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -6498,7 +6498,7 @@
                                                         <constraint firstAttribute="height" constant="12" id="Uw1-4f-fio"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="14"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                                    <color key="textColor" red="0.59607843137254901" green="0.5725490196078431" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How did you contact us last?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8eE-Hx-Szh">
@@ -6508,17 +6508,18 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yXn-oC-tSU">
-                                                    <rect key="frame" x="18" y="79" width="339" height="165"/>
+                                                    <rect key="frame" x="18" y="79" width="339" height="163"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3o9-pp-2GM">
                                                             <rect key="frame" x="0.0" y="0.0" width="339" height="40"/>
-                                                            <color key="backgroundColor" red="0.14901960784313725" green="0.14901960784313725" blue="0.14901960784313725" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="backgroundColor" red="0.17665409262663395" green="0.17665409262663395" blue="0.17665409262663395" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="40" id="KjB-jQ-0O7"/>
                                                             </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <inset key="imageEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                             <state key="normal" title="      Email" image="radioOff">
-                                                                <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                                                <color key="titleColor" red="0.59607843137254901" green="0.5725490196078431" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </state>
                                                             <state key="selected" image="radioOn-1"/>
                                                             <connections>
@@ -6527,10 +6528,11 @@
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FDK-8H-TFf">
                                                             <rect key="frame" x="0.0" y="41" width="339" height="40"/>
-                                                            <color key="backgroundColor" red="0.14901960784313725" green="0.14901960784313725" blue="0.14901960784313725" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="backgroundColor" red="0.17665409262663395" green="0.17665409262663395" blue="0.17665409262663395" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <inset key="imageEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                             <state key="normal" title="      PHONE CALL" image="radioOff">
-                                                                <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                                                <color key="titleColor" red="0.59474985957924842" green="0.57332629593478712" blue="0.53511129051493722" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </state>
                                                             <state key="selected" image="radioOn-1"/>
                                                             <connections>
@@ -6539,10 +6541,11 @@
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nxh-cD-2ZR">
                                                             <rect key="frame" x="0.0" y="82" width="339" height="40"/>
-                                                            <color key="backgroundColor" red="0.14901960784313725" green="0.14901960784313725" blue="0.14901960784313725" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="backgroundColor" red="0.17665409262663395" green="0.17665409262663395" blue="0.17665409262663395" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <inset key="imageEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                             <state key="normal" title="      WALK-IN" image="radioOff">
-                                                                <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                                                <color key="titleColor" red="0.59474985957924842" green="0.57332629593478712" blue="0.53511129051493722" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </state>
                                                             <state key="selected" image="radioOn-1"/>
                                                             <connections>
@@ -6551,10 +6554,11 @@
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vnK-d0-DfB">
                                                             <rect key="frame" x="0.0" y="123" width="339" height="40"/>
-                                                            <color key="backgroundColor" red="0.14901960784313725" green="0.14901960784313725" blue="0.14901960784313725" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="backgroundColor" red="0.17665409262663395" green="0.17665409262663395" blue="0.17665409262663395" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <inset key="imageEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                             <state key="normal" title="      WEB CHAT" image="radioOff">
-                                                                <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                                                <color key="titleColor" red="0.59474985957924842" green="0.57332629593478712" blue="0.53511129051493722" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </state>
                                                             <state key="selected" image="radioOn-1"/>
                                                             <connections>
@@ -6569,7 +6573,7 @@
                                                         <constraint firstItem="3o9-pp-2GM" firstAttribute="top" secondItem="yXn-oC-tSU" secondAttribute="top" id="4pV-aE-RQd"/>
                                                         <constraint firstItem="Nxh-cD-2ZR" firstAttribute="centerX" secondItem="FDK-8H-TFf" secondAttribute="centerX" id="D6p-Li-WoO"/>
                                                         <constraint firstAttribute="trailing" secondItem="3o9-pp-2GM" secondAttribute="trailing" id="GMR-Ka-jZX"/>
-                                                        <constraint firstAttribute="height" constant="165" id="HEH-cf-eM5"/>
+                                                        <constraint firstAttribute="height" constant="163" id="HEH-cf-eM5"/>
                                                         <constraint firstItem="vnK-d0-DfB" firstAttribute="centerX" secondItem="Nxh-cD-2ZR" secondAttribute="centerX" id="KAE-9A-gaW"/>
                                                         <constraint firstItem="Nxh-cD-2ZR" firstAttribute="top" secondItem="FDK-8H-TFf" secondAttribute="bottom" constant="1" id="KfN-05-JJh"/>
                                                         <constraint firstItem="vnK-d0-DfB" firstAttribute="height" secondItem="Nxh-cD-2ZR" secondAttribute="height" id="O2i-MH-wjJ"/>
@@ -6588,12 +6592,12 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jd1-Nk-2vY">
-                                                    <rect key="frame" x="18" y="274" width="339" height="50"/>
+                                                    <rect key="frame" x="18" y="272" width="339" height="50"/>
                                                     <color key="backgroundColor" red="0.21176470588235294" green="0.21176470588235294" blue="0.21176470588235294" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="50" id="t1Y-ZE-hFY"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="15"/>
                                                     <state key="normal" title="Purpose of contact" image="dropArrow">
                                                         <color key="titleColor" red="0.74901960779999999" green="0.60392156860000001" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
@@ -6602,12 +6606,12 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dfQ-B9-6Xq">
-                                                    <rect key="frame" x="28" y="438" width="319" height="50"/>
+                                                    <rect key="frame" x="28" y="436" width="319" height="50"/>
                                                     <color key="backgroundColor" red="0.74901960779999999" green="0.60392156860000001" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="50" id="sdC-aq-Tgj"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="12"/>
                                                     <state key="normal" title="CONTINUE SURVEY">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
@@ -6621,24 +6625,24 @@
                                                     </connections>
                                                 </button>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dyh-oA-gEM">
-                                                    <rect key="frame" x="120" y="398" width="135" height="20"/>
+                                                    <rect key="frame" x="120" y="396" width="135" height="20"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question  " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LjA-Kl-Nf1">
-                                                            <rect key="frame" x="0.0" y="0.0" width="59.5" height="20"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="67.5" height="20"/>
                                                             <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="13"/>
-                                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="textColor" red="0.59607843137254901" green="0.5725490196078431" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kV5-ak-umQ">
-                                                            <rect key="frame" x="59.5" y="0.0" width="7.5" height="20"/>
+                                                            <rect key="frame" x="67.5" y="0.0" width="5" height="20"/>
                                                             <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="13"/>
                                                             <color key="textColor" red="0.74901960779999999" green="0.60392156860000001" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  of 6" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XRs-dz-Zp2">
-                                                            <rect key="frame" x="67" y="0.0" width="29.5" height="20"/>
+                                                            <rect key="frame" x="72.5" y="0.0" width="31.5" height="20"/>
                                                             <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="13"/>
-                                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="textColor" red="0.59607843137254901" green="0.5725490196078431" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -6658,13 +6662,13 @@
                                                     </constraints>
                                                 </view>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Please Specify the purpose of contact" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Njt-Wo-S2k">
-                                                    <rect key="frame" x="18" y="343" width="339" height="40"/>
+                                                    <rect key="frame" x="18" y="341" width="339" height="40"/>
                                                     <color key="backgroundColor" red="0.21176470588235294" green="0.21176470588235294" blue="0.21176470588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="Ios-aV-v4h"/>
                                                     </constraints>
-                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="13"/>
+                                                    <color key="textColor" red="0.74901960784313726" green="0.70196078431372544" blue="0.61568627450980395" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="11"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
                                             </subviews>
@@ -6719,48 +6723,48 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Question 2" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pXi-JE-Crq">
-                                                    <rect key="frame" x="31" y="20" width="320" height="13"/>
+                                                    <rect key="frame" x="31" y="20" width="320" height="13.5"/>
                                                     <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="11"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                                    <color key="textColor" red="0.59607843137254901" green="0.5725490196078431" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How likely are you to recommend Damac Properties to a friend or colleague?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lvq-07-C2P">
-                                                    <rect key="frame" x="30" y="35" width="317" height="26"/>
-                                                    <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="11"/>
+                                                    <rect key="frame" x="30" y="35.5" width="317" height="29.5"/>
+                                                    <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="12"/>
                                                     <color key="textColor" red="0.74901960779999999" green="0.60392156860000001" blue="0.34509803919999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0-Not likely at all" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CXj-qs-To3">
-                                                    <rect key="frame" x="30" y="71" width="229" height="13"/>
-                                                    <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="11"/>
+                                                    <rect key="frame" x="30" y="75" width="229" height="15"/>
+                                                    <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="12"/>
                                                     <color key="textColor" red="0.74901960779999999" green="0.60392156860000001" blue="0.34509803919999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 - Extremely Likely" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YeZ-rm-FZs">
-                                                    <rect key="frame" x="30" y="89" width="245" height="13"/>
-                                                    <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="11"/>
+                                                    <rect key="frame" x="30" y="95" width="245" height="15"/>
+                                                    <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="12"/>
                                                     <color key="textColor" red="0.74901960779999999" green="0.60392156860000001" blue="0.34509803919999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H85-ff-UJ6">
-                                                    <rect key="frame" x="121" y="529" width="135" height="20"/>
+                                                    <rect key="frame" x="121" y="537" width="135" height="20"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question  " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xf4-IT-J1m">
-                                                            <rect key="frame" x="0.0" y="0.0" width="59.5" height="20"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="67.5" height="20"/>
                                                             <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="13"/>
-                                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="textColor" red="0.59607843137254901" green="0.5725490196078431" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cfR-Wr-cop">
-                                                            <rect key="frame" x="59.5" y="0.0" width="7.5" height="20"/>
+                                                            <rect key="frame" x="67.5" y="0.0" width="7.5" height="20"/>
                                                             <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="13"/>
                                                             <color key="textColor" red="0.74901960779999999" green="0.60392156860000001" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  of 6" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zYH-cc-KeH">
-                                                            <rect key="frame" x="67" y="0.0" width="29.5" height="20"/>
+                                                            <rect key="frame" x="75" y="0.0" width="31.5" height="20"/>
                                                             <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="13"/>
-                                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="textColor" red="0.59607843137254901" green="0.5725490196078431" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -6781,7 +6785,7 @@
                                                     </constraints>
                                                 </view>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EZp-wf-kqf">
-                                                    <rect key="frame" x="20" y="569" width="337" height="40"/>
+                                                    <rect key="frame" x="20" y="577" width="337" height="40"/>
                                                     <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="l6h-wa-eH7"/>
@@ -6800,16 +6804,17 @@
                                                     </connections>
                                                 </button>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Please tell us the reason for your low rating" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Qni-oN-uUJ">
-                                                    <rect key="frame" x="36" y="449" width="305" height="60"/>
+                                                    <rect key="frame" x="36" y="457" width="305" height="60"/>
                                                     <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="60" id="xsy-gC-9i6"/>
                                                     </constraints>
+                                                    <color key="textColor" red="0.74901960784313726" green="0.70196078431372544" blue="0.61568627450980395" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="12"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
                                                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LFi-0P-lEM">
-                                                    <rect key="frame" x="158.5" y="112" width="60" height="327"/>
+                                                    <rect key="frame" x="158.5" y="120" width="60" height="327"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="327" id="9Ym-30-kP3"/>
@@ -6829,8 +6834,8 @@
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="30" id="apW-gE-ucx"/>
                                                                         </constraints>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                        <color key="textColor" red="0.74901960784313726" green="0.60392156862745094" blue="0.34509803921568627" alpha="1" colorSpace="calibratedRGB"/>
+                                                                        <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="17"/>
+                                                                        <color key="textColor" red="0.74901960784313726" green="0.60392156862745094" blue="0.19607843137254902" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xph-qS-Y8r">
@@ -6910,13 +6915,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Question 3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HhX-w1-mGR">
-                                                    <rect key="frame" x="20" y="2" width="335" height="14"/>
+                                                    <rect key="frame" x="20" y="2" width="335" height="15"/>
                                                     <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="12"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                                    <color key="textColor" red="0.59607843137254901" green="0.5725490196078431" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From your experience, please share your feedback by marking appropriate below" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="owF-1k-vWk">
-                                                    <rect key="frame" x="20" y="21" width="335" height="28"/>
+                                                    <rect key="frame" x="20" y="22" width="335" height="29.5"/>
                                                     <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="12"/>
                                                     <color key="textColor" red="0.74901960779999999" green="0.60392156860000001" blue="0.34509803919999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -6927,7 +6932,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question  " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vQO-A3-jxg">
                                                             <rect key="frame" x="0.0" y="0.0" width="62" height="20"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="textColor" red="0.59607843137254901" green="0.5725490196078431" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="34q-kI-1lB">
@@ -6939,7 +6944,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  of 6" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AMT-jt-Sck">
                                                             <rect key="frame" x="71" y="0.0" width="31.5" height="20"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="textColor" red="0.59607843137254901" green="0.5725490196078431" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -6960,7 +6965,7 @@
                                                     </constraints>
                                                 </view>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="TDL-Oj-oMU">
-                                                    <rect key="frame" x="20" y="69" width="335" height="340"/>
+                                                    <rect key="frame" x="20" y="71.5" width="335" height="340"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="340" id="Qqm-QN-eRn"/>
@@ -7155,19 +7160,19 @@
                                                                                 <rect key="frame" x="60" y="216.5" width="135" height="20"/>
                                                                                 <subviews>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question  " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jj7-tM-9rE">
-                                                                                        <rect key="frame" x="0.0" y="0.0" width="50.5" height="20"/>
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="57" height="20"/>
                                                                                         <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="11"/>
                                                                                         <color key="textColor" red="0.74901960779999999" green="0.60392156860000001" blue="0.34509803919999998" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WZd-94-Ato">
-                                                                                        <rect key="frame" x="50.5" y="0.0" width="6.5" height="20"/>
+                                                                                        <rect key="frame" x="57" y="0.0" width="6.5" height="20"/>
                                                                                         <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="11"/>
                                                                                         <color key="textColor" red="0.74901960779999999" green="0.60392156860000001" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  of 4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PNb-6f-bAe">
-                                                                                        <rect key="frame" x="57" y="0.0" width="25" height="20"/>
+                                                                                        <rect key="frame" x="63.5" y="0.0" width="27.5" height="20"/>
                                                                                         <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="11"/>
                                                                                         <color key="textColor" red="0.74901960779999999" green="0.60392156860000001" blue="0.34509803919999998" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                         <nil key="highlightedColor"/>
@@ -7190,7 +7195,7 @@
                                                                                 </constraints>
                                                                             </view>
                                                                         </subviews>
-                                                                        <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="0.56258026541095896" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        <color key="backgroundColor" red="0.25490196078431371" green="0.25490196078431371" blue="0.25490196078431371" alpha="0.56000000000000005" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <constraints>
                                                                             <constraint firstItem="3pk-sH-4AW" firstAttribute="top" secondItem="khL-l0-zXV" secondAttribute="bottom" id="BBL-0Z-JU8"/>
                                                                             <constraint firstAttribute="trailing" secondItem="khL-l0-zXV" secondAttribute="trailing" constant="5" id="CuF-Bc-7Hw"/>
@@ -7210,11 +7215,11 @@
                                                                     </view>
                                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Please Specify Reason" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="WrP-VP-m3b">
                                                                         <rect key="frame" x="0.0" y="259" width="255" height="60"/>
-                                                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <color key="backgroundColor" red="0.25490196078431371" green="0.25490196078431371" blue="0.25490196078431371" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="60" id="pyk-Hb-rsu"/>
                                                                         </constraints>
-                                                                        <color key="textColor" red="0.74901960779999999" green="0.60392156860000001" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                                        <color key="textColor" red="0.74901960784313726" green="0.70196078431372544" blue="0.61568627450980395" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                                         <userDefinedRuntimeAttributes>
@@ -7303,7 +7308,7 @@
                                                         <constraint firstAttribute="height" constant="12" id="bhV-aC-98U"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                                    <color key="textColor" red="0.59607843137254901" green="0.5725490196078431" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How many different DAMAC personnel did you meet in all your visits" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KmY-W7-kSx">
@@ -7313,17 +7318,18 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sLg-i1-cxO">
-                                                    <rect key="frame" x="36" y="79" width="309" height="210"/>
+                                                    <rect key="frame" x="36" y="79" width="309" height="204"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gvZ-rJ-ueV">
                                                             <rect key="frame" x="0.0" y="0.0" width="309" height="40"/>
-                                                            <color key="backgroundColor" red="0.33725490196078434" green="0.33725490196078434" blue="0.33725490196078434" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="backgroundColor" red="0.1764705882352941" green="0.1764705882352941" blue="0.1764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="40" id="EDJ-rU-p6j"/>
                                                             </constraints>
+                                                            <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="12"/>
                                                             <inset key="imageEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                             <state key="normal" title="    ONE" image="radioOff">
-                                                                <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                                                <color key="titleColor" red="0.59607843137254901" green="0.5725490196078431" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </state>
                                                             <state key="selected" image="radioOn-1"/>
                                                             <connections>
@@ -7332,10 +7338,11 @@
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YP2-gE-GTS">
                                                             <rect key="frame" x="0.0" y="41" width="309" height="40"/>
-                                                            <color key="backgroundColor" red="0.33725490196078434" green="0.33725490196078434" blue="0.33725490196078434" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="backgroundColor" red="0.1764705882352941" green="0.1764705882352941" blue="0.1764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="12"/>
                                                             <inset key="imageEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                             <state key="normal" title="    TWO" image="radioOff">
-                                                                <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                                                <color key="titleColor" red="0.59607843137254901" green="0.5725490196078431" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </state>
                                                             <state key="selected" image="radioOn-1"/>
                                                             <connections>
@@ -7344,10 +7351,11 @@
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QpV-Hi-s0K">
                                                             <rect key="frame" x="0.0" y="82" width="309" height="40"/>
-                                                            <color key="backgroundColor" red="0.33725490196078434" green="0.33725490196078434" blue="0.33725490196078434" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="backgroundColor" red="0.1764705882352941" green="0.1764705882352941" blue="0.1764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="12"/>
                                                             <inset key="imageEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                             <state key="normal" title="    THREE" image="radioOff">
-                                                                <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                                                <color key="titleColor" red="0.59607843137254901" green="0.5725490196078431" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </state>
                                                             <state key="selected" image="radioOn-1"/>
                                                             <connections>
@@ -7356,10 +7364,11 @@
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RIz-bh-02t">
                                                             <rect key="frame" x="0.0" y="123" width="309" height="40"/>
-                                                            <color key="backgroundColor" red="0.33725490196078434" green="0.33725490196078434" blue="0.33725490196078434" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="backgroundColor" red="0.1764705882352941" green="0.1764705882352941" blue="0.1764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="12"/>
                                                             <inset key="imageEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                             <state key="normal" title="    MORE THAN THREE" image="radioOff">
-                                                                <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                                                <color key="titleColor" red="0.59607843137254901" green="0.5725490196078431" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </state>
                                                             <state key="selected" image="radioOn-1"/>
                                                             <connections>
@@ -7368,10 +7377,11 @@
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="evd-zw-dnV">
                                                             <rect key="frame" x="0.0" y="164" width="309" height="40"/>
-                                                            <color key="backgroundColor" red="0.33725490196078434" green="0.33725490196078434" blue="0.33725490196078434" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="backgroundColor" red="0.1764705882352941" green="0.1764705882352941" blue="0.1764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="12"/>
                                                             <inset key="imageEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                             <state key="normal" title="    NOT APPLICABLE" image="radioOff">
-                                                                <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                                                <color key="titleColor" red="0.59607843137254901" green="0.5725490196078431" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </state>
                                                             <state key="selected" image="radioOn-1"/>
                                                             <connections>
@@ -7388,7 +7398,7 @@
                                                         <constraint firstItem="QpV-Hi-s0K" firstAttribute="centerX" secondItem="YP2-gE-GTS" secondAttribute="centerX" id="GKL-RF-cwB"/>
                                                         <constraint firstItem="RIz-bh-02t" firstAttribute="height" secondItem="QpV-Hi-s0K" secondAttribute="height" id="II9-60-snL"/>
                                                         <constraint firstItem="QpV-Hi-s0K" firstAttribute="top" secondItem="YP2-gE-GTS" secondAttribute="bottom" constant="1" id="K0b-R5-vVe"/>
-                                                        <constraint firstAttribute="height" constant="210" id="OQ6-Ry-Urg"/>
+                                                        <constraint firstAttribute="height" constant="204" id="OQ6-Ry-Urg"/>
                                                         <constraint firstItem="YP2-gE-GTS" firstAttribute="height" secondItem="gvZ-rJ-ueV" secondAttribute="height" id="Qns-oR-3vI"/>
                                                         <constraint firstItem="RIz-bh-02t" firstAttribute="width" secondItem="QpV-Hi-s0K" secondAttribute="width" id="REl-kE-0aQ"/>
                                                         <constraint firstItem="evd-zw-dnV" firstAttribute="width" secondItem="RIz-bh-02t" secondAttribute="width" id="aMp-7t-srV"/>
@@ -7424,7 +7434,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </button>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5gG-K7-zUL">
-                                                    <rect key="frame" x="123" y="304" width="135" height="20"/>
+                                                    <rect key="frame" x="123" y="298" width="135" height="20"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question  " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="juh-Mf-erQ">
                                                             <rect key="frame" x="0.0" y="0.0" width="62" height="20"/>
@@ -7499,7 +7509,7 @@
                                                         <constraint firstAttribute="height" constant="12" id="RvI-Vb-jVz"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                                    <color key="textColor" red="0.59607843137254901" green="0.5725490196078431" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How many times did you contact/visit our customer service department before your problem was resolved" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9JU-6e-Y7D">
@@ -7509,17 +7519,18 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PIm-7U-ajy">
-                                                    <rect key="frame" x="20" y="88.5" width="337" height="210"/>
+                                                    <rect key="frame" x="20" y="88.5" width="337" height="205"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KPh-z7-ibj">
                                                             <rect key="frame" x="0.0" y="0.0" width="337" height="40"/>
-                                                            <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="backgroundColor" red="0.1764705882352941" green="0.1764705882352941" blue="0.1764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="40" id="v6c-EN-r2M"/>
                                                             </constraints>
+                                                            <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="12"/>
                                                             <inset key="imageEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                             <state key="normal" title="    Once" image="radioOff">
-                                                                <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                                                <color key="titleColor" red="0.59607843137254901" green="0.5725490196078431" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </state>
                                                             <state key="selected" image="radioOn-1"/>
                                                             <connections>
@@ -7528,10 +7539,11 @@
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wgm-Sc-auq">
                                                             <rect key="frame" x="0.0" y="41" width="337" height="40"/>
-                                                            <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="backgroundColor" red="0.1764705882352941" green="0.1764705882352941" blue="0.1764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="12"/>
                                                             <inset key="imageEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                             <state key="normal" title="    Twice" image="radioOff">
-                                                                <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                                                <color key="titleColor" red="0.59607843137254901" green="0.5725490196078431" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </state>
                                                             <state key="selected" image="radioOn-1"/>
                                                             <connections>
@@ -7540,10 +7552,11 @@
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Gf-7j-X8k">
                                                             <rect key="frame" x="0.0" y="82" width="337" height="40"/>
-                                                            <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="backgroundColor" red="0.1764705882352941" green="0.1764705882352941" blue="0.1764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="12"/>
                                                             <inset key="imageEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                             <state key="normal" title="    3-5 Times" image="radioOff">
-                                                                <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                                                <color key="titleColor" red="0.59607843137254901" green="0.5725490196078431" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </state>
                                                             <state key="selected" image="radioOn-1"/>
                                                             <connections>
@@ -7552,10 +7565,11 @@
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8kM-i4-b0Z">
                                                             <rect key="frame" x="0.0" y="123" width="337" height="40"/>
-                                                            <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="backgroundColor" red="0.1764705882352941" green="0.1764705882352941" blue="0.1764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="12"/>
                                                             <inset key="imageEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                             <state key="normal" title="    More Than 5 Times" image="radioOff">
-                                                                <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                                                <color key="titleColor" red="0.59607843137254901" green="0.5725490196078431" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </state>
                                                             <state key="selected" image="radioOn-1"/>
                                                             <connections>
@@ -7564,10 +7578,11 @@
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L0a-5M-i5u">
                                                             <rect key="frame" x="0.0" y="164" width="337" height="40"/>
-                                                            <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="backgroundColor" red="0.1764705882352941" green="0.1764705882352941" blue="0.1764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="12"/>
                                                             <inset key="imageEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                             <state key="normal" title="    NOT APPLICABLE" image="radioOff">
-                                                                <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                                                <color key="titleColor" red="0.59607843137254901" green="0.5725490196078431" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </state>
                                                             <state key="selected" image="radioOn-1"/>
                                                             <connections>
@@ -7585,7 +7600,7 @@
                                                         <constraint firstItem="KPh-z7-ibj" firstAttribute="leading" secondItem="PIm-7U-ajy" secondAttribute="leading" id="Cc2-vM-4pU"/>
                                                         <constraint firstItem="0Gf-7j-X8k" firstAttribute="top" secondItem="Wgm-Sc-auq" secondAttribute="bottom" constant="1" id="G1d-7L-HNA"/>
                                                         <constraint firstItem="L0a-5M-i5u" firstAttribute="height" secondItem="8kM-i4-b0Z" secondAttribute="height" id="KsC-n6-yse"/>
-                                                        <constraint firstAttribute="height" constant="210" id="RV6-of-fZz"/>
+                                                        <constraint firstAttribute="height" constant="205" id="RV6-of-fZz"/>
                                                         <constraint firstItem="8kM-i4-b0Z" firstAttribute="top" secondItem="0Gf-7j-X8k" secondAttribute="bottom" constant="1" id="SNc-VQ-lpN"/>
                                                         <constraint firstItem="8kM-i4-b0Z" firstAttribute="width" secondItem="0Gf-7j-X8k" secondAttribute="width" id="T4q-yU-epz"/>
                                                         <constraint firstItem="KPh-z7-ibj" firstAttribute="top" secondItem="PIm-7U-ajy" secondAttribute="top" id="TQU-kU-JWl"/>
@@ -7605,7 +7620,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rRs-6L-ub2">
-                                                    <rect key="frame" x="36" y="363.5" width="305" height="30"/>
+                                                    <rect key="frame" x="36" y="358.5" width="305" height="30"/>
                                                     <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="GlW-rU-9Ys"/>
@@ -7620,12 +7635,12 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </button>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KTs-wM-6zx">
-                                                    <rect key="frame" x="121" y="313.5" width="135" height="20"/>
+                                                    <rect key="frame" x="121" y="308.5" width="135" height="20"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question  " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gsa-9n-4aG">
                                                             <rect key="frame" x="0.0" y="0.0" width="62" height="20"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="textColor" red="0.59607843137254901" green="0.5725490196078431" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VyQ-8r-UhC">
@@ -7637,7 +7652,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  of 6" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RUX-Du-YsT">
                                                             <rect key="frame" x="70" y="0.0" width="31.5" height="20"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="textColor" red="0.59607843137254901" green="0.5725490196078431" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -7695,7 +7710,7 @@
                                                         <constraint firstAttribute="height" constant="12" id="0rK-q4-4CZ"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                                    <color key="textColor" red="0.59607843137254901" green="0.5725490196078431" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How do you primarily lodge a complaint or ask for after sales service" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7is-MQ-fu4">
@@ -7709,13 +7724,14 @@
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zze-oC-iu7">
                                                             <rect key="frame" x="0.0" y="0.0" width="304" height="40"/>
-                                                            <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="backgroundColor" red="0.1764705882352941" green="0.1764705882352941" blue="0.1764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="40" id="0DF-do-uRf"/>
                                                             </constraints>
+                                                            <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="12"/>
                                                             <inset key="imageEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                             <state key="normal" title="    ONLINE" image="radioOff">
-                                                                <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                                                <color key="titleColor" red="0.59607843137254901" green="0.5725490196078431" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </state>
                                                             <state key="selected" image="radioOn-1"/>
                                                             <connections>
@@ -7724,10 +7740,11 @@
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V3f-8A-PlH">
                                                             <rect key="frame" x="0.0" y="41" width="304" height="40"/>
-                                                            <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="backgroundColor" red="0.1764705882352941" green="0.1764705882352941" blue="0.1764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="12"/>
                                                             <inset key="imageEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                             <state key="normal" title="    TELEPHONE" image="radioOff">
-                                                                <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                                                <color key="titleColor" red="0.59607843137254901" green="0.5725490196078431" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </state>
                                                             <state key="selected" image="radioOn-1"/>
                                                             <connections>
@@ -7736,10 +7753,11 @@
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1rd-8A-A7t">
                                                             <rect key="frame" x="0.0" y="82" width="304" height="40"/>
-                                                            <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="backgroundColor" red="0.1764705882352941" green="0.1764705882352941" blue="0.1764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="12"/>
                                                             <inset key="imageEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                             <state key="normal" title="    CSR IN THE OFFICE" image="radioOff">
-                                                                <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                                                <color key="titleColor" red="0.59607843137254901" green="0.5725490196078431" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </state>
                                                             <state key="selected" image="radioOn-1"/>
                                                             <connections>
@@ -7748,10 +7766,11 @@
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eOg-au-zM5">
                                                             <rect key="frame" x="0.0" y="123" width="304" height="40"/>
-                                                            <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="backgroundColor" red="0.1764705882352941" green="0.1764705882352941" blue="0.1764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="12"/>
                                                             <inset key="imageEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                             <state key="normal" title="    Email" image="radioOff">
-                                                                <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                                                <color key="titleColor" red="0.59607843137254901" green="0.5725490196078431" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </state>
                                                             <state key="selected" image="radioOn-1"/>
                                                             <connections>
@@ -7806,21 +7825,21 @@
                                                     <rect key="frame" x="120.5" y="342" width="135" height="20"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question  " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jeO-Xs-y1Q">
-                                                            <rect key="frame" x="0.0" y="0.0" width="62" height="20"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="52" height="20"/>
+                                                            <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="10"/>
+                                                            <color key="textColor" red="0.59607843137254901" green="0.5725490196078431" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yVx-b6-LUA">
-                                                            <rect key="frame" x="62" y="0.0" width="9" height="20"/>
+                                                            <rect key="frame" x="52" y="0.0" width="9" height="20"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                             <color key="textColor" red="0.74901960779999999" green="0.60392156860000001" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  of 6" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QHw-KE-8dx">
-                                                            <rect key="frame" x="71" y="0.0" width="31.5" height="20"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <rect key="frame" x="61" y="0.0" width="24.5" height="20"/>
+                                                            <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="10"/>
+                                                            <color key="textColor" red="0.59607843137254901" green="0.5725490196078431" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -7846,7 +7865,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="50" id="32L-7d-i84"/>
                                                     </constraints>
-                                                    <color key="textColor" red="0.74901960779999999" green="0.60392156860000001" blue="0.34509803919999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="textColor" red="0.74901960784313726" green="0.70196078431372544" blue="0.61568627450980395" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                     <userDefinedRuntimeAttributes>
@@ -8033,7 +8052,7 @@
         <image name="prof10" width="32" height="32"/>
         <image name="profileLogo" width="500" height="321"/>
         <image name="radioOff" width="24" height="24"/>
-        <image name="radioOn-1" width="32" height="32"/>
+        <image name="radioOn-1" width="24" height="24"/>
         <image name="satisfied" width="64" height="64"/>
         <image name="satisfied_yellow" width="64" height="64"/>
         <image name="sideArrow" width="16" height="16"/>

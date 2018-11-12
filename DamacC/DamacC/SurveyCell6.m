@@ -15,6 +15,16 @@
     
     [super awakeFromNib];
     _surveyButton.enabled = NO;
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShow:)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHide:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
+    _uitextView.delegate = self;
 }
 - (IBAction)oneClick:(id)sender{
     [self oveToNext];
@@ -69,4 +79,56 @@
     FinishSurveyViewController *finish = [DamacSharedClass.sharedInstance.currentVC.storyboard instantiateViewControllerWithIdentifier:@"finishSurveyViewController"];
     [DamacSharedClass.sharedInstance.currentVC.navigationController pushViewController:finish animated:YES];
 }
+
+
+#pragma Mark Keyboard
+- (void)keyboardWillShow:(NSNotification *)notification
+{
+    CGSize keyboardSize = [[[notification userInfo] objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    
+    CGRect contentInsets;
+    if (UIInterfaceOrientationIsPortrait([[UIApplication sharedApplication] statusBarOrientation])) {
+        contentInsets = CGRectMake(0, (keyboardSize.height-_uitextView.frame.size.height-_uitextView.frame.origin.y),self.contentView.frame.size.width,self.contentView.frame.size.height);
+    } else {
+        contentInsets = CGRectMake(0.0, 0.0, (keyboardSize.width), 0.0);
+    }
+    
+    NSNumber *rate = notification.userInfo[UIKeyboardAnimationDurationUserInfoKey];
+    [UIView animateWithDuration:rate.floatValue animations:^{
+        self.contentView.frame = contentInsets;
+    }];
+    
+}
+- (void)keyboardWillHide:(NSNotification *)notification
+{
+    
+    NSNumber *rate = notification.userInfo[UIKeyboardAnimationDurationUserInfoKey];
+    [UIView animateWithDuration:rate.floatValue animations:^{
+        self.contentView.frame = CGRectMake(0, 0,self.contentView.frame.size.width,self.contentView.frame.size.height);;
+    }];
+}
+
+#pragma mark TextField Delegates
+
+-(void)textViewDidBeginEditing:(UITextView *)textView{
+    if([textView.text isEqualToString:@"Please share any other comments you have"]){
+        textView.text =@"";
+    }
+}
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    
+    if([text isEqualToString:@"\n"]) {
+        [textView resignFirstResponder];
+        return NO;
+    }
+    
+    return YES;
+}
+-(void)textViewDidEndEditing:(UITextView *)textView{
+    if([textView.text isEqualToString:@""]){
+        textView.text =@"Please share any other comments you have";
+    }
+}
+
+
 @end

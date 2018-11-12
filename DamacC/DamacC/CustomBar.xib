@@ -56,6 +56,7 @@
                         <constraint firstAttribute="width" constant="44" id="1cI-Sh-XaX"/>
                     </constraints>
                     <state key="normal" image="iconBell"/>
+                    <state key="selected" image="hilightNotification"/>
                     <connections>
                         <action selector="loadNotifications:" destination="iN0-l3-epB" eventType="touchUpInside" id="CfV-yB-dbf"/>
                     </connections>
@@ -116,6 +117,7 @@
     </objects>
     <resources>
         <image name="hellodamacicon" width="693" height="308"/>
+        <image name="hilightNotification" width="25" height="25"/>
         <image name="icon1" width="30" height="30"/>
         <image name="iconBell" width="30" height="30"/>
         <image name="iconSettings" width="30" height="30"/>

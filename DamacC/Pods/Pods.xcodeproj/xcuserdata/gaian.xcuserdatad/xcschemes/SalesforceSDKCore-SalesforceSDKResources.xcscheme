@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "BE5AC225BFD499213670304D9E2035DD"
+               BlueprintIdentifier = "7FDDF2D3BD7242A319947ECFF4695F63"
                BuildableName = "SalesforceSDKResources.bundle"
                BlueprintName = "SalesforceSDKCore-SalesforceSDKResources"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "BE5AC225BFD499213670304D9E2035DD"
+            BlueprintIdentifier = "7FDDF2D3BD7242A319947ECFF4695F63"
             BuildableName = "SalesforceSDKResources.bundle"
             BlueprintName = "SalesforceSDKCore-SalesforceSDKResources"
             ReferencedContainer = "container:Pods.xcodeproj">

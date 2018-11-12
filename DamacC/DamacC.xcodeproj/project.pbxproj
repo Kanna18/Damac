@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F24596A019BC29A854E94A3 /* libPods-DamacC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A260A1918946C43D1CC4C92D /* libPods-DamacC.a */; };
 		4F8D5EA31B6C0568005E64D4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8D5EA21B6C0568005E64D4 /* main.m */; };
 		4F8D5EA61B6C0568005E64D4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8D5EA51B6C0568005E64D4 /* AppDelegate.m */; };
 		4F8D5EC81B6C0F94005E64D4 /* InitialViewController1.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8D5EC71B6C0F94005E64D4 /* InitialViewController1.m */; };
 		4F8D5ECB1B6C0FE4005E64D4 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8D5ECA1B6C0FE4005E64D4 /* RootViewController.m */; };
-		99BA92AC3AFED11B4EDED681 /* libPods-DamacC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 37A6CC5BAEC98628A221C49E /* libPods-DamacC.a */; };
 		B7168FBA1FACC5D900A48DB5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7168FB91FACC5D900A48DB5 /* LaunchScreen.storyboard */; };
 		F60164ED20ABB9D900E07510 /* UnitsDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F60164EC20ABB9D900E07510 /* UnitsDataModel.m */; };
 		F60164F320ABF36F00E07510 /* PaymentsDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F60164F220ABF36F00E07510 /* PaymentsDataModel.m */; };
@@ -21,6 +21,11 @@
 		F604B36821670A610047CBD2 /* POPTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F604B36721670A610047CBD2 /* POPTableCell.m */; };
 		F604B36B2167245E0047CBD2 /* CameraView.m in Sources */ = {isa = PBXBuildFile; fileRef = F604B36A2167245E0047CBD2 /* CameraView.m */; };
 		F604B36D2167246C0047CBD2 /* CameraView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F604B36C2167246C0047CBD2 /* CameraView.xib */; };
+		F60F90E92199F7A600B2A10D /* FTIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = F60F90DD2199F7A600B2A10D /* FTIndicator.m */; };
+		F60F90EA2199F7A600B2A10D /* FTToastIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = F60F90DF2199F7A600B2A10D /* FTToastIndicator.m */; };
+		F60F90EB2199F7A600B2A10D /* FTProgressIndicator.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F60F90E22199F7A600B2A10D /* FTProgressIndicator.bundle */; };
+		F60F90EC2199F7A600B2A10D /* FTProgressIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = F60F90E42199F7A600B2A10D /* FTProgressIndicator.m */; };
+		F60F90ED2199F7A600B2A10D /* FTNotificationIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = F60F90E62199F7A600B2A10D /* FTNotificationIndicator.m */; };
 		F610E8BC2121FBC900B09A5B /* UnitsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F610E8B82121FBC800B09A5B /* UnitsCell.xib */; };
 		F610E8BD2121FBC900B09A5B /* UnitsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F610E8B92121FBC800B09A5B /* UnitsCell.m */; };
 		F610E8BE2121FBC900B09A5B /* UnitsHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = F610E8BB2121FBC900B09A5B /* UnitsHeaderView.m */; };
@@ -198,7 +203,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		37A6CC5BAEC98628A221C49E /* libPods-DamacC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DamacC.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3570941300D5B591E63FFF53 /* Pods-DamacC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DamacC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DamacC/Pods-DamacC.debug.xcconfig"; sourceTree = "<group>"; };
 		4F277E8C1DC7F5DF00E5A77C /* Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
 		4F8D5E9D1B6C0568005E64D4 /* DamacC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DamacC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F8D5EA11B6C0568005E64D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -210,9 +215,9 @@
 		4F8D5EC91B6C0FE4005E64D4 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		4F8D5ECA1B6C0FE4005E64D4 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		4FF12F911DCA9E6B004D9EF9 /* DamacC.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DamacC.entitlements; sourceTree = "<group>"; };
+		A260A1918946C43D1CC4C92D /* libPods-DamacC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DamacC.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B553271FEAE84B9A8B3846DF /* Pods-DamacC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DamacC.release.xcconfig"; path = "Pods/Target Support Files/Pods-DamacC/Pods-DamacC.release.xcconfig"; sourceTree = "<group>"; };
 		B7168FB91FACC5D900A48DB5 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = "../mobile_sdk/SalesforceMobileSDK-iOS/shared/resources/LaunchScreen.storyboard"; sourceTree = "<group>"; };
-		BB73445D9F417BF26A16B7B3 /* Pods-DamacC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DamacC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DamacC/Pods-DamacC.debug.xcconfig"; sourceTree = "<group>"; };
-		C89979F9DFABEB44F2780B71 /* Pods-DamacC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DamacC.release.xcconfig"; path = "Pods/Target Support Files/Pods-DamacC/Pods-DamacC.release.xcconfig"; sourceTree = "<group>"; };
 		F60164EB20ABB9D900E07510 /* UnitsDataModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UnitsDataModel.h; sourceTree = "<group>"; };
 		F60164EC20ABB9D900E07510 /* UnitsDataModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UnitsDataModel.m; sourceTree = "<group>"; };
 		F60164F120ABF36F00E07510 /* PaymentsDataModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PaymentsDataModel.h; sourceTree = "<group>"; };
@@ -227,6 +232,15 @@
 		F604B3692167245E0047CBD2 /* CameraView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CameraView.h; sourceTree = "<group>"; };
 		F604B36A2167245E0047CBD2 /* CameraView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CameraView.m; sourceTree = "<group>"; };
 		F604B36C2167246C0047CBD2 /* CameraView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CameraView.xib; sourceTree = "<group>"; };
+		F60F90DD2199F7A600B2A10D /* FTIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTIndicator.m; sourceTree = "<group>"; };
+		F60F90DF2199F7A600B2A10D /* FTToastIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTToastIndicator.m; sourceTree = "<group>"; };
+		F60F90E02199F7A600B2A10D /* FTToastIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTToastIndicator.h; sourceTree = "<group>"; };
+		F60F90E22199F7A600B2A10D /* FTProgressIndicator.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FTProgressIndicator.bundle; sourceTree = "<group>"; };
+		F60F90E32199F7A600B2A10D /* FTProgressIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTProgressIndicator.h; sourceTree = "<group>"; };
+		F60F90E42199F7A600B2A10D /* FTProgressIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTProgressIndicator.m; sourceTree = "<group>"; };
+		F60F90E62199F7A600B2A10D /* FTNotificationIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTNotificationIndicator.m; sourceTree = "<group>"; };
+		F60F90E72199F7A600B2A10D /* FTNotificationIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTNotificationIndicator.h; sourceTree = "<group>"; };
+		F60F90E82199F7A600B2A10D /* FTIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTIndicator.h; sourceTree = "<group>"; };
 		F610E8B72121FBC700B09A5B /* UnitsHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnitsHeaderView.h; sourceTree = "<group>"; };
 		F610E8B82121FBC800B09A5B /* UnitsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UnitsCell.xib; sourceTree = "<group>"; };
 		F610E8B92121FBC800B09A5B /* UnitsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnitsCell.m; sourceTree = "<group>"; };
@@ -525,13 +539,22 @@
 				F6C57C732158CD2400970DC3 /* libxml2.tbd in Frameworks */,
 				F6C57C742158CD2400970DC3 /* libxml2.2.tbd in Frameworks */,
 				F6D91E3A20994A5D00DA1428 /* LocalAuthentication.framework in Frameworks */,
-				99BA92AC3AFED11B4EDED681 /* libPods-DamacC.a in Frameworks */,
+				1F24596A019BC29A854E94A3 /* libPods-DamacC.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		06999072E9CAE06FC501E48B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3570941300D5B591E63FFF53 /* Pods-DamacC.debug.xcconfig */,
+				B553271FEAE84B9A8B3846DF /* Pods-DamacC.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		4F8D5E941B6C0568005E64D4 = {
 			isa = PBXGroup;
 			children = (
@@ -540,7 +563,7 @@
 				4F8D5E9E1B6C0568005E64D4 /* Products */,
 				7E50A237DDCEAAC2CF458C8C /* Frameworks */,
 				F686163F209852AD002EA241 /* DamacC-Bridging-Header.h */,
-				EB401446E4052F656D3E825C /* Pods */,
+				06999072E9CAE06FC501E48B /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -555,6 +578,7 @@
 		4F8D5E9F1B6C0568005E64D4 /* DamacC */ = {
 			isa = PBXGroup;
 			children = (
+				F60F90DC2199F7A600B2A10D /* FTIndicator */,
 				F6CC80562180A1840025FB1D /* ColorCodes */,
 				F6FF90B82197359F0090D2FE /* RepeatedFunctions */,
 				F6550770217D6F57003EC62E /* Category */,
@@ -642,18 +666,9 @@
 				F6C57C722158CD2400970DC3 /* libxml2.2.tbd */,
 				F6C57C712158CD2400970DC3 /* libxml2.tbd */,
 				F6D91E3920994A5D00DA1428 /* LocalAuthentication.framework */,
-				37A6CC5BAEC98628A221C49E /* libPods-DamacC.a */,
+				A260A1918946C43D1CC4C92D /* libPods-DamacC.a */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		EB401446E4052F656D3E825C /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				BB73445D9F417BF26A16B7B3 /* Pods-DamacC.debug.xcconfig */,
-				C89979F9DFABEB44F2780B71 /* Pods-DamacC.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 		F60164EE20ABB9DE00E07510 /* DataModel */ = {
@@ -699,6 +714,46 @@
 				F604B36C2167246C0047CBD2 /* CameraView.xib */,
 			);
 			path = CameraView;
+			sourceTree = "<group>";
+		};
+		F60F90DC2199F7A600B2A10D /* FTIndicator */ = {
+			isa = PBXGroup;
+			children = (
+				F60F90E82199F7A600B2A10D /* FTIndicator.h */,
+				F60F90DD2199F7A600B2A10D /* FTIndicator.m */,
+				F60F90DE2199F7A600B2A10D /* FTToastIndicator */,
+				F60F90E12199F7A600B2A10D /* FTProgressIndicator */,
+				F60F90E52199F7A600B2A10D /* FTNotificationIndicator */,
+			);
+			path = FTIndicator;
+			sourceTree = "<group>";
+		};
+		F60F90DE2199F7A600B2A10D /* FTToastIndicator */ = {
+			isa = PBXGroup;
+			children = (
+				F60F90DF2199F7A600B2A10D /* FTToastIndicator.m */,
+				F60F90E02199F7A600B2A10D /* FTToastIndicator.h */,
+			);
+			path = FTToastIndicator;
+			sourceTree = "<group>";
+		};
+		F60F90E12199F7A600B2A10D /* FTProgressIndicator */ = {
+			isa = PBXGroup;
+			children = (
+				F60F90E22199F7A600B2A10D /* FTProgressIndicator.bundle */,
+				F60F90E32199F7A600B2A10D /* FTProgressIndicator.h */,
+				F60F90E42199F7A600B2A10D /* FTProgressIndicator.m */,
+			);
+			path = FTProgressIndicator;
+			sourceTree = "<group>";
+		};
+		F60F90E52199F7A600B2A10D /* FTNotificationIndicator */ = {
+			isa = PBXGroup;
+			children = (
+				F60F90E62199F7A600B2A10D /* FTNotificationIndicator.m */,
+				F60F90E72199F7A600B2A10D /* FTNotificationIndicator.h */,
+			);
+			path = FTNotificationIndicator;
 			sourceTree = "<group>";
 		};
 		F610E8B62121FBB500B09A5B /* UnitsCell */ = {
@@ -1254,12 +1309,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4F8D5EC01B6C0568005E64D4 /* Build configuration list for PBXNativeTarget "DamacC" */;
 			buildPhases = (
-				AF3A0EA70BF39046CC723D11 /* [CP] Check Pods Manifest.lock */,
+				AC3BE10D2628682D4F0784B3 /* [CP] Check Pods Manifest.lock */,
 				4F8D5E991B6C0568005E64D4 /* Sources */,
 				4F8D5E9A1B6C0568005E64D4 /* Frameworks */,
 				4F8D5E9B1B6C0568005E64D4 /* Resources */,
 				F691B3552190CFA8008EA47D /* Embed Frameworks */,
-				2FEFDE6B551492BC48A13CBB /* [CP] Copy Pods Resources */,
+				CE4C9DE78E11651E495B08C8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1282,16 +1337,16 @@
 					4F8D5E9C1B6C0568005E64D4 = {
 						CreatedOnToolsVersion = 6.4;
 						LastSwiftMigration = 0920;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
-								enabled = 0;
+								enabled = 1;
 							};
 							com.apple.Keychain = {
 								enabled = 0;
 							};
 							com.apple.Push = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
 					};
@@ -1337,6 +1392,7 @@
 				F604B3652165FD300047CBD2 /* ReceiptsTableViewCell.xib in Resources */,
 				F6C57E19215B03E000970DC3 /* WSCalendarView.xib in Resources */,
 				F6A37F9A216E782100A4AD11 /* PassportFooter.xib in Resources */,
+				F60F90EB2199F7A600B2A10D /* FTProgressIndicator.bundle in Resources */,
 				F6A37F98216E74B900A4AD11 /* PassportHeader.xib in Resources */,
 				F67EB5E8212521D50011AB64 /* Montserrat-Medium.ttf in Resources */,
 				F6264200211320360022C4DC /* StepperAnimation.xib in Resources */,
@@ -1362,29 +1418,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2FEFDE6B551492BC48A13CBB /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-DamacC/Pods-DamacC-resources.sh",
-				"${PODS_ROOT}/FTIndicator/FTIndicator/FTProgressIndicator/FTProgressIndicator.bundle",
-				"${PODS_ROOT}/../mobile_sdk/SalesforceMobileSDK-iOS/shared/resources/SalesforceSDKAssets.xcassets",
-				"${PODS_CONFIGURATION_BUILD_DIR}/SalesforceSDKCore/SalesforceSDKResources.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FTProgressIndicator.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Assets.car",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SalesforceSDKResources.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DamacC/Pods-DamacC-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		AF3A0EA70BF39046CC723D11 /* [CP] Check Pods Manifest.lock */ = {
+		AC3BE10D2628682D4F0784B3 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1402,6 +1436,26 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		CE4C9DE78E11651E495B08C8 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-DamacC/Pods-DamacC-resources.sh",
+				"${PODS_ROOT}/../mobile_sdk/SalesforceMobileSDK-iOS/shared/resources/SalesforceSDKAssets.xcassets",
+				"${PODS_CONFIGURATION_BUILD_DIR}/SalesforceSDKCore/SalesforceSDKResources.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Assets.car",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SalesforceSDKResources.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DamacC/Pods-DamacC-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1411,6 +1465,7 @@
 			files = (
 				F6C57CB52158F1BD00970DC3 /* SaopServices.m in Sources */,
 				F62642032113204B0022C4DC /* StepperAnimation.m in Sources */,
+				F60F90ED2199F7A600B2A10D /* FTNotificationIndicator.m in Sources */,
 				F6CB3FC320EB291600D290A6 /* DamacSharedClass.m in Sources */,
 				F686165620985841002EA241 /* DamacC-Bridging-Header.h in Sources */,
 				F6A87EE7209F214B008D34C5 /* DetailMyUnitsViewController.m in Sources */,
@@ -1420,6 +1475,7 @@
 				F63FCF1720FBCC200027FEA8 /* PaymentsViewController.m in Sources */,
 				F6A37F9D216E782D00A4AD11 /* PassportFooter.m in Sources */,
 				4F8D5EA61B6C0568005E64D4 /* AppDelegate.m in Sources */,
+				F60F90E92199F7A600B2A10D /* FTIndicator.m in Sources */,
 				F604B36B2167245E0047CBD2 /* CameraView.m in Sources */,
 				F65D8CCD21907A4800B4823E /* ProofOfPaymentNewVC.m in Sources */,
 				F67D77AD21749FCF009EE062 /* SurveyCell2.m in Sources */,
@@ -1432,6 +1488,7 @@
 				F67D77B021749FD9009EE062 /* SurveyCell3.m in Sources */,
 				F6B166CA2188780F0094A2B4 /* AppointmentObject.m in Sources */,
 				F6CBCCD62171DB1000615072 /* ServicesCell.m in Sources */,
+				F60F90EC2199F7A600B2A10D /* FTProgressIndicator.m in Sources */,
 				F691B34E2190B402008EA47D /* BillingObject.m in Sources */,
 				F61124AB2164CEB300901694 /* AOPT.m in Sources */,
 				F6170A5D20FCC6ED003443B1 /* MyServicesDataModel.m in Sources */,
@@ -1443,6 +1500,7 @@
 				F63FCF0220F87E3A0027FEA8 /* CustomViewCarousel.m in Sources */,
 				F6FB0E4E2180710800CBCB72 /* PassportObject.m in Sources */,
 				F655076F217D6F4C003EC62E /* NSString+StringValidations.m in Sources */,
+				F60F90EA2199F7A600B2A10D /* FTToastIndicator.m in Sources */,
 				F6D91E4720997AEA00DA1428 /* MainViewController.m in Sources */,
 				F653D3EE21876EB700F6021F /* AppointmentsSlotsViewController.m in Sources */,
 				F6C57C5A21585FD900970DC3 /* ChangeofContactCell2.m in Sources */,
@@ -1648,16 +1706,17 @@
 		};
 		4F8D5EC11B6C0568005E64D4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BB73445D9F417BF26A16B7B3 /* Pods-DamacC.debug.xcconfig */;
+			baseConfigurationReference = 3570941300D5B591E63FFF53 /* Pods-DamacC.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_ENTITLEMENTS = DamacC/DamacC.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: LUXURY FACILITIES MANAGEMENT LLC";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: LUXURY FACILITIES MANAGEMENT LLC";
+				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 4H7H3FYH34;
+				DEVELOPMENT_TEAM = 7CQW6NRRPC;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1700,7 +1759,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.damac.HelloDamac;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = HelloDamacPushNConfigured;
 				SKIP_INSTALL = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "DamacC-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1711,16 +1770,17 @@
 		};
 		4F8D5EC21B6C0568005E64D4 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C89979F9DFABEB44F2780B71 /* Pods-DamacC.release.xcconfig */;
+			baseConfigurationReference = B553271FEAE84B9A8B3846DF /* Pods-DamacC.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_ENTITLEMENTS = DamacC/DamacC.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: LUXURY FACILITIES MANAGEMENT LLC";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: LUXURY FACILITIES MANAGEMENT LLC";
+				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 4H7H3FYH34;
+				DEVELOPMENT_TEAM = 7CQW6NRRPC;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1763,7 +1823,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.damac.HelloDamac;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = HelloDamacPushNConfigured;
 				SKIP_INSTALL = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "DamacC-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;

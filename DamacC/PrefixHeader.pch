@@ -14,7 +14,6 @@
 #import "PinView.h"
 #import "DamacC-Bridging-Header.h"
 #import "DamacConstants.h"
-#import <FTIndicator/FTIndicator.h>
 #import "VKSideMenu.h"
 #import "MainViewController.h"
 #import "FingerPrintViewController.h"
@@ -67,5 +66,6 @@
 #import "NotificationsTableVC.h"
 #import "CustomBar.h"
 #import "AlertPopUp.h"
+#import "FTIndicator.h"
 
 #endif /* PrefixHeader_pch */

@@ -102,7 +102,6 @@
 //    });
     
     
-    
 }
 
 
@@ -158,9 +157,11 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
+
     static dispatch_once_t onceToken;
     [self customNavBarVie];
     [self sendFCMTokenTokenToServer];
+    [self notificationsbell];
     
     
     
@@ -856,4 +857,25 @@
     }];
     
 }
+
+-(void)notificationsbell{
+    SFUserAccountManager *sf = [SFUserAccountManager sharedInstance];
+    ServerAPIManager *server = [ServerAPIManager sharedinstance];
+    [server postRequestwithUrl:@"https://partial-servicecloudtrial-155c0807bf-1580afc5db1.cs80.force.com/MobileApp/services/apexrest/SendNotificationsToMobileApp/" withParameters:@{@"accountId":sf.currentUser.credentials.userId} successBlock:^(id responseObj) {
+        if(responseObj){
+             NSArray *tvData =[NSJSONSerialization JSONObjectWithData:responseObj options:0 error:nil];
+            if(tvData.count>0){
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    DamacSharedClass.sharedInstance.navigationCustomBar.notificationsBtn.selected = YES;
+                });
+            }
+            
+        }
+    }  errorBlock:^(NSError *error) {
+        [FTIndicator performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
+        [FTIndicator showToastMessage:error.localizedDescription];
+    }];
+
+}
+
 @end

@@ -26,7 +26,7 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    [self getListOfNotifications];
+    
     
     
 }
@@ -39,6 +39,11 @@
         if(responseObj){
             tvData =[NSJSONSerialization JSONObjectWithData:responseObj options:0 error:nil];
             NSLog(@"%@",tvData);
+            if(tvData.count == 0){
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    DamacSharedClass.sharedInstance.navigationCustomBar.notificationsBtn.selected =NO;
+                });
+            }
             [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
         }
     }  errorBlock:^(NSError *error) {
@@ -51,6 +56,7 @@
     [super viewWillAppear:YES];
     [DamacSharedClass.sharedInstance.navigationCustomBar setPageTite:@"Notifications"];
     DamacSharedClass.sharedInstance.currentVC = self;
+    [self getListOfNotifications];
 }
 #pragma mark - Table view data source
 

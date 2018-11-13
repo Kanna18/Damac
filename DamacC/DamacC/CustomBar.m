@@ -77,7 +77,7 @@
     pusrposeArray = @[@"Help",@"LogOff"];
     
     PopTableViewController *popVC=[DamacSharedClass.sharedInstance.currentVC.storyboard instantiateViewControllerWithIdentifier:@"popTableVC"];
-    popVC.thumbNailsArray = @[@"logOff",@"help"];
+    popVC.thumbNailsArray = @[@"help",@"logOff"];
     popVC.delegate=self;
     popVC.tvData =pusrposeArray;
     popoverSettings = [[WYPopoverController alloc] initWithContentViewController:popVC];

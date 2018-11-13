@@ -84,6 +84,13 @@
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                 </button>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="d4v-wx-7n4">
+                                    <rect key="frame" x="0.0" y="49" width="300" height="1"/>
+                                    <color key="backgroundColor" red="0.74901960779999999" green="0.60392156860000001" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="1" id="QW3-qu-lrf"/>
+                                    </constraints>
+                                </imageView>
                             </subviews>
                             <color key="backgroundColor" red="0.16078431372549018" green="0.16078431372549018" blue="0.16862745098039217" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
@@ -93,8 +100,11 @@
                                 <constraint firstItem="m7H-eH-kfE" firstAttribute="leading" secondItem="Lkg-QV-aR9" secondAttribute="leading" id="Kag-pq-Lbm"/>
                                 <constraint firstItem="DnN-zq-Cma" firstAttribute="top" secondItem="Lkg-QV-aR9" secondAttribute="top" constant="9" id="Q3U-rM-8iI"/>
                                 <constraint firstAttribute="trailing" secondItem="m7H-eH-kfE" secondAttribute="trailing" constant="20" id="Ssw-sL-whB"/>
+                                <constraint firstAttribute="trailing" secondItem="d4v-wx-7n4" secondAttribute="trailing" id="TTr-V6-r99"/>
                                 <constraint firstItem="eav-3F-bZ1" firstAttribute="leading" secondItem="Lkg-QV-aR9" secondAttribute="leading" constant="37" id="V1u-X2-hRZ"/>
+                                <constraint firstItem="d4v-wx-7n4" firstAttribute="leading" secondItem="Lkg-QV-aR9" secondAttribute="leading" id="V8Y-dY-Nsb"/>
                                 <constraint firstAttribute="bottom" secondItem="eav-3F-bZ1" secondAttribute="bottom" constant="12" id="ZUj-Gv-ZO3"/>
+                                <constraint firstAttribute="bottom" secondItem="d4v-wx-7n4" secondAttribute="bottom" id="pSd-lQ-TCH"/>
                             </constraints>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g87-7h-lgk">
@@ -197,6 +207,6 @@
         </view>
     </objects>
     <resources>
-        <image name="closeRound" width="16" height="16"/>
+        <image name="closeRound" width="32" height="32"/>
     </resources>
 </document>

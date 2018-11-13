@@ -47,13 +47,23 @@
                                         <action selector="closeClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="RUC-r0-9Hl"/>
                                     </connections>
                                 </button>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NVy-ZI-7Wq">
+                                    <rect key="frame" x="0.0" y="49" width="355" height="1"/>
+                                    <color key="backgroundColor" red="0.74901960784313726" green="0.60392156862745094" blue="0.34509803921568627" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="1" id="fSz-yk-1au"/>
+                                    </constraints>
+                                </imageView>
                             </subviews>
                             <color key="backgroundColor" red="0.14344905279820264" green="0.14344905279820264" blue="0.14344905279820264" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
+                                <constraint firstAttribute="trailing" secondItem="NVy-ZI-7Wq" secondAttribute="trailing" id="3gk-Vu-K9A"/>
                                 <constraint firstItem="1sS-hV-xn2" firstAttribute="leading" secondItem="h1U-tE-US8" secondAttribute="trailing" id="FfS-nc-1Va"/>
+                                <constraint firstItem="NVy-ZI-7Wq" firstAttribute="leading" secondItem="pxo-lE-g6t" secondAttribute="leading" id="Hr0-7v-8i6"/>
                                 <constraint firstAttribute="bottom" secondItem="1sS-hV-xn2" secondAttribute="bottom" id="Qez-cF-wbm"/>
                                 <constraint firstAttribute="height" constant="50" id="Sy4-1F-vuZ"/>
                                 <constraint firstItem="h1U-tE-US8" firstAttribute="leading" secondItem="pxo-lE-g6t" secondAttribute="leading" id="Udh-PC-x75"/>
+                                <constraint firstAttribute="bottom" secondItem="NVy-ZI-7Wq" secondAttribute="bottom" id="YZK-Ju-9eu"/>
                                 <constraint firstAttribute="bottom" secondItem="h1U-tE-US8" secondAttribute="bottom" id="b87-lI-xQN"/>
                                 <constraint firstItem="h1U-tE-US8" firstAttribute="top" secondItem="pxo-lE-g6t" secondAttribute="top" id="cCU-OS-P14"/>
                                 <constraint firstItem="1sS-hV-xn2" firstAttribute="top" secondItem="pxo-lE-g6t" secondAttribute="top" id="ksq-Aj-XVR"/>

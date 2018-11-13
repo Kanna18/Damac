@@ -18,7 +18,7 @@
     self = [super init];
     if (self) {
         
-        NSArray *imgsArr = @[/*@"menu.png",@"logout.png",@"help.png",*/@"iconSettings",@"iconBell"/*@"home.png"*/];
+        NSArray *imgsArr = @[/*@"menu.png",@"logout.png",@"help.png",*/@"iconBell",@"iconSettings"/*@"home.png"*/];
         NSMutableArray *arr =[[NSMutableArray alloc]init];
         for (int i = 0 ; i<num&&num<=imgsArr.count; i++){
             [arr addObject:[self customNavigationBarButtonsimageName:imgsArr[i] withTag:i]];

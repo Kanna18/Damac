@@ -24,6 +24,8 @@
     if (self = [super init]) {
         _sfidsForJointBuyersArray = [[NSMutableArray alloc]init];
         _unitsArray = [[NSMutableArray alloc]init];
+        _backImage = [UIImage imageNamed:@"backArrow"];
+        _burgerImage = [UIImage imageNamed:@"icon1"];
     }
     return self;
 }

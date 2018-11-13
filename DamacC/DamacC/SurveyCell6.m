@@ -69,6 +69,7 @@
 }
 - (IBAction)surveyClick:(id)sender {
     
+    [FTIndicator showProgressWithMessage:@"Loading Please wait" userInteractionEnable:NO];
     ServerAPIManager *server = [ServerAPIManager sharedinstance];
     NSDictionary *dict = @{@"allQuestions":_surveyArray};
     NSString *Data = [NSJSONSerialization dataWithJSONObject:dict options:0 error:nil];
@@ -87,6 +88,7 @@
 }
 -(void)finishSurveyViewController{
     
+    [FTIndicator dismissProgress];
 //    FinishSurveyViewController *finish = [DamacSharedClass.sharedInstance.currentVC.storyboard instantiateViewControllerWithIdentifier:@"finishSurveyViewController"];
 //    [DamacSharedClass.sharedInstance.currentVC.navigationController pushViewController:finish animated:YES];
     alert.hidden = NO;

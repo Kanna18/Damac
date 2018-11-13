@@ -171,7 +171,7 @@
     cstm = [[CustomBar alloc]initWithFrame:CGRectMake(0, 0, UIScreen.mainScreen.bounds.size.width, 65)];
     DamacSharedClass.sharedInstance.navigationCustomBar = cstm;
     [cstm.backBtn setTitle:@"" forState:UIControlStateNormal];
-    [cstm.backBtn setImage:[UIImage imageNamed:@"icon1"] forState:UIControlStateNormal];
+    [cstm.backBtn setImage:DamacSharedClass.sharedInstance.burgerImage forState:UIControlStateNormal];
     [cstm.backBtn addTarget:self action:@selector(buttonMenuLeft:) forControlEvents:UIControlEventTouchUpInside];
     cstm.NavigationTitle.hidden = YES;
     [self.navigationController.view addSubview:cstm];
@@ -228,7 +228,7 @@
 
 -(IBAction)buttonMenuLeft:(id)sender
 {
-    if([cstm.backBtn.imageView.image isEqual: [UIImage imageNamed:@"icon1"]]){
+    if([cstm.backBtn.imageView.image isEqual: DamacSharedClass.sharedInstance.burgerImage]){
         [self.menuLeft show];
         DamacSharedClass.sharedInstance.windowButton.hidden = YES;
     }
@@ -433,6 +433,7 @@
         NSString *str = cell.headingLabel.text;
         [self loadBasedontheclick:str];
     }
+    
 }
 
 -(void)loadBasedontheclick:(NSString*)str{
@@ -440,7 +441,7 @@
     if([str isEqualToString:kMyServiceRequests]){
         MyServiceRequestViewController *evc =[ self.storyboard instantiateViewControllerWithIdentifier:@"myServicesRequestVC"];
         evc.typeoFVC = kloadingFromCreateServices;
-        [cstm.backBtn setImage:[UIImage imageNamed:@"backArrow"] forState:UIControlStateNormal];
+        [cstm.backBtn setImage:DamacSharedClass.sharedInstance.backImage forState:UIControlStateNormal];
         
         [self.navigationController pushViewController:evc animated:YES];
     }
@@ -451,7 +452,7 @@
         uVC.serverUrlString = [unitsServiceUrl stringByAppendingString:str?str:@"1036240"];
 //        uVC.serverUrlString = [unitsServiceUrl stringByAppendingString:@"1036240"];
         //[self returnNextScreenWebUrlBasedOnGridClick:kMyUnits];
-        [cstm.backBtn setImage:[UIImage imageNamed:@"backArrow"] forState:UIControlStateNormal];
+        [cstm.backBtn setImage:DamacSharedClass.sharedInstance.backImage forState:UIControlStateNormal];
         
         [self.navigationController pushViewController:uVC animated:YES];
 //
@@ -464,7 +465,7 @@
         PaymentsScheduleVC *uVC = [self.storyboard instantiateViewControllerWithIdentifier:@"paymentsScheduleVC"];
         NSString *str = [DamacSharedClass sharedInstance].userProileModel.partyId;;
         uVC.serverUrlString = [unitsServiceUrl stringByAppendingString:str?str:@"1036240"];
-        [cstm.backBtn setImage:[UIImage imageNamed:@"backArrow"] forState:UIControlStateNormal];
+        [cstm.backBtn setImage:DamacSharedClass.sharedInstance.backImage forState:UIControlStateNormal];
         
         [self.navigationController pushViewController:uVC animated:YES];
     }
@@ -472,7 +473,7 @@
 //        [self pushToTableView:kMyReceipts];
         ReceiptsTableVC *uVC = [self.storyboard instantiateViewControllerWithIdentifier:@"receiptsTableVC"];
         uVC.serverUrlString = [self returnNextScreenWebUrlBasedOnGridClick:kMyReceipts];
-        [cstm.backBtn setImage:[UIImage imageNamed:@"backArrow"] forState:UIControlStateNormal];
+        [cstm.backBtn setImage:DamacSharedClass.sharedInstance.backImage forState:UIControlStateNormal];
         
         [self.navigationController pushViewController:uVC animated:YES];
     }
@@ -480,7 +481,7 @@
         EServicesViewController *evc =[ self.storyboard instantiateViewControllerWithIdentifier:@"eservicesVC"];
         evc.typOfVC=kEServices;
         evc.arrayOflist=eservicesArray;
-        [cstm.backBtn setImage:[UIImage imageNamed:@"backArrow"] forState:UIControlStateNormal];
+        [cstm.backBtn setImage:DamacSharedClass.sharedInstance.backImage forState:UIControlStateNormal];
         
         [self.navigationController pushViewController:evc animated:YES];
     }
@@ -489,13 +490,13 @@
     }
     if([str isEqualToString:kprofilePage]){
         ProfileViewController *pvc =[ self.storyboard instantiateViewControllerWithIdentifier:@"profileVC"];
-        [cstm.backBtn setImage:[UIImage imageNamed:@"backArrow"] forState:UIControlStateNormal];
+        [cstm.backBtn setImage:DamacSharedClass.sharedInstance.backImage forState:UIControlStateNormal];
         
         [self.navigationController pushViewController:pvc animated:YES];
     }
     if([str isEqualToString:kSOA]){
         ScheduleAppointmentsVC *pvc =[ self.storyboard instantiateViewControllerWithIdentifier:@"scheduleAppointmentsVC"];
-        [cstm.backBtn setImage:[UIImage imageNamed:@"backArrow"] forState:UIControlStateNormal];
+        [cstm.backBtn setImage:DamacSharedClass.sharedInstance.backImage forState:UIControlStateNormal];
         
         [self.navigationController pushViewController:pvc animated:YES];
     }
@@ -504,14 +505,14 @@
         ComplaintsObj *comp = [[ComplaintsObj alloc]init];
         [comp fillWithDefaultValues];
         cvc.complaintsObj = comp;
-        [cstm.backBtn setImage:[UIImage imageNamed:@"backArrow"] forState:UIControlStateNormal];
+        [cstm.backBtn setImage:DamacSharedClass.sharedInstance.backImage forState:UIControlStateNormal];
         
         [self.navigationController pushViewController:cvc animated:YES];
         
     }
     if([str isEqualToString:kSurveys]){
         SurveyController *cvc = [self.storyboard instantiateViewControllerWithIdentifier:@"surveyController"];
-        [cstm.backBtn setImage:[UIImage imageNamed:@"backArrow"] forState:UIControlStateNormal];
+        [cstm.backBtn setImage:DamacSharedClass.sharedInstance.backImage forState:UIControlStateNormal];
         
         [self.navigationController pushViewController:cvc animated:YES];
     }
@@ -565,7 +566,7 @@
     }else{
         svc.serverUrlString = [self returnNextScreenWebUrlBasedOnGridClick:type];
     }
-    [cstm.backBtn setImage:[UIImage imageNamed:@"backArrow"] forState:UIControlStateNormal];
+    [cstm.backBtn setImage:DamacSharedClass.sharedInstance.backImage forState:UIControlStateNormal];
     
      [self.navigationController pushViewController:svc animated:YES];
 }
@@ -588,19 +589,19 @@
     if(defaultGet(kMPin)&&defaultGet(kconfirmMpin)){
         KeyViewController *key =[appStoryboard instantiateViewControllerWithIdentifier:@"keyVC"];
         self.navigationController.navigationBar.hidden = YES;
-        [cstm.backBtn setImage:[UIImage imageNamed:@"backArrow"] forState:UIControlStateNormal];
+        [cstm.backBtn setImage:DamacSharedClass.sharedInstance.backImage forState:UIControlStateNormal];
         
         [self.navigationController pushViewController:key animated:YES];
     }else if(defaultGetBool(kFingerPrintAvailabe)){
         FingerPrintViewController *rootVC = [appStoryboard instantiateViewControllerWithIdentifier:@"fingerPrintVC"];
         self.navigationController.navigationBar.hidden = YES;
-        [cstm.backBtn setImage:[UIImage imageNamed:@"backArrow"] forState:UIControlStateNormal];
+        [cstm.backBtn setImage:DamacSharedClass.sharedInstance.backImage forState:UIControlStateNormal];
         
         [self.navigationController pushViewController:rootVC animated:YES];
     }else if(!defaultGetBool(kFingerPrintAvailabe)){
         PasswordViewController *rootVC = [appStoryboard instantiateViewControllerWithIdentifier:@"passwordVC"];
         self.navigationController.navigationBar.hidden = YES;
-        [cstm.backBtn setImage:[UIImage imageNamed:@"backArrow"] forState:UIControlStateNormal];
+        [cstm.backBtn setImage:DamacSharedClass.sharedInstance.backImage forState:UIControlStateNormal];
         
         [self.navigationController pushViewController:rootVC animated:YES];
     }

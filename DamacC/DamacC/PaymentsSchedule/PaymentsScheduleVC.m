@@ -35,6 +35,11 @@
     tvMutableDictionary = [[NSMutableDictionary alloc]init];
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
+    DamacSharedClass.sharedInstance.currentVC = self;
+    [DamacSharedClass.sharedInstance.navigationCustomBar setPageTite:@"Payment schedules"];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

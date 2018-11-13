@@ -49,7 +49,8 @@
             [DamacSharedClass.sharedInstance.currentVC.navigationController popViewControllerAnimated:YES];
         }
 
-    }else if([_backBtn.imageView.image isEqual:[UIImage imageNamed:@"backArrow"]]){
+    }else if([_backBtn.imageView.image isEqual:DamacSharedClass.sharedInstance.backImage]){
+        
         [DamacSharedClass.sharedInstance.currentVC.navigationController popViewControllerAnimated:YES];
     }
 }
@@ -62,7 +63,7 @@
         }
     }    
     NotificationsTableVC *nvc = [DamacSharedClass.sharedInstance.currentVC.storyboard instantiateViewControllerWithIdentifier:@"notificationsTableVC"];
-    [DamacSharedClass.sharedInstance.navigationCustomBar.backBtn setImage:[UIImage imageNamed:@"backArrow"] forState:UIControlStateNormal];
+    [DamacSharedClass.sharedInstance.navigationCustomBar.backBtn setImage:DamacSharedClass.sharedInstance.backImage forState:UIControlStateNormal];
     [DamacSharedClass.sharedInstance.currentVC.navigationController pushViewController:nvc animated:YES];
 }
 - (IBAction)settingsClick:(id)sender {

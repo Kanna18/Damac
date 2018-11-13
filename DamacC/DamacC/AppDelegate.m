@@ -226,7 +226,6 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     // [[FIRMessaging messaging] appDidReceiveMessage:userInfo];
     
     // Print message ID.
-    [self redirectToServiceDetailPage:userInfo];
     if (userInfo[kGCMMessageIDKey]) {
         NSLog(@"Message ID: %@", userInfo[kGCMMessageIDKey]);
     }
@@ -235,6 +234,8 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     NSLog(@"%@", userInfo);
     
     completionHandler(UIBackgroundFetchResultNewData);
+    
+    [self redirectToServiceDetailPage:userInfo];
 }
 // [END receive_message]
 
@@ -259,7 +260,6 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     
     // Change this to your preferred presentation option
     completionHandler(UNNotificationPresentationOptionAlert);
-    [self redirectToServiceDetailPage:userInfo];
     
     
 }
@@ -483,13 +483,18 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
 
 -(void)redirectToServiceDetailPage:(NSDictionary*)userInfo{
     
-    
-//    NSString *notification = [[userInfo valueForKey:@"aps"] valueForKey:@"alert"];
-//    ServicesDetailController *svc = [DamacSharedClass.sharedInstance.currentVC.storyboard instantiateViewControllerWithIdentifier:@"servicesDetailVC"];
-//    NSArray *arr = [notification componentsSeparatedByString:@" "];
-//    svc.srCaseId = arr.lastObject;
-//    [self readANotificationStatus:arr.lastObject];
-//    [DamacSharedClass.sharedInstance.currentVC.navigationController pushViewController:svc animated:YES];
+    if([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive)
+    {
+        if(DamacSharedClass.sharedInstance.currentVC){
+            NSString *notification = [[userInfo valueForKey:@"aps"] valueForKey:@"alert"];
+            [DamacSharedClass.sharedInstance.navigationCustomBar.backBtn setImage:DamacSharedClass.sharedInstance.backImage forState:UIControlStateNormal];
+            ServicesDetailController *svc = [DamacSharedClass.sharedInstance.currentVC.storyboard instantiateViewControllerWithIdentifier:@"servicesDetailVC"];
+            NSArray *arr = [notification componentsSeparatedByString:@" "];
+            svc.srCaseId = arr.lastObject;
+            [self readANotificationStatus:arr.lastObject];
+            [DamacSharedClass.sharedInstance.currentVC.navigationController pushViewController:svc animated:YES];
+        }
+    }
 
 }
 
@@ -509,4 +514,5 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
         NSLog(@"Notification Error %@",error.localizedDescription);
     }];
 }
+
 @end

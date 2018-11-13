@@ -23,5 +23,8 @@
 //@property UserDetailsModel *userDetailsModel;
 @property NSArray *unitsSFIDSArray;
 
+@property UIImage *burgerImage;
+@property UIImage *backImage;
+
 @property CustomBar *navigationCustomBar;
 @end

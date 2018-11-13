@@ -24,7 +24,7 @@
     [super awakeFromNib];
     _collectionView.delegate = self;
     _collectionView.dataSource = self;
-    headingLabels = @[@"Please rate our customer service representative on politness and courteousness",
+    headingLabels = @[@"Please rate our customer service representative on politeness and courteousness",
                       @"Please rate our customer service representative on knowledge levels",
                       @"Please rate your overall experience on DAMAC customer service provided",
                       @"How would you rate your overall experience with DAMAC properties"
@@ -41,7 +41,7 @@
                                              selector:@selector(keyboardWillHide:)
                                                  name:UIKeyboardWillHideNotification
                                                object:nil];
-    allOptionsSelectedArray = [[NSMutableArray alloc]initWithObjects:@"0",@"0",@"0",@"0", nil];
+    allOptionsSelectedArray = [[NSMutableArray alloc]initWithObjects:@"0",@"0",@"0",@"0", nil];    
     _continueSurveyBtn.enabled = NO;    
 }
 
@@ -60,6 +60,15 @@
     cell.surveyArray = _surveyArray;
     cell.delegate = self;
     cell.TagValue = indexPath.row;
+    cell.dissatisfiedImage.tag = indexPath.row;
+    cell.satisfiedImage.tag = indexPath.row;
+    cell.happyImage.tag = indexPath.row;
+    cell.notApplicableImage.tag = indexPath.row;
+    cell.vw1.tag = indexPath.row;
+    cell.vw2.tag = indexPath.row;
+    cell.vw3.tag = indexPath.row;
+    cell.vw4.tag = indexPath.row;
+    
     cell.optionsDict = _optionsDict;
     return cell;
     
@@ -74,7 +83,7 @@
 }
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    return CGSizeMake(_collectionView.frame.size.width-80, 340);
+    return CGSizeMake(_collectionView.frame.size.width-20, 340);
 }
 - (IBAction)continueSurveyClick:(id)sender {
     NSNumber *flag1 = [_optionsDict valueForKey:@"0"];
@@ -117,16 +126,17 @@
 
 
 #pragma subCell Delegate
--(void)tappedOnSmiley:(int)cellIndex{
+-(void)tappedOnSmiley:(int)cellIndex questionNumber:(int)qno option:(int)option{
+    
     [allOptionsSelectedArray replaceObjectAtIndex:cellIndex withObject:@"1"];
     if([allOptionsSelectedArray containsObject:@"0"]){
-        _continueSurveyBtn.enabled = NO;
+        _continueSurveyBtn.enabled = NO;        
     }else{
         _continueSurveyBtn.enabled = YES;
         _continueSurveyBtn.backgroundColor = goldColor;
         
     }
-    
+
 }
 -(void)prepareForReuse{
     [super prepareForReuse];

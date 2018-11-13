@@ -18,48 +18,55 @@
     [super awakeFromNib];
     _textView.delegate = self;
     _textView.hidden = YES;
-  
-    
+        
 }
 
 
 - (IBAction)highlyDissatisfiedClick:(id)sender {
-    [self hilightImageView:_dissatisfiedImage];
+    [self hilightImageView:_dissatisfiedImage withBkgroundView:_vw1];
     [self fillRating:_cellTagValue changeVale:2];
-    [_delegate tappedOnSmiley:_TagValue];
+    [_delegate tappedOnSmiley:_TagValue questionNumber:_cellTagValue option:0];
 }
 
 - (IBAction)satisfiedClick:(id)sender {
-    [self hilightImageView:_satisfiedImage];
+    [self hilightImageView:_satisfiedImage withBkgroundView:_vw2];
     [self fillRating:_cellTagValue changeVale:1];
-    [_delegate tappedOnSmiley:_TagValue];
+    [_delegate tappedOnSmiley:_TagValue questionNumber:_cellTagValue option:1];
   
 }
 
 - (IBAction)happyClick:(id)sender {
-    [self hilightImageView:_happyImage];
+    [self hilightImageView:_happyImage withBkgroundView:_vw3];
     [self fillRating:_cellTagValue changeVale:0];
-    [_delegate tappedOnSmiley:_TagValue];
+    [_delegate tappedOnSmiley:_TagValue questionNumber:_cellTagValue option:2];
 }
 
 - (IBAction)notApplicableClick:(id)sender {
-    [self hilightImageView:_notApplicableImage];
+    [self hilightImageView:_notApplicableImage withBkgroundView:_vw4];
     [self fillRating:_cellTagValue changeVale:3];
-    [_delegate tappedOnSmiley:_TagValue];
+    [_delegate tappedOnSmiley:_TagValue questionNumber:_cellTagValue option:3];
 }
 
--(void)hilightImageView:(UIImageView*)imgView{
+-(void)hilightImageView:(UIImageView*)imgView withBkgroundView:(UIView*)view{
+   
+    if((view.tag == _TagValue)&&(imgView.tag == _TagValue)){
     
     _satisfiedImage.highlighted = NO;
     _dissatisfiedImage.highlighted = NO;
     _happyImage.highlighted = NO;
     _notApplicableImage.highlighted = NO;
+    _vw1.backgroundColor = rgb(85, 85, 85);
+    _vw2.backgroundColor = rgb(85, 85, 85);
+    _vw3.backgroundColor = rgb(85, 85, 85);
+    _vw4.backgroundColor = rgb(85, 85, 85);
     
+    view.backgroundColor = [UIColor blackColor];
     imgView.highlighted = YES;
     if(imgView == _dissatisfiedImage){
-        _textView.hidden = NO;
+        _textView.hidden = NO;        
     }else{
         _textView.hidden = YES;
+    }
     }
 }
 
@@ -95,6 +102,7 @@
          
      }
     [_optionsDict setValue:[NSNumber numberWithBool:additionalResponseNeeded] forKey:[NSString stringWithFormat:@"%d",subQuestionNumber]];
+
     
 }
 -(void)fillRating:(int)value changeVale:(int)changeVal{

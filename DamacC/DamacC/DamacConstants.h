@@ -157,4 +157,15 @@ typedef NS_ENUM(int) {
     MobileJ,
 }TextFieldTagsJointBuyer;
 
+
+typedef NS_ENUM(int) {
+    disatisfied = 3333999,
+    satisfied,
+    happy,
+    notapplicable,
+    firstQuestion,
+    secondQuestion,
+    thirdQuestion
+}SurveyQuestion3Model;
+
 #endif /* DamacConstants_h */

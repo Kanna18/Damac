@@ -33,6 +33,7 @@
 
 
 -(void)getListOfNotifications{
+    
     SFUserAccountManager *sf = [SFUserAccountManager sharedInstance];
     ServerAPIManager *server = [ServerAPIManager sharedinstance];
     [server postRequestwithUrl:@"https://partial-servicecloudtrial-155c0807bf-1580afc5db1.cs80.force.com/MobileApp/services/apexrest/SendNotificationsToMobileApp/" withParameters:@{@"accountId":sf.currentUser.credentials.userId} successBlock:^(id responseObj) {

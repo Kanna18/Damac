@@ -25,6 +25,8 @@
     DamacSharedClass.sharedInstance.windowButton.hidden = YES;
     [self getResponseFromTheServer];
 }
+
+
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
     DamacSharedClass.sharedInstance.currentVC = self;

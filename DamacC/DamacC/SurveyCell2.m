@@ -71,7 +71,7 @@
         tappedCEllIndex = (int)indexPath.row;
     }
     /*Logic For Hiding TExtView*/
-    if(indexPath.row<=2){
+    if(indexPath.row<=1){
         _textViewHeightConstraint.constant = 0;
     }else{
         _textViewHeightConstraint.constant = 40;

@@ -41,6 +41,7 @@
 @property (nonatomic, assign) BOOL userInteractionEnable;
 @property (nonatomic, strong) UIImageView *damacLogoImg;
 @property (nonatomic, strong) NSTimer *animateionD;
+@property  BOOL animateionBool;
 
 @end
 
@@ -201,27 +202,38 @@
 }
 -(void)showCustomImage{
     _damacLogoImg= [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"profileLogo"]];
-    _damacLogoImg.frame = CGRectMake(0, 0, 100, 100);
+    _damacLogoImg.frame = CGRectMake(0, 0, 90, 90);
     _damacLogoImg.center = self.backgroundWindow.center;
     [self.backgroundWindow addSubview:_damacLogoImg];
     
-    _animateionD = [NSTimer scheduledTimerWithTimeInterval:0.6 repeats:YES block:^(NSTimer * _Nonnull timer) {
+    _animateionD = [NSTimer scheduledTimerWithTimeInterval:2 repeats:YES block:^(NSTimer * _Nonnull timer) {
         [self DflipAnimation];
     }];
+    _animateionBool = YES;
     
 }
 -(void)DflipAnimation{
-    [UIView transitionWithView:_damacLogoImg
-                      duration:0.6
-                       options:UIViewAnimationOptionTransitionFlipFromLeft
-                    animations:^{
-                        //  Set the new image
-                        //  Since its done in animation block, the change will be animated
-                        _damacLogoImg.image = [UIImage imageNamed:@"profileLogo"];
-                    } completion:^(BOOL finished) {
-                        //  Do whatever when the animation is finished
-                        
-                    }];
+    
+    _animateionBool = _animateionBool?NO:YES;
+    
+        [UIView transitionWithView:_damacLogoImg duration:1.5
+                           options:UIViewAnimationOptionTransitionFlipFromLeft
+                        animations:^ {
+                            
+                        }
+                        completion:^(BOOL finished){
+                            if (finished) {
+//                                [UIView transitionWithView:_damacLogoImg duration:0.5
+//                                                   options:UIViewAnimationOptionTransitionCrossDissolve
+//                                                animations:^ {
+//                                                    _damacLogoImg.image = [UIImage imageNamed:@""];
+//                                                }
+//                                                completion:^(BOOL finished){
+//                                                    _damacLogoImg.image = [UIImage imageNamed:@"profileLogo"];
+//                                                }];
+                            }
+                        }];
+    
 
 }
 

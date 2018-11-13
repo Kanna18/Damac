@@ -31,6 +31,28 @@
 //    self.collectionView.scrollEnabled = NO;
     _collectionView.scrollEnabled = NO;
     
+    _btn1.tag =0;
+    _btn2.tag =1;
+    _btn3.tag =2;
+    _btn4.tag =3;
+    _btn5.tag =4;
+    _btn6.tag =5;
+    
+}
+
+-(void)setProgressBar:(NSIndexPath*)indexp{
+
+    for (UIButton *btn  in _stackView.subviews) {
+        if([btn isKindOfClass:[UIButton class]]){
+            if(btn.tag == indexp.row){
+                btn.backgroundColor = goldColor;
+            }else{
+                btn.backgroundColor =rgb(47, 47, 47);
+            }
+        }
+    }
+    
+    
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
@@ -48,6 +70,7 @@
     return 6;
 }
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    
     
     if(indexPath.row==0){
         SurveyCell1 *pCell1 = [collectionView dequeueReusableCellWithReuseIdentifier:@"surveyCell1" forIndexPath:indexPath];
@@ -89,6 +112,34 @@
     return nil;
 }
 
+
+- (void)collectionView:(UICollectionView *)collectionView
+       willDisplayCell:(UICollectionViewCell *)cell
+    forItemAtIndexPath:(NSIndexPath *)indexPath{
+    [self setProgressBar:indexPath];
+//    NSIndexPath *path = [NSIndexPath indexPathForRow:indexPath.row+1 inSection:0];
+//    if(indexPath.row==0){
+//        SurveyCell2 *cell = (SurveyCell2*)[collectionView cellForItemAtIndexPath:path];
+//        cell = nil;
+//    }
+//    if(indexPath.row==1){
+//        SurveyCell3 *cell = (SurveyCell3*)[collectionView cellForItemAtIndexPath:path];
+//        cell = nil;
+//    }
+//    if(indexPath.row==2){
+//        SurveyCell4 *cell = (SurveyCell4*)[collectionView cellForItemAtIndexPath:path];
+//        cell = nil;
+//    }
+//    if(indexPath.row==3){
+//        SurveyCell5 *cell = (SurveyCell5*)[collectionView cellForItemAtIndexPath:path];
+//        cell = nil;
+//    }
+//    if(indexPath.row==4){
+//        SurveyCell6 *cell = (SurveyCell6*)[collectionView cellForItemAtIndexPath:path];
+//        cell = nil;
+//    }
+//    
+}
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {

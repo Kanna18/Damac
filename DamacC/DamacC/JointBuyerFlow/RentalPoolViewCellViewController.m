@@ -574,6 +574,7 @@
     alertPop.saveDraftView.hidden = NO;
     alertPop.headingLabel.text = @"   Save Draft";
         [alertPop setOkHandler:^{
+            alertPop.hidden = YES;
             self.jointObj.status = @"Draft Request";
             [FTIndicator showProgressWithMessage:@"Loading Please Wait" userInteractionEnable:NO];
             

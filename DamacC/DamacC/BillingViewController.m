@@ -31,6 +31,7 @@
     COCDTF *currentTF;
     BillingObject *billObj;
     NSString *showAddressBool, *ccavenueBool;
+    CCAvenuePaymentController *paymentController;
 }
 
 - (void)viewDidLoad {
@@ -294,8 +295,9 @@
 
 - (IBAction)proceedClick:(id)sender {
     
+    
 //    InitialViewController *initial;
-//    initial = [[InitialViewController alloc]initWithOrderId:@"" merchantId:@"" accessCode:@"" custId:@"" amount:@"" currency:@"" rsaKeyUrl:@"" redirectUrl:@"" cancelUrl:@"" showAddress:showAddressBool billingName:billObj.billName billingAddress:billObj.billAddress billingCity:billObj.billCity billingState:billObj.billState billingCountry:billObj.billCountry billingTel:billObj.billTelephone billingEmail:billObj.billemailID deliveryName:billObj.shipName deliveryAddress:billObj.shipAddress deliveryCity:billObj.shipCity deliveryState:billObj.shipState deliveryCountry:billObj.shipCountry deliveryTel:billObj.shipTelephone promoCode:@"" merchant_param1:@"" merchant_param2:@"" merchant_param3:@"" merchant_param4:@"" merchant_param5:@"" useCCPromo:@""];
+//    paymentController = [[CCAvenuePaymentController alloc]initWithOrderId:@"" merchantId:@"" accessCode:@"" custId:@"" amount:@"" currency:@"" rsaKeyUrl:@"" redirectUrl:@"" cancelUrl:@"" showAddress:showAddressBool billingName:billObj.billName billingAddress:billObj.billAddress billingCity:billObj.billCity billingState:billObj.billState billingCountry:billObj.billCountry billingTel:billObj.billTelephone billingEmail:billObj.billemailID deliveryName:billObj.shipName deliveryAddress:billObj.shipAddress deliveryCity:billObj.shipCity deliveryState:billObj.shipState deliveryCountry:billObj.shipCountry deliveryTel:billObj.shipTelephone promoCode:@"" merchant_param1:@"" merchant_param2:@"" merchant_param3:@"" merchant_param4:@"" merchant_param5:@"" useCCPromo:@""];
 
     //test = [[InitialViewController alloc]initWithOrderId:[NSString stringWithFormat:@"%u",((arc4random() % 9999999) + 1)] merchantId:self.merchantIdTF.text accessCode:self.accessCodeTF.text custId:self.custIdTF.text amount:self.amountTF.text currency:self.currencyTF.text rsaKeyUrl:self.rsaKeyUrlTF.text redirectUrl:self.redirectUrlTF.text cancelUrl:self.cancelUrlTF.text showAddress:showAdd billingName:self.billingNameTF.text billingAddress:self.billingAddTF.text billingCity:self.billingCityTF.text billingState:self.billingStateTF.text billingCountry:self.billingCountryTF.text billingTel:self.billingTelTF.text billingEmail:self.billingEmailTF.text deliveryName:self.deliveryNameTF.text deliveryAddress:self.deliveryAddTF.text deliveryCity:self.deliveryCityTF.text deliveryState:self.deliveryStateTF.text deliveryCountry:self.deliveryCountryTF.text deliveryTel:self.deliveryTelTF.text];
 

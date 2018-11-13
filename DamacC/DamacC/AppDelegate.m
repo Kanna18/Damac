@@ -35,6 +35,8 @@
 #import <SalesforceSDKCore/SFLoginViewController.h>
 #import <SalesforceSDKCore/SFSDKLoginViewControllerConfig.h>
 #import <UserNotifications/UserNotifications.h>
+#import "ServicesDetailController.h"
+
 @import Firebase;
 // Fill these in when creating a new Connected Application on Force.com
 //static NSString * const RemoteAccessConsumerKey = @"3MVG9Iu66FKeHhINkB1l7xt7kR8czFcCTUhgoA8Ol2Ltf1eYHOU4SqQRSEitYFDUpqRWcoQ2.dBv_a1Dyu5xa";
@@ -207,6 +209,10 @@ NSString *const kGCMMessageIDKey = @"gcm.message_id";
     
     // Print full message.
     NSLog(@"%@", userInfo);
+    
+    [self redirectToServiceDetailPage:userInfo];
+    
+    
 }
 
 
@@ -220,6 +226,7 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     // [[FIRMessaging messaging] appDidReceiveMessage:userInfo];
     
     // Print message ID.
+    [self redirectToServiceDetailPage:userInfo];
     if (userInfo[kGCMMessageIDKey]) {
         NSLog(@"Message ID: %@", userInfo[kGCMMessageIDKey]);
     }
@@ -252,6 +259,7 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     
     // Change this to your preferred presentation option
     completionHandler(UNNotificationPresentationOptionAlert);
+    [self redirectToServiceDetailPage:userInfo];
     
     
 }
@@ -269,6 +277,7 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
     NSLog(@"%@", userInfo);
     
     completionHandler();
+    [self redirectToServiceDetailPage:userInfo];
 }
 
 // [END ios_10_message_handling]
@@ -472,4 +481,32 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
 }
 
 
+-(void)redirectToServiceDetailPage:(NSDictionary*)userInfo{
+    
+    
+//    NSString *notification = [[userInfo valueForKey:@"aps"] valueForKey:@"alert"];
+//    ServicesDetailController *svc = [DamacSharedClass.sharedInstance.currentVC.storyboard instantiateViewControllerWithIdentifier:@"servicesDetailVC"];
+//    NSArray *arr = [notification componentsSeparatedByString:@" "];
+//    svc.srCaseId = arr.lastObject;
+//    [self readANotificationStatus:arr.lastObject];
+//    [DamacSharedClass.sharedInstance.currentVC.navigationController pushViewController:svc animated:YES];
+
+}
+
+-(void)readANotificationStatus:(NSString*)notitfiID{
+    
+    NSDictionary *dict = @{
+                           @"notificationId" : notitfiID,
+                           @"status":[NSNumber numberWithBool:YES]
+                           };
+    ServerAPIManager *svr = [ServerAPIManager sharedinstance];
+    [svr postRequestwithUrl:@"https://partial-servicecloudtrial-155c0807bf-1580afc5db1.cs80.force.com/MobileApp/services/apexrest/UpdateNotificationsFromMobileApp/" withParameters:dict successBlock:^(id responseObj) {
+        if(responseObj){
+            NSDictionary *di = [NSJSONSerialization JSONObjectWithData:responseObj options:0 error:nil];
+            NSLog(@"%@",di);
+        }
+    } errorBlock:^(NSError *error) {
+        NSLog(@"Notification Error %@",error.localizedDescription);
+    }];
+}
 @end

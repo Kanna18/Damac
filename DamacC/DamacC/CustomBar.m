@@ -33,8 +33,7 @@
     if(self){
         self = [[NSBundle mainBundle]loadNibNamed:@"CustomBar" owner:self options:nil][0];
         self.frame = frame;
-
-
+       
     }
     return self;
 }

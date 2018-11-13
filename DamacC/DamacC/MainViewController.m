@@ -293,10 +293,12 @@
     VKSideMenuItem *item = [sideMenu.dataSource sideMenu:sideMenu itemForRowAtIndexPath:indexPath];
     
     if([item.title isEqualToString:kLogout]){
-        defaultRemove(kMPin);
-        defaultRemove(kconfirmMpin);
-        defaultRemove(kenterMpin);
-        [self redirecttoTouchIDWhenLogout];
+//        defaultRemove(kMPin);
+//        defaultRemove(kconfirmMpin);
+//        defaultRemove(kenterMpin);
+//        [self redirecttoTouchIDWhenLogout];
+        KeyViewController *kvc = [DamacSharedClass.sharedInstance.currentVC.storyboard instantiateViewControllerWithIdentifier:@"keyVC"];
+        [DamacSharedClass.sharedInstance.currentVC.navigationController pushViewController:kvc animated:YES];
     }
 //    @[@"Home",@"My Units",@"My Service Requests",@"Payments",@"E-Services"]
     if([item.title isEqualToString:@"My Units"]){

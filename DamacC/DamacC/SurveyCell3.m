@@ -17,7 +17,7 @@
 
 {
     NSArray *headingLabels;
-    NSMutableArray *allOptionsSelectedArray;
+
 }
 
 - (void)awakeFromNib{
@@ -30,8 +30,6 @@
                       @"How would you rate your overall experience with DAMAC properties"
                       ];
     _continueSurveyBtn.enabled = YES;
-    _optionsDict = [[NSMutableDictionary alloc]init];
-    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillShow:)
                                                  name:UIKeyboardWillShowNotification
@@ -41,7 +39,17 @@
                                              selector:@selector(keyboardWillHide:)
                                                  name:UIKeyboardWillHideNotification
                                                object:nil];
-    allOptionsSelectedArray = [[NSMutableArray alloc]initWithObjects:@"0",@"0",@"0",@"0", nil];    
+    
+    _arrayOfDictionary = [[NSMutableArray alloc]init];
+    for (int i=0; i<4; i++) {
+        NSMutableDictionary *dict = [[NSMutableDictionary alloc]init];
+        [dict setValue:@"-1" forKey:surveyQuestionDictKey];
+        [dict setValue:@"-1" forKey:surveyAnsDictKey];
+        [dict setValue:@"Please Specify Reason " forKey:surveyCommentDictKey];
+        [_arrayOfDictionary addObject:dict];
+    }
+    
+    
     _continueSurveyBtn.enabled = NO;    
 }
 
@@ -59,17 +67,7 @@
     cell.headingLabel.text = headingLabels[indexPath.row];
     cell.surveyArray = _surveyArray;
     cell.delegate = self;
-    cell.TagValue = indexPath.row;
-    cell.dissatisfiedImage.tag = indexPath.row;
-    cell.satisfiedImage.tag = indexPath.row;
-    cell.happyImage.tag = indexPath.row;
-    cell.notApplicableImage.tag = indexPath.row;
-    cell.vw1.tag = indexPath.row;
-    cell.vw2.tag = indexPath.row;
-    cell.vw3.tag = indexPath.row;
-    cell.vw4.tag = indexPath.row;
-    
-    cell.optionsDict = _optionsDict;
+    [cell hilightBackgroundView:_arrayOfDictionary[indexPath.row]];
     return cell;
     
 }
@@ -85,12 +83,11 @@
     
     return CGSizeMake(_collectionView.frame.size.width-20, 340);
 }
+
 - (IBAction)continueSurveyClick:(id)sender {
-    NSNumber *flag1 = [_optionsDict valueForKey:@"0"];
-    NSNumber *flag2 = [_optionsDict valueForKey:@"1"];
-    NSNumber *flag3 = [_optionsDict valueForKey:@"2"];
-    NSNumber *flag4 = [_optionsDict valueForKey:@"3"];    
-    if(flag1.boolValue||flag2.boolValue||flag3.boolValue||flag4.boolValue){
+
+    NSArray *arr = [_arrayOfDictionary valueForKey:surveyCommentDictKey];    
+    if([arr containsObject:@"1"]){
         [FTIndicator showToastMessage:@"Please specify reason"];
     }else{
      [_parentCollectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:3 inSection:0] atScrollPosition:UICollectionViewScrollPositionRight animated:YES];
@@ -126,16 +123,22 @@
 
 
 #pragma subCell Delegate
--(void)tappedOnSmiley:(int)cellIndex questionNumber:(int)qno option:(int)option{
+-(void)tappedOnSmileyQuestionNumber:(int)qnumber subQuestionOption:(int)subQno comments:(NSString *)comments{
     
-    [allOptionsSelectedArray replaceObjectAtIndex:cellIndex withObject:@"1"];
-    if([allOptionsSelectedArray containsObject:@"0"]){
-        _continueSurveyBtn.enabled = NO;        
+    NSMutableDictionary *dict = _arrayOfDictionary[qnumber];
+    [dict setObject:[NSString stringWithFormat:@"%d",qnumber] forKey:surveyQuestionDictKey];
+    [dict setObject:[NSString stringWithFormat:@"%d",subQno] forKey:surveyAnsDictKey];
+    [dict setObject:comments forKey:surveyCommentDictKey];
+    NSLog(@"%@",_arrayOfDictionary[qnumber]);
+    
+    NSArray *arr = [_arrayOfDictionary valueForKey:surveyAnsDictKey];
+    if([arr containsObject:@"-1"]){
+        _continueSurveyBtn.enabled = NO;
     }else{
         _continueSurveyBtn.enabled = YES;
         _continueSurveyBtn.backgroundColor = goldColor;
-        
     }
+    [_collectionView reloadData];
 
 }
 -(void)prepareForReuse{

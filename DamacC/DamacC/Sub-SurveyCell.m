@@ -23,34 +23,32 @@
 
 
 - (IBAction)highlyDissatisfiedClick:(id)sender {
-    [self hilightImageView:_dissatisfiedImage withBkgroundView:_vw1];
+//    [self hilightImageView:_dissatisfiedImage withBkgroundView:_vw1];
     [self fillRating:_cellTagValue changeVale:2];
-    [_delegate tappedOnSmiley:_TagValue questionNumber:_cellTagValue option:0];
+    [_delegate tappedOnSmileyQuestionNumber:self.cellTagValue subQuestionOption:0 comments:@"1"];
 }
 
 - (IBAction)satisfiedClick:(id)sender {
-    [self hilightImageView:_satisfiedImage withBkgroundView:_vw2];
+//    [self hilightImageView:_satisfiedImage withBkgroundView:_vw2];
     [self fillRating:_cellTagValue changeVale:1];
-    [_delegate tappedOnSmiley:_TagValue questionNumber:_cellTagValue option:1];
+    [_delegate tappedOnSmileyQuestionNumber:self.cellTagValue subQuestionOption:1 comments:@"Please Specify Reason"];
   
 }
 
 - (IBAction)happyClick:(id)sender {
-    [self hilightImageView:_happyImage withBkgroundView:_vw3];
+//    [self hilightImageView:_happyImage withBkgroundView:_vw3];
     [self fillRating:_cellTagValue changeVale:0];
-    [_delegate tappedOnSmiley:_TagValue questionNumber:_cellTagValue option:2];
+    [_delegate tappedOnSmileyQuestionNumber:self.cellTagValue subQuestionOption:2 comments:@"Please Specify Reason"];
 }
 
 - (IBAction)notApplicableClick:(id)sender {
-    [self hilightImageView:_notApplicableImage withBkgroundView:_vw4];
+//    [self hilightImageView:_notApplicableImage withBkgroundView:_vw4];
     [self fillRating:_cellTagValue changeVale:3];
-    [_delegate tappedOnSmiley:_TagValue questionNumber:_cellTagValue option:3];
+    [_delegate tappedOnSmileyQuestionNumber:self.cellTagValue subQuestionOption:3 comments:@"Please Specify Reason"];
 }
 
--(void)hilightImageView:(UIImageView*)imgView withBkgroundView:(UIView*)view{
+-(void)hilightBackgroundView:(NSDictionary*)dict{
    
-    if((view.tag == _TagValue)&&(imgView.tag == _TagValue)){
-    
     _satisfiedImage.highlighted = NO;
     _dissatisfiedImage.highlighted = NO;
     _happyImage.highlighted = NO;
@@ -60,14 +58,34 @@
     _vw3.backgroundColor = rgb(85, 85, 85);
     _vw4.backgroundColor = rgb(85, 85, 85);
     
-    view.backgroundColor = [UIColor blackColor];
-    imgView.highlighted = YES;
-    if(imgView == _dissatisfiedImage){
-        _textView.hidden = NO;        
-    }else{
+    
+    if([[dict valueForKey:surveyAnsDictKey] intValue] == 0){
+        _vw1.backgroundColor = [UIColor blackColor];
+        _dissatisfiedImage.highlighted = YES;
+         _textView.hidden = NO;
+        if([[dict valueForKey:surveyCommentDictKey] intValue] != 1){
+            _textView.text = [dict valueForKey:surveyCommentDictKey];
+        }else{
+            _textView.text = @"Please Specify Reason";
+        }
+        
+    }
+    if([[dict valueForKey:surveyAnsDictKey] intValue] == 1){
+        _vw2.backgroundColor = [UIColor blackColor];
+        _satisfiedImage.highlighted = YES;
         _textView.hidden = YES;
     }
+    if([[dict valueForKey:surveyAnsDictKey] intValue] == 2){
+        _vw3.backgroundColor = [UIColor blackColor];
+        _happyImage.highlighted = YES;
+        _textView.hidden = YES;
     }
+    if([[dict valueForKey:surveyAnsDictKey] intValue] == 3){
+        _vw4.backgroundColor = [UIColor blackColor];
+        _notApplicableImage.highlighted = YES;
+        _textView.hidden = YES;
+    }
+ 
 }
 
 #pragma mark TextField Delegates
@@ -101,9 +119,7 @@
          additionalResponseNeeded = NO;
          
      }
-    [_optionsDict setValue:[NSNumber numberWithBool:additionalResponseNeeded] forKey:[NSString stringWithFormat:@"%d",subQuestionNumber]];
-
-    
+    [_delegate tappedOnSmileyQuestionNumber:self.cellTagValue subQuestionOption:0 comments:textView.text];
 }
 -(void)fillRating:(int)value changeVale:(int)changeVal{
     
@@ -124,7 +140,5 @@
         [subDict setValue:[NSNumber numberWithBool:NO] forKey:@"renderFreeText"];
         additionalResponseNeeded = NO;
     }
-    
-    [_optionsDict setValue:[NSNumber numberWithBool:additionalResponseNeeded] forKey:[NSString stringWithFormat:@"%d",value]];
 }
 @end

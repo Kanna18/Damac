@@ -168,4 +168,8 @@ typedef NS_ENUM(int) {
     thirdQuestion
 }SurveyQuestion3Model;
 
+#define surveyQuestionDictKey @"surveyQuestionNumber"
+#define surveyAnsDictKey @"surveyAnswer"
+#define surveyCommentDictKey @"surveyComment"
+
 #endif /* DamacConstants_h */

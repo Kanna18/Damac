@@ -20,11 +20,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DamacC/SurveyCell3.m"
-            timestampString = "563816207.714265"
+            timestampString = "563828862.37542"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "152"
-            endingLineNumber = "152">
+            startingLineNumber = "89"
+            endingLineNumber = "89"
+            landmarkName = "-continueSurveyClick:"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -34,12 +36,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DamacC/SurveyCell3.m"
-            timestampString = "563816390.3902431"
+            timestampString = "563828862.375517"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "110"
-            endingLineNumber = "110"
-            landmarkName = "-keyboardWillShow:"
+            startingLineNumber = "134"
+            endingLineNumber = "134"
+            landmarkName = "-tappedOnSmileyQuestionNumber:subQuestionOption:comments:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

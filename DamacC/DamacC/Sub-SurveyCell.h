@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 @protocol TappedOnSmiley <NSObject>
 
--(void)tappedOnSmiley:(int)cellIndex questionNumber:(int)qno option:(int)option;
+-(void)tappedOnSmileyQuestionNumber:(int)qnumber subQuestionOption:(int)subQno comments:(NSString*)comments;
 
 @end
 
@@ -33,9 +33,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property NSMutableArray *surveyArray;
 @property int cellTagValue;
 
-@property NSMutableDictionary *optionsDict;
-
-@property int TagValue;
 
 @property id<TappedOnSmiley>delegate;
 
@@ -45,6 +42,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIView *vw3;
 @property (weak, nonatomic) IBOutlet UIView *vw4;
 
+-(void)hilightBackgroundView:(NSDictionary*)dict;
 
 @end
 

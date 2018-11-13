@@ -38,6 +38,11 @@
     _btn5.tag =4;
     _btn6.tag =5;
     
+    if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)])
+    {
+        [self.navigationController.view removeGestureRecognizer:self.navigationController.interactivePopGestureRecognizer];
+    }
+    
 }
 
 -(void)setProgressBar:(NSIndexPath*)indexp{

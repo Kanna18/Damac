@@ -175,8 +175,7 @@
 -(void)selectedFromDropMenu:(NSString *)str forType:(NSString *)type withTag:(int)tag{
     _cocdOBj.Country = str;
     [self.tableView reloadData];
-    [popoverController dismissPopoverAnimated:YES];
-    
+    [popoverController dismissPopoverAnimated:YES];    
 }
 #pragma mark UiTableViewDelegates
 

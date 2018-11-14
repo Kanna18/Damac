@@ -114,10 +114,10 @@ static Translator *instance;
         return;
     }
     
-    if ([translateEntity.inputText rangeOfCharacterFromSet:[NSCharacterSet letterCharacterSet]].location == NSNotFound) {
-        // error with input text (not found characters), but don't receive because don't want to show error
-        return;
-    }
+//    if ([translateEntity.inputText rangeOfCharacterFromSet:[NSCharacterSet letterCharacterSet]].location == NSNotFound) {
+//        // error with input text (not found characters), but don't receive because don't want to show error
+//        return;
+//    }
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:translateURL]];
     NSString *allowedInput = [translateEntity.inputText stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];

@@ -62,7 +62,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)fillCOCDObjWithCaseID:(ServicesSRDetails*)srd;
 
 - (void)updateTranslatewithText:(NSString*)txt;
-
+-(void)sendArabicTexts;
 
 @property id<ArabicDelegate> delegate;
 

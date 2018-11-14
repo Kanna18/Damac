@@ -198,7 +198,9 @@
 //    [self.backgroundWindow addSubview:self.progressView];
     
     [self startShowingProgressView];
+    if(!_damacLogoImg){
     [self showCustomImage];
+    }
 }
 -(void)showCustomImage{
     _damacLogoImg= [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"profileLogo"]];
@@ -336,6 +338,7 @@
 - (void)dismissingProgressView
 {
     [_damacLogoImg removeFromSuperview];
+    _damacLogoImg = nil;
     [self.progressView.layer removeAllAnimations];
     self.isDuringAnimation = YES;
     [UIView animateWithDuration:kFTProgressDefaultAnimationDuration

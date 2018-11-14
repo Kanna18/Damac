@@ -96,6 +96,10 @@
 }
 
 -(void)PassportUpdateEditFormDetails{
+    dispatch_async(dispatch_get_main_queue(), ^{
+    [_buyersButton setTitle:kUserProfile.partyName forState:UIControlStateNormal];
+    });
+    
     if(_srdRental){
         for (NSDictionary *dic in buyersInfoArr) {
             if([dic[@"Account__c"] isEqualToString:_srdRental.AccountId]){
@@ -174,7 +178,7 @@
 //        [calendarView ActiveCalendar:self.view];
 //    }
     else{
-        [FTIndicator showErrorWithMessage:@"Selected date should be future date"];
+        [FTIndicator showToastMessage:@"Selected date should be future date"];
         [calendarView ActiveCalendar:self.view];
     }
     self.passportObj.PassportIssuedDate = str;

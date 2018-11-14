@@ -28,7 +28,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="355" height="50"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Download, Fill,Scan and Upload COCD Form" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h1U-tE-US8">
-                                    <rect key="frame" x="0.0" y="0.0" width="305" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="355" height="50"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="13"/>
                                     <color key="textColor" red="0.84431583180147074" green="0.68075726752579324" blue="0.38900415287188184" alpha="1" colorSpace="calibratedRGB"/>
@@ -58,7 +58,6 @@
                             <color key="backgroundColor" red="0.14344905279820264" green="0.14344905279820264" blue="0.14344905279820264" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="NVy-ZI-7Wq" secondAttribute="trailing" id="3gk-Vu-K9A"/>
-                                <constraint firstItem="1sS-hV-xn2" firstAttribute="leading" secondItem="h1U-tE-US8" secondAttribute="trailing" id="FfS-nc-1Va"/>
                                 <constraint firstItem="NVy-ZI-7Wq" firstAttribute="leading" secondItem="pxo-lE-g6t" secondAttribute="leading" id="Hr0-7v-8i6"/>
                                 <constraint firstAttribute="bottom" secondItem="1sS-hV-xn2" secondAttribute="bottom" id="Qez-cF-wbm"/>
                                 <constraint firstAttribute="height" constant="50" id="Sy4-1F-vuZ"/>
@@ -66,6 +65,7 @@
                                 <constraint firstAttribute="bottom" secondItem="NVy-ZI-7Wq" secondAttribute="bottom" id="YZK-Ju-9eu"/>
                                 <constraint firstAttribute="bottom" secondItem="h1U-tE-US8" secondAttribute="bottom" id="b87-lI-xQN"/>
                                 <constraint firstItem="h1U-tE-US8" firstAttribute="top" secondItem="pxo-lE-g6t" secondAttribute="top" id="cCU-OS-P14"/>
+                                <constraint firstAttribute="trailing" secondItem="h1U-tE-US8" secondAttribute="trailing" id="jCo-3z-Sg2"/>
                                 <constraint firstItem="1sS-hV-xn2" firstAttribute="top" secondItem="pxo-lE-g6t" secondAttribute="top" id="ksq-Aj-XVR"/>
                                 <constraint firstAttribute="trailing" secondItem="1sS-hV-xn2" secondAttribute="trailing" id="xXc-Vy-E0i"/>
                             </constraints>

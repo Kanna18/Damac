@@ -361,7 +361,7 @@
     NSDateComponents *dateComponent = [calendar components:(NSWeekOfYearCalendarUnit | NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit | NSCalendarUnitWeekday) fromDate:selectedDate];
     
     if(result == NSOrderedAscending ){
-        [FTIndicator showErrorWithMessage:@"Invalid Date selected"];
+        [FTIndicator showToastMessage:@"Invalid Date selected"];
         [calendarView ActiveCalendar:superView];
     }else{
         paymentDate = str;
@@ -627,6 +627,7 @@
         [FTIndicator showToastMessage:@"please bank swift code"];
         return;
     }
+    _popObj.Totalamount = amount;
     _popObj.PaymentMode = paymentMode;
     _popObj.PARemark = [dictionaryTf valueForKey:[NSString stringWithFormat:@"%@",[NSNumber numberWithInt:textFieldTag+1]]];
     _popObj.PaymentDate = paymentDate;

@@ -32,17 +32,10 @@
     _headingButton.layer.cornerRadius = radiusCommon;
     _headingButton.layer.borderWidth = borderWidthCommon;
     _headingButton.layer.borderColor = borderColorCommon;
-    DamacSharedClass.sharedInstance.windowButton.hidden = YES;
     ca = [[CameraView alloc]initWithFrame:CGRectZero parentViw:self];
     [self.view addSubview:ca];
     ca.delegate = self;
     
-    UIImage *image = [UIImage imageWithContentsOfFile:[self isImageAvailable]];
-    if(image){
-        _profilePic.image = image;
-        [self roundCorners:_profilePic];
-    }
-
 }
 -(void)fillValues{
     
@@ -82,6 +75,13 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
     [DamacSharedClass.sharedInstance.navigationCustomBar setPageTite:@"My profile"];
+    DamacSharedClass.sharedInstance.windowButton.hidden = YES;
+    UIImage *image = [UIImage imageWithContentsOfFile:[self isImageAvailable]];
+    if(image){
+        _profilePic.image = image;
+        [self roundCorners:_profilePic];
+    }
+    
 }
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:YES];

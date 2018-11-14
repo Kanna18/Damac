@@ -73,12 +73,12 @@
     if([DamacSharedClass.sharedInstance.currentVC isKindOfClass:[ChangeOfContactDetails class]])
     {
         ChangeOfContactDetails *ch = (ChangeOfContactDetails*)DamacSharedClass.sharedInstance.currentVC;
-        [ch.scrollView setContentOffset:CGPointMake(ch.scrollView.bounds.size.width+10, 0)];
+        [ch.scrollView setContentOffset:self.frame.origin];
     }
     if([DamacSharedClass.sharedInstance.currentVC isKindOfClass:[RentalPoolViewCellViewController class]])
     {
         RentalPoolViewCellViewController *ch = (RentalPoolViewCellViewController*)DamacSharedClass.sharedInstance.currentVC;
-        [ch.scrollView setContentOffset:CGPointMake(2*ch.scrollView.bounds.size.width+3, 0)];
+        [ch.scrollView setContentOffset:self.frame.origin];
     }
 }
 

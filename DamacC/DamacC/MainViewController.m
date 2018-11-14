@@ -168,13 +168,15 @@
 }
 
 -(void)customNavBarVie{
-    cstm = [[CustomBar alloc]initWithFrame:CGRectMake(0, 0, UIScreen.mainScreen.bounds.size.width, 65)];
+    cstm = [[CustomBar alloc]initWithFrame:CGRectMake(0, 0, UIScreen.mainScreen.bounds.size.width, 50)];
     DamacSharedClass.sharedInstance.navigationCustomBar = cstm;
     [cstm.backBtn setTitle:@"" forState:UIControlStateNormal];
     [cstm.backBtn setImage:DamacSharedClass.sharedInstance.burgerImage forState:UIControlStateNormal];
     [cstm.backBtn addTarget:self action:@selector(buttonMenuLeft:) forControlEvents:UIControlEventTouchUpInside];
     cstm.NavigationTitle.hidden = YES;
+    cstm.center = self.navigationController.navigationBar.center;
     [self.navigationController.view addSubview:cstm];
+    
 //    [[[UIApplication sharedApplication].delegate window] addSubview:cstm];
 }
 
@@ -289,16 +291,21 @@
 
 -(void)sideMenu:(VKSideMenu *)sideMenu didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    DamacSharedClass.sharedInstance.windowButton.hidden =YES;
     NSLog(@"SideMenu didSelectRow: %@", indexPath);
     VKSideMenuItem *item = [sideMenu.dataSource sideMenu:sideMenu itemForRowAtIndexPath:indexPath];
-    
+    if([item.title isEqualToString:@"Notification"]){
+    NotificationsTableVC *nvc = [DamacSharedClass.sharedInstance.currentVC.storyboard instantiateViewControllerWithIdentifier:@"notificationsTableVC"];
+    [DamacSharedClass.sharedInstance.navigationCustomBar.backBtn setImage:DamacSharedClass.sharedInstance.backImage forState:UIControlStateNormal];
+    [DamacSharedClass.sharedInstance.currentVC.navigationController pushViewController:nvc animated:YES];
+    }
     if([item.title isEqualToString:kLogout]){
 //        defaultRemove(kMPin);
 //        defaultRemove(kconfirmMpin);
 //        defaultRemove(kenterMpin);
 //        [self redirecttoTouchIDWhenLogout];
         KeyViewController *kvc = [DamacSharedClass.sharedInstance.currentVC.storyboard instantiateViewControllerWithIdentifier:@"keyVC"];
-        [DamacSharedClass.sharedInstance.currentVC.navigationController pushViewController:kvc animated:YES];
+        [self.navigationController pushViewController:kvc animated:YES];
     }
 //    @[@"Home",@"My Units",@"My Service Requests",@"Payments",@"E-Services"]
     if([item.title isEqualToString:@"My Units"]){

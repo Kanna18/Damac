@@ -81,7 +81,7 @@
 }
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    return CGSizeMake(_collectionView.frame.size.width-20, 340);
+    return CGSizeMake(_collectionView.frame.size.width-20, _collectionView.frame.size.width-20);
 }
 
 - (IBAction)continueSurveyClick:(id)sender {

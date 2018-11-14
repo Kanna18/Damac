@@ -143,7 +143,7 @@
     
     dataLabels = @[[NSString stringWithFormat:@"%@ - %@",handleNull(srD.CaseNumber),handleNull(srD.Status)],
                    [self returnDate:srD.CreatedDate],
-                   [NSString stringWithFormat:@" "],
+                   kUserProfile.partyName,
                    handleNull(srD.Unit_Name__c),
                    handleNull(srD.Type),
                    handleNull(srD.Complaint_Type__c),
@@ -175,7 +175,7 @@
     
     dataLabels = @[[NSString stringWithFormat:@"%@ - %@",handleNull(srD.CaseNumber),handleNull(srD.Status)],
                    [self returnDate:srD.CreatedDate],
-                   [NSString stringWithFormat:@" "],
+                   kUserProfile.partyName,
                    @"",
                    handleNull(srD.SR_Type__c),
                    handleNull(srD.Country__c),
@@ -208,7 +208,7 @@
     
     dataLabels = @[[NSString stringWithFormat:@"%@ - %@",handleNull(srD.CaseNumber),handleNull(srD.Status)],
                    [self returnDate:srD.CreatedDate],
-                   [NSString stringWithFormat:@" "],
+                   kUserProfile.partyName,
                    @"",
                    handleNull(srD.SR_Type__c),
                    handleNull(srD.New_CR__c),
@@ -236,7 +236,7 @@
     
     dataLabels = @[[NSString stringWithFormat:@"%@ - %@",handleNull(srD.CaseNumber),handleNull(srD.Status)],
                    [self returnDate:srD.CreatedDate],
-                   [NSString stringWithFormat:@" "],
+                   kUserProfile.partyName,
                    @"",
                    handleNull(srD.SR_Type__c),
                    handleNull(srD.Payment_Date__c),
@@ -275,7 +275,7 @@
     
     dataLabels = @[[NSString stringWithFormat:@"%@ - %@",handleNull(srD.CaseNumber),handleNull(srD.Status)],
                    [self returnDate:srD.CreatedDate],
-                   [NSString stringWithFormat:@" "],
+                   kUserProfile.partyName,
                    @"",
                    handleNull(srD.SR_Type__c),
                    handleNull(srD.Country__c),

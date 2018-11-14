@@ -350,7 +350,7 @@
         
         countoFImagesUploaded ++;
         
-        [FTIndicator showProgressWithMessage:@"Loading Please Wait" userInteractionEnable:NO];
+//        [FTIndicator showProgressWithMessage:@"Loading Please Wait" userInteractionEnable:NO];
         
         if ([path rangeOfString:@"ComplaintsAttachment1"].location == NSNotFound) {
             NSLog(@"string does not contain bla");

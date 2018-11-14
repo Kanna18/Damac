@@ -31,18 +31,16 @@
     UIColor *selectedColor;
     NSArray *dropItems;
     WYPopoverController* popoverController;
-    
     NSInteger *section2Cells;
     COCDTF *currentTF;
     NSArray *countriesArray;
     JointBView2 *jbView;
     CGRect frame3;
     CGRect originalBoundsoFScrollView;
-    
     BOOL uploadDocsPageVisible;
     int countoFImagestoUplaod,countoFImagesUploaded;
-    
     AlertPopUp *alertPop;
+    
 }
 
 
@@ -301,8 +299,8 @@
     
 }
 - (IBAction)mobileClick:(id)sender {
-    [self  setSelectedButtonBackgroundColor:_view1 withLabel:_mobileBtn];
     [currentTF resignFirstResponder];
+    [self  setSelectedButtonBackgroundColor:_view1 withLabel:_mobileBtn];
         sections = 1;
         numberOfCells = 1;
         _tableViewHeight.constant = heightTV;
@@ -338,9 +336,8 @@
 }
 
 - (IBAction)emailClick:(id)sender {
-    
-    [self  setSelectedButtonBackgroundColor:_view2 withLabel:_emailBtn];
     [currentTF resignFirstResponder];
+    [self  setSelectedButtonBackgroundColor:_view2 withLabel:_emailBtn];
         sections = 1;
         numberOfCells = 1;
         _tableViewHeight.constant = heightTV;
@@ -355,9 +352,9 @@
 }
 
 - (IBAction)addressClick:(id)sender {
+    [currentTF resignFirstResponder];
     [self  setSelectedButtonBackgroundColor:_view3 withLabel:_addressBtn];
     _cocdOBj.delegate = self;
-    [currentTF resignFirstResponder];
         sections = 2;
         numberOfCells = 3;
         _tableViewHeight.constant = 280;
@@ -429,7 +426,7 @@
 }
 
 - (IBAction)nextClick:(id)sender{
-    
+    [currentTF resignFirstResponder];
     if([self validationSetForCOCD]){
         UIButton *btn = (UIButton*)sender;
         if([btn.titleLabel.text isEqualToString:butonTitleSubmitSR])
@@ -465,6 +462,7 @@
         }
         
     }
+    
 }
 - (IBAction)previousClick:(id)sender{
     
@@ -474,7 +472,7 @@
     [currentTF resignFirstResponder];
     
     _scrollView.bounds = originalBoundsoFScrollView;
-    [_scrollView setContentOffset:CGPointMake(0, 0) animated:YES];
+    [_scrollView setContentOffset:_tableView.frame.origin];
     [jbView removeFromSuperview];
     [_nextbtn setTitle:buttonTitleNext forState:UIControlStateNormal];
     _downloadBtn.hidden = NO;
@@ -483,9 +481,11 @@
     _buttonsViewHeight.constant =50;
     
 //    [sterView nolineColor];
+    [self mobileClick:nil];
     
 }
 - (IBAction)saveDraftClick:(id)sender {
+    [currentTF resignFirstResponder];
     if([self validationSetForCOCD]){
         //    case1: whenEver Clicked on SaveDraft Button Need to check Email Valdiation
         alertPop.hidden = NO;
@@ -590,7 +590,7 @@
 }
 
 - (IBAction)downloadFormClick:(id)sender {
-    
+    [currentTF resignFirstResponder];
     if([self validationSetForCOCD])
     {
         alertPop.hidden = NO;

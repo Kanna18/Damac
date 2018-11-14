@@ -59,6 +59,15 @@
     DamacSharedClass.sharedInstance.currentVC = self;
     [self getListOfNotifications];
 }
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:YES];
+    [self performSelector:@selector(hideWindowButton) withObject:nil afterDelay:0.2];
+}
+
+-(void)hideWindowButton{
+    DamacSharedClass.sharedInstance.windowButton.hidden = YES;
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

@@ -11,7 +11,6 @@
 #import "TopCollectionCell.h"
 #import "GridCollectionViewCell.h"
 #import "ServicesTableViewController.h"
-#import "VCFloatingActionButton.h"
 #import "ProfileViewController.h"
 #import "BillingViewController.h"
 #import "ScheduleAppointmentsVC.h"
@@ -291,42 +290,42 @@
 
 -(void)sideMenu:(VKSideMenu *)sideMenu didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    DamacSharedClass.sharedInstance.windowButton.hidden =YES;
-    NSLog(@"SideMenu didSelectRow: %@", indexPath);
-    VKSideMenuItem *item = [sideMenu.dataSource sideMenu:sideMenu itemForRowAtIndexPath:indexPath];
-    if([item.title isEqualToString:@"Notification"]){
-    NotificationsTableVC *nvc = [DamacSharedClass.sharedInstance.currentVC.storyboard instantiateViewControllerWithIdentifier:@"notificationsTableVC"];
-    [DamacSharedClass.sharedInstance.navigationCustomBar.backBtn setImage:DamacSharedClass.sharedInstance.backImage forState:UIControlStateNormal];
-    [DamacSharedClass.sharedInstance.currentVC.navigationController pushViewController:nvc animated:YES];
-    }
-    if([item.title isEqualToString:kLogout]){
-//        defaultRemove(kMPin);
-//        defaultRemove(kconfirmMpin);
-//        defaultRemove(kenterMpin);
-//        [self redirecttoTouchIDWhenLogout];
-        KeyViewController *kvc = [DamacSharedClass.sharedInstance.currentVC.storyboard instantiateViewControllerWithIdentifier:@"keyVC"];
-        [self.navigationController pushViewController:kvc animated:YES];
-    }
-//    @[@"Home",@"My Units",@"My Service Requests",@"Payments",@"E-Services"]
-    if([item.title isEqualToString:@"My Units"]){
-        [self loadBasedontheclick:kMyUnits];
-    }if([item.title isEqualToString:@"My Service Requests"]){
-        [self loadBasedontheclick:kMyServiceRequests];
-    }if([item.title isEqualToString:@"Create E-Services"]){
-        [self loadBasedontheclick:kEServices];
-    }if([item.title isEqualToString:@"Payment Schedules"]){
-        [self loadBasedontheclick:kMyPaymentScedules];
-    }if([item.title isEqualToString:@"User Profile"]){
-        [self loadBasedontheclick:@"User Profile"];
-    }if([item.title isEqualToString:kSOA]){
-        [self loadBasedontheclick:kSOA];
-    }if([item.title isEqualToString:kprofilePage]){
-        [self loadBasedontheclick:kprofilePage];
-    }
-    if([item.title isEqualToString:@"Create Requests"]){
-        [self loadBasedontheclick:kEServices];
-    }
     
+        NSLog(@"SideMenu didSelectRow: %@", indexPath);
+        VKSideMenuItem *item = [sideMenu.dataSource sideMenu:sideMenu itemForRowAtIndexPath:indexPath];
+        if([item.title isEqualToString:@"Notification"]){
+            NotificationsTableVC *nvc = [DamacSharedClass.sharedInstance.currentVC.storyboard instantiateViewControllerWithIdentifier:@"notificationsTableVC"];
+            [DamacSharedClass.sharedInstance.navigationCustomBar.backBtn setImage:DamacSharedClass.sharedInstance.backImage forState:UIControlStateNormal];
+            [DamacSharedClass.sharedInstance.currentVC.navigationController pushViewController:nvc animated:YES];
+        }
+        if([item.title isEqualToString:kLogout]){
+            //        defaultRemove(kMPin);
+            //        defaultRemove(kconfirmMpin);
+            //        defaultRemove(kenterMpin);
+            //        [self redirecttoTouchIDWhenLogout];
+            KeyViewController *kvc = [DamacSharedClass.sharedInstance.currentVC.storyboard instantiateViewControllerWithIdentifier:@"keyVC"];
+            [self.navigationController pushViewController:kvc animated:YES];
+        }
+        //    @[@"Home",@"My Units",@"My Service Requests",@"Payments",@"E-Services"]
+        if([item.title isEqualToString:@"My Units"]){
+            [self loadBasedontheclick:kMyUnits];
+        }if([item.title isEqualToString:@"My Service Requests"]){
+            [self loadBasedontheclick:kMyServiceRequests];
+        }if([item.title isEqualToString:@"Create E-Services"]){
+            [self loadBasedontheclick:kEServices];
+        }if([item.title isEqualToString:@"Payment Schedules"]){
+            [self loadBasedontheclick:kMyPaymentScedules];
+        }if([item.title isEqualToString:@"User Profile"]){
+            [self loadBasedontheclick:@"User Profile"];
+        }if([item.title isEqualToString:kSOA]){
+            [self loadBasedontheclick:kSOA];
+        }if([item.title isEqualToString:kprofilePage]){
+            [self loadBasedontheclick:kprofilePage];
+        }
+        if([item.title isEqualToString:@"Create Requests"]){
+            [self loadBasedontheclick:kEServices];
+        }
+        
 }
 
 -(void)sideMenuDidShow:(VKSideMenu *)sideMenu

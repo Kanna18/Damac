@@ -22,7 +22,7 @@
     
     UserDetailsModel *udm;
     NSString *toastMessage;
-    int CountobobjectstoTranslate;
+    
 }
 -(instancetype)init{
     self = [super init];
@@ -32,7 +32,7 @@
         if(!self.translator){
             self.translator = [Translator sharedInstance];
             self.translator.delegate = self;
-            CountobobjectstoTranslate = 1;
+            _CountobobjectstoTranslate = 1;
         }
     }
     return self;
@@ -68,7 +68,7 @@
             [self fillArabicTexts:translate];
         }
     }
-    CountobobjectstoTranslate++;
+    _CountobobjectstoTranslate++;
     [self sendArabicTexts];
 }
 - (void)receiveLanguagesList:(NSArray<NSString *> *)allLanguages withError:(NSError*)error{
@@ -104,7 +104,7 @@
     self.Origin = @"";
     self.fcm = @"";
     self.salesforceId = @"";
-    CountobobjectstoTranslate = 1;
+    _CountobobjectstoTranslate = 1;
     [self sendArabicTexts];
 }
 -(void)fillCOCDObjWithCaseID:(ServicesSRDetails*)srd{
@@ -119,7 +119,7 @@
     self.AddressLine4 = handleNull(srd.Address_4__c);
     self.City = handleNull(srd.City__c);
     self.State = handleNull(srd.State__c);
-    self.PostalCode = @"Enter Postal Code";
+    self.PostalCode = handleNull(srd.Postal_Code__c);
     self.Country = handleNull(srd.Country__c);
     self.Mobile = handleNull(srd.Contact_Mobile__c);
     self.Email = handleNull(srd.Contact_Email__c);
@@ -136,25 +136,30 @@
     self.Origin = @"";
     self.fcm = @"";
     self.salesforceId = handleNull(srd.Id);
+    
+    self.cocdUploadedImagePath=srd.CRF_File_URL__c;
+    self.primaryPassportUploadedImagePath= srd.Passport_File_URL__c;
+    self.additionalImageUploadedImagePath = srd.Additional_Doc_File_URL__c;
+    
     [self sendArabicTexts];
 }
 
 -(void)sendArabicTexts{
-    if(CountobobjectstoTranslate==1){
+    if(_CountobobjectstoTranslate==1){
         [self updateTranslatewithText:self.AddressLine1];
-    }else if (CountobobjectstoTranslate==2){
+    }else if (_CountobobjectstoTranslate==2){
         [self updateTranslatewithText:self.AddressLine2];
-    }else if (CountobobjectstoTranslate==3){
+    }else if (_CountobobjectstoTranslate==3){
         [self updateTranslatewithText:self.AddressLine3];
-    }else if (CountobobjectstoTranslate==4){
+    }else if (_CountobobjectstoTranslate==4){
         [self updateTranslatewithText:self.AddressLine4];
-    }else if (CountobobjectstoTranslate==5){
+    }else if (_CountobobjectstoTranslate==5){
         [self updateTranslatewithText:self.State];
-    }else if (CountobobjectstoTranslate==6){
+    }else if (_CountobobjectstoTranslate==6){
         [self updateTranslatewithText:self.Country];
-    }else if (CountobobjectstoTranslate==7){
+    }else if (_CountobobjectstoTranslate==7){
         [self updateTranslatewithText:self.PostalCode];
-    }else if (CountobobjectstoTranslate==8){
+    }else if (_CountobobjectstoTranslate==8){
         [self updateTranslatewithText:self.City];
     }
     
@@ -201,7 +206,7 @@
 
 -(void)changeValueBasedonTag:(UITextField*)textField withValue:(NSString*)str{
     
-    CountobobjectstoTranslate = 1;
+    _CountobobjectstoTranslate = 1;
     
     int tagValue = textField.tag;
     if(tagValue == Mobile){

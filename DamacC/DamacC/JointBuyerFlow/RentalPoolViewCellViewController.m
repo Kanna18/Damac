@@ -59,11 +59,9 @@
     countoFImagestoUplaod = 0;
     countoFImagesUploaded = 0;
 //    _scrollView.scrollEnabled = NO;
-    DamacSharedClass.sharedInstance.windowButton.hidden = YES;
     _scrollView.delegate = self;
     _tableView.scrollEnabled = NO;
     
-    [self adjustImageEdgeInsetsOfButton:_buyersNewBtn];
 }
 
 -(void)roundCorners:(UIButton*)sender{
@@ -141,6 +139,7 @@
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:YES];
+    [self adjustImageEdgeInsetsOfButton:_buyersNewBtn];
     DamacSharedClass.sharedInstance.currentVC = self;
     DamacSharedClass.sharedInstance.windowButton.hidden = YES;
     

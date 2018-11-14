@@ -35,14 +35,23 @@
     _popObj = [[popObject alloc]init];
 
 }
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
+}
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:YES];
     DamacSharedClass.sharedInstance.currentVC = self;
     sterView = [[StepperView alloc]initWithFrame:_stepperbaseView.frame];
     [self.view addSubview:sterView];
+    [self performSelector:@selector(hideWindowButton) withObject:nil afterDelay:0.2];
+}
+
+-(void)hideWindowButton{
     DamacSharedClass.sharedInstance.windowButton.hidden = YES;
 }
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

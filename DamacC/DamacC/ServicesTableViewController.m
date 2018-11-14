@@ -7,7 +7,6 @@
 //
 
 #import "ServicesTableViewController.h"
-#import "VCFloatingActionButton.h"
 #import "AppDelegate.h"
 #import "BillingViewController.h"
 #import "PaymentsViewController.h"
@@ -26,7 +25,7 @@ static NSString *reuseCell = @"servicesCell";
     ReceiptDataModel *receiptsDM;
     
     CGFloat headerHeight,scr_width,scr_height;
-    VCFloatingActionButton *addButton;
+
     
 }
 
@@ -73,16 +72,6 @@ static NSString *reuseCell = @"servicesCell";
 
 }
 
--(void)loadFoatMenu{
-    UIWindow *win = [UIApplication sharedApplication].keyWindow;
-    addButton = [[VCFloatingActionButton alloc]initWithFrame:CGRectMake(scr_width-70, scr_height-70, 44, 44) normalImage:[UIImage imageNamed:@"plus"] andPressedImage:[UIImage imageNamed:@"cross"] withScrollview:nil];
-    addButton.imageArray = @[@"fb-icon",@"twitter-icon",@"google-icon",@"linkedin-icon",@"linkedin-icon"];
-    addButton.labelArray = @[@"Chat",@"Schedule Appointments",@"Profile",@"Dail CRM",@"Create E-Services"];
-    addButton.hideWhileScrolling = YES;
-    addButton.delegate = self;
-    [win addSubview:addButton];
-//    [self.tableView addSubview:addButton];
-}
 
 #pragma mark FloatingMenu Delegate
 -(void) didSelectMenuOptionAtIndex:(NSInteger)row

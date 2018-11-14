@@ -13,8 +13,7 @@
 @end
 
 @implementation HelpViewController{
-    
-    VCFloatingActionButton *addButton;
+        
     CGFloat scr_width, scr_height;
     NSArray *tvData;
 }
@@ -22,15 +21,22 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    DamacSharedClass.sharedInstance.windowButton.hidden = YES;
     _tableView.delegate = self;
     _tableView.dataSource = self;
     tvData = @[@"HOW TO BOOK APPOINTMENTS",@"HELLO DAMAC USER GUIDE",@"HOW TO MAKE PAYMENT TO DAMAC",@"USEFUL INFORMATION",@""];
     
 }
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
+    
+}
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:YES];
+    [self performSelector:@selector(hideWindowButton) withObject:nil afterDelay:0.2];
+}
 
+-(void)hideWindowButton{
+    DamacSharedClass.sharedInstance.windowButton.hidden = YES;
 }
 /*
 #pragma mark - Navigation

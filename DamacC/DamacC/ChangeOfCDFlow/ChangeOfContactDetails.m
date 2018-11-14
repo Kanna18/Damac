@@ -129,12 +129,17 @@
     sterView = [[StepperView alloc]initWithFrame:_stepperBaseView.frame];
     [self.view addSubview:sterView];
     originalBoundsoFScrollView = self.scrollView.bounds;
-    DamacSharedClass.sharedInstance.windowButton.hidden = YES;
     alertPop = [[AlertPopUp alloc]initWithFrame:self.view.frame];
     [self.view addSubview:alertPop];
     alertPop.hidden = YES;
-    
+    [self performSelector:@selector(hideWindowButton) withObject:nil afterDelay:0.2];
 }
+
+-(void)hideWindowButton{
+    DamacSharedClass.sharedInstance.windowButton.hidden = YES;
+}
+
+
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:YES];
     
@@ -175,7 +180,9 @@
 -(void)selectedFromDropMenu:(NSString *)str forType:(NSString *)type withTag:(int)tag{
     _cocdOBj.Country = str;
     [self.tableView reloadData];
-    [popoverController dismissPopoverAnimated:YES];    
+    [popoverController dismissPopoverAnimated:YES];
+    _cocdOBj.CountobobjectstoTranslate = 1;
+    [_cocdOBj sendArabicTexts];
 }
 #pragma mark UiTableViewDelegates
 
@@ -421,6 +428,18 @@
     jbView.submitSR.hidden =YES;
     jbView.cocdObj = _cocdOBj;
     [jbView.previous addTarget:self action:@selector(previousClick:) forControlEvents:UIControlEventTouchUpInside];
+    
+    
+    //If Edit Values are there;
+    if(!(isEmpty(_cocdOBj.cocdUploadedImagePath))){
+        [jbView.selectFile1 setTitle:_cocdOBj.cocdUploadedImagePath forState:UIControlStateNormal];
+    }
+    if(!(isEmpty(_cocdOBj.primaryPassportUploadedImagePath))){
+        [jbView.selectFile2 setTitle:_cocdOBj.primaryPassportUploadedImagePath forState:UIControlStateNormal];
+    }
+    if(!(isEmpty(_cocdOBj.additionalImageUploadedImagePath))){
+        [jbView.selectFile3 setTitle:_cocdOBj.additionalImageUploadedImagePath forState:UIControlStateNormal];
+    }
 
 }
 

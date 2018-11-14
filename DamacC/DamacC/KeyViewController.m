@@ -46,6 +46,7 @@
     screen_width = [UIScreen mainScreen].bounds.size.width;
     screen_height = [UIScreen mainScreen].bounds.size.height;
     [self loadPinViews];
+    [self performSelector:@selector(hideWindowButton) withObject:nil afterDelay:0.2];
     
 }
 -(void)viewWillAppear:(BOOL)animated{
@@ -56,10 +57,12 @@
             [cstB removeFromSuperview];
         }
     }
-    DamacSharedClass.sharedInstance.windowButton.hidden = YES;
-    
-    
 }
+
+-(void)hideWindowButton{
+    DamacSharedClass.sharedInstance.windowButton.hidden = YES;
+}
+
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:YES];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:MPIN_ENTERED_NOTIFICATION object:nil];

@@ -100,9 +100,13 @@
 }
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:YES];
-    DamacSharedClass.sharedInstance.windowButton.hidden = YES;
-    
+    [self performSelector:@selector(hideWindowButton) withObject:nil afterDelay:0.2];
 }
+
+-(void)hideWindowButton{
+    DamacSharedClass.sharedInstance.windowButton.hidden = YES;
+}
+
 
 -(void)hideAttachmentsView:(BOOL)bo
 {

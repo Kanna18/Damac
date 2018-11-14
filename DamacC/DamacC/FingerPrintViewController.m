@@ -35,19 +35,10 @@
     
     SFUserAccountManager *sf =[SFUserAccountManager sharedInstance];
     NSLog(@"%@",sf.currentUserIdentity);
-    if(DamacSharedClass.sharedInstance.windowButton){
-        DamacSharedClass.sharedInstance.windowButton.hidden = YES;
-    }
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
     [self.navigationController setNavigationBarHidden:YES animated:YES];
-    for (CustomBar *cstB in self.navigationController.view.subviews) {
-        if([cstB isKindOfClass:[CustomBar class]]){
-            [cstB removeFromSuperview];
-        }
-    }
-    DamacSharedClass.sharedInstance.windowButton.hidden = YES;
 }
 - (IBAction)skipClick:(id)sender {
     

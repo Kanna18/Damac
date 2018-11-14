@@ -22,7 +22,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     _nameLabel.text = [NSString stringWithFormat:@"Dear %@",kUserProfile.partyName];
-    DamacSharedClass.sharedInstance.windowButton.hidden = YES;
     [self getResponseFromTheServer];
 }
 
@@ -32,6 +31,16 @@
     DamacSharedClass.sharedInstance.currentVC = self;
     [DamacSharedClass.sharedInstance.navigationCustomBar setPageTite:@"Customer satisfaction survey"];
 }
+
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:YES];
+    [self performSelector:@selector(hideWindowButton) withObject:nil afterDelay:0.2];
+}
+
+-(void)hideWindowButton{
+    DamacSharedClass.sharedInstance.windowButton.hidden = YES;
+}
+
 -(void)getResponseFromTheServer{
     ServerAPIManager *apiMa = [ServerAPIManager sharedinstance];
     

@@ -43,6 +43,7 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
     [DamacSharedClass.sharedInstance.navigationCustomBar setPageTite:@"E-services"];
+    DamacSharedClass.sharedInstance.windowButton.hidden =NO;
 }
 -(void)viewDidAppear:(BOOL)animated{
     

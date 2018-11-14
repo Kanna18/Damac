@@ -63,23 +63,23 @@
                      @{@"key":@"Passport/CR Expiry Date",
                        @"value":self.passportObj.previousExpiryDate,
                        @"newValue":self.passportObj.PassportIssuedDate}];
-    
-    DamacSharedClass.sharedInstance.windowButton.hidden = YES;
     countoFImagestoUplaod = 0 ;
     countoFImagesUploaded = 0 ;
     
     _tableView.clipsToBounds = YES;
-    
-    [self adjustImageEdgeInsetsOfButton:_buyersButton];
+
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
     [DamacSharedClass.sharedInstance.navigationCustomBar setPageTite:@"Passport update"];
+    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
 -(void)webServicetoGetUnitSFIds{
     
     [serverAPI postRequestwithUrl:bookingsAPI withParameters:@{@"AccountId":kUserProfile.sfAccountId} successBlock:^(id responseObj) {
@@ -280,6 +280,12 @@
     if (indexPath.section == 2){
             PassportCell3 *cell3 = [tableView dequeueReusableCellWithIdentifier:@"passportCell3" forIndexPath:indexPath];
         cell3.passObj = self.passportObj;
+        if(!(isEmpty(_passportObj.passportImagePath))){
+            cell3.label1.text = _passportObj.passportImagePath;
+        }
+        if(!(isEmpty(_passportObj.additionalImagePath))){
+            cell3.label2.text = _passportObj.additionalImagePath;
+        }
             return cell3;
     }
     
@@ -382,6 +388,7 @@
 }
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:YES];
+    [self adjustImageEdgeInsetsOfButton:_buyersButton];
     DamacSharedClass.sharedInstance.currentVC = self;
     [self.view bringSubviewToFront:_baseSuperView];
     [_baseSuperView setNeedsDisplay];
@@ -399,6 +406,11 @@
     alertPop = [[AlertPopUp alloc]initWithFrame:self.view.frame];
     [self.view addSubview:alertPop];
     alertPop.hidden = YES;
+    [self performSelector:@selector(hideWindowButton) withObject:nil afterDelay:0.2];
+}
+
+-(void)hideWindowButton{
+    DamacSharedClass.sharedInstance.windowButton.hidden = YES;
 }
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:YES];
@@ -407,7 +419,7 @@
 }
 -(void)adjustImageEdgeInsetsOfButton:(UIButton*)sender{
     sender.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
-    sender.imageEdgeInsets = UIEdgeInsetsMake(0, sender.frame.size.width-30-sender.titleLabel.intrinsicContentSize.width, 0, 0);
+    sender.imageEdgeInsets = UIEdgeInsetsMake(0, sender.frame.size.width-30, 0, 0);
     sender.layer.cornerRadius = 2.0f;
     
 }

@@ -64,9 +64,12 @@
     [super viewDidAppear:YES];
     DamacSharedClass.sharedInstance.currentVC = self;
 //    [[CustomBarOptions alloc]initWithNavItems:self.navigationItem noOfItems:2 navRef:self.navigationController withTitle:@"Service Request Detail"];
-    
-    DamacSharedClass.sharedInstance.windowButton.hidden = YES;
     [DamacSharedClass.sharedInstance.navigationCustomBar setPageTite:@"Service Request Detail"];
+    [self performSelector:@selector(hideWindowButton) withObject:nil afterDelay:0.2];
+}
+
+-(void)hideWindowButton{
+    DamacSharedClass.sharedInstance.windowButton.hidden = YES;
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -282,7 +285,7 @@
                    handleNull(srD.Address__c),
                    handleNull(srD.City__c),
                    handleNull(srD.State__c),
-                   @"",
+                   handleNull(srD.Postal_Code__c),
                    handleNull(srD.Contact_Email__c),
                    handleNull(srD.Contact_Mobile__c),
                    handleNull(srD.CRF_File_URL__c),

@@ -36,7 +36,6 @@
             [cstB removeFromSuperview];
         }
     }
-    DamacSharedClass.sharedInstance.windowButton.hidden = YES;
 }
 
 -(void)viewDidAppear:(BOOL)animated{

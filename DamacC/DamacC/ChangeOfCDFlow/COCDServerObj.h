@@ -54,7 +54,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property UIImage *primaryPassportImage;
 @property UIImage *additionalDocumentImage;
 
-
+@property int CountobobjectstoTranslate;
 
 -(void)fillCOCDObjectWithOutCaseID;
 -(void)changeValueBasedonTag:(UITextField*)textField withValue:(NSString*)str;
@@ -63,6 +63,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)updateTranslatewithText:(NSString*)txt;
 -(void)sendArabicTexts;
+
 
 @property id<ArabicDelegate> delegate;
 

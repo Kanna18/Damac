@@ -124,6 +124,9 @@
     self.previousPPNumber = handleNull(srd.New_CR__c);
     self.previousPassPlace = handleNull(srd.Passport_Issue_Place__c);
     self.previousExpiryDate = handleNull(srd.Passport_Issue_Date__c);
+    
+    self.passportImagePath = handleNull(srd.Passport_File_URL__c);
+    self.additionalImagePath = handleNull(srd.Additional_Doc_File_URL__c);
 }
 
 -(void)popToMainVC{

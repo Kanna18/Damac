@@ -93,8 +93,13 @@
     addButton.hideWhileScrolling = YES;
     [win addSubview:addButton];
     DamacSharedClass.sharedInstance.windowButton = addButton;
+    [self performSelector:@selector(hideWindowButton) withObject:nil afterDelay:0.2];
+}
+
+-(void)hideWindowButton{
     DamacSharedClass.sharedInstance.windowButton.hidden = YES;
 }
+
 - (IBAction)skipButtonClick:(id)sender {
     
     MainViewController *m =[self.storyboard instantiateViewControllerWithIdentifier:@"mainVC"];

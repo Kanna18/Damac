@@ -87,7 +87,7 @@
     countoFImagesUploaded = 0;
     clickedImage = 0;
     
-    DamacSharedClass.sharedInstance.windowButton.hidden = YES;
+    
     [self roundCorners:_buttonSubmit];
     [self roundCorners:_getUnitsButtonDetail];
     [self roundCorners:_buttonDocument];

@@ -75,7 +75,6 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
     [DamacSharedClass.sharedInstance.navigationCustomBar setPageTite:@"My profile"];
-    DamacSharedClass.sharedInstance.windowButton.hidden = YES;
     UIImage *image = [UIImage imageWithContentsOfFile:[self isImageAvailable]];
     if(image){
         _profilePic.image = image;
@@ -89,6 +88,11 @@
     DamacSharedClass.sharedInstance.currentVC = self;
     [DamacSharedClass.sharedInstance.navigationCustomBar.backBtn setImage:DamacSharedClass.sharedInstance.backImage forState:UIControlStateNormal];
     [self allLabes];
+    [self performSelector:@selector(hideWindowButton) withObject:nil afterDelay:0.2];
+}
+
+-(void)hideWindowButton{
+    DamacSharedClass.sharedInstance.windowButton.hidden = YES;
 }
 
 - (void)didReceiveMemoryWarning {

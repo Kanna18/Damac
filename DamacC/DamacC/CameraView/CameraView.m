@@ -92,8 +92,12 @@
             pickerView.sourceType = UIImagePickerControllerSourceTypeCamera;
             [parentVC presentViewController:pickerView animated:YES completion:nil];
             DamacSharedClass.sharedInstance.windowButton.hidden = YES;
+            [self performSelector:@selector(hideWindowButton) withObject:nil afterDelay:0.2];
         }
     }
+}
+-(void)hideWindowButton{
+    DamacSharedClass.sharedInstance.windowButton.hidden = YES;
 }
 
 #pragma Mark : PickerViewDelegates

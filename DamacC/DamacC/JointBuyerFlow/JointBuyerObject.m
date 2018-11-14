@@ -114,6 +114,9 @@
     self.status = @"";
     self.UploadSignedChangeofDetails = handleNull(srd.Signed_KRF_Uploaded__c);
     self.salesforceId = handleNull(srd.Id);
+    self.UploadSignedChangeofDetails = handleNull(srd.OD_File_URL__c);
+    self.AdditionalDocFileUrl = handleNull(srd.Additional_Doc_File_URL__c);
+    self.PassportFileUrl =handleNull(srd.Passport_File_URL__c);
 }
 
 -(void)changeValueBasedonTag:(UITextField*)textField withValue:(NSString*)str{

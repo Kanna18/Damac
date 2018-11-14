@@ -154,7 +154,9 @@
 
 
 -(void)showpopover:(UIButton*)button{
-    
+    if(currentTF){
+    [currentTF resignFirstResponder];
+    }
     PopTableViewController *popVC=[self.storyboard instantiateViewControllerWithIdentifier:@"popTableVC"];
     popVC.delegate=self;
     popVC.tvData = countriesArray;
@@ -449,7 +451,7 @@
         UIButton *btn = (UIButton*)sender;
         if([btn.titleLabel.text isEqualToString:butonTitleSubmitSR])
         {
-            if(_cocdOBj.cocdImage == nil){
+            if(_cocdOBj.cocdUploadedImagePath == nil){
                 [FTIndicator showToastMessage:@"COCD Document not selected"];
                 return;
             }
@@ -564,6 +566,9 @@
         NSString *str = @"PassportOfBuyer";
         [_soap3 uploadDocumentTo:_cocdOBj.primaryPassportImage P_REQUEST_NUMBER:nil P_REQUEST_NAME:nil P_SOURCE_SYSTEM:nil category:nil entityName:nil fileDescription:str fileId:str fileName:str registrationId:nil sourceFileName:str sourceId:str];
         countoFImagestoUplaod++;
+    }
+    if(countoFImagestoUplaod == 0){
+        [_cocdOBj sendDraftStatusToServer];
     }
 }
 

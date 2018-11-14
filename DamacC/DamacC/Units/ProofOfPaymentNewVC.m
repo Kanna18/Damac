@@ -93,14 +93,7 @@
     [self roundCorners:_buttonDocument];
 //    [self roundCorners:_attach1Btn];
 //    [self roundCorners:_attach2Btn];
-    
-    
-    [self adjustImageEdgeInsetsOfButton:_buttonUnits];
-    [self adjustImageEdgeInsetsOfButton:_selectPaymentModeBtn];
-    [self adjustImageEdgeInsetsOfButton:_attach1Btn];
-    [self adjustImageEdgeInsetsOfButton:_attach2Btn];
 
-    
 }
 -(void)roundCorners:(UIButton*)sender{
     sender.layer.cornerRadius = 5;
@@ -121,6 +114,10 @@
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:YES];
     [self contentViewScroll];
+    [self adjustImageEdgeInsetsOfButton:_buttonUnits];
+    [self adjustImageEdgeInsetsOfButton:_selectPaymentModeBtn];
+    [self adjustImageEdgeInsetsOfButton:_attach1Btn];
+    [self adjustImageEdgeInsetsOfButton:_attach2Btn];
 }
 
 -(void)webServicetoGetUnitSFIds{

@@ -89,57 +89,6 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </button>
-                <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="SnW-Cv-dim">
-                    <rect key="frame" x="20" y="477" width="521" height="40"/>
-                    <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uHD-G5-MtQ">
-                            <rect key="frame" x="0.0" y="0.0" width="163.5" height="40"/>
-                            <color key="backgroundColor" red="0.74901960784313726" green="0.60392156862745094" blue="0.28235294117647058" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="9"/>
-                            <state key="normal" title="PREVIOUS">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </state>
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                    <integer key="value" value="3"/>
-                                </userDefinedRuntimeAttribute>
-                            </userDefinedRuntimeAttributes>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fyn-CE-Dc5">
-                            <rect key="frame" x="178.5" y="0.0" width="164" height="40"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="10"/>
-                            <state key="normal" title="SUBMIT SR">
-                                <color key="titleColor" red="0.74901960779999999" green="0.60392156860000001" blue="0.28235294119999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </state>
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                    <integer key="value" value="3"/>
-                                </userDefinedRuntimeAttribute>
-                            </userDefinedRuntimeAttributes>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EDc-Hh-vHQ">
-                            <rect key="frame" x="357.5" y="0.0" width="163.5" height="40"/>
-                            <color key="backgroundColor" red="0.74901960784313726" green="0.60392156862745094" blue="0.28235294117647058" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="10"/>
-                            <state key="normal" title="SAVE DRAFT">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </state>
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                    <integer key="value" value="3"/>
-                                </userDefinedRuntimeAttribute>
-                            </userDefinedRuntimeAttributes>
-                        </button>
-                    </subviews>
-                    <constraints>
-                        <constraint firstItem="EDc-Hh-vHQ" firstAttribute="width" secondItem="Fyn-CE-Dc5" secondAttribute="width" id="YTb-e1-Zdl"/>
-                        <constraint firstItem="Fyn-CE-Dc5" firstAttribute="width" secondItem="uHD-G5-MtQ" secondAttribute="width" id="gMN-Of-20K"/>
-                        <constraint firstItem="Fyn-CE-Dc5" firstAttribute="height" secondItem="uHD-G5-MtQ" secondAttribute="height" id="qsb-GH-25K"/>
-                        <constraint firstAttribute="height" constant="40" id="rPD-1X-K4B"/>
-                        <constraint firstItem="EDc-Hh-vHQ" firstAttribute="height" secondItem="Fyn-CE-Dc5" secondAttribute="height" id="uEg-M9-uuD"/>
-                    </constraints>
-                </stackView>
                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nLP-J5-hpI">
                     <rect key="frame" x="20" y="250" width="521" height="200"/>
                     <subviews>
@@ -314,6 +263,57 @@
                         <constraint firstItem="0iK-Tn-2BJ" firstAttribute="leading" secondItem="nLP-J5-hpI" secondAttribute="leading" constant="10" id="wwR-Nt-LaK"/>
                     </constraints>
                 </view>
+                <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="SnW-Cv-dim">
+                    <rect key="frame" x="20" y="477" width="521" height="40"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uHD-G5-MtQ">
+                            <rect key="frame" x="0.0" y="0.0" width="163.5" height="40"/>
+                            <color key="backgroundColor" red="0.74901960784313726" green="0.60392156862745094" blue="0.28235294117647058" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="9"/>
+                            <state key="normal" title="PREVIOUS">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="3"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fyn-CE-Dc5">
+                            <rect key="frame" x="178.5" y="0.0" width="164" height="40"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="10"/>
+                            <state key="normal" title="SUBMIT SR">
+                                <color key="titleColor" red="0.74901960779999999" green="0.60392156860000001" blue="0.28235294119999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="3"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EDc-Hh-vHQ">
+                            <rect key="frame" x="357.5" y="0.0" width="163.5" height="40"/>
+                            <color key="backgroundColor" red="0.74901960784313726" green="0.60392156862745094" blue="0.28235294117647058" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="10"/>
+                            <state key="normal" title="SAVE DRAFT">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="3"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="EDc-Hh-vHQ" firstAttribute="width" secondItem="Fyn-CE-Dc5" secondAttribute="width" id="YTb-e1-Zdl"/>
+                        <constraint firstItem="Fyn-CE-Dc5" firstAttribute="width" secondItem="uHD-G5-MtQ" secondAttribute="width" id="gMN-Of-20K"/>
+                        <constraint firstItem="Fyn-CE-Dc5" firstAttribute="height" secondItem="uHD-G5-MtQ" secondAttribute="height" id="qsb-GH-25K"/>
+                        <constraint firstAttribute="height" constant="40" id="rPD-1X-K4B"/>
+                        <constraint firstItem="EDc-Hh-vHQ" firstAttribute="height" secondItem="Fyn-CE-Dc5" secondAttribute="height" id="uEg-M9-uuD"/>
+                    </constraints>
+                </stackView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>

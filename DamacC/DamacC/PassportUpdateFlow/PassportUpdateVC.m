@@ -472,7 +472,7 @@
         return;
     }
     
-    if(self.passportObj.passportImage == nil&&[self.passportObj.status isEqualToString:@"Submitted"]){
+    if(self.passportObj.passportImagePath == nil&&[self.passportObj.status isEqualToString:@"Submitted"]){
         [FTIndicator showToastMessage:@"Passport of Primary buyer is not attached"];
         return;
     }

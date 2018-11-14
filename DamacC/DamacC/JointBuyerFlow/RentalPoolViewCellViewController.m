@@ -171,10 +171,10 @@
     
 //    _scrollView.contentSize = CGSizeMake(2*([UIScreen mainScreen].bounds.size.width+3), _firstView.frame.size.height);
     frame2 = _firstView.frame;
-    frame2.size.height = 500    ;
+    frame2.size.height = 600    ;
     frame2.origin.x = [UIScreen mainScreen].bounds.size.width+3;
     
-    jbView1 = [[JointView1 alloc]initWithFrame:frame2];
+    jbView1 = [[JointView1 alloc]initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width+3, _firstView.frame.origin.y, _firstView.frame.size.width, 600)];
     [jbView1.downloadFormBtn addTarget:self action:@selector(downloadFormDetails) forControlEvents:UIControlEventTouchUpInside];
     [_scrollView addSubview:jbView1];
     
@@ -186,10 +186,17 @@
     [jbView1.previousBtn2 addTarget:self action:@selector(loadFirstView) forControlEvents:UIControlEventTouchUpInside];
     [jbView1.submitSR addTarget:self action:@selector(submitJointBuyersResponse) forControlEvents:UIControlEventTouchUpInside];
     
+    if(!(isEmpty(_jointObj.UploadSignedChangeofDetails)))
+    jbView1.attachLabel1.text =handleNull(_jointObj.UploadSignedChangeofDetails);
+    if(!(isEmpty(_jointObj.PassportFileUrl)))
+    jbView1.attachLabel2.text =handleNull(_jointObj.PassportFileUrl);
+    if(!(isEmpty(_jointObj.AdditionalDocFileUrl)))
+    jbView1.attachLabel3.text =handleNull(_jointObj.AdditionalDocFileUrl);
     
-    frame3 = _firstView.frame;
-    frame3.size.height = 380    ;
-    frame3.origin.x = 2*[UIScreen mainScreen].bounds.size.width+3;
+    
+//    frame3 = _firstView.frame;
+//    frame3.size.height = 380    ;
+//    frame3.origin.x = 2*[UIScreen mainScreen].bounds.size.width+3;
     
     
 
@@ -249,6 +256,9 @@
 
 - (IBAction)nextClick:(id)sender {
     
+    CGRect rec = jbView1.frame;
+    rec.size.height = 480;
+    jbView1.frame = rec;
     [currentTextFieldRef resignFirstResponder];
     if([self validationSetForJointBuyer])
     {
@@ -272,7 +282,9 @@
 }
 
 -(void)showpopover:(UIButton*)drop{
-
+    if(currentTextFieldRef){
+    [currentTextFieldRef resignFirstResponder];
+    }
     PopTableViewController *popVC=[self.storyboard instantiateViewControllerWithIdentifier:@"popTableVC"];
     popVC.delegate=self;
     popVC.tvData =countriesArray;
@@ -290,6 +302,10 @@
 //    [dropitems addObject:handleNull(kUserProfile.partyName)];
 }
 -(void)showpBuyersopover:(UIButton*)drop{
+    
+    if(currentTextFieldRef){
+        [currentTextFieldRef resignFirstResponder];
+    }
     PopTableViewController *popVC=[self.storyboard instantiateViewControllerWithIdentifier:@"popTableVC"];
     popVC.delegate=self;
     popVC.tvData = dropitems;
@@ -451,8 +467,9 @@
 
 -(void)fillLabels{
     
-    [self adjustImageEdgeInsetsOfButton:_dropDownCountriesBtn];
+    
     [_dropDownCountriesBtn setTitle:self.jointObj.country.length>0?self.jointObj.country:@"Select Country" forState:UIControlStateNormal];
+    [self adjustImageEdgeInsetsOfButton:_dropDownCountriesBtn];
     headingLabels = @[@{@"key":@"Address1",
                         @"value":handleNull(self.jointObj.address1),
                         @"tag" : [NSNumber numberWithInt:Address1J]},
@@ -524,6 +541,9 @@
         [_soap3 uploadDocumentTo:self.jointObj.primaryPassportImage P_REQUEST_NUMBER:nil P_REQUEST_NAME:nil P_SOURCE_SYSTEM:nil category:nil entityName:nil fileDescription:str fileId:str fileName:str registrationId:nil sourceFileName:str sourceId:str];
         countoFImagestoUplaod++;
     }
+    if(countoFImagestoUplaod == 0){
+        [self.jointObj sendJointBuyerResponsetoserver];
+    }
 }
 
 #pragma mark Soap Image uploaded Delegate
@@ -557,7 +577,7 @@
 }
 -(void)submitJointBuyersResponse{
     
-    if(self.jointObj.cocdImage == nil){
+    if(isEmpty(self.jointObj.UploadSignedChangeofDetails)){
         [FTIndicator showToastMessage:@"COCD document is not attached"];
     }else{
         self.jointObj.status = @"Submitted";

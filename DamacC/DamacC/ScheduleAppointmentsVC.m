@@ -16,7 +16,7 @@
 static NSString *reuseCell = @"appointmentsCell";
 @implementation ScheduleAppointmentsVC{
     NSMutableArray *tvArray,*originalArray;
-    NSMutableArray *upcomingArray;
+    NSMutableArray *upcomingArray,*recentlyCreatedArray;;
     UIColor *selectedColor,*unselectedColor;
     
 }
@@ -93,13 +93,12 @@ static NSString *reuseCell = @"appointmentsCell";
                     SFUserAccountManager *sf = [SFUserAccountManager sharedInstance];
                     [sf logout];
                 }else{
-                    [tvArray addObject:[[AppointmentsDataModel alloc] initWithDictionary:dic error:nil]];
+                    [originalArray addObject:[[AppointmentsDataModel alloc] initWithDictionary:dic error:nil]];
                 }
             }
-            originalArray = [[NSMutableArray alloc]initWithArray:tvArray];
+            [self recentlyCreatedList];
             [self upcomingAppointmentsList];
         }
-        [_tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
     } errorBlock:^(NSError *error) {
         [FTIndicator performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
         [FTIndicator showToastMessage:error.localizedDescription];
@@ -141,7 +140,7 @@ static NSString *reuseCell = @"appointmentsCell";
 - (IBAction)recentlyCreatedClick:(id)sender {
     [self changeSelectedColor:(UIButton*)sender];
     [tvArray removeAllObjects];
-    tvArray = [[NSMutableArray alloc]initWithArray:originalArray];
+    tvArray = [[NSMutableArray alloc]initWithArray:recentlyCreatedArray];
     [_tableView reloadData];
 }
 
@@ -152,6 +151,19 @@ static NSString *reuseCell = @"appointmentsCell";
     [_tableView reloadData];
 }
 
+-(void)recentlyCreatedList{
+
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    [df setDateFormat:@"yyyy-MM-dd"];
+    NSArray *sortedArray = [originalArray sortedArrayUsingComparator:^NSComparisonResult(AppointmentsDataModel *obj1, AppointmentsDataModel *obj2) {
+        NSDate *d1 = [df dateFromString: obj1.Appointment_Date__c];
+        NSDate *d2 = [df dateFromString: obj2.Appointment_Date__c];
+        return [d2 compare: d1];
+    }];
+    recentlyCreatedArray = [[NSMutableArray alloc]initWithArray:sortedArray];
+    tvArray = [[NSMutableArray alloc]initWithArray:recentlyCreatedArray];
+    [_tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
+}
 -(void)upcomingAppointmentsList{
     
     upcomingArray = [[NSMutableArray alloc]init];
@@ -167,6 +179,15 @@ static NSString *reuseCell = @"appointmentsCell";
         }
     }
     
+    
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    [df setDateFormat:@"yyyy-MM-dd"];
+    NSArray *sortedArray = [upcomingArray sortedArrayUsingComparator:^NSComparisonResult(AppointmentsDataModel *obj1, AppointmentsDataModel *obj2) {
+        NSDate *d1 = [df dateFromString: obj1.Appointment_Date__c];
+        NSDate *d2 = [df dateFromString: obj2.Appointment_Date__c];
+        return [d2 compare: d1];
+    }];
+    upcomingArray = [[NSMutableArray alloc]initWithArray:sortedArray];
     
 }
 @end

@@ -62,17 +62,6 @@
     tvItems = @[@"Payment Date*",@"Payment Allocation remarks",@"Total Amount*",@"Sender Name",@"Bank Name",@"Swift Code"];
     [self setCalendarInit];
     superView= DamacSharedClass.sharedInstance.currentVC.view;
-//    [[NSNotificationCenter defaultCenter] addObserver:self
-//                                             selector:@selector(keyboardWillShow:)
-//                                                 name:UIKeyboardWillShowNotification
-//                                               object:nil];
-//
-//    // Register notification when the keyboard will be hide
-//    [[NSNotificationCenter defaultCenter] addObserver:self
-//                                             selector:@selector(keyboardWillHide:)
-//                                                 name:UIKeyboardWillHideNotification
-//                                               object:nil];
-    
     tableViewRect = _tableView.frame;
     contentviewRect = self.tableView.frame;
     dictionaryTf = [[NSMutableDictionary alloc]init];
@@ -105,6 +94,15 @@
     [super viewWillAppear:YES];
     DamacSharedClass.sharedInstance.currentVC = self;
     [DamacSharedClass.sharedInstance.navigationCustomBar setPageTite:@"Proof of payment"];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShow:)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHide:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
 }
 
 -(void)adjustImageEdgeInsetsOfButton:(UIButton*)sender{
@@ -119,6 +117,12 @@
     [self adjustImageEdgeInsetsOfButton:_attach1Btn];
     [self adjustImageEdgeInsetsOfButton:_attach2Btn];
     [self performSelector:@selector(hideWindowButton) withObject:nil afterDelay:0.2];
+}
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:YES];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
 }
 
 -(void)hideWindowButton{
@@ -417,74 +421,37 @@
 }
 
 
--(void) keyboardWillShow:(NSNotification *)note
+#pragma Mark Keyboard
+- (void)keyboardWillShow:(NSNotification *)notification
 {
-    // Get the keyboard size
-    CGRect keyboardBounds;
-    [[note.userInfo valueForKey:UIKeyboardFrameEndUserInfoKey] getValue: &keyboardBounds];
+    CGSize keyboardSize = [[[notification userInfo] objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
     
-    // Detect orientation
-    UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
-    CGRect frame = tableViewRect;
+    UIEdgeInsets contentInsets;
+    if (UIInterfaceOrientationIsPortrait([[UIApplication sharedApplication] statusBarOrientation])) {
+        contentInsets = UIEdgeInsetsMake(0.0, 0.0, (keyboardSize.height)+100, 0.0);
+    } else {
+        contentInsets = UIEdgeInsetsMake(0.0, 0.0, (keyboardSize.width)+100, 0.0);
+    }
     
+    NSNumber *rate = notification.userInfo[UIKeyboardAnimationDurationUserInfoKey];
+    [UIView animateWithDuration:rate.floatValue animations:^{
+        self.scrollView.contentInset = contentInsets;
+        self.scrollView.scrollIndicatorInsets = contentInsets;
+        //        [self.tableView scrollToRowAtIndexPath:self.editingIndexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    }];
     
-    contentviewRect.origin.y = -(contentviewRect.origin.y + ((textF.tag-textFieldTag) * 40));
-    
-    // Start animation
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationBeginsFromCurrentState:YES];
-    [UIView setAnimationDuration:0.3f];
-    
-    
-    self.tableView.frame = contentviewRect;
-    // Reduce size of the Table view
-    //    if (orientation == UIInterfaceOrientationPortrait || orientation == UIInterfaceOrientationPortraitUpsideDown)
-    //        frame.size.height -= keyboardBounds.size.height;
-    //    else
-    //        frame.size.height -= keyboardBounds.size.width;
-    //
-    //
-    //    frame.size.height=frame.size.height+bottomPaddingSpace;
-    //    // Apply new size of table view
-    //    self.tableView.frame = frame;
-    //
-    //    // Scroll the table view to see the TextField just above the keyboard
-    //    if (textF)
-    //    {
-    //        CGRect textFieldRect = [self.tableView convertRect:textF.bounds fromView:textF];
-    //        [self.tableView scrollRectToVisible:textFieldRect animated:NO];
-    //    }
-    
-    [UIView commitAnimations];
 }
 
--(void) keyboardWillHide:(NSNotification *)note
+- (void)keyboardWillHide:(NSNotification *)notification
 {
-    // Get the keyboard size
-    CGRect keyboardBounds;
-    [[note.userInfo valueForKey:UIKeyboardFrameEndUserInfoKey] getValue: &keyboardBounds];
     
-    contentviewRect.origin.y = 0;
+    NSNumber *rate = notification.userInfo[UIKeyboardAnimationDurationUserInfoKey];
+    [UIView animateWithDuration:rate.floatValue animations:^{
+        self.scrollView.contentInset = UIEdgeInsetsZero;
+        self.scrollView.scrollIndicatorInsets = UIEdgeInsetsZero;
+    }];
     
-    // Detect orientation
-    UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
-    CGRect frame = tableViewRect;
     
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationBeginsFromCurrentState:YES];
-    [UIView setAnimationDuration:0.3f];
-    
-    //    // Increase size of the Table view
-    //    if (orientation == UIInterfaceOrientationPortrait || orientation == UIInterfaceOrientationPortraitUpsideDown)
-    //        frame.size.height += keyboardBounds.size.height;
-    //    else
-    //        frame.size.height += keyboardBounds.size.width;
-    //
-    //    // Apply new size of table view
-    //    self.tableView.frame = tableViewRect;
-    self.tableView.frame = contentviewRect;
-    
-    [UIView commitAnimations];
 }
 
 
@@ -510,6 +477,7 @@
 }
 
 -(void)uploadAttachments{
+    countoFImagestoUplaod = 0;
     attachingDocumentsBool = YES;
     _soap = [[SaopServices alloc]init];
     _soap.delegate = self;
@@ -531,6 +499,7 @@
 -(void)uploadImagesToServer{
     
     attachingDocumentsBool = NO;
+    countoFImagestoUplaod = 0;
     _soap = [[SaopServices alloc]init];
     _soap.delegate = self;
     if(_popObj.popImage){
@@ -544,7 +513,6 @@
         [_soap2 uploadDocumentTo:_popObj.otherImage P_REQUEST_NUMBER:nil P_REQUEST_NAME:nil P_SOURCE_SYSTEM:nil category:nil entityName:nil fileDescription:str fileId:str fileName:str registrationId:nil sourceFileName:str sourceId:str];
         countoFImagestoUplaod++;
     }
-    SaopServices *soap3 = [[SaopServices alloc]init];
     
     if(countoFImagestoUplaod == 0){
         [_popObj subMitPOPfromServicesSRDetails];
@@ -682,4 +650,5 @@
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:_attach2Btn.currentTitle] options:nil completionHandler:nil];
     }
 }
+
 @end

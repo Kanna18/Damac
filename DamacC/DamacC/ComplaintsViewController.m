@@ -58,13 +58,6 @@
     [_selectUnitsButton setTitle:@"Select Units" forState:UIControlStateNormal];
     [self.complaintsTF setValue:goldColor
                     forKeyPath:@"_placeholderLabel.textColor"];
-
-    
-    [self adjustImageEdgeInsetsOfButton:_selectSubBtn];
-    [self adjustImageEdgeInsetsOfButton:_selectComplaintBtn];
-    [self adjustImageEdgeInsetsOfButton:_selectUnitsButton];
-    [self adjustImageEdgeInsetsOfButton:_attachDoc1Btn];
-    [self adjustImageEdgeInsetsOfButton:_attachDoc2Btn];
     
     if(_srdRental){
         [self complaintsEditForm];
@@ -81,6 +74,17 @@
     [_selectComplaintBtn setTitle:_srdRental.Complaint_Type__c forState:UIControlStateNormal];
     [_selectSubBtn setTitle:_srdRental.Complaint_Sub_Type__c forState:UIControlStateNormal];
     _complaintsTF.text = _srdRental.Description;
+    if(!(isEmpty(_srdRental.OD_File_URL__c))){
+        _attachment1Label.text = _srdRental.OD_File_URL__c;
+    }
+    if(!(isEmpty(_srdRental.Additional_Doc_File_URL__c))){
+        _attachment2Label.text = _srdRental.Additional_Doc_File_URL__c;
+    }
+    [self adjustImageEdgeInsetsOfButton:_selectSubBtn];
+    [self adjustImageEdgeInsetsOfButton:_selectComplaintBtn];
+    [self adjustImageEdgeInsetsOfButton:_selectUnitsButton];
+    [self adjustImageEdgeInsetsOfButton:_attachDoc1Btn];
+    [self adjustImageEdgeInsetsOfButton:_attachDoc2Btn];
 }
 
 -(void)adjustImageEdgeInsetsOfButton:(UIButton*)sender{
@@ -101,6 +105,11 @@
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:YES];
     [self performSelector:@selector(hideWindowButton) withObject:nil afterDelay:0.2];
+    [self adjustImageEdgeInsetsOfButton:_selectSubBtn];
+    [self adjustImageEdgeInsetsOfButton:_selectComplaintBtn];
+    [self adjustImageEdgeInsetsOfButton:_selectUnitsButton];
+    [self adjustImageEdgeInsetsOfButton:_attachDoc1Btn];
+    [self adjustImageEdgeInsetsOfButton:_attachDoc2Btn];
 }
 
 -(void)hideWindowButton{
@@ -303,6 +312,7 @@
     
 }
 -(void)uploadImagesToServer{
+    countoFImagestoUplaod = 0;
     attachingDocumentsBool = NO;
     _soap= [[SaopServices alloc]init];
     _soap.delegate = self;

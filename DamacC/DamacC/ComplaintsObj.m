@@ -45,6 +45,8 @@
     self.ComplaintSubType = srd.Complaint_Sub_Type__c;
     self.Status = @"";
     self.salesforceId = srd.Id;
+    self.attactment1Path = handleNull(srd.OD_File_URL__c);
+    self.attactment2Path = handleNull(srd.Additional_Doc_File_URL__c);
 }
 
 -(void)sendDraftStatusToServer{

@@ -118,6 +118,11 @@
     [self adjustImageEdgeInsetsOfButton:_selectPaymentModeBtn];
     [self adjustImageEdgeInsetsOfButton:_attach1Btn];
     [self adjustImageEdgeInsetsOfButton:_attach2Btn];
+    [self performSelector:@selector(hideWindowButton) withObject:nil afterDelay:0.2];
+}
+
+-(void)hideWindowButton{
+    DamacSharedClass.sharedInstance.windowButton.hidden = YES;
 }
 
 -(void)webServicetoGetUnitSFIds{
@@ -540,6 +545,10 @@
         countoFImagestoUplaod++;
     }
     SaopServices *soap3 = [[SaopServices alloc]init];
+    
+    if(countoFImagestoUplaod == 0){
+        [_popObj subMitPOPfromServicesSRDetails];
+    }
 }
 
 

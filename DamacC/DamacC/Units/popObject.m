@@ -68,7 +68,7 @@
     [dict setValue:self.Totalamount forKey:@"Totalamount"];
     [dict setValue:self.PARemark forKey:@"PARemark"];
     [dict setValue:self.PaymentMode forKey:@"PaymentMode"];
-    [dict setValue:@"2018-10-12" forKey:@"PaymentDate"];
+    [dict setValue:self.PaymentDate forKey:@"PaymentDate"];
     [dict setValue:@"" forKey:@"PaymentCurrency"];
     [dict setValue:self.SenderName forKey:@"SenderName"];
     [dict setValue:self.BankName forKey:@"BankName"];

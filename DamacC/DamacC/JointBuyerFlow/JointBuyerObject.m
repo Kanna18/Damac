@@ -30,11 +30,11 @@
     self.city = handleNull(kUserProfile.city);
     self.country = handleNull(kUserProfile.countryOfResidence);
     self.email = handleNull(kUserProfile.emailAddress);
-    self.mobileCountryCode = handleNull(kUserProfile.countryCode);
+    self.mobileCountryCode = handleNull(kUserProfile.phoneAreaCode);
     self.origin = @"Mobile App";
     self.PassportFileUrl = @"";
     self.phone = handleNull(kUserProfile.phoneNumber);
-    self.postalCode = handleNull(kUserProfile.countryCode);
+    self.postalCode = handleNull(kUserProfile.phoneAreaCode);
     self.RecordType = @"Change of Joint Buyer";
     self.state = @"";
     self.status = @"";

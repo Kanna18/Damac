@@ -176,9 +176,10 @@
                       @"Addition Doc File Url",
                       @"Passport File Url"];
     
+    
     dataLabels = @[[NSString stringWithFormat:@"%@ - %@",handleNull(srD.CaseNumber),handleNull(srD.Status)],
-                   [self returnDate:srD.CreatedDate],
-                   kUserProfile.partyName,
+                   handleNull([self returnDate:srD.CreatedDate]),
+                   handleNull(kUserProfile.partyName),
                    @"",
                    handleNull(srD.SR_Type__c),
                    handleNull(srD.Country__c),

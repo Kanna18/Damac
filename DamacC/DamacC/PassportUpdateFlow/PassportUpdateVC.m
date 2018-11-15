@@ -97,7 +97,7 @@
 
 -(void)PassportUpdateEditFormDetails{
     dispatch_async(dispatch_get_main_queue(), ^{
-    [_buyersButton setTitle:kUserProfile.partyName forState:UIControlStateNormal];
+    [_buyersButton setTitle:handleNull(kUserProfile.partyName) forState:UIControlStateNormal];
     });
     
     if(_srdRental){
@@ -183,6 +183,7 @@
     }
     self.passportObj.PassportIssuedDate = str;
     
+    [self SetValuesbasedonTag:nil];
 }
 -(void)getBuyersInfoBasedonUnitIDS:(NSArray*)arr{
     __block int Count = 0;
@@ -198,7 +199,7 @@
                     for (int i = 0; i<buyersInfoArr.count ; i++ ) {
                         [dropitems addObject:(NSString*)[buyersInfoArr[i] valueForKey:@"First_Name__c"]];
                     }
-                    [dropitems addObject:kUserProfile.partyName];
+                    [dropitems addObject:handleNull(kUserProfile.partyName)];
                     //If Edit form details are available
                     if(_srdRental){
                         [self PassportUpdateEditFormDetails];
@@ -281,10 +282,10 @@
             PassportCell3 *cell3 = [tableView dequeueReusableCellWithIdentifier:@"passportCell3" forIndexPath:indexPath];
         cell3.passObj = self.passportObj;
         if(!(isEmpty(_passportObj.passportImagePath))){
-            cell3.label1.text = _passportObj.passportImagePath;
+            cell3.label2.text = _passportObj.passportImagePath;
         }
         if(!(isEmpty(_passportObj.additionalImagePath))){
-            cell3.label2.text = _passportObj.additionalImagePath;
+            cell3.label1.text = _passportObj.additionalImagePath;
         }
             return cell3;
     }
@@ -472,7 +473,7 @@
         return;
     }
     
-    if(self.passportObj.passportImagePath == nil&&[self.passportObj.status isEqualToString:@"Submitted"]){
+    if(self.passportObj.passportImage == nil&&[self.passportObj.status isEqualToString:@"Submitted"] &&(isEmpty(self.passportObj.passportImagePath))){
         [FTIndicator showToastMessage:@"Passport of Primary buyer is not attached"];
         return;
     }

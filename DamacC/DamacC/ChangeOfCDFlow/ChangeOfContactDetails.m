@@ -451,7 +451,7 @@
         UIButton *btn = (UIButton*)sender;
         if([btn.titleLabel.text isEqualToString:butonTitleSubmitSR])
         {
-            if(_cocdOBj.cocdUploadedImagePath == nil){
+            if(isEmpty(_cocdOBj.cocdUploadedImagePath)&&(_cocdOBj.cocdImage == nil)){
                 [FTIndicator showToastMessage:@"COCD Document not selected"];
                 return;
             }
@@ -681,7 +681,7 @@
                 @"state":handleNull(_cocdOBj.State),
                 @"postalCode":handleNull(_cocdOBj.PostalCode),
                 @"email":handleNull(_cocdOBj.Email),
-                @"mobileCountryCode":handleNull(kUserProfile.countryCode),
+                @"mobileCountryCode":handleNull(kUserProfile.phoneAreaCode),
                 @"address1":handleNull(_cocdOBj.AddressLine1),
                 @"address2":handleNull(_cocdOBj.AddressLine2),
                 @"address3":handleNull(_cocdOBj.AddressLine3),

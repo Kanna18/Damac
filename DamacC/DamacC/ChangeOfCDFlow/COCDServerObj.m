@@ -78,7 +78,7 @@
 
 -(void)fillCOCDObjectWithOutCaseID{
     self.RecordType = @"Change of Details";
-    self.UserName = kUserProfile.partyName;
+    self.UserName = handleNull(kUserProfile.partyName);
     self.salesforceId = kUserProfile.sfAccountId;
     self.AccountID = handleNull(udm.sfContactId);
     self.AddressLine1 = handleNull(udm.addressLine1);

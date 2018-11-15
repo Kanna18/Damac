@@ -218,7 +218,7 @@
     for (int i = 0; i<buyersInfoArr.count ; i++ ) {
         [dropitems addObject:(NSString*)[buyersInfoArr[i] valueForKey:@"First_Name__c"]];
     }
-//    [dropitems addObject:kUserProfile.partyName];
+//    [dropitems addObject:handleNull(kUserProfile.partyName)];
     dropNew = [[KPDropMenu alloc] initWithFrame:fram];
     dropNew.layer.cornerRadius = 10.0f;
     dropNew.layer.borderColor = [UIColor yellowColor].CGColor;
@@ -299,7 +299,7 @@
         [dropitems addObject:(NSString*)[buyersInfoArr[i] valueForKey:@"First_Name__c"]];
     }
     NSLog(@"%@",kUserProfile);
-//    [dropitems addObject:handleNull(kUserProfile.partyName)];
+//    [dropitems addObject:handleNull(handleNull(kUserProfile.partyName))];
 }
 -(void)showpBuyersopover:(UIButton*)drop{
     
@@ -577,7 +577,7 @@
 }
 -(void)submitJointBuyersResponse{
     
-    if(isEmpty(self.jointObj.UploadSignedChangeofDetails)){
+    if(isEmpty(self.jointObj.UploadSignedChangeofDetails)&&(self.jointObj.cocdImage==nil)){
         [FTIndicator showToastMessage:@"COCD document is not attached"];
     }else{
         self.jointObj.status = @"Submitted";

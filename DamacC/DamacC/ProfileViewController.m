@@ -42,7 +42,7 @@
     _partyLabel.text =kUserProfile.partyType;
     _currentLabel.text = kUserProfile.currentPortfolio;
     _portofolioLabel.text = kUserProfile.overallPortfolio;
-    _nameLabel.text = kUserProfile.partyName;
+    _nameLabel.text = handleNull(kUserProfile.partyName);
     
     NSString *num = [NSString stringWithFormat:@"%@%@%@",kUserProfile.phoneCountry,kUserProfile.phoneAreaCode,kUserProfile.phoneNumber];
     valuesArr = @[@[num,

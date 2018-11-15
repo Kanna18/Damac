@@ -21,7 +21,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    _nameLabel.text = [NSString stringWithFormat:@"Dear %@",handleNull(kUserProfile.partyName)];
+    
+    NSString *name;
+    if(kUserProfile.partyName){
+        name = handleNull(kUserProfile.partyName);
+    }else{
+        name = handleNull(kUserProfile.organizationName);
+    }
+    _nameLabel.text = [NSString stringWithFormat:@"Dear %@",handleNull(name)];
     [self getResponseFromTheServer];
 }
 

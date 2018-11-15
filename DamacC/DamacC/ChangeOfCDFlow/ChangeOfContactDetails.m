@@ -297,6 +297,7 @@
         section2Cells = 0;
     }else{
        section2Cells = (NSInteger*)section2Array.count;
+        [self addressClick:nil];
     }
     NSIndexSet *set = [NSIndexSet indexSetWithIndex:sender.tag];
     NSIndexPath *path = [NSIndexPath indexPathForRow:0 inSection:sender.tag];
@@ -413,7 +414,8 @@
 
 -(void)arabicConversionDone{
 
-    [self addressClick:nil];
+//    [self addressClick:nil];
+//    [currentTF becomeFirstResponder];
 }
 
 -(void)addJointView2{

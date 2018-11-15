@@ -367,7 +367,7 @@
     NSDateComponents *dateComponent = [calendar components:(NSWeekOfYearCalendarUnit | NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit | NSCalendarUnitWeekday) fromDate:selectedDate];
     
     if(result == NSOrderedAscending ){
-        [FTIndicator showToastMessage:@"Invalid Date selected"];
+        [FTIndicator showToastMessage:@"Selected Date Cannot be future dated"];
         [calendarView ActiveCalendar:superView];
     }else{
         paymentDate = str;

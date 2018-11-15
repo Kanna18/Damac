@@ -27,7 +27,7 @@
     _detailsTableview.dataSource = self;
     
     tvArray = @[@[@"Mobile:",@"Email:",@"Address:",@"City:",@"Country:"],
-                @[@"Party Id:",@"Nationality:",@"Passport Number:",@"Passport Issue Date:"]];
+                @[@"Party Id:",@"Nationality:",@"Passport Number:",@"Passport expiry Date:"]];
     [self fillValues];
     _headingButton.layer.cornerRadius = radiusCommon;
     _headingButton.layer.borderWidth = borderWidthCommon;
@@ -42,7 +42,12 @@
     _partyLabel.text =kUserProfile.partyType;
     _currentLabel.text = kUserProfile.currentPortfolio;
     _portofolioLabel.text = kUserProfile.overallPortfolio;
-    _nameLabel.text = handleNull(kUserProfile.partyName);
+    
+    if(kUserProfile.partyName){
+        _nameLabel.text = handleNull(kUserProfile.partyName);
+    }else{
+        _nameLabel.text = handleNull(kUserProfile.organizationName);
+    }
     
     NSString *num = [NSString stringWithFormat:@"%@%@%@",kUserProfile.phoneCountry,kUserProfile.phoneAreaCode,kUserProfile.phoneNumber];
     valuesArr = @[@[num,

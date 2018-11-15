@@ -77,8 +77,15 @@
 
 
 -(void)fillCOCDObjectWithOutCaseID{
+    NSString *name;
+    if(kUserProfile.partyName){
+        name = handleNull(kUserProfile.partyName);
+    }else{
+        name = handleNull(kUserProfile.organizationName);
+    }
+    
     self.RecordType = @"Change of Details";
-    self.UserName = handleNull(kUserProfile.partyName);
+    self.UserName = handleNull(name);
     self.salesforceId = kUserProfile.sfAccountId;
     self.AccountID = handleNull(udm.sfContactId);
     self.AddressLine1 = handleNull(udm.addressLine1);
@@ -198,9 +205,10 @@
     if([trans.inputText isEqualToString:self.PostalCode])
     {
         self.PostalCodeArabic = trans.outputText;
+        [_delegate arabicConversionDone];
     }
     
-    [_delegate arabicConversionDone];
+    
 }
 
 

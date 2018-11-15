@@ -499,6 +499,11 @@
         if(responseObj){
             NSDictionary *dictSlots = [NSJSONSerialization JSONObjectWithData:responseObj options:0 error:nil];
             NSLog(@"%@",dictSlots);
+            
+            if(!dictSlots[@"AvailableSlotsList"]){
+                return;
+            }
+            
             if([dictSlots[@"AvailableSlotsList"] count]>0)
             {
             dispatch_async(dispatch_get_main_queue(), ^{

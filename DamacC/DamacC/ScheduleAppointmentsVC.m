@@ -85,7 +85,9 @@ static NSString *reuseCell = @"appointmentsCell";
 -(void)webServiceCall{
     ServerAPIManager *ser =[ ServerAPIManager sharedinstance];
     NSLog(@"%@",kUserProfile);
-    [ser postRequestwithUrl:getAppointments withParameters:@{@"userName":@"sasanka.rath1@damacgroup.com"} successBlock:^(id responseObj) {
+    SFUserAccountManager *sf = [SFUserAccountManager sharedInstance];
+    NSDictionary *par = @{@"userName":handleNull(sf.currentUser.userName)};
+    [ser postRequestwithUrl:getAppointments withParameters:par successBlock:^(id responseObj) {
         NSArray *arr = [NSJSONSerialization JSONObjectWithData:responseObj options:0 error:nil];
         if(arr.count>0){
             for (NSDictionary *dic in arr) {

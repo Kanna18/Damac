@@ -98,10 +98,18 @@
             [self fillLabels];
             [_tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
             
+            if([srD.Status isEqualToString:@"Cancelled"]){
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    _cancelBtn.hidden =YES;
+                    _editButtonNew.hidden = YES;
+                });
+                
+            }
             if([srD.Status isEqualToString:@"Draft Request"]){
                 
                 [self ediButtonHideUnhide:NO];
-            }else{
+            }
+            else{
                 [self ediButtonHideUnhide:YES];
             }
         }
@@ -144,9 +152,16 @@
                       @"Attachment1 Url",
                       @"Attachment2 Url"];
     
+    NSString *name;
+    if(kUserProfile.partyName){
+        name = handleNull(kUserProfile.partyName);
+    }else{
+        name = handleNull(kUserProfile.organizationName);
+    }
+    
     dataLabels = @[[NSString stringWithFormat:@"%@ - %@",handleNull(srD.CaseNumber),handleNull(srD.Status)],
                    [self returnDate:srD.CreatedDate],
-                   kUserProfile.partyName,
+                   name,
                    handleNull(srD.Unit_Name__c),
                    handleNull(srD.Type),
                    handleNull(srD.Complaint_Type__c),
@@ -176,10 +191,16 @@
                       @"Addition Doc File Url",
                       @"Passport File Url"];
     
+    NSString *name;
+    if(kUserProfile.partyName){
+        name = handleNull(kUserProfile.partyName);
+    }else{
+        name = handleNull(kUserProfile.organizationName);
+    }
     
     dataLabels = @[[NSString stringWithFormat:@"%@ - %@",handleNull(srD.CaseNumber),handleNull(srD.Status)],
                    handleNull([self returnDate:srD.CreatedDate]),
-                   handleNull(kUserProfile.partyName),
+                   name,
                    @"",
                    handleNull(srD.SR_Type__c),
                    handleNull(srD.Country__c),
@@ -205,14 +226,21 @@
                       @"Unit Name",
                       @"SR Type",
                       @"Passport Number",
-                      @"Passport Issue Date",
+                      @"Passport Expiry Date",
                       @"Passport Issue Place",
                       @"Passport File Url",
                       @"Additional Doc File Url"];
     
+    NSString *name;
+    if(kUserProfile.partyName){
+        name = handleNull(kUserProfile.partyName);
+    }else{
+        name = handleNull(kUserProfile.organizationName);
+    }
+    
     dataLabels = @[[NSString stringWithFormat:@"%@ - %@",handleNull(srD.CaseNumber),handleNull(srD.Status)],
                    [self returnDate:srD.CreatedDate],
-                   kUserProfile.partyName,
+                   name,
                    @"",
                    handleNull(srD.SR_Type__c),
                    handleNull(srD.New_CR__c),
@@ -238,9 +266,16 @@
                       @"Payment Mode",
                       @"Payment Allocation Details"];
     
+    NSString *name;
+    if(kUserProfile.partyName){
+        name = handleNull(kUserProfile.partyName);
+    }else{
+        name = handleNull(kUserProfile.organizationName);
+    }
+    
     dataLabels = @[[NSString stringWithFormat:@"%@ - %@",handleNull(srD.CaseNumber),handleNull(srD.Status)],
                    [self returnDate:srD.CreatedDate],
-                   kUserProfile.partyName,
+                   name,
                    @"",
                    handleNull(srD.SR_Type__c),
                    handleNull(srD.Payment_Date__c),
@@ -276,10 +311,16 @@
                       @"COCD Form Url",
                       @"Addition Doc File Url",
                       @"Passport File Url"];
+    NSString *name;
+    if(kUserProfile.partyName){
+        name = handleNull(kUserProfile.partyName);
+    }else{
+        name = handleNull(kUserProfile.organizationName);
+    }
     
     dataLabels = @[[NSString stringWithFormat:@"%@ - %@",handleNull(srD.CaseNumber),handleNull(srD.Status)],
                    [self returnDate:srD.CreatedDate],
-                   kUserProfile.partyName,
+                   name,
                    @"",
                    handleNull(srD.SR_Type__c),
                    handleNull(srD.Country__c),
@@ -345,6 +386,7 @@
     cell.label2.text = dataLabels[indexPath.row];
     [cell.editButton addTarget:self action:@selector(loadEditVC) forControlEvents:UIControlEventTouchUpInside];
     [_editButtonNew addTarget:self action:@selector(loadEditVC) forControlEvents:UIControlEventTouchUpInside];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
 //    if(indexPath.row == 0){
 //        if([srD.Status isEqualToString:@"Draft Request"]){
 ////            cell.editButton.hidden = NO;
@@ -374,7 +416,12 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    SerquestRequestDetailCell *cell =[tableView cellForRowAtIndexPath:indexPath];
+    NSString *url = cell.label2.text;
+    if([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:url]])
+    {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url] options:nil completionHandler:nil];
+    }
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

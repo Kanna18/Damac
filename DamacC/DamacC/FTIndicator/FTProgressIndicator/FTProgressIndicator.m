@@ -204,7 +204,7 @@
 }
 -(void)showCustomImage{
     _damacLogoImg= [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"profileLogo"]];
-    _damacLogoImg.frame = CGRectMake(0, 0, 90, 90);
+    _damacLogoImg.frame = CGRectMake(0, 0, 70, 70);
     _damacLogoImg.center = self.backgroundWindow.center;
     [self.backgroundWindow addSubview:_damacLogoImg];
     

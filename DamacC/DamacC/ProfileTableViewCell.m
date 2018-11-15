@@ -14,7 +14,13 @@
     [super awakeFromNib];
     // Initialization code
     
-    _nameLabel.text = handleNull(kUserProfile.partyName);
+    NSString *name;
+    if(kUserProfile.partyName){
+        name = handleNull(kUserProfile.partyName);
+    }else{
+        name = handleNull(kUserProfile.organizationName);
+    }
+    _nameLabel.text = handleNull(name);
     _emailLabel.text = kUserProfile.emailAddress;
     NSLog(@"%@",kUserProfile.sfAccountId);
 }

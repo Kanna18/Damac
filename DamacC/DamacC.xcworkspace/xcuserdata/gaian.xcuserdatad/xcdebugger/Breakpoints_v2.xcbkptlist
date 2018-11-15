@@ -20,11 +20,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DamacC/ServicesDetailController.m"
-            timestampString = "563964614.881173"
+            timestampString = "563991482.194723"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "180"
-            endingLineNumber = "180"
+            startingLineNumber = "201"
+            endingLineNumber = "201"
             landmarkName = "-fillLabelsForJointBuyer"
             landmarkType = "7">
          </BreakpointContent>
@@ -36,11 +36,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DamacC/ServicesDetailController.m"
-            timestampString = "563964614.882455"
+            timestampString = "563991482.200387"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "195"
-            endingLineNumber = "195"
+            startingLineNumber = "216"
+            endingLineNumber = "216"
             landmarkName = "-fillLabelsForJointBuyer"
             landmarkType = "7">
          </BreakpointContent>
@@ -51,61 +51,92 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DamacC/ServicesDetailController.m"
-            timestampString = "563964614.883243"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
-            landmarkName = "-viewDidLoad"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "DamacC/ServicesDetailController.m"
-            timestampString = "563964614.88381"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
-            landmarkName = "-viewWillAppear:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "DamacC/ServicesDetailController.m"
-            timestampString = "563964614.884284"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
-            landmarkName = "-viewDidAppear:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "DamacC/ServicesDetailController.m"
-            timestampString = "563964614.884748"
+            filePath = "DamacC/ScheduleAppointmentsVC.m"
+            timestampString = "563991482.201326"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "91"
             endingLineNumber = "91"
-            landmarkName = "-webServiceCall:"
+            landmarkName = "-webServiceCall"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DamacC/ScheduleAppointmentsVC.m"
+            timestampString = "563991482.201695"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
+            landmarkName = "-webServiceCall"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ScheduleAppointmentsVC webServiceCall]"
+                  moduleName = "DamacC"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gaian/Damac_Git/DamacC/DamacC/ScheduleAppointmentsVC.m"
+                  timestampString = "563991402.803678"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "90"
+                  endingLineNumber = "90"
+                  offsetFromSymbolStart = "678">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__40-[ScheduleAppointmentsVC webServiceCall]_block_invoke"
+                  moduleName = "DamacC"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gaian/Damac_Git/DamacC/DamacC/ScheduleAppointmentsVC.m"
+                  timestampString = "563991402.806941"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "91"
+                  endingLineNumber = "91"
+                  offsetFromSymbolStart = "83">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__destroy_helper_block_.162"
+                  moduleName = "DamacC"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gaian/Damac_Git/DamacC/DamacC/ScheduleAppointmentsVC.m"
+                  timestampString = "563991402.8101701"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "90"
+                  endingLineNumber = "90"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DamacC/CreateAppointmentVC.m"
+            timestampString = "563991482.201759"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "499"
+            endingLineNumber = "499"
+            landmarkName = "-getAvailableSlots"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -116,12 +147,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DamacC/ServicesDetailController.m"
-            timestampString = "563964614.8852119"
+            timestampString = "563991482.202009"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
-            landmarkName = "-webServiceCall:"
+            startingLineNumber = "420"
+            endingLineNumber = "420"
+            landmarkName = "-tableView:didSelectRowAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

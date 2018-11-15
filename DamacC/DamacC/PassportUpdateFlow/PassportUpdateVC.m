@@ -97,7 +97,14 @@
 
 -(void)PassportUpdateEditFormDetails{
     dispatch_async(dispatch_get_main_queue(), ^{
-    [_buyersButton setTitle:handleNull(kUserProfile.partyName) forState:UIControlStateNormal];
+        
+        NSString *name;
+        if(kUserProfile.partyName){
+            name = handleNull(kUserProfile.partyName);
+        }else{
+            name = handleNull(kUserProfile.organizationName);
+        }
+    [_buyersButton setTitle:handleNull(name) forState:UIControlStateNormal];
     });
     
     if(_srdRental){
@@ -186,6 +193,13 @@
     [self SetValuesbasedonTag:nil];
 }
 -(void)getBuyersInfoBasedonUnitIDS:(NSArray*)arr{
+    
+    NSString *name;
+    if(kUserProfile.partyName){
+        name = handleNull(kUserProfile.partyName);
+    }else{
+        name = handleNull(kUserProfile.organizationName);
+    }
     __block int Count = 0;
     for (int i = 0; i<arr.count; i++) {
         [serverAPI postRequestwithUrl:jointBuyersUrl withParameters:@{@"bookingId":arr[i]} successBlock:^(id responseObj) {
@@ -199,7 +213,7 @@
                     for (int i = 0; i<buyersInfoArr.count ; i++ ) {
                         [dropitems addObject:(NSString*)[buyersInfoArr[i] valueForKey:@"First_Name__c"]];
                     }
-                    [dropitems addObject:handleNull(kUserProfile.partyName)];
+                    [dropitems addObject:handleNull(name)];
                     //If Edit form details are available
                     if(_srdRental){
                         [self PassportUpdateEditFormDetails];

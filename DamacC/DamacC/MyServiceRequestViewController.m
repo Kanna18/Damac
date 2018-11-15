@@ -161,14 +161,14 @@
 -(void)sendToDetailScreen:(UIButton*)sender{
 
     MyServicesDataModel *sm = sortedArray[sender.tag];
-    if([sm.Status isEqualToString:@"Cancelled"]){
-        [FTIndicator showToastMessage:@"Service Request has been Cancelled"];
-    }else{
+//    if([sm.Status isEqualToString:@"Cancelled"]){
+//        [FTIndicator showToastMessage:@"Service Request has been Cancelled"];
+//    }else{
         ServicesDetailController *svc = [self.storyboard instantiateViewControllerWithIdentifier:@"servicesDetailVC"];
         svc.servicesDataModel = sortedArray[sender.tag];
         svc.srCaseId = sm.CaseNumber;
         [self.navigationController pushViewController:svc animated:YES];
-    }
+//    }
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     

@@ -185,6 +185,8 @@
     [popoverController dismissPopoverAnimated:YES];
     _cocdOBj.CountobobjectstoTranslate = 1;
     [_cocdOBj sendArabicTexts];
+    section2Cells = 0 ;
+    [_tableView reloadData];
 }
 #pragma mark UiTableViewDelegates
 
@@ -212,6 +214,13 @@
         [cell.selectCountryButtton addTarget:self action:@selector(showpopover:) forControlEvents:UIControlEventTouchUpInside];
         [cell.selectCountryButtton setTitle:_cocdOBj.Country forState:UIControlStateNormal];
         cell.textField.tfIndexPath = indexPath;
+        if(tvArr[indexPath.row][@"tag"] == [NSNumber numberWithInt:Mobile]){
+            cell.textField.keyboardType = UIKeyboardTypePhonePad;
+        }else{
+            cell.textField.keyboardType = UIKeyboardTypeDefault;
+        }
+        
+        
         return cell;
     }
     if(indexPath.section ==1){
@@ -646,6 +655,7 @@
 }
 
 -(void)textFieldDidEndEditing:(COCDTF *)textField{
+    
     [_cocdOBj changeValueBasedonTag:textField withValue:textField.text];
     NSLog(@"%@",_cocdOBj);
     if(textField.tag == Email){
@@ -654,6 +664,7 @@
     else if(textField.tag == Mobile){
         [self mobileClick:nil];
     }else{
+        section2Cells = 0;
         [self addressClick:nil];
     }
 }

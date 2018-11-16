@@ -81,11 +81,10 @@
     [super viewWillAppear:YES];
     [DamacSharedClass.sharedInstance.navigationCustomBar setPageTite:@"My profile"];
     UIImage *image = [UIImage imageWithContentsOfFile:[self isImageAvailable]];
-    if(image){
+//    if(image){
         _profilePic.image = image;
         [self roundCorners:_profilePic];
-    }
-    
+//    }
 }
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:YES];

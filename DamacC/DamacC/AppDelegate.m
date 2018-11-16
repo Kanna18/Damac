@@ -261,7 +261,6 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     // Change this to your preferred presentation option
     completionHandler(UNNotificationPresentationOptionAlert);
     
-    
 }
 
 // Handle notification messages after display notification is tapped by the user.
@@ -484,8 +483,8 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
 -(void)redirectToServiceDetailPage:(NSDictionary*)userInfo{
     
     if([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive||
-       [[UIApplication sharedApplication] applicationState] == UIApplicationStateBackground)
-    {
+       [[UIApplication sharedApplication] applicationState] == UIApplicationStateInactive)
+    {     
         if(DamacSharedClass.sharedInstance.currentVC){
             NSString *notification = [[userInfo valueForKey:@"aps"] valueForKey:@"alert"];
             [DamacSharedClass.sharedInstance.navigationCustomBar.backBtn setImage:DamacSharedClass.sharedInstance.backImage forState:UIControlStateNormal];

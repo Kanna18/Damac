@@ -18,12 +18,19 @@
 }
 -(BOOL)validatewithPhoneNumber{
     NSString *str1 = [[self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] stringByReplacingOccurrencesOfString:@" " withString:@""];
+    
+    NSCharacterSet * set = [[NSCharacterSet characterSetWithCharactersInString:@"!~`@#$%^&*-+();:={}[],.<>?\\/\"\'"] invertedSet];
     if(str1.length>3)
     {
         NSString *str = [str1 substringToIndex:3];
         if([str isEqualToString:@"000"]){
             return NO;
-        }else{
+        }
+        if ([str rangeOfCharacterFromSet:set].location != NSNotFound) {
+            NSLog(@"This string contains illegal characters");
+            return NO;
+        }
+        else{
             return YES;
         }
     }

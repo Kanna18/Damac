@@ -51,8 +51,10 @@
 //    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(10 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
 //        static dispatch_once_t onceToken;
 //        dispatch_once(&onceToken, ^{
-//            SFUserAccountManager *sf = [SFUserAccountManager sharedInstance];
-//            [sf logout];
+////            SFUserAccountManager *sf = [SFUserAccountManager sharedInstance];
+////            [sf logout];
+//                [[Crashlytics sharedInstance] crash];
+//
 //        });
 //    });
     self.menuLeft = [[VKSideMenu alloc] initWithSize:220 andDirection:VKSideMenuDirectionFromLeft];

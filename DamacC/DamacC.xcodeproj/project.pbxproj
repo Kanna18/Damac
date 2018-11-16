@@ -1395,6 +1395,7 @@
 				4F8D5E9A1B6C0568005E64D4 /* Frameworks */,
 				4F8D5E9B1B6C0568005E64D4 /* Resources */,
 				CE4C9DE78E11651E495B08C8 /* [CP] Copy Pods Resources */,
+				F6E0AE50219E7973009B261E /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1550,7 +1551,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-DamacC/Pods-DamacC-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-DamacC/Pods-DamacC-resources.sh",
 				"${PODS_ROOT}/../mobile_sdk/SalesforceMobileSDK-iOS/shared/resources/SalesforceSDKAssets.xcassets",
 				"${PODS_CONFIGURATION_BUILD_DIR}/SalesforceSDKCore/SalesforceSDKResources.bundle",
 			);
@@ -1561,8 +1562,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DamacC/Pods-DamacC-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DamacC/Pods-DamacC-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		F6E0AE50219E7973009B261E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/Fabric/run\" 956c01103d0d7dd4ab8df8eb4858540d04530c9a aa7088a3816156033875c2d025eb4780491fceae34dda74c4085095c8503e919\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

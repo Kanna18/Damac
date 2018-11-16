@@ -68,4 +68,6 @@
 #import "AlertPopUp.h"
 #import "FTIndicator.h"
 #import <CCAvenueSDK/CCAvenuePaymentController.h>
+#import <Fabric/Fabric.h>
+#import <Crashlytics/Crashlytics.h>
 #endif /* PrefixHeader_pch */

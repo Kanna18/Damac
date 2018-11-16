@@ -36,6 +36,8 @@
 #import <SalesforceSDKCore/SFSDKLoginViewControllerConfig.h>
 #import <UserNotifications/UserNotifications.h>
 #import "ServicesDetailController.h"
+#import <Fabric/Fabric.h>
+#import <Crashlytics/Crashlytics.h>
 
 @import Firebase;
 // Fill these in when creating a new Connected Application on Force.com
@@ -127,7 +129,7 @@ NSString *const kGCMMessageIDKey = @"gcm.message_id";
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     
-    
+    [Fabric with:@[[Crashlytics class]]];
         /**Commented By Me****/
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [self initializeAppViewState];

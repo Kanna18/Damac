@@ -28,6 +28,9 @@ PODS:
     - CocoaLumberjack/Core
   - CocoaLumberjack/Extensions (2.4.0):
     - CocoaLumberjack/Default
+  - Crashlytics (3.11.1):
+    - Fabric (~> 1.8.1)
+  - Fabric (1.8.2)
   - Firebase/Core (5.11.0):
     - Firebase/CoreOnly
     - FirebaseAnalytics (= 5.3.0)
@@ -134,6 +137,8 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 2.5.4)
+  - Crashlytics
+  - Fabric
   - Firebase/Core
   - Firebase/Messaging
   - JSONModel
@@ -144,9 +149,11 @@ DEPENDENCIES:
   - WYPopoverController (~> 0.2.0)
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  https://github.com/cocoapods/specs.git:
     - AFNetworking
     - CocoaLumberjack
+    - Crashlytics
+    - Fabric
     - Firebase
     - FirebaseAnalytics
     - FirebaseAnalyticsInterop
@@ -175,6 +182,8 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
   CocoaLumberjack: aa9dcab71bdf9eaf2a63bbd9ddc87863efe45457
+  Crashlytics: ca7ab4bc304aa216bdc2e4c1a96389ee77252203
+  Fabric: d2b22f443ba195d8a7cc204da230977c72733b40
   Firebase: b48f9e653da971ecce5b8c749684bc8bb2d26bd3
   FirebaseAnalytics: 63202d2665de4e6adcbdce189135255d8b5962ba
   FirebaseAnalyticsInterop: e5f21be9af6548372e2f0815834ff909bff395a2
@@ -187,13 +196,13 @@ SPEC CHECKSUMS:
   JSONModel: 02ab723958366a3fd27da57ea2af2113658762e9
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
-  SalesforceAnalytics: 3ffafbb278d6a8a9fda6e04d0e6fe00ed5a9cd6b
-  SalesforceSDKCore: b2949f3f22fecd1243c44efbd22f6eeb33d1e510
-  SmartStore: c35f2506507010271a4b82415a81664e7c74de0d
-  SmartSync: e204bd5975ff18aa4a36172df04df64c0b51b3a7
+  SalesforceAnalytics: 193fba8610b5b7354920db2a1c5935f8f40656a6
+  SalesforceSDKCore: 91e2e5f91f3dc8b4dcfe64ea838573a8253c2f79
+  SmartStore: 0293ab9b1c2795003594be512f45eabf153fe66e
+  SmartSync: ceec90621311f6d4aa5fc0ea17ba699754b0dfb5
   SQLCipher: f9fcf29b2e59ced7defc2a2bdd0ebe79b40d4990
   WYPopoverController: 00d879c25bddd1fd873dcc21aa98c8308d7f1555
 
-PODFILE CHECKSUM: 3eabbaf270af24464b23b17ec8e832b9d2fcaf58
+PODFILE CHECKSUM: cd1481aa77dffdce0296f33b44213acbd615b472
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.6.0.beta.2

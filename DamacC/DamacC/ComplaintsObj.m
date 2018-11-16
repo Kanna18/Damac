@@ -37,7 +37,8 @@
  
 //    00525000003ptSPAAY Android
     SFUserAccountManager *sf = [SFUserAccountManager sharedInstance];
-    self.userId = sf.currentUser.credentials.userId;
+    self.userId = sf.currentUser.idData.userId;
+
     self.AccountID = kUserProfile.sfAccountId;
     self.Description = srd.Description;
     self.BookingUnit = srd.Booking_Unit_Name__c;

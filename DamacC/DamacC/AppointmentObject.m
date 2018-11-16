@@ -19,11 +19,13 @@
 }
 
 
--(void)createappointment{    
+-(void)createappointment{
+    SFUserAccountManager *sf = [SFUserAccountManager sharedInstance];
+    
     NSMutableDictionary *di = [[NSMutableDictionary alloc]init];
     [di setValue:@"Appointment Scheduling" forKey:@"RecordType"];
-    [di setValue:kUserProfile.emailAddress forKey:@"UserName"];
-    [di setValue:kUserProfile.sfAccountId forKey:@"AccountID"];
+    [di setValue:handleNull(sf.currentUser.userName) forKey:@"UserName"];
+    [di setValue:handleNull(kUserProfile.sfAccountId) forKey:@"AccountID"];
     [di setValue:self.AppointmentDate forKey:@"AppointmentDate"];
     [di setValue:self.BookingUnit forKey:@"BookingUnit"];
     [di setValue:self.SubProcessName forKey:@"SubProcessName"];

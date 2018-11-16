@@ -34,7 +34,7 @@
     self.origin = @"Mobile App";
     self.PassportFileUrl = @"";
     self.phone = handleNull(kUserProfile.phoneNumber);
-    self.postalCode = handleNull(kUserProfile.phoneAreaCode);
+    self.postalCode = handleNull(kUserProfile.postalCode);
     self.RecordType = @"Change of Joint Buyer";
     self.state = @"";
     self.status = @"";

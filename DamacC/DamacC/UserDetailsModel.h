@@ -73,5 +73,7 @@
 @property (nonatomic) NSString <Optional> *crNumber;
 @property (nonatomic) NSString <Optional> *crRegPlace;
 @property (nonatomic) NSString <Optional> *organizationName;
+@property (nonatomic) NSString <Optional> *postalCode;
+
 
 @end

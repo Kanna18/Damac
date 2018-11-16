@@ -485,7 +485,8 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
 -(void)redirectToServiceDetailPage:(NSDictionary*)userInfo{
     
     if([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive||
-       [[UIApplication sharedApplication] applicationState] == UIApplicationStateInactive)
+       [[UIApplication sharedApplication] applicationState] == UIApplicationStateInactive||
+       [[UIApplication sharedApplication] applicationState] == UIApplicationStateBackground)
     {     
         if(DamacSharedClass.sharedInstance.currentVC){
             NSString *notification = [[userInfo valueForKey:@"aps"] valueForKey:@"alert"];

@@ -94,7 +94,7 @@
     self.AddressLine4 = handleNull(udm.addressLine4);
     self.City = handleNull(udm.city);
     self.State = handleNull(udm.city);
-    self.PostalCode = handleNull(udm.countryCode);
+    self.PostalCode = handleNull(udm.postalCode);
     self.Country = handleNull(udm.countryOfResidence);
     self.Mobile = [NSString stringWithFormat:@"%@%@%@",handleNull(udm.phoneCountry),handleNull(udm.phoneAreaCode),handleNull(udm.phoneNumber)];
     self.Email = [NSString stringWithFormat:@"%@",handleNull(udm.emailAddress)];
@@ -288,10 +288,10 @@
     {
         boo = [NSNumber numberWithBool:NO];
     }
-   
+    SFUserAccountManager *sf = [SFUserAccountManager sharedInstance];
     NSMutableDictionary *wrapperDict = [[NSMutableDictionary alloc]init];
     [wrapperDict setValue:@"Change of Details" forKey:@"RecordType"];
-    [wrapperDict setValue:kUserProfile.emailAddress forKey:@"UserName"];
+    [wrapperDict setValue:handleNull(sf.currentUser.userName) forKey:@"UserName"];
     [wrapperDict setValue:kUserProfile.sfAccountId forKey:@"AccountID"];
     [wrapperDict setValue:self.AddressLine1 forKey:@"AddressLine1"];
     [wrapperDict setValue:self.AddressLine2 forKey:@"AddressLine2"];

@@ -17,7 +17,7 @@
                BlueprintIdentifier = "9A46F2A17EAC17527D688306D96B6489"
                BlueprintName = "nanopb"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "libnanopb.a">
+               BuildableName = "nanopb.framework">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

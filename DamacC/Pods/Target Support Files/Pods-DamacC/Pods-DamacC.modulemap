@@ -1,4 +1,4 @@
-module Pods_DamacC [system] {
+framework module Pods_DamacC {
   umbrella header "Pods-DamacC-umbrella.h"
 
   export *

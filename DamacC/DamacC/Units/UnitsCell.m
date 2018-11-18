@@ -23,12 +23,12 @@
     [_payNowButton addTarget:self action:@selector(payNow:) forControlEvents:UIControlEventTouchUpInside];
 }
 -(void)setProgressView{
-    
+        
     _progressView.backgroundColor = [UIColor clearColor];
     [self.progressView.sliceItems removeAllObjects];
     
     SliceItem *item1 = [SliceItem new];
-    item1.itemValue = 100+_percentValue;
+    item1.itemValue = _percentValue;
     item1.itemColor = goldColor;
 
     SliceItem *item2 = [[SliceItem alloc] init];
@@ -65,13 +65,13 @@
 
 - (void)payNow:(id)sender{
  
-//    if([_dueAmount integerValue]>0){
+    if([_dueAmount integerValue]>0){
         BillingViewController *bvc = [DamacSharedClass.sharedInstance.currentVC.storyboard instantiateViewControllerWithIdentifier:@"billVC"];
         [DamacSharedClass.sharedInstance.currentVC.navigationController pushViewController:bvc animated:YES];
-//    }
-//    else{
-//        [FTIndicator showToastMessage:@"No OutStanding Amount"];
-//    }
+    }
+    else{
+        [FTIndicator showToastMessage:@"No OutStanding Amount"];
+    }
 //    ErrorViewController *errvc =[self.storyboard instantiateViewControllerWithIdentifier:@"errorVC"];
 //    [self presentViewController:errvc animated:YES completion:nil];
 

@@ -56,7 +56,12 @@
         }else{
             name = handleNull(udm.organizationName);
         }
-        addArr= @[name,handleNull(udm.addressLine1),handleNull(udm.city),handleNull(udm.countryOfResidence),handleNull(udm.countryCode),handleNull(udm.phoneNumber),handleNull(udm.emailAddress)];
+        addArr= @[name,handleNull(udm.addressLine1),
+                  handleNull(udm.city),
+                  handleNull(udm.countryOfResidence),
+                  @"",
+                  [NSString stringWithFormat:@"%@%@",handleNull(udm.phoneCountry),handleNull(udm.phoneNumber)],
+                  handleNull(udm.emailAddress)];
     }
     
     tblView.alwaysBounceVertical = NO;
@@ -72,8 +77,22 @@
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:YES];
 //    [[CustomBarOptions alloc]initWithNavItems:self.navigationItem noOfItems:2 navRef:self.navigationController withTitle:@"Pay now"];
+//    [self roundCorners:_showAddressBtn];
+//    [self roundCorners:_ccavenueBtn];
+    DamacSharedClass.sharedInstance.currentVC = self;
+    [self performSelector:@selector(hideWindowButton) withObject:nil afterDelay:0.2];
 }
 
+-(void)hideWindowButton{
+    DamacSharedClass.sharedInstance.windowButton.hidden = YES;
+}
+
+-(void)roundCorners:(UIButton*)sender{
+    sender.layer.cornerRadius = 5;
+    sender.layer.borderWidth = 1;
+    sender.layer.borderColor = goldColor.CGColor;
+    sender.clipsToBounds = YES;
+}
 
 #pragma mark - TableView methods
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -113,6 +132,7 @@
     cell.textField.text = addArr[indexPath.row];
     [self fillBillObj:indexPath withValue:addArr[indexPath.row]];
 //    cell.backgroundColor = indexPath.row%2==0?[UIColor lightTextColor]:[[UIColor lightTextColor] colorWithAlphaComponent:0.5f];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
@@ -121,7 +141,7 @@
     return 44.0f;
 }
 - (CGFloat)tableView:(UITableView*)tableView heightForFooterInSection:(NSInteger)section {
-    return 5.0;
+    return 0.0;
 }
 
 
@@ -133,7 +153,7 @@
         [tblView registerClass:[ViewControllerCellHeader class] forCellReuseIdentifier:@"ViewControllerCellHeader"];
         headerView = [tableView dequeueReusableCellWithIdentifier:@"ViewControllerCellHeader"];        
     }
-    headerView.lbTitle.text = headerArr[section];//[NSString stringWithFormat:@"Section %ld", (long)section];
+    headerView.lbTitle.text = [NSString stringWithFormat:@"  %@",headerArr[section]];//[NSString stringWithFormat:@"Section %ld", (long)section];
     
     headerView.buttonBackground.layer.cornerRadius = 10.0f;
     headerView.buttonBackground.layer.borderWidth = 2.0f;

@@ -205,7 +205,7 @@
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return  CGSizeMake(collectionView.frame.size.width/3-9, collectionView.frame.size.width/4-30);
+    return  CGSizeMake(collectionView.frame.size.width/3-9, 295/4-30);
 }
 
 
@@ -244,6 +244,7 @@
     if(popoverDate){
         
         _heightConstraint.constant = 351;
+        [_collectionView reloadData];
 //        [_selectDateBtn setTitle:dateArray[tag] forState:UIControlStateNormal];
         [_selectDateBtn setTitle:onlyDayArray[tag] forState:UIControlStateNormal];
         [self sortSlotsArray:dateArray[tag]];

@@ -65,6 +65,7 @@ static NSString *reuseCell = @"servicesCell";
     [super viewDidAppear:YES];
     scr_width = [UIScreen mainScreen].bounds.size.width;
     scr_height = [UIScreen mainScreen].bounds.size.height;
+    DamacSharedClass.sharedInstance.currentVC = self;
     
     
     
@@ -194,6 +195,7 @@ static NSString *reuseCell = @"servicesCell";
          ResponseLine *rs = tvArray[indexPath.row];
         if(rs.totalDueInvoice.intValue >0){
             BillingViewController *bvc = [DamacSharedClass.sharedInstance.currentVC.storyboard instantiateViewControllerWithIdentifier:@"billVC"];
+            bvc.dueAmount = rs.totalDueInvoice;
             [DamacSharedClass.sharedInstance.currentVC.navigationController pushViewController:bvc animated:YES];
         }else{
             [FTIndicator showToastMessage:@"No OutStanding Amount"];

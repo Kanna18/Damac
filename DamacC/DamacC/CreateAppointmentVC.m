@@ -93,7 +93,10 @@
     }else{
         _slotLabel.text = _appointObj.TimeSlot;
     }
-    
+    [self adjustImageEdgeInsetsOfButton:_selectPurposeBtn];
+    [self adjustImageEdgeInsetsOfButton:_selectSubPurposeBtn];
+    [self adjustImageEdgeInsetsOfButton:_selectUnitBtn];
+    [self adjustImageEdgeInsetsOfButton:_calendarBtn];
 }
 
 -(void)adjustImageEdgeInsetsOfButton:(UIButton*)sender{

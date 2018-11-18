@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DamacC/BillingViewController.m"
-            timestampString = "564210747.3668261"
+            timestampString = "564220562.897716"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "315"
-            endingLineNumber = "315"
+            startingLineNumber = "318"
+            endingLineNumber = "318"
             landmarkName = "BillingViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DamacC/BillingViewController.m"
-            timestampString = "564210747.366895"
+            timestampString = "564220562.898051"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "321"
-            endingLineNumber = "321"
+            startingLineNumber = "332"
+            endingLineNumber = "332"
             landmarkName = "-proceedClick:"
             landmarkType = "7">
          </BreakpointContent>
@@ -58,7 +58,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DamacC/MainViewController.m"
-            timestampString = "564210747.366979"
+            timestampString = "564220562.8981709"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "837"
@@ -74,7 +74,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DamacC/MainViewController.m"
-            timestampString = "564210747.367028"
+            timestampString = "564220562.898401"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "849"
@@ -163,12 +163,28 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DamacC/BillingViewController.m"
-            timestampString = "564210747.3671221"
+            filePath = "DamacC/Units/UnitsCell.m"
+            timestampString = "564220562.8985569"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "-setProgressView"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DamacC/PaymentsSchedule/PaymentsScheduleVC.m"
+            timestampString = "564219040.798956"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
             landmarkName = "-viewDidLoad"
             landmarkType = "7">
          </BreakpointContent>
@@ -179,13 +195,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DamacC/Units/UnitsCell.m"
-            timestampString = "564210747.367174"
+            filePath = "DamacC/AppointmentsSlotsViewController.m"
+            timestampString = "564220562.898815"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
-            landmarkName = "-setProgressView"
+            startingLineNumber = "184"
+            endingLineNumber = "184"
+            landmarkName = "-collectionView:numberOfItemsInSection:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -23,7 +23,7 @@
     [_payNowButton addTarget:self action:@selector(payNow:) forControlEvents:UIControlEventTouchUpInside];
 }
 -(void)setProgressView{
-        
+    
     _progressView.backgroundColor = [UIColor clearColor];
     [self.progressView.sliceItems removeAllObjects];
     
@@ -67,6 +67,7 @@
  
     if([_dueAmount integerValue]>0){
         BillingViewController *bvc = [DamacSharedClass.sharedInstance.currentVC.storyboard instantiateViewControllerWithIdentifier:@"billVC"];
+        bvc.dueAmount = _dueAmount;
         [DamacSharedClass.sharedInstance.currentVC.navigationController pushViewController:bvc animated:YES];
     }
     else{

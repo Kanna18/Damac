@@ -45,8 +45,7 @@
     [self sortMonthsArray];
     [_selectDateBtn setTitle:@"" forState:UIControlStateNormal];
     _heightConstraint.constant = 140;
-    [self adjustImageEdgeInsetsOfButton:_selectMonthBtn];
-    [self adjustImageEdgeInsetsOfButton:_selectDateBtn];
+    
     
     [self roundCorners:_selectMonthBtn];
     [self roundCorners:_selectDateBtn];
@@ -60,7 +59,11 @@
     sender.layer.borderWidth = 1.0f;
     sender.clipsToBounds = YES;
 }
-
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:YES];
+    [self adjustImageEdgeInsetsOfButton:_selectMonthBtn];
+    [self adjustImageEdgeInsetsOfButton:_selectDateBtn];
+}
 -(void)roundCorners:(UIButton*)sender{
     
     sender.layer.cornerRadius = 5;

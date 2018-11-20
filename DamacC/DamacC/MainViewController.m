@@ -585,7 +585,17 @@
         return  CGSizeMake(collectionView.frame.size.width/4-10 , 130);
     }
     if(collectionView == _gridCollectionView){
-        return  CGSizeMake(collectionView.frame.size.width/2-10, 140);
+        
+        if (UIDevice.currentDevice.userInterfaceIdiom == UIUserInterfaceIdiomPad)
+        {
+            return  CGSizeMake(collectionView.frame.size.width/2-10, collectionView.frame.size.height/4);
+        }
+        else
+        {
+            return  CGSizeMake(collectionView.frame.size.width/2-10, 140);
+        }
+        
+        
     }
     return  CGSizeZero;
 }

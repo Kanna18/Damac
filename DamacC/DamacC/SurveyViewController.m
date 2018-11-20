@@ -80,7 +80,7 @@
     if(indexPath.row==0){
         SurveyCell1 *pCell1 = [collectionView dequeueReusableCellWithReuseIdentifier:@"surveyCell1" forIndexPath:indexPath];
         pCell1.parentCollectionView = _collectionView;
-        pCell1.surveyArray = _surveyArray;
+        pCell1.surveyArray = _surveyArray;        
         return pCell1;
     }
     if(indexPath.row==1){
@@ -116,7 +116,10 @@
     
     return nil;
 }
-
+-(void)adjustImageEdgeInsetsOfButton:(UIButton*)sender{
+    sender.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
+    sender.imageEdgeInsets = UIEdgeInsetsMake(0, sender.frame.size.width-30-sender.titleLabel.intrinsicContentSize.width, 0, 0);
+}
 
 - (void)collectionView:(UICollectionView *)collectionView
        willDisplayCell:(UICollectionViewCell *)cell

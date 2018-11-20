@@ -505,7 +505,7 @@
             
             if([dictSlots isKindOfClass:[NSArray class]]){
                 [FTIndicator performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
-                [FTIndicator showToastMessage:@"No Appointment slots available Please try for some other day"];
+                [FTIndicator showToastMessage:@"Non availability of time slots"];
                 return;
             }
             
@@ -520,7 +520,7 @@
             });
             }else{
                 [FTIndicator performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
-                [FTIndicator showToastMessage:@"No Appointment slots available Please try for some other day"];
+                [FTIndicator showToastMessage:@"Non availability of time slots"];
             }
         }
     } errorBlock:^(NSError *error) {

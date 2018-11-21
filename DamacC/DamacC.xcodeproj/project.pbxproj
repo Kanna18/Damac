@@ -15,6 +15,9 @@
 		B7168FBA1FACC5D900A48DB5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7168FB91FACC5D900A48DB5 /* LaunchScreen.storyboard */; };
 		F60164ED20ABB9D900E07510 /* UnitsDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F60164EC20ABB9D900E07510 /* UnitsDataModel.m */; };
 		F60164F320ABF36F00E07510 /* PaymentsDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F60164F220ABF36F00E07510 /* PaymentsDataModel.m */; };
+		F601EE7421A5E81D00203842 /* CCAvenueSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F601EE7321A5E81D00203842 /* CCAvenueSDK.framework */; };
+		F601EE7521A5E82000203842 /* CCAvenueSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F601EE7321A5E81D00203842 /* CCAvenueSDK.framework */; };
+		F601EE7621A5E82000203842 /* CCAvenueSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F601EE7321A5E81D00203842 /* CCAvenueSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F604B35F2165FD030047CBD2 /* ReceiptsTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F604B35E2165FD030047CBD2 /* ReceiptsTableVC.m */; };
 		F604B3642165FD300047CBD2 /* ReceiptsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F604B3622165FD300047CBD2 /* ReceiptsTableViewCell.m */; };
 		F604B3652165FD300047CBD2 /* ReceiptsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F604B3632165FD300047CBD2 /* ReceiptsTableViewCell.xib */; };
@@ -158,7 +161,6 @@
 		F6B31BE120F33328001A5144 /* ScheduleAppointmentsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B31BE020F33328001A5144 /* ScheduleAppointmentsVC.m */; };
 		F6B75ADE218376B20070FB4C /* ComplaintsObj.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B75ADD218376B20070FB4C /* ComplaintsObj.m */; };
 		F6B9A426217EEC6C00FF41D6 /* ErrorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B9A425217EEC6C00FF41D6 /* ErrorViewController.m */; };
-		F6B9DD0B21A07C3800137F3A /* CCAvenueSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6B264EF219ABCFD001A2DE0 /* CCAvenueSDK.framework */; };
 		F6BBF407218EDFA600C9A566 /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6BBF406218EDFA600C9A566 /* HelpViewController.m */; };
 		F6BBF40B218EF5E100C9A566 /* HelpTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F6BBF40A218EF5E100C9A566 /* HelpTableViewCell.m */; };
 		F6C57C5621585C4900970DC3 /* PassportUpdateVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C57C5521585C4900970DC3 /* PassportUpdateVC.m */; };
@@ -219,6 +221,20 @@
 		F6FF90B92197359F0090D2FE /* RepeatedFunctions in Resources */ = {isa = PBXBuildFile; fileRef = F6FF90B82197359F0090D2FE /* RepeatedFunctions */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		F601EE7221A570FB00203842 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				F601EE7621A5E82000203842 /* CCAvenueSDK.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		2EA1CF321EA1CB95D50AC1A0 /* Pods-DamacC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DamacC.release.xcconfig"; path = "Target Support Files/Pods-DamacC/Pods-DamacC.release.xcconfig"; sourceTree = "<group>"; };
 		4F277E8C1DC7F5DF00E5A77C /* Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
@@ -239,6 +255,7 @@
 		F60164EC20ABB9D900E07510 /* UnitsDataModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UnitsDataModel.m; sourceTree = "<group>"; };
 		F60164F120ABF36F00E07510 /* PaymentsDataModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PaymentsDataModel.h; sourceTree = "<group>"; };
 		F60164F220ABF36F00E07510 /* PaymentsDataModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PaymentsDataModel.m; sourceTree = "<group>"; };
+		F601EE7321A5E81D00203842 /* CCAvenueSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CCAvenueSDK.framework; sourceTree = "<group>"; };
 		F604B35D2165FD030047CBD2 /* ReceiptsTableVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReceiptsTableVC.h; sourceTree = "<group>"; };
 		F604B35E2165FD030047CBD2 /* ReceiptsTableVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReceiptsTableVC.m; sourceTree = "<group>"; };
 		F604B3612165FD300047CBD2 /* ReceiptsTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReceiptsTableViewCell.h; sourceTree = "<group>"; };
@@ -461,7 +478,6 @@
 		F6AE17C62175BE3D00C0E64A /* COCDServerObj.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = COCDServerObj.m; sourceTree = "<group>"; };
 		F6B166C82188780F0094A2B4 /* AppointmentObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppointmentObject.h; sourceTree = "<group>"; };
 		F6B166C92188780F0094A2B4 /* AppointmentObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppointmentObject.m; sourceTree = "<group>"; };
-		F6B264EF219ABCFD001A2DE0 /* CCAvenueSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CCAvenueSDK.framework; sourceTree = "<group>"; };
 		F6B31BDB20F094FB001A5144 /* MyServiceRequestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyServiceRequestViewController.h; sourceTree = "<group>"; };
 		F6B31BDC20F094FB001A5144 /* MyServiceRequestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyServiceRequestViewController.m; sourceTree = "<group>"; };
 		F6B31BDF20F33328001A5144 /* ScheduleAppointmentsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScheduleAppointmentsVC.h; sourceTree = "<group>"; };
@@ -580,8 +596,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F6B9DD0B21A07C3800137F3A /* CCAvenueSDK.framework in Frameworks */,
 				F6141E6021A07A3A00224829 /* FirebaseCore.framework in Frameworks */,
+				F601EE7521A5E82000203842 /* CCAvenueSDK.framework in Frameworks */,
 				F691B3592190CFBE008EA47D /* UIKit.framework in Frameworks */,
 				F691B3572190CFB3008EA47D /* Foundation.framework in Frameworks */,
 				F659E0AF2188E46D00A9DB16 /* MessageUI.framework in Frameworks */,
@@ -589,6 +605,7 @@
 				F6C57C742158CD2400970DC3 /* libxml2.2.tbd in Frameworks */,
 				F6D91E3A20994A5D00DA1428 /* LocalAuthentication.framework in Frameworks */,
 				4C1FFC442EBEEC68228FD4A2 /* Pods_DamacC.framework in Frameworks */,
+				F601EE7421A5E81D00203842 /* CCAvenueSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -607,7 +624,7 @@
 		4F8D5E941B6C0568005E64D4 = {
 			isa = PBXGroup;
 			children = (
-				F6B264EF219ABCFD001A2DE0 /* CCAvenueSDK.framework */,
+				F601EE7321A5E81D00203842 /* CCAvenueSDK.framework */,
 				F686163C20982C9C002EA241 /* PrefixHeader.pch */,
 				4F8D5E9F1B6C0568005E64D4 /* DamacC */,
 				4F8D5E9E1B6C0568005E64D4 /* Products */,
@@ -1402,6 +1419,7 @@
 				4F8D5E9B1B6C0568005E64D4 /* Resources */,
 				F6E0AE50219E7973009B261E /* ShellScript */,
 				FB2F01C1C0E241F7DB5C54F4 /* [CP] Embed Pods Frameworks */,
+				F601EE7221A570FB00203842 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1915,7 +1933,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "DamacC-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1964,7 +1982,7 @@
 				SKIP_INSTALL = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "DamacC-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -160,7 +160,7 @@
     [super viewWillAppear:YES];
 
     [self customNavBarVie];
-//    [self sendFCMTokenTokenToServer];
+    [self sendFCMTokenTokenToServer];
     [self notificationsbell];
     
     

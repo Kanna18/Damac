@@ -5343,6 +5343,7 @@
                                         <state key="normal" title="Show Address" image="ccBox">
                                             <color key="titleColor" red="0.74901960784313726" green="0.60392156862745094" blue="0.34509803921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <state key="selected" image="ccBoxTick"/>
                                         <connections>
                                             <action selector="showAddressClick:" destination="PZb-ne-lwH" eventType="touchUpInside" id="pEa-Ch-ye9"/>
                                         </connections>
@@ -5357,6 +5358,7 @@
                                         <state key="normal" title="CCAvenue Promo" image="ccBox">
                                             <color key="titleColor" red="0.74901960784313726" green="0.60392156862745094" blue="0.34509803921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <state key="selected" image="ccBoxTick"/>
                                         <connections>
                                             <action selector="ccavenueClick:" destination="PZb-ne-lwH" eventType="touchUpInside" id="tKh-4e-ahm"/>
                                         </connections>
@@ -8141,6 +8143,7 @@
         <image name="backgroundImage2" width="250" height="444"/>
         <image name="calendar" width="36" height="36"/>
         <image name="ccBox" width="24" height="24"/>
+        <image name="ccBoxTick" width="24" height="24"/>
         <image name="closeRound" width="32" height="32"/>
         <image name="downArrow" width="30" height="30"/>
         <image name="downArrowBrown" width="16" height="16"/>

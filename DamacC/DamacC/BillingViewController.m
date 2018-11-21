@@ -244,8 +244,10 @@
     
     if([showAddressBool isEqualToString:@"N"]){
         showAddressBool = @"Y";
+        _showAddressBtn.selected = YES;
     }else{
         showAddressBool = @"N";
+        _showAddressBtn.selected = NO;
     }
 }
 
@@ -255,8 +257,10 @@
     
     if([ccavenueBool isEqualToString:@"N"]){
         ccavenueBool = @"Y";
+        _ccavenueBtn.selected = YES;
     }else{
         ccavenueBool = @"N";
+        _ccavenueBtn.selected = NO;
     }
 }
 

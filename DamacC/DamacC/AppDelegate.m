@@ -154,7 +154,7 @@ NSString *const kGCMMessageIDKey = @"gcm.message_id";
     
     [[SmartSyncSDKManager sharedManager] launch];
     
-//    [FIRApp configure];
+    [FIRApp configure];
     // [END configure_firebase]
     
     // [START set_messaging_delegate]

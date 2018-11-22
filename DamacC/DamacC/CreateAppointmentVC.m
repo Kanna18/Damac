@@ -146,16 +146,16 @@
         NSNumber* boolean2 = dict[@"Handover_Flag__c"];
         NSNumber* boolean3 = dict[@"Handover_Notice_Sent__c"];
                       
-          if(boolean1.boolValue||boolean2.boolValue){
-              if(boolean3.boolValue){
-                  [FTIndicator showToastMessage:@"No Handover notice available"];
-                  return NO;
-                  
-              }
-              
-          }else{
+        if(boolean1.boolValue||boolean2.boolValue){
+              [FTIndicator showToastMessage:@"Unit already handed over"];
+              return NO;
+          }
+        else if(boolean3.boolValue){
+            [FTIndicator showToastMessage:@"No handover notice available"];
+            return NO;
+            }
+        else{
               return YES;
-              
           }
 //        Early_Handover__c
 //        Handover_Flag__c

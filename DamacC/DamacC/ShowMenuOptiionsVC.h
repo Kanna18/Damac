@@ -22,5 +22,6 @@
 
 @property NSMutableArray *dataArray;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *gridWidth;
 
 @end

@@ -66,7 +66,16 @@
             [cstB removeFromSuperview];
         }
     }
+    if (UIDevice.currentDevice.userInterfaceIdiom == UIUserInterfaceIdiomPad)
+    {
+        _gridWidth.constant = 400;
+    }
+    else
+    {
+        _gridWidth.constant = 360;
+    }
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

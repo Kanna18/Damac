@@ -81,7 +81,16 @@
 }
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    return CGSizeMake(_collectionView.frame.size.width-20, _collectionView.frame.size.width-20);
+    
+    if (UIDevice.currentDevice.userInterfaceIdiom == UIUserInterfaceIdiomPad)
+    {
+        return  CGSizeMake(_collectionView.frame.size.height, _collectionView.frame.size.height);
+    }
+    else
+    {
+        return  CGSizeMake(_collectionView.frame.size.width-20, _collectionView.frame.size.width-20);
+    }
+
 }
 
 - (IBAction)continueSurveyClick:(id)sender {

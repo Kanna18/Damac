@@ -53,6 +53,7 @@
     _dissatisfiedImage.highlighted = NO;
     _happyImage.highlighted = NO;
     _notApplicableImage.highlighted = NO;
+    _textView.hidden = YES;
     _vw1.backgroundColor = rgb(85, 85, 85);
     _vw2.backgroundColor = rgb(85, 85, 85);
     _vw3.backgroundColor = rgb(85, 85, 85);
@@ -70,17 +71,17 @@
         }
         
     }
-    if([[dict valueForKey:surveyAnsDictKey] intValue] == 1){
+    else if([[dict valueForKey:surveyAnsDictKey] intValue] == 1){
         _vw2.backgroundColor = [UIColor blackColor];
         _satisfiedImage.highlighted = YES;
         _textView.hidden = YES;
     }
-    if([[dict valueForKey:surveyAnsDictKey] intValue] == 2){
+    else if([[dict valueForKey:surveyAnsDictKey] intValue] == 2){
         _vw3.backgroundColor = [UIColor blackColor];
         _happyImage.highlighted = YES;
         _textView.hidden = YES;
     }
-    if([[dict valueForKey:surveyAnsDictKey] intValue] == 3){
+    else if([[dict valueForKey:surveyAnsDictKey] intValue] == 3){
         _vw4.backgroundColor = [UIColor blackColor];
         _notApplicableImage.highlighted = YES;
         _textView.hidden = YES;

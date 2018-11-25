@@ -54,6 +54,12 @@ static NSString *reuseCell = @"servicesCell";
 //    [[CustomBarOptions alloc]initWithNavItems:self.navigationItem noOfItems:4];
     
     
+    [FIRAnalytics logEventWithName:kFIREventSelectContent
+                        parameters:@{
+                                     kFIRParameterItemID:[NSString stringWithFormat:@"id-%@", @"Paynow"],
+                                     kFIRParameterItemName:@"Paynow",
+                                     kFIRParameterContentType:@"Button Clicks"
+                                     }];
 }
 
 -(void)viewWillAppear:(BOOL)animated{

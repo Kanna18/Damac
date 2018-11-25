@@ -37,8 +37,8 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     [self.tableView registerNib:[UINib nibWithNibName:@"UnitsCell" bundle:nil] forCellReuseIdentifier:@"unitsCell"];
     headerIndex = -1;
-     [self webServiceCall];    
-    
+     [self webServiceCall];
+        
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
@@ -249,6 +249,14 @@
     docView.center = self.view.center;
     [docView.dismissViewBtn addTarget:self action:@selector(dismissDocView) forControlEvents:UIControlEventTouchUpInside];    
     docView.currentUnit = tvArray[sender.tag];
+    
+    [FIRAnalytics logEventWithName:kFIREventSelectContent
+                        parameters:@{
+                                     kFIRParameterItemID:[NSString stringWithFormat:@"id-%@", @"MyUnit_EStatements"],
+                                     kFIRParameterItemName:@"MyUnit_EStatements",
+                                     kFIRParameterContentType:@"Button Clicks"
+                                     }];
+    
 }
 -(void)dismissDocView{
     if(docView){

@@ -69,6 +69,14 @@
         BillingViewController *bvc = [DamacSharedClass.sharedInstance.currentVC.storyboard instantiateViewControllerWithIdentifier:@"billVC"];
         bvc.dueAmount = _dueAmount;
         [DamacSharedClass.sharedInstance.currentVC.navigationController pushViewController:bvc animated:YES];
+        
+        [FIRAnalytics logEventWithName:kFIREventSelectContent
+                            parameters:@{
+                                         kFIRParameterItemID:[NSString stringWithFormat:@"id-%@", @"MyUnit_EStatements"],
+                                         kFIRParameterItemName:@"MyUnit_PayNow",
+                                         kFIRParameterContentType:@"Button Clicks"
+                                         }];
+        
     }
     else{
         [FTIndicator showToastMessage:@"No OutStanding Amount"];

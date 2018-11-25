@@ -367,6 +367,13 @@
         [complaintsObj sendDraftStatusToServer];
         [FTIndicator showProgressWithMessage:@"Loading Please Wait" userInteractionEnable:NO];
     }
+    
+    [FIRAnalytics logEventWithName:kFIREventSelectContent
+                        parameters:@{
+                                     kFIRParameterItemID:[NSString stringWithFormat:@"id-%@", @"Cancel Service Request"],
+                                     kFIRParameterItemName:@"Cancel Service Request",
+                                     kFIRParameterContentType:@"Button Clicks"
+                                     }];
 }
 
 

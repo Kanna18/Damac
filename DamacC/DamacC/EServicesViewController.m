@@ -31,6 +31,13 @@
     servicesCountArray = [[NSMutableArray alloc]init];
     [FTIndicator showProgressWithMessage:@"Loading please wait" userInteractionEnable:NO];
     
+    [FIRAnalytics logEventWithName:kFIREventSelectContent
+                        parameters:@{
+                                     kFIRParameterItemID:[NSString stringWithFormat:@"id-%@", @"Raise a Service Request"],
+                                     kFIRParameterItemName:@"Raise a Service Request",
+                                     kFIRParameterContentType:@"Button Clicks"
+                                     }];
+    
 }
 
 - (void)didReceiveMemoryWarning {

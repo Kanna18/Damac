@@ -45,6 +45,13 @@
     [FTIndicator showProgressWithMessage:@"Loading please wait" userInteractionEnable:NO];
     [self webServicetoGetUnitSFIds];
     selectedUnitTag = -1;
+    
+    [FIRAnalytics logEventWithName:kFIREventSelectContent
+                        parameters:@{
+                                     kFIRParameterItemID:[NSString stringWithFormat:@"id-%@", @"Book an Appointment - Start"],
+                                     kFIRParameterItemName:@"Book an Appointment - Start",
+                                     kFIRParameterContentType:@"Button Clicks"
+                                     }];
 
 }
 -(void)webServicetoGetUnitSFIds{

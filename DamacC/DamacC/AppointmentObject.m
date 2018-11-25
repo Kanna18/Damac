@@ -20,6 +20,8 @@
 
 
 -(void)createappointment{
+         
+    
     SFUserAccountManager *sf = [SFUserAccountManager sharedInstance];
     
     NSMutableDictionary *di = [[NSMutableDictionary alloc]init];
@@ -49,7 +51,16 @@
 }
 
 -(void)popToMainVC{
-            
+    
+    
+    [FIRAnalytics logEventWithName:kFIREventSelectContent
+                        parameters:@{
+                                     kFIRParameterItemID:[NSString stringWithFormat:@"id-%@", @"Book an Appointment - Success"],
+                                     kFIRParameterItemName:@"Book an Appointment - Success",
+                                     kFIRParameterContentType:@"Button Clicks"
+                                     }];
+    
+    
     [FTIndicator dismissProgress];
     [FTIndicator showToastMessage:@"Appointment successfully Scheduled"];    
     NSArray *arr = DamacSharedClass.sharedInstance.currentVC.navigationController.viewControllers;

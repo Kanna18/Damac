@@ -339,6 +339,13 @@
     paymentController.delegate = self;
 //
     [self presentViewController:paymentController animated:true completion:nil];
+    
+    [FIRAnalytics logEventWithName:kFIREventSelectContent
+                        parameters:@{
+                                     kFIRParameterItemID:[NSString stringWithFormat:@"id-%@", @"Paynow_Proceed Button"],
+                                     kFIRParameterItemName:@"Paynow_Proceed Button",
+                                     kFIRParameterContentType:@"Button Clicks"
+                                     }];
 }
 
 

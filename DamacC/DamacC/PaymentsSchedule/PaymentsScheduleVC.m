@@ -33,6 +33,13 @@
 //    [self webServiceCall];
     [self webServiceCallForPayments];
     tvMutableDictionary = [[NSMutableDictionary alloc]init];
+    
+    [FIRAnalytics logEventWithName:kFIREventSelectContent
+                        parameters:@{
+                                     kFIRParameterItemID:[NSString stringWithFormat:@"id-%@", @"Payment schedule Button"],
+                                     kFIRParameterItemName:@"Payment schedule Button",
+                                     kFIRParameterContentType:@"Button Clicks"
+                                     }];
 }
 
 -(void)viewWillAppear:(BOOL)animated{

@@ -31,6 +31,14 @@
 }
 
 -(void)generateReceiptAction:(NSString*)str{
+    
+    [FIRAnalytics logEventWithName:kFIREventSelectContent
+                        parameters:@{
+                                     kFIRParameterItemID:[NSString stringWithFormat:@"id-%@", @"Generate Receipt"],
+                                     kFIRParameterItemName:@"Generate Receipt",
+                                     kFIRParameterContentType:@"Button Clicks"
+                                     }];
+    
     ServerAPIManager *rvr = [ServerAPIManager sharedinstance];
     [rvr getRequestwithUrl:str successBlock:^(id responseObj) {
         if(responseObj){

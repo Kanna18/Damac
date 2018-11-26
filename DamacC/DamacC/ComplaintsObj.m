@@ -91,6 +91,12 @@
     }
     if([self.Status isEqualToString:@"Submitted"]){
         toastMessage = @"Complaint has been submitted successfully";
+        [FIRAnalytics logEventWithName:kFIREventSelectContent
+                            parameters:@{
+                                         kFIRParameterItemID:[NSString stringWithFormat:@"id-%@", @"SUBMI_SR_COMPLAINTS"],
+                                         kFIRParameterItemName:@"Submit Service Request",
+                                         kFIRParameterContentType:@"Button Clicks"
+                                         }];
     }
     
     [FTIndicator showToastMessage:toastMessage];

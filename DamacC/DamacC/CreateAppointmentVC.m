@@ -145,7 +145,7 @@
 
 -(BOOL)handOverNotificationsValidation:(int)indexofUnit{
     
-    if([_appointObj.ServiceType isEqualToString:@"01-Handover"]&&([_appointObj.SubProcessName isEqualToString:@"Key Handover"]||[_appointObj.SubProcessName isEqualToString:@"Unit Viewing"])){
+    if([_appointObj.ServiceType isEqualToString:@"01-Handover"]&&([_appointObj.SubProcessName isEqualToString:@"Key Handover"]||[_appointObj.SubProcessName isEqualToString:@"Unit Viewing"]||[_appointObj.SubProcessName isEqualToString:@"Documentation"])){
         
         NSDictionary *dict = unitsWholeArray[indexofUnit];
         

@@ -139,6 +139,13 @@
     }
     if([self.status isEqualToString:@"Submitted"]){
         toastMessage = @"Submitted successfully";
+        
+        [FIRAnalytics logEventWithName:kFIREventSelectContent
+                            parameters:@{
+                                         kFIRParameterItemID:[NSString stringWithFormat:@"id-%@", @"SUBMI_SR_PASSPORTUPDATE"],
+                                         kFIRParameterItemName:@"Submit Service Request",
+                                         kFIRParameterContentType:@"Button Clicks"
+                                         }];
     }
     [FTIndicator dismissProgress];
     [FTIndicator showToastMessage:toastMessage];    

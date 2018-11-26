@@ -205,6 +205,13 @@
     }
     if([self.status isEqualToString:@"Submitted"]){
         toastMessage= @"SR has been successfully Submitted";
+        
+        [FIRAnalytics logEventWithName:kFIREventSelectContent
+                            parameters:@{
+                                         kFIRParameterItemID:[NSString stringWithFormat:@"id-%@", @"SUBMI_SR_JOINTBUYER"],
+                                         kFIRParameterItemName:@"Submit Service Request",
+                                         kFIRParameterContentType:@"Button Clicks"
+                                         }];
     }
     if([self.status isEqualToString:@"Cancelled"]){
         toastMessage= @"SR has been successfully Cancelled";

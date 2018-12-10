@@ -8,6 +8,9 @@
 
 #import "HelpViewController.h"
 #import "HelpTableViewCell.h"
+#import <AVFoundation/AVFoundation.h>
+#import <AVKit/AVKit.h>
+
 @interface HelpViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @end
@@ -16,6 +19,7 @@
         
     CGFloat scr_width, scr_height;
     NSArray *tvData;
+    AVPlayerViewController *playerController;
 }
 
 - (void)viewDidLoad {
@@ -82,26 +86,45 @@
         
         NSString *url = @"";
         if(indexPath.row == 0){
-            url = @"https://www.hellodamac.com/resource/1535633311000/WalkInByAppointment/BookAppointmentsPortal.pdf";
+//            url = @"https://www.hellodamac.com/resource/1535633311000/WalkInByAppointment/BookAppointmentsPortal.pdf";
+            url = @"https://ptctest.damacgroup.com/ptctest/vd/Appointments.mp4";
+            [self openAUrltoplay:url];
         }
         if(indexPath.row == 1){
-            url = @"https://www.hellodamac.com/resource/1529559930000/HelloDamacUserGuide";
+//            url = @"https://www.hellodamac.com/resource/1529559930000/HelloDamacUserGuide";
+            url = @"https://ptctest.damacgroup.com/ptctest/vd/Overview.mp4";
+            [self openAUrltoplay:url];
         }
         if(indexPath.row == 2){
-            url = @"https://www.hellodamac.com/resource/1528979216000/PaymentPlan";
+//            url = @"https://www.hellodamac.com/resource/1528979216000/PaymentPlan";
+            url = @"https://ptctest.damacgroup.com/ptctest/vd/Paynow.mp4";
+            [self openAUrltoplay:url];
         }
         if(indexPath.row == 3){
             url = @"https://www.hellodamac.com/usefulinfo";
+            if([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:url]])
+            {
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url] options:nil completionHandler:nil];
+            }
         }
-        if([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:url]])
-        {
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url] options:nil completionHandler:nil];
-        }
+     
 
     }
-    
-    
 }
+
+-(void)openAUrltoplay:(NSString*)str{
+    
+    NSURL *url=[NSURL URLWithString:str];
+    AVPlayerItem *playerItem = [AVPlayerItem playerItemWithURL:url];
+    AVPlayer *player = [[AVPlayer alloc]initWithPlayerItem:playerItem];
+    playerController = [[AVPlayerViewController alloc]init];
+    playerController.player = player;
+    [player play];
+    [self presentViewController:playerController animated:YES completion:nil];
+}
+
+
+
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if(indexPath.row==4){
         return 70;

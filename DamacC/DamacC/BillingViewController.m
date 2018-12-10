@@ -328,7 +328,7 @@
                                                                merchantId:@"43551"
                                                                accessCode:@"AVRS02EJ65AY00SRYA"
                                                                    custId:@"saurabh"
-                                                                   amount:_dueAmount
+                                                                   amount:@"1"//_dueAmount
                                                                  currency:@"AED"
                                                                 rsaKeyUrl:@"https://ptctest.damacgroup.com/ptctest/GetRSA.jsp"
                                                               redirectUrl:@"https://ptctest.damacgroup.com/ptctest/ResponseHandler.jsp"

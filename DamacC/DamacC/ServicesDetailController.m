@@ -14,13 +14,13 @@
 #import "JointBuyerObject.h"
 #import "ComplaintsObj.h"
 
-//#define ChangeofDetailsServicesUrl @"https://partial-servicecloudtrial-155c0807bf-1580afc5db1.cs80.force.com/MobileApp/services/apexrest/SaveChangeOfDetailsCase/"
-//#define ComplaintsServiceUrl @"https://partial-servicecloudtrial-155c0807bf-1580afc5db1.cs80.force.com/MobileApp/services/apexrest/SaveComplaintFromMobileApp/"
-//#define ProofOFPaymentServiceURl @"https://partial-servicecloudtrial-155c0807bf-1580afc5db1.cs80.force.com/MobileApp/services/apexrest/SaveProofOfPayment/"
-//#define JointBuyerServiceUrl @"https://partial-servicecloudtrial-155c0807bf-1580afc5db1.cs80.force.com/MobileApp/services/apexrest/SaveJointBuyerDetails/"
-//#define PassportUpdateServiceUrl @"https://partial-servicecloudtrial-155c0807bf-1580afc5db1.cs80.force.com/MobileApp/services/apexrest/SaveUpdatePassportDetails/"
+//#define ChangeofDetailsServicesUrl @"https://servicecloudtrial-155c0807bf-1580afc5db1.force.com/MobileApp/services/apexrest/SaveChangeOfDetailsCase/"
+//#define ComplaintsServiceUrl @"https://servicecloudtrial-155c0807bf-1580afc5db1.force.com/MobileApp/services/apexrest/SaveComplaintFromMobileApp/"
+//#define ProofOFPaymentServiceURl @"https://servicecloudtrial-155c0807bf-1580afc5db1.force.com/MobileApp/services/apexrest/SaveProofOfPayment/"
+//#define JointBuyerServiceUrl @"https://servicecloudtrial-155c0807bf-1580afc5db1.force.com/MobileApp/services/apexrest/SaveJointBuyerDetails/"
+//#define PassportUpdateServiceUrl @"https://servicecloudtrial-155c0807bf-1580afc5db1.force.com/MobileApp/services/apexrest/SaveUpdatePassportDetails/"
 //
-//#define getDetailsBySR @"https://partial-servicecloudtrial-155c0807bf-1580afc5db1.cs80.force.com/MobileApp/services/apexrest/SendCaseDetailToMObileApp/"
+//#define getDetailsBySR @"https://servicecloudtrial-155c0807bf-1580afc5db1.force.com/MobileApp/services/apexrest/SendCaseDetailToMObileApp/"
 
 #define kPOPConstant            @"Proof of Payment SR"
 #define kCODConstant            @"Change of Contact Details"

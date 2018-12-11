@@ -19,7 +19,6 @@
 @end
 
 @implementation BillingViewController{
-    
     IBOutlet UITableView *tblView;
     NSMutableArray *arrSelectedSectionIndex;
     BOOL isMultipleExpansionAllowed;
@@ -33,7 +32,6 @@
     NSString *showAddressBool, *ccavenueBool;
     CCAvenuePaymentController *paymentController;
     NSMutableDictionary *finalResult;
-
 }
 
 - (void)viewDidLoad {

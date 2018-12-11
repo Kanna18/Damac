@@ -87,17 +87,17 @@
         NSString *url = @"";
         if(indexPath.row == 0){
 //            url = @"https://www.hellodamac.com/resource/1535633311000/WalkInByAppointment/BookAppointmentsPortal.pdf";
-            url = @"https://ptctest.damacgroup.com/ptctest/vd/Appointments.mp4";
+            url = @"https://ptc.damacgroup.com/ptc/vd/Appointments.m4v";
             [self openAUrltoplay:url];
         }
         if(indexPath.row == 1){
 //            url = @"https://www.hellodamac.com/resource/1529559930000/HelloDamacUserGuide";
-            url = @"https://ptctest.damacgroup.com/ptctest/vd/Overview.mp4";
+            url = @"https://ptc.damacgroup.com/ptc/vd/Paynow.m4v";
             [self openAUrltoplay:url];
         }
         if(indexPath.row == 2){
 //            url = @"https://www.hellodamac.com/resource/1528979216000/PaymentPlan";
-            url = @"https://ptctest.damacgroup.com/ptctest/vd/Paynow.mp4";
+            url = @"https://ptc.damacgroup.com/ptc/vd/Paynow.m4v";
             [self openAUrltoplay:url];
         }
         if(indexPath.row == 3){

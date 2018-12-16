@@ -15,9 +15,6 @@
 		B7168FBA1FACC5D900A48DB5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7168FB91FACC5D900A48DB5 /* LaunchScreen.storyboard */; };
 		F60164ED20ABB9D900E07510 /* UnitsDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F60164EC20ABB9D900E07510 /* UnitsDataModel.m */; };
 		F60164F320ABF36F00E07510 /* PaymentsDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F60164F220ABF36F00E07510 /* PaymentsDataModel.m */; };
-		F601EE7421A5E81D00203842 /* CCAvenueSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F601EE7321A5E81D00203842 /* CCAvenueSDK.framework */; };
-		F601EE7521A5E82000203842 /* CCAvenueSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F601EE7321A5E81D00203842 /* CCAvenueSDK.framework */; };
-		F601EE7621A5E82000203842 /* CCAvenueSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F601EE7321A5E81D00203842 /* CCAvenueSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F604B35F2165FD030047CBD2 /* ReceiptsTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F604B35E2165FD030047CBD2 /* ReceiptsTableVC.m */; };
 		F604B3642165FD300047CBD2 /* ReceiptsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F604B3622165FD300047CBD2 /* ReceiptsTableViewCell.m */; };
 		F604B3652165FD300047CBD2 /* ReceiptsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F604B3632165FD300047CBD2 /* ReceiptsTableViewCell.xib */; };
@@ -69,6 +66,7 @@
 		F6264266211487AB0022C4DC /* ChangeOfContactDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = F6264265211487AB0022C4DC /* ChangeOfContactDetails.m */; };
 		F626426921148D7B0022C4DC /* ChangeofContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F626426821148D7B0022C4DC /* ChangeofContactCell.m */; };
 		F62F4B0D20A942F200EB5C9A /* ServerAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F62F4B0B20A942F100EB5C9A /* ServerAPIManager.m */; };
+		F6393A3121C0752200266F45 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F6393A3021C0752200266F45 /* GoogleService-Info.plist */; };
 		F63FCEFE20F782E70027FEA8 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = F63FCEFC20F782E60027FEA8 /* iCarousel.m */; };
 		F63FCF0220F87E3A0027FEA8 /* CustomViewCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = F63FCF0120F87E3A0027FEA8 /* CustomViewCarousel.m */; };
 		F63FCF0420F87E520027FEA8 /* CustomViewCarousel.xib in Resources */ = {isa = PBXBuildFile; fileRef = F63FCF0320F87E520027FEA8 /* CustomViewCarousel.xib */; };
@@ -86,6 +84,8 @@
 		F673C0C32192CA8100A4ED0E /* KATCircularProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = F673C0C12192CA8000A4ED0E /* KATCircularProgress.m */; };
 		F67668AB2199A51E00FFBDC4 /* AlertPopUp.m in Sources */ = {isa = PBXBuildFile; fileRef = F67668AA2199A51E00FFBDC4 /* AlertPopUp.m */; };
 		F67668AD2199A52C00FFBDC4 /* AlertPopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = F67668AC2199A52C00FFBDC4 /* AlertPopUp.xib */; };
+		F679E0B521C683F000CB45AE /* CCAvenueSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F679E0B321C683E800CB45AE /* CCAvenueSDK.framework */; };
+		F679E0B621C683F000CB45AE /* CCAvenueSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F679E0B321C683E800CB45AE /* CCAvenueSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F67D77A721749FAC009EE062 /* SurveyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F67D77A621749FAC009EE062 /* SurveyViewController.m */; };
 		F67D77AA21749FC3009EE062 /* SurveyCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = F67D77A921749FC3009EE062 /* SurveyCell1.m */; };
 		F67D77AD21749FCF009EE062 /* SurveyCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = F67D77AC21749FCF009EE062 /* SurveyCell2.m */; };
@@ -103,7 +103,7 @@
 		F686160A20962229002EA241 /* PinView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F686160920962229002EA241 /* PinView.xib */; };
 		F686161820982837002EA241 /* PasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F686161720982837002EA241 /* PasswordViewController.m */; };
 		F686165620985841002EA241 /* DamacC-Bridging-Header.h in Sources */ = {isa = PBXBuildFile; fileRef = F686163F209852AD002EA241 /* DamacC-Bridging-Header.h */; };
-		F688503F218CA33700CBD859 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F688503E218CA33700CBD859 /* GoogleService-Info.plist */; };
+		F688503F218CA33700CBD859 /* GoogleService-Info1234.plist in Resources */ = {isa = PBXBuildFile; fileRef = F688503E218CA33700CBD859 /* GoogleService-Info1234.plist */; };
 		F68CF5BD216DD6E500852EF5 /* popObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F68CF5BC216DD6E500852EF5 /* popObject.m */; };
 		F691B34E2190B402008EA47D /* BillingObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F691B34D2190B402008EA47D /* BillingObject.m */; };
 		F691B3572190CFB3008EA47D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F691B3562190CFB3008EA47D /* Foundation.framework */; };
@@ -222,13 +222,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		F601EE7221A570FB00203842 /* Embed Frameworks */ = {
+		F679E0B721C683F000CB45AE /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				F601EE7621A5E82000203842 /* CCAvenueSDK.framework in Embed Frameworks */,
+				F679E0B621C683F000CB45AE /* CCAvenueSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -255,7 +255,6 @@
 		F60164EC20ABB9D900E07510 /* UnitsDataModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UnitsDataModel.m; sourceTree = "<group>"; };
 		F60164F120ABF36F00E07510 /* PaymentsDataModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PaymentsDataModel.h; sourceTree = "<group>"; };
 		F60164F220ABF36F00E07510 /* PaymentsDataModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PaymentsDataModel.m; sourceTree = "<group>"; };
-		F601EE7321A5E81D00203842 /* CCAvenueSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CCAvenueSDK.framework; sourceTree = "<group>"; };
 		F604B35D2165FD030047CBD2 /* ReceiptsTableVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReceiptsTableVC.h; sourceTree = "<group>"; };
 		F604B35E2165FD030047CBD2 /* ReceiptsTableVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReceiptsTableVC.m; sourceTree = "<group>"; };
 		F604B3612165FD300047CBD2 /* ReceiptsTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReceiptsTableViewCell.h; sourceTree = "<group>"; };
@@ -343,6 +342,7 @@
 		F626426821148D7B0022C4DC /* ChangeofContactCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangeofContactCell.m; sourceTree = "<group>"; };
 		F62F4B0B20A942F100EB5C9A /* ServerAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerAPIManager.m; sourceTree = "<group>"; };
 		F62F4B0C20A942F100EB5C9A /* ServerAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerAPIManager.h; sourceTree = "<group>"; };
+		F6393A3021C0752200266F45 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F63FCEFC20F782E60027FEA8 /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
 		F63FCEFD20F782E60027FEA8 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
 		F63FCF0020F87E3A0027FEA8 /* CustomViewCarousel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomViewCarousel.h; sourceTree = "<group>"; };
@@ -375,6 +375,7 @@
 		F67668A92199A51E00FFBDC4 /* AlertPopUp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AlertPopUp.h; sourceTree = "<group>"; };
 		F67668AA2199A51E00FFBDC4 /* AlertPopUp.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AlertPopUp.m; sourceTree = "<group>"; };
 		F67668AC2199A52C00FFBDC4 /* AlertPopUp.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertPopUp.xib; sourceTree = "<group>"; };
+		F679E0B321C683E800CB45AE /* CCAvenueSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CCAvenueSDK.framework; sourceTree = "<group>"; };
 		F67D77A521749FAC009EE062 /* SurveyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SurveyViewController.h; sourceTree = "<group>"; };
 		F67D77A621749FAC009EE062 /* SurveyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SurveyViewController.m; sourceTree = "<group>"; };
 		F67D77A821749FC3009EE062 /* SurveyCell1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SurveyCell1.h; sourceTree = "<group>"; };
@@ -403,7 +404,7 @@
 		F686161720982837002EA241 /* PasswordViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PasswordViewController.m; sourceTree = "<group>"; };
 		F686163C20982C9C002EA241 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		F686163F209852AD002EA241 /* DamacC-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DamacC-Bridging-Header.h"; sourceTree = "<group>"; };
-		F688503E218CA33700CBD859 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F688503E218CA33700CBD859 /* GoogleService-Info1234.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info1234.plist"; sourceTree = "<group>"; };
 		F68CF5BB216DD6E500852EF5 /* popObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = popObject.h; sourceTree = "<group>"; };
 		F68CF5BC216DD6E500852EF5 /* popObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = popObject.m; sourceTree = "<group>"; };
 		F691B34C2190B402008EA47D /* BillingObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BillingObject.h; sourceTree = "<group>"; };
@@ -597,7 +598,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6141E6021A07A3A00224829 /* FirebaseCore.framework in Frameworks */,
-				F601EE7521A5E82000203842 /* CCAvenueSDK.framework in Frameworks */,
 				F691B3592190CFBE008EA47D /* UIKit.framework in Frameworks */,
 				F691B3572190CFB3008EA47D /* Foundation.framework in Frameworks */,
 				F659E0AF2188E46D00A9DB16 /* MessageUI.framework in Frameworks */,
@@ -605,7 +605,7 @@
 				F6C57C742158CD2400970DC3 /* libxml2.2.tbd in Frameworks */,
 				F6D91E3A20994A5D00DA1428 /* LocalAuthentication.framework in Frameworks */,
 				4C1FFC442EBEEC68228FD4A2 /* Pods_DamacC.framework in Frameworks */,
-				F601EE7421A5E81D00203842 /* CCAvenueSDK.framework in Frameworks */,
+				F679E0B521C683F000CB45AE /* CCAvenueSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -624,7 +624,7 @@
 		4F8D5E941B6C0568005E64D4 = {
 			isa = PBXGroup;
 			children = (
-				F601EE7321A5E81D00203842 /* CCAvenueSDK.framework */,
+				F679E0B321C683E800CB45AE /* CCAvenueSDK.framework */,
 				F686163C20982C9C002EA241 /* PrefixHeader.pch */,
 				4F8D5E9F1B6C0568005E64D4 /* DamacC */,
 				4F8D5E9E1B6C0568005E64D4 /* Products */,
@@ -671,7 +671,8 @@
 			isa = PBXGroup;
 			children = (
 				B7168FB91FACC5D900A48DB5 /* LaunchScreen.storyboard */,
-				F688503E218CA33700CBD859 /* GoogleService-Info.plist */,
+				F6393A3021C0752200266F45 /* GoogleService-Info.plist */,
+				F688503E218CA33700CBD859 /* GoogleService-Info1234.plist */,
 				4F8D5EA11B6C0568005E64D4 /* Info.plist */,
 				4F277E8C1DC7F5DF00E5A77C /* Prefix.pch */,
 				4F8D5EA21B6C0568005E64D4 /* main.m */,
@@ -1419,7 +1420,7 @@
 				4F8D5E9B1B6C0568005E64D4 /* Resources */,
 				F6E0AE50219E7973009B261E /* ShellScript */,
 				FB2F01C1C0E241F7DB5C54F4 /* [CP] Embed Pods Frameworks */,
-				F601EE7221A570FB00203842 /* Embed Frameworks */,
+				F679E0B721C683F000CB45AE /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1521,6 +1522,7 @@
 				F63FCF0420F87E520027FEA8 /* CustomViewCarousel.xib in Resources */,
 				F67EB5EB212521D50011AB64 /* Montserrat-ExtraLight.ttf in Resources */,
 				F6A739EE219AC93D00ED2B7D /* RadioButton-Selected.png in Resources */,
+				F6393A3121C0752200266F45 /* GoogleService-Info.plist in Resources */,
 				F626426221143C050022C4DC /* JointView1.xib in Resources */,
 				F6C57DD2215A388800970DC3 /* Complaints.json in Resources */,
 				F6264233211404B20022C4DC /* NewStoryboard.storyboard in Resources */,
@@ -1532,7 +1534,7 @@
 				F6A739FD219AC93D00ED2B7D /* cdown.png in Resources */,
 				F6A739E9219AC93D00ED2B7D /* RadioButton-Unselected.png in Resources */,
 				F6A739E6219AC93D00ED2B7D /* Card.png in Resources */,
-				F688503F218CA33700CBD859 /* GoogleService-Info.plist in Resources */,
+				F688503F218CA33700CBD859 /* GoogleService-Info1234.plist in Resources */,
 				F6132E0E20A7E2E900FEEEBE /* ProfileTableViewCell.xib in Resources */,
 				F6E8321720AD07D40003DC5E /* PrintDocView.xib in Resources */,
 				F6A739FF219AC93D00ED2B7D /* Right.png in Resources */,
@@ -1895,11 +1897,11 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = DamacC/DamacC.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: LUXURY FACILITIES MANAGEMENT LLC";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: LUXURY FACILITIES MANAGEMENT LLC";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: DAMAC PROPERTIES CO (L.L.C) (4H7H3FYH34)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: DAMAC PROPERTIES CO (L.L.C) (4H7H3FYH34)";
 				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 7CQW6NRRPC;
+				DEVELOPMENT_TEAM = 4H7H3FYH34;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1926,10 +1928,10 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.damac.HelloDamac;
+				PRODUCT_BUNDLE_IDENTIFIER = com.damac.HelloDAMACD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = HelloDamacPushNConfigured;
+				PROVISIONING_PROFILE_SPECIFIER = Damac_appstore_prov;
 				SKIP_INSTALL = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "DamacC-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1946,11 +1948,11 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = DamacC/DamacC.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: LUXURY FACILITIES MANAGEMENT LLC";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: LUXURY FACILITIES MANAGEMENT LLC";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: DAMAC PROPERTIES CO (L.L.C) (4H7H3FYH34)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: DAMAC PROPERTIES CO (L.L.C) (4H7H3FYH34)";
 				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 7CQW6NRRPC;
+				DEVELOPMENT_TEAM = 4H7H3FYH34;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1977,10 +1979,10 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.damac.HelloDamac;
+				PRODUCT_BUNDLE_IDENTIFIER = com.damac.HelloDAMACD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = HelloDamacPushNConfigured;
+				PROVISIONING_PROFILE_SPECIFIER = Damac_appstore_prov;
 				SKIP_INSTALL = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "DamacC-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;

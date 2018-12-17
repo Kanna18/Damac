@@ -135,10 +135,15 @@
 -(void)fillWithOptionNumber:(int)value{
     
     NSMutableDictionary *dict = _surveyArray[4];
-    if([dict valueForKey:@"selectedOption"] != nil){
-        [dict setValue:[NSString stringWithFormat:@"%d",value] forKey:@"selectedOption"];
-        NSLog(@"%@",_surveyArray);
-    }
+    for (NSString *key in dict.allKeys) {
+        if([key isEqualToString:@"selectedOption"]){
+            NSArray *arr = [dict valueForKey:@"selectedOption"];
+            if(arr != nil){
+                [dict setValue:[NSString stringWithFormat:@"%d",value] forKey:@"selectedOption"];
+                NSLog(@"%@",_surveyArray);
+            }
+        }
+    }        
 }
 
 -(void)setSelectedButtonBackgroundColor:(UIButton*)sender{

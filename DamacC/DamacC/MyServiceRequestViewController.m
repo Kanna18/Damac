@@ -115,7 +115,7 @@
             if(Count == arrPa.count-1){
                     [FTIndicator performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
                     dispatch_async(dispatch_get_main_queue(), ^{
-                        _hilightedView.hidden = YES;
+                        _hilightedView.hidden = NO;
                     });
                 if(_loadFromServisesMenu){
                     [self draftClickForESErvices:nil];

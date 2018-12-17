@@ -77,31 +77,20 @@
     
     _statusLabel.text = [NSString stringWithFormat:@"%@",_responseUnit.unitStatus];
     
-    _priceLabel.text =  [NSString stringWithFormat:@"%@ %@",_responseUnit.projectCurrency, _responseUnit.reservationPrice];
-    _outstandLabel.text =  _responseUnit.totalDueInvoice;
-    _overDueLabel.text =  _responseUnit.totalOverDue;
+    _priceLabel.text =  [NSString stringWithFormat:@"%@ %@",_responseUnit.projectCurrency, [self setNumberFormatter:_responseUnit.reservationPrice]];
+    _outstandLabel.text =  [self setNumberFormatter:_responseUnit.totalDueInvoice];
+    _overDueLabel.text =  [self setNumberFormatter:_responseUnit.totalOverDue];
+    
+    [_priceLabel setAdjustsFontSizeToFitWidth:YES];
+    [_outstandLabel setAdjustsFontSizeToFitWidth:YES];
+    [_overDueLabel setAdjustsFontSizeToFitWidth:YES];
 }
 
 -(NSString*)setNumberFormatter:(NSString*)numberStr{
     NSInteger anInt = numberStr.integerValue;
-    NSString *wordNumber;
-    
-    //convert to words
-    NSNumber *numberValue = [NSNumber numberWithInt:anInt]; //needs to be NSNumber!
-    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
-    [numberFormatter setNumberStyle:NSNumberFormatterSpellOutStyle];
-    wordNumber = [numberFormatter stringFromNumber:numberValue];
-    NSLog(@"Answer: %@", wordNumber);
-    
-//    if([wordNumber containsString:@"million"]){
-//        return [NSString stringWithFormat:@"%0.1f Million",(float)anInt/1000000.0];
-//    }
-//    else if([wordNumber containsString:@"thousand"]&&(wordNumber.length > 4)){
-//        return [NSString stringWithFormat:@"%0.1f K",(float)anInt/100000.0];
-//    }else if([wordNumber containsString:@"thousand"]&&(wordNumber.length > 3)){
-//        return [NSString stringWithFormat:@"%0.1f K",(float)anInt/10000.0];
-//    }
-    return wordNumber;
+    NSNumber *someNumber = [NSNumber numberWithInteger:anInt];
+    NSString *modelNumberString = [NSString localizedStringWithFormat:@"%@", someNumber];
+    return modelNumberString;
 }
 
 /*

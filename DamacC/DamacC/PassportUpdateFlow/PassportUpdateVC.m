@@ -36,6 +36,8 @@
     NSMutableArray *eventArray;
     COCDTF *dateTFref;
     AlertPopUp *alertPop;
+    
+    NSString *primaryBuyerName;
 }
 
 - (void)viewDidLoad {
@@ -87,6 +89,9 @@
             NSArray *arr = [NSJSONSerialization JSONObjectWithData:responseObj options:0 error:nil];
             NSArray *idsArr = [arr valueForKey:@"Booking__c"];
             [self getBuyersInfoBasedonUnitIDS:idsArr];
+            if(arr.count>0){
+                primaryBuyerName = arr[0][@"Primary_Buyer_s_Name__c"];
+            }
         }
     }  errorBlock:^(NSError *error) {
         [FTIndicator performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];

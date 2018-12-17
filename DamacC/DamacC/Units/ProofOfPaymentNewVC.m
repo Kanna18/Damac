@@ -214,7 +214,7 @@
     popVC.tvData = unitsDropDown;
     unitsPopoverController = [[WYPopoverController alloc] initWithContentViewController:popVC];
     unitsPopoverController.delegate = self;
-    unitsPopoverController.popoverContentSize=CGSizeMake(drop.frame.size.width, 100);
+    unitsPopoverController.popoverContentSize=CGSizeMake(drop.frame.size.width, unitsDropDown.count*44);
     unitsPopoverController.accessibilityNavigationStyle=UIAccessibilityNavigationStyleCombined;
     [unitsPopoverController presentPopoverFromRect:drop.bounds inView:drop permittedArrowDirections:WYPopoverArrowDirectionUp animated:YES options:WYPopoverAnimationOptionFadeWithScale];
 }
@@ -249,9 +249,11 @@
 - (IBAction)getUnitsDetailClick:(id)sender{
     
     DetailMyUnitsViewController *dm = [DamacSharedClass.sharedInstance.currentVC.storyboard instantiateViewControllerWithIdentifier:@"detailMyUnitsVC"];
-    ResponseLine *responseUnit = DamacSharedClass.sharedInstance.unitsArray[unitsIndex];
-    dm.responseUnit = responseUnit;
-    [DamacSharedClass.sharedInstance.currentVC.navigationController pushViewController:dm animated:YES];
+    if(DamacSharedClass.sharedInstance.unitsArray.count>0){
+        ResponseLine *responseUnit = DamacSharedClass.sharedInstance.unitsArray[unitsIndex];
+        dm.responseUnit = responseUnit;
+        [DamacSharedClass.sharedInstance.currentVC.navigationController pushViewController:dm animated:YES];
+    }
 }
 
 

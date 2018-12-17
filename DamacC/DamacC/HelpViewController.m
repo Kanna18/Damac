@@ -27,7 +27,7 @@
     // Do any additional setup after loading the view.
     _tableView.delegate = self;
     _tableView.dataSource = self;
-    tvData = @[@"HOW TO BOOK APPOINTMENTS",@"HELLO DAMAC USER GUIDE",@"HOW TO MAKE PAYMENT TO DAMAC",@"USEFUL INFORMATION",@""];
+    tvData = @[@"HELLO DAMAC USER GUIDE",@"HOW TO BOOK APPOINTMENTS",@"HOW TO MAKE PAYMENT TO DAMAC",@"USEFUL INFORMATION",@""];
     
 }
 -(void)viewWillAppear:(BOOL)animated{
@@ -87,12 +87,12 @@
         NSString *url = @"";
         if(indexPath.row == 0){
 //            url = @"https://www.hellodamac.com/resource/1535633311000/WalkInByAppointment/BookAppointmentsPortal.pdf";
-            url = @"https://ptc.damacgroup.com/ptc/vd/Appointments.m4v";
+            url =@"https://ptc.damacgroup.com/ptc/vd/Overview.m4v";
             [self openAUrltoplay:url];
         }
         if(indexPath.row == 1){
 //            url = @"https://www.hellodamac.com/resource/1529559930000/HelloDamacUserGuide";
-            url = @"https://ptc.damacgroup.com/ptc/vd/Paynow.m4v";
+            url = @"https://ptc.damacgroup.com/ptc/vd/Appointments.m4v";
             [self openAUrltoplay:url];
         }
         if(indexPath.row == 2){

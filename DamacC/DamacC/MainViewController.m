@@ -805,7 +805,7 @@
         mc.mailComposeDelegate = self;
         [mc setSubject:emailTitle];
         [mc setMessageBody:messageBody isHTML:NO];
-        [mc setToRecipients:@[@"atyourservice@damacproperties.address"]];
+        [mc setToRecipients:@[@"atyourservice@damacproperties.com"]];
 //        [mc addAttachmentData:ni mimeType:@"application/pdf" fileName:@""];
         [mc setToRecipients:toRecipents];
         [DamacSharedClass.sharedInstance.currentVC presentViewController:mc animated:YES completion:NULL];

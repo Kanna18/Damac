@@ -25,7 +25,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1.1</string>
+	<string>1.3</string>
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>
@@ -49,6 +49,8 @@
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>Allow HelloDamac to use camera</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Hello Damac would like to access your photos</string>
 	<key>SFDCOAuthLoginHost</key>
 	<string>servicecloudtrial-155c0807bf-1580afc5db1.force.com/MobileApp</string>
 	<key>UIAppFonts</key>

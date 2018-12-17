@@ -49,10 +49,10 @@
         _nameLabel.text = handleNull(kUserProfile.organizationName);
     }
     
-    NSString *num = [NSString stringWithFormat:@"%@%@%@",kUserProfile.phoneCountry,kUserProfile.phoneAreaCode,kUserProfile.phoneNumber];
+    NSString *num = kUserProfile.phoneNumber;//[NSString stringWithFormat:@"%@%@%@",kUserProfile.phoneCountry,kUserProfile.phoneAreaCode,kUserProfile.phoneNumber];
     valuesArr = @[@[num,
                     [self fillNill:kUserProfile.emailAddress],
-                    [self fillNill:kUserProfile.addressLine1],
+                    [NSString stringWithFormat:@"%@ %@ %@ %@",[self fillNill:kUserProfile.addressLine1],[self fillNill:kUserProfile.addressLine2],[self fillNill:kUserProfile.addressLine3],[self fillNill:kUserProfile.addressLine4]],
                     [self fillNill:kUserProfile.city],
                     [self fillNill:kUserProfile.countryOfResidence]],
                   @[[self fillNill:kUserProfile.partyId],

@@ -44,7 +44,7 @@
 //static NSString * const OAuthRedirectURI        = @"testsfdc:///mobilesdk/detect/oauth/done";
 
 
-static NSString * const RemoteAccessConsumerKey = @"3MVG9rKhT8ocoxGn_OEneOzdBE_hGNaAmw0P4q6_2Hr2bEKvTWJPcKlwOhQ2QETA3UNEKjWYxQ1xi3GTHmvDN";
+static NSString * const RemoteAccessConsumerKey = @"3MVG9HxRZv05HarSTlwxZUq9L7lL6J_Ti3jv1xSodH7VGJaIAKXy5LcPLrn7767KPlIdq6x9hgH4O8YtdPvUl";
 static NSString * const OAuthRedirectURI        = @"sfdc://success";
 
 NSString *const kGCMMessageIDKey = @"gcm.message_id";

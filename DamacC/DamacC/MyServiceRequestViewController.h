@@ -25,6 +25,7 @@
 @property NSString *typeoFVC;
 
 @property (weak, nonatomic) IBOutlet UIView *eservicesMessage;
+@property (weak, nonatomic) IBOutlet UIView *hilightedView;
 
 @property BOOL loadFromServisesMenu;
 @end

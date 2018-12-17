@@ -80,11 +80,12 @@
     cell.label4.text = rs.registrationDate;
     cell.label5.text = rs.completionDate;
     cell.label6.text = rs.area;
+    
     cell.label7.text = rs.agreementDate;
     cell.label8.text = rs.unitCategory;
     cell.label9.text = rs.propertyCity;
     cell.percentLabel.text = [NSString stringWithFormat:@"%@ %%",rs.percentCompleted];
-    cell.statusLabel.text = @"Agreement executed by DAMAC";
+    cell.statusLabel.text = rs.unitStatus;//@"Agreement executed by DAMAC";
     cell.printDocButton.tag = 100 +indexPath.section;
     cell.payNowButton.tag = 500 +indexPath.section;
     [cell.printDocButton addTarget:self action:@selector(printDocumentsClick:) forControlEvents:UIControlEventTouchUpInside];

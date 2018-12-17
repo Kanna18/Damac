@@ -29,5 +29,8 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *typVCButton;
 @property ResponseLine *responseUnit;
+@property (weak, nonatomic) IBOutlet UILabel *priceLabel;
+@property (weak, nonatomic) IBOutlet UILabel *outstandLabel;
+@property (weak, nonatomic) IBOutlet UILabel *overDueLabel;
 
 @end

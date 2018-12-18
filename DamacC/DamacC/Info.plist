@@ -52,7 +52,7 @@
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Hello Damac would like to access your photos</string>
 	<key>SFDCOAuthLoginHost</key>
-	<string>servicecloudtrial-155c0807bf-1580afc5db1.force.com/MobileApp</string>
+	<string>partial-servicecloudtrial-155c0807bf-1580afc5db1.cs80.force.com/MobileApp</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Montserrat-ExtraLight.ttf</string>

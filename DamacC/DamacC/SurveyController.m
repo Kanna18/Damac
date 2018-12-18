@@ -51,7 +51,7 @@
 -(void)getResponseFromTheServer{
     ServerAPIManager *apiMa = [ServerAPIManager sharedinstance];
     
-    [apiMa postRequestWithOutDict:@"https://servicecloudtrial-155c0807bf-1580afc5db1.force.com/MobileApp/services/apexrest/surveyQuestions/" withParameters:nil successBlock:^(id responseObj) {
+    [apiMa postRequestWithOutDict:@"https://partial-servicecloudtrial-155c0807bf-1580afc5db1.cs80.force.com/Customer/services/apexrest/surveyQuestions/" withParameters:nil successBlock:^(id responseObj) {
         if(responseObj){
             surverArray = [NSJSONSerialization JSONObjectWithData:responseObj options:NSJSONReadingMutableContainers error:nil];
             

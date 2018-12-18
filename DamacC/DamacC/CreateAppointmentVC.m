@@ -505,7 +505,7 @@
                            };
     
     ServerAPIManager *ser = [ServerAPIManager sharedinstance];
-    [ser postRequestwithUrl:@"https://servicecloudtrial-155c0807bf-1580afc5db1.force.com/MobileApp/services/apexrest/SendAvailableAppointmentsToMObileApp/" withParameters:dict successBlock:^(id responseObj) {
+    [ser postRequestwithUrl:@"https://partial-servicecloudtrial-155c0807bf-1580afc5db1.cs80.force.com/MobileApp/services/apexrest/SendAvailableAppointmentsToMObileApp/" withParameters:dict successBlock:^(id responseObj) {
         if(responseObj){
             NSDictionary *dictSlots = [NSJSONSerialization JSONObjectWithData:responseObj options:0 error:nil];
             NSLog(@"%@",dictSlots);

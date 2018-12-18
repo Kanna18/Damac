@@ -44,7 +44,7 @@
 //static NSString * const OAuthRedirectURI        = @"testsfdc:///mobilesdk/detect/oauth/done";
 
 
-static NSString * const RemoteAccessConsumerKey = @"3MVG9HxRZv05HarSTlwxZUq9L7lL6J_Ti3jv1xSodH7VGJaIAKXy5LcPLrn7767KPlIdq6x9hgH4O8YtdPvUl";
+static NSString * const RemoteAccessConsumerKey = @"3MVG9rKhT8ocoxGn_OEneOzdBE_hGNaAmw0P4q6_2Hr2bEKvTWJPcKlwOhQ2QETA3UNEKjWYxQ1xi3GTHmvDN";
 static NSString * const OAuthRedirectURI        = @"sfdc://success";
 
 NSString *const kGCMMessageIDKey = @"gcm.message_id";
@@ -507,7 +507,7 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
                            @"status":[NSNumber numberWithBool:YES]
                            };
     ServerAPIManager *svr = [ServerAPIManager sharedinstance];
-    [svr postRequestwithUrl:@"https://servicecloudtrial-155c0807bf-1580afc5db1.force.com/MobileApp/services/apexrest/UpdateNotificationsFromMobileApp/" withParameters:dict successBlock:^(id responseObj) {
+    [svr postRequestwithUrl:@"https://partial-servicecloudtrial-155c0807bf-1580afc5db1.cs80.force.com/MobileApp/services/apexrest/UpdateNotificationsFromMobileApp/" withParameters:dict successBlock:^(id responseObj) {
         if(responseObj){
             NSDictionary *di = [NSJSONSerialization JSONObjectWithData:responseObj options:0 error:nil];
             NSLog(@"%@",di);

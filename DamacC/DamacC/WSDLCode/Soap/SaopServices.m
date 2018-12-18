@@ -74,7 +74,7 @@
     
     
     
-    NSURL *url = [NSURL URLWithString:@"http://34.239.189.216:8080/CRM_SR_NEW/services/AOPT?wsdl"]; // Copy here the URL
+    NSURL *url = [NSURL URLWithString:@"http://34.236.223.78:8080/CRM_SR_NEW/services/AOPT?wsdl"]; // Copy here the URL
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     NSString *msgLength = [NSString stringWithFormat:@"%lu", (unsigned long)[soapMessage length]];
     

@@ -18,5 +18,6 @@
 - (IBAction)showAddressClick:(id)sender;
 - (IBAction)proceedClick:(id)sender;
 - (IBAction)ccavenueClick:(id)sender;
+@property (weak, nonatomic) IBOutlet UITextField *outStandingTF;
 
 @end

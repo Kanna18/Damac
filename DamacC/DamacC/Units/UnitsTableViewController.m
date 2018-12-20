@@ -90,7 +90,7 @@
     cell.payNowButton.tag = 500 +indexPath.section;
     [cell.printDocButton addTarget:self action:@selector(printDocumentsClick:) forControlEvents:UIControlEventTouchUpInside];
     cell.printDocButton.tag = indexPath.section;
-    cell.dueAmount = rs.totalDueInvoice;
+    cell.dueAmount = rs.totalOverDue;//rs.totalDueInvoice;
     cell.percentValue = rs.percentCompleted.floatValue;
 //    [cell.payNowButton addTarget:self action:@selector(payNow:) forControlEvents:UIControlEventTouchUpInside];
     [cell setProgressView];

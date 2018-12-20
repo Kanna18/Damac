@@ -84,8 +84,6 @@
 		F673C0C32192CA8100A4ED0E /* KATCircularProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = F673C0C12192CA8000A4ED0E /* KATCircularProgress.m */; };
 		F67668AB2199A51E00FFBDC4 /* AlertPopUp.m in Sources */ = {isa = PBXBuildFile; fileRef = F67668AA2199A51E00FFBDC4 /* AlertPopUp.m */; };
 		F67668AD2199A52C00FFBDC4 /* AlertPopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = F67668AC2199A52C00FFBDC4 /* AlertPopUp.xib */; };
-		F679E0B521C683F000CB45AE /* CCAvenueSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F679E0B321C683E800CB45AE /* CCAvenueSDK.framework */; };
-		F679E0B621C683F000CB45AE /* CCAvenueSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F679E0B321C683E800CB45AE /* CCAvenueSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F67D77A721749FAC009EE062 /* SurveyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F67D77A621749FAC009EE062 /* SurveyViewController.m */; };
 		F67D77AA21749FC3009EE062 /* SurveyCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = F67D77A921749FC3009EE062 /* SurveyCell1.m */; };
 		F67D77AD21749FCF009EE062 /* SurveyCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = F67D77AC21749FCF009EE062 /* SurveyCell2.m */; };
@@ -163,6 +161,8 @@
 		F6B9A426217EEC6C00FF41D6 /* ErrorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B9A425217EEC6C00FF41D6 /* ErrorViewController.m */; };
 		F6BBF407218EDFA600C9A566 /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6BBF406218EDFA600C9A566 /* HelpViewController.m */; };
 		F6BBF40B218EF5E100C9A566 /* HelpTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F6BBF40A218EF5E100C9A566 /* HelpTableViewCell.m */; };
+		F6C0D0AB21CBF5D500825A2C /* CCAvenueSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F679E0B321C683E800CB45AE /* CCAvenueSDK.framework */; };
+		F6C0D0AC21CBF5D500825A2C /* CCAvenueSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F679E0B321C683E800CB45AE /* CCAvenueSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F6C57C5621585C4900970DC3 /* PassportUpdateVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C57C5521585C4900970DC3 /* PassportUpdateVC.m */; };
 		F6C57C5A21585FD900970DC3 /* ChangeofContactCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C57C5921585FD900970DC3 /* ChangeofContactCell2.m */; };
 		F6C57C5D2158649F00970DC3 /* PassportCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C57C5C2158649E00970DC3 /* PassportCell1.m */; };
@@ -222,13 +222,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		F679E0B721C683F000CB45AE /* Embed Frameworks */ = {
+		F6C0D0AD21CBF5D500825A2C /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				F679E0B621C683F000CB45AE /* CCAvenueSDK.framework in Embed Frameworks */,
+				F6C0D0AC21CBF5D500825A2C /* CCAvenueSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -605,7 +605,7 @@
 				F6C57C742158CD2400970DC3 /* libxml2.2.tbd in Frameworks */,
 				F6D91E3A20994A5D00DA1428 /* LocalAuthentication.framework in Frameworks */,
 				4C1FFC442EBEEC68228FD4A2 /* Pods_DamacC.framework in Frameworks */,
-				F679E0B521C683F000CB45AE /* CCAvenueSDK.framework in Frameworks */,
+				F6C0D0AB21CBF5D500825A2C /* CCAvenueSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1420,7 +1420,7 @@
 				4F8D5E9B1B6C0568005E64D4 /* Resources */,
 				F6E0AE50219E7973009B261E /* ShellScript */,
 				FB2F01C1C0E241F7DB5C54F4 /* [CP] Embed Pods Frameworks */,
-				F679E0B721C683F000CB45AE /* Embed Frameworks */,
+				F6C0D0AD21CBF5D500825A2C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

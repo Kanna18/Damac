@@ -72,13 +72,23 @@
     
     billObj = [[BillingObject alloc]init];
     [billObj setDefaultValues:addArr];
+    _outStandingTF.delegate = self;
+    
+    if(_dueAmount.intValue>50000){
+        _outStandingTF.text = @"50000";
+    }else{
+        _outStandingTF.text = _dueAmount;
+    }
 }
+
+
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:YES];
 //    [[CustomBarOptions alloc]initWithNavItems:self.navigationItem noOfItems:2 navRef:self.navigationController withTitle:@"Pay now"];
 //    [self roundCorners:_showAddressBtn];
 //    [self roundCorners:_ccavenueBtn];
+    [self roundCornersTF:_outStandingTF];
     DamacSharedClass.sharedInstance.currentVC = self;
     [self performSelector:@selector(hideWindowButton) withObject:nil afterDelay:0.2];
     [DamacSharedClass.sharedInstance.navigationCustomBar setPageTite:@"Pay Now"];
@@ -94,7 +104,12 @@
     sender.layer.borderColor = goldColor.CGColor;
     sender.clipsToBounds = YES;
 }
-
+-(void)roundCornersTF:(UITextField*)sender{
+    sender.layer.cornerRadius = 5;
+    sender.layer.borderWidth = 1;
+    sender.layer.borderColor = goldColor.CGColor;
+    sender.clipsToBounds = YES;
+}
 #pragma mark - TableView methods
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -321,12 +336,13 @@
 - (IBAction)proceedClick:(id)sender {
     
     
+   
 //    CCAvenuePaymentController *initial;
     paymentController = [[CCAvenuePaymentController alloc]initWithOrderId:[NSString stringWithFormat:@"%u",((arc4random() % 9999999) + 1)]
                                                                merchantId:@"43551"
                                                                accessCode:@"AVRS02EJ65AY00SRYA"
                                                                    custId:@"saurabh"
-                                                                   amount:_dueAmount
+                                                                   amount:_outStandingTF.text//_dueAmount
                                                                  currency:@"AED"
                                                                 rsaKeyUrl:@"https://ptctest.damacgroup.com/ptctest/GetRSA.jsp"
                                                               redirectUrl:@"https://ptctest.damacgroup.com/ptctest/ResponseHandler.jsp"

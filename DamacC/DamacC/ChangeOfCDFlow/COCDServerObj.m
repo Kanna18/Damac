@@ -287,6 +287,13 @@
     if([self.Status isEqualToString:@"Cancelled"]||[self.Status isEqualToString:@"Submitted"])
     {
         boo = [NSNumber numberWithBool:NO];
+        
+        [FIRAnalytics logEventWithName:kFIREventSelectContent
+                            parameters:@{
+                                         kFIRParameterItemID:[NSString stringWithFormat:@"id-%@", @"SUBMI_SR_COCD"],
+                                         kFIRParameterItemName:@"Submit Service Request",
+                                         kFIRParameterContentType:@"Button Clicks"
+                                         }];
     }
     SFUserAccountManager *sf = [SFUserAccountManager sharedInstance];
     NSMutableDictionary *wrapperDict = [[NSMutableDictionary alloc]init];

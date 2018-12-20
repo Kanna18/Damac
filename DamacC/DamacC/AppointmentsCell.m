@@ -21,7 +21,7 @@
     // Configure the view for the selected state
 }
 -(void)setLabelsData:(AppointmentsDataModel*)dm{
-    _label1.text = dm.Name;
+    _label1.text = dm.Booking_Unit_Name__c;
     _label2.text = [NSString stringWithFormat:@"Main Purpose:%@",dm.Service_Type__c];
     _label3.text = [NSString stringWithFormat:@"Sub-Purpose:%@",dm.Sub_Purpose__c];
     _label4.text = [NSString stringWithFormat:@"Time Slot:%@",dm.Appointment_Slot__c];

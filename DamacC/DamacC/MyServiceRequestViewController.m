@@ -49,6 +49,7 @@
         _eservicesMessage.hidden = YES;
     }
     [_tableView setContentInset:UIEdgeInsetsMake(0, 0, 200, 0)];
+    _hilightedView.hidden = YES;
 }
 
 -(void)changeSelectedColor:(UIButton*)sender{
@@ -113,6 +114,9 @@
             
             if(Count == arrPa.count-1){
                     [FTIndicator performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        _hilightedView.hidden = NO;
+                    });
                 if(_loadFromServisesMenu){
                     [self draftClickForESErvices:nil];
                 }else{

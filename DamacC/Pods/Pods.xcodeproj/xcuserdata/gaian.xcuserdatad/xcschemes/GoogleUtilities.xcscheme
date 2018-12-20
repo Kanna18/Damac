@@ -17,7 +17,7 @@
                BlueprintIdentifier = "D345D068567DA799E0A882B2FC5ACB97"
                BlueprintName = "GoogleUtilities"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "libGoogleUtilities.a">
+               BuildableName = "GoogleUtilities.framework">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

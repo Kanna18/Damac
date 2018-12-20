@@ -88,6 +88,13 @@
 }
 -(void)finishSurveyViewController{
     
+    [FIRAnalytics logEventWithName:kFIREventSelectContent
+                        parameters:@{
+                                     kFIRParameterItemID:[NSString stringWithFormat:@"id-%@", @"Survey_Finish Survey"],
+                                     kFIRParameterItemName:@"Survey_Finish Survey",
+                                     kFIRParameterContentType:@"Button Clicks"
+                                     }];
+    
     [FTIndicator dismissProgress];
 //    FinishSurveyViewController *finish = [DamacSharedClass.sharedInstance.currentVC.storyboard instantiateViewControllerWithIdentifier:@"finishSurveyViewController"];
 //    [DamacSharedClass.sharedInstance.currentVC.navigationController pushViewController:finish animated:YES];

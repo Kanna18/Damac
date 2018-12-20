@@ -32,7 +32,6 @@
 #define kComplaintConstant      @"Complaints SR"
 
 
-
 @interface ServicesDetailController ()<UITableViewDelegate,UITableViewDataSource>
 
 @end
@@ -122,16 +121,16 @@
 }
 -(void)fillLabels{
     
-    if([srD.SR_Type__c isEqualToString:kCODConstant]){
+    if([srD.Type isEqualToString:kCODConstant]){
         [self fillLabelsforCOCD];
     }
-    if([srD.SR_Type__c isEqualToString:kPOPConstant]){
+    if([srD.Type isEqualToString:kPOPConstant]){
         [self fillLabelsForPOP];
     }
-    if([srD.SR_Type__c isEqualToString:kPassportUpdateConstant]){
+    if([srD.Type isEqualToString:kPassportUpdateConstant]){
         [self fillLabelsForPassportUpdate];
     }
-    if([srD.SR_Type__c isEqualToString:kJointBuyerConstant]){
+    if([srD.Type isEqualToString:kJointBuyerConstant]){
         [self fillLabelsForJointBuyer];
     }
     if([srD.Type isEqualToString:kComplaintConstant]){
@@ -202,7 +201,7 @@
                    handleNull([self returnDate:srD.CreatedDate]),
                    name,
                    @"",
-                   handleNull(srD.SR_Type__c),
+                   handleNull(srD.Type),
                    handleNull(srD.Country__c),
                    handleNull(srD.Address__c),
                    handleNull(srD.City__c),
@@ -242,7 +241,7 @@
                    [self returnDate:srD.CreatedDate],
                    name,
                    @"",
-                   handleNull(srD.SR_Type__c),
+                   handleNull(srD.Type),
                    handleNull(srD.New_CR__c),
                    handleNull(srD.Passport_Issue_Date__c),
                    handleNull(srD.Passport_Issue_Place__c),
@@ -277,7 +276,7 @@
                    [self returnDate:srD.CreatedDate],
                    name,
                    @"",
-                   handleNull(srD.SR_Type__c),
+                   handleNull(srD.Type),
                    handleNull(srD.Payment_Date__c),
                    handleNull(srD.Total_Amount__c),
                    @"",
@@ -322,7 +321,7 @@
                    [self returnDate:srD.CreatedDate],
                    name,
                    @"",
-                   handleNull(srD.SR_Type__c),
+                   handleNull(srD.Type),
                    handleNull(srD.Country__c),
                    handleNull(srD.Address__c),
                    handleNull(srD.City__c),
@@ -340,24 +339,24 @@
 - (IBAction)cancelButton:(id)sender {
 //    [self.navigationController popToRootViewControllerAnimated:YES];
     
-    if([srD.SR_Type__c isEqualToString:kCODConstant]){
+    if([srD.Type isEqualToString:kCODConstant]){
         [FTIndicator showProgressWithMessage:@"" userInteractionEnable:NO];
         cocd.Status = @"Cancelled";
         [cocd sendDraftStatusToServer];
     }
-    if([srD.SR_Type__c isEqualToString:kPOPConstant])
+    if([srD.Type isEqualToString:kPOPConstant])
     {
         popObject *pop = [[popObject alloc]init];
         [pop cancelPOPfromServicesSRDetails:srD];
         [FTIndicator showProgressWithMessage:@"Loading Please Wait" userInteractionEnable:NO];
     }
-    if([srD.SR_Type__c isEqualToString:kPassportUpdateConstant]){
+    if([srD.Type isEqualToString:kPassportUpdateConstant]){
         passObj.status = @"Cancelled";
         [passObj sendPassportResponsetoServer];
         [FTIndicator showProgressWithMessage:@"Loading Please Wait" userInteractionEnable:NO];
     }
     
-    if([srD.SR_Type__c isEqualToString:kJointBuyerConstant]){
+    if([srD.Type isEqualToString:kJointBuyerConstant]){
         jointBuyerObj.status = @"Cancelled";
         [jointBuyerObj sendJointBuyerResponsetoserver];
         [FTIndicator showProgressWithMessage:@"Loading Please Wait" userInteractionEnable:NO];
@@ -367,6 +366,13 @@
         [complaintsObj sendDraftStatusToServer];
         [FTIndicator showProgressWithMessage:@"Loading Please Wait" userInteractionEnable:NO];
     }
+    
+    [FIRAnalytics logEventWithName:kFIREventSelectContent
+                        parameters:@{
+                                     kFIRParameterItemID:[NSString stringWithFormat:@"id-%@", @"Cancel Service Request"],
+                                     kFIRParameterItemName:@"Cancel Service Request",
+                                     kFIRParameterContentType:@"Button Clicks"
+                                     }];
 }
 
 
@@ -442,18 +448,18 @@
 //}
 
 -(void)loadEditVC{
-    if([srD.SR_Type__c isEqualToString:kCODConstant]){
+    if([srD.Type isEqualToString:kCODConstant]){
         ChangeOfContactDetails *chd = [self.storyboard instantiateViewControllerWithIdentifier:@"changeOfContactsVC"];
         chd.cocdOBj = cocd;
         [self.navigationController pushViewController:chd animated:YES];
     }
-    if([srD.SR_Type__c isEqualToString:kPassportUpdateConstant]){
+    if([srD.Type isEqualToString:kPassportUpdateConstant]){
         PassportUpdateVC *chd = [self.storyboard instantiateViewControllerWithIdentifier:@"passportUpdateVC"];
         chd.passportObj = passObj;
         chd.srdRental = srD;
         [self.navigationController pushViewController:chd animated:YES];
     }
-    if([srD.SR_Type__c isEqualToString:kJointBuyerConstant]){
+    if([srD.Type isEqualToString:kJointBuyerConstant]){
         RentalPoolViewCellViewController *chd = [self.storyboard instantiateViewControllerWithIdentifier:@"rentalPoolViewCellVC"];
         chd.jointObj = jointBuyerObj;
         chd.srdRental = srD;

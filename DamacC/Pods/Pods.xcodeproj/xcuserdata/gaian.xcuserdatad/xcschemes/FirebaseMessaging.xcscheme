@@ -17,7 +17,7 @@
                BlueprintIdentifier = "86C349FC5950873B8205A9805C717836"
                BlueprintName = "FirebaseMessaging"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "libFirebaseMessaging.a">
+               BuildableName = "FirebaseMessaging.framework">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

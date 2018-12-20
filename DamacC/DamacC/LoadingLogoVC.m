@@ -104,13 +104,14 @@
     [numberFormatter setNumberStyle:NSNumberFormatterSpellOutStyle];
     wordNumber = [numberFormatter stringFromNumber:numberValue];
     NSLog(@"Answer: %@", wordNumber);
+    
     if([wordNumber containsString:@"million"]){
-        return [NSString stringWithFormat:@"%c.%c Million",[numberStr characterAtIndex:0],[numberStr characterAtIndex:1]];
+        return [NSString stringWithFormat:@"%0.1f Million",(float)anInt/1000000.0];
     }
     else if([wordNumber containsString:@"thousand"]&&(wordNumber.length > 4)){
-        return [NSString stringWithFormat:@"%c%c K",[numberStr characterAtIndex:0],[numberStr characterAtIndex:1]];
+        return [NSString stringWithFormat:@"%0.1f K",(float)anInt/100000.0];
     }else if([wordNumber containsString:@"thousand"]&&(wordNumber.length > 3)){
-        return [NSString stringWithFormat:@"%c.%c K",[numberStr characterAtIndex:0],[numberStr characterAtIndex:1]];
+        return [NSString stringWithFormat:@"%0.1f K",(float)anInt/10000.0];
     }
     return numberStr;
 }

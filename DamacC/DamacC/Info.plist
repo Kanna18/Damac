@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>HelloDamac</string>
+	<string>Hello DAMAC</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIcons</key>
@@ -25,7 +25,21 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1.0</string>
+	<string>1.5</string>
+	<key>Fabric</key>
+	<dict>
+		<key>APIKey</key>
+		<string>956c01103d0d7dd4ab8df8eb4858540d04530c9a</string>
+		<key>Kits</key>
+		<array>
+			<dict>
+				<key>KitInfo</key>
+				<dict/>
+				<key>KitName</key>
+				<string>Crashlytics</string>
+			</dict>
+		</array>
+	</dict>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -35,6 +49,8 @@
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>Allow HelloDamac to use camera</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Hello Damac would like to access your photos</string>
 	<key>SFDCOAuthLoginHost</key>
 	<string>partial-servicecloudtrial-155c0807bf-1580afc5db1.cs80.force.com/MobileApp</string>
 	<key>UIAppFonts</key>
@@ -57,6 +73,8 @@
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>UIRequiresFullScreen</key>
+	<true/>
 	<key>UIStatusBarStyle</key>
 	<string>UIStatusBarStyleLightContent</string>
 	<key>UISupportedInterfaceOrientations</key>
@@ -69,19 +87,5 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-    <key>Fabric</key>
-    <dict>
-        <key>APIKey</key>
-        <string>956c01103d0d7dd4ab8df8eb4858540d04530c9a</string>
-        <key>Kits</key>
-        <array>
-            <dict>
-                <key>KitInfo</key>
-                <dict/>
-                <key>KitName</key>
-                <string>Crashlytics</string>
-            </dict>
-        </array>
-    </dict>
 </dict>
 </plist>

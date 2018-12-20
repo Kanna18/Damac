@@ -45,6 +45,13 @@
     [FTIndicator showProgressWithMessage:@"Loading please wait" userInteractionEnable:NO];
     [self webServicetoGetUnitSFIds];
     selectedUnitTag = -1;
+    
+    [FIRAnalytics logEventWithName:kFIREventSelectContent
+                        parameters:@{
+                                     kFIRParameterItemID:[NSString stringWithFormat:@"id-%@", @"Book an Appointment - Start"],
+                                     kFIRParameterItemName:@"Book an Appointment - Start",
+                                     kFIRParameterContentType:@"Button Clicks"
+                                     }];
 
 }
 -(void)webServicetoGetUnitSFIds{
@@ -93,7 +100,10 @@
     }else{
         _slotLabel.text = _appointObj.TimeSlot;
     }
-    
+    [self adjustImageEdgeInsetsOfButton:_selectPurposeBtn];
+    [self adjustImageEdgeInsetsOfButton:_selectSubPurposeBtn];
+    [self adjustImageEdgeInsetsOfButton:_selectUnitBtn];
+    [self adjustImageEdgeInsetsOfButton:_calendarBtn];
 }
 
 -(void)adjustImageEdgeInsetsOfButton:(UIButton*)sender{
@@ -135,7 +145,7 @@
 
 -(BOOL)handOverNotificationsValidation:(int)indexofUnit{
     
-    if([_appointObj.ServiceType isEqualToString:@"01-Handover"]&&([_appointObj.SubProcessName isEqualToString:@"Key Handover"]||[_appointObj.SubProcessName isEqualToString:@"Unit Viewing"])){
+    if([_appointObj.ServiceType isEqualToString:@"01-Handover"]&&([_appointObj.SubProcessName isEqualToString:@"Key Handover"]||[_appointObj.SubProcessName isEqualToString:@"Unit Viewing"]||[_appointObj.SubProcessName isEqualToString:@"Documentation"])){
         
         NSDictionary *dict = unitsWholeArray[indexofUnit];
         
@@ -143,16 +153,16 @@
         NSNumber* boolean2 = dict[@"Handover_Flag__c"];
         NSNumber* boolean3 = dict[@"Handover_Notice_Sent__c"];
                       
-          if(boolean1.boolValue||boolean2.boolValue){
-              if(boolean3.boolValue){
-                  [FTIndicator showToastMessage:@"No Handover notice available"];
-                  return NO;
-                  
-              }
-              
-          }else{
+        if(boolean1.boolValue||boolean2.boolValue){
+              [FTIndicator showToastMessage:@"Unit already handed over"];
+              return NO;
+          }
+        else if(boolean3.boolValue){
+            [FTIndicator showToastMessage:@"No handover notice available"];
+            return NO;
+            }
+        else{
               return YES;
-              
           }
 //        Early_Handover__c
 //        Handover_Flag__c
@@ -502,7 +512,7 @@
             
             if([dictSlots isKindOfClass:[NSArray class]]){
                 [FTIndicator performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
-                [FTIndicator showToastMessage:@"No Appointment slots available Please try for some other day"];
+                [FTIndicator showToastMessage:@"Non availability of time slots"];
                 return;
             }
             
@@ -517,7 +527,7 @@
             });
             }else{
                 [FTIndicator performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
-                [FTIndicator showToastMessage:@"No Appointment slots available Please try for some other day"];
+                [FTIndicator showToastMessage:@"Non availability of time slots"];
             }
         }
     } errorBlock:^(NSError *error) {

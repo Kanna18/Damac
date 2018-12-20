@@ -159,7 +159,6 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
 
-    static dispatch_once_t onceToken;
     [self customNavBarVie];
     [self sendFCMTokenTokenToServer];
     [self notificationsbell];
@@ -423,13 +422,14 @@
     [numberFormatter setNumberStyle:NSNumberFormatterSpellOutStyle];
     wordNumber = [numberFormatter stringFromNumber:numberValue];
     NSLog(@"Answer: %@", wordNumber);
+    
     if([wordNumber containsString:@"million"]){
-        return [NSString stringWithFormat:@"%c.%c Million",[numberStr characterAtIndex:0],[numberStr characterAtIndex:1]];
+        return [NSString stringWithFormat:@"%0.1f Million",(float)anInt/1000000.0];
     }
     else if([wordNumber containsString:@"thousand"]&&(wordNumber.length > 4)){
-        return [NSString stringWithFormat:@"%c%c K",[numberStr characterAtIndex:0],[numberStr characterAtIndex:1]];
+        return [NSString stringWithFormat:@"%0.1f K",(float)anInt/100000.0];
     }else if([wordNumber containsString:@"thousand"]&&(wordNumber.length > 3)){
-        return [NSString stringWithFormat:@"%c.%c K",[numberStr characterAtIndex:0],[numberStr characterAtIndex:1]];
+        return [NSString stringWithFormat:@"%0.1f K",(float)anInt/10000.0];
     }
     return numberStr;
 }
@@ -585,7 +585,17 @@
         return  CGSizeMake(collectionView.frame.size.width/4-10 , 130);
     }
     if(collectionView == _gridCollectionView){
-        return  CGSizeMake(collectionView.frame.size.width/2-10, 140);
+        
+        if (UIDevice.currentDevice.userInterfaceIdiom == UIUserInterfaceIdiomPad)
+        {
+            return  CGSizeMake(collectionView.frame.size.width/2-10, collectionView.frame.size.height/4);
+        }
+        else
+        {
+            return  CGSizeMake(collectionView.frame.size.width/2-10, 140);
+        }
+        
+        
     }
     return  CGSizeZero;
 }
@@ -795,7 +805,7 @@
         mc.mailComposeDelegate = self;
         [mc setSubject:emailTitle];
         [mc setMessageBody:messageBody isHTML:NO];
-        [mc setToRecipients:@[@"atyourservice@damacproperties.address"]];
+        [mc setToRecipients:@[@"atyourservice@damacproperties.com"]];
 //        [mc addAttachmentData:ni mimeType:@"application/pdf" fileName:@""];
         [mc setToRecipients:toRecipents];
         [DamacSharedClass.sharedInstance.currentVC presentViewController:mc animated:YES completion:NULL];
@@ -840,7 +850,7 @@
     
     NSDictionary *resp = @{@"AccountId":kUserProfile.sfAccountId,
                            @"userId":sf.currentUser.credentials.userId,
-                           @"fcmToken":token
+                           @"fcmToken":handleNull(token)
                            };
     
     [fcmServer postRequestwithUrl:@"https://partial-servicecloudtrial-155c0807bf-1580afc5db1.cs80.force.com/MobileApp/services/apexrest/SaveFCMTokenFromMobileApp/" withParameters:resp successBlock:^(id responseObj) {

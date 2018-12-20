@@ -375,7 +375,12 @@
     _cocdOBj.delegate = self;
         sections = 2;
         numberOfCells = 3;
-        _tableViewHeight.constant = 280;
+//    _tableViewHeight.constant = 280;
+    if(self.view.frame.size.height-500 > 280){
+    _tableViewHeight.constant = self.view.frame.size.height-500;
+    }else{
+      _tableViewHeight.constant = 280;
+    }
     tvArr = @[@{@"key":@"Address1",
                 @"value":handleNull(_cocdOBj.AddressLine1),
                 @"tag" : [NSNumber numberWithInt:Address1]},

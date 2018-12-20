@@ -8,11 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BillingViewController : UIViewController
+@interface BillingViewController : UIViewController<CCAvenuePaymentControllerDelegate>
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *heightConstraint;
 @property (weak, nonatomic) IBOutlet UIButton *proceedBtn;
 @property (weak, nonatomic) IBOutlet UIButton *showAddressBtn;
 @property (weak, nonatomic) IBOutlet UIButton *ccavenueBtn;
+@property (weak, nonatomic) NSString *dueAmount;
 
 - (IBAction)showAddressClick:(id)sender;
 - (IBAction)proceedClick:(id)sender;

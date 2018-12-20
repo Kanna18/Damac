@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1F24596A019BC29A854E94A3 /* libPods-DamacC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A260A1918946C43D1CC4C92D /* libPods-DamacC.a */; };
+		4C1FFC442EBEEC68228FD4A2 /* Pods_DamacC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 963039B5CBD9F0905930BC2D /* Pods_DamacC.framework */; };
 		4F8D5EA31B6C0568005E64D4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8D5EA21B6C0568005E64D4 /* main.m */; };
 		4F8D5EA61B6C0568005E64D4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8D5EA51B6C0568005E64D4 /* AppDelegate.m */; };
 		4F8D5EC81B6C0F94005E64D4 /* InitialViewController1.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8D5EC71B6C0F94005E64D4 /* InitialViewController1.m */; };
@@ -44,6 +44,7 @@
 		F61124C72165CA4F00901694 /* PaymentsScheduleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F61124C52165CA4F00901694 /* PaymentsScheduleCell.xib */; };
 		F6132E0D20A7E2E900FEEEBE /* ProfileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F6132E0B20A7E2E900FEEEBE /* ProfileTableViewCell.m */; };
 		F6132E0E20A7E2E900FEEEBE /* ProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6132E0C20A7E2E900FEEEBE /* ProfileTableViewCell.xib */; };
+		F6141E6021A07A3A00224829 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6141E5F21A07A3A00224829 /* FirebaseCore.framework */; };
 		F6170A5D20FCC6ED003443B1 /* MyServicesDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F6170A5C20FCC6ED003443B1 /* MyServicesDataModel.m */; };
 		F6170A6120FF9DB3003443B1 /* ServicesDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6170A6020FF9DB3003443B1 /* ServicesDetailController.m */; };
 		F6170A642100692E003443B1 /* AppointmentsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F6170A632100692E003443B1 /* AppointmentsCell.m */; };
@@ -65,6 +66,7 @@
 		F6264266211487AB0022C4DC /* ChangeOfContactDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = F6264265211487AB0022C4DC /* ChangeOfContactDetails.m */; };
 		F626426921148D7B0022C4DC /* ChangeofContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F626426821148D7B0022C4DC /* ChangeofContactCell.m */; };
 		F62F4B0D20A942F200EB5C9A /* ServerAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F62F4B0B20A942F100EB5C9A /* ServerAPIManager.m */; };
+		F6393A3121C0752200266F45 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F6393A3021C0752200266F45 /* GoogleService-Info.plist */; };
 		F63FCEFE20F782E70027FEA8 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = F63FCEFC20F782E60027FEA8 /* iCarousel.m */; };
 		F63FCF0220F87E3A0027FEA8 /* CustomViewCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = F63FCF0120F87E3A0027FEA8 /* CustomViewCarousel.m */; };
 		F63FCF0420F87E520027FEA8 /* CustomViewCarousel.xib in Resources */ = {isa = PBXBuildFile; fileRef = F63FCF0320F87E520027FEA8 /* CustomViewCarousel.xib */; };
@@ -82,6 +84,8 @@
 		F673C0C32192CA8100A4ED0E /* KATCircularProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = F673C0C12192CA8000A4ED0E /* KATCircularProgress.m */; };
 		F67668AB2199A51E00FFBDC4 /* AlertPopUp.m in Sources */ = {isa = PBXBuildFile; fileRef = F67668AA2199A51E00FFBDC4 /* AlertPopUp.m */; };
 		F67668AD2199A52C00FFBDC4 /* AlertPopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = F67668AC2199A52C00FFBDC4 /* AlertPopUp.xib */; };
+		F679E0B521C683F000CB45AE /* CCAvenueSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F679E0B321C683E800CB45AE /* CCAvenueSDK.framework */; };
+		F679E0B621C683F000CB45AE /* CCAvenueSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F679E0B321C683E800CB45AE /* CCAvenueSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F67D77A721749FAC009EE062 /* SurveyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F67D77A621749FAC009EE062 /* SurveyViewController.m */; };
 		F67D77AA21749FC3009EE062 /* SurveyCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = F67D77A921749FC3009EE062 /* SurveyCell1.m */; };
 		F67D77AD21749FCF009EE062 /* SurveyCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = F67D77AC21749FCF009EE062 /* SurveyCell2.m */; };
@@ -99,7 +103,7 @@
 		F686160A20962229002EA241 /* PinView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F686160920962229002EA241 /* PinView.xib */; };
 		F686161820982837002EA241 /* PasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F686161720982837002EA241 /* PasswordViewController.m */; };
 		F686165620985841002EA241 /* DamacC-Bridging-Header.h in Sources */ = {isa = PBXBuildFile; fileRef = F686163F209852AD002EA241 /* DamacC-Bridging-Header.h */; };
-		F688503F218CA33700CBD859 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F688503E218CA33700CBD859 /* GoogleService-Info.plist */; };
+		F688503F218CA33700CBD859 /* GoogleService-Info1234.plist in Resources */ = {isa = PBXBuildFile; fileRef = F688503E218CA33700CBD859 /* GoogleService-Info1234.plist */; };
 		F68CF5BD216DD6E500852EF5 /* popObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F68CF5BC216DD6E500852EF5 /* popObject.m */; };
 		F691B34E2190B402008EA47D /* BillingObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F691B34D2190B402008EA47D /* BillingObject.m */; };
 		F691B3572190CFB3008EA47D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F691B3562190CFB3008EA47D /* Foundation.framework */; };
@@ -217,8 +221,22 @@
 		F6FF90B92197359F0090D2FE /* RepeatedFunctions in Resources */ = {isa = PBXBuildFile; fileRef = F6FF90B82197359F0090D2FE /* RepeatedFunctions */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		F679E0B721C683F000CB45AE /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				F679E0B621C683F000CB45AE /* CCAvenueSDK.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		3570941300D5B591E63FFF53 /* Pods-DamacC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DamacC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DamacC/Pods-DamacC.debug.xcconfig"; sourceTree = "<group>"; };
+		2EA1CF321EA1CB95D50AC1A0 /* Pods-DamacC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DamacC.release.xcconfig"; path = "Target Support Files/Pods-DamacC/Pods-DamacC.release.xcconfig"; sourceTree = "<group>"; };
 		4F277E8C1DC7F5DF00E5A77C /* Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
 		4F8D5E9D1B6C0568005E64D4 /* DamacC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DamacC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F8D5EA11B6C0568005E64D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -230,9 +248,9 @@
 		4F8D5EC91B6C0FE4005E64D4 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		4F8D5ECA1B6C0FE4005E64D4 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		4FF12F911DCA9E6B004D9EF9 /* DamacC.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DamacC.entitlements; sourceTree = "<group>"; };
-		A260A1918946C43D1CC4C92D /* libPods-DamacC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DamacC.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		B553271FEAE84B9A8B3846DF /* Pods-DamacC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DamacC.release.xcconfig"; path = "Pods/Target Support Files/Pods-DamacC/Pods-DamacC.release.xcconfig"; sourceTree = "<group>"; };
+		963039B5CBD9F0905930BC2D /* Pods_DamacC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DamacC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7168FB91FACC5D900A48DB5 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = "../mobile_sdk/SalesforceMobileSDK-iOS/shared/resources/LaunchScreen.storyboard"; sourceTree = "<group>"; };
+		E168EE5FF4586734F3C67719 /* Pods-DamacC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DamacC.debug.xcconfig"; path = "Target Support Files/Pods-DamacC/Pods-DamacC.debug.xcconfig"; sourceTree = "<group>"; };
 		F60164EB20ABB9D900E07510 /* UnitsDataModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UnitsDataModel.h; sourceTree = "<group>"; };
 		F60164EC20ABB9D900E07510 /* UnitsDataModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UnitsDataModel.m; sourceTree = "<group>"; };
 		F60164F120ABF36F00E07510 /* PaymentsDataModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PaymentsDataModel.h; sourceTree = "<group>"; };
@@ -288,6 +306,7 @@
 		F6132E0A20A7E2E900FEEEBE /* ProfileTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileTableViewCell.h; sourceTree = "<group>"; };
 		F6132E0B20A7E2E900FEEEBE /* ProfileTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileTableViewCell.m; sourceTree = "<group>"; };
 		F6132E0C20A7E2E900FEEEBE /* ProfileTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileTableViewCell.xib; sourceTree = "<group>"; };
+		F6141E5F21A07A3A00224829 /* FirebaseCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6170A5B20FCC6ED003443B1 /* MyServicesDataModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyServicesDataModel.h; sourceTree = "<group>"; };
 		F6170A5C20FCC6ED003443B1 /* MyServicesDataModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyServicesDataModel.m; sourceTree = "<group>"; };
 		F6170A5F20FF9DB3003443B1 /* ServicesDetailController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ServicesDetailController.h; sourceTree = "<group>"; };
@@ -323,6 +342,7 @@
 		F626426821148D7B0022C4DC /* ChangeofContactCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangeofContactCell.m; sourceTree = "<group>"; };
 		F62F4B0B20A942F100EB5C9A /* ServerAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerAPIManager.m; sourceTree = "<group>"; };
 		F62F4B0C20A942F100EB5C9A /* ServerAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerAPIManager.h; sourceTree = "<group>"; };
+		F6393A3021C0752200266F45 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F63FCEFC20F782E60027FEA8 /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
 		F63FCEFD20F782E60027FEA8 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
 		F63FCF0020F87E3A0027FEA8 /* CustomViewCarousel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomViewCarousel.h; sourceTree = "<group>"; };
@@ -355,6 +375,7 @@
 		F67668A92199A51E00FFBDC4 /* AlertPopUp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AlertPopUp.h; sourceTree = "<group>"; };
 		F67668AA2199A51E00FFBDC4 /* AlertPopUp.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AlertPopUp.m; sourceTree = "<group>"; };
 		F67668AC2199A52C00FFBDC4 /* AlertPopUp.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertPopUp.xib; sourceTree = "<group>"; };
+		F679E0B321C683E800CB45AE /* CCAvenueSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CCAvenueSDK.framework; sourceTree = "<group>"; };
 		F67D77A521749FAC009EE062 /* SurveyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SurveyViewController.h; sourceTree = "<group>"; };
 		F67D77A621749FAC009EE062 /* SurveyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SurveyViewController.m; sourceTree = "<group>"; };
 		F67D77A821749FC3009EE062 /* SurveyCell1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SurveyCell1.h; sourceTree = "<group>"; };
@@ -383,7 +404,7 @@
 		F686161720982837002EA241 /* PasswordViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PasswordViewController.m; sourceTree = "<group>"; };
 		F686163C20982C9C002EA241 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		F686163F209852AD002EA241 /* DamacC-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DamacC-Bridging-Header.h"; sourceTree = "<group>"; };
-		F688503E218CA33700CBD859 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F688503E218CA33700CBD859 /* GoogleService-Info1234.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info1234.plist"; sourceTree = "<group>"; };
 		F68CF5BB216DD6E500852EF5 /* popObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = popObject.h; sourceTree = "<group>"; };
 		F68CF5BC216DD6E500852EF5 /* popObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = popObject.m; sourceTree = "<group>"; };
 		F691B34C2190B402008EA47D /* BillingObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BillingObject.h; sourceTree = "<group>"; };
@@ -458,7 +479,6 @@
 		F6AE17C62175BE3D00C0E64A /* COCDServerObj.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = COCDServerObj.m; sourceTree = "<group>"; };
 		F6B166C82188780F0094A2B4 /* AppointmentObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppointmentObject.h; sourceTree = "<group>"; };
 		F6B166C92188780F0094A2B4 /* AppointmentObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppointmentObject.m; sourceTree = "<group>"; };
-		F6B264EF219ABCFD001A2DE0 /* CCAvenueSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CCAvenueSDK.framework; sourceTree = "<group>"; };
 		F6B31BDB20F094FB001A5144 /* MyServiceRequestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyServiceRequestViewController.h; sourceTree = "<group>"; };
 		F6B31BDC20F094FB001A5144 /* MyServiceRequestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyServiceRequestViewController.m; sourceTree = "<group>"; };
 		F6B31BDF20F33328001A5144 /* ScheduleAppointmentsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScheduleAppointmentsVC.h; sourceTree = "<group>"; };
@@ -577,38 +597,40 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6141E6021A07A3A00224829 /* FirebaseCore.framework in Frameworks */,
 				F691B3592190CFBE008EA47D /* UIKit.framework in Frameworks */,
 				F691B3572190CFB3008EA47D /* Foundation.framework in Frameworks */,
 				F659E0AF2188E46D00A9DB16 /* MessageUI.framework in Frameworks */,
 				F6C57C732158CD2400970DC3 /* libxml2.tbd in Frameworks */,
 				F6C57C742158CD2400970DC3 /* libxml2.2.tbd in Frameworks */,
 				F6D91E3A20994A5D00DA1428 /* LocalAuthentication.framework in Frameworks */,
-				1F24596A019BC29A854E94A3 /* libPods-DamacC.a in Frameworks */,
+				4C1FFC442EBEEC68228FD4A2 /* Pods_DamacC.framework in Frameworks */,
+				F679E0B521C683F000CB45AE /* CCAvenueSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		06999072E9CAE06FC501E48B /* Pods */ = {
+		094AEB37E13B82EB819B781F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				3570941300D5B591E63FFF53 /* Pods-DamacC.debug.xcconfig */,
-				B553271FEAE84B9A8B3846DF /* Pods-DamacC.release.xcconfig */,
+				E168EE5FF4586734F3C67719 /* Pods-DamacC.debug.xcconfig */,
+				2EA1CF321EA1CB95D50AC1A0 /* Pods-DamacC.release.xcconfig */,
 			);
-			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 		4F8D5E941B6C0568005E64D4 = {
 			isa = PBXGroup;
 			children = (
-				F6B264EF219ABCFD001A2DE0 /* CCAvenueSDK.framework */,
+				F679E0B321C683E800CB45AE /* CCAvenueSDK.framework */,
 				F686163C20982C9C002EA241 /* PrefixHeader.pch */,
 				4F8D5E9F1B6C0568005E64D4 /* DamacC */,
 				4F8D5E9E1B6C0568005E64D4 /* Products */,
 				7E50A237DDCEAAC2CF458C8C /* Frameworks */,
 				F686163F209852AD002EA241 /* DamacC-Bridging-Header.h */,
-				06999072E9CAE06FC501E48B /* Pods */,
+				094AEB37E13B82EB819B781F /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -649,7 +671,8 @@
 			isa = PBXGroup;
 			children = (
 				B7168FB91FACC5D900A48DB5 /* LaunchScreen.storyboard */,
-				F688503E218CA33700CBD859 /* GoogleService-Info.plist */,
+				F6393A3021C0752200266F45 /* GoogleService-Info.plist */,
+				F688503E218CA33700CBD859 /* GoogleService-Info1234.plist */,
 				4F8D5EA11B6C0568005E64D4 /* Info.plist */,
 				4F277E8C1DC7F5DF00E5A77C /* Prefix.pch */,
 				4F8D5EA21B6C0568005E64D4 /* main.m */,
@@ -705,6 +728,7 @@
 		7E50A237DDCEAAC2CF458C8C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F6141E5F21A07A3A00224829 /* FirebaseCore.framework */,
 				F667D0E521994C7C003A058F /* CCAvenueSDK.framework */,
 				F691B3582190CFBE008EA47D /* UIKit.framework */,
 				F691B3562190CFB3008EA47D /* Foundation.framework */,
@@ -712,7 +736,7 @@
 				F6C57C722158CD2400970DC3 /* libxml2.2.tbd */,
 				F6C57C712158CD2400970DC3 /* libxml2.tbd */,
 				F6D91E3920994A5D00DA1428 /* LocalAuthentication.framework */,
-				A260A1918946C43D1CC4C92D /* libPods-DamacC.a */,
+				963039B5CBD9F0905930BC2D /* Pods_DamacC.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1390,12 +1414,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4F8D5EC01B6C0568005E64D4 /* Build configuration list for PBXNativeTarget "DamacC" */;
 			buildPhases = (
-				AC3BE10D2628682D4F0784B3 /* [CP] Check Pods Manifest.lock */,
+				A67F16BD0C925ECB0B422D86 /* [CP] Check Pods Manifest.lock */,
 				4F8D5E991B6C0568005E64D4 /* Sources */,
 				4F8D5E9A1B6C0568005E64D4 /* Frameworks */,
 				4F8D5E9B1B6C0568005E64D4 /* Resources */,
-				CE4C9DE78E11651E495B08C8 /* [CP] Copy Pods Resources */,
 				F6E0AE50219E7973009B261E /* ShellScript */,
+				FB2F01C1C0E241F7DB5C54F4 /* [CP] Embed Pods Frameworks */,
+				F679E0B721C683F000CB45AE /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1497,6 +1522,7 @@
 				F63FCF0420F87E520027FEA8 /* CustomViewCarousel.xib in Resources */,
 				F67EB5EB212521D50011AB64 /* Montserrat-ExtraLight.ttf in Resources */,
 				F6A739EE219AC93D00ED2B7D /* RadioButton-Selected.png in Resources */,
+				F6393A3121C0752200266F45 /* GoogleService-Info.plist in Resources */,
 				F626426221143C050022C4DC /* JointView1.xib in Resources */,
 				F6C57DD2215A388800970DC3 /* Complaints.json in Resources */,
 				F6264233211404B20022C4DC /* NewStoryboard.storyboard in Resources */,
@@ -1508,7 +1534,7 @@
 				F6A739FD219AC93D00ED2B7D /* cdown.png in Resources */,
 				F6A739E9219AC93D00ED2B7D /* RadioButton-Unselected.png in Resources */,
 				F6A739E6219AC93D00ED2B7D /* Card.png in Resources */,
-				F688503F218CA33700CBD859 /* GoogleService-Info.plist in Resources */,
+				F688503F218CA33700CBD859 /* GoogleService-Info1234.plist in Resources */,
 				F6132E0E20A7E2E900FEEEBE /* ProfileTableViewCell.xib in Resources */,
 				F6E8321720AD07D40003DC5E /* PrintDocView.xib in Resources */,
 				F6A739FF219AC93D00ED2B7D /* Right.png in Resources */,
@@ -1527,42 +1553,26 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		AC3BE10D2628682D4F0784B3 /* [CP] Check Pods Manifest.lock */ = {
+		A67F16BD0C925ECB0B422D86 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			inputFileListPaths = (
 			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-DamacC-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CE4C9DE78E11651E495B08C8 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DamacC/Pods-DamacC-resources.sh",
-				"${PODS_ROOT}/../mobile_sdk/SalesforceMobileSDK-iOS/shared/resources/SalesforceSDKAssets.xcassets",
-				"${PODS_CONFIGURATION_BUILD_DIR}/SalesforceSDKCore/SalesforceSDKResources.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Assets.car",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SalesforceSDKResources.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DamacC/Pods-DamacC-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F6E0AE50219E7973009B261E /* ShellScript */ = {
@@ -1582,6 +1592,52 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/Fabric/run\" 956c01103d0d7dd4ab8df8eb4858540d04530c9a aa7088a3816156033875c2d025eb4780491fceae34dda74c4085095c8503e919\n";
+		};
+		FB2F01C1C0E241F7DB5C54F4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DamacC/Pods-DamacC-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework",
+				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/JSONModel/JSONModel.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SQLCipher/SQLCipher.framework",
+				"${BUILT_PRODUCTS_DIR}/SalesforceAnalytics/SalesforceAnalytics.framework",
+				"${BUILT_PRODUCTS_DIR}/SalesforceSDKCore/SalesforceSDKCore.framework",
+				"${BUILT_PRODUCTS_DIR}/SmartStore/SmartStore.framework",
+				"${BUILT_PRODUCTS_DIR}/SmartSync/SmartSync.framework",
+				"${BUILT_PRODUCTS_DIR}/WYPopoverController/WYPopoverController.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaLumberjack.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FMDB.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSONModel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SQLCipher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SalesforceAnalytics.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SalesforceSDKCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SmartStore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SmartSync.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WYPopoverController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DamacC/Pods-DamacC-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1780,6 +1836,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1825,6 +1882,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -1833,17 +1891,18 @@
 		};
 		4F8D5EC11B6C0568005E64D4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3570941300D5B591E63FFF53 /* Pods-DamacC.debug.xcconfig */;
+			baseConfigurationReference = E168EE5FF4586734F3C67719 /* Pods-DamacC.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = DamacC/DamacC.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: LUXURY FACILITIES MANAGEMENT LLC";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: LUXURY FACILITIES MANAGEMENT LLC";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: DAMAC PROPERTIES CO (L.L.C) (4H7H3FYH34)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: DAMAC PROPERTIES CO (L.L.C) (4H7H3FYH34)";
 				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 7CQW6NRRPC;
+				DEVELOPMENT_TEAM = 4H7H3FYH34;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1868,46 +1927,33 @@
 				INFOPLIST_FILE = DamacC/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"-l\"CocoaLumberjack\"",
-					"-l\"FMDB\"",
-					"-l\"SQLCipher\"",
-					"-l\"SalesforceAnalytics\"",
-					"-l\"SalesforceSDKCore\"",
-					"-l\"SmartStore\"",
-					"-l\"SmartSync\"",
-					"-l\"z\"",
-					"-framework",
-					"\"Foundation\"",
-					"-framework",
-					"\"Security\"",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.damac.HelloDamac;
+				OTHER_LDFLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.damac.HelloDAMACD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = HelloDamacPushNConfigured;
+				PROVISIONING_PROFILE_SPECIFIER = Damac_appstore_prov;
 				SKIP_INSTALL = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "DamacC-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		4F8D5EC21B6C0568005E64D4 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B553271FEAE84B9A8B3846DF /* Pods-DamacC.release.xcconfig */;
+			baseConfigurationReference = 2EA1CF321EA1CB95D50AC1A0 /* Pods-DamacC.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = DamacC/DamacC.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: LUXURY FACILITIES MANAGEMENT LLC";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: LUXURY FACILITIES MANAGEMENT LLC";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: DAMAC PROPERTIES CO (L.L.C) (4H7H3FYH34)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: DAMAC PROPERTIES CO (L.L.C) (4H7H3FYH34)";
 				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 7CQW6NRRPC;
+				DEVELOPMENT_TEAM = 4H7H3FYH34;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1932,29 +1978,15 @@
 				INFOPLIST_FILE = DamacC/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"-l\"CocoaLumberjack\"",
-					"-l\"FMDB\"",
-					"-l\"SQLCipher\"",
-					"-l\"SalesforceAnalytics\"",
-					"-l\"SalesforceSDKCore\"",
-					"-l\"SmartStore\"",
-					"-l\"SmartSync\"",
-					"-l\"z\"",
-					"-framework",
-					"\"Foundation\"",
-					"-framework",
-					"\"Security\"",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.damac.HelloDamac;
+				OTHER_LDFLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.damac.HelloDAMACD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = HelloDamacPushNConfigured;
+				PROVISIONING_PROFILE_SPECIFIER = Damac_appstore_prov;
 				SKIP_INSTALL = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "DamacC-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

@@ -70,4 +70,5 @@
 #import <CCAvenueSDK/CCAvenuePaymentController.h>
 #import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
+@import Firebase;
 #endif /* PrefixHeader_pch */

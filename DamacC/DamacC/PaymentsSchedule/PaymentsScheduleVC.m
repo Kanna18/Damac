@@ -33,6 +33,13 @@
 //    [self webServiceCall];
     [self webServiceCallForPayments];
     tvMutableDictionary = [[NSMutableDictionary alloc]init];
+    
+    [FIRAnalytics logEventWithName:kFIREventSelectContent
+                        parameters:@{
+                                     kFIRParameterItemID:[NSString stringWithFormat:@"id-%@", @"Payment schedule Button"],
+                                     kFIRParameterItemName:@"Payment schedule Button",
+                                     kFIRParameterContentType:@"Button Clicks"
+                                     }];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -143,7 +150,11 @@
         } errorBlock:^(NSError *error) {
             [FTIndicator performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
         }];
-        [FTIndicator dismissProgress];
+        [FTIndicator performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
+    }
+    
+    if(!([DamacSharedClass sharedInstance].unitsArray.count>0)){
+       [FTIndicator performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
     }
 }
 

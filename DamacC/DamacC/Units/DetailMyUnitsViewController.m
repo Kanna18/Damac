@@ -73,8 +73,24 @@
     _label_project.text = [NSString stringWithFormat:@"Project City\n%@",_responseUnit.propertyCity];
     _label_unitType.text =[NSString stringWithFormat:@"Unit Type\n%@",_responseUnit.unitCategory];
     _label_bedroomtype.text = [NSString stringWithFormat:@"Bedroom Type\n%@",_responseUnit.unitType];
-    _label_inoicesRaised.text = [NSString stringWithFormat:@"Invoices Raised\n%@",_responseUnit.reservationPrice];
+    _label_inoicesRaised.text = [NSString stringWithFormat:@"Invoices Raised\n%@",[self setNumberFormatter:_responseUnit.totalPaidInvoice]];
+    
     _statusLabel.text = [NSString stringWithFormat:@"%@",_responseUnit.unitStatus];
+    
+    _priceLabel.text =  [NSString stringWithFormat:@"%@ %@",_responseUnit.projectCurrency, [self setNumberFormatter:_responseUnit.reservationPrice]];
+    _outstandLabel.text =  [self setNumberFormatter:_responseUnit.totalDueInvoice];
+    _overDueLabel.text =  [self setNumberFormatter:_responseUnit.totalOverDue];
+    
+    [_priceLabel setAdjustsFontSizeToFitWidth:YES];
+    [_outstandLabel setAdjustsFontSizeToFitWidth:YES];
+    [_overDueLabel setAdjustsFontSizeToFitWidth:YES];
+}
+
+-(NSString*)setNumberFormatter:(NSString*)numberStr{
+    NSInteger anInt = numberStr.integerValue;
+    NSNumber *someNumber = [NSNumber numberWithInteger:anInt];
+    NSString *modelNumberString = [NSString localizedStringWithFormat:@"%@", someNumber];
+    return modelNumberString;
 }
 
 /*

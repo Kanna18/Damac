@@ -17,7 +17,7 @@
                BlueprintIdentifier = "44F0BB264DF8D4B3441D8CB41746E398"
                BlueprintName = "FirebaseCore"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "libFirebaseCore.a">
+               BuildableName = "FirebaseCore.framework">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

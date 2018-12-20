@@ -28,7 +28,7 @@
     [self.progressView.sliceItems removeAllObjects];
     
     SliceItem *item1 = [SliceItem new];
-    item1.itemValue = 100+_percentValue;
+    item1.itemValue = _percentValue;
     item1.itemColor = goldColor;
 
     SliceItem *item2 = [[SliceItem alloc] init];
@@ -67,7 +67,16 @@
  
     if([_dueAmount integerValue]>0){
         BillingViewController *bvc = [DamacSharedClass.sharedInstance.currentVC.storyboard instantiateViewControllerWithIdentifier:@"billVC"];
+        bvc.dueAmount = _dueAmount;
         [DamacSharedClass.sharedInstance.currentVC.navigationController pushViewController:bvc animated:YES];
+        
+        [FIRAnalytics logEventWithName:kFIREventSelectContent
+                            parameters:@{
+                                         kFIRParameterItemID:[NSString stringWithFormat:@"id-%@", @"MyUnit_EStatements"],
+                                         kFIRParameterItemName:@"MyUnit_PayNow",
+                                         kFIRParameterContentType:@"Button Clicks"
+                                         }];
+        
     }
     else{
         [FTIndicator showToastMessage:@"No OutStanding Amount"];

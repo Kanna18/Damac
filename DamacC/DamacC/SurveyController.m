@@ -81,6 +81,13 @@
 
 - (IBAction)taketheSurveyClick:(id)sender {
     if(surverArray.count>0){
+        [FIRAnalytics logEventWithName:kFIREventSelectContent
+                            parameters:@{
+                                         kFIRParameterItemID:[NSString stringWithFormat:@"id-%@", @"Survey_Start Survey"],
+                                         kFIRParameterItemName:@"Survey_Start Survey",
+                                         kFIRParameterContentType:@"Button Clicks"
+                                         }];
+        
         SurveyViewController *cvc = [self.storyboard instantiateViewControllerWithIdentifier:@"surveyViewController"];
         cvc.surveyArray = surverArray;
         [self.navigationController pushViewController:cvc animated:YES];

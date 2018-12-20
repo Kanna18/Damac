@@ -133,9 +133,11 @@
         kUserProfile = [[UserDetailsModel alloc]initWithDictionary:dic[@"responseLines"][0] error:nil];
         NSString * port = kUserProfile.overallPortfolio;//[NSString stringWithFormat:@"%@",di[@"overallPortfolio"]];
         NSString * curent = kUserProfile.currentPortfolio;//[NSString stringWithFormat:@"%@",di[@"currentPortfolio"]];
+        NSString * paymentDue = kUserProfile.totalDueOther;
+        
         [topCVArray addObject:@{@"key":[self setNillValue:overallPortofolio],@"value":[self setNillValue:port],@"image":@"1icon",}];
         [topCVArray addObject:@{@"key":[self setNillValue:currentPortofolio],@"value":[self setNillValue:curent],@"image":@"2icon",}];
-        [topCVArray addObject:@{@"key":[self setNillValue:paymentsDue],@"value":@"0",@"image":@"3icon",}];
+        [topCVArray addObject:@{@"key":[self setNillValue:paymentsDue],@"value":[self setNillValue:paymentDue],@"image":@"3icon",}];
         [topCVArray addObject:@{@"key":[self setNillValue:openServiceRequests],@"value":kUserProfile.openCases,@"image":@"4icon"}];
         [_topCollectionView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
 //        [self.carousel performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];

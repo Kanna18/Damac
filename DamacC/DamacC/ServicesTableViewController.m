@@ -153,7 +153,7 @@ static NSString *reuseCell = @"servicesCell";
         vw.headerButton.hidden = YES;
         vw.label1.text =rs.unitNumber;
         vw.label2.text =rs.unitType;
-        vw.label3.text =rs.totalInvoiced;
+        vw.label3.text =rs.propertyCity;
         [cell.contentView addSubview:vw];
         if(indexPath.row %2 == 0){
             vw.backgroundColor = rgb(50, 50, 50);
@@ -199,9 +199,9 @@ static NSString *reuseCell = @"servicesCell";
     }if([_typeOfvc isEqualToString:kPay]){
         
          ResponseLine *rs = tvArray[indexPath.row];
-        if(rs.totalDueInvoice.intValue >0){
+        if(rs.totalOverDue.intValue >0){
             BillingViewController *bvc = [DamacSharedClass.sharedInstance.currentVC.storyboard instantiateViewControllerWithIdentifier:@"billVC"];
-            bvc.dueAmount = rs.totalDueInvoice;
+            bvc.dueAmount = rs.totalOverDue;
             [DamacSharedClass.sharedInstance.currentVC.navigationController pushViewController:bvc animated:YES];
         }else{
             [FTIndicator showToastMessage:@"No OutStanding Amount"];

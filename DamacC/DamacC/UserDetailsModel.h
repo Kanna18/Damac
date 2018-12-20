@@ -75,6 +75,7 @@
 @property (nonatomic) NSString <Optional> *organizationName;
 @property (nonatomic) NSString <Optional> *postalCode;
 @property (nonatomic) NSString <Optional> *state;
+@property (nonatomic) NSString <Optional> *totalDueOther;
 
 
 @end

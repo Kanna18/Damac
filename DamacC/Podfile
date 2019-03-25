@@ -4,14 +4,15 @@ project 'DamacC.xcodeproj'
 
 target 'DamacC' do
 
+source 'https://github.com/forcedotcom/SalesforceMobileSDK-iOS-Specs.git' # needs to be first 
 source 'https://github.com/CocoaPods/Specs.git'
 
 use_frameworks!
 
-pod 'SalesforceAnalytics', :path => 'mobile_sdk/SalesforceMobileSDK-iOS'
-pod 'SalesforceSDKCore', :path => 'mobile_sdk/SalesforceMobileSDK-iOS'
-pod 'SmartStore', :path => 'mobile_sdk/SalesforceMobileSDK-iOS'
-pod 'SmartSync', :path => 'mobile_sdk/SalesforceMobileSDK-iOS'
+pod 'SalesforceAnalytics'
+pod 'SalesforceSDKCore'
+pod 'SmartStore'
+pod 'SmartSync'
 #pod 'FTIndicator'
 pod 'AFNetworking', '~> 2.5.4'
 pod 'JSONModel'

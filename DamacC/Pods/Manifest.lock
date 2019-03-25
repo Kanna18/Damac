@@ -95,35 +95,35 @@ PODS:
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
   - Protobuf (3.6.1)
-  - SalesforceAnalytics (6.1.0):
-    - SalesforceAnalytics/SalesforceAnalytics (= 6.1.0)
-  - SalesforceAnalytics/SalesforceAnalytics (6.1.0):
+  - SalesforceAnalytics (6.2.0):
+    - SalesforceAnalytics/SalesforceAnalytics (= 6.2.0)
+  - SalesforceAnalytics/SalesforceAnalytics (6.2.0):
     - CocoaLumberjack (~> 2.4.0)
-  - SalesforceSDKCore (6.1.0):
-    - SalesforceSDKCore/SalesforceSDKCore (= 6.1.0)
-  - SalesforceSDKCore/SalesforceSDKCore (6.1.0):
+  - SalesforceSDKCore (6.2.0):
+    - SalesforceSDKCore/SalesforceSDKCore (= 6.2.0)
+  - SalesforceSDKCore/SalesforceSDKCore (6.2.0):
     - SalesforceAnalytics
-    - SalesforceSDKCore/SalesforceSDKCore/arc (= 6.1.0)
-    - SalesforceSDKCore/SalesforceSDKCore/base (= 6.1.0)
-    - SalesforceSDKCore/SalesforceSDKCore/no-arc (= 6.1.0)
-  - SalesforceSDKCore/SalesforceSDKCore/arc (6.1.0):
+    - SalesforceSDKCore/SalesforceSDKCore/arc (= 6.2.0)
+    - SalesforceSDKCore/SalesforceSDKCore/base (= 6.2.0)
+    - SalesforceSDKCore/SalesforceSDKCore/no-arc (= 6.2.0)
+  - SalesforceSDKCore/SalesforceSDKCore/arc (6.2.0):
     - SalesforceAnalytics
     - SalesforceSDKCore/SalesforceSDKCore/base
     - SalesforceSDKCore/SalesforceSDKCore/no-arc
-  - SalesforceSDKCore/SalesforceSDKCore/base (6.1.0):
+  - SalesforceSDKCore/SalesforceSDKCore/base (6.2.0):
     - SalesforceAnalytics
-  - SalesforceSDKCore/SalesforceSDKCore/no-arc (6.1.0):
+  - SalesforceSDKCore/SalesforceSDKCore/no-arc (6.2.0):
     - SalesforceAnalytics
     - SalesforceSDKCore/SalesforceSDKCore/base
-  - SmartStore (6.1.0):
-    - SmartStore/SmartStore (= 6.1.0)
-  - SmartStore/SmartStore (6.1.0):
+  - SmartStore (6.2.0):
+    - SmartStore/SmartStore (= 6.2.0)
+  - SmartStore/SmartStore (6.2.0):
     - FMDB/SQLCipher (~> 2.7.2)
     - SalesforceSDKCore
     - SQLCipher/fts (~> 3.4.1)
-  - SmartSync (6.1.0):
-    - SmartSync/SmartSync (= 6.1.0)
-  - SmartSync/SmartSync (6.1.0):
+  - SmartSync (6.2.0):
+    - SmartSync/SmartSync (= 6.2.0)
+  - SmartSync/SmartSync (6.2.0):
     - SalesforceSDKCore
     - SmartStore
   - SQLCipher (3.4.2):
@@ -142,10 +142,10 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Messaging
   - JSONModel
-  - SalesforceAnalytics (from `mobile_sdk/SalesforceMobileSDK-iOS`)
-  - SalesforceSDKCore (from `mobile_sdk/SalesforceMobileSDK-iOS`)
-  - SmartStore (from `mobile_sdk/SalesforceMobileSDK-iOS`)
-  - SmartSync (from `mobile_sdk/SalesforceMobileSDK-iOS`)
+  - SalesforceAnalytics
+  - SalesforceSDKCore
+  - SmartStore
+  - SmartSync
   - WYPopoverController (~> 0.2.0)
 
 SPEC REPOS:
@@ -168,16 +168,11 @@ SPEC REPOS:
     - Protobuf
     - SQLCipher
     - WYPopoverController
-
-EXTERNAL SOURCES:
-  SalesforceAnalytics:
-    :path: mobile_sdk/SalesforceMobileSDK-iOS
-  SalesforceSDKCore:
-    :path: mobile_sdk/SalesforceMobileSDK-iOS
-  SmartStore:
-    :path: mobile_sdk/SalesforceMobileSDK-iOS
-  SmartSync:
-    :path: mobile_sdk/SalesforceMobileSDK-iOS
+  https://github.com/forcedotcom/SalesforceMobileSDK-iOS-Specs.git:
+    - SalesforceAnalytics
+    - SalesforceSDKCore
+    - SmartStore
+    - SmartSync
 
 SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
@@ -196,13 +191,13 @@ SPEC CHECKSUMS:
   JSONModel: 02ab723958366a3fd27da57ea2af2113658762e9
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
-  SalesforceAnalytics: 193fba8610b5b7354920db2a1c5935f8f40656a6
-  SalesforceSDKCore: 91e2e5f91f3dc8b4dcfe64ea838573a8253c2f79
-  SmartStore: 0293ab9b1c2795003594be512f45eabf153fe66e
-  SmartSync: ceec90621311f6d4aa5fc0ea17ba699754b0dfb5
+  SalesforceAnalytics: ce80f5a13795d12812dbb83a7048370d3ccb6bf5
+  SalesforceSDKCore: fd9c9ae15609796308d22e8e2fdeb3cb43b06ccf
+  SmartStore: 7d6c420b7aa6050ed0aed65e9a163ad12b1550f4
+  SmartSync: 1604bbb47e111d6f08dd5272dc52d65afaf94abe
   SQLCipher: f9fcf29b2e59ced7defc2a2bdd0ebe79b40d4990
   WYPopoverController: 00d879c25bddd1fd873dcc21aa98c8308d7f1555
 
-PODFILE CHECKSUM: 9f563146aa499ccd9381bbfa4fc971970890be2d
+PODFILE CHECKSUM: 7221416cfaf14f5c0d979d83ff7df75e5e675afd
 
-COCOAPODS: 1.6.0.beta.2
+COCOAPODS: 1.6.1

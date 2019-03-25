@@ -12,6 +12,12 @@
 
 #import "SFAdvancedSyncUpTarget.h"
 #import "SFChildrenInfo.h"
+#import "SFLayout.h"
+#import "SFLayoutSyncDownTarget.h"
+#import "SFLayoutSyncManager.h"
+#import "SFMetadata.h"
+#import "SFMetadataSyncDownTarget.h"
+#import "SFMetadataSyncManager.h"
 #import "SFMruSyncDownTarget.h"
 #import "SFObject.h"
 #import "SFObjectType.h"

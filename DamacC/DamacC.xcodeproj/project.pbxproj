@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		181D6E8522495A8D00AEFABB /* CCAvenueSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 181D6E8422495A8D00AEFABB /* CCAvenueSDK.framework */; };
 		4C1FFC442EBEEC68228FD4A2 /* Pods_DamacC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 963039B5CBD9F0905930BC2D /* Pods_DamacC.framework */; };
 		4F8D5EA31B6C0568005E64D4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8D5EA21B6C0568005E64D4 /* main.m */; };
 		4F8D5EA61B6C0568005E64D4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8D5EA51B6C0568005E64D4 /* AppDelegate.m */; };
 		4F8D5EC81B6C0F94005E64D4 /* InitialViewController1.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8D5EC71B6C0F94005E64D4 /* InitialViewController1.m */; };
 		4F8D5ECB1B6C0FE4005E64D4 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8D5ECA1B6C0FE4005E64D4 /* RootViewController.m */; };
-		B7168FBA1FACC5D900A48DB5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7168FB91FACC5D900A48DB5 /* LaunchScreen.storyboard */; };
 		F60164ED20ABB9D900E07510 /* UnitsDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F60164EC20ABB9D900E07510 /* UnitsDataModel.m */; };
 		F60164F320ABF36F00E07510 /* PaymentsDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F60164F220ABF36F00E07510 /* PaymentsDataModel.m */; };
 		F604B35F2165FD030047CBD2 /* ReceiptsTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F604B35E2165FD030047CBD2 /* ReceiptsTableVC.m */; };
@@ -161,8 +161,6 @@
 		F6B9A426217EEC6C00FF41D6 /* ErrorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B9A425217EEC6C00FF41D6 /* ErrorViewController.m */; };
 		F6BBF407218EDFA600C9A566 /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6BBF406218EDFA600C9A566 /* HelpViewController.m */; };
 		F6BBF40B218EF5E100C9A566 /* HelpTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F6BBF40A218EF5E100C9A566 /* HelpTableViewCell.m */; };
-		F6C0D0AB21CBF5D500825A2C /* CCAvenueSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F679E0B321C683E800CB45AE /* CCAvenueSDK.framework */; };
-		F6C0D0AC21CBF5D500825A2C /* CCAvenueSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F679E0B321C683E800CB45AE /* CCAvenueSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F6C57C5621585C4900970DC3 /* PassportUpdateVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C57C5521585C4900970DC3 /* PassportUpdateVC.m */; };
 		F6C57C5A21585FD900970DC3 /* ChangeofContactCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C57C5921585FD900970DC3 /* ChangeofContactCell2.m */; };
 		F6C57C5D2158649F00970DC3 /* PassportCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C57C5C2158649E00970DC3 /* PassportCell1.m */; };
@@ -228,7 +226,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				F6C0D0AC21CBF5D500825A2C /* CCAvenueSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -236,6 +233,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		181D6E8422495A8D00AEFABB /* CCAvenueSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CCAvenueSDK.framework; sourceTree = "<group>"; };
 		2EA1CF321EA1CB95D50AC1A0 /* Pods-DamacC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DamacC.release.xcconfig"; path = "Target Support Files/Pods-DamacC/Pods-DamacC.release.xcconfig"; sourceTree = "<group>"; };
 		4F277E8C1DC7F5DF00E5A77C /* Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
 		4F8D5E9D1B6C0568005E64D4 /* DamacC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DamacC.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -249,7 +247,6 @@
 		4F8D5ECA1B6C0FE4005E64D4 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		4FF12F911DCA9E6B004D9EF9 /* DamacC.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DamacC.entitlements; sourceTree = "<group>"; };
 		963039B5CBD9F0905930BC2D /* Pods_DamacC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DamacC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B7168FB91FACC5D900A48DB5 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = "../mobile_sdk/SalesforceMobileSDK-iOS/shared/resources/LaunchScreen.storyboard"; sourceTree = "<group>"; };
 		E168EE5FF4586734F3C67719 /* Pods-DamacC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DamacC.debug.xcconfig"; path = "Target Support Files/Pods-DamacC/Pods-DamacC.debug.xcconfig"; sourceTree = "<group>"; };
 		F60164EB20ABB9D900E07510 /* UnitsDataModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UnitsDataModel.h; sourceTree = "<group>"; };
 		F60164EC20ABB9D900E07510 /* UnitsDataModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UnitsDataModel.m; sourceTree = "<group>"; };
@@ -375,7 +372,6 @@
 		F67668A92199A51E00FFBDC4 /* AlertPopUp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AlertPopUp.h; sourceTree = "<group>"; };
 		F67668AA2199A51E00FFBDC4 /* AlertPopUp.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AlertPopUp.m; sourceTree = "<group>"; };
 		F67668AC2199A52C00FFBDC4 /* AlertPopUp.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertPopUp.xib; sourceTree = "<group>"; };
-		F679E0B321C683E800CB45AE /* CCAvenueSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CCAvenueSDK.framework; sourceTree = "<group>"; };
 		F67D77A521749FAC009EE062 /* SurveyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SurveyViewController.h; sourceTree = "<group>"; };
 		F67D77A621749FAC009EE062 /* SurveyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SurveyViewController.m; sourceTree = "<group>"; };
 		F67D77A821749FC3009EE062 /* SurveyCell1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SurveyCell1.h; sourceTree = "<group>"; };
@@ -598,6 +594,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6141E6021A07A3A00224829 /* FirebaseCore.framework in Frameworks */,
+				181D6E8522495A8D00AEFABB /* CCAvenueSDK.framework in Frameworks */,
 				F691B3592190CFBE008EA47D /* UIKit.framework in Frameworks */,
 				F691B3572190CFB3008EA47D /* Foundation.framework in Frameworks */,
 				F659E0AF2188E46D00A9DB16 /* MessageUI.framework in Frameworks */,
@@ -605,7 +602,6 @@
 				F6C57C742158CD2400970DC3 /* libxml2.2.tbd in Frameworks */,
 				F6D91E3A20994A5D00DA1428 /* LocalAuthentication.framework in Frameworks */,
 				4C1FFC442EBEEC68228FD4A2 /* Pods_DamacC.framework in Frameworks */,
-				F6C0D0AB21CBF5D500825A2C /* CCAvenueSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -624,7 +620,7 @@
 		4F8D5E941B6C0568005E64D4 = {
 			isa = PBXGroup;
 			children = (
-				F679E0B321C683E800CB45AE /* CCAvenueSDK.framework */,
+				181D6E8422495A8D00AEFABB /* CCAvenueSDK.framework */,
 				F686163C20982C9C002EA241 /* PrefixHeader.pch */,
 				4F8D5E9F1B6C0568005E64D4 /* DamacC */,
 				4F8D5E9E1B6C0568005E64D4 /* Products */,
@@ -670,7 +666,6 @@
 		4F8D5EA01B6C0568005E64D4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				B7168FB91FACC5D900A48DB5 /* LaunchScreen.storyboard */,
 				F6393A3021C0752200266F45 /* GoogleService-Info.plist */,
 				F688503E218CA33700CBD859 /* GoogleService-Info1234.plist */,
 				4F8D5EA11B6C0568005E64D4 /* Info.plist */,
@@ -1527,7 +1522,6 @@
 				F6C57DD2215A388800970DC3 /* Complaints.json in Resources */,
 				F6264233211404B20022C4DC /* NewStoryboard.storyboard in Resources */,
 				F6CB3FD220EB753500D290A6 /* expanded.png in Resources */,
-				B7168FBA1FACC5D900A48DB5 /* LaunchScreen.storyboard in Resources */,
 				F6A739FB219AC93D00ED2B7D /* ccavenue.png in Resources */,
 				F6E8D4C7211817360063CC16 /* Images.xcassets in Resources */,
 				F6A739FE219AC93D00ED2B7D /* newDown.png in Resources */,

@@ -74,7 +74,7 @@
     NSDictionary *dict = @{@"allQuestions":_surveyArray};
     NSString *Data = [NSJSONSerialization dataWithJSONObject:dict options:0 error:nil];
     NSString *jsonStr = [[NSString alloc]initWithData:Data encoding:NSUTF8StringEncoding];
-    [server postRequestwithUrl:@"https://partial-servicecloudtrial-155c0807bf-1580afc5db1.cs80.force.com/Customer/services/apexrest/surveyResponse/" withParameters:dict successBlock:^(id responseObj) {
+    [server postRequestwithUrl:surveyResponseUrl withParameters:dict successBlock:^(id responseObj) {
         if(responseObj){
             NSDictionary *resp = [NSJSONSerialization JSONObjectWithData:responseObj options:0 error:nil];
             NSLog(@"resp -%@",resp);

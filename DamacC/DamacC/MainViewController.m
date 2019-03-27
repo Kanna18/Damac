@@ -855,7 +855,7 @@
                            @"fcmToken":handleNull(token)
                            };
     
-    [fcmServer postRequestwithUrl:@"https://partial-servicecloudtrial-155c0807bf-1580afc5db1.cs80.force.com/MobileApp/services/apexrest/SaveFCMTokenFromMobileApp/" withParameters:resp successBlock:^(id responseObj) {
+    [fcmServer postRequestwithUrl:SaveFCMTokenFromMobileAppUrl withParameters:resp successBlock:^(id responseObj) {
         
         if(responseObj){
             if([[NSJSONSerialization JSONObjectWithData:responseObj options:0 error:nil] isKindOfClass:[NSArray class]]){
@@ -884,7 +884,7 @@
 -(void)notificationsbell{
     SFUserAccountManager *sf = [SFUserAccountManager sharedInstance];
     ServerAPIManager *server = [ServerAPIManager sharedinstance];
-    [server postRequestwithUrl:@"https://partial-servicecloudtrial-155c0807bf-1580afc5db1.cs80.force.com/MobileApp/services/apexrest/SendNotificationsToMobileApp/" withParameters:@{@"accountId":sf.currentUser.credentials.userId} successBlock:^(id responseObj) {
+    [server postRequestwithUrl:sendNotificationsToServerUrl withParameters:@{@"accountId":sf.currentUser.credentials.userId} successBlock:^(id responseObj) {
         if(responseObj){
              NSArray *tvData =[NSJSONSerialization JSONObjectWithData:responseObj options:0 error:nil];
             if(tvData.count>0){

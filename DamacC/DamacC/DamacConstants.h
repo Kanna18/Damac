@@ -58,6 +58,60 @@
 #define fyCustomerSer @"CALL CUSTOMER SERVICE"
 
 #pragma mark Webservices
+
+
+/*************************Production Build Urls*************************************/
+#if BUILD_PRODUCTION
+
+#define maiUrl @"https://ptc.damacgroup.com/DCOFFEE/force/userid/"
+#define unitsServiceUrl @"https://ptc.damacgroup.com/DCOFFEE/registration/party/"
+
+#define myServicesUrl @"https://servicecloudtrial-155c0807bf-1580afc5db1.force.com/MobileApp/services/apexrest/getCaseDetails/"
+#define getAppointments @"https://servicecloudtrial-155c0807bf-1580afc5db1.force.com/MobileApp/services/apexrest/SendAppointmentsToMObileApp/"
+
+#define jointBuyersUrl @"https://servicecloudtrial-155c0807bf-1580afc5db1.force.com/MobileApp/services/apexrest/GetBuyersInfoToMobileApp/" /*To get Joint Buyers info need to pass SFID*/ //(SFID is not getting in Units API so calling Bookings API to get SFIDS )
+#define bookingsAPI @"https://servicecloudtrial-155c0807bf-1580afc5db1.force.com/MobileApp/services/apexrest/GetMyUnitBookings/" /*Requires Account ID from UserData Model*/
+
+#define createAppointmentRequest @"https://servicecloudtrial-155c0807bf-1580afc5db1.force.com/MobileApp/services/apexrest/SaveScheduleAppointment/" /*Create a service Reequest*/
+
+#define getReceiptsRequest @"https://ptc.damacgroup.com/DCOFFEE/receipt/party/"
+
+#define prrofOfPayment @"https://servicecloudtrial-155c0807bf-1580afc5db1.force.com/MobileApp/services/apexrest/SaveProofOfPayment/"
+
+#define kgetCountriesList @"https://servicecloudtrial-155c0807bf-1580afc5db1.force.com/MobileApp/services/apexrest/SendCountriesListToMobileApp"
+
+#define ChangeofDetailsServicesUrl @"https://servicecloudtrial-155c0807bf-1580afc5db1.force.com/MobileApp/services/apexrest/SaveChangeOfDetailsCase/"
+
+#define ComplaintsServiceUrl @"https://servicecloudtrial-155c0807bf-1580afc5db1.force.com/MobileApp/services/apexrest/SaveComplaintFromMobileApp/"
+#define ProofOFPaymentServiceURl @"https://servicecloudtrial-155c0807bf-1580afc5db1.force.com/MobileApp/services/apexrest/SaveProofOfPayment/"
+#define JointBuyerServiceUrl @"https://servicecloudtrial-155c0807bf-1580afc5db1.force.com/MobileApp/services/apexrest/SaveJointBuyerDetails/"
+#define PassportUpdateServiceUrl @"https://servicecloudtrial-155c0807bf-1580afc5db1.force.com/MobileApp/services/apexrest/SaveUpdatePassportDetails/"
+#define downloadFormUrl @"https://servicecloudtrial-155c0807bf-1580afc5db1.force.com/MobileApp/services/apexrest/SendCOCDUrlToMObileApp/"
+
+
+#define getDetailsBySR @"https://servicecloudtrial-155c0807bf-1580afc5db1.force.com/MobileApp/services/apexrest/SendCaseDetailToMObileApp/"
+
+#define sendNotificationsToServerUrl @"https://servicecloudtrial-155c0807bf-1580afc5db1.force.com/MobileApp/services/apexrest/SendNotificationsToMobileApp/"
+
+#define updateNotificationsToServerUrl @"https://servicecloudtrial-155c0807bf-1580afc5db1.force.com/MobileApp/services/apexrest/UpdateNotificationsFromMobileApp/"
+
+#define SendAvailableAppointmentsToMObileAppUrl @"https://servicecloudtrial-155c0807bf-1580afc5db1.force.com/MobileApp/services/apexrest/SendAvailableAppointmentsToMObileApp/"
+
+#define surveyQuestionsUrl @"https://servicecloudtrial-155c0807bf-1580afc5db1.force.com/MobileApp/services/apexrest/surveyQuestions/"
+
+#define surveyResponseUrl @"https://partial-servicecloudtrial-155c0807bf-1580afc5db1.cs80.force.com/Customer/services/apexrest/surveyResponse/"
+
+#define SaveFCMTokenFromMobileAppUrl @"https://servicecloudtrial-155c0807bf-1580afc5db1.force.com/MobileApp/services/apexrest/SaveFCMTokenFromMobileApp/"
+
+#define BillingGetRSA @"https://ptc.damacgroup.com/ptc/GetRSA.jsp"
+
+#define BillingResponseHandler @"https://ptc.damacgroup.com/ptc/ResponseHandler.jsp"
+
+#else
+
+/***************************************************************************************/
+
+/******************************Sandbox Build Urls**************************************/
 #define maiUrl @"https://ptctest.damacgroup.com/DCOFFEE/force/userid/"
 #define unitsServiceUrl @"https://ptctest.damacgroup.com/DCOFFEE/registration/party/"
 
@@ -85,6 +139,26 @@
 
 
 #define getDetailsBySR @"https://partial-servicecloudtrial-155c0807bf-1580afc5db1.cs80.force.com/MobileApp/services/apexrest/SendCaseDetailToMObileApp/"
+
+#define sendNotificationsToServerUrl @"https://partial-servicecloudtrial-155c0807bf-1580afc5db1.cs80.force.com/MobileApp/services/apexrest/SendNotificationsToMobileApp/"
+#define updateNotificationsToServerUrl @"https://partial-servicecloudtrial-155c0807bf-1580afc5db1.cs80.force.com/MobileApp/services/apexrest/UpdateNotificationsFromMobileApp/"
+
+#define SendAvailableAppointmentsToMObileAppUrl @"https://partial-servicecloudtrial-155c0807bf-1580afc5db1.cs80.force.com/MobileApp/services/apexrest/SendAvailableAppointmentsToMObileApp/"
+
+#define surveyQuestionsUrl @"https://partial-servicecloudtrial-155c0807bf-1580afc5db1.cs80.force.com/Customer/services/apexrest/surveyQuestions/"
+
+#define surveyResponseUrl @"https://partial-servicecloudtrial-155c0807bf-1580afc5db1.cs80.force.com/Customer/services/apexrest/surveyResponse/"
+#define SaveFCMTokenFromMobileAppUrl @"https://partial-servicecloudtrial-155c0807bf-1580afc5db1.cs80.force.com/MobileApp/services/apexrest/SaveFCMTokenFromMobileApp/"
+
+#define BillingGetRSA @"https://ptctest.damacgroup.com/ptctest/GetRSA.jsp"
+
+#define BillingResponseHandler @"https://ptctest.damacgroup.com/ptctest/ResponseHandler.jsp"
+
+#endif
+/***************************************************************************************/
+
+
+
 
 
 

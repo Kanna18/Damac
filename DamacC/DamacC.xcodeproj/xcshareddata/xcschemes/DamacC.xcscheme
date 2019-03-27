@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "4F8D5E9C1B6C0568005E64D4"
-               BuildableName = "DamacC.app"
-               BlueprintName = "DamacC"
+               BuildableName = "DamacC_Sandbox.app"
+               BlueprintName = "DamacC_Sandbox"
                ReferencedContainer = "container:DamacC.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -33,8 +33,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4F8D5E9C1B6C0568005E64D4"
-            BuildableName = "DamacC.app"
-            BlueprintName = "DamacC"
+            BuildableName = "DamacC_Sandbox.app"
+            BlueprintName = "DamacC_Sandbox"
             ReferencedContainer = "container:DamacC.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -56,8 +56,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4F8D5E9C1B6C0568005E64D4"
-            BuildableName = "DamacC.app"
-            BlueprintName = "DamacC"
+            BuildableName = "DamacC_Sandbox.app"
+            BlueprintName = "DamacC_Sandbox"
             ReferencedContainer = "container:DamacC.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -75,8 +75,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4F8D5E9C1B6C0568005E64D4"
-            BuildableName = "DamacC.app"
-            BlueprintName = "DamacC"
+            BuildableName = "DamacC_Sandbox.app"
+            BlueprintName = "DamacC_Sandbox"
             ReferencedContainer = "container:DamacC.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

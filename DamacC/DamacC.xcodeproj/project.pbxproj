@@ -7,7 +7,219 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		181D6E8522495A8D00AEFABB /* CCAvenueSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 181D6E8422495A8D00AEFABB /* CCAvenueSDK.framework */; };
+		18113770224A07EF00C957C4 /* CCAvenueSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 181D6E8422495A8D00AEFABB /* CCAvenueSDK.framework */; };
+		18113771224A07EF00C957C4 /* CCAvenueSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 181D6E8422495A8D00AEFABB /* CCAvenueSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		18113775224BBF6200C957C4 /* SaopServices.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C57CB42158F1BD00970DC3 /* SaopServices.m */; };
+		18113776224BBF6200C957C4 /* StepperAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = F62642022113204B0022C4DC /* StepperAnimation.m */; };
+		18113777224BBF6200C957C4 /* FTNotificationIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = F60F90E62199F7A600B2A10D /* FTNotificationIndicator.m */; };
+		18113778224BBF6200C957C4 /* DamacSharedClass.m in Sources */ = {isa = PBXBuildFile; fileRef = F6CB3FC220EB291600D290A6 /* DamacSharedClass.m */; };
+		18113779224BBF6200C957C4 /* DamacC-Bridging-Header.h in Sources */ = {isa = PBXBuildFile; fileRef = F686163F209852AD002EA241 /* DamacC-Bridging-Header.h */; };
+		1811377A224BBF6200C957C4 /* DetailMyUnitsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A87EE6209F214B008D34C5 /* DetailMyUnitsViewController.m */; };
+		1811377B224BBF6200C957C4 /* CustomLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F6DE0FFD218013ED00C13F72 /* CustomLabel.m */; };
+		1811377C224BBF6200C957C4 /* SurveyCell5.m in Sources */ = {isa = PBXBuildFile; fileRef = F67D77B521749FED009EE062 /* SurveyCell5.m */; };
+		1811377D224BBF6200C957C4 /* popObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F68CF5BC216DD6E500852EF5 /* popObject.m */; };
+		1811377E224BBF6200C957C4 /* PaymentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F63FCF1620FBCC200027FEA8 /* PaymentsViewController.m */; };
+		1811377F224BBF6200C957C4 /* PassportFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A37F9C216E782D00A4AD11 /* PassportFooter.m */; };
+		18113780224BBF6200C957C4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8D5EA51B6C0568005E64D4 /* AppDelegate.m */; };
+		18113781224BBF6200C957C4 /* FTIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = F60F90DD2199F7A600B2A10D /* FTIndicator.m */; };
+		18113782224BBF6200C957C4 /* CameraView.m in Sources */ = {isa = PBXBuildFile; fileRef = F604B36A2167245E0047CBD2 /* CameraView.m */; };
+		18113783224BBF6200C957C4 /* ProofOfPaymentNewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F65D8CCC21907A4800B4823E /* ProofOfPaymentNewVC.m */; };
+		18113784224BBF6200C957C4 /* SurveyCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = F67D77AC21749FCF009EE062 /* SurveyCell2.m */; };
+		18113785224BBF6200C957C4 /* LoadingLogoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E8D4D021192B440063CC16 /* LoadingLogoVC.m */; };
+		18113786224BBF6200C957C4 /* PopCell3.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A86688211A9B5900560CD5 /* PopCell3.m */; };
+		18113787224BBF6200C957C4 /* StepperView.m in Sources */ = {isa = PBXBuildFile; fileRef = F6264208211361880022C4DC /* StepperView.m */; };
+		18113788224BBF6200C957C4 /* VKSideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = F6D91E402099740400DA1428 /* VKSideMenu.m */; };
+		18113789224BBF6200C957C4 /* ScheduleAppointmentsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B31BE020F33328001A5144 /* ScheduleAppointmentsVC.m */; };
+		1811378A224BBF6200C957C4 /* APPSXXDC_AOPT_PKG_WSX1843128X6X5.m in Sources */ = {isa = PBXBuildFile; fileRef = F61124B22164CEE900901694 /* APPSXXDC_AOPT_PKG_WSX1843128X6X5.m */; };
+		1811378B224BBF6200C957C4 /* SurveyCell3.m in Sources */ = {isa = PBXBuildFile; fileRef = F67D77AF21749FD9009EE062 /* SurveyCell3.m */; };
+		1811378C224BBF6200C957C4 /* AppointmentObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B166C92188780F0094A2B4 /* AppointmentObject.m */; };
+		1811378D224BBF6200C957C4 /* ServicesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F6CBCCD52171DB1000615072 /* ServicesCell.m */; };
+		1811378E224BBF6200C957C4 /* FTProgressIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = F60F90E42199F7A600B2A10D /* FTProgressIndicator.m */; };
+		1811378F224BBF6200C957C4 /* BillingObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F691B34D2190B402008EA47D /* BillingObject.m */; };
+		18113790224BBF6200C957C4 /* AOPT.m in Sources */ = {isa = PBXBuildFile; fileRef = F61124A72164CEAF00901694 /* AOPT.m */; };
+		18113791224BBF6200C957C4 /* MyServicesDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F6170A5C20FCC6ED003443B1 /* MyServicesDataModel.m */; };
+		18113792224BBF6200C957C4 /* NotificationsTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F6ABE34C218AD72100968772 /* NotificationsTableVC.m */; };
+		18113793224BBF6200C957C4 /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6BBF406218EDFA600C9A566 /* HelpViewController.m */; };
+		18113794224BBF6200C957C4 /* EServicesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E8321920AD11070003DC5E /* EServicesViewController.m */; };
+		18113795224BBF6200C957C4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8D5EA21B6C0568005E64D4 /* main.m */; };
+		18113796224BBF6200C957C4 /* BuyersModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F692F5C7216F259E0001F32D /* BuyersModel.m */; };
+		18113797224BBF6200C957C4 /* CustomViewCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = F63FCF0120F87E3A0027FEA8 /* CustomViewCarousel.m */; };
+		18113798224BBF6200C957C4 /* PassportObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F6FB0E4D2180710800CBCB72 /* PassportObject.m */; };
+		18113799224BBF6200C957C4 /* NSString+StringValidations.m in Sources */ = {isa = PBXBuildFile; fileRef = F655076E217D6F4C003EC62E /* NSString+StringValidations.m */; };
+		1811379A224BBF6200C957C4 /* FTToastIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = F60F90DF2199F7A600B2A10D /* FTToastIndicator.m */; };
+		1811379B224BBF6200C957C4 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6D91E4620997AEA00DA1428 /* MainViewController.m */; };
+		1811379C224BBF6200C957C4 /* AppointmentsSlotsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F653D3ED21876EB700F6021F /* AppointmentsSlotsViewController.m */; };
+		1811379D224BBF6200C957C4 /* ChangeofContactCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C57C5921585FD900970DC3 /* ChangeofContactCell2.m */; };
+		1811379E224BBF6200C957C4 /* WSCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C57E16215B03DF00970DC3 /* WSCalendarView.m */; };
+		1811379F224BBF6200C957C4 /* ServicesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A87ECE209BFC7F008D34C5 /* ServicesTableViewController.m */; };
+		181137A0224BBF6200C957C4 /* CustomBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F62641F7210EFE580022C4DC /* CustomBar.m */; };
+		181137A1224BBF6200C957C4 /* PaymentsScheduleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F61124C42165CA4F00901694 /* PaymentsScheduleCell.m */; };
+		181137A2224BBF6200C957C4 /* UnitsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E8D4DC2119CB1A0063CC16 /* UnitsTableViewController.m */; };
+		181137A3224BBF6200C957C4 /* WSEventView.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C57E13215B03DE00970DC3 /* WSEventView.m */; };
+		181137A4224BBF6200C957C4 /* GridCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F6FA5B792099BC6F009A8F15 /* GridCollectionViewCell.m */; };
+		181137A5224BBF6200C957C4 /* AOPTProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = F61124A62164CEAF00901694 /* AOPTProxy.m */; };
+		181137A6224BBF6200C957C4 /* SurveyRatingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F67D77BB2174DE74009EE062 /* SurveyRatingCell.m */; };
+		181137A7224BBF6200C957C4 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = F63FCEFC20F782E60027FEA8 /* iCarousel.m */; };
+		181137A8224BBF6200C957C4 /* SurveyController.m in Sources */ = {isa = PBXBuildFile; fileRef = F66B30B52184AF110071AA93 /* SurveyController.m */; };
+		181137A9224BBF6200C957C4 /* TopCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F6FA5B762099BC64009A8F15 /* TopCollectionCell.m */; };
+		181137AA224BBF6200C957C4 /* KeyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6FA5B722099A083009A8F15 /* KeyViewController.m */; };
+		181137AB224BBF6200C957C4 /* POPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A8667F211A884800560CD5 /* POPViewController.m */; };
+		181137AC224BBF6200C957C4 /* Translator.m in Sources */ = {isa = PBXBuildFile; fileRef = F659E0B02188F46C00A9DB16 /* Translator.m */; };
+		181137AD224BBF6200C957C4 /* ProfileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F6132E0B20A7E2E900FEEEBE /* ProfileTableViewCell.m */; };
+		181137AE224BBF6200C957C4 /* SurveyCell6.m in Sources */ = {isa = PBXBuildFile; fileRef = F67D77B821749FFD009EE062 /* SurveyCell6.m */; };
+		181137AF224BBF6200C957C4 /* COCDTF.m in Sources */ = {isa = PBXBuildFile; fileRef = F66B30B22183B7B90071AA93 /* COCDTF.m */; };
+		181137B0224BBF6200C957C4 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8D5ECA1B6C0FE4005E64D4 /* RootViewController.m */; };
+		181137B1224BBF6200C957C4 /* JointBuyerObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F6DE0FF6217FE52F00C13F72 /* JointBuyerObject.m */; };
+		181137B2224BBF6200C957C4 /* JointBuyersDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C57C6B2158B63B00970DC3 /* JointBuyersDetails.m */; };
+		181137B3224BBF6200C957C4 /* WSLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C57E11215B03DE00970DC3 /* WSLabel.m */; };
+		181137B4224BBF6200C957C4 /* ReceiptsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F604B3622165FD300047CBD2 /* ReceiptsTableViewCell.m */; };
+		181137B5224BBF6200C957C4 /* ViewControllerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F6CB3FD320EB754000D290A6 /* ViewControllerCell.m */; };
+		181137B6224BBF6200C957C4 /* ReceiptDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F6CB3FBE20EB214F00D290A6 /* ReceiptDataModel.m */; };
+		181137B7224BBF6200C957C4 /* ViewControllerCellHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = F6CB3FD520EB754000D290A6 /* ViewControllerCellHeader.m */; };
+		181137B8224BBF6200C957C4 /* FinishSurveyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6CCF88E218593950095D29E /* FinishSurveyViewController.m */; };
+		181137B9224BBF6200C957C4 /* BackgroundRequests.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C57C6E2158B76D00970DC3 /* BackgroundRequests.m */; };
+		181137BA224BBF6200C957C4 /* PaymentsScheduleVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F61124C02165C97300901694 /* PaymentsScheduleVC.m */; };
+		181137BB224BBF6200C957C4 /* CustomBarOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = F698216720ED49A400D023AF /* CustomBarOptions.m */; };
+		181137BC224BBF6200C957C4 /* ChangeofDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A87EE3209F1B84008D34C5 /* ChangeofDetailsViewController.m */; };
+		181137BD224BBF6200C957C4 /* InitialViewController1.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8D5EC71B6C0F94005E64D4 /* InitialViewController1.m */; };
+		181137BE224BBF6200C957C4 /* ServicesDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6170A6020FF9DB3003443B1 /* ServicesDetailController.m */; };
+		181137BF224BBF6200C957C4 /* Sub-SurveyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A5D361217502ED0010DE2B /* Sub-SurveyCell.m */; };
+		181137C0224BBF6200C957C4 /* VCFloatingActionButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C942B520E9C6D500D1F40C /* VCFloatingActionButton.m */; };
+		181137C1224BBF6200C957C4 /* ChangeofDetailsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F622C29320B3B1E3007982AE /* ChangeofDetailsCell.m */; };
+		181137C2224BBF6200C957C4 /* COCDServerObj.m in Sources */ = {isa = PBXBuildFile; fileRef = F6AE17C62175BE3D00C0E64A /* COCDServerObj.m */; };
+		181137C3224BBF6200C957C4 /* AppointmentsDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F6170A662101DBFE003443B1 /* AppointmentsDataModel.m */; };
+		181137C4224BBF6200C957C4 /* UnitsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F610E8B92121FBC800B09A5B /* UnitsCell.m */; };
+		181137C5224BBF6200C957C4 /* CreateAppointmentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C57DCD215A1C3500970DC3 /* CreateAppointmentVC.m */; };
+		181137C6224BBF6200C957C4 /* JointView1.m in Sources */ = {isa = PBXBuildFile; fileRef = F626425F21143BE20022C4DC /* JointView1.m */; };
+		181137C7224BBF6200C957C4 /* HelpTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F6BBF40A218EF5E100C9A566 /* HelpTableViewCell.m */; };
+		181137C8224BBF6200C957C4 /* PinView.m in Sources */ = {isa = PBXBuildFile; fileRef = F686160720962209002EA241 /* PinView.m */; };
+		181137C9224BBF6200C957C4 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6CB3FBA20EA9A0000D290A6 /* ProfileViewController.m */; };
+		181137CA224BBF6200C957C4 /* SampleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F610E8CC2121FE5700B09A5B /* SampleTableViewController.m */; };
+		181137CB224BBF6200C957C4 /* SlotCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F653D3F02187712000F6021F /* SlotCell.m */; };
+		181137CC224BBF6200C957C4 /* UnitsClassLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F61124BD2164E21200901694 /* UnitsClassLabel.m */; };
+		181137CD224BBF6200C957C4 /* ShowMenuOptiionsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E8D4D321192B570063CC16 /* ShowMenuOptiionsVC.m */; };
+		181137CE224BBF6200C957C4 /* PassportUpdateVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C57C5521585C4900970DC3 /* PassportUpdateVC.m */; };
+		181137CF224BBF6200C957C4 /* KPDropMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A87EDF209F0B53008D34C5 /* KPDropMenu.m */; };
+		181137D0224BBF6200C957C4 /* JointBView2.m in Sources */ = {isa = PBXBuildFile; fileRef = F626420C211367BC0022C4DC /* JointBView2.m */; };
+		181137D1224BBF6200C957C4 /* ErrorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B9A425217EEC6C00FF41D6 /* ErrorViewController.m */; };
+		181137D2224BBF6200C957C4 /* UserDetailsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F698216C20EDC1CB00D023AF /* UserDetailsModel.m */; };
+		181137D3224BBF6200C957C4 /* NotificationsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F6ABE350218AD77100968772 /* NotificationsCell.m */; };
+		181137D4224BBF6200C957C4 /* PopTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E1139D216EF4320066D521 /* PopTableViewController.m */; };
+		181137D5224BBF6200C957C4 /* SurveyCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = F67D77A921749FC3009EE062 /* SurveyCell1.m */; };
+		181137D6224BBF6200C957C4 /* ServicesSRDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = F62641B82105B9670022C4DC /* ServicesSRDetails.m */; };
+		181137D7224BBF6200C957C4 /* SerquestRequestDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F6CBCCD82171F9E900615072 /* SerquestRequestDetailCell.m */; };
+		181137D8224BBF6200C957C4 /* AOPT_Enums.m in Sources */ = {isa = PBXBuildFile; fileRef = F61124B02164CEE600901694 /* AOPT_Enums.m */; };
+		181137D9224BBF6200C957C4 /* PrintDocView.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E8321420AD07C40003DC5E /* PrintDocView.m */; };
+		181137DA224BBF6200C957C4 /* POPTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F604B36721670A610047CBD2 /* POPTableCell.m */; };
+		181137DB224BBF6200C957C4 /* MarqueeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F66CC4A72196CF8C00470F13 /* MarqueeLabel.m */; };
+		181137DC224BBF6200C957C4 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C57C792158CE1800970DC3 /* XPathQuery.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		181137DD224BBF6200C957C4 /* DocUploadDTO.m in Sources */ = {isa = PBXBuildFile; fileRef = F61124AD2164CEE500901694 /* DocUploadDTO.m */; };
+		181137DE224BBF6200C957C4 /* PaymentsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F63FCF1A20FBCD0B0027FEA8 /* PaymentsCell.m */; };
+		181137DF224BBF6200C957C4 /* JointBuyerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F6D08AB6217282E900F81DD0 /* JointBuyerCell.m */; };
+		181137E0224BBF6200C957C4 /* AlertPopUp.m in Sources */ = {isa = PBXBuildFile; fileRef = F67668AA2199A51E00FFBDC4 /* AlertPopUp.m */; };
+		181137E1224BBF6200C957C4 /* PaymentsDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F60164F220ABF36F00E07510 /* PaymentsDataModel.m */; };
+		181137E2224BBF6200C957C4 /* AppointmentsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F6170A632100692E003443B1 /* AppointmentsCell.m */; };
+		181137E3224BBF6200C957C4 /* PopCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A86682211A9B3900560CD5 /* PopCell1.m */; };
+		181137E4224BBF6200C957C4 /* ChangeofContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F626426821148D7B0022C4DC /* ChangeofContactCell.m */; };
+		181137E5224BBF6200C957C4 /* KATCircularProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = F673C0C12192CA8000A4ED0E /* KATCircularProgress.m */; };
+		181137E6224BBF6200C957C4 /* SurveyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F67D77A621749FAC009EE062 /* SurveyViewController.m */; };
+		181137E7224BBF6200C957C4 /* MyServiceRequestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B31BDC20F094FB001A5144 /* MyServiceRequestViewController.m */; };
+		181137E8224BBF6200C957C4 /* SurveyCell4.m in Sources */ = {isa = PBXBuildFile; fileRef = F67D77B221749FE3009EE062 /* SurveyCell4.m */; };
+		181137E9224BBF6200C957C4 /* ChangeOfContactDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = F6264265211487AB0022C4DC /* ChangeOfContactDetails.m */; };
+		181137EA224BBF6200C957C4 /* ReceiptsTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F604B35E2165FD030047CBD2 /* ReceiptsTableVC.m */; };
+		181137EB224BBF6200C957C4 /* PassportCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C57C5F215864AA00970DC3 /* PassportCell2.m */; };
+		181137EC224BBF6200C957C4 /* Base64Binary.m in Sources */ = {isa = PBXBuildFile; fileRef = F61124B42164CEEA00901694 /* Base64Binary.m */; };
+		181137ED224BBF6200C957C4 /* floatTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C942B220E9C6D300D1F40C /* floatTableViewCell.m */; };
+		181137EE224BBF6200C957C4 /* RentalPoolViewCellViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A87ECB209BFB87008D34C5 /* RentalPoolViewCellViewController.m */; };
+		181137EF224BBF6200C957C4 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C57C772158CE1700970DC3 /* NSData+Base64.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		181137F0224BBF6200C957C4 /* PassportCell3.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C57C62215864B600970DC3 /* PassportCell3.m */; };
+		181137F1224BBF6200C957C4 /* ServerAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F62F4B0B20A942F100EB5C9A /* ServerAPIManager.m */; };
+		181137F2224BBF6200C957C4 /* BillingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6CB3FCC20EB74E500D290A6 /* BillingViewController.m */; };
+		181137F3224BBF6200C957C4 /* unitsLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F610E8D1212203DA00B09A5B /* unitsLabel.m */; };
+		181137F4224BBF6200C957C4 /* UnitsDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F60164EC20ABB9D900E07510 /* UnitsDataModel.m */; };
+		181137F5224BBF6200C957C4 /* PasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F686161720982837002EA241 /* PasswordViewController.m */; };
+		181137F6224BBF6200C957C4 /* FingerPrintViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6FA5B6F20999E31009A8F15 /* FingerPrintViewController.m */; };
+		181137F7224BBF6200C957C4 /* PopCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A86685211A9B4A00560CD5 /* PopCell2.m */; };
+		181137F8224BBF6200C957C4 /* ComplaintsObj.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B75ADD218376B20070FB4C /* ComplaintsObj.m */; };
+		181137F9224BBF6200C957C4 /* UnitsHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = F610E8BB2121FBC900B09A5B /* UnitsHeaderView.m */; };
+		181137FA224BBF6200C957C4 /* PassportHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A37F95216E74AB00A4AD11 /* PassportHeader.m */; };
+		181137FB224BBF6200C957C4 /* ComplaintsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6EDFADB217387B3007D7704 /* ComplaintsViewController.m */; };
+		181137FC224BBF6200C957C4 /* PassportCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C57C5C2158649E00970DC3 /* PassportCell1.m */; };
+		181137FE224BBF6200C957C4 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6141E5F21A07A3A00224829 /* FirebaseCore.framework */; };
+		181137FF224BBF6200C957C4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F691B3582190CFBE008EA47D /* UIKit.framework */; };
+		18113800224BBF6200C957C4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F691B3562190CFB3008EA47D /* Foundation.framework */; };
+		18113801224BBF6200C957C4 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F659E0AE2188E46D00A9DB16 /* MessageUI.framework */; };
+		18113802224BBF6200C957C4 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F6C57C712158CD2400970DC3 /* libxml2.tbd */; };
+		18113803224BBF6200C957C4 /* libxml2.2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F6C57C722158CD2400970DC3 /* libxml2.2.tbd */; };
+		18113804224BBF6200C957C4 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6D91E3920994A5D00DA1428 /* LocalAuthentication.framework */; };
+		18113805224BBF6200C957C4 /* Pods_DamacC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 963039B5CBD9F0905930BC2D /* Pods_DamacC.framework */; };
+		18113806224BBF6200C957C4 /* CCAvenueSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 181D6E8422495A8D00AEFABB /* CCAvenueSDK.framework */; };
+		18113808224BBF6200C957C4 /* americanexpress.png in Resources */ = {isa = PBXBuildFile; fileRef = F6A739D4219AC93D00ED2B7D /* americanexpress.png */; };
+		18113809224BBF6200C957C4 /* defaultCard.png in Resources */ = {isa = PBXBuildFile; fileRef = F6A739DC219AC93D00ED2B7D /* defaultCard.png */; };
+		1811380A224BBF6200C957C4 /* diners.png in Resources */ = {isa = PBXBuildFile; fileRef = F6A739CF219AC93D00ED2B7D /* diners.png */; };
+		1811380B224BBF6200C957C4 /* collapsed.png in Resources */ = {isa = PBXBuildFile; fileRef = F6CB3FCF20EB753400D290A6 /* collapsed.png */; };
+		1811380C224BBF6200C957C4 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = F6A739D6219AC93D00ED2B7D /* arrow.png */; };
+		1811380D224BBF6200C957C4 /* Appointments.json in Resources */ = {isa = PBXBuildFile; fileRef = F6C57DCF215A361B00970DC3 /* Appointments.json */; };
+		1811380E224BBF6200C957C4 /* PaymentsScheduleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F61124C52165CA4F00901694 /* PaymentsScheduleCell.xib */; };
+		1811380F224BBF6200C957C4 /* CustomBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = F62641F9210EFE640022C4DC /* CustomBar.xib */; };
+		18113810224BBF6200C957C4 /* amex.png in Resources */ = {isa = PBXBuildFile; fileRef = F6A739DE219AC93D00ED2B7D /* amex.png */; };
+		18113811224BBF6200C957C4 /* settingsicon.png in Resources */ = {isa = PBXBuildFile; fileRef = F62641F2210EFA580022C4DC /* settingsicon.png */; };
+		18113812224BBF6200C957C4 /* HelveticaDin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F6CB3FC620EB546200D290A6 /* HelveticaDin.ttf */; };
+		18113813224BBF6200C957C4 /* UnitsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F610E8B82121FBC800B09A5B /* UnitsCell.xib */; };
+		18113814224BBF6200C957C4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F68616042096197D002EA241 /* Main.storyboard */; };
+		18113815224BBF6200C957C4 /* Dinersclubinter.png in Resources */ = {isa = PBXBuildFile; fileRef = F6A739D7219AC93D00ED2B7D /* Dinersclubinter.png */; };
+		18113816224BBF6200C957C4 /* StepperView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6264207211361870022C4DC /* StepperView.xib */; };
+		18113817224BBF6200C957C4 /* uparrow.png in Resources */ = {isa = PBXBuildFile; fileRef = F6A739D9219AC93D00ED2B7D /* uparrow.png */; };
+		18113818224BBF6200C957C4 /* master.png in Resources */ = {isa = PBXBuildFile; fileRef = F6A739D1219AC93D00ED2B7D /* master.png */; };
+		18113819224BBF6200C957C4 /* JointBView2.xib in Resources */ = {isa = PBXBuildFile; fileRef = F626425B211432AA0022C4DC /* JointBView2.xib */; };
+		1811381A224BBF6200C957C4 /* PinView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F686160920962229002EA241 /* PinView.xib */; };
+		1811381B224BBF6200C957C4 /* AlertPopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = F67668AC2199A52C00FFBDC4 /* AlertPopUp.xib */; };
+		1811381C224BBF6200C957C4 /* amexezepay.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F6A739E5219AC93D00ED2B7D /* amexezepay.jpg */; };
+		1811381D224BBF6200C957C4 /* UnitsHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F610E8BF2121FBD500B09A5B /* UnitsHeaderView.xib */; };
+		1811381E224BBF6200C957C4 /* RepeatedFunctions in Resources */ = {isa = PBXBuildFile; fileRef = F6FF90B82197359F0090D2FE /* RepeatedFunctions */; };
+		1811381F224BBF6200C957C4 /* ReceiptsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F604B3632165FD300047CBD2 /* ReceiptsTableViewCell.xib */; };
+		18113820224BBF6200C957C4 /* maestro.png in Resources */ = {isa = PBXBuildFile; fileRef = F6A739D3219AC93D00ED2B7D /* maestro.png */; };
+		18113821224BBF6200C957C4 /* WSCalendarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6C57E14215B03DF00970DC3 /* WSCalendarView.xib */; };
+		18113822224BBF6200C957C4 /* CVV.png in Resources */ = {isa = PBXBuildFile; fileRef = F6A739D0219AC93D00ED2B7D /* CVV.png */; };
+		18113823224BBF6200C957C4 /* PassportFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6A37F99216E782100A4AD11 /* PassportFooter.xib */; };
+		18113824224BBF6200C957C4 /* uicheckbox_checked.png in Resources */ = {isa = PBXBuildFile; fileRef = F6A739CB219AC93D00ED2B7D /* uicheckbox_checked.png */; };
+		18113825224BBF6200C957C4 /* FTProgressIndicator.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F60F90E22199F7A600B2A10D /* FTProgressIndicator.bundle */; };
+		18113826224BBF6200C957C4 /* Left.png in Resources */ = {isa = PBXBuildFile; fileRef = F6A739D8219AC93D00ED2B7D /* Left.png */; };
+		18113827224BBF6200C957C4 /* visa.png in Resources */ = {isa = PBXBuildFile; fileRef = F6A739D5219AC93D00ED2B7D /* visa.png */; };
+		18113828224BBF6200C957C4 /* PassportHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6A37F97216E74B900A4AD11 /* PassportHeader.xib */; };
+		18113829224BBF6200C957C4 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F67EB5E4212521C90011AB64 /* Montserrat-Medium.ttf */; };
+		1811382A224BBF6200C957C4 /* uicheckbox_unchecked.png in Resources */ = {isa = PBXBuildFile; fileRef = F6A739DA219AC93D00ED2B7D /* uicheckbox_unchecked.png */; };
+		1811382B224BBF6200C957C4 /* rupay.png in Resources */ = {isa = PBXBuildFile; fileRef = F6A739CE219AC93D00ED2B7D /* rupay.png */; };
+		1811382C224BBF6200C957C4 /* downarrow.png in Resources */ = {isa = PBXBuildFile; fileRef = F6A739E4219AC93D00ED2B7D /* downarrow.png */; };
+		1811382D224BBF6200C957C4 /* StepperAnimation.xib in Resources */ = {isa = PBXBuildFile; fileRef = F62641FF211320360022C4DC /* StepperAnimation.xib */; };
+		1811382E224BBF6200C957C4 /* CustomViewCarousel.xib in Resources */ = {isa = PBXBuildFile; fileRef = F63FCF0320F87E520027FEA8 /* CustomViewCarousel.xib */; };
+		1811382F224BBF6200C957C4 /* Montserrat-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F67EB5E7212521D10011AB64 /* Montserrat-ExtraLight.ttf */; };
+		18113830224BBF6200C957C4 /* RadioButton-Selected.png in Resources */ = {isa = PBXBuildFile; fileRef = F6A739D2219AC93D00ED2B7D /* RadioButton-Selected.png */; };
+		18113831224BBF6200C957C4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F6393A3021C0752200266F45 /* GoogleService-Info.plist */; };
+		18113832224BBF6200C957C4 /* JointView1.xib in Resources */ = {isa = PBXBuildFile; fileRef = F626426121143C050022C4DC /* JointView1.xib */; };
+		18113833224BBF6200C957C4 /* Complaints.json in Resources */ = {isa = PBXBuildFile; fileRef = F6C57DD1215A388800970DC3 /* Complaints.json */; };
+		18113834224BBF6200C957C4 /* NewStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6264232211404B20022C4DC /* NewStoryboard.storyboard */; };
+		18113835224BBF6200C957C4 /* expanded.png in Resources */ = {isa = PBXBuildFile; fileRef = F6CB3FD020EB753500D290A6 /* expanded.png */; };
+		18113836224BBF6200C957C4 /* ccavenue.png in Resources */ = {isa = PBXBuildFile; fileRef = F6A739DF219AC93D00ED2B7D /* ccavenue.png */; };
+		18113837224BBF6200C957C4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6E8D4C6211817340063CC16 /* Images.xcassets */; };
+		18113838224BBF6200C957C4 /* newDown.png in Resources */ = {isa = PBXBuildFile; fileRef = F6A739E2219AC93D00ED2B7D /* newDown.png */; };
+		18113839224BBF6200C957C4 /* cdown.png in Resources */ = {isa = PBXBuildFile; fileRef = F6A739E1219AC93D00ED2B7D /* cdown.png */; };
+		1811383A224BBF6200C957C4 /* RadioButton-Unselected.png in Resources */ = {isa = PBXBuildFile; fileRef = F6A739CD219AC93D00ED2B7D /* RadioButton-Unselected.png */; };
+		1811383B224BBF6200C957C4 /* Card.png in Resources */ = {isa = PBXBuildFile; fileRef = F6A739CA219AC93D00ED2B7D /* Card.png */; };
+		1811383C224BBF6200C957C4 /* GoogleService-Info1234.plist in Resources */ = {isa = PBXBuildFile; fileRef = F688503E218CA33700CBD859 /* GoogleService-Info1234.plist */; };
+		1811383D224BBF6200C957C4 /* ProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6132E0C20A7E2E900FEEEBE /* ProfileTableViewCell.xib */; };
+		1811383E224BBF6200C957C4 /* PrintDocView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6E8321620AD07D40003DC5E /* PrintDocView.xib */; };
+		1811383F224BBF6200C957C4 /* Right.png in Resources */ = {isa = PBXBuildFile; fileRef = F6A739E3219AC93D00ED2B7D /* Right.png */; };
+		18113840224BBF6200C957C4 /* newUp.png in Resources */ = {isa = PBXBuildFile; fileRef = F6A739E0219AC93D00ED2B7D /* newUp.png */; };
+		18113841224BBF6200C957C4 /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F67EB5E6212521CE0011AB64 /* Montserrat-SemiBold.ttf */; };
+		18113842224BBF6200C957C4 /* next.png in Resources */ = {isa = PBXBuildFile; fileRef = F6A739DD219AC93D00ED2B7D /* next.png */; };
+		18113843224BBF6200C957C4 /* ColorCodes in Resources */ = {isa = PBXBuildFile; fileRef = F6CC80562180A1840025FB1D /* ColorCodes */; };
+		18113844224BBF6200C957C4 /* CameraView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F604B36C2167246C0047CBD2 /* CameraView.xib */; };
+		18113845224BBF6200C957C4 /* jcb.png in Resources */ = {isa = PBXBuildFile; fileRef = F6A739DB219AC93D00ED2B7D /* jcb.png */; };
+		18113846224BBF6200C957C4 /* floatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6C942B620E9C6D600D1F40C /* floatTableViewCell.xib */; };
+		18113847224BBF6200C957C4 /* discover.png in Resources */ = {isa = PBXBuildFile; fileRef = F6A739CC219AC93D00ED2B7D /* discover.png */; };
+		18113848224BBF6200C957C4 /* AG_Helvetica_Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F67EB5E5212521CC0011AB64 /* AG_Helvetica_Bold.ttf */; };
+		1811384C224BBF6200C957C4 /* CCAvenueSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 181D6E8422495A8D00AEFABB /* CCAvenueSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4C1FFC442EBEEC68228FD4A2 /* Pods_DamacC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 963039B5CBD9F0905930BC2D /* Pods_DamacC.framework */; };
 		4F8D5EA31B6C0568005E64D4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8D5EA21B6C0568005E64D4 /* main.m */; };
 		4F8D5EA61B6C0568005E64D4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8D5EA51B6C0568005E64D4 /* AppDelegate.m */; };
@@ -220,12 +432,24 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		1811384B224BBF6200C957C4 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				1811384C224BBF6200C957C4 /* CCAvenueSDK.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F6C0D0AD21CBF5D500825A2C /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				18113771224A07EF00C957C4 /* CCAvenueSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -233,10 +457,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		18113850224BBF6200C957C4 /* DamacC_Production.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DamacC_Production.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		18113851224BBF6400C957C4 /* DamacC copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "DamacC copy-Info.plist"; path = "/Users/apple/DAMAC_iOS/DamacC/DamacC copy-Info.plist"; sourceTree = "<absolute>"; };
 		181D6E8422495A8D00AEFABB /* CCAvenueSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CCAvenueSDK.framework; sourceTree = "<group>"; };
 		2EA1CF321EA1CB95D50AC1A0 /* Pods-DamacC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DamacC.release.xcconfig"; path = "Target Support Files/Pods-DamacC/Pods-DamacC.release.xcconfig"; sourceTree = "<group>"; };
 		4F277E8C1DC7F5DF00E5A77C /* Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
-		4F8D5E9D1B6C0568005E64D4 /* DamacC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DamacC.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F8D5E9D1B6C0568005E64D4 /* DamacC_Sandbox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DamacC_Sandbox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F8D5EA11B6C0568005E64D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4F8D5EA21B6C0568005E64D4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4F8D5EA41B6C0568005E64D4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -589,12 +815,27 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		181137FD224BBF6200C957C4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				181137FE224BBF6200C957C4 /* FirebaseCore.framework in Frameworks */,
+				181137FF224BBF6200C957C4 /* UIKit.framework in Frameworks */,
+				18113800224BBF6200C957C4 /* Foundation.framework in Frameworks */,
+				18113801224BBF6200C957C4 /* MessageUI.framework in Frameworks */,
+				18113802224BBF6200C957C4 /* libxml2.tbd in Frameworks */,
+				18113803224BBF6200C957C4 /* libxml2.2.tbd in Frameworks */,
+				18113804224BBF6200C957C4 /* LocalAuthentication.framework in Frameworks */,
+				18113805224BBF6200C957C4 /* Pods_DamacC.framework in Frameworks */,
+				18113806224BBF6200C957C4 /* CCAvenueSDK.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4F8D5E9A1B6C0568005E64D4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				F6141E6021A07A3A00224829 /* FirebaseCore.framework in Frameworks */,
-				181D6E8522495A8D00AEFABB /* CCAvenueSDK.framework in Frameworks */,
 				F691B3592190CFBE008EA47D /* UIKit.framework in Frameworks */,
 				F691B3572190CFB3008EA47D /* Foundation.framework in Frameworks */,
 				F659E0AF2188E46D00A9DB16 /* MessageUI.framework in Frameworks */,
@@ -602,6 +843,7 @@
 				F6C57C742158CD2400970DC3 /* libxml2.2.tbd in Frameworks */,
 				F6D91E3A20994A5D00DA1428 /* LocalAuthentication.framework in Frameworks */,
 				4C1FFC442EBEEC68228FD4A2 /* Pods_DamacC.framework in Frameworks */,
+				18113770224A07EF00C957C4 /* CCAvenueSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -627,13 +869,15 @@
 				7E50A237DDCEAAC2CF458C8C /* Frameworks */,
 				F686163F209852AD002EA241 /* DamacC-Bridging-Header.h */,
 				094AEB37E13B82EB819B781F /* Pods */,
+				18113851224BBF6400C957C4 /* DamacC copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
 		4F8D5E9E1B6C0568005E64D4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4F8D5E9D1B6C0568005E64D4 /* DamacC.app */,
+				4F8D5E9D1B6C0568005E64D4 /* DamacC_Sandbox.app */,
+				18113850224BBF6200C957C4 /* DamacC_Production.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1405,9 +1649,30 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4F8D5E9C1B6C0568005E64D4 /* DamacC */ = {
+		18113772224BBF6200C957C4 /* DamacC_Production */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4F8D5EC01B6C0568005E64D4 /* Build configuration list for PBXNativeTarget "DamacC" */;
+			buildConfigurationList = 1811384D224BBF6200C957C4 /* Build configuration list for PBXNativeTarget "DamacC_Production" */;
+			buildPhases = (
+				18113773224BBF6200C957C4 /* [CP] Check Pods Manifest.lock */,
+				18113774224BBF6200C957C4 /* Sources */,
+				181137FD224BBF6200C957C4 /* Frameworks */,
+				18113807224BBF6200C957C4 /* Resources */,
+				18113849224BBF6200C957C4 /* ShellScript */,
+				1811384A224BBF6200C957C4 /* [CP] Embed Pods Frameworks */,
+				1811384B224BBF6200C957C4 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DamacC_Production;
+			productName = DamacC;
+			productReference = 18113850224BBF6200C957C4 /* DamacC_Production.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4F8D5E9C1B6C0568005E64D4 /* DamacC_Sandbox */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4F8D5EC01B6C0568005E64D4 /* Build configuration list for PBXNativeTarget "DamacC_Sandbox" */;
 			buildPhases = (
 				A67F16BD0C925ECB0B422D86 /* [CP] Check Pods Manifest.lock */,
 				4F8D5E991B6C0568005E64D4 /* Sources */,
@@ -1421,9 +1686,9 @@
 			);
 			dependencies = (
 			);
-			name = DamacC;
+			name = DamacC_Sandbox;
 			productName = DamacC;
-			productReference = 4F8D5E9D1B6C0568005E64D4 /* DamacC.app */;
+			productReference = 4F8D5E9D1B6C0568005E64D4 /* DamacC_Sandbox.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1435,6 +1700,9 @@
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = DamacCOrganizationName;
 				TargetAttributes = {
+					18113772224BBF6200C957C4 = {
+						ProvisioningStyle = Manual;
+					};
 					4F8D5E9C1B6C0568005E64D4 = {
 						CreatedOnToolsVersion = 6.4;
 						LastSwiftMigration = 0920;
@@ -1466,12 +1734,85 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4F8D5E9C1B6C0568005E64D4 /* DamacC */,
+				4F8D5E9C1B6C0568005E64D4 /* DamacC_Sandbox */,
+				18113772224BBF6200C957C4 /* DamacC_Production */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		18113807224BBF6200C957C4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18113808224BBF6200C957C4 /* americanexpress.png in Resources */,
+				18113809224BBF6200C957C4 /* defaultCard.png in Resources */,
+				1811380A224BBF6200C957C4 /* diners.png in Resources */,
+				1811380B224BBF6200C957C4 /* collapsed.png in Resources */,
+				1811380C224BBF6200C957C4 /* arrow.png in Resources */,
+				1811380D224BBF6200C957C4 /* Appointments.json in Resources */,
+				1811380E224BBF6200C957C4 /* PaymentsScheduleCell.xib in Resources */,
+				1811380F224BBF6200C957C4 /* CustomBar.xib in Resources */,
+				18113810224BBF6200C957C4 /* amex.png in Resources */,
+				18113811224BBF6200C957C4 /* settingsicon.png in Resources */,
+				18113812224BBF6200C957C4 /* HelveticaDin.ttf in Resources */,
+				18113813224BBF6200C957C4 /* UnitsCell.xib in Resources */,
+				18113814224BBF6200C957C4 /* Main.storyboard in Resources */,
+				18113815224BBF6200C957C4 /* Dinersclubinter.png in Resources */,
+				18113816224BBF6200C957C4 /* StepperView.xib in Resources */,
+				18113817224BBF6200C957C4 /* uparrow.png in Resources */,
+				18113818224BBF6200C957C4 /* master.png in Resources */,
+				18113819224BBF6200C957C4 /* JointBView2.xib in Resources */,
+				1811381A224BBF6200C957C4 /* PinView.xib in Resources */,
+				1811381B224BBF6200C957C4 /* AlertPopUp.xib in Resources */,
+				1811381C224BBF6200C957C4 /* amexezepay.jpg in Resources */,
+				1811381D224BBF6200C957C4 /* UnitsHeaderView.xib in Resources */,
+				1811381E224BBF6200C957C4 /* RepeatedFunctions in Resources */,
+				1811381F224BBF6200C957C4 /* ReceiptsTableViewCell.xib in Resources */,
+				18113820224BBF6200C957C4 /* maestro.png in Resources */,
+				18113821224BBF6200C957C4 /* WSCalendarView.xib in Resources */,
+				18113822224BBF6200C957C4 /* CVV.png in Resources */,
+				18113823224BBF6200C957C4 /* PassportFooter.xib in Resources */,
+				18113824224BBF6200C957C4 /* uicheckbox_checked.png in Resources */,
+				18113825224BBF6200C957C4 /* FTProgressIndicator.bundle in Resources */,
+				18113826224BBF6200C957C4 /* Left.png in Resources */,
+				18113827224BBF6200C957C4 /* visa.png in Resources */,
+				18113828224BBF6200C957C4 /* PassportHeader.xib in Resources */,
+				18113829224BBF6200C957C4 /* Montserrat-Medium.ttf in Resources */,
+				1811382A224BBF6200C957C4 /* uicheckbox_unchecked.png in Resources */,
+				1811382B224BBF6200C957C4 /* rupay.png in Resources */,
+				1811382C224BBF6200C957C4 /* downarrow.png in Resources */,
+				1811382D224BBF6200C957C4 /* StepperAnimation.xib in Resources */,
+				1811382E224BBF6200C957C4 /* CustomViewCarousel.xib in Resources */,
+				1811382F224BBF6200C957C4 /* Montserrat-ExtraLight.ttf in Resources */,
+				18113830224BBF6200C957C4 /* RadioButton-Selected.png in Resources */,
+				18113831224BBF6200C957C4 /* GoogleService-Info.plist in Resources */,
+				18113832224BBF6200C957C4 /* JointView1.xib in Resources */,
+				18113833224BBF6200C957C4 /* Complaints.json in Resources */,
+				18113834224BBF6200C957C4 /* NewStoryboard.storyboard in Resources */,
+				18113835224BBF6200C957C4 /* expanded.png in Resources */,
+				18113836224BBF6200C957C4 /* ccavenue.png in Resources */,
+				18113837224BBF6200C957C4 /* Images.xcassets in Resources */,
+				18113838224BBF6200C957C4 /* newDown.png in Resources */,
+				18113839224BBF6200C957C4 /* cdown.png in Resources */,
+				1811383A224BBF6200C957C4 /* RadioButton-Unselected.png in Resources */,
+				1811383B224BBF6200C957C4 /* Card.png in Resources */,
+				1811383C224BBF6200C957C4 /* GoogleService-Info1234.plist in Resources */,
+				1811383D224BBF6200C957C4 /* ProfileTableViewCell.xib in Resources */,
+				1811383E224BBF6200C957C4 /* PrintDocView.xib in Resources */,
+				1811383F224BBF6200C957C4 /* Right.png in Resources */,
+				18113840224BBF6200C957C4 /* newUp.png in Resources */,
+				18113841224BBF6200C957C4 /* Montserrat-SemiBold.ttf in Resources */,
+				18113842224BBF6200C957C4 /* next.png in Resources */,
+				18113843224BBF6200C957C4 /* ColorCodes in Resources */,
+				18113844224BBF6200C957C4 /* CameraView.xib in Resources */,
+				18113845224BBF6200C957C4 /* jcb.png in Resources */,
+				18113846224BBF6200C957C4 /* floatTableViewCell.xib in Resources */,
+				18113847224BBF6200C957C4 /* discover.png in Resources */,
+				18113848224BBF6200C957C4 /* AG_Helvetica_Bold.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4F8D5E9B1B6C0568005E64D4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1547,6 +1888,92 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		18113773224BBF6200C957C4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DamacC-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		18113849224BBF6200C957C4 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/Fabric/run\" 956c01103d0d7dd4ab8df8eb4858540d04530c9a aa7088a3816156033875c2d025eb4780491fceae34dda74c4085095c8503e919\n";
+		};
+		1811384A224BBF6200C957C4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DamacC/Pods-DamacC-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework",
+				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/JSONModel/JSONModel.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SQLCipher/SQLCipher.framework",
+				"${BUILT_PRODUCTS_DIR}/SalesforceAnalytics/SalesforceAnalytics.framework",
+				"${BUILT_PRODUCTS_DIR}/SalesforceSDKCore/SalesforceSDKCore.framework",
+				"${BUILT_PRODUCTS_DIR}/SmartStore/SmartStore.framework",
+				"${BUILT_PRODUCTS_DIR}/SmartSync/SmartSync.framework",
+				"${BUILT_PRODUCTS_DIR}/WYPopoverController/WYPopoverController.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaLumberjack.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FMDB.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSONModel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SQLCipher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SalesforceAnalytics.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SalesforceSDKCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SmartStore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SmartSync.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WYPopoverController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DamacC/Pods-DamacC-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		A67F16BD0C925ECB0B422D86 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1636,6 +2063,149 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		18113774224BBF6200C957C4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18113775224BBF6200C957C4 /* SaopServices.m in Sources */,
+				18113776224BBF6200C957C4 /* StepperAnimation.m in Sources */,
+				18113777224BBF6200C957C4 /* FTNotificationIndicator.m in Sources */,
+				18113778224BBF6200C957C4 /* DamacSharedClass.m in Sources */,
+				18113779224BBF6200C957C4 /* DamacC-Bridging-Header.h in Sources */,
+				1811377A224BBF6200C957C4 /* DetailMyUnitsViewController.m in Sources */,
+				1811377B224BBF6200C957C4 /* CustomLabel.m in Sources */,
+				1811377C224BBF6200C957C4 /* SurveyCell5.m in Sources */,
+				1811377D224BBF6200C957C4 /* popObject.m in Sources */,
+				1811377E224BBF6200C957C4 /* PaymentsViewController.m in Sources */,
+				1811377F224BBF6200C957C4 /* PassportFooter.m in Sources */,
+				18113780224BBF6200C957C4 /* AppDelegate.m in Sources */,
+				18113781224BBF6200C957C4 /* FTIndicator.m in Sources */,
+				18113782224BBF6200C957C4 /* CameraView.m in Sources */,
+				18113783224BBF6200C957C4 /* ProofOfPaymentNewVC.m in Sources */,
+				18113784224BBF6200C957C4 /* SurveyCell2.m in Sources */,
+				18113785224BBF6200C957C4 /* LoadingLogoVC.m in Sources */,
+				18113786224BBF6200C957C4 /* PopCell3.m in Sources */,
+				18113787224BBF6200C957C4 /* StepperView.m in Sources */,
+				18113788224BBF6200C957C4 /* VKSideMenu.m in Sources */,
+				18113789224BBF6200C957C4 /* ScheduleAppointmentsVC.m in Sources */,
+				1811378A224BBF6200C957C4 /* APPSXXDC_AOPT_PKG_WSX1843128X6X5.m in Sources */,
+				1811378B224BBF6200C957C4 /* SurveyCell3.m in Sources */,
+				1811378C224BBF6200C957C4 /* AppointmentObject.m in Sources */,
+				1811378D224BBF6200C957C4 /* ServicesCell.m in Sources */,
+				1811378E224BBF6200C957C4 /* FTProgressIndicator.m in Sources */,
+				1811378F224BBF6200C957C4 /* BillingObject.m in Sources */,
+				18113790224BBF6200C957C4 /* AOPT.m in Sources */,
+				18113791224BBF6200C957C4 /* MyServicesDataModel.m in Sources */,
+				18113792224BBF6200C957C4 /* NotificationsTableVC.m in Sources */,
+				18113793224BBF6200C957C4 /* HelpViewController.m in Sources */,
+				18113794224BBF6200C957C4 /* EServicesViewController.m in Sources */,
+				18113795224BBF6200C957C4 /* main.m in Sources */,
+				18113796224BBF6200C957C4 /* BuyersModel.m in Sources */,
+				18113797224BBF6200C957C4 /* CustomViewCarousel.m in Sources */,
+				18113798224BBF6200C957C4 /* PassportObject.m in Sources */,
+				18113799224BBF6200C957C4 /* NSString+StringValidations.m in Sources */,
+				1811379A224BBF6200C957C4 /* FTToastIndicator.m in Sources */,
+				1811379B224BBF6200C957C4 /* MainViewController.m in Sources */,
+				1811379C224BBF6200C957C4 /* AppointmentsSlotsViewController.m in Sources */,
+				1811379D224BBF6200C957C4 /* ChangeofContactCell2.m in Sources */,
+				1811379E224BBF6200C957C4 /* WSCalendarView.m in Sources */,
+				1811379F224BBF6200C957C4 /* ServicesTableViewController.m in Sources */,
+				181137A0224BBF6200C957C4 /* CustomBar.m in Sources */,
+				181137A1224BBF6200C957C4 /* PaymentsScheduleCell.m in Sources */,
+				181137A2224BBF6200C957C4 /* UnitsTableViewController.m in Sources */,
+				181137A3224BBF6200C957C4 /* WSEventView.m in Sources */,
+				181137A4224BBF6200C957C4 /* GridCollectionViewCell.m in Sources */,
+				181137A5224BBF6200C957C4 /* AOPTProxy.m in Sources */,
+				181137A6224BBF6200C957C4 /* SurveyRatingCell.m in Sources */,
+				181137A7224BBF6200C957C4 /* iCarousel.m in Sources */,
+				181137A8224BBF6200C957C4 /* SurveyController.m in Sources */,
+				181137A9224BBF6200C957C4 /* TopCollectionCell.m in Sources */,
+				181137AA224BBF6200C957C4 /* KeyViewController.m in Sources */,
+				181137AB224BBF6200C957C4 /* POPViewController.m in Sources */,
+				181137AC224BBF6200C957C4 /* Translator.m in Sources */,
+				181137AD224BBF6200C957C4 /* ProfileTableViewCell.m in Sources */,
+				181137AE224BBF6200C957C4 /* SurveyCell6.m in Sources */,
+				181137AF224BBF6200C957C4 /* COCDTF.m in Sources */,
+				181137B0224BBF6200C957C4 /* RootViewController.m in Sources */,
+				181137B1224BBF6200C957C4 /* JointBuyerObject.m in Sources */,
+				181137B2224BBF6200C957C4 /* JointBuyersDetails.m in Sources */,
+				181137B3224BBF6200C957C4 /* WSLabel.m in Sources */,
+				181137B4224BBF6200C957C4 /* ReceiptsTableViewCell.m in Sources */,
+				181137B5224BBF6200C957C4 /* ViewControllerCell.m in Sources */,
+				181137B6224BBF6200C957C4 /* ReceiptDataModel.m in Sources */,
+				181137B7224BBF6200C957C4 /* ViewControllerCellHeader.m in Sources */,
+				181137B8224BBF6200C957C4 /* FinishSurveyViewController.m in Sources */,
+				181137B9224BBF6200C957C4 /* BackgroundRequests.m in Sources */,
+				181137BA224BBF6200C957C4 /* PaymentsScheduleVC.m in Sources */,
+				181137BB224BBF6200C957C4 /* CustomBarOptions.m in Sources */,
+				181137BC224BBF6200C957C4 /* ChangeofDetailsViewController.m in Sources */,
+				181137BD224BBF6200C957C4 /* InitialViewController1.m in Sources */,
+				181137BE224BBF6200C957C4 /* ServicesDetailController.m in Sources */,
+				181137BF224BBF6200C957C4 /* Sub-SurveyCell.m in Sources */,
+				181137C0224BBF6200C957C4 /* VCFloatingActionButton.m in Sources */,
+				181137C1224BBF6200C957C4 /* ChangeofDetailsCell.m in Sources */,
+				181137C2224BBF6200C957C4 /* COCDServerObj.m in Sources */,
+				181137C3224BBF6200C957C4 /* AppointmentsDataModel.m in Sources */,
+				181137C4224BBF6200C957C4 /* UnitsCell.m in Sources */,
+				181137C5224BBF6200C957C4 /* CreateAppointmentVC.m in Sources */,
+				181137C6224BBF6200C957C4 /* JointView1.m in Sources */,
+				181137C7224BBF6200C957C4 /* HelpTableViewCell.m in Sources */,
+				181137C8224BBF6200C957C4 /* PinView.m in Sources */,
+				181137C9224BBF6200C957C4 /* ProfileViewController.m in Sources */,
+				181137CA224BBF6200C957C4 /* SampleTableViewController.m in Sources */,
+				181137CB224BBF6200C957C4 /* SlotCell.m in Sources */,
+				181137CC224BBF6200C957C4 /* UnitsClassLabel.m in Sources */,
+				181137CD224BBF6200C957C4 /* ShowMenuOptiionsVC.m in Sources */,
+				181137CE224BBF6200C957C4 /* PassportUpdateVC.m in Sources */,
+				181137CF224BBF6200C957C4 /* KPDropMenu.m in Sources */,
+				181137D0224BBF6200C957C4 /* JointBView2.m in Sources */,
+				181137D1224BBF6200C957C4 /* ErrorViewController.m in Sources */,
+				181137D2224BBF6200C957C4 /* UserDetailsModel.m in Sources */,
+				181137D3224BBF6200C957C4 /* NotificationsCell.m in Sources */,
+				181137D4224BBF6200C957C4 /* PopTableViewController.m in Sources */,
+				181137D5224BBF6200C957C4 /* SurveyCell1.m in Sources */,
+				181137D6224BBF6200C957C4 /* ServicesSRDetails.m in Sources */,
+				181137D7224BBF6200C957C4 /* SerquestRequestDetailCell.m in Sources */,
+				181137D8224BBF6200C957C4 /* AOPT_Enums.m in Sources */,
+				181137D9224BBF6200C957C4 /* PrintDocView.m in Sources */,
+				181137DA224BBF6200C957C4 /* POPTableCell.m in Sources */,
+				181137DB224BBF6200C957C4 /* MarqueeLabel.m in Sources */,
+				181137DC224BBF6200C957C4 /* XPathQuery.m in Sources */,
+				181137DD224BBF6200C957C4 /* DocUploadDTO.m in Sources */,
+				181137DE224BBF6200C957C4 /* PaymentsCell.m in Sources */,
+				181137DF224BBF6200C957C4 /* JointBuyerCell.m in Sources */,
+				181137E0224BBF6200C957C4 /* AlertPopUp.m in Sources */,
+				181137E1224BBF6200C957C4 /* PaymentsDataModel.m in Sources */,
+				181137E2224BBF6200C957C4 /* AppointmentsCell.m in Sources */,
+				181137E3224BBF6200C957C4 /* PopCell1.m in Sources */,
+				181137E4224BBF6200C957C4 /* ChangeofContactCell.m in Sources */,
+				181137E5224BBF6200C957C4 /* KATCircularProgress.m in Sources */,
+				181137E6224BBF6200C957C4 /* SurveyViewController.m in Sources */,
+				181137E7224BBF6200C957C4 /* MyServiceRequestViewController.m in Sources */,
+				181137E8224BBF6200C957C4 /* SurveyCell4.m in Sources */,
+				181137E9224BBF6200C957C4 /* ChangeOfContactDetails.m in Sources */,
+				181137EA224BBF6200C957C4 /* ReceiptsTableVC.m in Sources */,
+				181137EB224BBF6200C957C4 /* PassportCell2.m in Sources */,
+				181137EC224BBF6200C957C4 /* Base64Binary.m in Sources */,
+				181137ED224BBF6200C957C4 /* floatTableViewCell.m in Sources */,
+				181137EE224BBF6200C957C4 /* RentalPoolViewCellViewController.m in Sources */,
+				181137EF224BBF6200C957C4 /* NSData+Base64.m in Sources */,
+				181137F0224BBF6200C957C4 /* PassportCell3.m in Sources */,
+				181137F1224BBF6200C957C4 /* ServerAPIManager.m in Sources */,
+				181137F2224BBF6200C957C4 /* BillingViewController.m in Sources */,
+				181137F3224BBF6200C957C4 /* unitsLabel.m in Sources */,
+				181137F4224BBF6200C957C4 /* UnitsDataModel.m in Sources */,
+				181137F5224BBF6200C957C4 /* PasswordViewController.m in Sources */,
+				181137F6224BBF6200C957C4 /* FingerPrintViewController.m in Sources */,
+				181137F7224BBF6200C957C4 /* PopCell2.m in Sources */,
+				181137F8224BBF6200C957C4 /* ComplaintsObj.m in Sources */,
+				181137F9224BBF6200C957C4 /* UnitsHeaderView.m in Sources */,
+				181137FA224BBF6200C957C4 /* PassportHeader.m in Sources */,
+				181137FB224BBF6200C957C4 /* ComplaintsViewController.m in Sources */,
+				181137FC224BBF6200C957C4 /* PassportCell1.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4F8D5E991B6C0568005E64D4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1782,6 +2352,163 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		1811384E224BBF6200C957C4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E168EE5FF4586734F3C67719 /* Pods-DamacC.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = DamacC/DamacC.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: DAMAC PROPERTIES CO (L.L.C) (4H7H3FYH34)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: DAMAC PROPERTIES CO (L.L.C) (4H7H3FYH34)";
+				CODE_SIGN_STYLE = Manual;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 4H7H3FYH34;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/DamacC",
+				);
+				GCC_PREFIX_HEADER = "$(SRCROOT)/PrefixHeader.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/CocoaLumberjack\"",
+					"\"${PODS_ROOT}/Headers/Public/FMDB\"",
+					"\"${PODS_ROOT}/Headers/Public/FTIndicator\"",
+					"\"${PODS_ROOT}/Headers/Public/JSONModel\"",
+					"\"${PODS_ROOT}/Headers/Public/SQLCipher\"",
+					"\"${PODS_ROOT}/Headers/Public/SalesforceAnalytics\"",
+					"\"${PODS_ROOT}/Headers/Public/SalesforceSDKCore\"",
+					"\"${PODS_ROOT}/Headers/Public/SmartStore\"",
+					"\"${PODS_ROOT}/Headers/Public/SmartSync\"",
+					"$(SDK_DIR)\"/usr/include/libxml2",
+				);
+				INFOPLIST_FILE = "DamacC copy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-DSQLITE_HAS_CODEC",
+					"-DHAVE_USLEEP=1",
+					"$(inherited)",
+					"-DSQLITE_HAS_CODEC",
+					"-DSQLITE_TEMP_STORE=2",
+					"-DSQLITE_SOUNDEX",
+					"-DSQLITE_THREADSAFE",
+					"-DSQLITE_ENABLE_RTREE",
+					"-DSQLITE_ENABLE_STAT3",
+					"-DSQLITE_ENABLE_STAT4",
+					"-DSQLITE_ENABLE_COLUMN_METADATA",
+					"-DSQLITE_ENABLE_MEMORY_MANAGEMENT",
+					"-DSQLITE_ENABLE_LOAD_EXTENSION",
+					"-DSQLITE_ENABLE_FTS4",
+					"-DSQLITE_ENABLE_FTS4_UNICODE61",
+					"-DSQLITE_ENABLE_FTS3_PARENTHESIS",
+					"-DSQLITE_ENABLE_UNLOCK_NOTIFY",
+					"-DSQLITE_ENABLE_JSON1",
+					"-DSQLITE_ENABLE_FTS5",
+					"-DSQLCIPHER_CRYPTO_CC",
+					"-DHAVE_USLEEP=1",
+					"-DSQLITE_MAX_VARIABLE_NUMBER=99999",
+					"-DBUILD_PRODUCTION=1",
+					"$(inherited)",
+				);
+				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
+				OTHER_LDFLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.damac.HelloDAMACD;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = Damac_appstore_prov;
+				SKIP_INSTALL = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "DamacC-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1811384F224BBF6200C957C4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2EA1CF321EA1CB95D50AC1A0 /* Pods-DamacC.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = DamacC/DamacC.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: DAMAC PROPERTIES CO (L.L.C) (4H7H3FYH34)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: DAMAC PROPERTIES CO (L.L.C) (4H7H3FYH34)";
+				CODE_SIGN_STYLE = Manual;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 4H7H3FYH34;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/DamacC",
+				);
+				GCC_PREFIX_HEADER = "$(SRCROOT)/PrefixHeader.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/CocoaLumberjack\"",
+					"\"${PODS_ROOT}/Headers/Public/FMDB\"",
+					"\"${PODS_ROOT}/Headers/Public/FTIndicator\"",
+					"\"${PODS_ROOT}/Headers/Public/JSONModel\"",
+					"\"${PODS_ROOT}/Headers/Public/SQLCipher\"",
+					"\"${PODS_ROOT}/Headers/Public/SalesforceAnalytics\"",
+					"\"${PODS_ROOT}/Headers/Public/SalesforceSDKCore\"",
+					"\"${PODS_ROOT}/Headers/Public/SmartStore\"",
+					"\"${PODS_ROOT}/Headers/Public/SmartSync\"",
+					"$(SDK_DIR)\"/usr/include/libxml2",
+				);
+				INFOPLIST_FILE = "DamacC copy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-DSQLITE_HAS_CODEC",
+					"-DHAVE_USLEEP=1",
+					"$(inherited)",
+					"-DSQLITE_HAS_CODEC",
+					"-DSQLITE_TEMP_STORE=2",
+					"-DSQLITE_SOUNDEX",
+					"-DSQLITE_THREADSAFE",
+					"-DSQLITE_ENABLE_RTREE",
+					"-DSQLITE_ENABLE_STAT3",
+					"-DSQLITE_ENABLE_STAT4",
+					"-DSQLITE_ENABLE_COLUMN_METADATA",
+					"-DSQLITE_ENABLE_MEMORY_MANAGEMENT",
+					"-DSQLITE_ENABLE_LOAD_EXTENSION",
+					"-DSQLITE_ENABLE_FTS4",
+					"-DSQLITE_ENABLE_FTS4_UNICODE61",
+					"-DSQLITE_ENABLE_FTS3_PARENTHESIS",
+					"-DSQLITE_ENABLE_UNLOCK_NOTIFY",
+					"-DSQLITE_ENABLE_JSON1",
+					"-DSQLITE_ENABLE_FTS5",
+					"-DSQLCIPHER_CRYPTO_CC",
+					"-DHAVE_USLEEP=1",
+					"-DSQLITE_MAX_VARIABLE_NUMBER=99999",
+					"-DBUILD_PRODUCTION=1",
+					"$(inherited)",
+				);
+				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
+				OTHER_LDFLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.damac.HelloDAMACD;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = Damac_appstore_prov;
+				SKIP_INSTALL = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "DamacC-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		4F8D5EBE1B6C0568005E64D4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1921,6 +2648,36 @@
 				INFOPLIST_FILE = DamacC/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-DSQLITE_HAS_CODEC",
+					"-DHAVE_USLEEP=1",
+					"$(inherited)",
+					"-DSQLITE_HAS_CODEC",
+					"-DSQLITE_TEMP_STORE=2",
+					"-DSQLITE_SOUNDEX",
+					"-DSQLITE_THREADSAFE",
+					"-DSQLITE_ENABLE_RTREE",
+					"-DSQLITE_ENABLE_STAT3",
+					"-DSQLITE_ENABLE_STAT4",
+					"-DSQLITE_ENABLE_COLUMN_METADATA",
+					"-DSQLITE_ENABLE_MEMORY_MANAGEMENT",
+					"-DSQLITE_ENABLE_LOAD_EXTENSION",
+					"-DSQLITE_ENABLE_FTS4",
+					"-DSQLITE_ENABLE_FTS4_UNICODE61",
+					"-DSQLITE_ENABLE_FTS3_PARENTHESIS",
+					"-DSQLITE_ENABLE_UNLOCK_NOTIFY",
+					"-DSQLITE_ENABLE_JSON1",
+					"-DSQLITE_ENABLE_FTS5",
+					"-DSQLCIPHER_CRYPTO_CC",
+					"-DHAVE_USLEEP=1",
+					"-DSQLITE_MAX_VARIABLE_NUMBER=99999",
+					"$(inherited)",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-BUILD_PRODUCTION=0",
+				);
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.damac.HelloDAMACD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1972,6 +2729,36 @@
 				INFOPLIST_FILE = DamacC/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-DSQLITE_HAS_CODEC",
+					"-DHAVE_USLEEP=1",
+					"$(inherited)",
+					"-DSQLITE_HAS_CODEC",
+					"-DSQLITE_TEMP_STORE=2",
+					"-DSQLITE_SOUNDEX",
+					"-DSQLITE_THREADSAFE",
+					"-DSQLITE_ENABLE_RTREE",
+					"-DSQLITE_ENABLE_STAT3",
+					"-DSQLITE_ENABLE_STAT4",
+					"-DSQLITE_ENABLE_COLUMN_METADATA",
+					"-DSQLITE_ENABLE_MEMORY_MANAGEMENT",
+					"-DSQLITE_ENABLE_LOAD_EXTENSION",
+					"-DSQLITE_ENABLE_FTS4",
+					"-DSQLITE_ENABLE_FTS4_UNICODE61",
+					"-DSQLITE_ENABLE_FTS3_PARENTHESIS",
+					"-DSQLITE_ENABLE_UNLOCK_NOTIFY",
+					"-DSQLITE_ENABLE_JSON1",
+					"-DSQLITE_ENABLE_FTS5",
+					"-DSQLCIPHER_CRYPTO_CC",
+					"-DHAVE_USLEEP=1",
+					"-DSQLITE_MAX_VARIABLE_NUMBER=99999",
+					"$(inherited)",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-BUILD_PRODUCTION=0",
+				);
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.damac.HelloDAMACD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1987,6 +2774,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1811384D224BBF6200C957C4 /* Build configuration list for PBXNativeTarget "DamacC_Production" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1811384E224BBF6200C957C4 /* Debug */,
+				1811384F224BBF6200C957C4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		4F8D5E981B6C0568005E64D4 /* Build configuration list for PBXProject "DamacC" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1996,7 +2792,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4F8D5EC01B6C0568005E64D4 /* Build configuration list for PBXNativeTarget "DamacC" */ = {
+		4F8D5EC01B6C0568005E64D4 /* Build configuration list for PBXNativeTarget "DamacC_Sandbox" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4F8D5EC11B6C0568005E64D4 /* Debug */,

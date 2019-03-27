@@ -70,19 +70,21 @@
         bvc.dueAmount = _dueAmount;
         [DamacSharedClass.sharedInstance.currentVC.navigationController pushViewController:bvc animated:YES];
         
+        /*Latest Google Analytics*/
         [FIRAnalytics logEventWithName:kFIREventSelectContent
                             parameters:@{
-                                         kFIRParameterItemID:[NSString stringWithFormat:@"id-%@", @"MyUnit_EStatements"],
-                                         kFIRParameterItemName:@"MyUnit_PayNow",
+                                         kFIRParameterItemID:[NSString stringWithFormat:@"%@", kUserProfile.partyId],
+                                         kFIRParameterItemName:[NSString stringWithFormat:@"MyUnit_%@_PayNow",_rs.unitNumber],
                                          kFIRParameterContentType:@"Button Clicks"
-                                         }];
-        
+                                         }];        
     }
     else{
         [FTIndicator showToastMessage:@"No OutStanding Amount"];
     }
 //    ErrorViewController *errvc =[self.storyboard instantiateViewControllerWithIdentifier:@"errorVC"];
 //    [self presentViewController:errvc animated:YES completion:nil];
+    
+  
 
 }
 @end

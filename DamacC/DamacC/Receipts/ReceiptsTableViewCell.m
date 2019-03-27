@@ -32,10 +32,12 @@
 
 -(void)generateReceiptAction:(NSString*)str{
     
+    
+    /*Latest Google Analytics*/
     [FIRAnalytics logEventWithName:kFIREventSelectContent
                         parameters:@{
-                                     kFIRParameterItemID:[NSString stringWithFormat:@"id-%@", @"Generate Receipt"],
-                                     kFIRParameterItemName:@"Generate Receipt",
+                                     kFIRParameterItemID:[NSString stringWithFormat:@"%@", kUserProfile.partyId],
+                                     kFIRParameterItemName:[NSString stringWithFormat:@"Receipts_Generate_%@",_rs.receiptNumber],
                                      kFIRParameterContentType:@"Button Clicks"
                                      }];
     

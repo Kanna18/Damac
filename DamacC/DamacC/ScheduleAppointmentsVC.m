@@ -35,6 +35,14 @@ static NSString *reuseCell = @"appointmentsCell";
     unselectedColor = rgb(68, 68, 68);
     [self changeSelectedColor:_recentlyCreatedBtn];
     [_tableView setContentInset:UIEdgeInsetsMake(0, 0, 200, 0)];
+    
+    /*Latest Google Analytics*/
+    [FIRAnalytics logEventWithName:kFIREventSelectContent
+                        parameters:@{
+                                     kFIRParameterItemID:[NSString stringWithFormat:@"%@", kUserProfile.partyId],
+                                     kFIRParameterItemName:[NSString stringWithFormat:@"E_Service_Appointment"],
+                                     kFIRParameterContentType:@"Button Clicks"
+                                     }];
 
 }
 
@@ -138,6 +146,16 @@ static NSString *reuseCell = @"appointmentsCell";
     
     CreateAppointmentVC *cvc = [self.storyboard instantiateViewControllerWithIdentifier:@"createAppointmentVC"];
     [self.navigationController pushViewController:cvc animated:YES];
+    
+    /*Latest Google Analytics*/
+    [FIRAnalytics logEventWithName:kFIREventSelectContent
+                        parameters:@{
+                                     kFIRParameterItemID:[NSString stringWithFormat:@"%@", kUserProfile.partyId],
+                                     kFIRParameterItemName:[NSString stringWithFormat:@"Appointment_Book"],
+                                     kFIRParameterContentType:@"Button Clicks"
+                                     }];
+    
+    
 }
 - (IBAction)recentlyCreatedClick:(id)sender {
     [self changeSelectedColor:(UIButton*)sender];

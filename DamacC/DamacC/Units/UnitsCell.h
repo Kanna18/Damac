@@ -33,4 +33,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *percentLabel;
 -(void)setProgressView;
 
+@property ResponseLine *rs;
 @end

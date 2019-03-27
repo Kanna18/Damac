@@ -33,11 +33,12 @@
 //    [self webServiceCall];
     [self webServiceCallForPayments];
     tvMutableDictionary = [[NSMutableDictionary alloc]init];
-    
+        
+    /*Latest Google Analytics*/
     [FIRAnalytics logEventWithName:kFIREventSelectContent
                         parameters:@{
-                                     kFIRParameterItemID:[NSString stringWithFormat:@"id-%@", @"Payment schedule Button"],
-                                     kFIRParameterItemName:@"Payment schedule Button",
+                                     kFIRParameterItemID:[NSString stringWithFormat:@"%@", kUserProfile.partyId],
+                                     kFIRParameterItemName:[NSString stringWithFormat:@"Payment_Schedule"],
                                      kFIRParameterContentType:@"Button Clicks"
                                      }];
 }

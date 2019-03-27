@@ -573,6 +573,15 @@
     if([type isEqualToString:kPay]){
         NSString *str = [DamacSharedClass sharedInstance].userProileModel.partyId;;
         svc.serverUrlString = [unitsServiceUrl stringByAppendingString:str?str:@"1036240"];
+        
+        /*Latest Google Analytics*/
+        [FIRAnalytics logEventWithName:kFIREventSelectContent
+                            parameters:@{
+                                         kFIRParameterItemID:[NSString stringWithFormat:@"%@", kUserProfile.partyId],
+                                         kFIRParameterItemName:[NSString stringWithFormat:@"Pay_Now"],
+                                         kFIRParameterContentType:@"Button Clicks"
+                                         }];
+        
     }else{
         svc.serverUrlString = [self returnNextScreenWebUrlBasedOnGridClick:type];
     }

@@ -82,6 +82,14 @@
     [self roundCorners:_buttonDocument];
 //    [self roundCorners:_attach1Btn];
 //    [self roundCorners:_attach2Btn];
+    
+    /*Latest Google Analytics*/
+    [FIRAnalytics logEventWithName:kFIREventSelectContent
+                        parameters:@{
+                                     kFIRParameterItemID:[NSString stringWithFormat:@"%@", kUserProfile.partyId],
+                                     kFIRParameterItemName:[NSString stringWithFormat:@"E_Service_ProfPaymen"],
+                                     kFIRParameterContentType:@"Button Clicks"
+                                     }];
 
 }
 -(void)roundCorners:(UIButton*)sender{

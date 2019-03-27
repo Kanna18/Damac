@@ -62,6 +62,13 @@
     _scrollView.delegate = self;
     _tableView.scrollEnabled = NO;
     
+    /*Latest Google Analytics*/
+    [FIRAnalytics logEventWithName:kFIREventSelectContent
+                        parameters:@{
+                                     kFIRParameterItemID:[NSString stringWithFormat:@"%@", kUserProfile.partyId],
+                                     kFIRParameterItemName:[NSString stringWithFormat:@"E_Service_JointBuyerInfo"],
+                                     kFIRParameterContentType:@"Button Clicks"
+                                     }];
 }
 
 -(void)roundCorners:(UIButton*)sender{

@@ -30,6 +30,15 @@
     }
     _nameLabel.text = [NSString stringWithFormat:@"Dear %@",handleNull(name)];
     [self getResponseFromTheServer];
+    
+    
+    /*Latest Google Analytics*/
+    [FIRAnalytics logEventWithName:kFIREventSelectContent
+                        parameters:@{
+                                     kFIRParameterItemID:[NSString stringWithFormat:@"%@", kUserProfile.partyId],
+                                     kFIRParameterItemName:[NSString stringWithFormat:@"Survey"],
+                                     kFIRParameterContentType:@"Button Clicks"
+                                     }];
 }
 
 

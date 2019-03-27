@@ -78,6 +78,14 @@
     
     _nextButtonWidth.constant = 0;
     
+    /*Latest Google Analytics*/
+    [FIRAnalytics logEventWithName:kFIREventSelectContent
+                        parameters:@{
+                                     kFIRParameterItemID:[NSString stringWithFormat:@"%@", kUserProfile.partyId],
+                                     kFIRParameterItemName:[NSString stringWithFormat:@"E_Service"],
+                                     kFIRParameterContentType:@"Button Clicks"
+                                     }];
+    
 }
 
 

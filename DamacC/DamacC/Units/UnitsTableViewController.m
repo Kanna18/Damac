@@ -24,6 +24,7 @@
     UIButton *arrowButton;
     PrintDocView *docView;
     UIView *bgView;
+    NSString *currentUnitNumber;
     
 }
 
@@ -37,7 +38,18 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     [self.tableView registerNib:[UINib nibWithNibName:@"UnitsCell" bundle:nil] forCellReuseIdentifier:@"unitsCell"];
     headerIndex = -1;
+    
      [self webServiceCall];
+    
+    /*Latest Google Analytics*/
+    [FIRAnalytics logEventWithName:kFIREventSelectContent
+                        parameters:@{
+                                     kFIRParameterItemID:[NSString stringWithFormat:@"%@",kUserProfile.partyId],
+                                     kFIRParameterItemName:@"MyUnit",
+                                     kFIRParameterContentType:@"Button Clicks"
+                                     }];
+    
+    
         
 }
 -(void)viewWillAppear:(BOOL)animated{
@@ -74,6 +86,7 @@
     UnitsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"unitsCell" forIndexPath:indexPath];
     cell.clipsToBounds = YES;
     ResponseLine *rs = tvArray[indexPath.section];
+    cell.rs = rs;
     cell.label1.text = rs.permittedUse;
     cell.label2.text = rs.unitCategory;
     cell.label3.text = rs.readyOrOffPlan;
@@ -132,7 +145,20 @@
     }else{
         headerView.backgroundColor = rgb(41, 41, 41);
     }
+    
+    
+    currentUnitNumber = rs.unitNumber;
+    /*Latest Google Analytics*/
+    [FIRAnalytics logEventWithName:kFIREventSelectContent
+                        parameters:@{
+                                     kFIRParameterItemID:[NSString stringWithFormat:@"%@", kUserProfile.partyId],
+                                     kFIRParameterItemName:[NSString stringWithFormat:@"MyUnit_%@",rs.unitNumber],
+                                     kFIRParameterContentType:@"Button Clicks"
+                                     }];
+    
     return headerView;
+    
+    
 
 }
 
@@ -145,6 +171,7 @@
     }
     NSIndexSet *set = [NSIndexSet indexSetWithIndex:btn.tag];
     [self.tableView reloadSections:set withRowAnimation:UITableViewRowAnimationAutomatic];
+    
 }
 
 
@@ -251,12 +278,15 @@
     [docView.dismissViewBtn addTarget:self action:@selector(dismissDocView) forControlEvents:UIControlEventTouchUpInside];    
     docView.currentUnit = tvArray[sender.tag];
     
+
+    /*Latest Google Analytics*/
     [FIRAnalytics logEventWithName:kFIREventSelectContent
                         parameters:@{
-                                     kFIRParameterItemID:[NSString stringWithFormat:@"id-%@", @"MyUnit_EStatements"],
-                                     kFIRParameterItemName:@"MyUnit_EStatements",
+                                     kFIRParameterItemID:[NSString stringWithFormat:@"%@", kUserProfile.partyId],
+                                     kFIRParameterItemName:[NSString stringWithFormat:@"MyUnit_%@_Estatement",currentUnitNumber],
                                      kFIRParameterContentType:@"Button Clicks"
                                      }];
+    
     
 }
 -(void)dismissDocView{

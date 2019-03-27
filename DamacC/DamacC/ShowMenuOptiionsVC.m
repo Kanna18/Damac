@@ -41,6 +41,12 @@
     _skipButton.layer.cornerRadius = 20;
     _skipButton.clipsToBounds =YES;
     
+    
+    /*Latest Google Analytics*/
+    [FIRAnalytics setUserPropertyString:kUserProfile.partyId forName:@"PartyID"];
+    [FIRAnalytics setUserID:kUserProfile.partyId];
+    
+    
 }
 
 

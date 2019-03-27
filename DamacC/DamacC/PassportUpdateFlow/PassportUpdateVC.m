@@ -69,6 +69,14 @@
     countoFImagesUploaded = 0 ;
     
     _tableView.clipsToBounds = YES;
+    
+    /*Latest Google Analytics*/
+    [FIRAnalytics logEventWithName:kFIREventSelectContent
+                        parameters:@{
+                                     kFIRParameterItemID:[NSString stringWithFormat:@"%@", kUserProfile.partyId],
+                                     kFIRParameterItemName:[NSString stringWithFormat:@"E_Service_PassportUpdate"],
+                                     kFIRParameterContentType:@"Button Clicks"
+                                     }];
 
 }
 -(void)viewWillAppear:(BOOL)animated{

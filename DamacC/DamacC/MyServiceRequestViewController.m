@@ -50,6 +50,14 @@
     }
     [_tableView setContentInset:UIEdgeInsetsMake(0, 0, 200, 0)];
     _hilightedView.hidden = YES;
+    
+    /*Latest Google Analytics*/
+    [FIRAnalytics logEventWithName:kFIREventSelectContent
+                        parameters:@{
+                                     kFIRParameterItemID:[NSString stringWithFormat:@"%@", kUserProfile.partyId],
+                                     kFIRParameterItemName:[NSString stringWithFormat:@"Service_Request"],
+                                     kFIRParameterContentType:@"Button Clicks"
+                                     }];
 }
 
 -(void)changeSelectedColor:(UIButton*)sender{

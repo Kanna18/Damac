@@ -19,7 +19,7 @@
     NSInteger  headerIndex;
     NSDictionary *dataDictionary;
     ReceiptDataModel *receiptsDM;
-    NSArray *tvArray;
+    NSArray *tvArray;    
 }
 
 - (void)viewDidLoad {
@@ -30,6 +30,14 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"ReceiptsTableViewCell" bundle:nil] forCellReuseIdentifier:@"receiptsTableViewCell"];
     headerIndex = -1;
     [self webServiceCall];
+    
+    /*Latest Google Analytics*/
+    [FIRAnalytics logEventWithName:kFIREventSelectContent
+                        parameters:@{
+                                     kFIRParameterItemID:[NSString stringWithFormat:@"%@", kUserProfile.partyId],
+                                     kFIRParameterItemName:[NSString stringWithFormat:@"Receipts"],
+                                     kFIRParameterContentType:@"Button Clicks"
+                                     }];
     
 }
 
@@ -121,7 +129,21 @@
     }else{
         headerView.backgroundColor = rgb(41, 41, 41);
     }
+    
+    
+    /*Latest Google Analytics*/
+    [FIRAnalytics logEventWithName:kFIREventSelectContent
+                        parameters:@{
+                                     kFIRParameterItemID:[NSString stringWithFormat:@"%@", kUserProfile.partyId],
+                                     kFIRParameterItemName:[NSString stringWithFormat:@"Receipts_%@",resp.receiptNumber],
+                                     kFIRParameterContentType:@"Button Clicks"
+                                     }];
+    
+    
+    
     return headerView;
+    
+    
     
 }
 

@@ -66,6 +66,14 @@
     attachingDocumentsBool = NO;
     [self hideAttachmentsView:YES];
     
+    /*Latest Google Analytics*/
+    [FIRAnalytics logEventWithName:kFIREventSelectContent
+                        parameters:@{
+                                     kFIRParameterItemID:[NSString stringWithFormat:@"%@", kUserProfile.partyId],
+                                     kFIRParameterItemName:[NSString stringWithFormat:@"E_Service_Complaints"],
+                                     kFIRParameterContentType:@"Button Clicks"
+                                     }];
+    
 }
 
 
@@ -173,6 +181,15 @@
     if(_complaintsObj.attactment1||_complaintsObj.attactment2){
         [FTIndicator showProgressWithMessage:@"Please wait"];
         [self uploadAttachments];
+        
+        /*Latest Google Analytics*/
+        [FIRAnalytics logEventWithName:kFIREventSelectContent
+                            parameters:@{
+                                         kFIRParameterItemID:[NSString stringWithFormat:@"%@", kUserProfile.partyId],
+                                         kFIRParameterItemName:[NSString stringWithFormat:@"Complaints_AttachDoc"],
+                                         kFIRParameterContentType:@"Button Clicks"
+                                         }];
+        
     }else{
         [FTIndicator showToastMessage:@"Please select Attachment"];
     }
@@ -187,6 +204,14 @@
         [FTIndicator showProgressWithMessage:@"Loading Please Wait" userInteractionEnable:NO];
         _complaintsObj.Status = @"Submitted";
         [self uploadImagesToServer];
+        
+        /*Latest Google Analytics*/
+        [FIRAnalytics logEventWithName:kFIREventSelectContent
+                            parameters:@{
+                                         kFIRParameterItemID:[NSString stringWithFormat:@"%@", kUserProfile.partyId],
+                                         kFIRParameterItemName:[NSString stringWithFormat:@"Complaints_Submit"],
+                                         kFIRParameterContentType:@"Button Clicks"
+                                         }];
     }
     
 }

@@ -99,7 +99,7 @@
 
 #define surveyQuestionsUrl @"https://servicecloudtrial-155c0807bf-1580afc5db1.force.com/MobileApp/services/apexrest/surveyQuestions/"
 
-#define surveyResponseUrl @"https://partial-servicecloudtrial-155c0807bf-1580afc5db1.cs80.force.com/Customer/services/apexrest/surveyResponse/"
+#define surveyResponseUrl @"https://servicecloudtrial-155c0807bf-1580afc5db1.cs80.force.com/Customer/services/apexrest/surveyResponse/"
 
 #define SaveFCMTokenFromMobileAppUrl @"https://servicecloudtrial-155c0807bf-1580afc5db1.force.com/MobileApp/services/apexrest/SaveFCMTokenFromMobileApp/"
 
@@ -154,7 +154,7 @@
 
 #define BillingResponseHandler @"https://ptctest.damacgroup.com/ptctest/ResponseHandler.jsp"
 
-#define AppointmentsSlotsNew @"https://damacholding--partial.cs80.my.salesforce.com/services/apexrest/appointmentMobile"
+#define AppointmentsSlotsNew @"https://partial-servicecloudtrial-155c0807bf-1580afc5db1.cs80.force.com/MobileApp/services/apexrest/appointmentMobile"
 
 #endif
 /***************************************************************************************/

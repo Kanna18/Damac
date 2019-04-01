@@ -21,6 +21,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property NSString *ServiceType;
 @property NSString *TimeSlot;
 
+@property NSMutableDictionary *slotsNewDictionary;
+
 -(void)createappointment;
 
 @end

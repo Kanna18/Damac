@@ -212,7 +212,7 @@
         popoverPurpose.delegate = nil;
         popoverPurpose = nil;
         [popoverPurpose dismissPopoverAnimated:YES];
-        _appointObj.ServiceType = pusrposeArray[tag];
+        _appointObj.ServiceType = [pusrposeArray[tag] substringFromIndex:3];
         if(!(isEmpty(_appointObj.TimeSlot))){
             [self setToNormalValuesWhenSelectionChanged:YES];
         }
@@ -241,7 +241,7 @@
         popoverUnit.delegate = nil;
         popoverUnit = nil;
         [popoverUnit dismissPopoverAnimated:YES];
-        _appointObj.BookingUnit = unitsArray[tag];
+        _appointObj.BookingUnit = unitsWholeArray[tag][@"Id"]; //unitsArray[tag];
         validationBool = [self handOverNotificationsValidation:tag];
         selectedUnitTag = tag;
         [self adjustImageEdgeInsetsOfButton:_selectUnitBtn];
@@ -471,69 +471,157 @@
 - (IBAction)selectUnitNewClick:(id)sender{
     [self showUnitspopover:_selectUnitBtn];
 }
+
+
+//-(void)getAvailableSlots{
+//
+//
+//    [self fetchingAvailableSlotsNew];
+//    if(isEmpty(_appointObj.ServiceType))
+//    {
+//        [FTIndicator showToastMessage:@"Please select Purpose"];
+//        return;
+//    }
+////    if(isEmpty(_appointObj.SubProcessName))
+////    {
+////        [FTIndicator showToastMessage:@"Please select Sub-Purpose"];
+////        return;
+////    }
+//    if(isEmpty(_appointObj.BookingUnit))
+//    {
+//        [FTIndicator showToastMessage:@"Please select Unit"];
+//        return;
+//    }
+//
+//    [FTIndicator showProgressWithMessage:@"Loading please wait" userInteractionEnable:NO];
+//    NSDateFormatter *dtFormat = [[NSDateFormatter alloc]init];
+//    [dtFormat setDateFormat:@"YYYY-MM-dd"];
+//    NSDateComponents *comp = [[NSDateComponents alloc]init];
+//    [comp setDay:2];
+//
+//    NSDate *date = [[NSCalendar currentCalendar]dateByAddingComponents:comp toDate:[NSDate date] options:0];
+//    NSString *dtStr =[dtFormat stringFromDate:date];
+//
+//    NSDictionary *dict =@{ @"strSelectedProcess" : handleNull(_appointObj.ServiceType),
+//                           @"strSelectedSubProcess":handleNull(_appointObj.SubProcessName),
+//                           @"buildingId":handleNull(_appointObj.BookingUnit),
+//                           @"strSelectedDate":handleNull(dtStr)
+//                           };
+//
+//    ServerAPIManager *ser = [ServerAPIManager sharedinstance];
+//    [ser postRequestwithUrl:SendAvailableAppointmentsToMObileAppUrl withParameters:dict successBlock:^(id responseObj) {
+//        if(responseObj){
+//            NSDictionary *dictSlots = [NSJSONSerialization JSONObjectWithData:responseObj options:0 error:nil];
+//            NSLog(@"%@",dictSlots);
+//
+//            if([dictSlots isKindOfClass:[NSArray class]]){
+//                [FTIndicator performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
+//                [FTIndicator showToastMessage:@"Non availability of time slots"];
+//                return;
+//            }
+//
+//            if([dictSlots[@"AvailableSlotsList"] count]>0)
+//            {
+//            dispatch_async(dispatch_get_main_queue(), ^{
+//                [FTIndicator dismissProgress];
+//                AppointmentsSlotsViewController *appvc = [self.storyboard instantiateViewControllerWithIdentifier:@"appointmentsSlotsViewController"];
+//                appvc.appointObj = _appointObj;
+//                appvc.totalArrayDates = dictSlots[@"AvailableSlotsList"];
+//                [self presentViewController:appvc animated:NO completion:nil];
+//            });
+//            }else{
+//                [FTIndicator performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
+//                [FTIndicator showToastMessage:@"Non availability of time slots"];
+//            }
+//        }
+//    } errorBlock:^(NSError *error) {
+//        [FTIndicator performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
+//        [FTIndicator showToastMessage:error.localizedDescription];
+//    }];
+//}
+
+
 -(void)getAvailableSlots{
+    
     
     if(isEmpty(_appointObj.ServiceType))
     {
         [FTIndicator showToastMessage:@"Please select Purpose"];
         return;
     }
-//    if(isEmpty(_appointObj.SubProcessName))
-//    {
-//        [FTIndicator showToastMessage:@"Please select Sub-Purpose"];
-//        return;
-//    }
     if(isEmpty(_appointObj.BookingUnit))
     {
         [FTIndicator showToastMessage:@"Please select Unit"];
         return;
     }
     
-    [FTIndicator showProgressWithMessage:@"Loading please wait" userInteractionEnable:NO];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [FTIndicator dismissProgress];
+            AppointmentsSlotsViewController *appvc = [self.storyboard instantiateViewControllerWithIdentifier:@"appointmentsSlotsViewController"];
+            appvc.appointObj = _appointObj;
+            appvc.totalArrayDates = [self getNextFivedaysList];
+            [self presentViewController:appvc animated:NO completion:nil];
+        });
+}
+
+
+
+
+
+-(NSMutableArray*)getNextFivedaysList{
+    NSMutableArray *customDatesArray = [[NSMutableArray alloc]init];
     NSDateFormatter *dtFormat = [[NSDateFormatter alloc]init];
     [dtFormat setDateFormat:@"YYYY-MM-dd"];
     NSDateComponents *comp = [[NSDateComponents alloc]init];
-    [comp setDay:2];
-    
-    NSDate *date = [[NSCalendar currentCalendar]dateByAddingComponents:comp toDate:[NSDate date] options:0];
-    NSString *dtStr =[dtFormat stringFromDate:date];
-    
-    NSDictionary *dict =@{ @"strSelectedProcess" : handleNull(_appointObj.ServiceType),
-                           @"strSelectedSubProcess":handleNull(_appointObj.SubProcessName),
-                           @"buildingId":handleNull(_appointObj.BookingUnit),
-                           @"strSelectedDate":handleNull(dtStr)
-                           };
-    
-    ServerAPIManager *ser = [ServerAPIManager sharedinstance];
-    [ser postRequestwithUrl:SendAvailableAppointmentsToMObileAppUrl withParameters:dict successBlock:^(id responseObj) {
-        if(responseObj){
-            NSDictionary *dictSlots = [NSJSONSerialization JSONObjectWithData:responseObj options:0 error:nil];
-            NSLog(@"%@",dictSlots);
+    int i = 1;
+    while (i<=7) {
+        [comp setDay:i];
+        NSDate *date = [[NSCalendar currentCalendar]dateByAddingComponents:comp toDate:[NSDate date] options:0];
+        
+        NSCalendar *calendar = [NSCalendar currentCalendar];
+        NSDateComponents *dateCom = [calendar components:(NSWeekOfYearCalendarUnit | NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit | NSCalendarUnitWeekday) fromDate:date];
+        NSLog(@"%lu",dateCom.weekday);
+        if(dateCom.weekday == 6 || dateCom.weekday == 7){
             
-            if([dictSlots isKindOfClass:[NSArray class]]){
-                [FTIndicator performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
-                [FTIndicator showToastMessage:@"Non availability of time slots"];
-                return;
-            }
-            
-            if([dictSlots[@"AvailableSlotsList"] count]>0)
-            {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [FTIndicator dismissProgress];
-                AppointmentsSlotsViewController *appvc = [self.storyboard instantiateViewControllerWithIdentifier:@"appointmentsSlotsViewController"];
-                appvc.appointObj = _appointObj;
-                appvc.totalArrayDates = dictSlots[@"AvailableSlotsList"];
-                [self presentViewController:appvc animated:NO completion:nil];
-            });
-            }else{
-                [FTIndicator performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
-                [FTIndicator showToastMessage:@"Non availability of time slots"];
-            }
+        }else{
+            NSString *dtStr =[dtFormat stringFromDate:date];
+            [customDatesArray addObject:dtStr];
         }
-    } errorBlock:^(NSError *error) {
-        [FTIndicator performSelectorOnMainThread:@selector(dismissProgress) withObject:nil waitUntilDone:YES];
-        [FTIndicator showToastMessage:error.localizedDescription];
-    }];
+        i++;
+    }
+    return customDatesArray;
 }
+
+//-(void)fetchingAvailableSlotsNew{
+//    
+//    SFUserAccountManager *sf = [SFUserAccountManager sharedInstance];    
+//    NSDictionary *dict =@{ @"processName" : handleNull(_appointObj.ServiceType),
+//                           @"subProcessName":handleNull(_appointObj.SubProcessName),
+//                           @"unitName":handleNull(_appointObj.BookingUnit),
+//                           @"selectedDate":handleNull(@""),
+//                           @"accountId":kUserProfile.sfAccountId
+//                           };
+//    
+////    accountId=0012500000hARtaAAG
+////    &unitName=a0x25000000B99RAAS
+////    &processName=Handover
+////    &subProcessName=Documentation
+////    &selectedDate=2019-03-09
+//    
+////    accountId=0012500000hARtaAAG
+////    unitName=a0x25000000B99RAAS
+////    processName=Handover
+////    subProcessName=Unit
+//    
+//    ServerAPIManager *ser = [ServerAPIManager sharedinstance];
+//    [ser getRequestwithUrl:[NSString stringWithFormat:@"https://damacholding--partial.cs80.my.salesforce.com/services/apexrest/appointmentMobile?processName=%@&subProcessName=%@&unitName=%@&selectedDate=%@&accountId=%@",handleNull(_appointObj.ServiceType),handleNull(_appointObj.SubProcessName),handleNull(_appointObj.BookingUnit),handleNull(@""),kUserProfile.sfAccountId] withParameters:dict successBlock:^(id responseObj) {
+//        NSMutableArray *slotsArr = [NSJSONSerialization JSONObjectWithData:responseObj options:0 error:nil];
+//        NSLog(@"%@",slotsArr);
+//        
+//    } errorBlock:^(NSError *error) {
+//        
+//    }];
+//    
+//}
 
 @end

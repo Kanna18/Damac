@@ -24,6 +24,7 @@
     NSMutableArray *timeSlotsArray;
     NSMutableArray *onlyDayArray;
     
+    NSMutableArray *slotsDictArray;
     
 }
 
@@ -41,6 +42,7 @@
     dateArray = [[NSMutableArray alloc]init];
     timeSlotsArray = [[NSMutableArray alloc]init];
     onlyDayArray = [[NSMutableArray alloc]init];
+    slotsDictArray = [[NSMutableArray alloc]init];
     
     [self sortMonthsArray];
     [_selectDateBtn setTitle:@"" forState:UIControlStateNormal];
@@ -78,7 +80,6 @@
     sender.imageEdgeInsets = UIEdgeInsetsMake(0, sender.frame.size.width-30-sender.titleLabel.intrinsicContentSize.width, 0, 0);
 }
 -(void)sortMonthsArray{
-    
     NSSet *dupSet = [[NSSet alloc]initWithArray:_totalArrayDates];
     _totalArrayDates = [dupSet allObjects];
     
@@ -106,7 +107,7 @@
     for (NSString *str in _totalArrayDates) {
         NSArray *ar = [str componentsSeparatedByString:@"\("];
         NSString *mont = ar[0];
-        if([mont containsString:[NSString stringWithFormat:@"-%d-",countOfObj]]&&![dateArray containsObject:mont]){
+        if([mont containsString:[NSString stringWithFormat:@"-%02d-",countOfObj]]&&![dateArray containsObject:mont]){
             [dateArray  addObject:mont];
         }
     }
@@ -115,18 +116,21 @@
         [onlyDayArray addObject:[[dtt componentsSeparatedByString:@"-"] lastObject]];
     }
 }
+
 -(void)sortSlotsArray:(NSString*)date{
     
-    [timeSlotsArray removeAllObjects];
-    for (NSString *str in _totalArrayDates) {
-        if([str containsString:date]){
-            NSArray *arr = [str componentsSeparatedByString:@"\("];
-            [timeSlotsArray addObject:[arr[1] substringToIndex:[arr[1] length]-1]];
-        }
-    }
-    NSSortDescriptor *sd = [[NSSortDescriptor alloc] initWithKey:nil ascending:YES];
-    [timeSlotsArray sortUsingDescriptors:@[sd]];
-    [_collectionView reloadData];
+//    [timeSlotsArray removeAllObjects];
+//    for (NSString *str in _totalArrayDates) {
+//        if([str containsString:date]){
+//            NSArray *arr = [str componentsSeparatedByString:@"\("];
+//            [timeSlotsArray addObject:[arr[1] substringToIndex:[arr[1] length]-1]];
+//        }
+//    }
+//    NSSortDescriptor *sd = [[NSSortDescriptor alloc] initWithKey:nil ascending:YES];
+//    [timeSlotsArray sortUsingDescriptors:@[sd]];
+//    [_collectionView reloadData];
+    
+    [self fetchingAvailableSlotsNewForDate:date];
     
 }
 
@@ -199,10 +203,20 @@
 {
     SlotCell *cell = (SlotCell*)[collectionView cellForItemAtIndexPath:indexPath];
     _appointObj.TimeSlot = [cell.timeSLotLabel.text stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+    [self capturetheSlotobjectFromAllSlots:[[cell.timeSLotLabel.text stringByReplacingOccurrencesOfString:@"\n" withString:@""] stringByReplacingOccurrencesOfString:@"-" withString:@" - "]];
     [self dismissViewControllerAnimated:NO completion:nil];
     
 }
 
+-(void)capturetheSlotobjectFromAllSlots:(NSString*)slot{
+    NSPredicate *pre = [NSPredicate predicateWithFormat:@"SELF.objApp.Slots__c MATCHES %@",slot];
+    NSArray *arr = [slotsDictArray filteredArrayUsingPredicate:pre];
+    if(arr.count>0){
+        _appointObj.slotsNewDictionary = [[NSMutableDictionary alloc]initWithDictionary:arr.lastObject];
+        [_appointObj.slotsNewDictionary setValue:[NSNumber numberWithBool:1] forKey:@"isSelected"];
+    }
+    
+}
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     return  CGSizeMake(collectionView.frame.size.width/3-9, 295/4-30);
@@ -247,7 +261,7 @@
         [_collectionView reloadData];
 //        [_selectDateBtn setTitle:dateArray[tag] forState:UIControlStateNormal];
         [_selectDateBtn setTitle:onlyDayArray[tag] forState:UIControlStateNormal];
-        [self sortSlotsArray:dateArray[tag]];
+//        [self sortSlotsArray:dateArray[tag]];
         popoverDate.delegate = nil;
         popoverDate = nil;
         [popoverDate dismissPopoverAnimated:YES];
@@ -255,4 +269,42 @@
         _appointObj.AppointmentDate = dateArray[tag];
     }
 }
+
+-(void)fetchingAvailableSlotsNewForDate:(NSString*)date{
+    
+//    SFUserAccountManager *sf = [SFUserAccountManager sharedInstance];
+    NSDictionary *dict =@{ @"processName" : handleNull(_appointObj.ServiceType),
+                           @"subProcessName":handleNull(_appointObj.SubProcessName),
+                           @"unitName":handleNull(_appointObj.BookingUnit),
+                           @"selectedDate":handleNull(date),
+                           @"accountId":kUserProfile.sfAccountId
+                           };
+    ServerAPIManager *ser = [ServerAPIManager sharedinstance];
+    [ser getRequestwithUrl:[NSString stringWithFormat:@"%@?processName=%@&subProcessName=%@&unitName=%@&selectedDate=%@&accountId=%@",AppointmentsSlotsNew,handleNull(_appointObj.ServiceType),handleNull(_appointObj.SubProcessName),handleNull(_appointObj.BookingUnit),handleNull(date),kUserProfile.sfAccountId] withParameters:dict successBlock:^(id responseObj) {
+        slotsDictArray = [NSJSONSerialization JSONObjectWithData:responseObj options:0 error:nil];
+        NSLog(@"%@",slotsDictArray);
+        NSArray *validayionChechk = [slotsDictArray valueForKey:@"objApp"];
+        if(!slotsDictArray.count){
+            [FTIndicator showToastMessage:@"Non availability of time slots"];
+        }
+        else if(validayionChechk && validayionChechk.count>0)
+        {
+            NSArray *sArr = [[NSMutableArray alloc]initWithArray:[[slotsDictArray valueForKey:@"objApp"] valueForKey:@"Slots__c"]];
+            if(sArr && sArr.count>1){
+                NSArray *sortedArray = [[NSSet setWithArray:sArr] allObjects];
+                timeSlotsArray = [[NSMutableArray alloc]initWithArray:sortedArray];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    NSSortDescriptor *sd = [[NSSortDescriptor alloc] initWithKey:nil ascending:YES];
+                    [timeSlotsArray sortUsingDescriptors:@[sd]];
+                    [_collectionView reloadData];
+                });
+            }
+        }
+        
+    } errorBlock:^(NSError *error) {
+        [FTIndicator showToastMessage:@"Non availability of time slots"];
+    }];
+    
+}
+
 @end

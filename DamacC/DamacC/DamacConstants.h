@@ -154,6 +154,8 @@
 
 #define BillingResponseHandler @"https://ptctest.damacgroup.com/ptctest/ResponseHandler.jsp"
 
+#define AppointmentsSlotsNew @"https://damacholding--partial.cs80.my.salesforce.com/services/apexrest/appointmentMobile"
+
 #endif
 /***************************************************************************************/
 

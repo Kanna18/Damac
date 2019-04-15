@@ -52,6 +52,7 @@
                                      kFIRParameterItemName:@"Book an Appointment - Start",
                                      kFIRParameterContentType:@"Button Clicks"
                                      }];
+    [FIRAnalytics setScreenName:@"Appointment Details" screenClass:NSStringFromClass([self class])];
 
 }
 -(void)webServicetoGetUnitSFIds{
@@ -85,7 +86,7 @@
     
     [super viewDidAppear:YES];
     DamacSharedClass.sharedInstance.currentVC = self;
-//    [self setCalendarInit];
+    [self setCalendarInit];
     [self roundCorners:_selectUnitBtn];
     [self roundCorners:_selectPurposeBtn];
     [self roundCorners:_selectSubPurposeBtn];
@@ -280,39 +281,39 @@
 //    _timeSlotDropMenu.DirectionDown = YES;
 //
 //}
-//-(void)setCalendarInit{
-//
-//    calendarView = [[[NSBundle mainBundle] loadNibNamed:@"WSCalendarView" owner:self options:nil] firstObject];
-//    //calendarView.dayColor=[UIColor blackColor];
-//    //calendarView.weekDayNameColor=[UIColor purpleColor];
-//    //calendarView.barDateColor=[UIColor purpleColor];
-//    //calendarView.todayBackgroundColor=[UIColor blackColor];
-//    calendarView.tappedDayBackgroundColor=[UIColor blackColor];
-//    calendarView.calendarStyle = WSCalendarStyleDialog;
-//    calendarView.isShowEvent=false;
-//    [calendarView setupAppearance];
-//    [self.baseView addSubview:calendarView];
-//    calendarView.delegate=self;
-//
-//    eventArray=[[NSMutableArray alloc] init];
-//    NSDate *lastDate;
-//    NSDateComponents *dateComponent=[[NSDateComponents alloc] init];
-//    for (int i=0; i<10; i++) {
-//
-//        if (!lastDate) {
-//            lastDate=[NSDate date];
-//        }
-//        else{
-//            [dateComponent setDay:1];
-//        }
-//        NSDate *datein = [[NSCalendar currentCalendar] dateByAddingComponents:dateComponent toDate:lastDate options:0];
-//        lastDate=datein;
-//        [eventArray addObject:datein];
-//    }
-//    [calendarViewEvent reloadCalendar];
-//
-//    NSLog(@"%@",[eventArray description]);
-//}
+-(void)setCalendarInit{
+
+    calendarView = [[[NSBundle mainBundle] loadNibNamed:@"WSCalendarView" owner:self options:nil] firstObject];
+//    calendarView.dayColor=[UIColor blackColor];
+//    calendarView.weekDayNameColor=[UIColor purpleColor];
+//    calendarView.barDateColor=[UIColor purpleColor];
+//    calendarView.todayBackgroundColor=[UIColor blackColor];
+    calendarView.tappedDayBackgroundColor=[UIColor blackColor];
+    calendarView.calendarStyle = WSCalendarStyleDialog;
+    calendarView.isShowEvent=false;
+    [calendarView setupAppearance];
+    [self.baseView addSubview:calendarView];
+    calendarView.delegate=self;
+
+    eventArray=[[NSMutableArray alloc] init];
+    NSDate *lastDate;
+    NSDateComponents *dateComponent=[[NSDateComponents alloc] init];
+    for (int i=0; i<10; i++) {
+
+        if (!lastDate) {
+            lastDate=[NSDate date];
+        }
+        else{
+            [dateComponent setDay:1];
+        }
+        NSDate *datein = [[NSCalendar currentCalendar] dateByAddingComponents:dateComponent toDate:lastDate options:0];
+        lastDate=datein;
+        [eventArray addObject:datein];
+    }
+    [calendarViewEvent reloadCalendar];
+
+    NSLog(@"%@",[eventArray description]);
+}
 
 
 
@@ -365,8 +366,7 @@
 */
 
 - (IBAction)calendarClick:(id)sender {
-  
-//    [calendarView ActiveCalendar:self.baseView];
+    
     if(!(_appointObj.BookingUnit.length>0)){
         [FTIndicator showToastMessage:@"Please select unit"];
     }
@@ -426,23 +426,38 @@
 //    NSDateFormatter *todaysDate = [[NSDateFormatter alloc]init];
 //    [todaysDate setDateFormat:@"dd MMM yyyy"];
     NSDate *tdaysDate = [NSDate date];
+    
     NSComparisonResult result = [tdaysDate compare:selectedDate];
     NSString *str=[monthFormatter stringFromDate:selectedDate];
     NSLog(@"%ld",(long)result);
     
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSDateComponents *dateComponent = [calendar components:(NSWeekOfYearCalendarUnit | NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit | NSCalendarUnitWeekday) fromDate:selectedDate];
-
-    if(result == -1 ){
-        [self.calendarBtn setTitle:str forState:UIControlStateNormal];
-        
-    }else if(dateComponent.weekday == 6 || dateComponent.weekday == 7){
+    
+    NSDateComponents *comParedays = [[NSCalendar currentCalendar] components: NSDayCalendarUnit                                                                    fromDate: tdaysDate toDate: selectedDate options: 0];
+    NSInteger days = [comParedays day];
+    
+    
+    if(result == NSOrderedDescending){
+        [FTIndicator showErrorWithMessage:@"Selected Date should be greater"];
+        [calendarView ActiveCalendar:self.baseView];
+        return;
+    }
+    if(dateComponent.weekday == 6 || dateComponent.weekday == 7){
         [FTIndicator showErrorWithMessage:@"Friday and Saturday are weekoff"];
         [calendarView ActiveCalendar:self.baseView];
+        return;
     }
-        else{
-            [FTIndicator showErrorWithMessage:@"Selected Date should be greater"];
-            [calendarView ActiveCalendar:self.baseView];
+    if(result == -1 && days >=1){
+//        [self.calendarBtn setTitle:str forState:UIControlStateNormal];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [FTIndicator dismissProgress];
+            AppointmentsSlotsViewController *appvc = [self.storyboard instantiateViewControllerWithIdentifier:@"appointmentsSlotsViewController"];
+            appvc.appointObj = _appointObj;
+            appvc.totalArrayDates = [self getNextFivedaysListFromDate:selectedDate];
+            [self presentViewController:appvc animated:NO completion:nil];
+        });
+        
     }
         
 }
@@ -554,21 +569,22 @@
         [FTIndicator showToastMessage:@"Please select Unit"];
         return;
     }
+    [calendarView ActiveCalendar:self.baseView];
     
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [FTIndicator dismissProgress];
-            AppointmentsSlotsViewController *appvc = [self.storyboard instantiateViewControllerWithIdentifier:@"appointmentsSlotsViewController"];
-            appvc.appointObj = _appointObj;
-            appvc.totalArrayDates = [self getNextFivedaysList];
-            [self presentViewController:appvc animated:NO completion:nil];
-        });
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            [FTIndicator dismissProgress];
+//            AppointmentsSlotsViewController *appvc = [self.storyboard instantiateViewControllerWithIdentifier:@"appointmentsSlotsViewController"];
+//            appvc.appointObj = _appointObj;
+//            appvc.totalArrayDates = [self getNextFivedaysList];
+//            [self presentViewController:appvc animated:NO completion:nil];
+//        });
 }
 
 
 
 
 
--(NSMutableArray*)getNextFivedaysList{
+-(NSMutableArray*)getNextFivedaysListFromDate:(NSDate*)selDate{
     NSMutableArray *customDatesArray = [[NSMutableArray alloc]init];
     NSDateFormatter *dtFormat = [[NSDateFormatter alloc]init];
     [dtFormat setDateFormat:@"YYYY-MM-dd"];
@@ -576,7 +592,7 @@
     int i = 1;
     while (i<=7) {
         [comp setDay:i];
-        NSDate *date = [[NSCalendar currentCalendar]dateByAddingComponents:comp toDate:[NSDate date] options:0];
+        NSDate *date = [[NSCalendar currentCalendar]dateByAddingComponents:comp toDate:selDate options:0];
         
         NSCalendar *calendar = [NSCalendar currentCalendar];
         NSDateComponents *dateCom = [calendar components:(NSWeekOfYearCalendarUnit | NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit | NSCalendarUnitWeekday) fromDate:date];

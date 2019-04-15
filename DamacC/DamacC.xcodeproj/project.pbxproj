@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		18113770224A07EF00C957C4 /* CCAvenueSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 181D6E8422495A8D00AEFABB /* CCAvenueSDK.framework */; };
-		18113771224A07EF00C957C4 /* CCAvenueSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 181D6E8422495A8D00AEFABB /* CCAvenueSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		18113775224BBF6200C957C4 /* SaopServices.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C57CB42158F1BD00970DC3 /* SaopServices.m */; };
 		18113776224BBF6200C957C4 /* StepperAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = F62642022113204B0022C4DC /* StepperAnimation.m */; };
 		18113777224BBF6200C957C4 /* FTNotificationIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = F60F90E62199F7A600B2A10D /* FTNotificationIndicator.m */; };
@@ -153,7 +151,6 @@
 		18113803224BBF6200C957C4 /* libxml2.2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F6C57C722158CD2400970DC3 /* libxml2.2.tbd */; };
 		18113804224BBF6200C957C4 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6D91E3920994A5D00DA1428 /* LocalAuthentication.framework */; };
 		18113805224BBF6200C957C4 /* Pods_DamacC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 963039B5CBD9F0905930BC2D /* Pods_DamacC.framework */; };
-		18113806224BBF6200C957C4 /* CCAvenueSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 181D6E8422495A8D00AEFABB /* CCAvenueSDK.framework */; };
 		18113808224BBF6200C957C4 /* americanexpress.png in Resources */ = {isa = PBXBuildFile; fileRef = F6A739D4219AC93D00ED2B7D /* americanexpress.png */; };
 		18113809224BBF6200C957C4 /* defaultCard.png in Resources */ = {isa = PBXBuildFile; fileRef = F6A739DC219AC93D00ED2B7D /* defaultCard.png */; };
 		1811380A224BBF6200C957C4 /* diners.png in Resources */ = {isa = PBXBuildFile; fileRef = F6A739CF219AC93D00ED2B7D /* diners.png */; };
@@ -219,7 +216,9 @@
 		18113846224BBF6200C957C4 /* floatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6C942B620E9C6D600D1F40C /* floatTableViewCell.xib */; };
 		18113847224BBF6200C957C4 /* discover.png in Resources */ = {isa = PBXBuildFile; fileRef = F6A739CC219AC93D00ED2B7D /* discover.png */; };
 		18113848224BBF6200C957C4 /* AG_Helvetica_Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F67EB5E5212521CC0011AB64 /* AG_Helvetica_Bold.ttf */; };
-		1811384C224BBF6200C957C4 /* CCAvenueSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 181D6E8422495A8D00AEFABB /* CCAvenueSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		18775158225BC5920046655B /* CCAvenueSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18775156225BC5900046655B /* CCAvenueSDK.framework */; };
+		18775159225BC59F0046655B /* CCAvenueSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18775156225BC5900046655B /* CCAvenueSDK.framework */; };
+		1877515A225BC59F0046655B /* CCAvenueSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 18775156225BC5900046655B /* CCAvenueSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4C1FFC442EBEEC68228FD4A2 /* Pods_DamacC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 963039B5CBD9F0905930BC2D /* Pods_DamacC.framework */; };
 		4F8D5EA31B6C0568005E64D4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8D5EA21B6C0568005E64D4 /* main.m */; };
 		4F8D5EA61B6C0568005E64D4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8D5EA51B6C0568005E64D4 /* AppDelegate.m */; };
@@ -438,7 +437,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				1811384C224BBF6200C957C4 /* CCAvenueSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -449,7 +447,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				18113771224A07EF00C957C4 /* CCAvenueSDK.framework in Embed Frameworks */,
+				1877515A225BC59F0046655B /* CCAvenueSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -459,7 +457,7 @@
 /* Begin PBXFileReference section */
 		18113850224BBF6200C957C4 /* DamacC_Production.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DamacC_Production.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18113851224BBF6400C957C4 /* DamacC copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "DamacC copy-Info.plist"; path = "/Users/apple/DAMAC_iOS/DamacC/DamacC copy-Info.plist"; sourceTree = "<absolute>"; };
-		181D6E8422495A8D00AEFABB /* CCAvenueSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CCAvenueSDK.framework; sourceTree = "<group>"; };
+		18775156225BC5900046655B /* CCAvenueSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CCAvenueSDK.framework; sourceTree = "<group>"; };
 		2EA1CF321EA1CB95D50AC1A0 /* Pods-DamacC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DamacC.release.xcconfig"; path = "Target Support Files/Pods-DamacC/Pods-DamacC.release.xcconfig"; sourceTree = "<group>"; };
 		4F277E8C1DC7F5DF00E5A77C /* Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
 		4F8D5E9D1B6C0568005E64D4 /* DamacC_Sandbox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DamacC_Sandbox.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -827,7 +825,7 @@
 				18113803224BBF6200C957C4 /* libxml2.2.tbd in Frameworks */,
 				18113804224BBF6200C957C4 /* LocalAuthentication.framework in Frameworks */,
 				18113805224BBF6200C957C4 /* Pods_DamacC.framework in Frameworks */,
-				18113806224BBF6200C957C4 /* CCAvenueSDK.framework in Frameworks */,
+				18775158225BC5920046655B /* CCAvenueSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -843,7 +841,7 @@
 				F6C57C742158CD2400970DC3 /* libxml2.2.tbd in Frameworks */,
 				F6D91E3A20994A5D00DA1428 /* LocalAuthentication.framework in Frameworks */,
 				4C1FFC442EBEEC68228FD4A2 /* Pods_DamacC.framework in Frameworks */,
-				18113770224A07EF00C957C4 /* CCAvenueSDK.framework in Frameworks */,
+				18775159225BC59F0046655B /* CCAvenueSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -862,7 +860,7 @@
 		4F8D5E941B6C0568005E64D4 = {
 			isa = PBXGroup;
 			children = (
-				181D6E8422495A8D00AEFABB /* CCAvenueSDK.framework */,
+				18775156225BC5900046655B /* CCAvenueSDK.framework */,
 				F686163C20982C9C002EA241 /* PrefixHeader.pch */,
 				4F8D5E9F1B6C0568005E64D4 /* DamacC */,
 				4F8D5E9E1B6C0568005E64D4 /* Products */,
@@ -2682,7 +2680,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.damac.HelloDAMACD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = Damac_appstore_prov;
+				PROVISIONING_PROFILE_SPECIFIER = 02042019Appstore;
 				SKIP_INSTALL = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "DamacC-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -2763,7 +2761,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.damac.HelloDAMACD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = Damac_appstore_prov;
+				PROVISIONING_PROFILE_SPECIFIER = 02042019Appstore;
 				SKIP_INSTALL = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "DamacC-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;

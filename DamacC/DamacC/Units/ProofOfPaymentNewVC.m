@@ -90,7 +90,9 @@
                                      kFIRParameterItemName:[NSString stringWithFormat:@"E_Service_ProfPaymen"],
                                      kFIRParameterContentType:@"Button Clicks"
                                      }];
+    [FIRAnalytics setScreenName:@"Proof Of Payment" screenClass:NSStringFromClass([self class])];
 
+    
 }
 -(void)roundCorners:(UIButton*)sender{
     sender.layer.cornerRadius = 5;

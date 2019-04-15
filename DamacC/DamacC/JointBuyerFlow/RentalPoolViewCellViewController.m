@@ -69,6 +69,7 @@
                                      kFIRParameterItemName:[NSString stringWithFormat:@"E_Service_JointBuyerInfo"],
                                      kFIRParameterContentType:@"Button Clicks"
                                      }];
+    [FIRAnalytics setScreenName:@"Joint Buyer Info" screenClass:NSStringFromClass([self class])];
 }
 
 -(void)roundCorners:(UIButton*)sender{

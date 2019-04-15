@@ -77,6 +77,7 @@
                                      kFIRParameterItemName:[NSString stringWithFormat:@"E_Service_PassportUpdate"],
                                      kFIRParameterContentType:@"Button Clicks"
                                      }];
+    [FIRAnalytics setScreenName:@"Passport Update" screenClass:NSStringFromClass([self class])];
 
 }
 -(void)viewWillAppear:(BOOL)animated{

@@ -58,6 +58,7 @@
                                      kFIRParameterItemName:[NSString stringWithFormat:@"Service_Request"],
                                      kFIRParameterContentType:@"Button Clicks"
                                      }];
+    [FIRAnalytics setScreenName:@"My Service Request" screenClass:NSStringFromClass([self class])];
 }
 
 -(void)changeSelectedColor:(UIButton*)sender{

@@ -102,6 +102,10 @@
     }
 //    });
     
+    SFUserAccountManager *sf = [SFUserAccountManager sharedInstance];
+    if(sf.currentUser.credentials.userId != nil){
+        [FIRAnalytics logEventWithName:@"customerLogins" parameters:@{@"PartyID":sf.currentUser.credentials.userId}];
+    }
     
 }
 

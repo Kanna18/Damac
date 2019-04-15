@@ -37,6 +37,7 @@
                                      kFIRParameterItemName:@"Raise a Service Request",
                                      kFIRParameterContentType:@"Button Clicks"
                                      }];
+    [FIRAnalytics setScreenName:@"E-Services" screenClass:NSStringFromClass([self class])];
     
 }
 

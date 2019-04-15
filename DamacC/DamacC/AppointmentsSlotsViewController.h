@@ -23,6 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *heightConstraint;
 @property AppointmentObject *appointObj;
 @property (weak, nonatomic) IBOutlet UIView *viewBackground;
+@property (weak, nonatomic) IBOutlet UILabel *availableSlotsLabel;
 
 
 

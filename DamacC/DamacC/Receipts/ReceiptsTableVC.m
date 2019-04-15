@@ -38,6 +38,7 @@
                                      kFIRParameterItemName:[NSString stringWithFormat:@"Receipts"],
                                      kFIRParameterContentType:@"Button Clicks"
                                      }];
+    [FIRAnalytics setScreenName:@"My Receipts" screenClass:NSStringFromClass([self class])];
     
 }
 

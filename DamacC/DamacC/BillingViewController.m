@@ -361,6 +361,7 @@
                                      kFIRParameterItemName:@"Paynow_Proceed Button",
                                      kFIRParameterContentType:@"Button Clicks"
                                      }];
+    [FIRAnalytics setScreenName:@"Billing" screenClass:NSStringFromClass([self class])];
 }
 
 

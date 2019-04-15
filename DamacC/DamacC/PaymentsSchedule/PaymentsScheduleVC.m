@@ -41,6 +41,7 @@
                                      kFIRParameterItemName:[NSString stringWithFormat:@"Payment_Schedule"],
                                      kFIRParameterContentType:@"Button Clicks"
                                      }];
+    [FIRAnalytics setScreenName:@"My Units" screenClass:NSStringFromClass([self class])];
 }
 
 -(void)viewWillAppear:(BOOL)animated{

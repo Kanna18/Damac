@@ -43,6 +43,7 @@ static NSString *reuseCell = @"appointmentsCell";
                                      kFIRParameterItemName:[NSString stringWithFormat:@"E_Service_Appointment"],
                                      kFIRParameterContentType:@"Button Clicks"
                                      }];
+    [FIRAnalytics setScreenName:@"Appointment Details" screenClass:NSStringFromClass([self class])];
 
 }
 

@@ -85,7 +85,7 @@
                                      kFIRParameterItemName:[NSString stringWithFormat:@"E_Service"],
                                      kFIRParameterContentType:@"Button Clicks"
                                      }];
-    
+    [FIRAnalytics setScreenName:@"Change Of Contact Details" screenClass:NSStringFromClass([self class])];
 }
 
 

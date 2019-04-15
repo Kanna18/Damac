@@ -52,6 +52,7 @@
     [self roundCorners:_selectMonthBtn];
     [self roundCorners:_selectDateBtn];
     [self roundCornersView:_viewBackground];
+    _availableSlotsLabel.hidden = YES;
     
 }
 
@@ -115,6 +116,7 @@
     for (NSString *dtt in dateArray) {
         [onlyDayArray addObject:[[dtt componentsSeparatedByString:@"-"] lastObject]];
     }
+    [onlyDayArray addObject:@"..."];
 }
 
 -(void)sortSlotsArray:(NSString*)date{
@@ -194,7 +196,19 @@
     
     SlotCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"slotCell" forIndexPath:indexPath];
     NSArray *arr = [timeSlotsArray[indexPath.row] componentsSeparatedByString:@"-"];
-    cell.timeSLotLabel.text = [NSString stringWithFormat:@"%@-\n%@",removeEmpty(arr[0]),removeEmpty(arr[1])];
+    
+//    NSString *slottext = [NSString stringWithFormat:@"%@-\n%@",removeEmpty(arr[0]),removeEmpty(arr[1])];
+    NSString *slottext = [NSString stringWithFormat:@"%@",removeEmpty(arr[0])];
+    int slotTime = [slottext intValue];
+    if(slotTime>12){
+        slottext = [NSString stringWithFormat:@"%2d:00 PM",slotTime-12];
+    }else if (slotTime<12){
+        slottext = [NSString stringWithFormat:@"%2d:00 AM",slotTime];
+    }else if (slotTime==12){
+        slottext = [NSString stringWithFormat:@"%2d:00 PM",slotTime];
+    }
+    cell.timeSLotLabel.text = slottext;
+    
     cell.timeSLotLabel.adjustsFontSizeToFitWidth = YES;
     return cell;
     
@@ -202,8 +216,12 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     SlotCell *cell = (SlotCell*)[collectionView cellForItemAtIndexPath:indexPath];
-    _appointObj.TimeSlot = [cell.timeSLotLabel.text stringByReplacingOccurrencesOfString:@"\n" withString:@""];
-    [self capturetheSlotobjectFromAllSlots:[[cell.timeSLotLabel.text stringByReplacingOccurrencesOfString:@"\n" withString:@""] stringByReplacingOccurrencesOfString:@"-" withString:@" - "]];
+    
+    NSArray *arr = [timeSlotsArray[indexPath.row] componentsSeparatedByString:@"-"];
+    _appointObj.TimeSlot = [[NSString stringWithFormat:@"%@-\n%@",removeEmpty(arr[0]),removeEmpty(arr[1])] stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+    
+    
+    [self capturetheSlotobjectFromAllSlots:[_appointObj.TimeSlot stringByReplacingOccurrencesOfString:@"-" withString:@" - "]];
     [self dismissViewControllerAnimated:NO completion:nil];
     
 }
@@ -267,6 +285,7 @@
         [popoverDate dismissPopoverAnimated:YES];
         [self sortSlotsArray:dateArray[tag]];
         _appointObj.AppointmentDate = dateArray[tag];
+        _availableSlotsLabel.hidden = NO;
     }
 }
 

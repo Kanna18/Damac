@@ -60,6 +60,8 @@ static NSString *reuseCell = @"servicesCell";
                                      kFIRParameterItemName:@"Paynow",
                                      kFIRParameterContentType:@"Button Clicks"
                                      }];
+    
+    [FIRAnalytics setScreenName:@"My Units" screenClass:@"My Units"];
 }
 
 -(void)viewWillAppear:(BOOL)animated{

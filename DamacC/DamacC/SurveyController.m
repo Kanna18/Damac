@@ -39,6 +39,7 @@
                                      kFIRParameterItemName:[NSString stringWithFormat:@"Survey"],
                                      kFIRParameterContentType:@"Button Clicks"
                                      }];
+    [FIRAnalytics setScreenName:@"Customer Satisfaction Survey" screenClass:NSStringFromClass([self class])];
 }
 
 

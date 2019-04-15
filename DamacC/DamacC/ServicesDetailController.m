@@ -373,6 +373,7 @@
                                      kFIRParameterItemName:@"Cancel Service Request",
                                      kFIRParameterContentType:@"Button Clicks"
                                      }];
+    [FIRAnalytics setScreenName:@"Service Request Detail" screenClass:NSStringFromClass([self class])];
 }
 
 

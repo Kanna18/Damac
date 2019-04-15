@@ -48,6 +48,7 @@
                                      kFIRParameterItemName:@"MyUnit",
                                      kFIRParameterContentType:@"Button Clicks"
                                      }];
+    [FIRAnalytics setScreenName:@"My Units" screenClass:NSStringFromClass([self class])];
     
     
         

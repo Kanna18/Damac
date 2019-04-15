@@ -73,6 +73,7 @@
                                      kFIRParameterItemName:[NSString stringWithFormat:@"E_Service_Complaints"],
                                      kFIRParameterContentType:@"Button Clicks"
                                      }];
+    [FIRAnalytics setScreenName:@"My Complaints" screenClass:NSStringFromClass([self class])];
     
 }
 

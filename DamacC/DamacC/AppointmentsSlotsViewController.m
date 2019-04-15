@@ -115,8 +115,7 @@
        dateArray =  [[NSMutableArray alloc]initWithArray:[dateArray sortedArrayUsingSelector:@selector(compare:)]];
     for (NSString *dtt in dateArray) {
         [onlyDayArray addObject:[[dtt componentsSeparatedByString:@"-"] lastObject]];
-    }
-    [onlyDayArray addObject:@"..."];
+    }    
 }
 
 -(void)sortSlotsArray:(NSString*)date{

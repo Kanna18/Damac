@@ -458,6 +458,9 @@
             [self presentViewController:appvc animated:NO completion:nil];
         });
         
+    }else{
+        [FTIndicator showErrorWithMessage:@"Please select the next date"];
+        [calendarView ActiveCalendar:self.baseView];
     }
         
 }
@@ -591,7 +594,7 @@
     NSDateComponents *comp = [[NSDateComponents alloc]init];
     int i = 1;
     while (i<=7) {
-        [comp setDay:i];
+        
         NSDate *date = [[NSCalendar currentCalendar]dateByAddingComponents:comp toDate:selDate options:0];
         
         NSCalendar *calendar = [NSCalendar currentCalendar];
@@ -601,8 +604,9 @@
             
         }else{
             NSString *dtStr =[dtFormat stringFromDate:date];
-            [customDatesArray addObject:dtStr];
+            [customDatesArray addObject:dtStr];            
         }
+        [comp setDay:i];
         i++;
     }
     return customDatesArray;

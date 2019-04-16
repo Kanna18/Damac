@@ -437,17 +437,19 @@
     NSDateComponents *comParedays = [[NSCalendar currentCalendar] components: NSDayCalendarUnit                                                                    fromDate: tdaysDate toDate: selectedDate options: 0];
     NSInteger days = [comParedays day];
     
-    
+    //Previous dates till yesterday
     if(result == NSOrderedDescending){
-        [FTIndicator showErrorWithMessage:@"Selected Date should be greater"];
+        [FTIndicator showErrorWithMessage:@"Appointments can be booked only after 24 Hours from the present time"];
         [calendarView ActiveCalendar:self.baseView];
         return;
     }
+    //Friday and Saturday
     if(dateComponent.weekday == 6 || dateComponent.weekday == 7){
-        [FTIndicator showErrorWithMessage:@"Friday and Saturday are weekoff"];
+        [FTIndicator showErrorWithMessage:@"Appointments cannot be booked for a non-working day"];
         [calendarView ActiveCalendar:self.baseView];
         return;
     }
+    //Leaving Today and tomorrow slots can be booked from day after tomorrow
     if(result == -1 && days >=1){
 //        [self.calendarBtn setTitle:str forState:UIControlStateNormal];
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -457,9 +459,10 @@
             appvc.totalArrayDates = [self getNextFivedaysListFromDate:selectedDate];
             [self presentViewController:appvc animated:NO completion:nil];
         });
-        
-    }else{
-        [FTIndicator showErrorWithMessage:@"Please select the next date"];
+    }
+    //this falls under today and tomorrow
+    else{
+        [FTIndicator showErrorWithMessage:@"Appointments can be booked only after 24 Hours from the present time"];
         [calendarView ActiveCalendar:self.baseView];
     }
         

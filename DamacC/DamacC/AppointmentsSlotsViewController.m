@@ -53,7 +53,6 @@
     [self roundCorners:_selectDateBtn];
     [self roundCornersView:_viewBackground];
     _availableSlotsLabel.hidden = YES;
-    
 }
 
 -(void)roundCornersView:(UIView*)sender{
@@ -62,10 +61,29 @@
     sender.layer.borderWidth = 1.0f;
     sender.clipsToBounds = YES;
 }
+-(void)selectTheFirstDateAndMonthBydefault{
+    
+    _heightConstraint.constant = 351;
+    _availableSlotsLabel.hidden = NO;
+    
+    [_selectMonthBtn setTitle:monthArray[0] forState:UIControlStateNormal];
+    [_selectDateBtn setTitle:@"Select Date" forState:UIControlStateNormal];
+    [self sortDatesArray:monthArray[0]];
+    
+    
+    [_selectDateBtn setTitle:onlyDayArray[0] forState:UIControlStateNormal];
+    [self sortSlotsArray:dateArray[0]];
+    _appointObj.AppointmentDate = dateArray[0];
+    
+    
+    [_collectionView reloadData];
+}
+
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:YES];
     [self adjustImageEdgeInsetsOfButton:_selectMonthBtn];
     [self adjustImageEdgeInsetsOfButton:_selectDateBtn];
+    [self selectTheFirstDateAndMonthBydefault];
 }
 -(void)roundCorners:(UIButton*)sender{
     
@@ -91,10 +109,13 @@
     }
     NSSet *monthSet = [[NSSet alloc]initWithArray:monthArray];
     [monthArray removeAllObjects];
-    for (NSString *mont in monthSet) {
+    NSSortDescriptor *sortK = [NSSortDescriptor sortDescriptorWithKey:@"self" ascending:YES];
+    NSArray* monthSort = [monthSet sortedArrayUsingDescriptors:@[sortK]];
+    for (NSString *mont in monthSort) {
         NSDateFormatter *format1 = [[NSDateFormatter alloc]init];
         [monthArray addObject:[[format1 monthSymbols] objectAtIndex:mont.intValue-1]];
     }
+    
     NSLog(@"%@",monthArray);
 }
 
@@ -115,7 +136,8 @@
        dateArray =  [[NSMutableArray alloc]initWithArray:[dateArray sortedArrayUsingSelector:@selector(compare:)]];
     for (NSString *dtt in dateArray) {
         [onlyDayArray addObject:[[dtt componentsSeparatedByString:@"-"] lastObject]];
-    }    
+    }
+    [onlyDayArray addObject:@"..."];
 }
 
 -(void)sortSlotsArray:(NSString*)date{
@@ -274,17 +296,23 @@
     }
     if(popoverDate){
         
-        _heightConstraint.constant = 351;
-        [_collectionView reloadData];
-//        [_selectDateBtn setTitle:dateArray[tag] forState:UIControlStateNormal];
-        [_selectDateBtn setTitle:onlyDayArray[tag] forState:UIControlStateNormal];
-//        [self sortSlotsArray:dateArray[tag]];
-        popoverDate.delegate = nil;
-        popoverDate = nil;
-        [popoverDate dismissPopoverAnimated:YES];
-        [self sortSlotsArray:dateArray[tag]];
-        _appointObj.AppointmentDate = dateArray[tag];
-        _availableSlotsLabel.hidden = NO;
+        if([str isEqualToString:@"..."]){
+            [self dismissViewControllerAnimated:NO completion:nil];
+            [self.delegateForCalendar tappedonThreeDots];
+        }else{
+            _heightConstraint.constant = 351;
+            [_collectionView reloadData];
+            //        [_selectDateBtn setTitle:dateArray[tag] forState:UIControlStateNormal];
+            [_selectDateBtn setTitle:onlyDayArray[tag] forState:UIControlStateNormal];
+            //        [self sortSlotsArray:dateArray[tag]];
+            popoverDate.delegate = nil;
+            popoverDate = nil;
+            [popoverDate dismissPopoverAnimated:YES];
+            [self sortSlotsArray:dateArray[tag]];
+            _appointObj.AppointmentDate = dateArray[tag];
+            _availableSlotsLabel.hidden = NO;
+        }
+        
     }
 }
 

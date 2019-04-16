@@ -216,9 +216,9 @@
 		18113846224BBF6200C957C4 /* floatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6C942B620E9C6D600D1F40C /* floatTableViewCell.xib */; };
 		18113847224BBF6200C957C4 /* discover.png in Resources */ = {isa = PBXBuildFile; fileRef = F6A739CC219AC93D00ED2B7D /* discover.png */; };
 		18113848224BBF6200C957C4 /* AG_Helvetica_Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F67EB5E5212521CC0011AB64 /* AG_Helvetica_Bold.ttf */; };
-		18775158225BC5920046655B /* CCAvenueSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18775156225BC5900046655B /* CCAvenueSDK.framework */; };
-		18775159225BC59F0046655B /* CCAvenueSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18775156225BC5900046655B /* CCAvenueSDK.framework */; };
-		1877515A225BC59F0046655B /* CCAvenueSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 18775156225BC5900046655B /* CCAvenueSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1825A19A226662DB00E40A8B /* CCAvenueSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1825A198226662DB00E40A8B /* CCAvenueSDK.framework */; };
+		1825A19B226662E200E40A8B /* CCAvenueSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1825A198226662DB00E40A8B /* CCAvenueSDK.framework */; };
+		1825A19C226662E200E40A8B /* CCAvenueSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1825A198226662DB00E40A8B /* CCAvenueSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4C1FFC442EBEEC68228FD4A2 /* Pods_DamacC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 963039B5CBD9F0905930BC2D /* Pods_DamacC.framework */; };
 		4F8D5EA31B6C0568005E64D4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8D5EA21B6C0568005E64D4 /* main.m */; };
 		4F8D5EA61B6C0568005E64D4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8D5EA51B6C0568005E64D4 /* AppDelegate.m */; };
@@ -441,13 +441,13 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F6C0D0AD21CBF5D500825A2C /* Embed Frameworks */ = {
+		1825A188226598B500E40A8B /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				1877515A225BC59F0046655B /* CCAvenueSDK.framework in Embed Frameworks */,
+				1825A19C226662E200E40A8B /* CCAvenueSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -457,7 +457,7 @@
 /* Begin PBXFileReference section */
 		18113850224BBF6200C957C4 /* DamacC_Production.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DamacC_Production.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18113851224BBF6400C957C4 /* DamacC copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "DamacC copy-Info.plist"; path = "/Users/apple/DAMAC_iOS/DamacC/DamacC copy-Info.plist"; sourceTree = "<absolute>"; };
-		18775156225BC5900046655B /* CCAvenueSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CCAvenueSDK.framework; sourceTree = "<group>"; };
+		1825A198226662DB00E40A8B /* CCAvenueSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CCAvenueSDK.framework; sourceTree = "<group>"; };
 		2EA1CF321EA1CB95D50AC1A0 /* Pods-DamacC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DamacC.release.xcconfig"; path = "Target Support Files/Pods-DamacC/Pods-DamacC.release.xcconfig"; sourceTree = "<group>"; };
 		4F277E8C1DC7F5DF00E5A77C /* Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
 		4F8D5E9D1B6C0568005E64D4 /* DamacC_Sandbox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DamacC_Sandbox.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -825,7 +825,7 @@
 				18113803224BBF6200C957C4 /* libxml2.2.tbd in Frameworks */,
 				18113804224BBF6200C957C4 /* LocalAuthentication.framework in Frameworks */,
 				18113805224BBF6200C957C4 /* Pods_DamacC.framework in Frameworks */,
-				18775158225BC5920046655B /* CCAvenueSDK.framework in Frameworks */,
+				1825A19A226662DB00E40A8B /* CCAvenueSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -841,7 +841,7 @@
 				F6C57C742158CD2400970DC3 /* libxml2.2.tbd in Frameworks */,
 				F6D91E3A20994A5D00DA1428 /* LocalAuthentication.framework in Frameworks */,
 				4C1FFC442EBEEC68228FD4A2 /* Pods_DamacC.framework in Frameworks */,
-				18775159225BC59F0046655B /* CCAvenueSDK.framework in Frameworks */,
+				1825A19B226662E200E40A8B /* CCAvenueSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -860,7 +860,7 @@
 		4F8D5E941B6C0568005E64D4 = {
 			isa = PBXGroup;
 			children = (
-				18775156225BC5900046655B /* CCAvenueSDK.framework */,
+				1825A198226662DB00E40A8B /* CCAvenueSDK.framework */,
 				F686163C20982C9C002EA241 /* PrefixHeader.pch */,
 				4F8D5E9F1B6C0568005E64D4 /* DamacC */,
 				4F8D5E9E1B6C0568005E64D4 /* Products */,
@@ -1678,7 +1678,7 @@
 				4F8D5E9B1B6C0568005E64D4 /* Resources */,
 				F6E0AE50219E7973009B261E /* ShellScript */,
 				FB2F01C1C0E241F7DB5C54F4 /* [CP] Embed Pods Frameworks */,
-				F6C0D0AD21CBF5D500825A2C /* Embed Frameworks */,
+				1825A188226598B500E40A8B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

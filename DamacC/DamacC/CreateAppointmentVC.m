@@ -9,7 +9,7 @@
 #import "CreateAppointmentVC.h"
 #import "AppointmentsSlotsViewController.h"
 
-@interface CreateAppointmentVC ()<WYPopoverControllerDelegate,POPDelegate>
+@interface CreateAppointmentVC ()<WYPopoverControllerDelegate,POPDelegate,ShowCalendarDelegate>
 
 @end
 
@@ -439,14 +439,14 @@
     
     //Previous dates till yesterday
     if(result == NSOrderedDescending){
-        [FTIndicator showErrorWithMessage:@"Appointments can be booked only after 24 Hours from the present time"];
         [calendarView ActiveCalendar:self.baseView];
+        [FTIndicator showToastMessage:@"Appointments can be booked only after 24 Hours from the present time"];
         return;
     }
     //Friday and Saturday
     if(dateComponent.weekday == 6 || dateComponent.weekday == 7){
-        [FTIndicator showErrorWithMessage:@"Appointments cannot be booked for a non-working day"];
         [calendarView ActiveCalendar:self.baseView];
+        [FTIndicator showToastMessage:@"Appointments cannot be booked for a non-working day"];
         return;
     }
     //Leaving Today and tomorrow slots can be booked from day after tomorrow
@@ -456,18 +456,21 @@
             [FTIndicator dismissProgress];
             AppointmentsSlotsViewController *appvc = [self.storyboard instantiateViewControllerWithIdentifier:@"appointmentsSlotsViewController"];
             appvc.appointObj = _appointObj;
+            appvc.delegateForCalendar = self;
             appvc.totalArrayDates = [self getNextFivedaysListFromDate:selectedDate];
             [self presentViewController:appvc animated:NO completion:nil];
         });
     }
     //this falls under today and tomorrow
     else{
-        [FTIndicator showErrorWithMessage:@"Appointments can be booked only after 24 Hours from the present time"];
         [calendarView ActiveCalendar:self.baseView];
+        [FTIndicator showToastMessage:@"Appointments can be booked only after 24 Hours from the present time"];
     }
         
 }
-
+-(void)tappedonThreeDots{    
+    [calendarView ActiveCalendar:self.baseView];
+}
 
 - (IBAction)hideKeyboard:(id)sender {
     

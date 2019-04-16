@@ -11,7 +11,15 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol ShowCalendarDelegate <NSObject>
+
+-(void)tappedonThreeDots;
+
+@end
+
 @interface AppointmentsSlotsViewController : UIViewController
+
+@property id <ShowCalendarDelegate>delegateForCalendar;
 - (IBAction)closeClick:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *selectMonthBtn;
 @property (weak, nonatomic) IBOutlet UIButton *selectDateBtn;

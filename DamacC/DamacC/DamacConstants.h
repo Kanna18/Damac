@@ -107,6 +107,8 @@
 
 #define BillingResponseHandler @"https://ptc.damacgroup.com/ptc/ResponseHandler.jsp"
 
+#define AppointmentsSlotsNew @"https://servicecloudtrial-155c0807bf-1580afc5db1.force.com/MobileApp/services/apexrest/appointmentMobile"
+
 #else
 
 /***************************************************************************************/

@@ -115,7 +115,6 @@
         NSDateFormatter *format1 = [[NSDateFormatter alloc]init];
         [monthArray addObject:[[format1 monthSymbols] objectAtIndex:mont.intValue-1]];
     }
-    
     NSLog(@"%@",monthArray);
 }
 
@@ -299,6 +298,9 @@
         if([str isEqualToString:@"..."]){
             [self dismissViewControllerAnimated:NO completion:nil];
             [self.delegateForCalendar tappedonThreeDots];
+            popoverDate.delegate = nil;
+            popoverDate = nil;
+            [popoverDate dismissPopoverAnimated:YES];
         }else{
             _heightConstraint.constant = 351;
             [_collectionView reloadData];
@@ -331,7 +333,7 @@
         NSLog(@"%@",slotsDictArray);
         NSArray *validayionChechk = [slotsDictArray valueForKey:@"objApp"];
         if(!slotsDictArray.count){
-            [FTIndicator showToastMessage:@"Non availability of time slots"];
+            [FTIndicator showToastMessage:@"No Appointments available for requested date"];
         }
         else if(validayionChechk && validayionChechk.count>0)
         {
@@ -348,7 +350,7 @@
         }
         
     } errorBlock:^(NSError *error) {
-        [FTIndicator showToastMessage:@"Non availability of time slots"];
+        [FTIndicator showToastMessage:@"No Appointments available for requested date"];
     }];
     
 }

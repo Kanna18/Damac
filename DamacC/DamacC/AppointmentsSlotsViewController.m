@@ -321,18 +321,18 @@
 -(void)fetchingAvailableSlotsNewForDate:(NSString*)date{
     
 //    SFUserAccountManager *sf = [SFUserAccountManager sharedInstance];
-    NSDictionary *dict =@{ @"processName" : handleNull(_appointObj.ServiceType),
+    NSDictionary *dict =@{ @"processName" : [handleNull(_appointObj.ServiceType) stringByReplacingOccurrencesOfString:@" " withString:@""],
                            @"subProcessName":handleNull(_appointObj.SubProcessName),
                            @"unitName":handleNull(_appointObj.BookingUnit),
                            @"selectedDate":handleNull(date),
                            @"accountId":kUserProfile.sfAccountId
                            };
     ServerAPIManager *ser = [ServerAPIManager sharedinstance];
-    [ser getRequestwithUrl:[NSString stringWithFormat:@"%@?processName=%@&subProcessName=%@&unitName=%@&selectedDate=%@&accountId=%@",AppointmentsSlotsNew,handleNull(_appointObj.ServiceType),handleNull(_appointObj.SubProcessName),handleNull(_appointObj.BookingUnit),handleNull(date),kUserProfile.sfAccountId] withParameters:dict successBlock:^(id responseObj) {
+    [ser getRequestwithUrl:[NSString stringWithFormat:@"%@?processName=%@&subProcessName=%@&unitName=%@&selectedDate=%@&accountId=%@",AppointmentsSlotsNew,[handleNull(_appointObj.ServiceType) stringByReplacingOccurrencesOfString:@" " withString:@"%20"],[handleNull(_appointObj.SubProcessName) stringByReplacingOccurrencesOfString:@" " withString:@"%20"],handleNull(_appointObj.BookingUnit),handleNull(date),kUserProfile.sfAccountId] withParameters:dict successBlock:^(id responseObj) {
         slotsDictArray = [NSJSONSerialization JSONObjectWithData:responseObj options:0 error:nil];
         NSLog(@"%@",slotsDictArray);
         NSArray *validayionChechk = [slotsDictArray valueForKey:@"objApp"];
-        if(!slotsDictArray.count){
+        if(!(slotsDictArray.count>0)){
             [FTIndicator showToastMessage:@"No Appointments available for requested date"];
         }
         else if(validayionChechk && validayionChechk.count>0)

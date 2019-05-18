@@ -216,10 +216,10 @@
 		18113846224BBF6200C957C4 /* floatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6C942B620E9C6D600D1F40C /* floatTableViewCell.xib */; };
 		18113847224BBF6200C957C4 /* discover.png in Resources */ = {isa = PBXBuildFile; fileRef = F6A739CC219AC93D00ED2B7D /* discover.png */; };
 		18113848224BBF6200C957C4 /* AG_Helvetica_Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F67EB5E5212521CC0011AB64 /* AG_Helvetica_Bold.ttf */; };
-		18BAE1B5226DCA7900D29888 /* CCAvenueSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18BAE1B2226DCA7300D29888 /* CCAvenueSDK.framework */; };
-		18BAE1B6226DCA7900D29888 /* CCAvenueSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 18BAE1B2226DCA7300D29888 /* CCAvenueSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		18BAE1B7226DCA8000D29888 /* CCAvenueSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18BAE1B2226DCA7300D29888 /* CCAvenueSDK.framework */; };
-		18BAE1B8226DCA8000D29888 /* CCAvenueSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 18BAE1B2226DCA7300D29888 /* CCAvenueSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1849B7BB2280416400F34195 /* CCAvenueSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1849B7B82280415300F34195 /* CCAvenueSDK.framework */; };
+		1849B7BC2280416400F34195 /* CCAvenueSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1849B7B82280415300F34195 /* CCAvenueSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1849B7BD2280416A00F34195 /* CCAvenueSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1849B7B82280415300F34195 /* CCAvenueSDK.framework */; };
+		1849B7BE2280416A00F34195 /* CCAvenueSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1849B7B82280415300F34195 /* CCAvenueSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4C1FFC442EBEEC68228FD4A2 /* Pods_DamacC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 963039B5CBD9F0905930BC2D /* Pods_DamacC.framework */; };
 		4F8D5EA31B6C0568005E64D4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8D5EA21B6C0568005E64D4 /* main.m */; };
 		4F8D5EA61B6C0568005E64D4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8D5EA51B6C0568005E64D4 /* AppDelegate.m */; };
@@ -438,7 +438,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				18BAE1B8226DCA8000D29888 /* CCAvenueSDK.framework in Embed Frameworks */,
+				1849B7BE2280416A00F34195 /* CCAvenueSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -449,7 +449,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				18BAE1B6226DCA7900D29888 /* CCAvenueSDK.framework in Embed Frameworks */,
+				1849B7BC2280416400F34195 /* CCAvenueSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -459,7 +459,7 @@
 /* Begin PBXFileReference section */
 		18113850224BBF6200C957C4 /* DamacC_Production.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DamacC_Production.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18113851224BBF6400C957C4 /* DamacC copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "DamacC copy-Info.plist"; path = "/Users/apple/DAMAC_iOS/DamacC/DamacC copy-Info.plist"; sourceTree = "<absolute>"; };
-		18BAE1B2226DCA7300D29888 /* CCAvenueSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CCAvenueSDK.framework; sourceTree = "<group>"; };
+		1849B7B82280415300F34195 /* CCAvenueSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CCAvenueSDK.framework; sourceTree = "<group>"; };
 		2EA1CF321EA1CB95D50AC1A0 /* Pods-DamacC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DamacC.release.xcconfig"; path = "Target Support Files/Pods-DamacC/Pods-DamacC.release.xcconfig"; sourceTree = "<group>"; };
 		4F277E8C1DC7F5DF00E5A77C /* Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
 		4F8D5E9D1B6C0568005E64D4 /* DamacC_Sandbox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DamacC_Sandbox.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -827,7 +827,7 @@
 				18113803224BBF6200C957C4 /* libxml2.2.tbd in Frameworks */,
 				18113804224BBF6200C957C4 /* LocalAuthentication.framework in Frameworks */,
 				18113805224BBF6200C957C4 /* Pods_DamacC.framework in Frameworks */,
-				18BAE1B7226DCA8000D29888 /* CCAvenueSDK.framework in Frameworks */,
+				1849B7BD2280416A00F34195 /* CCAvenueSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -843,7 +843,7 @@
 				F6C57C742158CD2400970DC3 /* libxml2.2.tbd in Frameworks */,
 				F6D91E3A20994A5D00DA1428 /* LocalAuthentication.framework in Frameworks */,
 				4C1FFC442EBEEC68228FD4A2 /* Pods_DamacC.framework in Frameworks */,
-				18BAE1B5226DCA7900D29888 /* CCAvenueSDK.framework in Frameworks */,
+				1849B7BB2280416400F34195 /* CCAvenueSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -862,7 +862,7 @@
 		4F8D5E941B6C0568005E64D4 = {
 			isa = PBXGroup;
 			children = (
-				18BAE1B2226DCA7300D29888 /* CCAvenueSDK.framework */,
+				1849B7B82280415300F34195 /* CCAvenueSDK.framework */,
 				F686163C20982C9C002EA241 /* PrefixHeader.pch */,
 				4F8D5E9F1B6C0568005E64D4 /* DamacC */,
 				4F8D5E9E1B6C0568005E64D4 /* Products */,

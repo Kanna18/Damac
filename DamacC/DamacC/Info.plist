@@ -47,10 +47,12 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSAppleMusicUsageDescription</key>
+	<string></string>
 	<key>NSCameraUsageDescription</key>
-	<string>Allow HelloDamac to use camera</string>
+	<string>Hello Damac allows you to attach photos to profile, upload files or images as supporting documents for service requests</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Hello Damac would like to access your photos</string>
+	<string>Hello Damac allows you to attach photos to profile, upload files or images as supporting documents for service requests</string>
 	<key>SFDCOAuthLoginHost</key>
 	<string>partial-servicecloudtrial-155c0807bf-1580afc5db1.cs80.force.com/MobileApp</string>
 	<key>UIAppFonts</key>
